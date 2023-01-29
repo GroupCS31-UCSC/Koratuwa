@@ -2,6 +2,8 @@
 
     class Supplier extends Controller
     {
+      public $supplierModel;
+
         public function __construct()
         {
           $this->supplierModel = $this->model('Supplier_Model');

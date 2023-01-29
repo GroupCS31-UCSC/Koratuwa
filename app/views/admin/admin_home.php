@@ -1,5 +1,4 @@
-<?php 
-if($_SESSION['user_email']){?>
+
 <?php require APPROOT.'/views/include/header.php'; ?>
 <link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/public/css/admin/admin_home.css">
 <?php require APPROOT.'/views/admin/admin_dashboard.php'; ?>
@@ -76,5 +75,3 @@ if($_SESSION['user_email']){?>
 -->
 <?php require APPROOT.'/views/include/footer.php'; ?>
 
-<?php } else {
-  redirect('Users/login');}?>

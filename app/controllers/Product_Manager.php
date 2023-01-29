@@ -2,6 +2,8 @@
 
     class Product_Manager extends Controller
     {
+      public $pmModel;
+
         public function __construct()
         {
           $this->pmModel = $this->model('Product_Manager_Model');

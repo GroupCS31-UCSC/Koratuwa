@@ -2,9 +2,11 @@
 
     class Customer extends Controller
     {
+      public $customerModel;
+
         public function __construct()
         {
-          $this->userModel = $this->model('Customer_Model');
+          $this->customerModel = $this->model('Customer_Model');
         }
 
         public function landingPage()

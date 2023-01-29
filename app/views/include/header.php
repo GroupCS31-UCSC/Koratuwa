@@ -6,6 +6,8 @@
 
 	<!--external styling-->
 	<link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/css/styles.css">
+	<script src="<?php echo URLROOT; ?>/js/dashboard.js"></script>
+
 
 	<!--font awesome-->
 	<script src="https://kit.fontawesome.com/470e97fb9b.js" crossorigin="anonymous"></script>
