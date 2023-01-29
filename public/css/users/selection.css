@@ -1,0 +1,127 @@
+*{
+    margin: 0%;
+    padding: 0;
+    font-family: montserrat;
+}
+
+
+
+  .reg-bg{
+    position: absolute;
+    top: -50px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+  }
+  .form-btn{
+    margin-top: 80px;
+    margin-left: 80px;
+    background-color: #00bfff;
+    width: 50%;
+    color: black;
+    font-size: 18px;
+  }
+  .form-btn:hover{
+    opacity: 0.4;
+  }
+  .center{
+    position: absolute;
+    top: 20%;
+    left: 40%;
+    
+    border-radius: 10px;
+    width: 300px;
+    height: 400px;
+  }
+
+  .center h1{
+    margin-left: 60px;
+    padding: 5px;
+  margin-top: 20px;
+
+  }
+
+  .center form{
+    padding: o 40px;
+    box-sizing: border-box;
+  }
+
+  input{
+    display: block;
+   
+    width: 80%;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    padding-bottom: 5px;
+    border: 1px solid silver;
+
+}
+
+label{
+    font-size: 18px;
+    padding: 10px;
+  
+}
+  .pass{
+    margin: -5px 0 20 px 5px;
+    color: blue;
+    cursor: pointer;
+    margin-bottom: 5px;
+    margin-left: 5px;
+  }
+  .pass:hover{
+    text-decoration: underline;
+  }
+
+  /* input[type="submit"]{
+    width: 95%;
+    height: 50px;
+    border: 1px solid;
+    background: lig;
+    border: none;
+    border-radius: 25px;
+    font-size: 15px;
+    color:black;
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
+    margin: 30px 5px;
+  }
+
+  input[type="submit"]:hover{
+    background-color: #00bfff;
+  } */
+ 
+
+img {
+    width: 600px;
+    height: 600px;
+    object-fit: cover;
+    margin-top: 50px;
+  }
+
+  .submitBtn{
+    display:block;
+    width:100%; 
+    height:50px;
+    border-radius: 25px;
+    margin:40px;
+    font-size:1.2rem;
+    outline:none;
+    border:none;
+    background-color: #0A2558;
+    /* background-image: linear-gradient(to right, #0A2558, #0e3276, #0A2558); */
+    cursor:pointer;
+    color:#fff;
+    text-transform: uppercase;
+    background-size: 200%;
+    transition:0.5s;
+  }
+  
+  .submitBtn:hover{
+    /* background-position: right; */
+    background-color: #00BFFF;
+    color: white;
+  }
+  

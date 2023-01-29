@@ -1,0 +1,76 @@
+/* Content */
+.cardBox {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 30px;
+}
+
+.cardBox .card {
+    position: relative;
+    background: rgba(198, 191, 207, 0.3);
+    padding: 20px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+}
+
+.cardBox .card .numbers {
+    position: relative;
+    font-weight: 500;
+    font-size: 2.5em;
+    color: rgb(223, 69, 155)
+}
+
+.cardBox .card .cardName {
+    color: rgb(135, 11, 67);
+    font-size: 1.1em;
+    margin-top: 5px;
+}
+
+
+/*charts*/
+.graphBox {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    min-height: 300px;
+}
+
+.graphBox .box {
+    position: relative;
+    background: aliceblue;
+    padding: 20px 0 0 0;
+    width: 98%;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
+}
+
+
+/*make it responsive design*/
+@media (max-width: 991px) {
+    .graphBox {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+    .navigation {
+        left: -275px;
+    }
+    .navigation.active {
+        width: 275px;
+        left: 0;
+    }
+    .main {
+        width: 100%;
+        left: 0;
+    }
+    .main.active {
+        left: 275px;
+    }
+}
