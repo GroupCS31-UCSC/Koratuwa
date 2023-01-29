@@ -9,13 +9,13 @@
 }
 
 .left {
-  width: 40%;
+  max-width: 40%;
   left: 0;
   background-color: #FFFFFF;
 }
 
 .right {
-  width: 60%;
+  max-width: 60%;
   right: 0;
   background-color: #00BFFF;
 }
@@ -23,7 +23,8 @@
 .logo {
   position: absolute;
   top: 40px;
-  left: 17px;
+  left: 17px; 
+  padding: 20px 20px;
 }
 
 .logo img {
@@ -107,4 +108,8 @@
 .fpw:hover{
   color:#0A2558;
   cursor: pointer;
+}
+.wave{
+  position: absolute;
+  bottom: 0px;
 }
