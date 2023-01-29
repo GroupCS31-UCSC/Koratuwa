@@ -9,7 +9,7 @@
           $this->cashierModel = $this->model('Cashier_Model');
         }
 
-
+        #cashierHome
 
     }
 

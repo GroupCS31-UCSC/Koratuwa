@@ -9,7 +9,7 @@
           $this->pmModel = $this->model('Product_Manager_Model');
         }
 
-        public function landingPage()
+        public function pmHome()
         {
           $data = [];
           $this->view('product_manager/pm_home',$data);

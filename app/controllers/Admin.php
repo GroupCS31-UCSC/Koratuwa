@@ -13,7 +13,7 @@
           }
         }
         
-        public function landingPage()
+        public function adminHome()
         {
           $data = [];
           $this->view('admin/admin_home',$data);
