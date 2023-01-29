@@ -7,6 +7,10 @@
         public function __construct()
         {
           $this->livestockModel = $this->model('livestock_Manager_Model');
+
+          if(!$_SESSION['user_email']){
+            redirect('Users/login');
+          }          
         }
 
         public function livestockHome()

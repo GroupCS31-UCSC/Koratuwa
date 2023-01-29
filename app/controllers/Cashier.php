@@ -6,7 +6,11 @@
 
         public function __construct()
         {
-          $this->cashierModel = $this->model('Cashier_Model');
+          $this->userModel = $this->model('Cashier_Model');
+
+          if(!$_SESSION['user_email']){
+            redirect('Users/login');
+          }          
         }
 
         #cashierHome

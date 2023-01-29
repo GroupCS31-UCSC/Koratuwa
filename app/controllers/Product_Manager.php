@@ -7,6 +7,10 @@
         public function __construct()
         {
           $this->pmModel = $this->model('Product_Manager_Model');
+
+          if(!$_SESSION['user_email']){
+            redirect('Users/login');
+          }          
         }
 
         public function pmHome()

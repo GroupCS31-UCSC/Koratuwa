@@ -6,7 +6,11 @@
 
         public function __construct()
         {
-          $this->customerModel = $this->model('Customer_Model');
+          $this->userModel = $this->model('Customer_Model');
+
+          if(!$_SESSION['user_email']){
+            redirect('Users/login');
+          }          
         }
 
         public function customerHome()
