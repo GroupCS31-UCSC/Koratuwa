@@ -2,6 +2,7 @@
 
     class Admin extends Controller
     {
+      public $adminModel
         public function __construct()
         {
           $this->adminModel = $this->model('Admin_Model');
