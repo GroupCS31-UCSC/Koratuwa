@@ -5,6 +5,10 @@
         public function __construct()
         {
           $this->supplierModel = $this->model('Supplier_Model');
+
+          if(!$_SESSION['user_email']){
+            redirect('Users/login');
+          }          
         }
 
         public function landingPage()

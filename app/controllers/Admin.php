@@ -7,6 +7,10 @@
         public function __construct()
         {
           $this->adminModel = $this->model('Admin_Model');
+          
+          if(!$_SESSION['user_email']){
+            redirect('Users/login');
+          }          
         }
         
         public function landingPage()
