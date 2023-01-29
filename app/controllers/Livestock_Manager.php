@@ -2,6 +2,8 @@
 
     class livestock_Manager extends Controller
     {
+      public $livestockModel;
+
         public function __construct()
         {
           $this->livestockModel = $this->model('livestock_Manager_Model');

@@ -2,9 +2,11 @@
 
     class Financial_Manager extends Controller
     {
+      public $financialManagerModel;
+
         public function __construct()
         {
-          $this->userModel = $this->model('Financial_Manager_Model');
+          $this->financialManagerModel = $this->model('Financial_Manager_Model');
         }
 
 
