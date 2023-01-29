@@ -2,6 +2,8 @@
 
     class Customer extends Controller
     {
+      public $customerModel;
+
         public function __construct()
         {
           $this->userModel = $this->model('Customer_Model');
@@ -11,7 +13,7 @@
           }          
         }
 
-        public function landingPage()
+        public function customerHome()
         {
           $data = [];
           $this->view('customer/cus_home',$data);

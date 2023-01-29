@@ -2,6 +2,8 @@
 
     class Product_Manager extends Controller
     {
+      public $pmModel;
+
         public function __construct()
         {
           $this->pmModel = $this->model('Product_Manager_Model');
@@ -11,7 +13,7 @@
           }          
         }
 
-        public function landingPage()
+        public function pmHome()
         {
           $data = [];
           $this->view('product_manager/pm_home',$data);

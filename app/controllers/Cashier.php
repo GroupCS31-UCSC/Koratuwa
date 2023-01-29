@@ -2,6 +2,8 @@
 
     class Cashier extends Controller
     {
+      public $cashierModel;
+
         public function __construct()
         {
           $this->userModel = $this->model('Cashier_Model');
@@ -11,7 +13,7 @@
           }          
         }
 
-
+        #cashierHome
 
     }
 

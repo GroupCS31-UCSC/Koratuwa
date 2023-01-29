@@ -2,6 +2,7 @@
 
     class Users extends Controller
     {
+      public $userModel;
         public function __construct()
         {
           $this->userModel = $this->model('Users_Model');
@@ -402,28 +403,28 @@
           switch ($this->userModel->findUserRole($_SESSION['user_email'])) {
 
             case 'Admin':
-              redirect('Admin/landingPage');
+              redirect('Admin/adminHome');
               break;
             case 'Product Manager':
-              redirect('Product_Manager/landingPage');
+              redirect('Product_Manager/pmHome');
               break;
             case 'Livestock Manager':
-              redirect('Livestock_Manager/landingPage');
+              redirect('Livestock_Manager/livestockHome');
               break;
             case 'Milk Collection Officer':
-              redirect('Milk_Collection_Officer/landingPage');
+              redirect('Milk_Collection_Officer/mcoHome');
               break;
             case 'Financial Manager':
-              redirect('Financial_Manager/landingPage');
+              redirect('Financial_Manager/fmHome');
               break;
             case 'Cashier':
-              redirect('Cashier/landingPage');
+              redirect('Cashier/cashierHome');
               break;
             case 'Customer':
-              redirect('Customer/landingPage');
+              redirect('Customer/customerHome');
               break;
             case 'Supplier':
-              redirect('Supplier/landingPage');
+              redirect('Supplier/supplierHome');
               break;
             default:
               redirect('Users/home');

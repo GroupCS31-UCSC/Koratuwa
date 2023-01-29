@@ -2,6 +2,8 @@
 
     class Supplier extends Controller
     {
+      public $supplierModel;
+
         public function __construct()
         {
           $this->supplierModel = $this->model('Supplier_Model');
@@ -11,7 +13,7 @@
           }          
         }
 
-        public function landingPage()
+        public function supplierHome()
         {
           $data = [];
           $this->view('supplier/sup_home',$data);
