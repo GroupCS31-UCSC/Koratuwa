@@ -9,7 +9,7 @@
           $this->customerModel = $this->model('Customer_Model');
         }
 
-        public function landingPage()
+        public function customerHome()
         {
           $data = [];
           $this->view('customer/cus_home',$data);

@@ -9,7 +9,7 @@
           $this->livestockModel = $this->model('livestock_Manager_Model');
         }
 
-        public function landingPage()
+        public function livestockHome()
         {
           $data = [];
           $this->view('livestock_Manager/livestock_home',$data);

@@ -9,7 +9,7 @@
           $this->supplierModel = $this->model('Supplier_Model');
         }
 
-        public function landingPage()
+        public function supplierHome()
         {
           $data = [];
           $this->view('supplier/sup_home',$data);
