@@ -59,19 +59,13 @@
         <canvas id="earning"></canvas>
       </div>
 
-      <div class="box">
+      <div id="test" class="box">
         <label><center>Profit by Productions</center></label>
         <canvas id="profit"></canvas>
       </div>
 
     </div>
-
-
-
-<!--
-<script type="text/javascript" href="<?php echo URLROOT; ?>/public/js/myChart.js">
-
-</script>
--->
 <?php require APPROOT.'/views/include/footer.php'; ?>
+<script src="<?php echo URLROOT; ?>/js/admin.js"></script>
+
 
