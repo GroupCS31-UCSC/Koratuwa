@@ -1,6 +1,6 @@
 <?php require APPROOT.'/views/include/header.php'; ?>
 <link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/public/css/styles.css">
-<script type='text/javascript' src='<?php echo URLROOT; ?>/public/js/dashboard.js'></script>
+<!-- <script type='text/javascript' src='<?php echo URLROOT; ?>/public/js/dashboard.js'></script> -->
 <!--
  ______________________________________________________________________________________________________-->
 
