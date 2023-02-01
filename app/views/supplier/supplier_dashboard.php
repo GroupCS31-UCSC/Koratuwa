@@ -17,7 +17,7 @@
         </a>
       </li><br><br><br>
       <li>
-        <a href="<?php echo URLROOT; ?>/Supplier/landingPage">
+        <a href="<?php echo URLROOT; ?>/Supplier/supplierHome">
           <span class="icon"><i class="fa-solid fa-gauge"></i></span>
           <span class="title"> Dashboard</span>
         </a>
