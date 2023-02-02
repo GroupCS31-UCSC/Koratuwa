@@ -1,0 +1,76 @@
+.container {
+    margin: 0 auto;
+    padding: 0px 20px 0 20px;
+    max-width: 900px;
+}
+section {
+    text-align: center;
+    padding: 40px 0px;
+}
+.all_products img {
+    width:80%;
+}
+.all_products{
+    background: #04086B;
+    color: black;
+}
+.feature {
+    background-color: aliceblue;
+    margin: 20px;
+    padding: 20px 20px 20px 20px;
+    width: 20%;
+    display: inline-block;
+    font-size:16px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+}
+.fresh_milk_about{
+    padding: 5px;
+    background-color: #D9D9D9;
+    display: inline-block;
+    font-style: oblique;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.fresh_milk{
+    background: blanchedalmond;
+    color: black;
+}
+
+.feature1{
+    margin: 20px;
+    width: 40%;
+    padding: 20px 20px 20px 20px;
+    display: inline-block;
+    font-style: italic;
+    margin: 20px;
+}
+.pic_milk{
+    width: 100%;
+
+}
+.milk_content{
+    width: 130%;
+}
+
+
+.yourget{
+    background-color: aqua;
+    color: black;
+}
+
+@media screen and (max-width: 480px) {
+    .btn {
+        display: block;
+        font-size: 18px;
+    }
+    h1 {
+        font-size: 32px;
+        margin: 0 0 8px 0;
+    }
+    h2 {
+        font-size: 18px;
+    }
+    section {
+        padding: 25px 0 15px 0;
+    } 
+}
