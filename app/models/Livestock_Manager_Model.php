@@ -41,6 +41,14 @@
       return $result;
     }
 
+    public function get_vaccinationView() {
+      $this->db->query('SELECT * FROM vaccination');
+
+      $result = $this->db->resultSet();
+
+      return $result;
+    }
+
     public function getCattleById($cowId) {
       $this->db->query('SELECT * FROM cattle WHERE cow_id = :cowId' );
       $this->db->bind(':cowId',$cowId);

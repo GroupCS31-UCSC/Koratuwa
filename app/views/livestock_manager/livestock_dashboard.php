@@ -35,7 +35,7 @@
         </a>
       </li>
       <li>
-        <a href="#">
+        <a href="<?php echo URLROOT; ?>/Livestock_Manager/viewVaccination">
           <span class="icon"><i class="fa-solid fa-syringe"></i></span>
           <span class="title">Vaccination</span>
         </a>

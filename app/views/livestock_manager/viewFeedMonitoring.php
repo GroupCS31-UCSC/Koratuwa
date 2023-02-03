@@ -1,7 +1,5 @@
 <?php require APPROOT.'/views/include/header.php'; ?>
 <?php require APPROOT.'/views/livestock_manager/livestock_dashboard.php'; ?>
-<link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/public/css/livestock_manager/viewCattle.css">
-
 
 <input type="button" value="Add New Feed record" class="addBtn" onclick="">
 
