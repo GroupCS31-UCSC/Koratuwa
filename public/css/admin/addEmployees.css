@@ -31,3 +31,26 @@ input[type=text] {
     border: 1px solid #ccc;
     box-sizing: border-box;
 }
+/*make it responsive design*/
+
+@media (max-width: 991px) {
+    .graphBox {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+    .navigation {
+        left: -275px;
+    }
+    .navigation.active {
+        width: 275px;
+        left: 0;
+    }
+    .main {
+        width: 100%;
+        left: 0;
+    }
+    .main.active {
+        left: 275px;
+    }
+}
+  

@@ -7,24 +7,27 @@
 <!-- 
 <?php flash('addEmp_flash') ?>
 <?php flash('updateEmp_flash') ?>
-<?php flash('dltEmp_flash') ?> -->
+<?php flash('dltEmp_flash') ?>
 
-<table>
-  <tr>
-    <th>Employee Id</th>
-    <th>Name</th>
-    <th>Employment</th>
-    <!-- <th>Salary</th> -->
-    <th>NIC</th>
-    <th>Contact Number</th>
-    <th>Gender</th>
-    <!-- <th>Age</th> -->
-    <th>Email</th>
-    <!--<th>Address</th>-->
-    <!-- <th>Last Accessed On</th> -->
-    <th>Action</th>
-  </tr>
+<section>
+  <div class="container" style="overflow-x: auto;">
 
+    <table>
+      <tr>
+        <th>Employee Id</th>
+        <th>Name</th>
+        <th>Employment</th>
+        <!-- <th>Salary</th> -->
+        <th>NIC</th>
+        <th>Contact Number</th>
+        <th>Gender</th>
+        <!-- <th>Age</th> -->
+        <th>Email</th>
+        <!--<th>Address</th>-->
+        <!-- <th>Last Accessed On</th> -->
+        <th>Action</th>
+      </tr>
+      
   <?php foreach ($data['empView'] as $emp) : ?>
   <tr>
     <td><?php echo $emp->employee_id; ?></td>
@@ -46,8 +49,10 @@
   </tr><br>
   <?php endforeach; ?>
 
-</table>
+    </table>
 
+  </div>
+</section>
 
 <input type="button" value="Add Employee" class="addBtn" onclick="location.href='<?php echo URLROOT; ?>/Admin/addEmployees' ">
 
