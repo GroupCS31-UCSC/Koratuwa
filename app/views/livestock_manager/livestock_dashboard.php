@@ -29,7 +29,7 @@
         </a>
       </li>
       <li>
-        <a href="#">
+        <a href="<?php echo URLROOT; ?>/Livestock_Manager/viewFeedMonitoring">
           <span class="icon"><i class="fa-solid fa-leaf"></i></span>
           <span class="title">Feed Monitoring</span>
         </a>

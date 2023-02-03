@@ -185,6 +185,16 @@
           }
         }
 
+        public function viewFeedMonitoring() {
+          $feedMonitoringView= $this->livestockModel->get_feedMonitoringView();
+
+          $data = [
+              'feedMonitoringView' => $feedMonitoringView
+          ];
+
+          $this->view('livestock_Manager/viewFeedMonitoring',$data);
+        }
+
 
 
     }
