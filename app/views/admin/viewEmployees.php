@@ -4,10 +4,10 @@
 <!-- ______________________________________________________________________________________________________-->
 
 
-
+<!-- 
 <?php flash('addEmp_flash') ?>
 <?php flash('updateEmp_flash') ?>
-<?php flash('dltEmp_flash') ?>
+<?php flash('dltEmp_flash') ?> -->
 
 <table>
   <tr>
@@ -40,7 +40,7 @@
     <td>
       <div class="table-btns">
       <a href="<?php echo URLROOT?>/Admin/updateEmployees/<?php echo $emp->email ?>"><button class="updateBtn">UPDATE</button></a>
-      <a href="<?php echo URLROOT?>/Admin/deleteEmployees/<?php echo $emp->email ?>"><button class="deleteBtn" onclick="delete()">DELETE</button></a>
+      <a href="<?php echo URLROOT?>/Admin/deleteEmployees/<?php echo $emp->email ?>"><button class="deleteBtn" onclick="deletion()">DELETE</button></a>
     </div>
     </td>
   </tr><br>
@@ -50,28 +50,7 @@
 
 
 <input type="button" value="Add Employee" class="addBtn" onclick="location.href='<?php echo URLROOT; ?>/Admin/addEmployees' ">
-<!--
-<input type="button" value="Logout" class="form-btn" onclick="location.href='<?php echo URLROOT; ?>/Users/logout' ">
-<input type="button" value="View Profile" class="form-btn" onclick="location.href='<?php echo URLROOT; ?>/Users/login' ">
-<input type="button" value="Change Password" class="form-btn" onclick="location.href='<?php echo URLROOT; ?>/Users/login' ">
--->
-<!-- 
-<script>
-function delete(){
-    swal({
-      title: "Are You Sure ?",
-      icon: "warning",
-      buttons: true,
-      dangerMode: true,
-    })
-    .then((isOkay) => {
-      if(isOkay){
-        form.submit();
-      }
-    });
-    return false;
-  }
 
-</script>
- -->
+
 <?php require APPROOT.'/views/include/footer.php'; ?>
+<script src="<?php echo URLROOT; ?>/js/admin.js"></script>

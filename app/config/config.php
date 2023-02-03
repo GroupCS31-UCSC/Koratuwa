@@ -4,8 +4,7 @@
 	define('DB_HOST', 'localhost');
 	define('DB_USER', 'root');
 	define('DB_PASSWORD', '');
-	define('DB_NAME', 'koratuwa');
-
+	define('DB_NAME', 'Koratuwa_old');
 
 	//APPROOT
 	 define('APPROOT', dirname(dirname(__FILE__)));
@@ -22,4 +21,4 @@
 	//PUBROOT
 	// define('PUBROOT', dirname(dirname(dirname(__FILE__))).'\public');
 
- ?>
+?>

@@ -61,7 +61,7 @@
       <option value="Cashier">Cashier</option>
     </select>
 
-    <input type="submit" value="Update" class="submitBtn">
+    <input type="submit" value="Update" class="submitBtn" onclick="">
   </form>
 </div>
 
@@ -93,3 +93,4 @@
 </script> -->
 
 <?php require APPROOT.'/views/include/footer.php'; ?>
+<script src="<?php echo URLROOT; ?>/js/admin.js"></script>
