@@ -7,20 +7,20 @@
 
 
 <div class="model3Wrapper">
-<img class="img" src="<?php echo URLROOT; ?>/img/sup_home.jpg" alt="no"> 
-<div class="overlay"></div>
+  <img class="img" src="<?php echo URLROOT; ?>/img/sup_home.jpg" alt="no"> 
+  <div class="overlay"></div>
 </div>
 
   <div class="content">
     <h1 class="h">Koratuwa provides the<br> best value for you!</h1>
     <div class="model3">
-    <div class="container4">
-        <label class="label1">Today Purchasing Price</label>
-        <div class="items">
-          <h2>
-            RS. <span class="counter_up" data-number="95" data-speed="10000"></span>
-          </h2>
-        </div>
+      <div class="container4">
+          <label class="label1">Today Purchasing Price</label>
+          <div class="items">
+            <h2>
+              RS. <span class="counter_up" data-number="95" data-speed="10000"></span>
+            </h2>
+          </div>
       </div>
     </div>
   </div>

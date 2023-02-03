@@ -8,7 +8,22 @@
 
     </div>
 </header> -->
+<header>
+  <nav class="top-bar">
+    <ul>
+      <li><img src="<?php echo URLROOT; ?>/img/koratuwa.png" alt="logo" alt=""></li>  
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+</nav>
+</header>
 <section class="all_products">
+    <!-- <div class="wrapper">
+    <img class="cus_home" src="<?php echo URLROOT; ?>/img/customer/cus_home.jpg" alt="no">
+    </div>     -->
+
     <div class="container">
         <div class="feature">
             <a href="<?php echo URLROOT; ?>/customer/view_product"><img class="pic" src="<?php echo URLROOT; ?>/img/customer/milkbottel.png" alt=""></a>
