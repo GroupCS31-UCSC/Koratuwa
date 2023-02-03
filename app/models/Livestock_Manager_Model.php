@@ -1,16 +1,12 @@
 <?php
-
-  class Livestock_Manager_Model
-  {
+  class Livestock_Manager_Model {
     private $db;
 
-    public function __construct()
-    {
+    public function __construct() {
       $this->db = new Database();
     }
 
-    public function findCowId()
-    {
+    public function findCowId() {
       $this->db->query('SELECT * FROM cattle order by cow_id desc limit 1');
 			$row = $this->db->single();
 			$lastId=$row->cow_id;
@@ -29,8 +25,7 @@
 			return $id;
     }
 
-    public function get_cattleView()
-    {
+    public function get_cattleView() {
       $this->db->query('SELECT * FROM cattle');
 
       $result = $this->db->resultSet();
@@ -38,8 +33,23 @@
       return $result;
     }
 
-    public function getCattleById($cowId)
-    {
+    public function get_feedMonitoringView() {
+      $this->db->query('SELECT * FROM feed_monitoring');
+
+      $result = $this->db->resultSet();
+
+      return $result;
+    }
+
+    public function get_vaccinationView() {
+      $this->db->query('SELECT * FROM vaccination');
+
+      $result = $this->db->resultSet();
+
+      return $result;
+    }
+
+    public function getCattleById($cowId) {
       $this->db->query('SELECT * FROM cattle WHERE cow_id = :cowId' );
       $this->db->bind(':cowId',$cowId);
 
@@ -47,8 +57,7 @@
 			return $row;
     }
 
-    public function addCattle($data)
-    {
+    public function addCattle($data) {
       $this->db->query('INSERT INTO cattle(cow_id,cow_breed,weight,gender,dob,health,employee_id) VALUES(:cowId, :breed, :weight, :gender, :dob, :health, :empId)');
       //value binding
       $this->db->bind(':cowId', $data['cowId']);
@@ -70,8 +79,7 @@
       }
     }
 
-    public function deleteCattle($cowId)
-    {
+    public function deleteCattle($cowId) {
       $this->db->query('DELETE FROM cattle WHERE cow_id= :cowId');
       $this->db->bind(':cowId', $cowId);
 
@@ -85,8 +93,7 @@
       }
     }
 
-    public function updateCattle($data)
-    {
+    public function updateCattle($data) {
       $this->db->query('UPDATE cattle SET cow_breed= :breed, weight= :weight, gender= :gender, dob=:dob, health= :health WHERE cow_id= :cowId');
       $this->db->bind(':cowId', $data['cowId']);
       $this->db->bind(':breed', $data['breed']);
@@ -105,7 +112,5 @@
       }
     }
 
-
   }
-
 ?>
