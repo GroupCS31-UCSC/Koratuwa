@@ -3,8 +3,6 @@
 <?php require APPROOT.'/views/admin/admin_dashboard.php';  ?>
 <!-- ______________________________________________________________________________________________________-->
 
-
-<!-- 
 <?php flash('addEmp_flash') ?>
 <?php flash('updateEmp_flash') ?>
 <?php flash('dltEmp_flash') ?>
