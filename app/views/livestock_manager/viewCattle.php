@@ -12,33 +12,31 @@
 <table>
   <tr>
     <th>COW ID</th>
-    <th>Breed</th>
+    <th>Date of birth</th>
     <th>Gender</th>
+    <th>Breed</th>
     <th>Weight (Kg) </th>
-    <!-- <th>Age</th> -->
-    <th>Health</th>
-    <!-- <th>Average Milking(Literes per day)</th> -->
-    <th>Associated Livestock Manager</th>
+    <th>Age</th>
+    <th>Purpose</th>
     <th>Action</th>
   </tr>
 
   <?php foreach ($data['cattleView'] as $cattle) : ?>
   <tr>
     <td><?php echo $cattle->cow_id; ?></td>
-    <td><?php echo $cattle->cow_breed; ?></td>
+    <td><?php echo $cattle->dob; ?></td>
     <td><?php echo $cattle->gender; ?></td>
+    <td><?php echo $cattle->cow_breed; ?></td>
     <td><?php echo $cattle->weight; ?></td>
-    <!-- <td>
+    <td>
     <?php
-    //$bday = strtotime($cattle->dob);
-    //$today = strtotime(date('y.m.d'));
-    //$diff = $today-$bday;
-    //echo getAge($cattle->dob);
+    $bday = strtotime($cattle->dob);
+    $today = new DateTime();
+    $diff = $today->diff(new DateTime($cattle->dob));
+    echo $diff->y . ' years, ' . $diff->m.' months, '.$diff->d.' days';
     ?>
-    </td> -->
-    <td><?php echo $cattle->health; ?></td>
-    <!-- <td><?php echo '35-40L'; ?></td> -->
-    <td><?php echo $cattle->employee_id; ?></td>
+    </td>
+    <td><?php echo $cattle->purpose; ?></td>
     <td>
         <div class="table-btns">
           <a href="<?php echo URLROOT?>/Livestock_Manager/updateCattle/<?php echo $cattle->cow_id ?>"><button class="updateBtn">UPDATE</button></a>
