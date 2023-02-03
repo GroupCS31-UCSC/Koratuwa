@@ -1,27 +1,39 @@
 /*cards*/
+section {
+  text-align: center;
+  padding:0;
+}
+/* .container {
+  margin: 0 auto;
+  padding: 0;
+  max-width: 900px;
+  border:solid red 2px;
+} */
 .cardBox{
-  position: relative;
+  /* position: relative;
   width: 100%;
   padding: 20px;
-  display: grid;
+  display: grid; */
+
   grid-template-columns: repeat(4,1fr);
   grid-gap: 30px;
 }
 .cardBox .card{
-  position: relative;
   background: rgba(198, 191, 207, 0.3);
   padding: 20px;
+  margin: 20px;
+  width: 20%;
   border-radius: 20px;
-  display: flex;
+  display: inline-block;
   justify-content: space-between;
   cursor: pointer;
   box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
 }
 .cardBox .card .numbers{
-  position: relative;
   font-weight: 500;
-  font-size: 2.5em;
-  color: rgb(223, 69, 155)
+  font-size: 2.3em;
+  color: rgb(223, 69, 155);
+  padding: 0 auto;
 }
 .cardBox .card .cardName{
   color: rgb(135, 11, 67);
