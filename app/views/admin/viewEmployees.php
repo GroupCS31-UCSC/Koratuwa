@@ -4,10 +4,11 @@
 <!-- ______________________________________________________________________________________________________-->
 
 
-
+<!-- 
 <?php flash('addEmp_flash') ?>
 <?php flash('updateEmp_flash') ?>
 <?php flash('dltEmp_flash') ?>
+
 <section>
   <div class="container" style="overflow-x: auto;">
 
@@ -26,27 +27,27 @@
         <!-- <th>Last Accessed On</th> -->
         <th>Action</th>
       </tr>
-
-      <?php foreach ($data['empView'] as $emp) : ?>
-      <tr>
-        <td><?php echo $emp->employee_id; ?></td>
-        <td><?php echo $emp->employee_name; ?></td>
-        <td><?php echo $emp->employment; ?></td>
-        <!-- <td><?php echo $emp->salary; ?></td> -->
-        <td><?php echo $emp->nic; ?></td>
-        <td><?php echo $emp->contact_number; ?></td>
-        <td><?php echo $emp->gender; ?></td>
-        <td><?php echo $emp->email; ?></td>
-        <!-- <td><?php echo ''; ?></td>    age -->
-        <!-- <td><?php echo ''; ?></td> -->
-        <td>
-          <div class="table-btns">
-          <a href="<?php echo URLROOT?>/Admin/updateEmployees/<?php echo $emp->email ?>"><button class="updateBtn">UPDATE</button></a>
-          <a href="<?php echo URLROOT?>/Admin/deleteEmployees/<?php echo $emp->email ?>"><button class="deleteBtn" onclick="delete()">DELETE</button></a>
-        </div>
-        </td>
-      </tr><br>
-      <?php endforeach; ?>
+      
+  <?php foreach ($data['empView'] as $emp) : ?>
+  <tr>
+    <td><?php echo $emp->employee_id; ?></td>
+    <td><?php echo $emp->employee_name; ?></td>
+    <td><?php echo $emp->employment; ?></td>
+    <!-- <td><?php echo $emp->salary; ?></td> -->
+    <td><?php echo $emp->nic; ?></td>
+    <td><?php echo $emp->contact_number; ?></td>
+    <td><?php echo $emp->gender; ?></td>
+    <td><?php echo $emp->email; ?></td>
+    <!-- <td><?php echo ''; ?></td>    age -->
+    <!-- <td><?php echo ''; ?></td> -->
+    <td>
+      <div class="table-btns">
+      <a href="<?php echo URLROOT?>/Admin/updateEmployees/<?php echo $emp->email ?>"><button class="updateBtn">UPDATE</button></a>
+      <a href="<?php echo URLROOT?>/Admin/deleteEmployees/<?php echo $emp->email ?>"><button class="deleteBtn" onclick="deletion()">DELETE</button></a>
+    </div>
+    </td>
+  </tr><br>
+  <?php endforeach; ?>
 
     </table>
 
@@ -54,28 +55,7 @@
 </section>
 
 <input type="button" value="Add Employee" class="addBtn" onclick="location.href='<?php echo URLROOT; ?>/Admin/addEmployees' ">
-<!--
-<input type="button" value="Logout" class="form-btn" onclick="location.href='<?php echo URLROOT; ?>/Users/logout' ">
-<input type="button" value="View Profile" class="form-btn" onclick="location.href='<?php echo URLROOT; ?>/Users/login' ">
-<input type="button" value="Change Password" class="form-btn" onclick="location.href='<?php echo URLROOT; ?>/Users/login' ">
--->
-<!-- 
-<script>
-function delete(){
-    swal({
-      title: "Are You Sure ?",
-      icon: "warning",
-      buttons: true,
-      dangerMode: true,
-    })
-    .then((isOkay) => {
-      if(isOkay){
-        form.submit();
-      }
-    });
-    return false;
-  }
 
-</script>
- -->
+
 <?php require APPROOT.'/views/include/footer.php'; ?>
+<script src="<?php echo URLROOT; ?>/js/admin.js"></script>
