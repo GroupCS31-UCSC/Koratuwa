@@ -62,7 +62,7 @@
     </select>
 
 		<br>
-		<input type="submit" value="Submit" class="submitBtn">
+		<input type="submit" value="Submit" class="submitBtn" onclick="adding()">
 	</form>
 </div>
 

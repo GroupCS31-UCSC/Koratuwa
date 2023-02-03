@@ -57,3 +57,50 @@ var myChart = new Chart(totProfit, {
 
     }
 });
+
+
+// function deletion() {
+//     swal({
+//             title: "Are You Sure ?",
+//             icon: "warning",
+//             buttons: true,
+//             dangerMode: true,
+//         })
+//         .then((isOkay) => {
+//             if (isOkay) {
+//                 form.submit();
+//             }
+//         });
+//     return false;
+// }
+
+function adding() {
+    Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Employee details are successfully added!',
+        showConfirmButton: false,
+        timer: 1500
+    })
+}
+
+
+function deletion() {
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire(
+                'Deleted!',
+                'Your file has been deleted.',
+                'success'
+            )
+        }
+    })
+}

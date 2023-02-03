@@ -42,6 +42,8 @@ list.forEach((item) =>
     item.addEventListener('mouseover', activeLink));
 
 
+
+
 // //toggle menu - Dashboard page
 // let toggle = document.querySelector('.toggle');
 // let navigation = document.querySelector('.navigation');
