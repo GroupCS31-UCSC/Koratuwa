@@ -3,28 +3,29 @@
 <?php require APPROOT.'/views/admin/admin_dashboard.php';  ?>
 <!-- ______________________________________________________________________________________________________-->
 
-
-
 <?php flash('addEmp_flash') ?>
 <?php flash('updateEmp_flash') ?>
 <?php flash('dltEmp_flash') ?>
 
-<table>
-  <tr>
-    <th>Employee Id</th>
-    <th>Name</th>
-    <th>Employment</th>
-    <!-- <th>Salary</th> -->
-    <th>NIC</th>
-    <th>Contact Number</th>
-    <th>Gender</th>
-    <!-- <th>Age</th> -->
-    <th>Email</th>
-    <!--<th>Address</th>-->
-    <!-- <th>Last Accessed On</th> -->
-    <th>Action</th>
-  </tr>
+<section>
+  <div class="container" style="overflow-x: auto;">
 
+    <table>
+      <tr>
+        <th>Employee Id</th>
+        <th>Name</th>
+        <th>Employment</th>
+        <!-- <th>Salary</th> -->
+        <th>NIC</th>
+        <th>Contact Number</th>
+        <th>Gender</th>
+        <!-- <th>Age</th> -->
+        <th>Email</th>
+        <!--<th>Address</th>-->
+        <!-- <th>Last Accessed On</th> -->
+        <th>Action</th>
+      </tr>
+      
   <?php foreach ($data['empView'] as $emp) : ?>
   <tr>
     <td><?php echo $emp->employee_id; ?></td>
@@ -40,38 +41,19 @@
     <td>
       <div class="table-btns">
       <a href="<?php echo URLROOT?>/Admin/updateEmployees/<?php echo $emp->email ?>"><button class="updateBtn">UPDATE</button></a>
-      <a href="<?php echo URLROOT?>/Admin/deleteEmployees/<?php echo $emp->email ?>"><button class="deleteBtn" onclick="delete()">DELETE</button></a>
+      <a href="<?php echo URLROOT?>/Admin/deleteEmployees/<?php echo $emp->email ?>"><button class="deleteBtn" onclick="deletion()">DELETE</button></a>
     </div>
     </td>
   </tr><br>
   <?php endforeach; ?>
 
-</table>
+    </table>
 
+  </div>
+</section>
 
 <input type="button" value="Add Employee" class="addBtn" onclick="location.href='<?php echo URLROOT; ?>/Admin/addEmployees' ">
-<!--
-<input type="button" value="Logout" class="form-btn" onclick="location.href='<?php echo URLROOT; ?>/Users/logout' ">
-<input type="button" value="View Profile" class="form-btn" onclick="location.href='<?php echo URLROOT; ?>/Users/login' ">
-<input type="button" value="Change Password" class="form-btn" onclick="location.href='<?php echo URLROOT; ?>/Users/login' ">
--->
-<!-- 
-<script>
-function delete(){
-    swal({
-      title: "Are You Sure ?",
-      icon: "warning",
-      buttons: true,
-      dangerMode: true,
-    })
-    .then((isOkay) => {
-      if(isOkay){
-        form.submit();
-      }
-    });
-    return false;
-  }
 
-</script>
- -->
+
 <?php require APPROOT.'/views/include/footer.php'; ?>
+<script src="<?php echo URLROOT; ?>/js/admin.js"></script>
