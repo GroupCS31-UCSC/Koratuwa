@@ -7,7 +7,9 @@
 <?php flash('updateCattle_flash') ?>
 <?php flash('deleteCattle_flash') ?>
 
-<input type="button" value="Add New Cattle" class="addBtn" onclick="location.href='<?php echo URLROOT; ?>/Livestock_Manager/addCattle' ">
+<input type="button" value="Add New Cattle" class="add-btn" onclick="location.href='<?php echo URLROOT; ?>/Livestock_Manager/addCattle' ">
+
+
 
 <table>
   <tr>
@@ -40,13 +42,15 @@
     <td>
         <div class="table-btns">
           <a href="<?php echo URLROOT?>/Livestock_Manager/updateCattle/<?php echo $cattle->cow_id ?>"><button class="updateBtn">UPDATE</button></a>
-          <a href="<?php echo URLROOT?>/Livestock_Manager/deleteCattle/<?php echo $cattle->cow_id ?>"><button class="deleteBtn">DELETE</button></a>
+          <a href="#"><button class="deleteBtn">DELETE</button></a>
         </div>
     </td>
   </tr><br>
   <?php endforeach; ?>
 
 </table>
+
+
 
 
 <?php require APPROOT.'/views/include/footer.php'; ?>

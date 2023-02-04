@@ -21,30 +21,44 @@
 
         $data=[
           'cowId'=>'',
+          'dob'=>trim($_POST['dob']),
+          'gender'=>trim($_POST['gender']),
           'breed'=>trim($_POST['breed']),
           'weight'=>trim($_POST['weight']),
-          'gender'=>trim($_POST['gender']),
-          'dob'=>trim($_POST['dob']),
-          'health'=>trim($_POST['health']),
+          'purpose'=>trim($_POST['purpose']),
 
+          'dob_err'=>'',
+          'gender_err'=>'',
           'breed_err'=>'',
           'weight_err'=>'',
-          'gender_err'=>'',
-          'dob_err'=>'',
-          'health_err'=>''
+          'purpose_err'=>''
         ];
 
         //validation
-        if (empty($data['breed']))       { $data['breed_err'] = '*' ; }
-        if (empty($data['weight']))        { $data['weight_err'] = '*' ;  }
-        if (empty($data['gender']))     { $data['gender_err'] = '*' ; }
-        if (empty($data['dob']))     { $data['dob_err'] = '*' ; }
-        if (empty($data['health']))        { $data['health_err'] = '*' ; }
-        if ($data['gender']=='Select')  { $data['gender_err'] = '*' ; }
-        if ($data['breed']=='Select')  { $data['breed_err'] = '*' ; }
+        if (empty($data['dob'])) {
+          $data['dob_err'] = '*' ;
+        }
+        if (empty($data['gender'])) {
+          $data['gender_err'] = '*' ;
+        }
+        if (empty($data['breed'])) {
+          $data['breed_err'] = '*' ;
+        }
+        if (empty($data['weight'])) {
+          $data['weight_err'] = '*' ;
+        }
+        if (empty($data['purpose'])) {
+          $data['purpose_err'] = '*' ;
+        }
+        if ($data['gender']=='Select') {
+          $data['gender_err'] = '*' ;
+        }
+        if ($data['breed']=='Select') {
+          $data['breed_err'] = '*' ;
+        }
 
         //if no errors
-        if(empty($data['breed_err']) && empty($data['weight_err']) && empty($data['gender_err']) && empty($data['dob_err']) && empty($data['health_err']) ) {
+        if(empty($data['dob_err']) && empty($data['gender_err']) && empty($data['breed_err']) && empty($data['weight_err']) && empty($data['purpose_err']) ) {
           $data['cowId']= $this->livestockModel->findCowId();
 
           if($this->livestockModel->addCattle($data)) {
@@ -64,17 +78,17 @@
         //initial form loading
         $data=[
           'cowId'=>'',
+          'dob'=>'',
+          'gender'=>'',
           'breed'=>'',
           'weight'=>'',
-          'gender'=>'',
-          'dob'=>'',
-          'health'=>'',
+          'purpose'=>'',
 
+          'dob_err'=>'',
+          'gender_err'=>'',
           'breed_err'=>'',
           'weight_err'=>'',
-          'gender_err'=>'',
-          'dob_err'=>'',
-          'health_err'=>''
+          'purpose_err'=>''
         ];
         $this->view('livestock_Manager/addCattle', $data);
       }

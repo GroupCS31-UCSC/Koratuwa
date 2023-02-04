@@ -1,0 +1,23 @@
+.add-btn {
+    position: absolute;
+    width: 300px;
+    top: 120px;
+    right: 75px;
+    background: #04086B;
+    -webkit-border-radius: 30;
+    -moz-border-radius: 30;
+    border-radius: 30px;
+    border: none;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 17px;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+}
+
+.add-btn:hover {
+    background: #3cb0fd;
+    text-decoration: none;
+    cursor: pointer;
+}
+ 

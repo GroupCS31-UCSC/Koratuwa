@@ -58,14 +58,14 @@
     }
 
     public function addCattle($data) {
-      $this->db->query('INSERT INTO cattle(cow_id,cow_breed,weight,gender,dob,health,employee_id) VALUES(:cowId, :breed, :weight, :gender, :dob, :health, :empId)');
+      $this->db->query('INSERT INTO cattle(cow_id, dob,  gender, cow_breed, weight, purpose, employee_id) VALUES(:cowId, :dob, :gender, :breed, :weight, :purpose, :empId)');
       //value binding
       $this->db->bind(':cowId', $data['cowId']);
+      $this->db->bind(':dob', $data['dob']);
+      $this->db->bind(':gender', $data['gender']);
       $this->db->bind(':breed', $data['breed']);
       $this->db->bind(':weight', $data['weight']);
-      $this->db->bind(':gender', $data['gender']);
-      $this->db->bind(':dob', $data['dob']);
-      $this->db->bind(':health', $data['health']);
+      $this->db->bind(':purpose', $data['purpose']);
       $this->db->bind(':empId', $_SESSION['user_id']);
 
       //execute
