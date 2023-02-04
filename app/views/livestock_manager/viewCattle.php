@@ -40,10 +40,12 @@
     </td>
     <td><?php echo $cattle->purpose; ?></td>
     <td>
+      <?php if($cattle->employee_id == $_SESSION['user_id']): ?>
         <div class="table-btns">
           <a href="<?php echo URLROOT?>/Livestock_Manager/updateCattle/<?php echo $cattle->cow_id ?>"><button class="updateBtn">UPDATE</button></a>
           <a href="#"><button class="deleteBtn">DELETE</button></a>
         </div>
+      <?php endif; ?>
     </td>
   </tr><br>
   <?php endforeach; ?>

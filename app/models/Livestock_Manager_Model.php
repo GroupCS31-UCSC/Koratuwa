@@ -94,13 +94,12 @@
     }
 
     public function updateCattle($data) {
-      $this->db->query('UPDATE cattle SET cow_breed= :breed, weight= :weight, gender= :gender, dob=:dob, health= :health WHERE cow_id= :cowId');
+      $this->db->query('UPDATE cattle SET dob=:dob, gender= :gender, cow_breed= :breed, weight= :weight WHERE cow_id= :cowId');
       $this->db->bind(':cowId', $data['cowId']);
+      $this->db->bind(':dob', $data['dob']);
+      $this->db->bind(':gender', $data['gender']);
       $this->db->bind(':breed', $data['breed']);
       $this->db->bind(':weight', $data['weight']);
-      $this->db->bind(':gender', $data['gender']);
-      $this->db->bind(':dob', $data['dob']);
-      $this->db->bind(':health', $data['health']);
 
       if($this->db->execute())
       {

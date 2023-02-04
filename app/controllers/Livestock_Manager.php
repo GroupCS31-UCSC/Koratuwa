@@ -120,28 +120,39 @@
 
         $data=[
           'cowId'=>$cowId,
+          'dob'=>trim($_POST['dob']),
+          'gender'=>trim($_POST['gender']),
           'breed'=>trim($_POST['breed']),
           'weight'=>trim($_POST['weight']),
-          'gender'=>trim($_POST['gender']),
-          'dob'=>trim($_POST['dob']),
-          'health'=>trim($_POST['health']),
 
-          'breed_err'=>'',
-          'weight_err'=>'',
-          'gender_err'=>'',
           'dob_err'=>'',
-          'health_err'=>''
+          'gender_err'=>'',
+          'breed_err'=>'',
+          'weight_err'=>''
         ];
 
         //validation
-        if (empty($data['breed']))       { $data['breed_err'] = '*' ; }
-        if (empty($data['weight']))        { $data['weight_err'] = '*' ;  }
-        if (empty($data['gender']))     { $data['gender_err'] = '*' ; }
-        if (empty($data['dob']))     { $data['dob_err'] = '*' ; }
-        if (empty($data['health']))        { $data['health_err'] = '*' ; }
+        if (empty($data['dob'])) {
+          $data['dob_err'] = '*' ;
+        }
+        if (empty($data['gender'])) {
+          $data['gender_err'] = '*' ;
+        }
+        if (empty($data['breed'])) {
+          $data['breed_err'] = '*' ;
+        }
+        if (empty($data['weight'])) {
+          $data['weight_err'] = '*' ;
+        }
+        if ($data['gender']=='Select') {
+          $data['gender_err'] = '*' ;
+        }
+        if ($data['breed']=='Select') {
+          $data['breed_err'] = '*' ;
+        }
 
         //if no errors
-        if(empty($data['breed_err']) && empty($data['weight_err']) && empty($data['gender_err']) && empty($data['dob_err']) && empty($data['health_err']) ) {
+        if(empty($data['dob_err']) && empty($data['gender_err']) && empty($data['breed_err']) && empty($data['weight_err']) ) {
           if($this->livestockModel->updateCattle($data)) {
             flash('updateCattle_flash','New cattle details are successfully Updated!');
             redirect('Livestock_Manager/viewCattle');
@@ -159,20 +170,17 @@
         $cow = $this->livestockModel->getCattleById($cowId);
         $data=[
           'cowId'=>$cow->cow_id,
+          'dob'=>$cow->dob,
+          'gender'=>$cow->gender,
           'breed'=>$cow->cow_breed,
           'weight'=>$cow->weight,
-          'gender'=>$cow->gender,
-          'dob'=>$cow->dob,
-          'health'=>$cow->health,
 
-          'breed_err'=>'',
-          'weight_err'=>'',
-          'gender_err'=>'',
           'dob_err'=>'',
-          'health_err'=>''
+          'gender_err'=>'',
+          'breed_err'=>'',
+          'weight_err'=>''
         ];
         $this->view('livestock_Manager/updateCattle', $data);
-
       }
     }
 
