@@ -1,6 +1,9 @@
-.addBtn{
-    margin-right: 40px;
+.addBtn {
+    margin-top: -50px;
+    margin-right: 15px;
 }
+
+
 /*make it responsive design*/
 
 @media (max-width: 991px) {

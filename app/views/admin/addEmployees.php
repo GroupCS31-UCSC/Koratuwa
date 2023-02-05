@@ -9,7 +9,7 @@
 		<center><h1>Add New Employee</h1></center>
 	</div>
 	<br>
-	<form action="<?php echo URLROOT; ?>/Admin/addEmployees" method="POST">
+	<form id="addForm" action="<?php echo URLROOT; ?>/Admin/addEmployees" method="POST">
 		<!--name-->
 		<div class="form-input-title">Employee Name</div>
     <span class="form-invalid"><?php echo $data['name_err']; ?></span>
@@ -62,7 +62,7 @@
     </select>
 
 		<br>
-    <button class="submitBtn" onclick="adding()">SUBMIT</button>
+    <button class="submitBtn" onclick="adding(event)">SUBMIT</button>
 		<!-- <input type="submit" value="Submit" class="submitBtn" onclick="adding()"> -->
 	</form>
 </div>

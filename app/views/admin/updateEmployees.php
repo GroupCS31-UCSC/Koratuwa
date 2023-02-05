@@ -11,7 +11,7 @@
 	</div>
  	<br>
 
-  <form action="<?php echo URLROOT; ?>/Admin/updateEmployees/<?php echo $data['email']; ?>" method="post">
+  <form id="updateForm" action="<?php echo URLROOT; ?>/Admin/updateEmployees/<?php echo $data['email']; ?>" method="post">
   <!-- <form action="Admin/updateEmployees" method="post" onsubmit="return updateForm(this);"> -->
     <!--id-->
     <!-- <div class="form-input-title">Employee Id</div>
@@ -62,36 +62,9 @@
     </select>
 
     <!-- <input type="submit" value="Update" class="submitBtn" onclick=""> -->
-    <button class="submitBtn" onclick="updating()">UPDATE</button>
+    <button class="submitBtn" onclick="updating(event)">UPDATE</button>
   </form>
 </div>
-
-<!-- <script>
-  function updateForm(form){
-    swal({
-      title: "Confirm Update",
-      icon: "warning",
-      buttons: ["Cancel","Confirm" ],
-      dangerMode: true,
-    })
-    .then((isOkay) => {
-      if(isOkay){
-        swal({
-          title: "Updated!",
-          text: "Data updated successfully!",
-          icon: "success", -->
-          <!-- //timer:20000,
-          button: "Ok",
-        });
-        form.submit();
-      }
-      else{
-        swal("Not Updated!");
-      }
-    });
-    return false;
-  }
-</script> -->
 
 <?php require APPROOT.'/views/include/footer.php'; ?>
 <script src="<?php echo URLROOT; ?>/js/admin.js"></script>

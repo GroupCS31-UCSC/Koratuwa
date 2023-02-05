@@ -46,9 +46,7 @@
       <a href="<?php echo URLROOT?>/Admin/deleteEmployees/<?php echo $emp->email ?>"><button class="deleteBtn">DELETE</button></a>
       </div>
 
-    <!-- <form id="EditForm" action="<?php echo URLROOT?>/Admin/deleteEmployees/<?php echo $emp->email ?>">
-    <button class="deleteBtn" onclick="deletion(event)">DELETE</button>
-    </form>
+    <!-- 
     <form id="EditForm" action="<?php echo URLROOT?>/Admin/updateEmployees/<?php echo $emp->email ?>">
     <button class="updateBtn" onclick="deletion(event)">Update</button>
     </form> -->
