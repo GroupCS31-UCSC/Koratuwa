@@ -13,7 +13,7 @@
 	 define('URLROOT', 'http://localhost/koratuwa');
 
 	//UPLOADS
-	define('UPLOADS', URLROOT . '/public/img/Uploads/');
+	define('UPLOADS', URLROOT . '/public/img/uploads/');
 
 	//WEBSITE NAME
 	 define('SITENAME', 'koratuwa');

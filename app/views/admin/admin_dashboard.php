@@ -27,31 +27,31 @@
         </a>
       </li>
       <li>
-        <a href="#">
+        <a href="<?php echo URLROOT; ?>/Admin/viewLivestock">
           <span class="icon"><i class="fa-solid fa-cow"></i></span>
           <span class="title">Livestock</span>
         </a>
       </li>
       <li>
-        <a href="#">
+        <a href="<?php echo URLROOT; ?>/Admin/viewMilkCollection">
           <span class="icon"><i class="fa-solid fa-glass-water"></i></span>
           <span class="title">Milk Collection</span>
         </a>
       </li>
       <li>
-        <a href="#">
+        <a href="<?php echo URLROOT; ?>/Admin/viewProduction">
           <span class="icon"><i class="fa-solid fa-cheese"></i></span>
           <span class="title">Production</span>
         </a>
       </li>
       <li>
-        <a href="#">
+        <a href="<?php echo URLROOT; ?>/Admin/viewCustomers">
           <span class="icon"><i class="fa-solid fa-cart-shopping"></i></span>
           <span class="title">Customers</span>
         </a>
       </li>
       <li>
-        <a href="#">
+        <a href="<?php echo URLROOT; ?>/Admin/viewSuppliers">
           <span class="icon"><i class="fa-solid fa-truck"></i></span>
           <span class="title">Suppliers</span>
         </a>

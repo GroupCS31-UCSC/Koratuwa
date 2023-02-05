@@ -184,3 +184,52 @@ function deletion(e) {
         }
     })
 }
+
+function updating(e) {
+    e.preventDefault();
+    swal.fire({
+            title: "Confirm Update",
+            icon: "warning",
+            buttons: ["Cancel", "Confirm"],
+            dangerMode: true
+        })
+        .then((isOkay) => {
+            if (isOkay) {
+                swal.fire({
+                    title: "Updated!",
+                    text: "Data updated successfully!",
+                    icon: "success",
+                    button: "Ok"
+                });
+                document.getElementById("updateForm").submit();
+            } else {
+                swal.fire("Not Updated!");
+            }
+        });
+    return false;
+}
+
+
+function adding(e) {
+    e.preventDefault();
+    swal.fire({
+            title: "Confirm Adding",
+            icon: "warning",
+            buttons: ["Cancel", "Confirm"],
+            dangerMode: true,
+        })
+        .then((isOkay) => {
+            if (isOkay) {
+                swal.fire({
+                    title: "Done!",
+                    text: "Data updated successfully!",
+                    icon: "success",
+                    button: "Ok",
+                });
+                document.getElementById("addForm").submit();
+            } else {
+                swal.fire("Not Success!");
+            }
+        });
+    return false;
+}

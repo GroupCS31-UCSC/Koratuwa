@@ -240,6 +240,68 @@
           }
         }
 
+        //get the details of livestock
+        public function viewLivestock()
+        {
+          $livestockView= $this->adminModel->get_livestockView();
+
+          $data = [
+              'livestockView' => $livestockView
+          ];
+
+          $this->view('admin/viewLivestock',$data);
+        }
+
+        //get the details of MilkCollection
+        public function viewMilkCollection()
+        {
+          $mcView= $this->adminModel->get_mcView();
+
+          $data = [
+              'mcView' => $mcView
+          ];
+
+          $this->view('admin/viewMilkCollection',$data);
+        }
+
+        //get the details of Production
+        public function viewProduction()
+        {
+          $productionView= $this->adminModel->get_productionView();
+
+          $data = [
+              'productionView' => $productionView
+          ];
+
+          $this->view('admin/viewProduction',$data);
+        }
+
+        //get the details of Customers
+        public function viewCustomers()
+        {
+          $cusView= $this->adminModel->get_cusView();
+
+          $data = [
+              'cusView' => $cusView
+          ];
+
+          $this->view('admin/viewCustomers',$data);
+        }
+
+        //get the details of Suppliers
+        public function viewSuppliers()
+        {
+          $supView= $this->adminModel->get_supView();
+
+          $data = [
+              'supView' => $supView
+          ];
+
+          $this->view('admin/viewSuppliers',$data);
+        }
+
+        
+
 
     }
 
