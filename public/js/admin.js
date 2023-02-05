@@ -60,7 +60,7 @@ var myChart = new Chart(totProfit, {
 
 
 // function deletion() {
-//     swal({
+//     swal.fire({
 //             title: "Are You Sure ?",
 //             icon: "warning",
 //             buttons: true,
@@ -74,18 +74,97 @@ var myChart = new Chart(totProfit, {
 //     return false;
 // }
 
-function adding() {
-    Swal.fire({
-        position: 'top-end',
-        icon: 'success',
-        title: 'Employee details are successfully added!',
-        showConfirmButton: false,
-        timer: 1500
-    })
-}
+// document.querySelector(".submitBtn").addEventListener('click', function() {
+//     Swal.fire({
+//         position: 'center',
+//         icon: 'success',
+//         title: 'Employee details are successfully added!',
+//         showConfirmButton: false,
+//         timer: 150000
+//     })
+// });
 
 
-function deletion() {
+// function adding() {
+//     swal({
+//             position: 'center',
+//             icon: 'success',
+//             title: 'Employee details are successfully added!',
+//             buttons: true
+//                 // showConfirmButton: false
+//         })
+//         .then((isOkay) => {
+//             if (isOkay) {
+//                 form.submit();
+//             }
+//         });
+//     return false;
+
+// }
+
+// function adding() {
+//     Swal.fire({
+//         title: 'Employee details are successfully added!',
+//         // text: "You clicked the button!",
+//         icon: "success",
+//         button: "Aww yiss!",
+//     });
+// }
+
+// function deletion() {
+//     Swal.fire({
+//         title: 'Are you sure?',
+//         text: "You won't be able to revert this!",
+//         icon: 'warning',
+//         showCancelButton: true,
+//         confirmButtonColor: '#3085d6',
+//         cancelButtonColor: '#d33',
+//         confirmButtonText: 'Yes, delete it!',
+//         timer: 5000000
+//     }).then((result) => {
+//         if (result.isConfirmed) {
+//             Swal.fire(
+//                 'Deleted!',
+//                 'Your file has been deleted.',
+//                 'success'
+//             )
+//         }
+//     })
+// }
+
+// function adding() {
+//     swal({
+//         title: "Good job!",
+//         text: "You clicked the button!",
+//         icon: "success",
+//         button: "Aww yiss!",
+//     });
+// }
+
+// function deletion() {
+//     swal.fire({
+//             title: 'Are you sure?',
+//             text: "You won't be able to revert this!",
+//             icon: 'warning',
+//             showCancelButton: true,
+//             confirmButtonColor: '#3085d6',
+//             cancelButtonColor: '#d33',
+//             confirmButtonText: 'Yes, delete it!'
+//         })
+//         .then((willDelete) => {
+//             if (willDelete) {
+//                 swal.fire("Poof! Your imaginary file has been deleted!", {
+//                     icon: "success",
+//                     timer: 10000,
+//                 });
+//             } else {
+//                 swal.fire("Your imaginary file is safe!");
+//             }
+//         });
+// }
+
+function deletion(e) {
+    e.preventDefault();
     Swal.fire({
         title: 'Are you sure?',
         text: "You won't be able to revert this!",
@@ -101,6 +180,7 @@ function deletion() {
                 'Your file has been deleted.',
                 'success'
             )
+            document.getElementById("EditForm").submit();
         }
     })
 }
