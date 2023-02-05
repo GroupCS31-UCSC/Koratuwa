@@ -23,7 +23,7 @@
       </li>
       <li>
         <!-- Sales -->
-        <a href="#">
+        <a href="<?php echo URLROOT; ?>/Cashier/viewSale">
 
           <span class="icon"><i class="fa-solid fa-scale-balanced"></i></span>
           <span class="title">Sales</span>

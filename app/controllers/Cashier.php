@@ -15,6 +15,21 @@
           $this->view('Cashier/cashier_home',$data);
         }
 
+        public function viewSale() {
+          $data = [];
+          $this->view('Cashier/viewSale',$data);
+        }
+
+        public function addSale() {
+          $data = [];
+          $this->view('Cashier/addSale',$data);
+        }
+
+        public function updateSale() {
+          $data = [];
+          $this->view('Cashier/updateSale',$data);
+        }
+
     }
 
 ?>

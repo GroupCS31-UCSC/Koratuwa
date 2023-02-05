@@ -1,0 +1,40 @@
+.add-btn {
+    position: absolute;
+    width: 300px;
+    top: 75px;
+    /* left: 900px; */
+    right: 75px;
+    background: #04086B;
+    -webkit-border-radius: 30;
+    -moz-border-radius: 30;
+    border-radius: 30px;
+    border: none;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 17px;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+}
+
+.add-btn:hover {
+    background: #3cb0fd;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+table {
+    position: absolute;
+    top: 120px;
+    /* left: 60px;     */
+    right: 50px;
+    margin: 50px 20px auto 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 90%;
+    background-color: #3498db;
+    padding: 20px;
+    border-collapse: collapse;
+    width: 90%;
+    text-align: center;
+    /*z-index: 0;*/
+}
