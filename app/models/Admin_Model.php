@@ -180,6 +180,59 @@
       }
     }
 
+    //to get all livestock deails
+    public function get_livestockView()
+    {
+      $this->db->query('SELECT * FROM employee');
+
+      $result = $this->db->resultSet();
+
+      return $result;
+    }
+
+    //to get all milk collection deails
+    public function get_mcView()
+    {
+      $this->db->query('SELECT * FROM employee');
+
+      $result = $this->db->resultSet();
+
+      return $result;
+    }
+
+    //to get all production deails
+    public function get_productionView()
+    {
+      $this->db->query('SELECT * FROM employee');
+
+      $result = $this->db->resultSet();
+
+      return $result;
+    }
+
+    //to get all customer deails
+    public function get_cusView()
+    {
+      $this->db->query('SELECT * FROM employee');
+
+      $result = $this->db->resultSet();
+
+      return $result;
+    }
+
+    //to get all supplier deails
+    public function get_supView()
+    {
+      $this->db->query('SELECT * FROM employee');
+
+      $result = $this->db->resultSet();
+
+      return $result;
+    }
+
+
+
+
   }
 
 ?>
