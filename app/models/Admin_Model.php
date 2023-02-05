@@ -29,7 +29,7 @@
 			return $row;
     }
 
-    // check email is already registered or not
+    // check email is already registered or not in the system db
     public function findEmployeeByEmail($email)
 		{
 			$this->db->query('SELECT * FROM user WHERE email = :email');
@@ -47,8 +47,8 @@
 			}
 		}
 
-    //generate id for employees
-    public function findEmployeeId()
+    //generate id for registering employee
+    public function generateEmployeeId()
 		{
 			$this->db->query('SELECT * FROM employee order by employee_id desc limit 1');
 			$row = $this->db->single();
@@ -69,6 +69,7 @@
 		}
 
 
+    //add newly registering employee's details
     public function addEmployees($data)
     {
       $this->db->query('INSERT INTO employee(employee_id, employee_name, nic, dob, contact_number,gender, address, employment, email) VALUES(:id, :name, :nic, :dob, :tp_num,:gender, :address, :employment, :email) ');
@@ -112,7 +113,7 @@
     }
 
 
-
+    //update selected employee's details
     public function updateEmployees($data)
     {
       $this->db->query('UPDATE employee SET employee_name= :name, nic= :nic, dob= :dob, contact_number=:tp_num,gender=:gender,address=:address,employment=:employment  WHERE email= :email');
@@ -154,6 +155,7 @@
       }
     }
 
+    //delete a selected employee
     public function deleteEmployees($email)
     {
       $this->db->query('DELETE FROM employee WHERE email= :email');

@@ -13,12 +13,14 @@
           }
         }
         
+        //redirect to the admin Home page
         public function adminHome()
         {
           $data = [];
           $this->view('admin/admin_home',$data);
         }
 
+        //get the details of Production
         public function viewEmployees()
         {
           $empView= $this->adminModel->get_empView();
@@ -30,6 +32,7 @@
           $this->view('admin/viewEmployees',$data);
         }
 
+        //add new employee details
         public function addEmployees()
         {
           if($_SERVER['REQUEST_METHOD'] == 'POST')
@@ -87,7 +90,7 @@
             if(empty($data['name_err']) && empty($data['nic_err']) && empty($data['tp_num_err']) && empty($data['gender_err']) && empty($data['dob_err'])&& empty($data['address_err'])&& empty($data['email_err']) && empty($data['employment_err']) )
             {
               $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
-              $data['id'] = $this->adminModel->findEmployeeId();
+              $data['id'] = $this->adminModel->generateEmployeeId();
 
               if($this->adminModel->addEmployees($data))
               {
@@ -136,6 +139,7 @@
         }
 
 
+        //update selected employee's details
         public function updateEmployees($email)
         {
           if($_SERVER['REQUEST_METHOD'] == 'POST')
@@ -227,6 +231,7 @@
         }
 
 
+        //delete a selected employee
         public function deleteEmployees($email)
         {
           if($this->adminModel->deleteEmployees($email))
