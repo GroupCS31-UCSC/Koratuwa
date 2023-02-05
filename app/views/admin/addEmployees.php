@@ -62,9 +62,11 @@
     </select>
 
 		<br>
-		<input type="submit" value="Submit" class="submitBtn" onclick="adding()">
+    <button class="submitBtn" onclick="adding()">SUBMIT</button>
+		<!-- <input type="submit" value="Submit" class="submitBtn" onclick="adding()"> -->
 	</form>
 </div>
 
 
 <?php require APPROOT.'/views/include/footer.php'; ?>
+<script src="<?php echo URLROOT; ?>/js/admin.js"></script>

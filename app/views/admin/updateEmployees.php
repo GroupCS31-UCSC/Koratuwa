@@ -61,7 +61,8 @@
       <option value="Cashier">Cashier</option>
     </select>
 
-    <input type="submit" value="Update" class="submitBtn" onclick="">
+    <!-- <input type="submit" value="Update" class="submitBtn" onclick=""> -->
+    <button class="submitBtn" onclick="updating()">UPDATE</button>
   </form>
 </div>
 
