@@ -15,11 +15,26 @@
 
         public function customerHome()
         {
-          $data = [];
+          $productCategory= $this->customerModel->get_productCategories();
+
+          $data = [
+            'productCategory' => $productCategory
+          ];
           $this->view('customer/cus_home',$data);
         }
 
+        public function viewProductDetails($pId)
+        {
+          $productDetails= $this->customerModel->viewProductById($pId);
+
+          $data = [
+              'productDetails' => $productDetails
+          ];
+
+          $this->view('product_manager/view_product',$data);
+        }
 
     }
 
 ?>
+

@@ -19,10 +19,13 @@
     </ul>
 </nav>
 </header>
-<section class="all_products">
-    <!-- <div class="wrapper">
+
+
+<!-- <div class="wrapper">
     <img class="cus_home" src="<?php echo URLROOT; ?>/img/customer/cus_home.jpg" alt="no">
     </div>     -->
+<!-- <section class="all_products">
+    
 
     <div class="container">
         <div class="feature">
@@ -68,7 +71,28 @@
             </div>
         </div>                                              
     </div>
-</section>
+</section> -->
+
+
+<div class="container">
+
+    <?php foreach ($data['productCategory'] as $productCategory) : ?>
+
+    <a href="<?php echo URLROOT?>/Customer/viewProductDetails/<?php echo $productCategory->product_id ?>" class="feature" >
+      <div class="img">
+        <img src="<?php echo UPLOADS . $productCategory->image ?>" width='200' height='200'>
+      </div>
+      <div class="cardContent">
+        <p><?php echo $productCategory->product_name ?><br>
+        <!-- <?php echo $productCategory->price ?> -->
+        </p>
+      </div>
+  </a>
+
+    <?php endforeach; ?>
+    
+  </div>
+
 
 <section class="fresh_milk">
     <div class="container">
