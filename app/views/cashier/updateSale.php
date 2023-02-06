@@ -26,6 +26,6 @@
 		<br>
 		<input type="submit" value="Submit" class="submitBtn">
   </form>
-
+</div>
 
 <?php require APPROOT.'/views/include/footer.php'; ?>
