@@ -1,12 +1,14 @@
 .form-container {
-    margin-left: auto;
-    margin-right: auto;
+    /* margin-left: 30px;
+    margin-right: 30px; */
+    margin: 0 auto;
     margin-top: 20px;
-    padding: 15px;
+    margin-bottom: 20px;
+    padding: 10px;
     background-color: rgb(245, 244, 240);
     box-shadow: 0 4px 8px 0 black;
-    width: 500px;
-    border: 1px solid aliceblue;
+    width: 60%;
+    /* text-align: center; */
 }
 
 input[type=text],
@@ -41,3 +43,26 @@ input[type=email]:focus {
     color: red;
     margin-bottom: 10px;
 }
+/*make it responsive design*/
+
+@media (max-width: 991px) {
+    .graphBox {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+    .navigation {
+        left: -275px;
+    }
+    .navigation.active {
+        width: 275px;
+        left: 0;
+    }
+    .main {
+        width: 100%;
+        left: 0;
+    }
+    .main.active {
+        left: 275px;
+    }
+}
+  
