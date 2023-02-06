@@ -7,7 +7,7 @@
 
 
 <div class="model3Wrapper">
-  <img class="img" src="<?php echo URLROOT; ?>/img/sup_home.jpg" alt="no"> 
+  <img class="img" src="<?php echo URLROOT; ?>/img/supplier/sup_home.jpg" alt="no"> 
   <div class="overlay"></div>
 </div>
 

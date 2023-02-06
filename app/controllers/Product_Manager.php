@@ -55,7 +55,7 @@
               if (in_array($fileType, $allowedFileTypes)) {
       
                   $new_img_name = uniqid("IMG-", true) . '.' . $fileType_lc;
-                  $img_upload_path = APPROOT . '/../public/img/Uploads/' . $new_img_name;
+                  $img_upload_path = APPROOT . '/../public/img/uploads/' . $new_img_name;
                   move_uploaded_file($tmp_name, $img_upload_path);                  
               }
           } 

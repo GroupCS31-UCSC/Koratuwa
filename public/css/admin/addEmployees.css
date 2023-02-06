@@ -1,4 +1,4 @@
-.img-bg {
+/* .img-bg {
     position: absolute;
     z-index: 0;
     top: 0px;
@@ -9,9 +9,10 @@
     display: block;
     background-repeat: no-repeat;
     background-position: right top;
-}
+} */
 
-.form-container input[type=text],
+
+/* .form-container input[type=text],
 input[type=date],
 input[type=text] {
     width: 100%;
@@ -21,16 +22,19 @@ input[type=text] {
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
-}
+} */
 
-.form-container select {
+
+/* .form-container select {
     width: 100%;
     height: 30px;
     margin: 8px 0;
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
-}
+}  */
+
+
 /*make it responsive design*/
 
 @media (max-width: 991px) {
@@ -53,4 +57,3 @@ input[type=text] {
         left: 275px;
     }
 }
-  
