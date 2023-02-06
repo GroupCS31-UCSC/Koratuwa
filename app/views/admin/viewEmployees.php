@@ -38,19 +38,24 @@
     <td><?php echo $emp->email; ?></td>
     <!-- <td><?php echo ''; ?></td>    age -->
     <!-- <td><?php echo ''; ?></td> -->
+
     <td>
+
       <div class="table-btns">
       <a href="<?php echo URLROOT?>/Admin/updateEmployees/<?php echo $emp->email ?>"><button class="updateBtn">UPDATE</button></a>
-      <a href="<?php echo URLROOT?>/Admin/deleteEmployees/<?php echo $emp->email ?>"><button class="deleteBtn" onclick="deletion()">DELETE</button></a>
-    </div>
+      <a href="<?php echo URLROOT?>/Admin/deleteEmployees/<?php echo $emp->email ?>"><button class="deleteBtn">DELETE</button></a>
+      </div>
+
+    <!-- 
+    <form id="EditForm" action="<?php echo URLROOT?>/Admin/updateEmployees/<?php echo $emp->email ?>">
+    <button class="updateBtn" onclick="deletion(event)">Update</button>
+    </form> -->
+    
     </td>
   </tr><br>
   <?php endforeach; ?>
 
     </table>
-
-  </div>
-</section>
 
 <input type="button" value="Add Employee" class="addBtn" onclick="location.href='<?php echo URLROOT; ?>/Admin/addEmployees' ">
 

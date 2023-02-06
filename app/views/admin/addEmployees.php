@@ -9,7 +9,7 @@
 		<center><h1>Add New Employee</h1></center>
 	</div>
 	<br>
-	<form action="<?php echo URLROOT; ?>/Admin/addEmployees" method="POST">
+	<form id="addForm" action="<?php echo URLROOT; ?>/Admin/addEmployees" method="POST">
 		<!--name-->
     <div class="feature">
       <div class="form-input-title">Employee Name</div>
@@ -85,3 +85,4 @@
 
 
 <?php require APPROOT.'/views/include/footer.php'; ?>
+<script src="<?php echo URLROOT; ?>/js/admin.js"></script>
