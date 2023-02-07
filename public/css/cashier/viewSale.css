@@ -1,11 +1,20 @@
 .addBtn {
-    margin-top: -50px;
+    margin-top: -10px;
     margin-right: 15px;
+
 }
 
+td {
+    text-align: center;
+}
 
-/*make it responsive design*/
+/* .add-btn:hover {
+    background: #3cb0fd;
+    text-decoration: none;
+    cursor: pointer;
+} */
 
+ /*make it responsive design*/
 @media (max-width: 991px) {
     .graphBox {
         grid-template-columns: 1fr;

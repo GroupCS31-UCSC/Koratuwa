@@ -1,7 +1,6 @@
 <?php require APPROOT.'/views/include/header.php'; ?>
 <?php require APPROOT.'/views/livestock_manager/livestock_dashboard.php'; ?>
 <link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/public/css/livestock_manager/addCattle.css">
-<!-- ______________________________________________________________________________________________________-->
 
 
 <div class="form-container">
@@ -22,10 +21,10 @@
       <option value="Other">Other</option>
     </select>
 
-    <!--weight-->
-		<div class="form-input-title">Weight(Kg)</div>
-    <span class="form-invalid"><?php echo $data['weight_err']; ?></span>
-		<input type="text" name="weight" id="weight" class="weight" value="<?php echo $data['weight']; ?>">
+    <!--dob-->
+    <div class="form-input-title">Date of Birth</div>
+    <span class="form-invalid"><?php echo $data['dob_err']; ?></span>
+    <input type="date" name="dob" id="dob" class="dob" value="<?php echo $data['dob']; ?>">
 
     <!--gender-->
 		<div class="form-input-title">Gender</div>
@@ -36,19 +35,25 @@
       <option value="Female">Female</option>
     </select>
 
-    <!--dob-->
-    <div class="form-input-title">Date of Birth</div>
-    <span class="form-invalid"><?php echo $data['dob_err']; ?></span>
-    <input type="date" name="dob" id="dob" class="dob" value="<?php echo $data['dob']; ?>">
+    <!--weight-->
+		<div class="form-input-title">Weight(Kg)</div>
+    <span class="form-invalid"><?php echo $data['weight_err']; ?></span>
+		<input type="text" name="weight" id="weight" class="weight" value="<?php echo $data['weight']; ?>">
 
-    <!--health-->
-    <div class="form-input-title">Health</div>
-    <span class="form-invalid"><?php echo $data['health_err']; ?></span>
-    <input type="text" name="health" id="health" class="health" value="<?php echo $data['health']; ?>">
-
+    <!-- purpose -->
+    <div class="form-input-title">Purpose</div>
+    <span class="form-invalid"><?php echo $data['purpose_err']; ?></span>
+    <select class="purpose" name="purpose" id="purpose" value="<?php echo $data['purpose']; ?>">
+      <option value="Select">Select</option>
+      <option value="Milk">Milk</option>
+      <option value="Meat">To Meat</option>
+      <option value="Beeding">Beeding</option>
+    </select>
+    
 		<br>
 		<input type="submit" value="Submit" class="submitBtn">
   </form>
+</div>
 
 
 <?php require APPROOT.'/views/include/footer.php'; ?>

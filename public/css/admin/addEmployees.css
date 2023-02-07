@@ -1,4 +1,4 @@
-.img-bg {
+/* .img-bg {
     position: absolute;
     z-index: 0;
     top: 0px;
@@ -9,7 +9,8 @@
     display: block;
     background-repeat: no-repeat;
     background-position: right top;
-}
+} */
+
 
 .form-container input[type=text],
 input[type=date],
@@ -31,6 +32,21 @@ input[type=text] {
     border: 1px solid #ccc;
     box-sizing: border-box;
 }
+.feature{
+    width: 40%;
+    text-align: left;
+    padding: 5px;
+    margin: 20px;
+    display: inline-block;
+}
+
+form .feature input[type=text]{
+    text-align: center;
+} 
+form {
+    text-align: center;
+}
+
 /*make it responsive design*/
 
 @media (max-width: 991px) {
@@ -53,4 +69,3 @@ input[type=text] {
         left: 275px;
     }
 }
-  

@@ -12,28 +12,24 @@
         </a>
       </li><br><br><br>
       <li>
-        <a href="<?php echo URLROOT; ?>/Livestock_Manager/livestockHome">
+        <a href="<?php echo URLROOT; ?>/Cashier/cashierHome">
           <span class="icon"><i class="fa-solid fa-gauge"></i></span>
           <span class="title"> Dashboard</span>
         </a>
       </li>
       <li>
-        <!-- Cattle -->
-        <a href="<?php echo URLROOT; ?>/Livestock_Manager/viewCattle">
-          <span class="icon"><i class="fas fa-cow"></i></span>
-          <span class="title">Cattle</span>
+        <!-- Sales -->
+        <a href="<?php echo URLROOT; ?>/Cashier/viewSale">
+
+          <span class="icon"><i class="fa-solid fa-scale-balanced"></i></span>
+          <span class="title">Sales</span>
         </a>
       </li>
       <li>
-        <a href="<?php echo URLROOT; ?>/Livestock_Manager/viewFeedMonitoring">
-          <span class="icon"><i class="fa-solid fa-leaf"></i></span>
-          <span class="title">Feed Monitoring</span>
-        </a>
-      </li>
-      <li>
-        <a href="<?php echo URLROOT; ?>/Livestock_Manager/viewVaccination">
-          <span class="icon"><i class="fa-solid fa-syringe"></i></span>
-          <span class="title">Vaccination</span>
+        <!-- Customer orders -->
+        <a href="#">
+          <span class="icon"><i class="fa-brands fa-joget"></i></span>
+          <span class="title">Customer Orders </span>
         </a>
       </li>
     </ul>
@@ -49,7 +45,7 @@
     <div class="topmenu">
       <ul>
         <li><a href=""><i class="fas fa-bell"></i></a></li>
-        <li><div class="img-user"><img src="<?php echo URLROOT; ?>/img/users/kawya.jpg" alt="user"></div></li>
+        <li><div class="img-user"><img src="<?php echo URLROOT; ?>/img/users/user.png" alt="user"></div></li>
         <li><a href=""><?php echo $_SESSION['user_name']; ?></a></li>
       </ul>
       <div class="dropdown">
@@ -58,7 +54,7 @@
             <div class="sub-menu">
               <div class="dropdown-content">
                 <div class="user-info">
-                  <span><img src="<?php echo URLROOT; ?>/public/img/users/kawya.jpg" alt=""></span>                    
+                  <span><img src="<?php echo URLROOT; ?>/public/img/users/user.png" alt=""></span>                    
                 </div>
                 <hr>
                 <a href="#" class="sub-menu-link">
@@ -79,7 +75,3 @@
         </div>
       </div>
     </div>
-
-<?php require APPROOT.'/views/include/footer.php'; ?>
-<script src="<?php echo URLROOT; ?>/js/dashboard.js"></script>          
-
