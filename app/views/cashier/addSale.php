@@ -1,6 +1,6 @@
 <?php require APPROOT.'/views/include/header.php'; ?>
 <?php require APPROOT.'/views/cashier/cashier_dashboard.php'; ?>
-<link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/public/css/livestock_manager/addCattle.css">
+<link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/public/css/livestock_manager/addSale.css">
 
 
 <div class="form-container">
@@ -26,6 +26,7 @@
 		<br>
 		<input type="submit" value="Submit" class="submitBtn">
   </form>
+</div>
 
 
 <?php require APPROOT.'/views/include/footer.php'; ?>

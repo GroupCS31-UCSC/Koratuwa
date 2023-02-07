@@ -194,6 +194,15 @@
       $this->view('livestock_Manager/viewFeedMonitoring',$data);
     }
 
+    public function addFeedMonitoring() {
+      $data = [];
+      $this->view('livestock_Manager/addFeedMonitoring',$data);
+    }
+    public function updateFeedMonitoring() {
+      $data = [];
+      $this->view('livestock_Manager/updateFeedMonitoring',$data);
+    }
+
     public function viewVaccination() {
       $vaccinationView= $this->livestockModel->get_vaccinationView();
 
@@ -202,6 +211,16 @@
       ];
 
       $this->view('livestock_Manager/viewVaccination',$data);
+    }
+
+    public function addVaccination() {
+      $data = [];
+      $this->view('livestock_Manager/addVaccination',$data);
+    }
+    
+    public function updateVaccination() {
+      $data = [];
+      $this->view('livestock_Manager/addFeedMonitoring',$data);
     }
   }
 
