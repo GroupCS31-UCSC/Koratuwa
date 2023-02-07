@@ -4,33 +4,35 @@
 
 
 <!--cards-->
-<div class="cardBox">
+<session class="cardBox">
   <!-- Total cattles -->
-  <div class="card">
-    <div>
-      <div class="cardName">Total Cattle</div>
-      <div class="numbers">200</div>
+  <div class="container">
+    <div class="card">
+      <div>
+        <div class="cardName">Total Cattle</div>
+        <div class="numbers">200</div>
+      </div>
     </div>
-  </div>
-  <div class="card">
-    <div>
-      <div class="cardName">Total Female Cattle</div>
-      <div class="numbers">150</div>
+    <div class="card">
+      <div>
+        <div class="cardName">Total Female Cattle</div>
+        <div class="numbers">150</div>
+      </div>
     </div>
-  </div>
-  <div class="card">
-    <div>
-      <div class="cardName">Total Male Cattle</div>
-      <div class="numbers">30</div>
+    <div class="card">
+      <div>
+        <div class="cardName">Total Male Cattle</div>
+        <div class="numbers">30</div>
+      </div>
     </div>
-  </div>
-  <div class="card">
+    <div class="card">
     <div>
       <div class="cardName">Total Calf</div>
       <div class="numbers">20</div>
     </div>
   </div>
-</div>
+</div> 
+</session>
 
 <!--Add charts-->
 <div class="graphBox">

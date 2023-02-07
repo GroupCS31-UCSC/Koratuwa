@@ -5,14 +5,10 @@
 <div class="container">
   <!--Dashboard-->
   <div class="navigation active">
-    <!-- <div class="back">
-      <a href="#"><i class="fa-solid fa-chevron-left"></i></a>
-    </div> -->
     <ul>
       <li>
         <a href="#">
           <span class="icon"><img class="img-logo" src="<?php echo URLROOT; ?>/img/koratuwa.png" alt="logo"></span>
-          <!--<span class="title" style="font-size:160%;">KORATUWA</span>-->
         </a>
       </li><br><br><br>
       <li>
@@ -79,8 +75,11 @@
                 </a>
               </div>
             </div>
-
+          </div>
         </div>
+      </div>
+    </div>
+
 <?php require APPROOT.'/views/include/footer.php'; ?>
 <script src="<?php echo URLROOT; ?>/js/dashboard.js"></script>          
 

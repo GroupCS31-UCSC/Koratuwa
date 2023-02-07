@@ -1,3 +1,9 @@
+/* cards */
+section {
+    text-align: center;
+    padding:0;
+}
+
 /* Content */
 .cardBox {
     position: relative;
