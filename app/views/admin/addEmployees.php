@@ -72,13 +72,13 @@
     <!--image-->
     <div class="feature">
     <div class="form-input-title">Image</div>
-    <span class="form-invalid"><?php echo $data['image_err']; ?></span>
+    <!-- <span class="form-invalid"><?php echo $data['image_err']; ?></span> -->
     <input type="file" name="image" id="image" class="image" value="<?php echo $data['image']; ?>"><br>
 
     </div>
 		<br>
     <div class="feature">
-      <input type="submit" value="Submit" class="submitBtn" onclick="adding()">
+      <input type="submit" value="Submit" class="submitBtn" onclick="adding(eve)">
     </div>
 	</form>
 </div>
