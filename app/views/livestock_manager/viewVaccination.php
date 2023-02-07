@@ -10,32 +10,32 @@
   <div class="container" style="overflow-x: auto;">
     <table>
       <tr>
-        <th>COW ID</th>
         <th>Vaccination ID</th>
+        <th>COW ID</th>
         <th>Date</th>
         <th>Remarks</th>
         <th>Action</th>
       </tr>
 
       <tr>
-        <td>COW101</td>
         <td>VAC101</td>
+        <td>COW101</td>
         <td>2021-01-01</td>
         <td>Remarks</td>
         <td>
           <div class="table-btns">
-            <a href="#"><button class="updateBtn">UPDATE</button></a>
+            <a href="<?php echo URLROOT; ?>/Livestock_Manager/updateVaccination"><button class="updateBtn">UPDATE</button></a>
             <a href="#"><button class="deleteBtn">DELETE</button></a>
           </div>
       </tr>
       <tr>
-        <td>COW102</td>
-        <td>VAC101</td>
+        <td>VAC102</td>
+        <td>COW101</td>
         <td>2021-01-01</td>
         <td>Remarks</td>
         <td>
           <div class="table-btns">
-            <a href="#"><button class="updateBtn">UPDATE</button></a>
+            <a href="<?php echo URLROOT; ?>/Livestock_Manager/updateVaccination"><button class="updateBtn">UPDATE</button></a>
             <a href="#"><button class="deleteBtn">DELETE</button></a>
           </div>
       </tr>
@@ -57,6 +57,6 @@
     </table>
 
 
-<input type="button" value="Add New Vaccination" class="addBtn" onclick="">
+<input type="button" value="Add New Vaccination" class="addBtn" onclick="location.href='<?php echo URLROOT; ?>/Livestock_Manager/addVaccination' ">
 
 <?php require APPROOT.'/views/include/footer.php'; ?>
