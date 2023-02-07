@@ -126,7 +126,78 @@
           }
         }
 
+        public function addStock()
+        {
+          if($_SERVER['REQUEST_METHOD'] == 'POST')
+          {
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
+              
+            
+
+            $data=[
+              'pId'=>'',
+              'name'=>trim($_POST['name']),
+              'qty'=>trim($_POST['qty']),
+              'mfd'=>trim($_POST['mfd']),
+              'exp'=>trim($_POST['exp']),
+              
+              'name_err'=>'',
+              'qty_err'=>'',
+              'mfd_err'=>'',
+              'exp_err'=>''
+            ];
+
+            //validation
+            if (empty($data['name']))        { $data['name_err'] = '*' ;  }
+            if (empty($data['cost']))     { $data['cost_err'] = '*' ; }
+            if (empty($data['price']))     { $data['price_err'] = '*' ; }
+            if (empty($data['ingredients']))        { $data['ingredients_err'] = '*' ; }
+            if (empty($data['image']))        { $data['image_err'] = '*' ; }
+
+            
+
+            //if no errors
+            if(empty($data['name_err']) && empty($data['qty_err']) && empty($data['mfd_err']) && empty($data['exp_err'])  )
+            {
+              $data['pId']= $this->pmModel->findProductId();
+
+              if($this->pmModel->addStock($data))
+              {
+                flash('addCategory_flash','New Category Stock details are successfully added!');
+                redirect('Product_Manager/addStock');
+              }
+              else
+              {
+                die('Something went wrong!');
+              }
+            }
+            else
+            {
+              //loading the form with the errors
+              $this->view('product_manager/addStock',$data);
+            }
+          }
+          else
+          {
+            //initial form loading
+            $data=[
+              'pId'=>'',
+              'name'=>'',
+              'qty'=>'',
+              'mfd'=>'',
+              'exp'=>'',
+              
+
+              'name_err'=>'',
+              'qty_err'=>'',
+              'mfd_err'=>'',
+              'exp_err'=>''
+            ];
+            $this->view('product_manager/addStock', $data);
+
+          }
+        }
         public function updateCategory($pId)
         {
           if($_SERVER['REQUEST_METHOD'] == 'POST')
@@ -168,10 +239,9 @@
 
             //validation
             if (empty($data['name']))        { $data['name_err'] = '*' ;  }
-            if (empty($data['cost']))     { $data['cost_err'] = '*' ; }
-            if (empty($data['price']))     { $data['price_err'] = '*' ; }
-            if (empty($data['ingredients']))        { $data['ingredients_err'] = '*' ; }
-            if (empty($data['image']))        { $data['image_err'] = '*' ; }
+            if (empty($data['qty']))     { $data['qty_err'] = '*' ; }
+            if (empty($data['mfd']))     { $data['mfd_err'] = '*' ; }
+            if (empty($data['exp']))        { $data['exp_err'] = '*' ; }
 
 
             //if no errors

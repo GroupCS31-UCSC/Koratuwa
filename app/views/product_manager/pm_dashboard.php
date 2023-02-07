@@ -26,7 +26,7 @@
         </a>
       </li>
       <li>
-        <a href="#">
+      <a href="<?php echo URLROOT; ?>/Product_Manager/addStock">
           <span class="icon"><i class="fa-solid fa-cubes-stacked"></i></ion-icon></span>
           <span class="title">Product Stock</span>
         </a>
