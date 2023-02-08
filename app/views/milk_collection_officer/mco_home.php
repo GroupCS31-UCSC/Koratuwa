@@ -12,8 +12,8 @@
     
     <div class="card">
       <div>
-        <div class="cardName">Total Income(Rs.)</div>
-        <div class="numbers">320362</div>
+        <div class="cardName">Total Milk Collection(L.)</div>
+        <div class="numbers">1548 L</div>
         <div class="day1">
           <div class="circle"></div><label>last 30 days</label>
         </div>
@@ -22,8 +22,8 @@
 
     <div class="card">
       <div>
-        <div class="cardName">Total Expenses(Rs.)</div>
-        <div class="numbers">120062</div>
+        <div class="cardName">Total Suppliers</div>
+        <div class="numbers">42</div>
         <div class="day2">
           <div class="circle"></div><label>last 30 days</label>
         </div>
@@ -32,8 +32,8 @@
 
     <div class="card">
       <div>
-        <div class="cardName">Total Profit(Rs.)</div>
-        <div class="numbers">200300</div>
+        <div class="cardName">Koratuwa Cattle</div>
+        <div class="numbers">68</div>
         <div class="day3">
           <div class="circle"></div><label>last 30 days</label>
         </div>
@@ -42,8 +42,8 @@
 
     <div class="card">
       <div>
-        <div class="cardName">Total Milk Collection(L.)</div>
-        <div class="numbers">3,504</div>
+        <div class="cardName">Total Milk Sales</div>
+        <div class="numbers">1245 L</div>
         <div class="day4">
           <div class="circle"></div><label>last 30 days</label>
         </div>
@@ -56,19 +56,20 @@
 <!--Add charts-->
 <div class="graphBox">
 
-  <div class="box">
-    <label><center>Total Profit</center></label>
-    <canvas id="earning"></canvas>
+  <div id="test" class="box">
+    <label><center>Koratuwa milk vs Suppliers milk</center></label>
+    <canvas id="milk"></canvas>
   </div>
 
-  <div id="test" class="box">
-    <label><center>Profit by Productions</center></label>
-    <canvas id="profit"></canvas>
+  <div class="box">
+    <label><center>Total Milk Collection</center></label>
+    <canvas id="collection"></canvas>
   </div>
+
 
 </div>
 <?php require APPROOT.'/views/include/footer.php'; ?>
-<script src="<?php echo URLROOT; ?>/js/admin.js"></script>
+<script src="<?php echo URLROOT; ?>/js/mco.js"></script>
 
 
 
