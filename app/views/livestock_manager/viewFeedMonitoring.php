@@ -40,7 +40,7 @@
         <td>12:00:00</td>
         <td>
           <div class="table-btns">
-            <a href="<?php echo URLROOT; ?>/Livestock_Manager/updateFeedMonitoring/">"><button class="updateBtn">UPDATE</button></a>
+            <a href="<?php echo URLROOT; ?>/Livestock_Manager/updateFeedMonitoring/"><button class="updateBtn">UPDATE</button></a>
             <a href="#"><button class="deleteBtn">DELETE</button></a>
           </div>
       </tr>

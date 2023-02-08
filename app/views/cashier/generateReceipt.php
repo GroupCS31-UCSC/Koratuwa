@@ -5,21 +5,18 @@
 
 <div class="form-container">
 	<div class="form-header">
-		<center><h1>Invoice</h1></center>
+		<center><h1>Receipt</h1></center>
 	</div>
 	<br>
 	<form action="<?php echo URLROOT; ?>/Cashier/generateInvoice" method="POST">
         <div class="form-input-title">Order ID</div>
         <input type="text" name="product_id" id="product_id" class="product_id" value="#">
 		<div class="form-input-title">Customer ID</div>
-        <input type="text" name="customer_name" id="customer_name" class="customer_name" value="#">
-        <div class="form-input-title">Deliver or not</div>
-        <select class="deliver" name="deliver" id="deliver" value="">
-            <option value="deliver">Delivered</option>
-            <option value="ndeliver">Not yet</option>
-        </select>    
+        <input type="text" name="customer_id" id="customer_id" class="customer_id" value="#">
+        <div class="form-input-title">Payment</div>
+        <input type="text" name="payment" id="payment" class="payment" value="#">
 		<br>
-		<input type="submit" value="Submit" class="submitBtn">
+		<input type="submit" value="Generate" class="submitBtn">
   </form>
 </div>
 

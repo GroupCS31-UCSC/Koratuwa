@@ -22,12 +22,13 @@
         <td>S1</td>
         <td>Order1</td>
         <td>2022-03-04</td>
-        <td>Yogurt 100</td>
+        <td>Successfully made</td>
         <td>Deliver</td>
         <td>Yayawardana</td>
         <td>
             <div class="table-btns">
-                <a href="<?php echo URLROOT; ?>/Cashier/generateInvoice"><button class="updateBtn">Generate Invoice</button></a>
+                <a href="<?php echo URLROOT; ?>/Cashier/updateOrderStatus"><button class="updateBtn">UPDATE</button></a>
+                <a href="<?php echo URLROOT; ?>/Cashier/generateReceipt"><button class="deleteBtn">Generate receipt</button></a>
             </div>
         </td>
     </tr>
@@ -35,10 +36,15 @@
         <td>S2</td>
         <td>Order2</td>
         <td>2022-03-04</td>
-        <td>Milk bottle 200</td>
+        <td>Not yet made</td>
         <td>Pickup</td>
         <td>Gunathilaka</td>
-        <td>Delivered</td>
+        <td>
+            <div class="table-btns">
+                <a href="<?php echo URLROOT; ?>/Cashier/updateOrderStatus"><button class="updateBtn">UPDATE</button></a>
+                <a href="<?php echo URLROOT; ?>/Cashier/generateReceipt"><button class="deleteBtn">Generate receipt</button></a>
+            </div>
+        </td>
     </tr>
     <br><br><br><br><br>
   </table>

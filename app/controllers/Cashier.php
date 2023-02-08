@@ -35,9 +35,14 @@
           $this->view('Cashier/viewCustomerOrders',$data);
         }
 
-        public function generateInvoice() {
+        public function generateReceipt() {
           $data = [];
-          $this->view('Cashier/generateInvoice',$data);
+          $this->view('Cashier/generateReceipt',$data);
+        }
+
+        public function updateOrderStatus() {
+          $data = [];
+          $this->view('Cashier/updateOrderStatus',$data);
         }
 
     }
