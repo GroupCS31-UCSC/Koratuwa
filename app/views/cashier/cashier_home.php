@@ -8,7 +8,7 @@
   <div class="container">
     <div class="card">
       <div>
-        <div class="cardName">Online Sales</div>
+        <div class="cardName">Online Orders</div>
         <div class="numbers">100</div>
       </div>
     </div>

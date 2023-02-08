@@ -27,7 +27,7 @@
       </li>
       <li>
         <!-- Customer orders -->
-        <a href="#">
+        <a href="<?php echo URLROOT; ?>/Cashier/viewCustomerOrders">
           <span class="icon"><i class="fa-brands fa-joget"></i></span>
           <span class="title">Customer Orders </span>
         </a>
@@ -75,3 +75,6 @@
         </div>
       </div>
     </div>
+
+<?php require APPROOT.'/views/include/footer.php'; ?>
+<script src="<?php echo URLROOT; ?>/js/dashboard.js"></script>  
