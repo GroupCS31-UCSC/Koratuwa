@@ -52,7 +52,7 @@
 		{
 			$this->db->query('SELECT * FROM employee order by user_id desc limit 1');
 			$row = $this->db->single();
-			$lastId=$row->employee_id;
+			$lastId=$row->user_id;
 
 			if($lastId == '')
 			{
