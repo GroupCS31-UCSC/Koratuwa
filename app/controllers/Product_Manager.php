@@ -136,6 +136,7 @@
             
 
             $data=[
+
               'pId'=>'',
               'name'=>trim($_POST['name']),
               'qty'=>trim($_POST['qty']),
@@ -150,10 +151,10 @@
 
             //validation
             if (empty($data['name']))        { $data['name_err'] = '*' ;  }
-            if (empty($data['cost']))     { $data['cost_err'] = '*' ; }
-            if (empty($data['price']))     { $data['price_err'] = '*' ; }
-            if (empty($data['ingredients']))        { $data['ingredients_err'] = '*' ; }
-            if (empty($data['image']))        { $data['image_err'] = '*' ; }
+            if (empty($data['qty']))         { $data['qty_err'] = '*' ; }
+            if (empty($data['mfd']))        { $data['mfd_err'] = '*' ; }
+            if (empty($data['exp']))        { $data['exp_err'] = '*' ; }
+            
 
             
 
@@ -182,7 +183,7 @@
           {
             //initial form loading
             $data=[
-              'pId'=>'',
+              
               'name'=>'',
               'qty'=>'',
               'mfd'=>'',
