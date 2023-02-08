@@ -30,6 +30,16 @@
           $this->view('Cashier/updateSale',$data);
         }
 
+        public function viewCustomerOrders() {
+          $data = [];
+          $this->view('Cashier/viewCustomerOrders',$data);
+        }
+
+        public function generateInvoice() {
+          $data = [];
+          $this->view('Cashier/generateInvoice',$data);
+        }
+
     }
 
 ?>

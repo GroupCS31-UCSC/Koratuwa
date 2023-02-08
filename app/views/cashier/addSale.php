@@ -14,7 +14,7 @@
         <input type="text" name="product_id" id="product_id" class="product_id" value="#">
         <!-- Sales income -->
         <div class="form-input-title">Sales income</div>
-        <input type="text" name="sales_income" id="sales_income" class="sales_income" value="#">
+        <input type="text" disabled="disabled" name="sales_income" id="sales_income" class="sales_income" value="#">
 		<!--Customer name-->
 		<div class="form-input-title">Customer Name</div>
         <input type="text" name="customer_name" id="customer_name" class="customer_name" value="#">
