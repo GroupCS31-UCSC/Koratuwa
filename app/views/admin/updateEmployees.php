@@ -30,7 +30,7 @@
     <!--contact no-->
     <div class="form-input-title">Contact Number</div>
     <span class="form-invalid"><?php echo $data['tp_num_err']; ?></span>
-    <input type="text" name="tp_num" id="tp_num" class="tp_num" value="<?php echo $data['tp_num']; ?>">
+    <input type="number" name="tp_num" id="tp_num" class="tp_num" value="<?php echo $data['tp_num']; ?>">
 
     <!--gender-->
     <div class="form-input-title">Gender</div>
@@ -39,6 +39,13 @@
       <option value="Male">Male</option>
       <option value="Female">Female</option>
     </select>
+
+    <div class="feature">
+    <div class="form-input-title">Gender</div>
+      <span class="form-invalid"><?php echo $data['gender_err']; ?></span>
+      <input type="radio" name="gender" id="name" <?php if (isset($gender) && $gender=="Female");?> value="<?php echo $data['gender']; ?>"> Female<br>
+      <input type="radio" name="gender" id="name" <?php if (isset($gender) && $gender=="Male");?> value="<?php echo $data['gender']; ?>"> Male
+    </div>
 
     <!--DOB-->
     <div class="form-input-title">Date Of Birth</div>
