@@ -30,6 +30,21 @@
           $this->view('Cashier/updateSale',$data);
         }
 
+        public function viewCustomerOrders() {
+          $data = [];
+          $this->view('Cashier/viewCustomerOrders',$data);
+        }
+
+        public function generateReceipt() {
+          $data = [];
+          $this->view('Cashier/generateReceipt',$data);
+        }
+
+        public function updateOrderStatus() {
+          $data = [];
+          $this->view('Cashier/updateOrderStatus',$data);
+        }
+
     }
 
 ?>

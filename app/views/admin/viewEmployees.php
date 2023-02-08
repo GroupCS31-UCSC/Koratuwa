@@ -28,7 +28,7 @@
       
   <?php foreach ($data['empView'] as $emp) : ?>
   <tr>
-    <td><?php echo $emp->employee_id; ?></td>
+    <td><?php echo $emp->user_id; ?></td>
     <td><?php echo $emp->employee_name; ?></td>
     <td><?php echo $emp->employment; ?></td>
     <!-- <td><?php echo $emp->salary; ?></td> -->
@@ -47,8 +47,8 @@
       </div>
 
     <!-- 
-    <form id="EditForm" action="<?php echo URLROOT?>/Admin/updateEmployees/<?php echo $emp->email ?>">
-    <button class="updateBtn" onclick="deletion(event)">Update</button>
+    <form id="EditForm" action="<?php echo URLROOT?>/Admin/deleteEmployees/<?php echo $emp->email ?>">
+    <button class="deleteBtn" onclick="deletion(event)">Delete</button>
     </form> -->
     
     </td>

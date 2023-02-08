@@ -136,7 +136,8 @@
             
 
             $data=[
-              
+
+              'pId'=>'',
               'name'=>trim($_POST['name']),
               'qty'=>trim($_POST['qty']),
               'mfd'=>trim($_POST['mfd']),
