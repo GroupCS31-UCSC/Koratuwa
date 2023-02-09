@@ -21,8 +21,8 @@
     <tr>
         <td>S1</td>
         <td>Order1</td>
-        <td>2022-03-04</td>
-        <td>Successfully made</td>
+        <td>2023-02-10</td>
+        <td>Pending</td>
         <td>Deliver</td>
         <td>Yayawardana</td>
         <td>
@@ -35,10 +35,24 @@
     <tr>
         <td>S2</td>
         <td>Order2</td>
-        <td>2022-03-04</td>
-        <td>Not yet made</td>
+        <td>2023-02-10</td>
+        <td>Processing</td>
         <td>Pickup</td>
         <td>Gunathilaka</td>
+        <td>
+            <div class="table-btns">
+                <a href="<?php echo URLROOT; ?>/Cashier/updateOrderStatus"><button class="updateBtn">UPDATE</button></a>
+                <a href="<?php echo URLROOT; ?>/Cashier/generateReceipt"><button class="deleteBtn">Generate receipt</button></a>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>S3</td>
+        <td>Order3</td>
+        <td>2023-02-08</td>
+        <td>Delivered</td>
+        <td>Deliver</td>
+        <td>Yayawardana</td>
         <td>
             <div class="table-btns">
                 <a href="<?php echo URLROOT; ?>/Cashier/updateOrderStatus"><button class="updateBtn">UPDATE</button></a>

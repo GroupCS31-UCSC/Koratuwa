@@ -10,9 +10,15 @@
 	<br>
 	<form action="<?php echo URLROOT; ?>/Cashier/updateOrderStatus" method="POST">
         <!-- Product Id -->
-        <div class="form-input-title">Product Id</div>
-        <input type="text" name="product_id" id="product_id" class="product_id" value="#">
-		<!--Customer name-->
+        <div class="form-input-title">Sale Id</div>
+        <input type="text" disabled="disabled" name="Sale_id" id="Sale_id" class="Sale_id" value="">
+        
+        <div class="form-input-title">Customer Name</div>
+        <input type="text" disabled="disabled" name="customer_name" id="customer_name" class="customer_name" value="">
+		
+        <div class="form-input-title">Products</div>
+        <input type="text" disabled="disabled" name="products" id="products" class="products" value="">
+
 		<div class="form-input-title">Order status</div>
         <select name="orderStatus" id="orderStatus">
             <option value="Pending">Pending</option>

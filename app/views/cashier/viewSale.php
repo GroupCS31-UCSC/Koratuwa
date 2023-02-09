@@ -10,7 +10,8 @@
     <table>
     <tr>
       <th>Sale ID</th>
-      <th>Product ID</th>
+      <th>Products</th>
+      <th>Quantity</th>
       <th>Prize</th>
       <th>Name</th>
       <th>Contact no</th>
@@ -19,7 +20,8 @@
   
     <tr>
       <td>S1</td>
-      <td>P303</td>
+      <td>Fresh milk</td>
+      <td>03</td>
       <td>300</td>
       <td>Gunathilaka</td>
       <td>0715667876</td>
@@ -31,7 +33,8 @@
     </tr>
     <tr>
       <td>S2</td>
-      <td>P303</td>
+      <td>Yogurt</td>
+      <td>02</td>
       <td>300</td>
       <td>Yayawardana</td>
       <td>0714345654</td>
