@@ -1,0 +1,114 @@
+.print-btn {
+  position: absolute;
+  top: 50px;
+  margin: 10px 0;
+  right: 75px;
+  background: #0d12a5;
+  -webkit-border-radius: 30;
+  -moz-border-radius: 30;
+  border-radius: 30px;
+  border: none;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 17px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.print-btn:hover {
+  background: #3cb0fd;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.receipt {
+  box-shadow: 0 0 1in -0.25in rgba(0, 0, 0, 0.5);
+  padding:2mm;
+  margin: 0 auto;
+  width: 100mm;
+  background: #FFF;
+  margin-top: 2rem;
+}
+
+#top, #mid,#bot {
+  border-bottom: 1px solid #EEE;
+}
+
+#top {
+  min-height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#mid {
+  min-height: 80px;
+}
+
+#bot{
+  min-height: 50px;
+}
+
+#top .logo{
+  position: relative;
+  display: block;
+  min-width: 60px;
+  height: 60px;
+  line-height: 70px;
+  text-align: center;
+}
+
+.img-logo{
+  width: inherit;
+  height: inherit;
+}
+
+h1 {
+  font-size: 1.5em;
+  color: #222;
+}
+
+h2 {
+  font-size: .9em;
+}
+
+h3 {
+  font-size: 1.2em;
+  font-weight: 300;
+  line-height: 2em;
+}
+  
+p {
+  font-size: .7em;
+  color: #666;
+  line-height: 1.2em;
+}
+
+.info {
+  display: block;
+  margin-left: 0;
+}
+
+table {
+  width: 85%;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+table th, td {
+  padding: 5px;
+  font-size: .5em;
+  background: #fff;
+  color: black;
+  border: .5px solid #000;
+}
+
+table td {
+  background: #fff;
+  color: black;
+  border: .5px solid #000;
+}
+  
+#legalcopy{
+  margin-top: 5mm;
+}
