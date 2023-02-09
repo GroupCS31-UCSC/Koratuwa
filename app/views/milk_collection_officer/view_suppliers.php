@@ -1,7 +1,8 @@
 <?php require APPROOT.'/views/include/header.php'; ?>
-<link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/public/css/admin/viewSuppliers.css">
-<?php require APPROOT.'/views/admin/admin_dashboard.php';  ?>
+<link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/public/css/mco/view_milk_collection.css">
+<?php require APPROOT.'/views/milk_collection_officer/mco_dashboard.php';  ?>
 <!-- ______________________________________________________________________________________________________-->
+
 
 
 <section>
@@ -31,8 +32,8 @@
     <td>
 
       <div class="table-btns">
-      <a href="<?php echo URLROOT?>/Admin/updateSupplier/"><button class="updateBtn">UPDATE</button></a>
-      <a href="<?php echo URLROOT?>/Admin/deleteSupplier/"><button class="deleteBtn">DELETE</button></a>
+      <a href="<?php echo URLROOT?>/Milk_Collection_Officer/updateSupplier/"><button class="updateBtn">UPDATE</button></a>
+      <a href="<?php echo URLROOT?>/Milk_Collection_Officer/deleteSupplier/"><button class="deleteBtn">DELETE</button></a>
       </div>
 
     <!-- 
@@ -46,10 +47,8 @@
 
     </table>
 
-<input type="button" value="Add New Supplier" class="addBtn" onclick="location.href='<?php echo URLROOT; ?>/Admin/addSupplier' ">
-
-
+<input type="button" value="Add New Supplier" class="addBtn" onclick="location.href='<?php echo URLROOT; ?>/Milk_Collection_Officer/addSupplier' ">
 
 
 <?php require APPROOT.'/views/include/footer.php'; ?>
-<script src="<?php echo URLROOT; ?>/js/admin.js"></script>
+<script src="<?php echo URLROOT; ?>/js/mco.js"></script>

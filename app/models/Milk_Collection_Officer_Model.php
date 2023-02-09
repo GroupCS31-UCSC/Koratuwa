@@ -19,6 +19,16 @@
       return $result;
     }
 
+    //to get all supplier deails
+    public function get_supView()
+    {
+      $this->db->query('SELECT * FROM supplier');
+
+      $result = $this->db->resultSet();
+
+      return $result;
+    }
+
 
 
 

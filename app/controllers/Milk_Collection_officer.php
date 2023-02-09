@@ -124,6 +124,18 @@
 
         }
 
+        //get the details of Suppliers
+        public function viewSuppliers()
+        {
+          $supView= $this->mcoModel->get_supView();
+
+          $data = [
+              'supView' => $supView
+          ];
+
+          $this->view('milk_collection_officer/view_suppliers',$data);
+        }
+
 
         
     }
