@@ -1,6 +1,6 @@
 // Chart - Cashier dashboard
-var lastOrders = document.getElementById('order').getContext('2d');
-var myChart = new Chart(lastOrders, {
+var order = document.getElementById('order').getContext('2d');
+var myChart = new Chart(order, {
     type: 'bar',
     data: {
         labels: ['February', 'March', 'April', 'May', 'June', 'July'],
@@ -22,8 +22,8 @@ var myChart = new Chart(lastOrders, {
     }
 });
 
-var sale= document.getElementById('type').getContext('2d');
-var myChart= new Chart(sale, {
+var type= document.getElementById('type').getContext('2d');
+var myChart= new Chart(type, {
   type: 'doughnut',
   data: {
     labels: ['Online', 'Onside'],
