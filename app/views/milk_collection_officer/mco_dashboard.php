@@ -22,7 +22,7 @@
       </li>
       <li>
         <a href="<?php echo URLROOT; ?>/Milk_Collection_Officer/viewMilkCollection">
-        <span class="icon"><i class="fa-regular fa-blender"></i></span>
+        <span class="icon"><i class="fa-solid fa-blender"></i></span>
         <span class="title">Milk Collection</span>
         </a>
       </li>
@@ -40,19 +40,19 @@
       </li>
       <li>
         <a href="<?php echo URLROOT; ?>/Milk_Collection_Officer/viewSupplyOrderDetails">
-          <span class="icon"><i class="fa-solid fa-cheese"></i></span>
+          <span class="icon"><i class="fa-solid fa-truck-droplet"></i></span>
           <span class="title">Supply Orders</span>
         </a>
       </li>
       <li>
         <a href="<?php echo URLROOT; ?>/Milk_Collection_Officer/viewSuppliers">
-          <span class="icon"><i class="fa-solid fa-cart-shopping"></i></span>
+          <span class="icon"><i class="fa-solid fa-user-group"></i></span>
           <span class="title">Suppliers</span>
         </a>
       </li>
       <li>
         <a href="<?php echo URLROOT; ?>/Milk_Collection_Officer/viewAnalysis">
-          <span class="icon"><i class="fa-solid fa-truck"></i></span>
+          <span class="icon"><i class="fa-solid fa-chart-line"></i></span>
           <span class="title">Analysis</span>
         </a>
       </li>
@@ -68,7 +68,7 @@
       <div class="topmenu">
         <ul>
           <li><a href=""><i class="fas fa-bell"></i></a></li>
-          <li><div class="img-user"><img src="<?php echo URLROOT; ?>/img/users/apsara.jpg" alt="user"></div></li>
+          <li><div class="img-user"><img src="<?php echo URLROOT; ?>/img/users/user.png" alt="user"></div></li>
           <li><a href=""><?php echo $_SESSION['user_name']; ?></a></li>
         </ul>
         <div class="dropdown">
