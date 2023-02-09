@@ -39,7 +39,7 @@
         </a>
       </li>
       <li>
-        <a href="<?php echo URLROOT; ?>/Milk_Collection_Officer/viewSupplyOrderDetails">
+        <a href="<?php echo URLROOT; ?>/Milk_Collection_Officer/viewSupplyOrders">
           <span class="icon"><i class="fa-solid fa-truck-droplet"></i></span>
           <span class="title">Supply Orders</span>
         </a>

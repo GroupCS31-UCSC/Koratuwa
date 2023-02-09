@@ -29,6 +29,15 @@
       return $result;
     }
 
+    //to get all supplier order deails
+    public function get_supOrderView()
+    {
+      $this->db->query('SELECT * FROM supply_order');
+
+      $result = $this->db->resultSet();
+
+      return $result;
+    }
 
 
 
