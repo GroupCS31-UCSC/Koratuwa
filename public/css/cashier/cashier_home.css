@@ -15,7 +15,7 @@ section {
 }
 
 .cardBox .card {
-    background: rgba(198, 191, 207, 0.3);
+  background: rgba(198, 191, 207, 0.3);
   padding: 20px;
   margin: 20px;
   width: 20%;
@@ -27,80 +27,81 @@ section {
 }
 
 .cardBox .card .numbers {
-    font-weight: 500;
-  font-size: 2.3em;
+  font-weight: 500;
+  font-size: 2.5em;
   color: rgb(223, 69, 155);
   padding: 0 auto;
 }
 
 .cardBox .card .cardName {
-    color: rgb(135, 11, 67);
+  color: rgb(135, 11, 67);
   font-size: 1.1em;
   margin-top: 5px;
 }
 
 .cardBox .card .day{
-    width: 100%;
+  width: 100%;
   display: flex;
   position: relative;
   font-size: 0.82em;
   color: var(--black1);
   padding-top: 10px;
   
-  }
+}
 
-  .cardBox .card .day .circle{
-    width: 15px;
+.cardBox .card .day .circle{
+  width: 15px;
   height: 15px;
   border-radius: 50%;
   background: red;
-  }
-  .cardBox .card label{
-    padding-left: 8px;
-  }
+}
 
-  .cardBox .card:hover{
-    background: rgba(229, 223, 237, 0.3);
-  }
+.cardBox .card label{
+  padding-left: 8px;
+}
+
+.cardBox .card:hover{
+  background: rgba(229, 223, 237, 0.3);
+}
   
 /*charts*/
 .graphBox{
-    position: relative;
+  position: relative;
   width: 100%;
   padding: 10px;
   display: grid;
   grid-template-columns: 2fr 2fr;
   grid-gap: 20px;
   min-height: 300px;
-  }
-  .graphBox .box{
-    position: relative;
-    position: relative;
+}
+.graphBox .box{
+  position: relative;
   background: aliceblue;
   padding: 20px 0 0 0;
   width: 98%;
   box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
   border-radius: 20px;
-  }
+}
+
 
 /*make it responsive design*/
 @media (max-width: 991px) {
-    .graphBox {
-        grid-template-columns: 1fr;
-        height: auto;
-    }
-    .navigation {
-        left: -275px;
-    }
-    .navigation.active {
-        width: 275px;
-        left: 0;
-    }
-    .main {
-        width: 100%;
-        left: 0;
-    }
-    .main.active {
-        left: 275px;
-    }
+  .graphBox {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+  .navigation {
+    left: -275px;
+  }
+  .navigation.active {
+    width: 275px;
+    left: 0;
+  }
+  .main {
+    width: 100%;
+    left: 0;
+  }
+  .main.active {
+    left: 275px;
+  }
 }

@@ -40,16 +40,18 @@
   </div>
   
 </session>
-<!-- Add chart -->
-<div class="graphbox">
+
+<div class="graphBox">
   <div class="box">
     <label><center>Orders</center></label>
     <canvas id="order"></canvas>
   </div>
+
   <div class="box">
     <label><center>Percentages of sales</center></label>
     <canvas id="type"></canvas>
   </div>
+
 </div>
 
 <?php require APPROOT.'/views/include/footer.php'; ?>
