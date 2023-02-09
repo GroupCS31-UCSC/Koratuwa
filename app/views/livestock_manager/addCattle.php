@@ -45,9 +45,9 @@
     <span class="form-invalid"><?php echo $data['purpose_err']; ?></span>
     <select class="purpose" name="purpose" id="purpose" value="<?php echo $data['purpose']; ?>">
       <option value="Select">Select</option>
-      <option value="Milk">For Milking</option>
-      <option value="Meat">For Meat</option>
-      <option value="Beeding">For Breeding</option>
+      <option value="For Milking">For Milking</option>
+      <option value="For Meat">For Meat</option>
+      <option value="For Breeding">For Breeding</option>
     </select>
     
 		<br>
