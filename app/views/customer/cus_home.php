@@ -1,29 +1,8 @@
 <?php require APPROOT.'/views/include/header.php'; ?>
 <link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/public/css/customer/cus_home.css">
+<?php require APPROOT.'/views/customer/cus_dashboard.php'; ?>
 <head><meta name="viewport" content="width=device-width, initial-scale=1.0"></head>
-<!-- <header>
-    <div class="topbar">
-        <img class="logo_topbar" src="<?php echo URLROOT; ?>/img/koratuwa.png" alt="logo">
-        <img src="<?php echo URLROOT; ?>/img/sasindu.jpg" alt="profile_pic">
 
-    </div>
-</header> -->
-<header>
-  <nav class="top-bar">
-    <ul>
-      <li><img src="<?php echo URLROOT; ?>/img/koratuwa.png" alt="logo" alt=""></li>  
-      <li><a href="#">Home</a></li>
-      <li><a href="#">About</a></li>
-      <li><a href="#">Services</a></li>
-      <li><a href="#">Contact</a></li>
-    </ul>
-</nav>
-</header>
-
-
-<!-- <div class="wrapper">
-    <img class="cus_home" src="<?php echo URLROOT; ?>/img/customer/cus_home.jpg" alt="no">
-    </div>     -->
 <!-- <section class="all_products">
     
 
@@ -73,29 +52,29 @@
     </div>
 </section> -->
 
+<section>
+    <div class="container">
+        <?php foreach ($data['productCategory'] as $productCategory) : ?>
 
-<div class="container">
+        <a href="<?php echo URLROOT?>/Customer/viewProductDetails/<?php echo $productCategory->product_id ?>" class="feature" >
+            <div class="img">
+                <img src="<?php echo UPLOADS . $productCategory->image ?>" width='200' height='200'>
+            </div>
+            <div class="cardContent">
+                <p><?php echo $productCategory->product_name ?><br>
+                <!-- <?php echo $productCategory->price ?> -->
+                </p>
+            </div>
+        </a>
 
-    <?php foreach ($data['productCategory'] as $productCategory) : ?>
-
-    <a href="<?php echo URLROOT?>/Customer/viewProductDetails/<?php echo $productCategory->product_id ?>" class="feature" >
-      <div class="img">
-        <img src="<?php echo UPLOADS . $productCategory->image ?>" width='200' height='200'>
-      </div>
-      <div class="cardContent">
-        <p><?php echo $productCategory->product_name ?><br>
-        <!-- <?php echo $productCategory->price ?> -->
-        </p>
-      </div>
-  </a>
-
-    <?php endforeach; ?>
-    
-  </div>
-
+        <?php endforeach; ?>
+        
+    </div>
+</section>
 
 <section class="fresh_milk">
     <div class="container">
+        <!-- <div class="milk_bg"><img src="<?php echo URLROOT; ?>/img/customer/man.jpg" alt=""></div> -->
             <div class="feature1">
                 <div class="milk_img">
                     <img class="pic_milk" src="<?php echo URLROOT; ?>/img/customer/milkbottel.png" alt="">
