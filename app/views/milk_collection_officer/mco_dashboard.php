@@ -26,12 +26,12 @@
         <span class="title">Milk Collection</span>
         </a>
       </li>
-      <li>
+      <!-- <li>
         <a href="<?php echo URLROOT; ?>/Milk_Collection_Officer/viewFarmMilkCollection">
           <span class="icon"><i class="fa-solid fa-cow"></i></span>
           <span class="title">Koratuwa Milk</span>
         </a>
-      </li>
+      </li> -->
       <li>
         <a href="<?php echo URLROOT; ?>/Milk_Collection_Officer/viewSupplyMilkCollection">
           <span class="icon"><i class="fa-solid fa-glass-water"></i></span>
@@ -39,7 +39,7 @@
         </a>
       </li>
       <li>
-        <a href="<?php echo URLROOT; ?>/Milk_Collection_Officer/viewSupplyOrderDetails">
+        <a href="<?php echo URLROOT; ?>/Milk_Collection_Officer/viewSupplyOrders">
           <span class="icon"><i class="fa-solid fa-truck-droplet"></i></span>
           <span class="title">Supply Orders</span>
         </a>

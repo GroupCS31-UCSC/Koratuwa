@@ -19,6 +19,49 @@
       return $result;
     }
 
+    //to get all supplier deails
+    public function get_supView()
+    {
+      $this->db->query('SELECT * FROM supplier');
+
+      $result = $this->db->resultSet();
+
+      return $result;
+    }
+
+    //to get all supplier order deails
+    public function get_supOrderView()
+    {
+      $this->db->query('SELECT * FROM supply_order');
+
+      $result = $this->db->resultSet();
+
+      return $result;
+    }
+
+    //to get all farm milk deails
+    public function get_farmMilkView()
+    {
+      $this->db->query('SELECT * FROM farm_milk_collection');
+
+      $result = $this->db->resultSet();
+
+      return $result;
+    }
+
+    //to get all supplier milk deails
+    public function get_supplyMilkView()
+    {
+      $this->db->query('SELECT * FROM supply_order');
+
+      $result = $this->db->resultSet();
+
+      return $result;
+    }
+
+    
+
+    
 
 
 

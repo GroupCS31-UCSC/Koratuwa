@@ -124,6 +124,57 @@
 
         }
 
+        //get the details of Suppliers
+        public function viewSuppliers()
+        {
+          $supView= $this->mcoModel->get_supView();
+
+          $data = [
+              'supView' => $supView
+          ];
+
+          $this->view('milk_collection_officer/view_suppliers',$data);
+        }
+
+        //get the details of supply orders
+        public function viewSupplyOrders()
+        {
+          $ordView= $this->mcoModel->get_supOrderView();
+
+          $data = [
+              'ordView' => $ordView
+          ];
+
+          $this->view('milk_collection_officer/view_supplyOrders',$data);
+        }
+
+        
+        
+        //get the details of farm milk collection
+        public function viewFarmMilkCollection()
+        {
+          $farmMilkView= $this->mcoModel->get_farmMilkView();
+
+          $data = [
+              'farmMilkView' => $farmMilkView
+          ];
+
+          $this->view('milk_collection_officer/view_farmMilk',$data);
+        }
+
+
+        //get the details of supply milk collection
+        public function viewSupplyMilkCollection()
+        {
+          $supplyMilkView= $this->mcoModel->get_supplyMilkView();
+
+          $data = [
+              'supplyMilkView' => $supplyMilkView
+          ];
+
+          $this->view('milk_collection_officer/view_supplyMilk',$data);
+        }
+
 
         
     }
