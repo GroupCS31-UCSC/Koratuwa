@@ -71,9 +71,9 @@
     </div>
     <!--image-->
     <div class="feature">
-    <div class="form-input-title">Image</div>
-    <span class="form-invalid"><?php echo $data['image_err']; ?></span>
-    <input type="file" name="image" id="image" class="image" value="<?php echo $data['image']; ?>"><br>
+      <div class="form-input-title">Image</div>
+      <span class="form-invalid"><?php echo $data['image_err']; ?></span>
+      <input type="file" name="image" id="image" class="image" value="<?php echo $data['image']; ?>"><br>
 
     </div>
 		<br>
