@@ -20,7 +20,11 @@
 
     public function viewProductById($pId)
     {
-      
+      $this->db->query('SELECT * FROM product_category WHERE product_id = :pId' );
+      $this->db->bind(':pId',$pId);
+
+      $result = $this->db->resultSet();
+			return $result;
     }
 
   }
