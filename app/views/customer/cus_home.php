@@ -52,7 +52,7 @@
     </div>
 </section> -->
 
-<section>
+<section class="product_cat">
     <div class="container">
         <?php foreach ($data['productCategory'] as $productCategory) : ?>
 
@@ -61,12 +61,13 @@
                 <img src="<?php echo UPLOADS . $productCategory->image ?>" width='200' height='200'>
             </div>
             <div class="cardContent">
-                <p><?php echo $productCategory->product_name ?><br>
+                <div class="product_name"><p><?php echo $productCategory->product_name ?></div><br>
                 <!-- <?php echo $productCategory->price ?> -->
                 </p>
+                <input type="button" value="Add to Cart" class="AddtoCartBtn">
             </div>
         </a>
-
+       
         <?php endforeach; ?>
         
     </div>

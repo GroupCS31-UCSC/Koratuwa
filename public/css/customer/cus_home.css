@@ -1,3 +1,4 @@
+
 .container {
     margin: 0 auto;
     padding: 0px 20px 0 20px;
@@ -6,6 +7,21 @@
 section {
     text-align: center;
     padding: 40px 0px;
+}
+
+.AddtoCartBtn{
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #04086B;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;    
+}
+.AddtoCartBtn:hover{
+    opacity: 0.7;
 }
 /*------products------*/
 .container img {
@@ -24,16 +40,18 @@ section {
     overflow: hidden;
     /* margin-bottom: 20px; */
 }
+.container .img{
+    margin-top: 20px;
+    margin: 20px 10px 10px 10px;
+}
 .feature {
-    background-color: aliceblue;
+    background-color: white;
     margin: 20px;
-    padding: 20px;
-    width: 20%;
+    /* padding: 20px; */
+    width: 30%;
     display: inline-block;
     font-size:16px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 10px;
-    border: solid black 1px;
 }
 .fresh_milk_about{
     padding: 5px;
@@ -43,7 +61,7 @@ section {
     box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 .fresh_milk{
-    background: blanchedalmond;
+    background: #00BFFF;
     color: black;
 }
 
@@ -69,15 +87,18 @@ section {
     background-position: center;
     height: 500px;
 }
+.product_cat{
+    background-color: aliceblue;
+}
 /*---------yourget--------*/
 
 .yourget{
-    background-color: aqua;
+    background-color: aliceblue;
     color: black;
 }
 /*----------footer--------*/
 footer {
-    background: #353535;
+    background:#04086B;
     padding: 32px 0;
     text-align: center;
     color: #868686;
