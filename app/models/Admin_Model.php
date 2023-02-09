@@ -195,7 +195,7 @@
     //to get all milk collection deails
     public function get_mcView()
     {
-      $this->db->query('SELECT * FROM employee');
+      $this->db->query('SELECT * FROM milk_collection');
 
       $result = $this->db->resultSet();
 

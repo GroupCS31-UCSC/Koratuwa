@@ -40,12 +40,12 @@
       <option value="Female">Female</option>
     </select>
 
-    <div class="feature">
+    <!-- <div class="feature">
     <div class="form-input-title">Gender</div>
       <span class="form-invalid"><?php echo $data['gender_err']; ?></span>
       <input type="radio" name="gender" id="name" <?php if (isset($gender) && $gender=="Female");?> value="<?php echo $data['gender']; ?>"> Female<br>
       <input type="radio" name="gender" id="name" <?php if (isset($gender) && $gender=="Male");?> value="<?php echo $data['gender']; ?>"> Male
-    </div>
+    </div> -->
 
     <!--DOB-->
     <div class="form-input-title">Date Of Birth</div>
