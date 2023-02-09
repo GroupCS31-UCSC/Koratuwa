@@ -35,7 +35,7 @@
     </div>
 
     <!--gender          RADIO BUTTONS DANNA-->
-    <!-- <div class="feature">
+    <div class="feature">
       <div class="form-input-title">Gender</div>
       <span class="form-invalid"><?php echo $data['gender_err']; ?></span>
       <select class="gender" name="gender" id="gender"  value="<?php echo $data['gender']; ?>">
@@ -43,13 +43,13 @@
         <option value="Male">Male</option>
         <option value="Female">Female</option>
       </select>    
-    </div> -->
-    <div class="feature">
+    </div>
+    <!-- <div class="feature">
     <div class="form-input-title">Gender</div>
       <span class="form-invalid"><?php echo $data['gender_err']; ?></span>
       <input type="radio" name="gender" id="name" <?php if (isset($gender) && $gender=="Female") echo "checked";?> value="Female"> Female<br>
       <input type="radio" name="gender" id="name" <?php if (isset($gender) && $gender=="Male") echo "checked";?> value="Male"> Male
-    </div>
+    </div> -->
 
     <!--DOB-->
     <div class="feature">

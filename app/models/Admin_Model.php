@@ -195,7 +195,7 @@
     //to get all milk collection deails
     public function get_mcView()
     {
-      $this->db->query('SELECT * FROM employee');
+      $this->db->query('SELECT * FROM milk_collection');
 
       $result = $this->db->resultSet();
 
@@ -205,7 +205,7 @@
     //to get all production deails
     public function get_productionView()
     {
-      $this->db->query('SELECT * FROM employee');
+      $this->db->query('SELECT * FROM product_category');
 
       $result = $this->db->resultSet();
 
@@ -215,7 +215,7 @@
     //to get all customer deails
     public function get_cusView()
     {
-      $this->db->query('SELECT * FROM employee');
+      $this->db->query('SELECT * FROM customer');
 
       $result = $this->db->resultSet();
 
@@ -225,7 +225,7 @@
     //to get all supplier deails
     public function get_supView()
     {
-      $this->db->query('SELECT * FROM employee');
+      $this->db->query('SELECT * FROM supplier');
 
       $result = $this->db->resultSet();
 
