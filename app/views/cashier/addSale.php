@@ -1,6 +1,6 @@
 <?php require APPROOT.'/views/include/header.php'; ?>
 <?php require APPROOT.'/views/cashier/cashier_dashboard.php'; ?>
-<link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/public/css/livestock_manager/addCattle.css">
+<link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/public/css/livestock_manager/addSale.css">
 
 
 <div class="form-container">
@@ -14,7 +14,7 @@
         <input type="text" name="product_id" id="product_id" class="product_id" value="#">
         <!-- Sales income -->
         <div class="form-input-title">Sales income</div>
-        <input type="text" name="sales_income" id="sales_income" class="sales_income" value="#">
+        <input type="text" disabled="disabled" name="sales_income" id="sales_income" class="sales_income" value="#">
 		<!--Customer name-->
 		<div class="form-input-title">Customer Name</div>
         <input type="text" name="customer_name" id="customer_name" class="customer_name" value="#">
@@ -26,6 +26,7 @@
 		<br>
 		<input type="submit" value="Submit" class="submitBtn">
   </form>
+</div>
 
 
 <?php require APPROOT.'/views/include/footer.php'; ?>

@@ -1,23 +1,37 @@
-.add-btn {
-    position: absolute;
-    width: 300px;
-    top: 120px;
-    right: 75px;
-    background: #04086B;
-    -webkit-border-radius: 30;
-    -moz-border-radius: 30;
-    border-radius: 30px;
-    border: none;
-    font-family: Arial;
-    color: #ffffff;
-    font-size: 17px;
-    padding: 10px 20px 10px 20px;
-    text-decoration: none;
+.addBtn {
+    margin-top: -10px;
+    margin-right: 15px;
+
 }
 
-.add-btn:hover {
+td {
+    text-align: center;
+}
+
+/* .add-btn:hover {
     background: #3cb0fd;
     text-decoration: none;
     cursor: pointer;
+} */
+ /*make it responsive design*/
+
+@media (max-width: 991px) {
+    .graphBox {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+    .navigation {
+        left: -275px;
+    }
+    .navigation.active {
+        width: 275px;
+        left: 0;
+    }
+    .main {
+        width: 100%;
+        left: 0;
+    }
+    .main.active {
+        left: 275px;
+    }
 }
- 

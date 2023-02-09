@@ -5,14 +5,10 @@
 <div class="container">
   <!--Dashboard-->
   <div class="navigation active">
-    <!-- <div class="back">
-      <a href="#"><i class="fa-solid fa-chevron-left"></i></a>
-    </div> -->
     <ul>
       <li>
         <a href="#">
           <span class="icon"><img class="img-logo" src="<?php echo URLROOT; ?>/img/koratuwa.png" alt="logo"></span>
-          <!--<span class="title" style="font-size:160%;">KORATUWA</span>-->
         </a>
       </li><br><br><br>
       <li>
@@ -31,7 +27,7 @@
       </li>
       <li>
         <!-- Customer orders -->
-        <a href="#">
+        <a href="<?php echo URLROOT; ?>/Cashier/viewCustomerOrders">
           <span class="icon"><i class="fa-brands fa-joget"></i></span>
           <span class="title">Customer Orders </span>
         </a>
@@ -49,7 +45,7 @@
     <div class="topmenu">
       <ul>
         <li><a href=""><i class="fas fa-bell"></i></a></li>
-        <li><div class="img-user"><img src="<?php echo URLROOT; ?>/img/user.png" alt="user"></div></li>
+        <li><div class="img-user"><img src="<?php echo URLROOT; ?>/img/users/user.png" alt="user"></div></li>
         <li><a href=""><?php echo $_SESSION['user_name']; ?></a></li>
       </ul>
       <div class="dropdown">
@@ -58,7 +54,7 @@
             <div class="sub-menu">
               <div class="dropdown-content">
                 <div class="user-info">
-                  <span><img src="<?php echo URLROOT; ?>/public/img/user.png" alt=""></span>                    
+                  <span><img src="<?php echo URLROOT; ?>/public/img/users/user.png" alt=""></span>                    
                 </div>
                 <hr>
                 <a href="#" class="sub-menu-link">
@@ -79,3 +75,6 @@
         </div>
       </div>
     </div>
+
+<?php require APPROOT.'/views/include/footer.php'; ?>
+<script src="<?php echo URLROOT; ?>/js/dashboard.js"></script>  

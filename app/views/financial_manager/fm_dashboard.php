@@ -14,21 +14,21 @@
         </a>
       </li><br><br><br>
       <li>
-        <a href="<?php echo URLROOT; ?>/Product_Manager/pmHome">
+        <a href="<?php echo URLROOT; ?>/financial_Manager/fmHome">
           <span class="icon"><i class="fa-solid fa-gauge"></i></span>
           <span class="title"> Dashboard</span>
         </a>
       </li>
       <li>
-        <a href="<?php echo URLROOT; ?>/Product_Manager/productCategories">
-          <span class="icon"><i class="fa-solid fa-boxes-stacked"></i></ion-icon></span>
-          <span class="title"> Product Categories</span>
+        <a href="<?php echo URLROOT; ?>/Financial_Manager/viewExpense">
+          <span class="icon"><i class="fa-solid fa-receipt"></i></span>
+          <span class="title"> Expenses</span>
         </a>
       </li>
       <li>
-      <a href="<?php echo URLROOT; ?>/Product_Manager/addStock">
-          <span class="icon"><i class="fa-solid fa-cubes-stacked"></i></ion-icon></span>
-          <span class="title">Product Stock</span>
+      <a href="<?php echo URLROOT; ?>/Financial_Manager/">
+          <span class="icon"><i class="fa-solid fa-dollar-sign"></i></span>
+          <span class="title">Profit</span>
         </a>
       </li>
      
