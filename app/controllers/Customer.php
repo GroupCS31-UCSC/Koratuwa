@@ -31,7 +31,7 @@
               'productDetails' => $productDetails
           ];
 
-          $this->view('product_manager/view_product',$data);
+          $this->view('customer/view_product',$data);
         }
 
     }
