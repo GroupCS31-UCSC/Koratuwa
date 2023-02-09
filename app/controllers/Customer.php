@@ -34,6 +34,16 @@
           $this->view('customer/view_product',$data);
         }
 
+        public function buyNow(){
+          $data=[];
+          $this->view('customer/buy_now',$data);
+        }
+
+        public function addToCart(){
+          $data=[];
+          $this->view('customer/add_to_cart',$data);
+        }
+
     }
 
 ?>
