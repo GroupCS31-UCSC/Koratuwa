@@ -78,7 +78,7 @@
                         <div class="sub-menu">
                             <div class="dropdown-content">
                                 <div class="user-info">
-                                    <span><img src="<?php echo URLROOT; ?>/public/img/users/apsara.jpg" alt=""></span>                    
+                                    <span><img src="<?php echo URLROOT; ?>/public/img/users/user.png" alt=""></span>                    
                                 </div>
                                 <hr>
                                 <a href="#" class="sub-menu-link">
