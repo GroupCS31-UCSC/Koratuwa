@@ -31,7 +31,7 @@
     <div class="feature">
       <div class="form-input-title">Contact Number</div>
       <span class="form-invalid"><?php echo $data['tp_num_err']; ?></span>
-      <input type="number" name="tp_num" id="tp_num" class="tp_num" autocomplete="off" value="<?php echo $data['tp_num']; ?>">
+      <input type="text" name="tp_num" id="tp_num" class="tp_num" autocomplete="off" value="<?php echo $data['tp_num']; ?>">
     </div>
 
     <!--gender          RADIO BUTTONS DANNA-->
@@ -87,11 +87,11 @@
     </div>
 
     <!--image-->
-    <div class="feature">
+    <!-- <div class="feature">
       <div class="form-input-title">Image</div>
-      <!-- <span class="form-invalid"><?php echo $data['image_err']; ?></span> -->
+      <span class="form-invalid"><?php echo $data['image_err']; ?></span>
       <input type="file" name="image" id="image" class="image" value="<?php echo $data['image']; ?>"><br>
-    </div>
+    </div> -->
 
 		<br>
     <div class="feature">

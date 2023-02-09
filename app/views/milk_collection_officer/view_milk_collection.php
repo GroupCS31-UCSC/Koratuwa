@@ -7,7 +7,8 @@
 <?php flash('updateEmp_flash') ?>
 <?php flash('dltEmp_flash') ?>
 
-
+<br><br><br>
+<h1><center>Koratuwa Milk Collection</center></h1>
 <section>
   <div class="container" style="overflow-x: auto;">
 
@@ -16,7 +17,7 @@
         <!-- <th>Milk Collection ID</th> -->
         <th>Collected Date</th>
         <th>Collected Time</th>
-        <th>Quantity</th>
+        <th>Quantity(L)</th>
         <th>Remarks</th>
         <!-- more -->
         <th>Action</th>
