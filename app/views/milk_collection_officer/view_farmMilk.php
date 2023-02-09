@@ -4,8 +4,7 @@
 <!-- ______________________________________________________________________________________________________-->
 
 
-<br><br><br>
-<h1><center>Supply Milk Orders</center></h1>
+
 <section>
   <div class="container" style="overflow-x: auto;">
 
@@ -21,15 +20,15 @@
         <th>Action</th>
       </tr>
       
-  <?php foreach ($data['ordView'] as $ordView) : ?>
+  <?php foreach ($data['farmMilkView'] as $farmMilkView) : ?>
   <tr>
-    <td><?php echo $ordView->supply_order_id; ?></td>
-    <td><?php echo $ordView->quantity; ?></td>
-    <td><?php echo $ordView->status; ?></td>
-    <td><?php echo $ordView->supply_date; ?></td>
-    <td><?php echo $ordView->supplier_id; ?>        <img src="<?php echo URLROOT; ?>/img/users/user.png" alt="user" width="30" height="30"></td>
-    <td><?php echo $ordView->remarks; ?></td>
-    <td><?php echo $ordView->unit_price; ?></td>
+    <td><?php echo $farmMilkView->supply_order_id; ?></td>
+    <td><?php echo $farmMilkView->quantity; ?></td>
+    <td><?php echo $farmMilkView->status; ?></td>
+    <td><?php echo $farmMilkView->supply_date; ?></td>
+    <td><?php echo $farmMilkView->supplier_id; ?>        <img src="<?php echo URLROOT; ?>/img/users/user.png" alt="user" width="30" height="30"></td>
+    <td><?php echo $farmMilkView->remarks; ?></td>
+    <td><?php echo $farmMilkView->unit_price; ?></td>
 
     <td>
 

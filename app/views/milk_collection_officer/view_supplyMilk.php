@@ -3,9 +3,8 @@
 <?php require APPROOT.'/views/milk_collection_officer/mco_dashboard.php';  ?>
 <!-- ______________________________________________________________________________________________________-->
 
-
 <br><br><br>
-<h1><center>Supply Milk Orders</center></h1>
+<h1><center>Supply Milk Collection</center></h1>
 <section>
   <div class="container" style="overflow-x: auto;">
 
@@ -21,21 +20,21 @@
         <th>Action</th>
       </tr>
       
-  <?php foreach ($data['ordView'] as $ordView) : ?>
+  <?php foreach ($data['supplyMilkView'] as $supplyMilkView) : ?>
   <tr>
-    <td><?php echo $ordView->supply_order_id; ?></td>
-    <td><?php echo $ordView->quantity; ?></td>
-    <td><?php echo $ordView->status; ?></td>
-    <td><?php echo $ordView->supply_date; ?></td>
-    <td><?php echo $ordView->supplier_id; ?>        <img src="<?php echo URLROOT; ?>/img/users/user.png" alt="user" width="30" height="30"></td>
-    <td><?php echo $ordView->remarks; ?></td>
-    <td><?php echo $ordView->unit_price; ?></td>
+    <td><?php echo $supplyMilkView->supply_order_id; ?></td>
+    <td><?php echo $supplyMilkView->quantity; ?></td>
+    <td><?php echo $supplyMilkView->status; ?></td>
+    <td><?php echo $supplyMilkView->supply_date; ?></td>
+    <td><?php echo $supplyMilkView->supplier_id; ?>        <img src="<?php echo URLROOT; ?>/img/users/user.png" alt="user" width="30" height="30"></td>
+    <td><?php echo $supplyMilkView->remarks; ?></td>
+    <td><?php echo $supplyMilkView->unit_price; ?></td>
 
     <td>
 
       <div class="table-btns">
-      <a href="<?php echo URLROOT?>/Milk_Collection_Officer/updateSupOrder/"><button class="updateBtn">UPDATE</button></a>
-      <!-- <a href="<?php echo URLROOT?>/Milk_Collection_Officer/deleteSupOrder/"><button class="deleteBtn">DELETE</button></a> -->
+      <a href="<?php echo URLROOT?>/Milk_Collection_Officer/updateSupMilk/"><button class="updateBtn">UPDATE</button></a>
+      <a href="<?php echo URLROOT?>/Milk_Collection_Officer/deleteSupMilk/"><button class="deleteBtn">DELETE</button></a>
       </div>
 
     <!-- 
@@ -49,7 +48,7 @@
 
     </table>
 
-<!-- <input type="button" value="Add New Supplier" class="addBtn" onclick="location.href='<?php echo URLROOT; ?>/Milk_Collection_Officer/addSupplier' "> -->
+<!-- <input type="button" value="Add New Collection" class="addBtn" onclick="location.href='<?php echo URLROOT; ?>/Milk_Collection_Officer/addSupplier' "> -->
 
 
 <?php require APPROOT.'/views/include/footer.php'; ?>
