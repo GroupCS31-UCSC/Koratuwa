@@ -1,9 +1,19 @@
+.addBtn {
+    margin-top: -10px;
+    margin-right: 15px;
+
+}
+
+
+
 .btnWrapper {
     width: 100%;
     display: flex;
     justify-content: flex-end;
     padding: 40px 50px;
+    
 }
+
 
 .products {
     width: 20%;

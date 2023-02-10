@@ -21,14 +21,21 @@
       </li>
       <li>
         <a href="<?php echo URLROOT; ?>/Financial_Manager/viewExpense">
-          <span class="icon"><i class="fa-solid fa-receipt"></i></span>
+          <span class="icon"><i class="fa-solid fa-file-export"></i></span>
           <span class="title"> Expenses</span>
         </a>
       </li>
       <li>
       <a href="<?php echo URLROOT; ?>/Financial_Manager/">
-          <span class="icon"><i class="fa-solid fa-dollar-sign"></i></span>
-          <span class="title">Profit</span>
+          <span class="icon"><i class="fa-solid fa-file-import"></i></span>
+          <span class="title">Revenues</span>
+        </a>
+      </li>
+
+      <li>
+      <a href="<?php echo URLROOT; ?>/Financial_Manager/">
+          <span class="icon"><i class="fa-solid fa-file-invoice"></i></span>
+          <span class="title">Reports</span>
         </a>
       </li>
      

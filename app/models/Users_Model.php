@@ -176,7 +176,7 @@
 		{
 			$this->db->query('SELECT * FROM supplier order by user_id desc limit 1');
 			$row = $this->db->single();
-			$lastId=$row->supplier_id;
+			$lastId=$row->user_id;
 
 			if($lastId == '')
 			{
@@ -196,7 +196,7 @@
 		{
 			$this->db->query('SELECT * FROM customer order by user_id desc limit 1');
 			$row = $this->db->single();
-			$lastId=$row->customer_id;
+			$lastId=$row->user_id;
 
 			if($lastId == '')
 			{
