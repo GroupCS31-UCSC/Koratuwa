@@ -347,7 +347,10 @@ input:focus,
     padding-right: 3%;
   }
 }
-  
+/*----------feedback area----------*/
+
+
+
 /*make it responsive design*/
 
 @media (max-width: 991px) {
