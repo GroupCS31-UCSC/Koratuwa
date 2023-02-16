@@ -21,14 +21,21 @@
       </li>
       <li>
         <a href="<?php echo URLROOT; ?>/Financial_Manager/viewExpense">
-          <span class="icon"><i class="fa-solid fa-receipt"></i></span>
+          <span class="icon"><i class="fa-solid fa-file-export"></i></span>
           <span class="title"> Expenses</span>
         </a>
       </li>
       <li>
       <a href="<?php echo URLROOT; ?>/Financial_Manager/">
-          <span class="icon"><i class="fa-solid fa-dollar-sign"></i></span>
-          <span class="title">Profit</span>
+          <span class="icon"><i class="fa-solid fa-file-import"></i></span>
+          <span class="title">Revenues</span>
+        </a>
+      </li>
+
+      <li>
+      <a href="<?php echo URLROOT; ?>/Financial_Manager/">
+          <span class="icon"><i class="fa-solid fa-file-invoice"></i></span>
+          <span class="title">Reports</span>
         </a>
       </li>
      
@@ -44,7 +51,7 @@
             <div class="topmenu">
                 <ul>
                     <li><a href=""><i class="fas fa-bell"></i></a></li>
-                    <li><div class="img-user"><img src="<?php echo URLROOT; ?>/img/users/dew.jpg" alt="user"></div></li>
+                    <li><div class="img-user"><img src="<?php echo URLROOT; ?>/img/users/user.png" alt="user"></div></li>
                     <li><a href=""><?php echo $_SESSION['user_name']; ?></a></li>
                 </ul>
                 <div class="dropdown">
@@ -53,7 +60,7 @@
                         <div class="sub-menu">
                             <div class="dropdown-content">
                                 <div class="user-info">
-                                    <span><img src="<?php echo URLROOT; ?>/public/img/users/dew.jpg" alt=""></span>                    
+                                    <span><img src="<?php echo URLROOT; ?>/public/img/users/user.png" alt=""></span>                    
                                 </div>
                                 <hr>
                                 <a href="#" class="sub-menu-link">

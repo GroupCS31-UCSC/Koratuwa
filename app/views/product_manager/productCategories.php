@@ -10,7 +10,7 @@
 
 
 <div class="btnWrapper">
-  <input type="button" value="Add new Product Category" class="addBtn" onclick="location.href='<?php echo URLROOT; ?>/Product_Manager/addCategory' "> 
+  <input type="button" value="Add new Product Category" class="pmaddBtn" onclick="location.href='<?php echo URLROOT; ?>/Product_Manager/addCategory' "> 
 </div>
 
 

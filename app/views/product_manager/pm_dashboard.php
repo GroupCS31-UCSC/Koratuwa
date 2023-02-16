@@ -21,13 +21,13 @@
       </li>
       <li>
         <a href="<?php echo URLROOT; ?>/Product_Manager/productCategories">
-          <span class="icon"><i class="fa-solid fa-boxes-stacked"></i></ion-icon></span>
+          <span class="icon"><i class="fa-solid fa-boxes-stacked"></i></span>
           <span class="title"> Product Categories</span>
         </a>
       </li>
       <li>
       <a href="<?php echo URLROOT; ?>/Product_Manager/addStock">
-          <span class="icon"><i class="fa-solid fa-cubes-stacked"></i></ion-icon></span>
+          <span class="icon"><i class="fa-solid fa-cubes-stacked"></i></span>
           <span class="title">Product Stock</span>
         </a>
       </li>
