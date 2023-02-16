@@ -51,7 +51,7 @@
             <div class="topmenu">
                 <ul>
                     <li><a href=""><i class="fas fa-bell"></i></a></li>
-                    <li><div class="img-user"><img src="<?php echo URLROOT; ?>/img/users/dew.jpg" alt="user"></div></li>
+                    <li><div class="img-user"><img src="<?php echo URLROOT; ?>/img/users/user.png" alt="user"></div></li>
                     <li><a href=""><?php echo $_SESSION['user_name']; ?></a></li>
                 </ul>
                 <div class="dropdown">
@@ -60,7 +60,7 @@
                         <div class="sub-menu">
                             <div class="dropdown-content">
                                 <div class="user-info">
-                                    <span><img src="<?php echo URLROOT; ?>/public/img/users/dew.jpg" alt=""></span>                    
+                                    <span><img src="<?php echo URLROOT; ?>/public/img/users/user.png" alt=""></span>                    
                                 </div>
                                 <hr>
                                 <a href="#" class="sub-menu-link">

@@ -56,10 +56,7 @@
 			return $row;
     }
 
-
-
-
-    public function addCategory($data)
+    public function addStock($data)
     {
       $this->db->query('INSERT INTO product_stock(product_id,mfd_date,exp_date,quantity) VALUES(:pId, :mfd, :exp, :qty)');
       //value binding
@@ -79,7 +76,30 @@
         return false;
       }
     }
-    
+
+
+    public function addCategory($data)
+    {
+      $this->db->query('INSERT INTO product_category(product_id,product_name,unit_price,unit_cost,ingredients,image,employee_id) VALUES(:pId, :name, :price, :cost, :ingredients, :image, :pmId)');
+      //value binding
+      $this->db->bind(':pId', $data['pId']);
+      $this->db->bind(':name', $data['name']);
+      $this->db->bind(':price', $data['price']);
+      $this->db->bind(':cost', $data['cost']);
+      $this->db->bind(':ingredients', $data['ingredients']);
+      $this->db->bind(':image', $data['image']);
+      $this->db->bind(':pmId', $_SESSION['user_id']);
+
+      //execute
+      if($this->db->execute())
+      {
+        return true;
+      }
+      else
+      {
+        return false;
+      }
+    }
 
     public function updateCategory($data)
     {
