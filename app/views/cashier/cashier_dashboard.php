@@ -2,7 +2,7 @@
 <link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/public/css/styles.css">
 
 
-<div class="container">
+<div class="full-container">
   <!--Dashboard-->
   <div class="navigation active">
     <ul>

@@ -7,8 +7,15 @@
 <?php flash('updateEmp_flash') ?>
 <?php flash('dltEmp_flash') ?>
 
-<section>
-  <div class="container" style="overflow-x: auto;">
+<div class="container" style="overflow-x: auto;">
+
+
+<section class="table-upper">
+<input type="button" value="Add Employee" class="addBtn" onclick="location.href='<?php echo URLROOT; ?>/Admin/addEmployees' ">
+</section>
+
+<section class="table1">
+  <!-- <div class="container" style="overflow-x: auto;"> -->
 
     <table>
       <tr>
@@ -55,10 +62,11 @@
   </tr><br>
   <?php endforeach; ?>
 
-    </table>
+  </table>
 
-<input type="button" value="Add Employee" class="addBtn" onclick="location.href='<?php echo URLROOT; ?>/Admin/addEmployees' ">
+</section>
 
+</div>
 
 <?php require APPROOT.'/views/include/footer.php'; ?>
 <script src="<?php echo URLROOT; ?>/js/admin.js"></script>
