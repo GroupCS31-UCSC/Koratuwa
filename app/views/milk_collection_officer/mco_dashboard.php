@@ -3,7 +3,7 @@
 <!--
  ______________________________________________________________________________________________________-->
 
-<div class="container">
+<div class="full-container">
   
   <div class="navigation active">
     

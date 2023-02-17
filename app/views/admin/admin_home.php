@@ -8,8 +8,7 @@
 
 <!--cards-->
 <section class="cardBox">
-  <div class="container">
-    
+
     <div class="card">
       <div>
         <div class="cardName">Total Income(Rs.)</div>
@@ -19,7 +18,6 @@
         </div>
       </div>
     </div>
-
     <div class="card">
       <div>
         <div class="cardName">Total Expenses(Rs.)</div>
@@ -50,11 +48,10 @@
       </div>
     </div>
 
-  </div>
 </section>
 
 <!--Add charts-->
-<div class="graphBox">
+<section class="graphBox">
 
   <div class="box">
     <label><center>Total Profit</center></label>
@@ -66,7 +63,7 @@
     <canvas id="profit"></canvas>
   </div>
 
-</div>
+</section>
 <?php require APPROOT.'/views/include/footer.php'; ?>
 <script src="<?php echo URLROOT; ?>/js/admin.js"></script>
 
