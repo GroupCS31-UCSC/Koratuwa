@@ -12,7 +12,7 @@
         <th>Breed</th>
         <th>Gender</th>
         <th>Weight</th>
-        <th>Health</th>
+        <!-- <th>Health</th> -->
         <th>Vaccination</th>
         <th>Action</th>
       </tr>
@@ -23,7 +23,7 @@
     <td><?php echo $cow->cow_breed; ?></td>
     <td><?php echo $cow->gender; ?></td>
     <td><?php echo $cow->weight; ?></td>
-    <td><?php echo $cow->health; ?></td>
+    <!-- <td><?php echo $cow->health; ?></td> -->
     <td><?php echo "<a>review</a>" ?></td>
  
     <td>

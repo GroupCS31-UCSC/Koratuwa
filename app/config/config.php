@@ -4,7 +4,7 @@
 	define('DB_HOST', 'localhost');
 	define('DB_USER', 'root');
 	define('DB_PASSWORD', '');
-	define('DB_NAME', 'Koratuwa');
+	define('DB_NAME', 'koratuwa');
 
 	//APPROOT
 	 define('APPROOT', dirname(dirname(__FILE__)));
@@ -16,7 +16,7 @@
 	define('UPLOADS', URLROOT . '/public/img/uploads/');
 
 	//WEBSITE NAME
-	 define('SITENAME', 'koratuwa');
+	 define('SITENAME', 'කොරටුව​');
 
 	//PUBROOT
 	// define('PUBROOT', dirname(dirname(dirname(__FILE__))).'\public');

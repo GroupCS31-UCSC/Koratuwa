@@ -12,7 +12,7 @@
 		//Register the supplier
 		public function registerAsSupplier($data)
 		{
-			$this->db->query('INSERT INTO supplier(user_id,name,nic,contact_number,address,email) VALUES(:id, :name, :nic, :num, :address, :email)');
+			$this->db->query('INSERT INTO supplier(supplier_id,name,nic,contact_number,address,email) VALUES(:id, :name, :nic, :num, :address, :email)');
 			//value binding
 			$this->db->bind(':id', $data['id']);
 			$this->db->bind(':name', $data['name']);
@@ -52,7 +52,7 @@
 		//Register the customer
 		public function registerAsCustomer($data)
 		{
-			$this->db->query('INSERT INTO customer(user_id,name,nic,contact_number,address,email) VALUES(:id, :name, :nic, :num, :address, :email)');
+			$this->db->query('INSERT INTO customer(customer_id,name,nic,contact_number,address,email) VALUES(:id, :name, :nic, :num, :address, :email)');
 			//value binding
 			$this->db->bind(':id', $data['id']);
 			$this->db->bind(':name', $data['name']);
@@ -174,7 +174,7 @@
 
 		public function FindSupplierId()
 		{
-			$this->db->query('SELECT * FROM supplier order by user_id desc limit 1');
+			$this->db->query('SELECT * FROM supplier order by supplier_id desc limit 1');
 			$row = $this->db->single();
 			$lastId=$row->supplier_id;
 
@@ -194,7 +194,7 @@
 
 		public function FindCustomerId()
 		{
-			$this->db->query('SELECT * FROM customer order by user_id desc limit 1');
+			$this->db->query('SELECT * FROM customer order by customer_id desc limit 1');
 			$row = $this->db->single();
 			$lastId=$row->customer_id;
 
