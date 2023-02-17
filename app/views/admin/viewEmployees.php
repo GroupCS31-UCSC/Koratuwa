@@ -28,7 +28,7 @@
       
   <?php foreach ($data['empView'] as $emp) : ?>
   <tr>
-    <td><?php echo $emp->user_id; ?></td>
+    <td><?php echo $emp->employee_id; ?></td>
     <td><?php echo $emp->employee_name; ?></td>
     <td><?php echo $emp->employment; ?></td>
     <!-- <td><?php echo $emp->salary; ?></td> -->
