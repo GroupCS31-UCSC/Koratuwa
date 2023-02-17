@@ -3,56 +3,58 @@
 <?php require APPROOT.'/views/customer/cus_dashboard.php'; ?>
 <head><meta name="viewport" content="width=device-width, initial-scale=1.0"></head>
 
-<!-- <section class="all_products">
-    
+<!-- <section class="description">
+    <div class="hero-wrapper">
+        <div class="hero-content">
+            <div class="hero-grid">
+                <div class="hero-text">
+                    <small>Discover Your test</small>
+                    <h1>Welcome to Our <br> Dairy Farm</h1>
+                    <p>The Koratuwa Dairy Farm was launched with the vision of providing fresh quality dairy products to Sri Lankan consumers and to contribute towards the development of the local dairy industry. Our milk products are produced using quality pure cow’s milk from thr Koratuwa Farm.</p>
 
-    <div class="container">
-        <div class="feature">
-            <a href="<?php echo URLROOT; ?>/customer/view_product"><img class="pic" src="<?php echo URLROOT; ?>/img/customer/milkbottel.png" alt=""></a>
-            <div class="fresh_milk_about">
-                <p><h1>Fresh Milk</h1>
-                milk,asdda,asdfad <br><b>RS. 100</b></p>
+                </div>
+                <div class="hero-img">
+                  <img src="<?php echo URLROOT; ?>/img/customer/hero.jpg" width="100%" alt="">  
+                </div>
+                <div class="hero-social">
+                    <div class="social-block">
+                        <i class="fa-brands fa-facebook"></i>
+                    </div>
+                    <div class="social-block">
+                        <i class="fa-brands fa-instagram"></i>
+                    </div>
+                    <div class="social-block">
+                        <i class="fa-brands fa-twitter"></i>
+                    </div>
+                    <div class="social-block">
+                        <i class="fa-brands fa-google"></i>
+                    </div>                                                            
+
+                </div>
             </div>
         </div>
-        <div class="feature">
-            <img class="pic" src="<?php echo URLROOT; ?>/img/customer/yourget.png" alt="">
-            <div class="fresh_milk_about">
-                <p><h1>Yourget</h1>
-                milk,asdda,asdfad <br><b>RS. 100</b></p>
+        <main>
+            <div class="slider">
+                <div class="single-slide">
+                    <div class="slide">
+                        <div class="slide-img"><img src="<?php echo URLROOT; ?>/img/customer/hero.jpg" alt=""></div>
+                        <div class="slide-info">
+                            <div class="slide-info-head">
+                                <h3>02</h3> <div class="center-line"></div>
+                            </div>
+                            <div class="slide-text">
+                                <p>The Koratuwa Dairy Farm was launched with the vision of providing fresh quality dairy products to Sri Lankan consumers and to contribute towards the development of the local dairy industry.</p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="feature">
-            <img class="pic" src="<?php echo URLROOT; ?>/img/customer/milkbottel.png" alt="">
-            <div class="fresh_milk_about">
-                <p><h1>Fresh Milk</h1>
-                milk,asdda,asdfad <br><b>RS. 100</b></p>
-            </div>
-        </div>
-        <div class="feature">
-            <img class="pic" src="<?php echo URLROOT; ?>/img/customer/milkbottel.png" alt="">
-            <div class="fresh_milk_about">
-                <p><h1>Fresh Milk</h1>
-                milk,asdda,asdfad <br><b>RS. 100</b></p>
-            </div>
-        </div>
-        <div class="feature">
-            <img class="pic" src="<?php echo URLROOT; ?>/img/customer/milkbottel.png" alt="">
-            <div class="fresh_milk_about">
-                <p><h1>Fresh Milk</h1>
-                milk,asdda,asdfad <br><b>RS. 100</b></p>
-            </div>
-        </div>
-        <div class="feature">
-            <img class="pic" src="<?php echo URLROOT; ?>/img/customer/milkbottel.png" alt="">
-            <div class="fresh_milk_about">
-                <p><h1>Fresh Milk</h1>
-                milk,asdda,asdfad <br><b>RS. 100</b></p>
-            </div>
-        </div>                                              
+        </main>
     </div>
 </section> -->
-
 <section class="product_cat">
+<!-- <img class="bg-img1" src="<?php echo URLROOT; ?>/img/customer/hero.jpg" alt=""> -->
     <div class="container">
         <?php foreach ($data['productCategory'] as $productCategory) : ?>
 
