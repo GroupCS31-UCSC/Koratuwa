@@ -1,7 +1,7 @@
 <?php require APPROOT.'/views/include/header.php'; ?>
 <link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/public/css/styles.css">
 <!-- ______________________________________________________________________________________________________-->
-<div class="container">
+<div class="full-container">
 <div class="navigation active">
 <!-- <div class="back">
       <a href="#"><i class="fa-solid fa-chevron-left"></i></a>

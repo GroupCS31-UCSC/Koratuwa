@@ -4,7 +4,7 @@
  ______________________________________________________________________________________________________-->
 
 
-<div class="conatainer">
+<div class="full-container">
   <div class="navigation active">
   <!-- <div class="back">
       <a href="#"><i class="fa-solid fa-chevron-left"></i></a>

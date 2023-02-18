@@ -50,9 +50,9 @@
     //generate id for registering employee
     public function generateEmployeeId()
 		{
-			$this->db->query('SELECT * FROM employee order by user_id desc limit 1');
+			$this->db->query('SELECT * FROM employee order by employee_id desc limit 1');
 			$row = $this->db->single();
-			$lastId=$row->user_id;
+			$lastId=$row->employee_id;
 
 			if($lastId == '')
 			{
@@ -72,7 +72,7 @@
     //add newly registering employee's details
     public function addEmployees($data)
     {
-      $this->db->query('INSERT INTO employee(user_id, employee_name, nic, dob, contact_number,gender,address, employment, email) VALUES(:id, :name, :nic, :dob, :tp_num,:gender, :address, :employment, :email) ');
+      $this->db->query('INSERT INTO employee(employee_id, employee_name, nic, dob, contact_number,gender,address, employment, email) VALUES(:id, :name, :nic, :dob, :tp_num,:gender, :address, :employment, :email) ');
       //value binding
       $this->db->bind(':id', $data['id']);
       $this->db->bind(':name', $data['name']);
