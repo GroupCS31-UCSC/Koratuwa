@@ -28,7 +28,25 @@
 
 			return $id;
     }
+    public function findStockId()
+    {
+      $this->db->query('SELECT * FROM product_stock order by stock_id desc limit 1');
+			$row = $this->db->single();
+			$lastId=$row->stock_id;
 
+			if($lastId == '')
+			{
+				$id='STK101';
+			}
+			else
+			{
+				$id = substr($lastId,3);
+				$id = intval($id);
+				$id = "STK".($id+1);
+			}
+
+			return $id;
+    }
     public function get_categoryView()
     {
       $this->db->query('SELECT * FROM product_category');
@@ -58,7 +76,7 @@
 
     public function addStock($data)
     {
-      $this->db->query('INSERT INTO product_stock(product_id,mfd_date,exp_date,quantity) VALUES(:pId, :mfd, :exp, :qty)');
+      $this->db->query('INSERT INTO product_stock(stock_id,product_id,mfd_date,exp_date,quantity) VALUES(:sId,:pId, :mfd, :exp, :qty)');
       //value binding
       $this->db->bind(':pId', $data['pId']);
       $this->db->bind(':qty', $data['qty']);
