@@ -2,8 +2,7 @@
     width: 80%;
 }
 
-.form-container input[type=text],
-input[type=text] {
+.form-container input[type=text] {
     border: 1px solid #d5d2d2;
     border-radius: 5px;
     width: 100%;
@@ -56,16 +55,26 @@ input[type=text]:focus {
     border: 1.5px solid #00BFFF;
 }
 
-.dob-breed, .buying {
+.dob-breed, .buying, .weight-height, .pregnancy, .next-milk {
     display: flex;
 }
 
-.dob, .date {
+.dob, .date, .breed, .price, .weight, .height, .next {
     width: 50%;
 }
 
-.breed, .price {
-    width: 50%;
+.weight {
+    margin-right: 45px;
+    width: 420px;
+}
+
+.npregnant, .milk {
+    width: 470px;
+}
+
+.status {
+    width: 45%;
+    margin-right: 45px;
 }
 
 /*make it responsive design*/

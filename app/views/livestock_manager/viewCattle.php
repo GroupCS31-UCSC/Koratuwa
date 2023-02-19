@@ -30,7 +30,7 @@
         <th>Age</th>
         <th>Bye Date</th>
         <th>Buy Price</th>
-        <th>Health Status</th>
+        <!-- <th>Health Status</th> -->
         <th>Pregnant Status</th>
         <th>Milk per day</th>
         <th>Action</th>
@@ -52,7 +52,7 @@
         </td>
         <td><?php echo $cattle->buy_date; ?></td>
         <td><?php echo $cattle->buy_price; ?></td>
-        <td><?php echo $cattle->health_status; ?></td>
+        <!-- <td><?php echo $cattle->health_status; ?></td> -->
         <td><?php echo $cattle->pregnant_status; ?></td>
         <td><?php echo $cattle->milk_per_day; ?></td>
         <td>
