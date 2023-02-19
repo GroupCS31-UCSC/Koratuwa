@@ -99,6 +99,17 @@
                 </div>
             </div>
         </div>
+<footer>
+        <div class="footer-container">
+            <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Contacts</a></li>
+            </ul>
+            <p>&copy; All rights reserved.</p>
+        </div>
+</footer>
+
 
 
 <?php require APPROOT.'/views/include/footer.php'; ?>

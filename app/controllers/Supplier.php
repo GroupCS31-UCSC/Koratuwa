@@ -100,10 +100,13 @@
         public function viewSupply()
         {
           $supOrderView= $this->supplierModel->get_supOrderView();
+          $supOrdSum= $this->supplierModel->get_supOrderSum();
+          $ordSum= strval($supOrdSum);
 
           $data = [
-              'supOrderView' => $supOrderView
-          ];
+              'supOrderView' => $supOrderView,
+              'ordSum'=> $ordSum
+           ];
 
           $this->view('supplier/viewSupply',$data);
 

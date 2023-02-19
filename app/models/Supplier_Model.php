@@ -31,11 +31,22 @@
 
     public function get_supOrderView()
     {
-      $this->db->query('SELECT * FROM supply_order');
+      $this->db->query('SELECT * FROM supply_order WHERE supplier_id = :supId');
+      $this->db->bind(':supId',$_SESSION['user_id']);
 
       $result = $this->db->resultSet();
 
       return $result;
+    }
+
+
+    public function get_supOrderSum()
+    {
+      $this->db->query('SELECT sum(quantity) as totMilk from supply_order WHERE supplier_id = :supId');
+      $this->db->bind(':supId',$_SESSION['user_id']);
+
+      $row = $this->db->single();
+			return $row->totMilk;
     }
 
     public function getSupplyById($supOrdId)
