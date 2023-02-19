@@ -11,7 +11,11 @@
 
 
 <section class="table-upper">
-<input type="button" value="Add Employee" class="addBtn" onclick="location.href='<?php echo URLROOT; ?>/Admin/addEmployees' ">
+<div class="upper">
+<input type="text" id="myInput1" onkeyup="searchFunction()" placeholder="Search...">
+<input type="button" value="Add Employee" class="addBtnAdmin" onclick="location.href='<?php echo URLROOT; ?>/Admin/addEmployees' ">
+
+<div>
 </section>
 
 <section class="table1">
