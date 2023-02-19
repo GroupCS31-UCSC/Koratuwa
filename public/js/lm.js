@@ -2,9 +2,9 @@ var cattle= document.getElementById('cattle').getContext('2d');
 var myChart= new Chart(cattle, {
   type: 'polarArea',
   data: {
-    labels: ['Calf', 'Pregnant Cattles', 'Female Cattles', 'Male Cattels'],
+    labels: ['Killes Vaccine', 'Live attenuated vaccine', 'Toxoid vaccine', 'Subunit vaccine'],
     datasets: [{
-      label: 'Cattls',
+      label: 'Vaccine Types',
       data: [20,40,150,30],
       backgroundColor: [
         'rgba(255, 99, 132)',,

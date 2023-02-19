@@ -37,7 +37,7 @@
 <!--Add charts-->
 <div class="graphBox">
   <div class="box">
-  <label><center>Cattle</center></label>
+  <label><center>Vaccination</center></label>
     <canvas id="cattle"></canvas>
   </div>
   <div class="box">
