@@ -2,24 +2,37 @@
 <?php require APPROOT.'/views/livestock_manager/livestock_dashboard.php'; ?>
 <link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/public/css/livestock_manager/viewCattle.css">
 
+<div class="flash-msg">
+  <?php flash('addCattle_flash') ?>
+  <?php flash('updateCattle_flash') ?>
+  <?php flash('deleteCattle_flash') ?>
+</div>
 
-<?php flash('addCattle_flash') ?>
-<?php flash('updateCattle_flash') ?>
-<?php flash('deleteCattle_flash') ?>
+<div class="search-add">
+  <div class="search-area">
+    <!-- <form action="<?php echo URLROOT; ?>/Livestock_Manager/searchCattle" method="POST"> -->
+      <input type="text" name="search" id="search" class="search" placeholder="Search by COW ID">
+      <span class="icon"><i class="fa-solid fa-search"></i></span>
+    <!-- </form> -->
+  </div>
+  <input type="button" value="Add New Cattle" class="add-btn" onclick="location.href='<?php echo URLROOT; ?>/Livestock_Manager/addCattle' ">
+</div>
 
 
-
-<session>
   <div class="container" style="overflow-x: auto;">
     <table>
       <tr>
         <th>COW ID</th>
+        <!-- <th>Image</th> -->
         <th>Date of birth</th>
-        <th>Gender</th>
-        <th>Breed</th>
-        <th>Weight (Kg) </th>
+        <th>Breeding type</th>
+        <th>Type</th>
         <th>Age</th>
-        <th>Purpose</th>
+        <th>Bye Date</th>
+        <th>Buy Price</th>
+        <th>Health Status</th>
+        <th>Pregnant Status</th>
+        <th>Milk per day</th>
         <th>Action</th>
       </tr>
 
@@ -27,9 +40,8 @@
       <tr>
         <td><?php echo $cattle->cow_id; ?></td>
         <td><?php echo $cattle->dob; ?></td>
-        <td><?php echo $cattle->gender; ?></td>
         <td><?php echo $cattle->cow_breed; ?></td>
-        <td><?php echo $cattle->weight; ?></td>
+        <td><?php echo $cattle->cow_type; ?></td>
         <td>
         <?php
           $bday = strtotime($cattle->dob);
@@ -38,7 +50,11 @@
           echo $diff->y . ' years, ' . $diff->m.' months, '.$diff->d.' days';
         ?>
         </td>
-        <td><?php echo $cattle->purpose; ?></td>
+        <td><?php echo $cattle->buy_date; ?></td>
+        <td><?php echo $cattle->buy_price; ?></td>
+        <td><?php echo $cattle->health_status; ?></td>
+        <td><?php echo $cattle->pregnant_status; ?></td>
+        <td><?php echo $cattle->milk_per_day; ?></td>
         <td>
         <?php if($cattle->employee_id == $_SESSION['user_id']): ?>
           <div class="table-btns">
@@ -50,8 +66,8 @@
       </tr><br>
       <?php endforeach; ?>
     </table>
-
-    <input type="button" value="Add New Cattle" class="addBtn" onclick="location.href='<?php echo URLROOT; ?>/Livestock_Manager/addCattle' ">
+  </div>
+    
 
 
 

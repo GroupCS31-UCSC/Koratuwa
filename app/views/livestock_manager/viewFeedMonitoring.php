@@ -2,6 +2,21 @@
 <?php require APPROOT.'/views/livestock_manager/livestock_dashboard.php'; ?>
 <link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/public/css/livestock_manager/viewCattle.css">
 
+<div class="flash-msg">
+  <?php flash('addfeed_flash') ?>
+  <?php flash('updatefeed_flash') ?>
+  <?php flash('deletefeed_flash') ?>
+</div>
+<div class="search-add">
+  <div class="search-area">
+    <!-- <form action="<?php echo URLROOT; ?>/Livestock_Manager/searchCattle" method="POST"> -->
+      <input type="text" name="search" id="search" class="search" placeholder="Search by COW ID">
+      <span class="icon"><i class="fa-solid fa-search"></i></span>
+    <!-- </form> -->
+  </div>
+  <input type="button" value="Add New Feed record" class="add-btn" onclick="location.href='<?php echo URLROOT; ?>/Livestock_Manager/addFeedMonitoring' ">
+</div>
+
 <session>
   <div class="container" style="overflow-x: auto;">
     <table>
@@ -65,6 +80,6 @@
       <?php endforeach; ?> -->
       </table>
 
-      <input type="button" value="Add New Feed record" class="addBtn" onclick="location.href='<?php echo URLROOT; ?>/Livestock_Manager/addFeedMonitoring' ">
+      
 
 <?php require APPROOT.'/views/include/footer.php'; ?>

@@ -2,9 +2,21 @@
 <?php require APPROOT.'/views/livestock_manager/livestock_dashboard.php'; ?>
 <link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/public/css/livestock_manager/viewCattle.css">
 
-<?php flash('addCattle_flash') ?>
-<?php flash('updateCattle_flash') ?>
-<?php flash('deleteCattle_flash') ?>
+<div class="flash-msg">
+  <?php flash('addvaccination_flash') ?>
+  <?php flash('updatevaccination_flash') ?>
+  <?php flash('deletevaccination_flash') ?>
+</div>
+
+<div class="search-add">
+  <div class="search-area">
+    <!-- <form action="<?php echo URLROOT; ?>/Livestock_Manager/searchCattle" method="POST"> -->
+      <input type="text" name="search" id="search" class="search" placeholder="Search by COW ID">
+      <span class="icon"><i class="fa-solid fa-search"></i></span>
+    <!-- </form> -->
+  </div>
+<input type="button" value="Add New Vaccination" class="add-btn" onclick="location.href='<?php echo URLROOT; ?>/Livestock_Manager/addVaccination' ">
+</div>
 
 <session>
   <div class="container" style="overflow-x: auto;">
@@ -57,6 +69,6 @@
     </table>
 
 
-<input type="button" value="Add New Vaccination" class="addBtn" onclick="location.href='<?php echo URLROOT; ?>/Livestock_Manager/addVaccination' ">
+
 
 <?php require APPROOT.'/views/include/footer.php'; ?>

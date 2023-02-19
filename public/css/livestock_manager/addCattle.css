@@ -1,5 +1,8 @@
+.form-container {
+    width: 80%;
+}
+
 .form-container input[type=text],
-input[type=date],
 input[type=text] {
     border: 1px solid #d5d2d2;
     border-radius: 5px;
@@ -13,6 +16,22 @@ input[type=text] {
     outline: none;
     display: block;
 }
+
+.form-container input[type=date] {
+    border: 1px solid #d5d2d2;
+    border-radius: 5px;
+    width: 90%;
+    height: 30px;
+    padding-top: 10px;
+    padding-bottom: 8px;
+    padding-left: 15px;
+    margin-right: 30px;
+    margin-top: 8px;
+    font-size: 15px;
+    outline: none;
+    display: block;
+}
+
 
 .form-container input[type=text]:focus,
 input[type=date]:focus,
@@ -29,8 +48,24 @@ input[type=text]:focus {
     border-radius: 5px;
 }
 
+.form-container select .breed, .price {
+    margin-top: 10px;
+}
+
 .form-container select:focus {
     border: 1.5px solid #00BFFF;
+}
+
+.dob-breed, .buying {
+    display: flex;
+}
+
+.dob, .date {
+    width: 50%;
+}
+
+.breed, .price {
+    width: 50%;
 }
 
 /*make it responsive design*/
