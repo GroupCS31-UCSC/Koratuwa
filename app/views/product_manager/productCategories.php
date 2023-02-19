@@ -6,7 +6,7 @@
 <!-- ______________________________________________________________________________________________________-->
 
 
-<!-- <h2><?php echo $_SESSION['user_id']; ?></h2> -->
+<!-- <?php echo $_SESSION['user_id']; ?></h2> -->
 
 
 <div class="btnWrapper">
@@ -45,7 +45,7 @@
   </div>
   </div>
 
-</div>
+
 
 
 <!-- <input type="button" value="Add new Product Category" class="add-btn" onclick="location.href='<?php echo URLROOT; ?>/Product_Manager/addCategory' "> 
