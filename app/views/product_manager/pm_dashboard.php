@@ -31,7 +31,12 @@
           <span class="title">Product Stocks</span>
         </a>
       </li>
-   
+      <li>
+      <a href="<?php echo URLROOT; ?>/Product_Manager/analyze">
+          <span class="icon"><i class="fa-solid fa-chart-simple"></i></span>
+          <span class="title">Product Analysis</span>
+        </a>
+      </li>
      
     </ul>
   </div>

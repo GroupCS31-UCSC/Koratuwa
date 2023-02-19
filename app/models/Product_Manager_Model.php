@@ -78,6 +78,7 @@
     {
       $this->db->query('INSERT INTO product_stock(stock_id,product_id,mfd_date,exp_date,quantity) VALUES(:sId,:pId, :mfd, :exp, :qty)');
       //value binding
+      $this->db->bind(':sId', $data['sId']);
       $this->db->bind(':pId', $data['pId']);
       $this->db->bind(':qty', $data['qty']);
       $this->db->bind(':mfd', $data['mfd']);

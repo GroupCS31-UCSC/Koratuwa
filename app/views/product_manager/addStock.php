@@ -17,20 +17,35 @@
 	<form action="<?php echo URLROOT; ?>/Product_Manager/addStock" method="POST" enctype="multipart/form-data">
 
 <?php
-    $conn=mysqli_connect('localhost','root','','koratuwa');
-    $query="SELECT product_id FROM product_category";
-    $result_set=mysqli_query($conn,$query);
-    $product_list='';
-    while($result=mysqli_fetch_assoc($result_set)){
-    $product_list.="<option value=\"{result['product_id']}\">{$result['product_id']}</option>";
-    }
+   $hostname="localhost";
+   $db="koratuwa";
+   $username="root";
+   $password="";
+
+   $conn=new PDO("mysql:host=$hostname;dbname=$db",$username,$password);
+   $sql="SELECT product_id FROM product_category";
+
+   try
+   {
+     $stmt=$conn->prepare($sql);
+     $stmt->execute();
+     $results=$stmt->fetchAll();
+   }
+
+   catch(Exception $ex){
+    echo($ex ->getMessage());
+
+   }
+
 ?>
 		<!--category name-->
 	<div class="form-input-title">Product ID</div>
     <span class="form-invalid"><?php echo $data['pId_err']; ?></span>
 	<label for="Select the Product"></label>
     <select class="pId" name="pId" id="pId" value="<?php echo $data['pId']; ?>">
-        <?php echo $product_list;?>
+        <?php foreach($results as $output){?>
+        <option><?php echo $output["product_id"];?></option>
+        <?php } ?>
     </select>
 
     <!--cost-->

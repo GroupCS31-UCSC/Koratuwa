@@ -19,10 +19,10 @@
           $this->view('product_manager/pm_home',$data);
         }
 
-        public function setPrice()
+        public function analyze()
         {
           $data = [];
-          $this->view('product_manager/setPrice',$data);
+          $this->view('product_manager/analyze',$data);
         }
 
 
