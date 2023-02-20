@@ -9,6 +9,28 @@
       $this->db = new Database();
     }
 
+
+    public function getOptions() {
+
+      $dsn = 'mysql:host=localhost;dbname=koratuwa;charset=utf8';
+      $username = 'root';
+      $password = '';
+
+      try {
+          $this->db = new PDO($dsn, $username, $password);
+          $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+      } catch (PDOException $e) {
+          die('Connection failed: ' . $e->getMessage());
+      }
+
+      $stmt = $this->db->prepare('SELECT product_id FROM product_category');
+      $stmt->execute();
+
+      $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+      return $results;
+  }
+  
     public function findProductId()
     {
       $this->db->query('SELECT * FROM product_category order by product_id desc limit 1');
@@ -76,6 +98,7 @@
 
     public function addStock($data)
     {
+      
       $this->db->query('INSERT INTO product_stock(stock_id,product_id,mfd_date,exp_date,quantity) VALUES(:sId,:pId, :mfd, :exp, :qty)');
       //value binding
       $this->db->bind(':sId', $data['sId']);
@@ -153,6 +176,14 @@
       {
         return false;
       }
+    }
+
+    public function viewStock() {
+      $this->db->query('SELECT * FROM expense');
+
+      $result = $this->db->resultSet();
+
+      return $result;
     }
 
 

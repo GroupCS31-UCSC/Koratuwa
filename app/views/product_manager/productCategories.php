@@ -7,11 +7,20 @@
 
 <!-- <?php echo $_SESSION['user_id']; ?></h2> -->
 
+<div class="section">
+<img class="img-bg" src="<?php echo URLROOT; ?>/public/img/price.jpg" alt="no"> 
+<h2>Our Products</h2>
+</div>
+
+
+
+
+
 <div class="btnWrapper">
   <input type="button" value="Add new Product Category" class="pmaddBtn" onclick="location.href='<?php echo URLROOT; ?>/Product_Manager/addCategory' "> 
 </div>
 
-<h2>Our Products</h2>
+
 <!-- <div class="gallery">
 <div class="content">
 

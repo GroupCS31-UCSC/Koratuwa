@@ -13,6 +13,13 @@
           }          
         }
 
+      //   public function index() {
+      //     $model = new Model();
+      //     $options = $model->getOptions();
+  
+      //     require_once 'views/index.php';
+      // }
+
         public function pmHome()
         {
           $data = [];
@@ -336,6 +343,16 @@
           {
             die('Something went wrong');
           }
+        }
+
+        public function viewStock() {
+          $stockView= $this->pmModel->viewStock();
+    
+          $data = [
+            'stockView' => $stockView
+          ];
+    
+          $this->view('product_Manager/addStock',$data);
         }
 
 
