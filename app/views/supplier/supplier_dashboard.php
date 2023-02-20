@@ -38,7 +38,7 @@
       </li>
       
       <li>
-        <a href="#">
+        <a href="<?php echo URLROOT; ?>/supplier/sup_income">
           <!--  -->
           <span class="icon"><i class="fa-solid fa-sack-dollar"></i></span>
           <span class="title">Income</span>
