@@ -340,6 +340,41 @@ body {
     margin-left: 30px;
 }
 
+
+/* footer styles */
+
+footer {
+    position: absolute;
+    bottom: 0px;
+    /* background: #04086B; */
+    background: #3cb0fd;
+    padding: 8px 0;
+    text-align: center;
+    color: #868686;
+    width: 100%;
+}
+
+footer ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+footer li {
+    display: inline-block;
+}
+
+footer li a {
+    padding: 4px;
+    font-size: 10px;
+    text-decoration: none;
+    color: #c3c3c3;
+}
+
+footer li a:hover {
+    color: white;
+}
+
 @media screen and (max-width: 480px) {
     .btn {
         display: block;

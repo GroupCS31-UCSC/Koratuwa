@@ -16,10 +16,37 @@
 
 	<form action="<?php echo URLROOT; ?>/Product_Manager/addStock" method="POST" enctype="multipart/form-data">
 
+<?php
+   $hostname="localhost";
+   $db="koratuwa";
+   $username="root";
+   $password="";
+
+   $conn=new PDO("mysql:host=$hostname;dbname=$db",$username,$password);
+   $sql="SELECT product_id FROM product_category";
+
+   try
+   {
+     $stmt=$conn->prepare($sql);
+     $stmt->execute();
+     $results=$stmt->fetchAll();
+   }
+
+   catch(Exception $ex){
+    echo($ex ->getMessage());
+
+   }
+
+?>
 		<!--category name-->
-	<div class="form-input-title">Product Name</div>
-    <span class="form-invalid"><?php echo $data['name_err']; ?></span>
-	<input type="text" name="name" id="name" class="name" value="<?php echo $data['name']; ?>">
+	<div class="form-input-title">Product ID</div>
+    <span class="form-invalid"><?php echo $data['pId_err']; ?></span>
+	<label for="Select the Product"></label>
+    <select class="pId" name="pId" id="pId" value="<?php echo $data['pId']; ?>">
+        <?php foreach($results as $output){?>
+        <option><?php echo $output["product_id"];?></option>
+        <?php } ?>
+    </select>
 
     <!--cost-->
     <div class="form-input-title">Quanitity</div>

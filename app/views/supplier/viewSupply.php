@@ -16,7 +16,7 @@
           <th>Supply Date</th>
           <th>Supply Quantity (L) </th>
           <th>Price Received Per Unit (Rs) </th>
-          <th>Supplying Address</th>
+          <!-- <th>Supplying Address</th> -->
           <th>Status</th>
           <th>Remarks</th>
         </tr>
@@ -27,7 +27,7 @@
           <td><?php echo $supOrd->supply_date; ?></td>
           <td><?php echo $supOrd->quantity; ?></td>
           <td><?php echo $supOrd->unit_price; ?></td>
-          <td><?php echo $supOrd->supplying_address; ?></td>
+          <!-- <td><?php echo $supOrd->supplying_address; ?></td> -->
           <td><?php echo $supOrd->status; ?></td>
           <td>
             <?php if($supOrd->status == 'Not Collected') : ?>
@@ -68,17 +68,17 @@
       </g>
     </svg>    
   </div>
-  <!-- <p><?php echo($data['sumMilk']) ?></p> -->
+
   
   <!-- <div class="feature">
 
   </div>     -->
   </div>
 </section>
-<!-- <label value="<?php echo URLROOT?>/Supplier/sumOfmilk/<?php echo $_SESSION['user_id']?>"></label> -->
-<!-- <label value="amma"> <?php echo URLROOT?>/Supplier/sumOfmilk/<?php echo $_SESSION['user_id']?></label> -->
-<!-- <p><?php echo $sumMilk ?></p> -->
-<a href=" <?php echo URLROOT?>/Supplier/sumOfmilk/<?php echo $_SESSION['user_id']?>"><button class="updateBtn">view</button></a>
+
+
+<p><?php echo($data['ordSum']) ?></p>     <!-- display the total milk quantity of relavant supplier -->
+ 
   <!-- </div>
 
 </div>

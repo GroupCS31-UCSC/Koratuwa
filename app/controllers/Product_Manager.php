@@ -19,6 +19,13 @@
           $this->view('product_manager/pm_home',$data);
         }
 
+        public function analyze()
+        {
+          $data = [];
+          $this->view('product_manager/analyze',$data);
+        }
+
+
         public function addCategory()
         {
           if($_SERVER['REQUEST_METHOD'] == 'POST')
@@ -137,20 +144,20 @@
 
             $data=[
 
-              'pId'=>'',
-              'name'=>trim($_POST['name']),
+              'sId'=>'',
+              'pId'=>trim($_POST['pId']),
               'qty'=>trim($_POST['qty']),
               'mfd'=>trim($_POST['mfd']),
               'exp'=>trim($_POST['exp']),
               
-              'name_err'=>'',
+              'pId_err'=>'',
               'qty_err'=>'',
               'mfd_err'=>'',
               'exp_err'=>''
             ];
 
             //validation
-            if (empty($data['name']))        { $data['name_err'] = '*' ;  }
+            if (empty($data['pId']))        { $data['pId_err'] = '*' ;  }
             if (empty($data['qty']))         { $data['qty_err'] = '*' ; }
             if (empty($data['mfd']))        { $data['mfd_err'] = '*' ; }
             if (empty($data['exp']))        { $data['exp_err'] = '*' ; }
@@ -159,9 +166,9 @@
             
 
             //if no errors
-            if(empty($data['name_err']) && empty($data['qty_err']) && empty($data['mfd_err']) && empty($data['exp_err'])  )
+            if(empty($data['pId_err']) && empty($data['qty_err']) && empty($data['mfd_err']) && empty($data['exp_err'])  )
             {
-              $data['pId']= $this->pmModel->findProductId();
+              $data['sId']= $this->pmModel->findStockId();
 
               if($this->pmModel->addStock($data))
               {
@@ -183,14 +190,14 @@
           {
             //initial form loading
             $data=[
-              
-              'name'=>'',
+              'sId'=>'',
+              'pId'=>'',
               'qty'=>'',
               'mfd'=>'',
               'exp'=>'',
               
 
-              'name_err'=>'',
+              'pId_err'=>'',
               'qty_err'=>'',
               'mfd_err'=>'',
               'exp_err'=>''
