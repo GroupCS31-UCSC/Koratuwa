@@ -201,7 +201,11 @@
             die('Something went wrong');
           }
         }
-
+        public function sup_income()
+        {
+          $data = [];
+          $this->view('supplier/sup_income',$data);
+        }
     }
 
 ?>

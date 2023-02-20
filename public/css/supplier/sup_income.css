@@ -1,0 +1,22 @@
+/*charts*/
+
+.graphBox {
+    position: absolute;
+    width: 90%;
+    padding: 10px 10px 10px 10px;
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    grid-gap: 30px;
+    min-height: 300px;
+    top: 350px;
+    left: 50px;
+}
+
+.graphBox .box {
+    position: relative;
+    background: aliceblue;
+    padding: 20px 10px 10px 10px;
+    width: 100%;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
+}
