@@ -2,7 +2,7 @@
 <?php require APPROOT.'/views/livestock_manager/livestock_dashboard.php'; ?>
 <link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/public/css/livestock_manager/addCattle.css">
 
-
+<input type="submit" value="Submit" class="submit-btn">
 <div class="form-container">
 	<div class="form-header">
 		<h3>Basic Information</h3>
@@ -108,9 +108,55 @@
 
     </div> -->
 		<br>
-		<input type="submit" value="Submit" class="submitBtn">
+		
   </form>
-</div>
+  <br>
+  </div>
+  <div class="form-container">
+    <div class="form-header">
+		  <h3>Vaccination Previously done</h3>
+	  </div>
+	  <form action="<?php echo URLROOT; ?>/Livestock_Manager/addVaccination" method="POST">
+      <div class="vac-row">
+        <div class="col-md-4">
+          <label class="checkbox-inline">
+            <input type="checkbox" name="vaccines[]" value="1">
+            BDV - ( 60 Days )
+          </label>
+        </div>
+        <div class="col-md-4">
+          <label class="checkbox-inline">
+            <input type="checkbox" name="vaccines[]" value="2">
+            BVD - ( 90 Days )
+          </label>
+        </div>
+        <div class="col-md-4">
+          <label class="checkbox-inline">
+            <input type="checkbox" name="vaccines[]" value="3">
+            PI3 - ( 120 Days )
+          </label>
+        </div>
+        <div class="col-md-4">
+          <label class="checkbox-inline">
+            <input type="checkbox" name="vaccines[]" value="4">
+            BRSV - ( 365 Days )
+          </label>
+        </div>
+        <div class="col-md-4">
+          <label class="checkbox-inline">
+            <input type="checkbox" name="vaccines[]" value="6">
+            Vitamin A - ( 60 Days )
+          </label>
+        </div>
+        <div class="col-md-4">
+          <label class="checkbox-inline">
+            <input type="checkbox" name="vaccines[]" value="7">
+            Anthrax - ( 120 Days )
+          </label>
+        </div>
+      </div>
+    </form>
+
 
 
 <?php require APPROOT.'/views/include/footer.php'; ?>

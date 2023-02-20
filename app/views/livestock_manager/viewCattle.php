@@ -47,12 +47,21 @@
           $bday = strtotime($cattle->dob);
           $today = new DateTime();
           $diff = $today->diff(new DateTime($cattle->dob));
-          echo $diff->y . ' years, ' . $diff->m.' months, '.$diff->d.' days';
+          echo $diff->y . ' years, ' . $diff->m.' months';
         ?>
         </td>
         <td><?php echo $cattle->buy_date; ?></td>
         <td><?php echo $cattle->buy_price; ?></td>
-        <!-- <td><?php echo $cattle->health_status; ?></td> -->
+        <!-- <td>
+          if(height normal range) {
+            heaith is 25%
+          } else if(weight is in normal range) {
+            health is +25%
+          }else vaccination done nm +25%
+          and average milk per day normal nm +25%
+         
+          
+        </td> -->
         <td><?php echo $cattle->pregnant_status; ?></td>
         <td><?php echo $cattle->milk_per_day; ?></td>
         <td>
