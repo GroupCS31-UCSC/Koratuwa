@@ -119,17 +119,17 @@
                 <div class="row50">
                   <div class="inputBox">
                     <span>Fist Name</span>
-                    <input type="text" placeholder="John">
+                    <input type="text" placeholder="John" required>
                   </div>
                   <div class="inputBox">
                     <span>Last Name</span>
-                    <input type="text" placeholder="Doe">
+                    <input type="text" placeholder="Doe" >
                   </div>
                 </div>
                 <div class="row50">
                   <div class="inputBox">
                     <span>Email</span>
-                    <input type="text" placeholder="johndoe@gmail.com">
+                    <input type="text" placeholder="johndoe@gmail.com" required>
                   </div>
                   <div class="inputBox">
                     <span>Mobile</span>
@@ -139,7 +139,7 @@
                 <div class="row100">
                   <div class="inputBox">
                     <span>Message</span>
-                    <textarea name="" id="" cols="30" rows="10" placeholder="Write your message here"></textarea>
+                    <textarea name="" id="" cols="30" rows="10" placeholder="Write your message here" required></textarea>
                   </div>
                   </div>
                   <div class="row100">
