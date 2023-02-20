@@ -1,9 +1,24 @@
+.submit-btn {
+    margin-top: 20px;
+    margin-left: 60vw;
+    width: 300px;
+    background: #04086B;
+    -webkit-border-radius: 30;
+    -moz-border-radius: 30;
+    border-radius: 30px;
+    border: none;
+    color: #ffffff;
+    font-size: 17px;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
 .form-container {
     width: 80%;
 }
 
-.form-container input[type=text],
-input[type=text] {
+.form-container input[type=text] {
     border: 1px solid #d5d2d2;
     border-radius: 5px;
     width: 100%;
@@ -56,16 +71,34 @@ input[type=text]:focus {
     border: 1.5px solid #00BFFF;
 }
 
-.dob-breed, .buying {
+.dob-breed, .buying, .weight-height, .pregnancy, .next-milk {
     display: flex;
 }
 
-.dob, .date {
+.dob, .date, .breed, .price, .weight, .height, .next {
     width: 50%;
 }
 
-.breed, .price {
-    width: 50%;
+.weight {
+    margin-right: 45px;
+    width: 420px;
+}
+
+.npregnant, .milk {
+    width: 470px;
+}
+
+.status {
+    width: 45%;
+    margin-right: 45px;
+}
+.vac-row {
+    height: 10vh;
+    margin-top: 10px;
+}
+.col-md-4 {
+    width: 33.3%;
+    float: right;
 }
 
 /*make it responsive design*/
