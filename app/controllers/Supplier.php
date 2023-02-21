@@ -201,10 +201,19 @@
             die('Something went wrong');
           }
         }
+
+        // Load supplier income page
         public function sup_income()
         {
           $data = [];
           $this->view('supplier/sup_income',$data);
+        }
+
+        //Load Supplier feedback
+        public function sup_feedback()
+        {
+          $data = [];
+          $this->view('supplier/sup_feedback',$data);
         }
     }
 

@@ -23,8 +23,19 @@
           <input type="text" class="searchTerm" placeholder="What are you looking for?">
           <button type="submit" class="searchButton">
             <i class="fa fa-search"></i>
-          </button>
-      </div>       
+          </button>       
+      </div> 
+      <div class="table-dropdown">
+            <div class="dropdown-menu">
+              <button class="dropdown-toggle">Topics</button>
+              <ul class="list">
+                <li class="list-item" style="--delay:0.2s">All</li>
+                <li class="list-item" style="--delay:0.4s">Collected</li>
+                <li class="list-item" style="--delay:0.6s">Not Collected</li>
+                <li class="list-item" style="--delay:0.8s">@Website_Mentor</li>
+              </ul>
+            </div>
+      </div>              
       <table>
           <tr>
             <th>Supply Order ID</th>

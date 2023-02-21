@@ -46,7 +46,7 @@
       </li>
   
       <li>
-        <a href="#">
+        <a href="<?php echo URLROOT; ?>/supplier/sup_feedback">
           <!--  -->
           <span class="icon"><i class="fa-solid fa-comment-dots"></i></span>
           <span class="title">Feedback</span>
