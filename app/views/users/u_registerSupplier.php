@@ -1,5 +1,8 @@
 <?php require APPROOT.'/views/include/header.php'; ?>
 <link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/public/css/users/register.css">
+<link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/public/css/users/buttons.css">
+<link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/public/css/users/forms.css">
+
 <div class="split left">
 	<div class="logo">
 		<img src="<?php echo URLROOT; ?>/img/koratuwa.png" alt="logo">

@@ -1,0 +1,17 @@
+/* CSS LIBRARY */
+
+
+/* COMPONENTS */
+
+@import url('buttons.css');
+@import url('forms.css');
+@import url('tables.css');
+@import url('../dashboard_styles.css');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+/* FONTS */
+
+@font-face {
+    font-family: Poppins-Regular;
+    src: url(fonts/Poppins-Regular.ttf);
+}

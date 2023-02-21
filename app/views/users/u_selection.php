@@ -1,5 +1,8 @@
 <?php require APPROOT.'/views/include/header.php'; ?>
 <link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/public/css/users/selection.css">
+<link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/public/css/users/buttons.css">
+<link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/public/css/users/forms.css">
+
 <script src="https://kit.fontawesome.com/ffac50470b.js" crossorigin="anonymous"></script>
 <!-- 
 <h1>Register as,</h1>
