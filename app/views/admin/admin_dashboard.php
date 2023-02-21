@@ -1,5 +1,5 @@
 <?php require APPROOT.'/views/include/header.php'; ?>
-<link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/public/css/styles.css">
+<link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/public/css/admin/styles.css">
 <!--
  ______________________________________________________________________________________________________-->
 
@@ -99,7 +99,7 @@
                 </div>
             </div>
         </div>
-<footer>
+<!-- <footer>
         <div class="footer-container">
             <ul>
               <li><a href="#">Home</a></li>
@@ -108,7 +108,7 @@
             </ul>
             <p>&copy; All rights reserved.</p>
         </div>
-</footer>
+</footer> -->
 
 
 

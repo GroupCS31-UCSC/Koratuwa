@@ -1,5 +1,5 @@
 <?php require APPROOT.'/views/include/header.php'; ?>
-<link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/public/css/styles.css">
+<link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/public/css/product_manager/styles.css">
 <!-- ______________________________________________________________________________________________________-->
 <div class="full-container">
 <div class="navigation active">
