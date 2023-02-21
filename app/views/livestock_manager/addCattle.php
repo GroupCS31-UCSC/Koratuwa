@@ -2,7 +2,6 @@
 <?php require APPROOT.'/views/livestock_manager/livestock_dashboard.php'; ?>
 <link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/public/css/livestock_manager/addCattle.css">
 
-<input type="submit" value="Submit" class="submit-btn">
 <div class="form-container">
 	<div class="form-header">
 		<h3>Basic Information</h3>
@@ -107,12 +106,6 @@
         <li><input type="checkbox" name="vaccination[]" value="Other">Other</li>
 
     </div> -->
-		<br>
-		
-  </form>
-  <br>
-  </div>
-  <div class="form-container">
     <div class="form-header">
 		  <h3>Vaccination Previously done</h3>
 	  </div>
@@ -156,6 +149,12 @@
         </div>
       </div>
     </form>
+		<br>
+		<input type="submit" value="Submit" class="submitBtn">
+  </form>
+  <br>
+</div>
+    
 
 
 
