@@ -63,6 +63,26 @@
 
 /*update button*/
 
+.viewBtn {
+    border-radius: 28px;
+    box-shadow: 0px 2px 3px #666666;
+    font-family: Arial;
+    color: black;
+    font-size: 10px;
+    font: bold 20px;
+    background: #4828c7;
+    padding: 10px 30px 10px 30px;
+    text-decoration: none;
+    border-color: #4828c7;
+    /*z-index: 1;*/
+}
+
+.viewBtn:hover {
+    background: #4828c7;
+    text-decoration: none;
+    cursor: pointer;
+}
+
 .updateBtn {
     border-radius: 28px;
     box-shadow: 0px 2px 3px #666666;

@@ -46,3 +46,11 @@ var myChart= new Chart(pCattle, {
 
   }
 });
+
+// Popup window for feeding items
+function openFeedItem(){
+  document.getElementById("feedItem").classList.add("open-feedItem");
+}
+function closeFeedItem(){
+  document.getElementById("feedItem").classList.remove("open-feedItem");
+}
