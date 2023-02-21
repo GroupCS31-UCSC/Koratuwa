@@ -8,11 +8,7 @@
     <label><center>Income</center></label>
     <canvas id="income"></canvas>
     </div>
-
-
 </div>
-
-
 
 <?php require APPROOT.'/views/include/footer.php'; ?>
 <script src="<?php echo URLROOT; ?>/js/supplier.js"></script>
