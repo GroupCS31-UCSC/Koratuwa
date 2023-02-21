@@ -20,7 +20,7 @@
           $this->view('admin/admin_home',$data);
         }
 
-        //get the details of Production
+        //get the details of Employees
         public function viewEmployees()
         {
           $empView= $this->adminModel->get_empView();
@@ -30,6 +30,18 @@
           ];
 
           $this->view('admin/viewEmployees',$data);
+        }
+        
+        //get the details of Employee for profile
+        public function EmployeeProfile($email)
+        {
+          $empProfileData= $this->adminModel->get_empProfileView($email);
+
+          $data = [
+              'empProfileData' => $empProfileData
+          ];
+
+          $this->view('admin/employeeProfile',$data);
         }
 
         //add new employee details
