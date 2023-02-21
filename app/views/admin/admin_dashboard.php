@@ -99,7 +99,7 @@
                 </div>
             </div>
         </div>
-<footer>
+<!-- <footer>
         <div class="footer-container">
             <ul>
               <li><a href="#">Home</a></li>
@@ -108,7 +108,7 @@
             </ul>
             <p>&copy; All rights reserved.</p>
         </div>
-</footer>
+</footer> -->
 
 
 
