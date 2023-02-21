@@ -9,15 +9,14 @@
 
 <div class="container" style="overflow-x: auto;">
 
-<section class="table-upper">
+<section class="table-upperSection">
 <div class="upper">
-<input type="text" id="myInput1" onkeyup="searchFunction()" placeholder="Search...">
-<input type="button" value="Add Employee" class="addBtnAdmin" onclick="location.href='<?php echo URLROOT; ?>/Admin/addEmployees' ">
-
+<input type="text" id="mySearch" onkeyup="searchFunction()" placeholder="Search...">
+<input type="button" value="Add New Employee" class="addBtn" onclick="location.href='<?php echo URLROOT; ?>/Admin/addEmployees' ">
 <div>
 </section>
 
-<section class="table1">
+<section class="table1Section">
   <!-- <div class="container" style="overflow-x: auto;"> -->
 
     <table>
@@ -25,15 +24,14 @@
         <th>Employee Id</th>
         <th>Name</th>
         <th>Employment</th>
-        <!-- <th>Salary</th> -->
-        <th>NIC</th>
+        <th>Salary(Last month)</th>
+        <!-- <th>NIC</th> -->
         <th>Contact Number</th>
         <th>Gender</th>
-        <!-- <th>Age</th> -->
-        <th>Email</th>
-        <!--<th>Address</th>-->
-        <!-- <th>Last Accessed On</th> -->
+        <!-- <th>Email</th> -->
+        <th>Last Accessed On</th>
         <th>Action</th>
+        <th>More Details</th>
       </tr>
       
   <?php foreach ($data['empView'] as $emp) : ?>
@@ -41,19 +39,18 @@
     <td><?php echo $emp->employee_id; ?></td>
     <td><?php echo $emp->employee_name; ?></td>
     <td><?php echo $emp->employment; ?></td>
-    <!-- <td><?php echo $emp->salary; ?></td> -->
-    <td><?php echo $emp->nic; ?></td>
+    <td><?php echo $emp->salary; ?></td>
+    <!-- <td><?php echo $emp->nic; ?></td> -->
     <td><?php echo $emp->contact_number; ?></td>
     <td><?php echo $emp->gender; ?></td>
-    <td><?php echo $emp->email; ?></td>
-    <!-- <td><?php echo ''; ?></td>    age -->
-    <!-- <td><?php echo ''; ?></td> -->
+    <!-- <td><?php echo $emp->email; ?></td> -->
+    <td><?php echo ''; ?></td>
 
     <td>
 
       <div class="table-btns">
-      <a href="<?php echo URLROOT?>/Admin/updateEmployees/<?php echo $emp->email ?>"><button class="updateBtn">UPDATE</button></a>
-      <a href="<?php echo URLROOT?>/Admin/deleteEmployees/<?php echo $emp->email ?>"><button class="deleteBtn">DELETE</button></a>
+      <a href="<?php echo URLROOT?>/Admin/updateEmployees/<?php echo $emp->email ?>"><button class="updateBtn" title="Update"><i class="fa-regular fa-pen-to-square"></i></button></a>
+      <a href="<?php echo URLROOT?>/Admin/deleteEmployees/<?php echo $emp->email ?>"><button class="deleteBtn" title="Delete"><i class="fa-regular fa-trash-can"></i></button></a>
       </div>
 
     <!-- 
@@ -62,6 +59,13 @@
     </form> -->
     
     </td>
+    <td>
+    <div class="table-btns">
+      <a href="<?php echo URLROOT?>/Admin/updateEmployees/<?php echo $emp->email ?>"><button class="viewBtn">View</button></a>
+      </div>
+    </td>
+
+
   </tr><br>
   <?php endforeach; ?>
 
