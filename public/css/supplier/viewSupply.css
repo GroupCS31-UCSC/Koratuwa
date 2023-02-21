@@ -5,6 +5,8 @@ section {
 .container {
     position: relative;
     margin: 0 auto;
+    margin-left: 180px;
+    display: flex;
     padding: 20px 0px 20px 0px;
     max-width: 1200px;
     max-height: 1000px;
@@ -17,7 +19,9 @@ section {
 }
 .feature2{
     display: inline-block;
-    padding: 0px;
+    margin: 40px;
+    padding: 20px;
+    /* border: solid green; */
 }
 /* table{
     margin: -10px 20px 100px 50px;
@@ -201,3 +205,51 @@ rect.glass {
     background-color: #5cb85c;
     color: white;
   }
+
+  /* ---------conter---------- */
+  .items {
+    width: 100%;
+    height: 80px;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+}
+
+h2 {
+  font-weight: 700;
+  font-size: 30px;
+  color: #fff;
+}
+.items:hover{
+  background-color: #333347;
+}
+
+/*charts*/
+
+.graphBox {
+  width: 60%;
+  padding: 10px 10px 10px 10px;
+  margin-left: 30%;
+  margin-top: 5%;
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+  grid-gap: 30px;
+  min-height: 300px;
+  /* border: solid red; */
+}
+
+.graphBox .box {
+  position: relative;
+  background: aliceblue;
+  padding: 20px 10px 10px 10px;
+  width: 100%;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+}
