@@ -3,12 +3,11 @@
 <?php require APPROOT.'/views/admin/admin_dashboard.php';  ?>
 <!-- ______________________________________________________________________________________________________-->
 
-<?php flash('addEmp_flash') ?>
+<!-- <?php flash('addEmp_flash') ?>
 <?php flash('updateEmp_flash') ?>
-<?php flash('dltEmp_flash') ?>
+<?php flash('dltEmp_flash') ?> -->
 
 <div class="container" style="overflow-x: auto;">
-
 
 <section class="table-upper">
 <div class="upper">

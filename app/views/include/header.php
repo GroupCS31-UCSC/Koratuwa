@@ -5,6 +5,6 @@
 	<title><?php echo SITENAME; ?></title>
 
 	<!--external styling-->
-	<link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/css/styles.css">
+	<!-- <link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/css/styles.css"> -->
 </head>
 <body>
