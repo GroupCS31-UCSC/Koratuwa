@@ -45,9 +45,9 @@
         </a>
       </li>
       <li>
-        <a href="<?php echo URLROOT; ?>/Admin/viewCustomers">
-          <span class="icon"><i class="fa-solid fa-cart-shopping"></i></span>
-          <span class="title">Customers</span>
+        <a href="<?php echo URLROOT; ?>/Admin/viewSales">
+          <span class="icon"><i class="fa-solid fa-hand-holding-dollar"></i></span>
+          <span class="title">Sales</span>
         </a>
       </li>
       <li>
@@ -56,6 +56,13 @@
           <span class="title">Suppliers</span>
         </a>
       </li>
+      <li>
+        <a href="<?php echo URLROOT; ?>/Admin/viewCustomers">
+          <span class="icon"><i class="fa-solid fa-cart-shopping"></i></span>
+          <span class="title">Customers</span>
+        </a>
+      </li>
+      
     </ul>
   </div>
 
