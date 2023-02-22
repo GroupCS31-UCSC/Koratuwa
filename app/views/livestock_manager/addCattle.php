@@ -6,7 +6,6 @@
 	<div class="form-header">
 		<h3>Basic Information</h3>
 	</div>
-	<br>
 	<form action="<?php echo URLROOT; ?>/Livestock_Manager/addCattle" method="POST">
     <div class="dob-breed">
       <div class="dob">
@@ -106,11 +105,11 @@
         <li><input type="checkbox" name="vaccination[]" value="Other">Other</li>
 
     </div> -->
-    <div class="form-header">
+    <!-- <div class="form-header">
 		  <h3>Vaccination Previously done</h3>
 	  </div>
-	  <form action="<?php echo URLROOT; ?>/Livestock_Manager/addVaccination" method="POST">
-      <div class="vac-row">
+	  <form action="<?php echo URLROOT; ?>/Livestock_Manager/addVaccination" method="POST"> -->
+      <!-- <div class="vac-row">
         <div class="col-md-4">
           <label class="checkbox-inline">
             <input type="checkbox" name="vaccines[]" value="1">
@@ -148,9 +147,9 @@
           </label>
         </div>
       </div>
-    </form>
+    </form> -->
 		<br>
-		<input type="submit" value="Submit" class="submitBtn">
+		<input type="submit" value="Submit" class="submit-btn">
   </form>
   <br>
 </div>
