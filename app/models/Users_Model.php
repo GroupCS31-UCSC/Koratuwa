@@ -212,6 +212,16 @@
 			return $id;
 		}
 
+		// get user profile details 
+		public function get_userProfile($userId){
+			$this->db->query('SELECT * FROM user WHERE user_id = :userId');
+			$this->db->bind(':userId', $userId);
+
+			$result = $this->db->resultSet();
+
+			return $result;			
+		}
+
 
 	}
 

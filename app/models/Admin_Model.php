@@ -19,6 +19,17 @@
       return $result;
     }
 
+    //to get all employee deails for user profile
+    public function get_empProfileView($email)
+    {
+      $this->db->query('SELECT * FROM employee where email= :email');
+      $this->db->bind(':email', $email);
+
+      $result = $this->db->resultSet();
+
+      return $result;
+    }
+
     //get the details of a relavant email owner
     public function getEmpByEmail($email)
     {

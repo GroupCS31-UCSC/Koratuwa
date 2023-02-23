@@ -11,7 +11,7 @@
 </div>
 
 <div class="split right">
-	<div class="form-container">
+	<div class="login-container">
 
 		<div class="form-header">
 			<center><h1>LOG IN</h1></center>
@@ -43,9 +43,9 @@
 	</div>
 </div>
 
-<div class="wave">
+<!-- <div class="wave">
 	<img src="<?php echo URLROOT; ?>/img/milk-wave.png" alt="logo">
-</div>
+</div> -->
 
 
 

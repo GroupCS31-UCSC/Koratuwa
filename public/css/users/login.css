@@ -20,22 +20,26 @@
 }
 
 .logo {
-    position: absolute;
+    /* position: absolute; */
     top: 40px;
     left: 17px;
 }
 
 .logo img {
-    width: 580px;
-    height: 640px;
+    /* width: 50vw; */
+    height: 90vh;
     border-radius: 50%;
 }
 
-.form-container {
-    position: absolute;
-    top: 120px;
-    right: 200px;
-    border-radius: 10px;
+.login-container {
+    /* position: absolute; */
+    margin: 0 auto;
+    margin-top: 15vh;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: rgb(245, 244, 240);
+    box-shadow: 0 4px 8px 0 black;
+    width: 60%;
 }
 
 .form-btn {
@@ -106,4 +110,16 @@
 .fpw:hover {
     color: #0A2558;
     cursor: pointer;
+}
+
+@media (max-width: 900px) {
+    .login-container{
+        grid-template-columns: 1fr;
+    }
+    img{
+        display: none;
+    }
+    .right {
+        width: 100%;
+    }
 }

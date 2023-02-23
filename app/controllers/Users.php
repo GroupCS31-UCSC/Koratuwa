@@ -457,6 +457,19 @@
             return false;
           }
         }
+        
+        //Get the details of userprofile
+        public function userProfile($userId){
+
+          $userProfile= $this->userModel->get_userProfile($userId);
+
+          $data = [
+              'userProfile' => $userProfile
+          ];
+
+          $this->view('Users/u_profile',$data);
+
+        }
 
     }
 ?>
