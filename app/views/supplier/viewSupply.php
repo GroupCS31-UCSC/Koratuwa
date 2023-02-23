@@ -25,7 +25,7 @@
             <i class="fa fa-search"></i>
           </button>       
       </div> 
-      <div class="table-dropdown">
+      <!-- <div class="table-dropdown">
             <div class="dropdown-menu">
               <button class="dropdown-toggle">Topics</button>
               <ul class="list">
@@ -35,7 +35,7 @@
                 <li class="list-item" style="--delay:0.8s">@Website_Mentor</li>
               </ul>
             </div>
-      </div>              
+      </div>               -->
       <table>
           <tr>
             <th>Supply Order ID</th>
