@@ -14,7 +14,6 @@ section{
     background: url(http://localhost/koratuwa/img/supplier/feedback_bg.jpg);
     background-size: cover;
     background-position: center;
-    border: solid black 0.8px;
     filter: blur(1px) brightness(30%);
 }
 .wrapper{
