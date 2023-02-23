@@ -27,6 +27,25 @@
           {
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
            
+            $file_name = $_FILES['image']['name'];
+            $file_size = $_FILES['image']['size'];
+            $tmp_name = $_FILES['image']['tmp_name'];
+            $error = $_FILES['image']['error'];
+
+            if ($error == 0) {
+
+              $fileType = pathinfo($file_name, PATHINFO_EXTENSION);
+              $fileType_lc = strtolower($fileType);
+      
+              $allowedFileTypes = array("jpg", "jpeg", "png");
+      
+              if (in_array($fileType, $allowedFileTypes)) {
+      
+                  $new_img_name = uniqid("IMG-", true) . '.' . $fileType_lc;
+                  $img_upload_path = APPROOT . '/../public/img/uploads/' . $new_img_name;
+                  move_uploaded_file($tmp_name, $img_upload_path);                  
+              }
+          } 
 
             $data=[
               'eId'=>'',
@@ -34,11 +53,13 @@
               'des'=>trim($_POST['des']),
               'ven'=>trim($_POST['ven']),
               'amo'=>trim($_POST['amo']),
+              'image'=> $new_img_name,
               
               'dat_err'=>'',
               'des_err'=>'',
               'ven_err'=>'',
               'amo_err'=>'',
+              'image_err'=>''
               
             ];
 
@@ -47,12 +68,13 @@
             if (empty($data['des']))        { $data['des_err'] = '*' ; }
             if (empty($data['ven']))        { $data['ven_err'] = '*' ; }
             if (empty($data['amo']))        { $data['amo_err'] = '*' ; }
+            if (empty($data['image']))       { $data['image_err'] = '*' ; }
             
 
             
 
             //if no errors
-            if(empty($data['dat_err']) && empty($data['des_err']) && empty($data['ven_err']) && empty($data['amo_err']) )
+            if(empty($data['dat_err']) && empty($data['des_err']) && empty($data['ven_err']) && empty($data['amo_err']) && empty($data['image_err']) )
             {
               $data['eId']= $this->financialManagerModel->findExpenseId();
 
@@ -81,12 +103,14 @@
               'des'=>'',
               'ven'=>'',
               'amo'=>'',
+              'image'=>'',
               
 
               'dat_err'=>'',
               'des_err'=>'',
               'ven_err'=>'',
               'amo_err'=>'',
+              'image_err'=>''
               
             ];
             $this->view('financial_manager/addExpense', $data);

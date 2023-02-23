@@ -146,6 +146,7 @@
           {
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
+            $data2 = $this->pmModel->getProductCategoryDetails();
               
             
 
@@ -169,7 +170,7 @@
             if (empty($data['mfd']))        { $data['mfd_err'] = '*' ; }
             if (empty($data['exp']))        { $data['exp_err'] = '*' ; }
             
-
+            $result = array($data,$data2);
             
 
             //if no errors
@@ -190,11 +191,12 @@
             else
             {
               //loading the form with the errors
-              $this->view('product_manager/addStock',$data);
+              $this->view('product_manager/addStock',$result);
             }
           }
           else
           {
+            $data2 = $this->pmModel->getProductCategoryDetails();
             //initial form loading
             $data=[
               'sId'=>'',
@@ -209,7 +211,10 @@
               'mfd_err'=>'',
               'exp_err'=>''
             ];
-            $this->view('product_manager/addStock', $data);
+
+            $result = array($data,$data2);
+
+            $this->view('product_manager/addStock', $result);
 
           }
         }
