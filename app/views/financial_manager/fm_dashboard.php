@@ -63,7 +63,7 @@
                                     <span><img src="<?php echo URLROOT; ?>/public/img/users/user.png" alt=""></span>                    
                                 </div>
                                 <hr>
-                                <a href="#" class="sub-menu-link">
+                                <a href="<?php echo URLROOT; ?>/Users/userProfile/<?php echo $_SESSION['user_id']; ?>" class="sub-menu-link">
                                     <i class="fa-solid fa-user"></i>
                                     <p>View Profile</p>
                                 </a>   
