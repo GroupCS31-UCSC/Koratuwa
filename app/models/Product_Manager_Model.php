@@ -9,27 +9,13 @@
       $this->db = new Database();
     }
 
+    public function getProductCategoryDetails(){
+      $this->db->query('SELECT * FROM product_category');
 
-    public function getOptions() {
+      $result = $this->db->resultSet();
 
-      $dsn = 'mysql:host=localhost;dbname=koratuwa;charset=utf8';
-      $username = 'root';
-      $password = '';
-
-      try {
-          $this->db = new PDO($dsn, $username, $password);
-          $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-      } catch (PDOException $e) {
-          die('Connection failed: ' . $e->getMessage());
-      }
-
-      $stmt = $this->db->prepare('SELECT product_id FROM product_category');
-      $stmt->execute();
-
-      $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-      return $results;
-  }
+      return $result;
+    }
   
     public function findProductId()
     {
@@ -106,7 +92,7 @@
       $this->db->bind(':qty', $data['qty']);
       $this->db->bind(':mfd', $data['mfd']);
       $this->db->bind(':exp', $data['exp']);
-      $this->db->bind(':pmId', $_SESSION['user_id']);
+      // $this->db->bind(':pmId', $_SESSION['user_id']);
 
       //execute
       if($this->db->execute())

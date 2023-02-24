@@ -4,64 +4,43 @@
 <!-- ______________________________________________________________________________________________________-->
 
 
-
-
-
 <div class="form-container">
 
 	<div class="form-header">
 		<center><h1>Add new Product Stock</h1></center>
 	</div>
 	<br>
-
+  
 	<form action="<?php echo URLROOT; ?>/Product_Manager/addStock" method="POST" enctype="multipart/form-data">
 
-<?php
-  //  $hostname="localhost";
-  //  $db="koratuwa";
-  //  $username="root";
-  //  $password="";
 
-  //  $conn=new PDO("mysql:host=$hostname;dbname=$db",$username,$password);
-  //  $sql="SELECT product_id FROM product_category";
-
-  //  try
-  //  {
-  //    $stmt=$conn->prepare($sql);
-  //    $stmt->execute();
-  //    $results=$stmt->fetchAll();
-  //  }
-
-  //  catch(Exception $ex){
-  //   echo($ex ->getMessage());
-
-  //  }
-
-?>
 		<!--category name-->
 	<div class="form-input-title">Product ID</div>
-    <span class="form-invalid"><?php echo $data['pId_err']; ?></span>
+    <span class="form-invalid"><?php echo $data[0]['pId_err']; ?></span>
 	<label for="Select the Product"></label>
-  <select name="mydropdown">
-    <?php foreach ($options as $option) : ?>
-        <option value="<?= $option['product_id'] ?>"></option>
-    <?php endforeach; ?>
-</select>
+  
+    <?php $values = $data[1]?>
+    <select name="pId" id="pId">
+      <?php foreach($values as $product_id):?>
+        <option value="<?=$product_id->product_id?>" name="pId"><?=$product_id->product_id?></option>
+      <?php endforeach;?>
+  </select>
+
 
     <!--cost-->
     <div class="form-input-title">Quanitity</div>
-    <span class="form-invalid"><?php echo $data['qty_err']; ?></span>
-    <input type="number" name="qty" id="qty" class="qty" value="<?php echo $data['qty']; ?>">
+    <span class="form-invalid"><?php echo $data[0]['qty_err']; ?></span>
+    <input type="number" name="qty" id="qty" class="qty" value="<?php echo $data[0]['qty'];?>" required>
 
     <!--price-->
     <div class="form-input-title">Manufactured Date</div>
-    <span class="form-invalid"><?php echo $data['mfd_err']; ?></span>
-    <input type="date" name="mfd" id="mfd" class="mfd" value="<?php echo $data['mfd']; ?>">
+    <span class="form-invalid"><?php echo $data[0]['mfd_err']; ?></span>
+    <input type="date" name="mfd" id="mfd" class="mfd" value="<?php echo $data[0]['mfd']; ?>" required>
 
     <!--ingredients-->
     <div class="form-input-title">Expiry Date</div>
-    <span class="form-invalid"><?php echo $data['exp_err']; ?></span>
-    <input type="date" name="exp" id="exp" class="exp" value="<?php echo $data['exp']; ?>">
+    <span class="form-invalid"><?php echo $data[0]['exp_err']; ?></span>
+    <input type="date" name="exp" id="exp" class="exp" value="<?php echo $data[0]['exp']; ?>" required >
 
    
 

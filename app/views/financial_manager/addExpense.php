@@ -36,6 +36,11 @@
     <span class="form-invalid"><?php echo $data['amo_err']; ?></span>
     <input type="number" name="amo" id="amo" class="amo" value="<?php echo $data['amo']; ?>">
 
+    <!--image-->
+    <div class="form-input-title">Recipt</div>
+    <span class="form-invalid"><?php echo $data['image_err']; ?></span>
+    <input type="file" name="image" id="image" class="image" value="<?php echo $data['image']; ?>"><br>
+
 
 
 		<br>
