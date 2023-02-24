@@ -22,42 +22,36 @@
         $data=[
           'cowId'=>'',
           'dob'=>trim($_POST['dob']),
+          'gender'=>trim($_POST['gender']),
           'breed'=>trim($_POST['breed']),
-          'type'=>trim($_POST['type']),
-          'buyDate'=>trim($_POST['buy_date']),
+          'regDate'=>trim($_POST['reg_date']),
           'buyPrice'=>trim($_POST['buy_price']),
           'weight'=>trim($_POST['weight']),
           'height'=>trim($_POST['height']),
-          'pregnantStatus'=>trim($_POST['pregnant_status']),
-          'noOfPregnant'=>trim($_POST['no_of_pregnant']),
-          'nextPregnant'=>trim($_POST['next_pregnant']),
-          'milkPerDay'=>trim($_POST['milk_per_day']),
+          'health'=>trim($_POST['health']),
 
           'dob_err'=>'',
+          'gender_err'=>'',
           'breed_err'=>'',
-          'type_err'=>'',
-          'buyDate_err'=>'',
+          'regDate_err'=>'',
           'buyPrice_err'=>'',
           'weight_err'=>'',
           'height_err'=>'',
-          'pregnantStatus_err'=>'',
-          'noOfPregnant_err'=>'',
-          'nextPregnant_err'=>'',
-          'milkPerDay_err'=>''
+          'health_err'=>''
         ];
 
         //validation
         if (empty($data['dob'])) {
           $data['dob_err'] = '*' ;
         }
+        if ($data['gender']=='Select') {
+          $data['gender_err'] = '*' ;
+        }
         if ($data['breed']=='Select') {
           $data['breed_err'] = '*' ;
         }
-        if ($data['type']=='Select') {
-          $data['type_err'] = '*' ;
-        }
-        if (empty($data['buyDate'])) {
-          $data['buyDate_err'] = '*' ;
+        if (empty($data['regDate'])) {
+          $data['regDate_err'] = '*' ;
         }
         if (empty($data['buyPrice'])) {
           $data['buyPrice_err'] = '*' ;
@@ -68,21 +62,12 @@
         if (empty($data['height'])) {
           $data['height_err'] = '*' ;
         }
-        if (empty($data['pregnantStatus'])) {
-          $data['pregnantStatus_err'] = '*' ;
-        }
-        if (empty($data['noOfPregnant'])) {
-          $data['noOfPregnant_err'] = '*' ;
-        }
-        if (empty($data['nextPregnant'])) {
-          $data['nextPregnant_err'] = '*' ;
-        }
-        if (empty($data['milkPerDay'])) {
-          $data['milkPerDay_err'] = '*' ;
+        if (empty($data['health'])) {
+          $data['health_err'] = '*' ;
         }
 
         //if no errors
-        if(empty($data['dob_err']) && empty($data['breed_err']) && empty($data['type_err']) && empty($data['buyDate_err']) && empty($data['buyPrice_err']) && empty($data['weight_err']) && empty($data['height_err']) && empty($data['pregnantStatus_err']) && empty($data['noOfPregnant_err']) && empty($data['nextPregnant_err']) && empty($data['milkPerDay_err']) ) {
+        if(empty($data['dob_err']) && empty($data['gender_err']) && empty($data['breed_err']) && empty($data['regDate_err']) && empty($data['buyPrice_err']) && empty($data['weight_err']) && empty($data['height_err']) && empty($data['health_err']) ) {
           $data['cowId']= $this->livestockModel->findCowId();
 
           if($this->livestockModel->addCattle($data)) {
@@ -103,28 +88,22 @@
         $data=[
           'cowId'=>'',
           'dob'=>'',
+          'gender'=>'',
           'breed'=>'',
-          'type'=>'',
-          'buyDate'=>'',
+          'regDate'=>'',
           'buyPrice'=>'',
           'weight'=>'',
           'height'=>'',
-          'pregnantStatus'=>'',
-          'noOfPregnant'=>'',
-          'nextPregnant'=>'',
-          'milkPerDay'=>'',
+          'health'=>'',
 
           'dob_err'=>'',
+          'gender_err'=>'',
           'breed_err'=>'',
-          'type_err'=>'',
-          'buyDate_err'=>'',
+          'regDate_err'=>'',
           'buyPrice_err'=>'',
           'weight_err'=>'',
           'height_err'=>'',
-          'pregnantStatus_err'=>'',
-          'noOfPregnant_err'=>'',
-          'nextPregnant_err'=>'',
-          'milkPerDay_err'=>''
+          'health_err'=>'',
         ];
         $this->view('livestock_Manager/addCattle', $data);
       }
@@ -157,45 +136,29 @@
         $data=[
           'cowId'=>$cowId,
           'dob'=>trim($_POST['dob']),
-          'breed'=>trim($_POST['breed']),
-          'type'=>trim($_POST['type']),
-          'buyDate'=>trim($_POST['buyDate']),
-          'buyPrice'=>trim($_POST['buyPrice']),
+          'gender'=>trim($_POST['gender']),
+          'breed'=>trim($_POST['gender']),
           'weight'=>trim($_POST['weight']),
           'height'=>trim($_POST['height']),
-          'pregnantStatus'=>trim($_POST['pregnantStatus']),
-          'noOfPregnant'=>trim($_POST['noOfPregnant']),
-          'nextPregnant'=>trim($_POST['nextPregnant']),
-          'milkPerDay'=>trim($_POST['milkPerDay']),
+          'health'=>trim($_POST['health']),
 
           'dob_err'=>'',
+          'gender_err'=>'',
           'breed_err'=>'',
-          'type_err'=>'',
-          'buyDate_err'=>'',
-          'buyPrice_err'=>'',
           'weight_err'=>'',
           'height_err'=>'',
-          'pregnantStatus_err'=>'',
-          'noOfPregnant_err'=>'',
-          'nextPregnant_err'=>'',
-          'milkPerDay_err'=>''
+          'health_err'=>'',
         ];
 
         //validation
         if (empty($data['dob'])) {
           $data['dob_err'] = '*' ;
         }
+        if ($data['gender']=='Select') {
+          $data['gender_err'] = '*' ;
+        }
         if ($data['breed']=='Select') {
           $data['breed_err'] = '*' ;
-        }
-        if ($data['type']=='Select') {
-          $data['type_err'] = '*' ;
-        }
-        if (empty($data['buyDate'])) {
-          $data['buyDate_err'] = '*' ;
-        }
-        if (empty($data['buyPrice'])) {
-          $data['buyPrice_err'] = '*' ;
         }
         if (empty($data['weight'])) {
           $data['weight_err'] = '*' ;
@@ -203,21 +166,15 @@
         if (empty($data['height'])) {
           $data['height_err'] = '*' ;
         }
-        if (empty($data['pregnantStatus'])) {
+        if (empty($data['health'])) {
           $data['pregnantStatus_err'] = '*' ;
         }
-        if (empty($data['noOfPregnant'])) {
-          $data['noOfPregnant_err'] = '*' ;
-        }
-        if (empty($data['nextPragnant'])) {
-          $data['nextPregnant_err'] = '*' ;
-        }
-        if (empty($data['milkPerDay'])) {
-          $data['milkPerDay_err'] = '*' ;
+        if (empty($data['health'])) {
+          $data['health_err'] = '*' ;
         }
 
         //if no errors
-        if(empty($data['dob_err']) && empty($data['breed_err']) && empty($data['type_err']) && empty($data['buyDate_err']) && empty($data['buyPrice_err']) && empty($data['height_err']) && empty($data['pregnantStatus_err']) && empty($data['noOfPregnant_err']) && empty($data['nextPregnant_err']) && empty($data['milkPerDay_err']) ) {
+        if(empty($data['dob_err']) && empty($data['gender_err']) && empty($data['breed_err']) && empty($data['weight_err']) && empty($data['height_err']) && empty($data['health_err']) ) {
           if($this->livestockModel->updateCattle($data)) {
             flash('updateCattle_flash','New cattle details are successfully Updated!');
             redirect('Livestock_Manager/viewCattle');
@@ -236,28 +193,18 @@
         $data=[
           'cowId'=>$cow->cow_id,
           'dob'=>$cow->dob,
-          'breed'=>$cow->breed,
-          'type'=>$cow->type,
-          'buyDate'=>$cow->buy_date,
-          'buyPrice'=>$cow->buy_price,
+          'gender'=>$cow->cow_breed,
+          'breed'=>$cow->cow_type,
           'weight'=>$cow->weight,
           'height'=>$cow->height,
-          'pregnantStatus'=>$cow->pregnant_status,
-          'noOfPregnant'=>$cow->no_of_pregnant,
-          'nextPregnant'=>$cow->next_pregnant,
-          'milkPerDay'=>$cow->milk_per_day,
+          'health'=>$cow->health,
 
           'dob_err'=>'',
+          'gender_err'=>'',
           'breed_err'=>'',
-          'type_err'=>'',
-          'buyDate_err'=>'',
-          'buyPrice_err'=>'',
           'weight_err'=>'',
           'height_err'=>'',
-          'pregnantStatus_err'=>'',
-          'noOfPregnant_err'=>'',
-          'nextPregnant_err'=>'',
-          'milkPerDay_err'=>''
+          'health_err'=>''
         ];
         $this->view('livestock_Manager/updateCattle', $data);
       }
