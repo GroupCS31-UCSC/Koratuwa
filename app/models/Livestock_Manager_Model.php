@@ -58,21 +58,34 @@
     }
 
     public function addCattle($data) {
-      $this->db->query('INSERT INTO cattle(cow_id, dob, cow_breed, cow_type, buy_date, buy_price, weight, height, pregnant_status, no_of_pregnant, next_pregnant, milk_per_day, employee_id) VALUES(:cowId, :dob, :breed, :type, :buyDate, :buyPrice, :weight, :height, :pregnantStatus, :noOfPregnant, :nextPregnant, :milkPerDay, :empId)');
+      // calculate age
+      $dob = $data['dob'];
+      $today = new DateTime();
+      $age = $today->diff(new DateTime($dob));
+      $years = $age->y;
+      $months = $age->m;
+      $days = $age->d;
+
+      // format age
+      if ($years > 0) { $ageStr = $years . ' years'; if ($months > 0 || $days > 0) { $ageStr .= ', '; }}
+      if ($months > 0) { $ageStr .= $months . ' months'; if ($days > 0) { $ageStr .= ', '; }}
+      if ($days > 0 || ($years == 0 && $months == 0)) { $ageStr .= $days . ' days'; }
+      $data['age'] = $ageStr;
+      
+      $this->db->query('INSERT INTO cattle(cow_id, dob, age, gender, cow_breed, reg_date, buy_price, weight, height, health, stall_no) VALUES(:cowId, :dob, :age, :gender, :breed, :regDate, :buyPrice, :weight, :height, :health, :stallNo)');
+
       //value binding
       $this->db->bind(':cowId', $data['cowId']);
       $this->db->bind(':dob', $data['dob']);
+      $this->db->bind(':age', $data['age']);
+      $this->db->bind(':gender', $data['gender']);
       $this->db->bind(':breed', $data['breed']);
-      $this->db->bind(':type', $data['type']);
-      $this->db->bind(':buyDate', $data['buyDate']);
+      $this->db->bind(':regDate', $data['regDate']);
       $this->db->bind(':buyPrice', $data['buyPrice']);
       $this->db->bind(':weight', $data['weight']);
       $this->db->bind(':height', $data['height']);
-      $this->db->bind(':pregnantStatus', $data['pregnantStatus']);
-      $this->db->bind(':noOfPregnant', $data['noOfPregnant']);
-      $this->db->bind(':nextPregnant', $data['nextPregnant']);
-      $this->db->bind(':milkPerDay', $data['milkPerDay']);
-      $this->db->bind(':empId', $_SESSION['user_id']);
+      $this->db->bind(':health', $data['health']);
+      $this->db->bind(':stallNo', $_SESSION['user_id']);
 
       //execute
       if($this->db->execute())
@@ -100,19 +113,16 @@
     }
 
     public function updateCattle($data) {
-      $this->db->query('UPDATE cattle SET dob=:dob, cow_breed= :breed, cow_type= :type, buy_date= :buyDate, buy_price= :buyPrice, weight= :weight height= :height, pregnant_status= :pregnantStatus, no_of_pregnant= :noOfPregnant, next_pregnant= :nextPregnant, milk_per_day= :milk_per_day WHERE cow_id= :cowId');
+      $this->db->query('UPDATE cattle SET dob=:dob, gender= :gender, cow_breed= :breed, reg_date= :regDate, buy_price= :buyPrice, weight= :weight, height= :height, health= :health WHERE cow_id= :cowId');
       $this->db->bind(':cowId', $data['cowId']);
       $this->db->bind(':dob', $data['dob']);
+      $this->db->bind(':gender', $data['gender']);
       $this->db->bind(':breed', $data['breed']);
-      $this->db->bind(':type', $data['type']);
-      $this->db->bind(':buyDate', $data['buyDate']);
+      $this->db->bind(':regDate', $data['regDate']);
       $this->db->bind(':buyPrice', $data['buyPrice']);
       $this->db->bind(':weight', $data['weight']);
       $this->db->bind(':height', $data['height']);
-      $this->db->bind(':pregnantStatus', $data['pregnantStatus']);
-      $this->db->bind(':noOfPregnant', $data['noOfPregnant']);
-      $this->db->bind(':nextPregnant', $data['nextPregnant']);
-      $this->db->bind(':milk_per_day', $data['milkPerDay']);
+      $this->db->bind(':health', $data['health']);
 
       if($this->db->execute())
       {
