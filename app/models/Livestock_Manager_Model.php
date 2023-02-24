@@ -58,10 +58,26 @@
     }
 
     public function addCattle($data) {
-      $this->db->query('INSERT INTO cattle(cow_id, dob, gender, cow_breed, reg_date, buy_price, weight, height, health, stall_no) VALUES(:cowId, :dob, :gender, :breed, :regDate, :buyPrice, :weight, :height, :health, :stallNo)');
+      // calculate age
+      $dob = $data['dob'];
+      $today = new DateTime();
+      $age = $today->diff(new DateTime($dob));
+      $years = $age->y;
+      $months = $age->m;
+      $days = $age->d;
+
+      // format age
+      if ($years > 0) { $ageStr = $years . ' years'; if ($months > 0 || $days > 0) { $ageStr .= ', '; }}
+      if ($months > 0) { $ageStr .= $months . ' months'; if ($days > 0) { $ageStr .= ', '; }}
+      if ($days > 0 || ($years == 0 && $months == 0)) { $ageStr .= $days . ' days'; }
+      $data['age'] = $ageStr;
+      
+      $this->db->query('INSERT INTO cattle(cow_id, dob, age, gender, cow_breed, reg_date, buy_price, weight, height, health, stall_no) VALUES(:cowId, :dob, :age, :gender, :breed, :regDate, :buyPrice, :weight, :height, :health, :stallNo)');
+
       //value binding
       $this->db->bind(':cowId', $data['cowId']);
       $this->db->bind(':dob', $data['dob']);
+      $this->db->bind(':age', $data['age']);
       $this->db->bind(':gender', $data['gender']);
       $this->db->bind(':breed', $data['breed']);
       $this->db->bind(':regDate', $data['regDate']);

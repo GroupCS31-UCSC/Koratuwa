@@ -41,14 +41,7 @@
         <td><?php echo $cattle->dob; ?></td>
         <td><?php echo $cattle->gender; ?></td>
         <td><?php echo $cattle->cow_breed; ?></td>
-        <td>
-        <?php
-          $bday = strtotime($cattle->dob);
-          $today = new DateTime();
-          $diff = $today->diff(new DateTime($cattle->dob));
-          echo $diff->y . ' years, ' . $diff->m.' months';
-        ?>
-        </td>
+        <td><?php echo $cattle->age; ?></td>
         <td><?php echo $cattle->reg_date; ?></td>
         <td><?php echo $cattle->buy_price; ?></td>
         <!-- <td>
