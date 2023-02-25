@@ -16,7 +16,11 @@
         //redirect to the mco Home page
         public function mcoHome()
         {
-          $data = [];
+          $recentOrderView= $this->mcoModel->get_RecentOrderView();
+
+          $data = [
+            'orderView' => $recentOrderView
+          ];
           $this->view('milk_collection_officer/mco_home',$data);
         }
 

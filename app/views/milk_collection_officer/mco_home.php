@@ -12,8 +12,8 @@
     
     <div class="card">
       <div>
-        <div class="cardName">Total Milk Collection(L.)</div>
-        <div class="numbers">1548 L</div>
+        <div class="cardName">Internal Milk Collection(L.)</div>
+        <div class="numbers">1548</div>
         <div class="day1">
           <div class="circle"></div><label>last 30 days</label>
         </div>
@@ -22,8 +22,8 @@
 
     <div class="card">
       <div>
-        <div class="cardName">Total Suppliers</div>
-        <div class="numbers">42</div>
+        <div class="cardName">External Milk Collection(L.)</div>
+        <div class="numbers">420</div>
         <div class="day2">
           <div class="circle"></div><label>last 30 days</label>
         </div>
@@ -32,8 +32,8 @@
 
     <div class="card">
       <div>
-        <div class="cardName">Koratuwa Cattle</div>
-        <div class="numbers">68</div>
+        <div class="cardName">Total Milk Collection(L.)</div>
+        <div class="numbers">2345</div>
         <div class="day3">
           <div class="circle"></div><label>last 30 days</label>
         </div>
@@ -42,8 +42,8 @@
 
     <div class="card">
       <div>
-        <div class="cardName">Total Milk Sales</div>
-        <div class="numbers">1245 L</div>
+        <div class="cardName">Supply Orders</div>
+        <div class="numbers">124</div>
         <div class="day4">
           <div class="circle"></div><label>last 30 days</label>
         </div>
@@ -52,6 +52,64 @@
 
   </div>
 </section>
+
+
+<!-- add set price and table -->
+<section>
+<div class="section2">
+<div class="details">
+  <div class="recentOrders">
+    <div class="cardHeader">
+      <h2>Recent Orders</h2>
+      <a href="" class="viewBtn">View All</a>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <td>Supplier</td>
+          <td>Quantity</td>
+          <td>Price</td>
+          <td>Status</td>
+        </tr>
+      </thead>
+      <tbody>
+      <?php foreach ($data['orderView'] as $orderView) : ?>
+        <tr>
+          <td><?php echo $orderView->supplier_id; ?></td>
+          <td><?php echo $orderView->quantity; ?></td>
+          <td><?php echo $orderView->price_hastopay; ?></td>
+          <td>
+          <?php if($orderView->status == 'Collected') : ?>
+            <span class="status collected">Collected</span>
+          <?php elseif($orderView->status == 'Not Collected') : ?>
+            <span class="status notcollected">Pending</span>
+          <?php else : ?>
+            <span class="status rejected">Rejected</span>
+          <?php endif; ?>
+        </td>
+        </tr>
+      <?php endforeach; ?>
+      </tbody>
+    </table>
+
+  </div>
+
+  <div class="price">
+    <div class="displayPrice">
+      <h2>Milk Purchasing Price</h2><h3>2023/02/15</h3><h3>102.50</h3>
+    </div>
+    <div class="setPrice">
+        <a href="##">Set Today Milk Purchasing Price</a>
+      </div>
+    <div class="priceChart">
+
+    </div>
+  </div>
+
+</div>
+</div>
+</section>
+
 
 <!--Add charts-->
 <div class="graphBox">
