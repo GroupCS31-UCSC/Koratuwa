@@ -96,7 +96,310 @@ section {
 }
 
 
+/* section 2 */
+
+.details {
+    border: 1px solid red;
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 4fr 3fr;
+    grid-gap: 30px;
+    margin-top: 10px;
+}
+
+
+/* table */
+
+.recentOrders {
+    border: 1px solid orange;
+    position: relative;
+    /* display: grid; */
+    min-height: 500px;
+    background: var(--white);
+    padding: 20px;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
+    background-color: rgb(247, 247, 247);
+}
+
+.cardHeader {
+    /* border: 1px solid black; */
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    color: var(--blue);
+    margin-bottom: 0px;
+    padding: 0 auto 5px 0;
+}
+
+
+/* .cardHeader h2 {
+    font-weight: 600;
+    color: var(--blue);
+} */
+
+.details table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 25px auto 0px;
+}
+
+.details table thead td {
+    font-weight: 600;
+    background: var(--white);
+    border: none;
+}
+
+.details .recentOrders table tbody tr {
+    background: var(--white);
+    color: var(--black1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.01);
+}
+
+.details table td {
+    border: none;
+}
+
+.details .recentOrders table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.details .recentOrders table tbody tr:hover {
+    background: rgb(247, 247, 247);
+    color: var(--black1);
+}
+
+.details .recentOrders table tr td {
+    padding: 10px;
+}
+
+.details .recentOrders table tr td:last-child {
+    text-align: end;
+}
+
+.details .recentOrders table tr td:nth-child(1) {
+    text-align: left;
+}
+
+.status.collected {
+    padding: 2px 4px;
+    background: #8de02c;
+    color: white;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.status.notcollected {
+    padding: 2px 4px;
+    background: #f9ca3f;
+    color: white;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.status.rejected {
+    padding: 2px 4px;
+    background: #f00;
+    color: white;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.viewBtn {
+    border: 0.25px solid white;
+    border-radius: 10px;
+    box-shadow: 0px 2px 3px #666666;
+    color: black;
+    padding: 8px 18px 8px 18px;
+    /* background: #FF9900; */
+    background: #779d9d;
+    margin-left: 14px;
+    text-decoration: none;
+}
+
+.viewBtn:hover {
+    border: 0.25px solid black;
+    color: black;
+    background: yellow;
+    cursor: pointer;
+}
+
+
+/* purchasing price section*/
+
+
+/* .price {
+    position: relative;
+    display: grid;
+    min-height: 500px;
+    padding: 20px;
+    box-shadow: 0.7px 25px rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
+} */
+
+
+/* .price {
+    border: 1px solid green;
+}
+
+.displayPrice {
+    display: flex;
+    border: 1px solid blueviolet;
+    height: 15vh;
+}
+
+.displayPrice .name {
+    align-items: left;
+    font-size: large;
+    border: 1px solid brown;
+    padding: 15px 10px 10px 10px;
+    color: red;
+    background-color: lightcyan;
+}
+
+.displayPrice .name .lastdate {
+    align-items: left;
+    font-size: large;
+    border: 1px solid brown;
+    padding: 10px 10px 5px 10px;
+    color: var(--blue);
+}
+
+.displayPrice .lastPrice h1 {
+    border: 1px solid red;
+    text-align: center;
+    align-items: center;
+    padding: 10px 10px 10px 10px;
+    color: red;
+}
+
+.priceBox {
+    border: 1px solid red;
+    padding: 20px 20px 20px 20px;
+    background-color: grey;
+    align-items: center;
+    font-size: 38px;
+    width: 150%;
+    color: whitesmoke;
+}
+
+.priceBox:hover {
+    color: black;
+    background-color: lightyellow;
+    cursor: pointer;
+}
+
+.setPrice {
+    border: 1px solid greenyellow;
+    height: 5vh;
+    margin: 15px auto 15px auto;
+}
+*/
+
+.setPrice .setBtn {
+    width: 400px;
+    background: #04086B;
+    -webkit-border-radius: 30;
+    -moz-border-radius: 30;
+    border-radius: 30px;
+    border: 1px solid white;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 2.3vh;
+    padding: 9px 20px 9px 20px;
+    text-decoration: none;
+}
+
+.price .setPrice .setBtn:hover {
+    background: #3cb0fd;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+/* set price popup window styles */
+
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.overlay:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+.popup {
+    margin: 70px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    width: 60%;
+    height: 80%;
+    position: relative;
+    transition: all 5s ease-in-out;
+}
+
+.popup h2 {
+    margin-top: 0;
+    color: white;
+    font-family: Tahoma, Arial, sans-serif;
+    background-color: blue;
+}
+
+.popup .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+}
+
+.popup .close:hover {
+    color: #06D85F;
+}
+
+.popup .content {
+    max-height: 30%;
+    overflow: auto;
+}
+
+@media screen and (max-width: 700px) {
+    .popup {
+        width: 70%;
+    }
+}
+
+
 /*charts*/
+
+
+/* .priceChart {
+    margin-top: 10px;
+    border: 1px solid red;
+    height: 500px;
+    position: relative;
+    background: aliceblue;
+    padding: 20px 0 0 0;
+    width: 98%;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
+} */
 
 .graphBox {
     position: relative;
