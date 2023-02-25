@@ -119,31 +119,31 @@
 
         $data=[
           'cowId'=>$cowId,
-          'dob'=>trim($_POST['dob']),
-          'gender'=>trim($_POST['gender']),
-          'breed'=>trim($_POST['gender']),
+          // 'dob'=>trim($_POST['dob']),
+          // 'gender'=>trim($_POST['gender']),
+          // 'breed'=>trim($_POST['gender']),
           'weight'=>trim($_POST['weight']),
           'height'=>trim($_POST['height']),
-          'health'=>trim($_POST['health']),
+          // 'health'=>trim($_POST['health']),
 
-          'dob_err'=>'',
-          'gender_err'=>'',
-          'breed_err'=>'',
+          // 'dob_err'=>'',
+          // 'gender_err'=>'',
+          // 'breed_err'=>'',
           'weight_err'=>'',
           'height_err'=>'',
-          'health_err'=>'',
+          // 'health_err'=>'',
         ];
 
         //validation
-        if (empty($data['dob'])) {
-          $data['dob_err'] = '*' ;
-        }
-        if ($data['gender']=='Select') {
-          $data['gender_err'] = '*' ;
-        }
-        if ($data['breed']=='Select') {
-          $data['breed_err'] = '*' ;
-        }
+        // if (empty($data['dob'])) {
+        //   $data['dob_err'] = '*' ;
+        // }
+        // if ($data['gender']=='Select') {
+        //   $data['gender_err'] = '*' ;
+        // }
+        // if ($data['breed']=='Select') {
+        //   $data['breed_err'] = '*' ;
+        // }
         if (empty($data['weight'])) {
           $data['weight_err'] = '*' ;
         }
@@ -153,12 +153,12 @@
         if (empty($data['health'])) {
           $data['pregnantStatus_err'] = '*' ;
         }
-        if (empty($data['health'])) {
-          $data['health_err'] = '*' ;
-        }
+        // if (empty($data['health'])) {
+        //   $data['health_err'] = '*' ;
+        // }
 
         //if no errors
-        if(empty($data['dob_err']) && empty($data['gender_err']) && empty($data['breed_err']) && empty($data['weight_err']) && empty($data['height_err']) && empty($data['health_err']) ) {
+        if(/*empty($data['dob_err']) && empty($data['gender_err']) && empty($data['breed_err']) && */empty($data['weight_err']) && empty($data['height_err'])/* && empty($data['health_err'])*/ ) {
           if($this->livestockModel->updateCattle($data)) {
             flash('updateCattle_flash','New cattle details are successfully Updated!');
             redirect('Livestock_Manager/viewCattle');
@@ -176,19 +176,19 @@
         $cow = $this->livestockModel->getCattleById($cowId);
         $data=[
           'cowId'=>$cow->cow_id,
-          'dob'=>$cow->dob,
-          'gender'=>$cow->cow_breed,
-          'breed'=>$cow->cow_type,
+          // 'dob'=>$cow->dob,
+          // 'gender'=>$cow->cow_breed,
+          // 'breed'=>$cow->cow_type,
           'weight'=>$cow->weight,
           'height'=>$cow->height,
-          'health'=>$cow->health,
+          // 'health'=>$cow->health,
 
-          'dob_err'=>'',
-          'gender_err'=>'',
-          'breed_err'=>'',
+          // 'dob_err'=>'',
+          // 'gender_err'=>'',
+          // 'breed_err'=>'',
           'weight_err'=>'',
           'height_err'=>'',
-          'health_err'=>''
+          // 'health_err'=>''
         ];
         $this->view('livestock_Manager/updateCattle', $data);
       }
