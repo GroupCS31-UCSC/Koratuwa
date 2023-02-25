@@ -93,14 +93,45 @@
     </table>
 
   </div>
-
+  
   <div class="price">
     <div class="displayPrice">
-      <h2>Milk Purchasing Price</h2><h3>2023/02/15</h3><h3>102.50</h3>
+
+      <div class="name">
+      <h2>Milk Purchasing Price</h2>
+      </div>
+      <div class="lastdate">
+      <h3><?php echo $data['lastDate']; ?></h3>
+      </div>
+      <div class="lastprice">
+      <h3><?php echo $data['lastPrice']; ?></h3>
+      
+      </div>
     </div>
     <div class="setPrice">
-        <a href="##">Set Today Milk Purchasing Price</a>
+        <a href="#popup1"><button class="setBtn">Set Today Milk Purchasing Price</button></a>
+    </div>
+
+    <!------------ set price popup window ---------------->
+    <div id="popup1" class="overlay">
+    <div class="popup">
+      <h2>Set Today Milk Purchasing Price</h2>
+      <a class="close" href="#">&times;</a>
+      <div class="content">
+
+      <form id="addForm" action="<?php echo URLROOT; ?>/Milk_Collection_Officer/setPriceDaily" method="POST">
+          <div class="feature">
+            <div class="form-input-title">Unit Price for Litre</div>
+            <input type="number" name="price" id="price" class="price" autocomplete="off" value="<?php error_reporting(0); echo $data['price']; ?> ">
+            <input type="submit" value="Submit" class="submitBtn">
+          </div>
+      </form>
+        
       </div>
+    </div>
+  </div>
+  <!------------------------------------------------------>
+
     <div class="priceChart">
 
     </div>

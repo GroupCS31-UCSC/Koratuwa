@@ -69,6 +69,49 @@
       return $result;
     }
     
+    public function setPrice($data)
+    {
+      $this->db->query('SELECT * FROM milk_purchasing_price order by date desc limit 1');
+      $row = $this->db->single();
+			$lastdate=$row->date;
+
+      if($lastdate == date("Y-m-d"))
+      {
+        return false;
+      }
+      else{
+        $this->db->query('INSERT INTO milk_purchasing_price(unit_price) VALUES(:price)');
+        $this->db->bind(':price', $data['price']);
+        if($this->db->execute())
+          {
+            return true;
+          }
+          else
+          {
+            return false;
+          }
+      }
+
+      
+    }
+
+    public function get_lastDate()
+    {
+      $this->db->query('SELECT date FROM milk_purchasing_price order by date desc limit 1');
+
+      $row = $this->db->single();
+
+      return $row->date;
+    }
+
+    public function get_lastPrice()
+    {
+      $this->db->query('SELECT unit_price FROM milk_purchasing_price order by date desc limit 1');
+
+      $row = $this->db->single();
+
+      return $row->unit_price;
+    }
 
     
 
