@@ -6,19 +6,20 @@
 
 
 
-<section>
-  <section class="sec1"></section>
+<section class="sec1">
   <div class="container">
 
     <div class="feature">
       <div class="text">
-      <h1 class="h">Koratuwa provides the<br> best value for you!</h1>
-      <p>We appriciate you according to <br>your supply quality</p>
-      <ul>
-        <li>Good - 20% water presentage</li>
-        <li>Average - 40% water presentage</li>
-        <li>Bad - 50% water presentage</li>
-      </ul>
+        <h1 class="h">Koratuwa provides the<br> best value for you!</h1>
+        <div class="text2">
+          <p>We appriciate you according to <br>your supply quality</p>
+          <ul>
+            <li>Good - 20% water presentage</li>
+            <li>Average - 40% water presentage</li>
+            <li>Bad - 50% water presentage</li>
+          </ul>
+        </div>
       </div>
       <button id="myBtn" class="place_order"><i class="fa-solid fa-truck-field"></i> Place Order</button>
     </div>
@@ -79,7 +80,7 @@
         <div class="form-input-title">Supply Quantity (LITER)</div>
         <span class="form-invalid"><?php echo $data['quantity_err']; ?></span>
         <input type="text" name="quantity" id="quantity" class="quantity" value="<?php echo $data['quantity']; ?>"><br>
-        <input type="submit" value="Submit" class="submitBtn"><br>
+        <div class="submit_btn"><input type="submit" value="Submit" class="submitBtn"><br></div>
       </form>
     </div>  
     <div class="modal-footer">

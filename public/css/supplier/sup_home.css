@@ -3,14 +3,9 @@ section {
     /* border: solid red; */
 }
 .sec1{
-    position: absolute;
-    top: 44px;
-    width: 100%;
-    height: 45%;
     background: url(http://localhost/koratuwa/img/supplier/sup_home.jpg);
     background-size: cover;
-    background-position: center;
-    filter: blur(1px) brightness(80%);    
+    background-position: center;   
 }
 .sec2{
     background: url(http://localhost/koratuwa/img/supplier/graph_bg.jpg);
@@ -31,34 +26,6 @@ section {
     width: 100%;
     /* border: solid blue; */
 }
-/*-------------price index------------------------------------------------------*/
-
-
-
-/* .model3Wrapper{
-    position: relative;
-    width: 100%;
-    max-height: 300px;
-    background-color: black;
-    overflow: hidden;
-}
-
-.overlay{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.386);
-}
-
-
-.model3Wrapper > .img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}  */
-
 
 .content{
     /* position: relative; */
@@ -68,18 +35,37 @@ section {
     background: linear-gradient(90deg, rgba(9,6,65,0.6898109585631127) 46%, rgba(255,255,255,1) 100%);    display: flex;
     border: #00BFFF solid;
 }
-
+.text{
+    background-color: rgb(0,0,0,0.6);
+    padding: 20px 20px 30px 20px;
+    border-radius: 10px;
+}
 .h{
     margin-top:20px;
     text-transform: uppercase;
     font-size: 3rem;
+    color: #fff;
     /* border: 1px solid white; */
 }
-.text{
-    color: #fff;
+.text ul{
+    font-family: Arial, Helvetica, sans-serif;
+    width: 60%;
+    margin-left: 30%;
+    font-size: 1rem;
+    text-align: left;
 }
-ul{
-    text-align: start;
+.text p{
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+.text2{
+    color: #fff;
+    margin-top: 30px;
+    margin-left: 10%;
+    padding-left: 20%;
+    padding: 10px;
+    width: 80%;
+    /* background-color: rgb(0,0,0,0.6); */
 }
 
 .model3 {
@@ -90,10 +76,9 @@ ul{
     padding: 20px;
     align-items: center;
     justify-content: center;    
-    background: #04086B;
-    border-radius: 20px;
+    background: rgb(4, 8, 107, 0.8);
+    border-radius: 10px;
 }
-
 
 .model3 .container4 .label1 {
     padding: 4px 4px;
@@ -110,15 +95,17 @@ ul{
 }
 
 .items {
-    position: relative;
+    margin-left: 3%;
+    margin-top: 2%;
     width: 250px;
     height: 15vh;
-    background-color: #00BFFF;
+    background-color: rgb(0, 191, 255,0.6);
     display: flex;
     justify-content: center;
     align-items: center;
     backdrop-filter: blur(5px);
-    border-radius: 15px;
+    border-radius: 10px;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
     -webkit-border-radius: 15px;
     -moz-border-radius: 15px;
     -ms-border-radius: 15px;
@@ -130,7 +117,7 @@ h2 {
     font-size: 40px;
     color: #fff;
 }
-/*------place order----------*/
+/*------place order button----------*/
 .place_order {
     margin: 50px;
     width: 30%;
@@ -161,8 +148,6 @@ h2 {
   width: 80%;
   padding: 10px;
   margin-left: 10%;
-  margin-top: 5%;
-  margin-bottom: 5%;
   display: grid;
   grid-template-columns: 2fr 2fr;
   grid-gap: 30px;
@@ -203,7 +188,8 @@ h2 {
     background-color: #fefefe;
     margin: auto;
     padding: 0;
-    border: 1px solid #888;
+    /* border: 1px solid #888; */
+    border-radius: 10px;
     width: 80%;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
     -webkit-animation-name: animatetop;
@@ -211,7 +197,10 @@ h2 {
     animation-name: animatetop;
     animation-duration: 0.4s
   }
-  
+.submit_btn{
+    width: 30%;
+    margin-left: 35%;
+}
   /* Add Animation */
   @-webkit-keyframes animatetop {
     from {top:-300px; opacity:0} 
@@ -233,21 +222,22 @@ h2 {
   
   .close:hover,
   .close:focus {
-    color: #000;
+    color: red;
     text-decoration: none;
     cursor: pointer;
   }
   
   .modal-header {
     padding: 2px 16px;
-    background-color: #5cb85c;
+    background: #04086B;
     color: white;
+    text-align: center;
   }
   
   .modal-body {padding: 2px 16px;}
   
   .modal-footer {
     padding: 2px 16px;
-    background-color: #5cb85c;
+    background-color: #04086B;
     color: white;
   }
