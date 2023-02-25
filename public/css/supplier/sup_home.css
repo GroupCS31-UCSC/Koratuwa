@@ -1,120 +1,46 @@
-
-.logo {
-    position: absolute;
-    border-radius: 50%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 100px;
-    height: 100px;
-    left: 0px;
-    top: -20px;
-}
-
-.vprofile {
-    position: absolute;
-    width: 130.09px;
-    height: 23.25px;
-    left: 1269.88px;
-    top: 10px;
-    color: #00cc00;
-}
-
-.cpassword {
-    position: absolute;
-    width: 153.11px;
-    height: 19.21px;
-    left: 1269.88px;
-    top: 30px;
-    color: #00cc00;
-}
-
-.btn_logout {
-    position: absolute;
-    color: black;
-    padding: 5px 8px;
-    border: 1px;
-    cursor: pointer;
-    width: 6%;
-    left: 1420px;
-    top: 15px;
-    background: #D9D9D9;
-    border-radius: 30px;
-}
-
-.btn_logout:hover {
-    background-color: #bbb6b6;
-}
-
-
-/*----------place order, view order---------*/
-
-.model1 {
-    position: relative;
-    width: 300px;
-    height: 150px;
-    left: 500px;
-    top: 500px;
-    line-height: 30px;
-}
-
-div.container1 {
-    position: absolute;
-    padding: 50px 25px;
-    max-width: 500px;
-    margin: auto;
-    top: auto;
-    left: auto;
-}
-
-div.model1 .container1 input {
-    position: absolute;
-    padding: 15px 32px;
+section {
     text-align: center;
-    font-size: 16px;
-    width: 250px;
-    -webkit-border-radius: 28;
-    -moz-border-radius: 28;
-    border-radius: 28px;
-    -webkit-box-shadow: 0px 2px 8px #666666;
-    -moz-box-shadow: 0px 2px 8px #666666;
-    box-shadow: 0px 2px 8px #666666;
-    font-family: Arial, Helvetica, sans-serif;
-    color: white;
-    font-size: 20px;
-    background: black;
-    padding: 10px 20px 10px 20px;
-    text-decoration: none;
-    opacity: 0.9;
+    /* border: solid red; */
 }
-
-div.model1 .container1 .btn1 {
+.sec1{
     position: absolute;
-    top: 15px;
+    top: 44px;
+    width: 100%;
+    height: 45%;
+    background: url(http://localhost/koratuwa/img/supplier/sup_home.jpg);
+    background-size: cover;
+    background-position: center;
+    filter: blur(1px) brightness(80%);    
+}
+.sec2{
+    background: url(http://localhost/koratuwa/img/supplier/graph_bg.jpg);
+    background-size: cover;
+    background-position: center;    
 }
 
-div.model1 .container1 .btn2 {
-    position: absolute;
-    top: 85px;
+.container {
+    position: relative;
+    margin: 0 auto;
+    display: flex;
+    padding: 20px 0px 20px 0px;
+    max-width: 1200px;
+    max-height: 1000px;
+    /* border: solid green; */
 }
-
-.model1 .container1 input:hover {
-    background: rgb(50, 48, 48);
-    text-decoration: none;
+.feature{
+    width: 100%;
+    /* border: solid blue; */
 }
-
-/*
 /*-------------price index------------------------------------------------------*/
 
 
 
-.model3Wrapper{
+/* .model3Wrapper{
     position: relative;
     width: 100%;
     max-height: 300px;
     background-color: black;
     overflow: hidden;
-    /* margin-bottom: 20px; */
 }
 
 .overlay{
@@ -131,7 +57,7 @@ div.model1 .container1 .btn2 {
     width: 100%;
     height: 100%;
     object-fit: cover;
-} 
+}  */
 
 
 .content{
@@ -140,42 +66,37 @@ div.model1 .container1 .btn2 {
     /* left: 0; */
     background: rgb(9,6,65);
     background: linear-gradient(90deg, rgba(9,6,65,0.6898109585631127) 46%, rgba(255,255,255,1) 100%);    display: flex;
+    border: #00BFFF solid;
 }
 
 .h{
     margin-top:20px;
     text-transform: uppercase;
-    color: white;
     font-size: 3rem;
-    position: absolute;
-    top: 100px;
-    left: 100px;
     /* border: 1px solid white; */
 }
-
+.text{
+    color: #fff;
+}
+ul{
+    text-align: start;
+}
 
 .model3 {
-    position: absolute;
+    margin: 50px auto 50px 200px;
     width: 300px;
     height: 200px;
-    right: 90px;
-    top: 100px;
     line-height: 30px;
+    padding: 20px;
+    align-items: center;
+    justify-content: center;    
     background: #04086B;
     border-radius: 20px;
 }
 
-.model3 .container4 {
-    position: absolute;
-    top: 3px;
-    left: -4px;
-}
 
 .model3 .container4 .label1 {
-    position: absolute;
     padding: 4px 4px;
-    top: 20px;
-    left: 25px;
     height: 35px;
     width: 250px;
     color: white;
@@ -190,8 +111,6 @@ div.model1 .container1 .btn2 {
 
 .items {
     position: relative;
-    top: 60px;
-    left: 30px;
     width: 250px;
     height: 15vh;
     background-color: #00BFFF;
@@ -211,100 +130,124 @@ h2 {
     font-size: 40px;
     color: #fff;
 }
-
-
-/*-----------background image-----------*/
-
-.main .bg_image {
-    position: absolute;
-    left: 0px;
-    top: 45px;
-    width: 100%;
-    height:100%;
-    display: block;
-}
-
-
-/*--------Number of suppliers------------*/
-
-.model4 {
-    position: absolute;
-    width: 300px;
-    height: 200px;
-    left: 100px;
-    top: 220px;
-    line-height: 30px;
-    background: rgb(4, 8, 107, 0.6);
-    border-radius: 20px;
-}
-
-.model4 .container4 {
-    position: absolute;
-    top: 3px;
-    left: -4px;
-}
-
-.model4 .container4 .label1 {
-    position: absolute;
-    padding: 4px 4px;
-    top: 20px;
-    left: 25px;
-    height: 20px;
-    width: 250px;
-    color: white;
-    background: rgba(0, 0, 0, 0.5);
-    font-family: Arial, Helvetica, sans-serif;
-    text-align: center;
-    font-weight: 400;
+/*------place order----------*/
+.place_order {
+    margin: 50px;
+    width: 30%;
+    border-radius: 28px;
+    box-shadow: 0px 2px 3px #666666;
+    font-family: Arial;
+    color: black;
     font-size: 20px;
-    line-height: 100%;
-    border-radius: 15px;
+    font: bold 20px;
+    background: #28c728;
+    padding: 10px 18px 10px 20px;
+    text-decoration: none;
+    border-color: #28c728;
+    /*z-index: 1;*/
+    
 }
 
-.items {
-    position: relative;
-    top: 60px;
-    left: 30px;
-    width: 250px;
-    height: 15vh;
-    background-color: #00BFFF;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    backdrop-filter: blur(5px);
-    border-radius: 15px;
-    -webkit-border-radius: 15px;
-    -moz-border-radius: 15px;
-    -ms-border-radius: 15px;
-    -o-border-radius: 15px;
+.place_order:hover {
+    background: #12fc0a;
+    box-shadow: 0px 2px 20px 10px #00BFFF;
+    text-decoration: none;
+    cursor: pointer;
 }
-/* 
-h2 {
-    font-weight: 700;
-    font-size: 40px;
-    color: #fff;
-} */
 
-
-/*charts*/
+/*-----------charts-----------------*/
 
 .graphBox {
-    position: absolute;
-    width: 90%;
-    padding: 10px 10px 10px 10px;
-    display: grid;
-    grid-template-columns: 2fr 2fr;
-    grid-gap: 30px;
-    min-height: 300px;
-    top: 350px;
-    left: 50px;
+  width: 80%;
+  padding: 10px;
+  margin-left: 10%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+  grid-gap: 30px;
+  min-height: 300px;
+  /* border: solid red; */
 }
 
-.graphBox .box {
-    position: relative;
-    background: aliceblue;
-    padding: 20px 10px 10px 10px;
-    width: 100%;
-    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
-    border-radius: 20px;
+.graphBox .box {   
+    margin-top: 20%;
+    margin-bottom: 20%;    
+  position: relative;
+  background: aliceblue;
+  padding: 20px 10px 10px 10px;
+  width: 100%;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
 }
+
+/*-------------------------------Model------------------------------*/
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+  }
+  
+  /* Add Animation */
+  @-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+  }
+  
+  @keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+  }
+  
+  /* The Close Button */
+  .close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .modal-header {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+  }
+  
+  .modal-body {padding: 2px 16px;}
+  
+  .modal-footer {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+  }
