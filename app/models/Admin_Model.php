@@ -83,12 +83,12 @@
     //add newly registering employee's details
     public function addEmployees($data)
     {
-      $this->db->query('INSERT INTO employee(employee_id, employee_name, nic, dob, contact_number,gender,address, employment, email) VALUES(:id, :name, :nic, :dob, :tp_num,:gender, :address, :employment, :email) ');
+      $this->db->query('INSERT INTO employee(employee_id, employee_name, nic, contact_number,gender,address, employment, email,image) VALUES(:id, :name, :nic, :tp_num,:gender, :address, :employment, :email, :img) ');
       //value binding
       $this->db->bind(':id', $data['id']);
       $this->db->bind(':name', $data['name']);
       $this->db->bind(':nic', $data['nic']);
-			$this->db->bind(':dob', $data['dob']);
+			$this->db->bind(':img', $data['image']);
       $this->db->bind(':tp_num', $data['tp_num']);
       $this->db->bind(':gender', $data['gender']);
       $this->db->bind(':address', $data['address']);
@@ -97,12 +97,14 @@
 
       if($this->db->execute())
       {
-        $this->db->query('INSERT INTO user(user_id, name, nic, email, contact_number, address, password, user_type) VALUES(:id, :name, :nic, :email, :tp_num, :address, :pw, :employment) ');
+        $this->db->query('INSERT INTO user(user_id, name, nic, email, contact_number, address, password, user_type, gender, image) VALUES(:id, :name, :nic, :email, :tp_num, :address, :pw, :employment, :gender, :img) ');
         //value binding
         $this->db->bind(':id', $data['id']);
         $this->db->bind(':name', $data['name']);
   			$this->db->bind(':nic', $data['nic']);
         $this->db->bind(':email', $data['email']);
+        $this->db->bind(':img', $data['image']);
+        $this->db->bind(':gender', $data['gender']);
         $this->db->bind(':tp_num', $data['tp_num']);
         $this->db->bind(':address', $data['address']);
         $this->db->bind(':pw', $data['password']);
@@ -127,11 +129,11 @@
     //update selected employee's details
     public function updateEmployees($data)
     {
-      $this->db->query('UPDATE employee SET employee_name= :name, nic= :nic, dob= :dob, contact_number=:tp_num,gender=:gender,address=:address,employment=:employment  WHERE email= :email');
+      $this->db->query('UPDATE employee SET employee_name= :name, nic= :nic, image= :img, contact_number=:tp_num, gender=:gender, address=:address, employment=:employment  WHERE email= :email');
       // $this->db->bind(':id', $data['id']);
       $this->db->bind(':name', $data['name']);
       $this->db->bind(':nic', $data['nic']);
-			$this->db->bind(':dob', $data['dob']);
+      $this->db->bind(':img', $data['image']);
       $this->db->bind(':tp_num', $data['tp_num']);
       $this->db->bind(':gender', $data['gender']);
       $this->db->bind(':address', $data['address']);
@@ -142,10 +144,12 @@
       //execute
       if($this->db->execute())
       {
-        $this->db->query('UPDATE user SET name= :name, nic= :nic, contact_number=:tp_num, address=:address, user_type=:employment  WHERE email= :email');
+        $this->db->query('UPDATE user SET name= :name, nic= :nic, contact_number=:tp_num, image= :img, address=:address, gender=:gender, user_type=:employment  WHERE email= :email');
         // $this->db->bind(':id', $data['id']);
         $this->db->bind(':name', $data['name']);
         $this->db->bind(':nic', $data['nic']);
+        $this->db->bind(':img', $data['image']);
+        $this->db->bind(':gender', $data['gender']);
         $this->db->bind(':tp_num', $data['tp_num']);
         $this->db->bind(':address', $data['address']);
         $this->db->bind(':employment', $data['employment']);

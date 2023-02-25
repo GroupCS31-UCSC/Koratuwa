@@ -47,11 +47,34 @@
         //add new employee details
         public function addEmployees()
         {
+          
           if($_SERVER['REQUEST_METHOD'] == 'POST')
           {
             //sanitize the data
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
+
+            $file_name = $_FILES['image']['name'];
+            $file_size = $_FILES['image']['size'];
+            $tmp_name = $_FILES['image']['tmp_name'];
+            $error = $_FILES['image']['error'];
+
+            if ($error == 0) {
+
+              $fileType = pathinfo($file_name, PATHINFO_EXTENSION);
+              $fileType_lc = strtolower($fileType);
+      
+              $allowedFileTypes = array("jpg", "jpeg", "png");
+      
+              if (in_array($fileType, $allowedFileTypes)) {
+      
+                  $new_img_name = uniqid("IMG-", true) . '.' . $fileType_lc;
+                  $img_upload_path = APPROOT . '/../public/img/uploads/' . $new_img_name;
+                  move_uploaded_file($tmp_name, $img_upload_path);                  
+              }
+          }
+
+            
             //input data
             $data = [
               'id' => '',
@@ -59,29 +82,23 @@
               'nic' => trim($_POST['nic']),
               'tp_num' => trim($_POST['tp_num']),
               'gender' => trim($_POST['gender']),
-              'dob' => trim($_POST['dob']),
               'address' => trim($_POST['address']),
               'email' => trim($_POST['email']),
               'employment' => trim($_POST['employment']),
+              'image' => $new_img_name,
               'password' => '1234',
 
               'name_err' => '',
               'nic_err' => '',
               'tp_num_err' => '',
-              'gender_err' => '',
-              'dob_err' => '',
-              'address_err' => '',
               'email_err' => '',
-              'employment_err' => ''
+              'employment_err' => '',
+              'image_err' => ''
             ];
 
             if (empty($data['name']))       { $data['name_err'] = '*' ; }
             if (empty($data['nic']))        { $data['nic_err'] = '*' ;  }
             if (empty($data['tp_num']))     { $data['tp_num_err'] = '*' ; }
-            if (empty($data['gender']))     { $data['gender_err'] = '*' ; }
-            if ($data['gender']=='Select')  { $data['gender_err'] = '*' ; }
-            if (empty($data['dob']))        { $data['dob_err'] = '*' ; }
-            if (empty($data['address']))    { $data['address_err'] = '*' ; }
             if (empty($data['employment'])) { $data['employment_err'] = '*' ; }
             if ($data['employment']=='Select')  { $data['employment_err'] = '*' ; }
 
@@ -99,7 +116,7 @@
             }
 
             //submit form data if no errors
-            if(empty($data['name_err']) && empty($data['nic_err']) && empty($data['tp_num_err']) && empty($data['gender_err']) && empty($data['dob_err'])&& empty($data['address_err'])&& empty($data['email_err']) && empty($data['employment_err']) )
+            if(empty($data['name_err']) && empty($data['nic_err']) && empty($data['tp_num_err']) && empty($data['email_err']) && empty($data['employment_err']) )
             {
               $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
               $data['id'] = $this->adminModel->generateEmployeeId();
@@ -122,6 +139,7 @@
 
           }
           else
+          
           {
             //initial form
             $data = [
@@ -130,18 +148,15 @@
               'nic' => '',
               'tp_num' => '',
               'gender' => '',
-              'dob' => '',
               'address' => '',
               'email' => '',
               'employment' => '',
+              'image' => '',
               'password' => '',
 
               'name_err' => '',
               'nic_err' => '',
               'tp_num_err' => '',
-              'gender_err' => '',
-              'dob_err' => '',
-              'address_err' => '',
               'email_err' => '',
               'employment_err' => ''
             ];
@@ -151,6 +166,7 @@
         }
 
 
+
         //update selected employee's details
         public function updateEmployees($email)
         {
@@ -158,16 +174,34 @@
           {
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
+            $file_name = $_FILES['image']['name'];
+            $file_size = $_FILES['image']['size'];
+            $tmp_name = $_FILES['image']['tmp_name'];
+            $error = $_FILES['image']['error'];
+
+            if ($error == 0) {
+
+              $fileType = pathinfo($file_name, PATHINFO_EXTENSION);
+              $fileType_lc = strtolower($fileType);
+      
+              $allowedFileTypes = array("jpg", "jpeg", "png");
+      
+              if (in_array($fileType, $allowedFileTypes)) {
+      
+                  $new_img_name = uniqid("IMG-", true) . '.' . $fileType_lc;
+                  $img_upload_path = APPROOT . '/../public/img/Uploads/' . $new_img_name;
+                  move_uploaded_file($tmp_name, $img_upload_path);                  
+              }
+          }
+
             $data = [
-              //email eka change krnna den nee
-              // 'id' => trim($_POST['id']),
               'name' => trim($_POST['name']),
               'nic' => trim($_POST['nic']),
               'tp_num' => trim($_POST['tp_num']),
               'gender' => trim($_POST['gender']),
-              'dob' => trim($_POST['dob']),
               'address' => trim($_POST['address']),
               'employment' => trim($_POST['employment']),
+              'image' => $new_img_name,
               'email' => $email,
 
 
@@ -175,24 +209,16 @@
               'name_err' => '',
               'nic_err' => '',
               'tp_num_err' => '',
-              'gender_err' => '',
-              'dob_err' => '',
-              'address_err' => '',
-              'employment_err' => '',
-
+              'employment_err' => ''
             ];
-            // if (empty($data['id']))         { $data['id_err'] = '*' ; }
+
             if (empty($data['name']))       { $data['name_err'] = '*' ; }
             if (empty($data['nic']))        { $data['nic_err'] = '*' ;  }
             if (empty($data['tp_num']))     { $data['tp_num_err'] = '*' ; }
-            if (empty($data['gender']))     { $data['gender_err'] = '*' ; }
-            if ($data['gender']=='Select')  { $data['gender_err'] = '*' ; }
-            if (empty($data['dob']))        { $data['dob_err'] = '*' ; }
-            if (empty($data['address']))    { $data['address_err'] = '*' ; }
             if (empty($data['employment'])) { $data['employment_err'] = '*' ; }
             if ($data['employment']=='Select')  { $data['employment_err'] = '*' ; }
 
-            if(empty($data['id_err'])&&empty($data['name_err'])&&empty($data['nic_err'])&&empty($data['tp_num_err'])&&empty($data['gender_err'])&&empty($data['dob_err'])&&empty($data['address_err'])&&empty($data['employment_err']) )
+            if(empty($data['id_err'])&&empty($data['name_err'])&&empty($data['nic_err'])&&empty($data['tp_num_err'])&&empty($data['employment_err']) )
             {
               if($this->adminModel->updateEmployees($data))
               {
@@ -214,26 +240,24 @@
           }
           else
           {
+            
             $emp = $this->adminModel->getEmpByEmail($email);
+            // $img= UPLOADS . $emp->image;
             //$emp  is a data set that retrieved from db
             $data = [
-              // 'id' => $emp->employee_id,
               'name' => $emp->employee_name,
               'nic' => $emp->nic,
               'tp_num' => $emp->contact_number,
               'gender' => $emp->gender,
-              'dob' => $emp->dob,
               'address' => $emp->address,
               'email' => $emp->email,
               'employment' => $emp->employment,
+              'image' => "<?php echo UPLOADS . $emp->image ?>",
 
               // 'id_err' => '',
               'name_err' => '',
               'nic_err' => '',
               'tp_num_err' => '',
-              'gender_err' => '',
-              'dob_err' => '',
-              'address_err' => '',
               'employment_err' => ''
             ];
             $this->view('admin/updateEmployees',$data);

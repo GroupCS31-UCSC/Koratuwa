@@ -21,30 +21,29 @@
 
     <table>
       <tr>
+        <th>Image</th>
         <th>Employee Id</th>
         <th>Name</th>
         <th>Employment</th>
-        <th>Salary(Last month)</th>
         <!-- <th>NIC</th> -->
         <th>Contact Number</th>
         <th>Gender</th>
         <!-- <th>Email</th> -->
-        <th>Last Accessed On</th>
+        <!-- <th>Last Accessed On</th> -->
         <th>Action</th>
         <th>More Details</th>
       </tr>
       
   <?php foreach ($data['empView'] as $emp) : ?>
   <tr>
+    <td><img src="<?php echo UPLOADS . $emp->image ?>" width='20' height='20'></td>
     <td><?php echo $emp->employee_id; ?></td>
     <td><?php echo $emp->employee_name; ?></td>
     <td><?php echo $emp->employment; ?></td>
-    <td><?php echo $emp->salary; ?></td>
     <!-- <td><?php echo $emp->nic; ?></td> -->
     <td><?php echo $emp->contact_number; ?></td>
     <td><?php echo $emp->gender; ?></td>
     <!-- <td><?php echo $emp->email; ?></td> -->
-    <td><?php echo ''; ?></td>
 
     <td>
 
