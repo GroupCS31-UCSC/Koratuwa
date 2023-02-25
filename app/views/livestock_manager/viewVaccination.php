@@ -23,13 +23,14 @@
     <tr>
       <th>Date</th>
       <th>COW ID</th>
-      <th>Remarks</th>
+      <th>Note</th>
       <th>Action</th>
     </tr>
     <tr>
-      <td>2023-02-02</td>
-      <td>COW101</td>
-      <td>Next week vaccinated another vaccine</td>
+      <?php foreach ($data['vaccinationView'] as $vaccination) : ?>
+      <td><?php echo $vaccination->vaccination_date ?></td>
+      <td><?php echo $vaccination->cow_id ?></td>
+      <td><?php echo $vaccination->note ?></td>
       <td>
         <div class="vaccinationItem fade in" id="vaccinationItem" tableindex="-1" style="display: block;padding-right: 17px;">
           <div class="vaccinationItem-dialog">
@@ -42,27 +43,13 @@
                 <table class="table table-bordered table-striped table-responsive">
                   <tr>
                     <th>Vaccine Name</th>
-                    <th>Vaccine Type</th>
                     <th>Vaccine Quantity</th>
                     <th>Vaccine Date</th>
                   </tr>
                   <tr>
-                    <td>BCG</td>
-                    <td>Injection</td>
-                    <td>1.00 ML</td>
-                    <td>2023-02-02</td>
-                  </tr>
-                  <tr>
-                    <td>BCG</td>
-                    <td>Injection</td>
-                    <td>1.00 ML</td>
-                    <td>2023-02-02</td>
-                  </tr>
-                  <tr>
-                    <td>BCG</td>
-                    <td>Injection</td>
-                    <td>1.00 ML</td>
-                    <td>2023-02-02</td>
+                    <td><?php echo $vaccination->vaccination_type ?></td>
+                    <td><?php echo $vaccination->vaccination_quantity ?></td>
+                    <td><?php echo $vaccination->vaccination_date ?></td>
                   </tr>
                 </table><br>
               </div>
@@ -76,6 +63,7 @@
         </div>
       </td>
     </tr>
+    <?php endforeach; ?>
   </table>
 </div>
 
@@ -84,4 +72,3 @@
 
 <?php require APPROOT.'/views/include/footer.php'; ?>
 <script src="<?php echo URLROOT; ?>/js/lm.js"></script>
-
