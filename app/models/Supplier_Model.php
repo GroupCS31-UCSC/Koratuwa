@@ -60,7 +60,7 @@
 
     public function placeSupply($data)
     {
-      $this->db->query('INSERT INTO supply_order(supply_order_id,quantity,supply_date,status,supplying_address,unit_price, supplier_id) VALUES(:supOrderId, :quantity, :supDate, :status, :address, :price, :supId)');
+      $this->db->query('INSERT INTO supply_order(supply_order_id,quantity,supply_date,status,supplying_address,unit_price, supplier_id,quality) VALUES(:supOrderId, :quantity, :supDate, :status, :address, :price, :supId, :quality)');
       //value binding
       $this->db->bind(':supOrderId', $data['supOrderId']);
       $this->db->bind(':quantity', $data['quantity']);
@@ -68,6 +68,7 @@
       $this->db->bind(':status', $data['status']);
       $this->db->bind(':address', $data['address']);
       $this->db->bind(':price', $data['price']);   //added for intemorary
+      $this->db->bind(':quality', $data['quality']);
       $this->db->bind(':supId', $_SESSION['user_id']);
 
       //execute
