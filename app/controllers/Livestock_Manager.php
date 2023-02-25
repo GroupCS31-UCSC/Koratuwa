@@ -24,50 +24,34 @@
           'dob'=>trim($_POST['dob']),
           'gender'=>trim($_POST['gender']),
           'breed'=>trim($_POST['breed']),
-          'regDate'=>trim($_POST['reg_date']),
-          'buyPrice'=>trim($_POST['buy_price']),
           'weight'=>trim($_POST['weight']),
           'height'=>trim($_POST['height']),
           'health'=>trim($_POST['health']),
+          'method'=>trim($_POST['method']),
+          // 'regDate'=>trim($_POST['regDate']),
 
           'dob_err'=>'',
           'gender_err'=>'',
           'breed_err'=>'',
-          'regDate_err'=>'',
-          'buyPrice_err'=>'',
           'weight_err'=>'',
           'height_err'=>'',
-          'health_err'=>''
+          'health_err'=>'',
+          'method_err'=>'',
+          // 'regDate_err'=>'',
         ];
 
         //validation
-        if (empty($data['dob'])) {
-          $data['dob_err'] = '*' ;
-        }
-        if ($data['gender']=='Select') {
-          $data['gender_err'] = '*' ;
-        }
-        if ($data['breed']=='Select') {
-          $data['breed_err'] = '*' ;
-        }
-        if (empty($data['regDate'])) {
-          $data['regDate_err'] = '*' ;
-        }
-        if (empty($data['buyPrice'])) {
-          $data['buyPrice_err'] = '*' ;
-        }
-        if (empty($data['weight'])) {
-          $data['weight_err'] = '*' ;
-        }
-        if (empty($data['height'])) {
-          $data['height_err'] = '*' ;
-        }
-        if (empty($data['health'])) {
-          $data['health_err'] = '*' ;
-        }
+        if (empty($data['dob'])) { $data['dob_err'] = '*' ; }
+        if ($data['gender']=='Select') { $data['gender_err'] = '*' ; }
+        if ($data['breed']=='Select') { $data['breed_err'] = '*' ; }
+        if (empty($data['weight'])) { $data['weight_err'] = '*' ; }
+        if (empty($data['height'])) { $data['height_err'] = '*' ; }
+        if (empty($data['health'])) { $data['health_err'] = '*' ; }
+        if ($data['method']=='Select') { $data['method_err'] = '*' ; }
+        // if (empty($data['regDate'])) { $data['regDate_err'] = '*' ; }
 
         //if no errors
-        if(empty($data['dob_err']) && empty($data['gender_err']) && empty($data['breed_err']) && empty($data['regDate_err']) && empty($data['buyPrice_err']) && empty($data['weight_err']) && empty($data['height_err']) && empty($data['health_err']) ) {
+        if(empty($data['dob_err']) && empty($data['gender_err']) && empty($data['breed_err']) && empty($data['weight_err']) && empty($data['height_err']) && empty($data['health_err']) && empty($data['method_err']) /*&& empty($data['regDate_err']) */) {
           $data['cowId']= $this->livestockModel->findCowId();
 
           if($this->livestockModel->addCattle($data)) {
@@ -90,20 +74,20 @@
           'dob'=>'',
           'gender'=>'',
           'breed'=>'',
-          'regDate'=>'',
-          'buyPrice'=>'',
           'weight'=>'',
           'height'=>'',
           'health'=>'',
+          'method'=>'',
+          // 'regDate'=>'',
 
           'dob_err'=>'',
           'gender_err'=>'',
           'breed_err'=>'',
-          'regDate_err'=>'',
-          'buyPrice_err'=>'',
           'weight_err'=>'',
           'height_err'=>'',
           'health_err'=>'',
+          'method_err'=>'',
+          // 'regDate_err'=>'',
         ];
         $this->view('livestock_Manager/addCattle', $data);
       }
@@ -117,6 +101,16 @@
       ];
 
       $this->view('livestock_Manager/viewCattle',$data);
+    }
+
+    public function viewFeedMonitoring() {
+      $feedMonitoringView= $this->livestockModel->get_feedMonitoringView();
+
+      $data = [
+        'feedMonitoringView' => $feedMonitoringView
+      ];
+
+      $this->view('livestock_Manager/viewFeedMonitoring',$data);
     }
 
     public function deleteCattle($cowId) {
@@ -135,31 +129,31 @@
 
         $data=[
           'cowId'=>$cowId,
-          'dob'=>trim($_POST['dob']),
-          'gender'=>trim($_POST['gender']),
-          'breed'=>trim($_POST['gender']),
+          // 'dob'=>trim($_POST['dob']),
+          // 'gender'=>trim($_POST['gender']),
+          // 'breed'=>trim($_POST['gender']),
           'weight'=>trim($_POST['weight']),
           'height'=>trim($_POST['height']),
-          'health'=>trim($_POST['health']),
+          // 'health'=>trim($_POST['health']),
 
-          'dob_err'=>'',
-          'gender_err'=>'',
-          'breed_err'=>'',
+          // 'dob_err'=>'',
+          // 'gender_err'=>'',
+          // 'breed_err'=>'',
           'weight_err'=>'',
           'height_err'=>'',
-          'health_err'=>'',
+          // 'health_err'=>'',
         ];
 
         //validation
-        if (empty($data['dob'])) {
-          $data['dob_err'] = '*' ;
-        }
-        if ($data['gender']=='Select') {
-          $data['gender_err'] = '*' ;
-        }
-        if ($data['breed']=='Select') {
-          $data['breed_err'] = '*' ;
-        }
+        // if (empty($data['dob'])) {
+        //   $data['dob_err'] = '*' ;
+        // }
+        // if ($data['gender']=='Select') {
+        //   $data['gender_err'] = '*' ;
+        // }
+        // if ($data['breed']=='Select') {
+        //   $data['breed_err'] = '*' ;
+        // }
         if (empty($data['weight'])) {
           $data['weight_err'] = '*' ;
         }
@@ -169,12 +163,12 @@
         if (empty($data['health'])) {
           $data['pregnantStatus_err'] = '*' ;
         }
-        if (empty($data['health'])) {
-          $data['health_err'] = '*' ;
-        }
+        // if (empty($data['health'])) {
+        //   $data['health_err'] = '*' ;
+        // }
 
         //if no errors
-        if(empty($data['dob_err']) && empty($data['gender_err']) && empty($data['breed_err']) && empty($data['weight_err']) && empty($data['height_err']) && empty($data['health_err']) ) {
+        if(/*empty($data['dob_err']) && empty($data['gender_err']) && empty($data['breed_err']) && */empty($data['weight_err']) && empty($data['height_err'])/* && empty($data['health_err'])*/ ) {
           if($this->livestockModel->updateCattle($data)) {
             flash('updateCattle_flash','New cattle details are successfully Updated!');
             redirect('Livestock_Manager/viewCattle');
@@ -192,37 +186,91 @@
         $cow = $this->livestockModel->getCattleById($cowId);
         $data=[
           'cowId'=>$cow->cow_id,
-          'dob'=>$cow->dob,
-          'gender'=>$cow->cow_breed,
-          'breed'=>$cow->cow_type,
+          // 'dob'=>$cow->dob,
+          // 'gender'=>$cow->cow_breed,
+          // 'breed'=>$cow->cow_type,
           'weight'=>$cow->weight,
           'height'=>$cow->height,
-          'health'=>$cow->health,
+          // 'health'=>$cow->health,
 
-          'dob_err'=>'',
-          'gender_err'=>'',
-          'breed_err'=>'',
+          // 'dob_err'=>'',
+          // 'gender_err'=>'',
+          // 'breed_err'=>'',
           'weight_err'=>'',
           'height_err'=>'',
-          'health_err'=>''
+          // 'health_err'=>''
         ];
         $this->view('livestock_Manager/updateCattle', $data);
       }
     }
 
-    public function viewFeedMonitoring() {
-      $feedMonitoringView= $this->livestockModel->get_feedMonitoringView();
-
-      $data = [
-        'feedMonitoringView' => $feedMonitoringView
-      ];
-
-      $this->view('livestock_Manager/viewFeedMonitoring',$data);
-    }
-
     public function addFeedMonitoring() {
-      $data = [];
-      $this->view('livestock_Manager/addFeedMonitoring',$data);
+      if($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+        $data2 = $this->livestockModel->get_cattleView();
+        $data = [
+          'feedId'=>'',
+          'cowId'=>trim($_POST['cowId']),
+          'feedItem'=>trim($_POST['feedItem']),
+          'feedQuantity'=>trim($_POST['feedQuantity']),
+          'note'=>trim($_POST['note']),
+  
+          'cowId_err'=>'',
+          'feedItem_err'=>'',
+          'feedQuantity_err'=>'',
+          'note_err'=>'',
+        ];
+  
+        //validation
+        if ($data['cowId']=='Select') {
+          $data['cowId_err'] = '*' ;
+        }
+        if ($data['feedItem']=='Select') {
+          $data['feedItem_err'] = '*' ;
+        }
+        if (empty($data['feedQuantity'])) {
+          $data['feedQuantity_err'] = '*' ;
+        }
+        if (empty($data['note'])) {
+          $data['note_err'] = '*' ;
+        }
+  
+        $result = array($data,$data2);
+        //if no errors
+        if(empty($data['cowId_err']) && empty($data['feedItem_err']) && empty($data['feedQuantity_err']) && empty($data['note_err']) ) {
+          $data['feedId'] = $this->livestockModel->findFeedMonitoringId();
+
+          if($this->livestockModel->addFeedMonitoring($data)) {
+            flash('addFeed_flash','New feed monitoring details are successfully added!');
+            redirect('Livestock_Manager/viewFeedMonitoring');
+          }
+          else {
+            die('Something went wrong!');
+          }
+        }
+        else {
+          //loading the form with the errors
+          $this->view('livestock_Manager/addFeedMonitoring',$result);
+        }
+      }
+      else {
+        $data2 = $this->livestockModel->get_cattleView();
+        $data = [
+          'feedId'=>'',
+          'cowId'=>'',
+          'feedItem'=>'',
+          'feedQuantity'=>'',
+          'note'=>'',
+  
+          'cowId_err'=>'',
+          'feedItem_err'=>'',
+          'feedQuantity_err'=>'',
+          'note_err'=>'',
+        ];
+        $result = array($data,$data2);
+        $this->view('livestock_Manager/addFeedMonitoring', $result);
+      }
     }
     public function updateFeedMonitoring() {
       $data = [];
@@ -240,8 +288,71 @@
     }
 
     public function addVaccination() {
-      $data = [];
-      $this->view('livestock_Manager/addVaccination',$data);
+      if($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+        $data2 = $this->livestockModel->get_cattleView();
+        $data = [
+          'vaccId'=>'',
+          'cowId'=>trim($_POST['cowId']),
+          'vaccinationType'=>trim($_POST['vaccinationType']),
+          'vaccinationQuantity'=>trim($_POST['vaccinationQuantity']),
+          'note'=>trim($_POST['note']),
+  
+          'cowId_err'=>'',
+          'vaccinationType_err'=>'',
+          'vaccinationQuantity_err'=>'',
+          'note_err'=>'',
+        ];
+
+        //validation
+        if ($data['cowId']=='Select') {
+          $data['cowId_err'] = '*' ;
+        }
+        if ($data['vaccinationType']=='Select') {
+          $data['vaccinationType_err'] = '*' ;
+        }
+        if (empty($data['vaccinationQuantity'])) {
+          $data['vaccinationQuantity_err'] = '*' ;
+        }
+        if (empty($data['note'])) {
+          $data['note_err'] = '*' ;
+        }
+
+        $result = array($data,$data2);
+        //if no errors
+        if(empty($data['cowId_err']) && empty($data['vaccinationType_err']) && empty($data['vaccinationQuantity_err']) && empty($data['note_err']) ) {
+          $data['vaccinationId'] = $this->livestockModel->findVaccinationId();
+          if($this->livestockModel->addVaccination($data)) {
+            flash('addVaccination_flash','New vaccination details are successfully added!');
+            redirect('Livestock_Manager/viewVaccination');
+          }
+          else {
+            die('Something went wrong!');
+          }
+        }
+        else {
+          //loading the form with the errors
+          $this->view('livestock_Manager/addVaccination',$result);
+        }
+      }
+      else {
+        $data2 = $this->livestockModel->get_cattleView();
+        $data = [
+          'vaccId'=>'',
+          'cowId'=>'',
+          'vaccinationType'=>'',
+          'vaccinationQuantity'=>'',
+          'note'=>'',
+
+          'cowId_err'=>'',
+          'vaccinationType_err'=>'',
+          'vaccinationQuantity_err'=>'',
+          'note_err'=>'',
+        ];
+        $result = array($data,$data2);
+        $this->view('livestock_Manager/addVaccination', $result);
+      }
     }
     
     public function updateVaccination() {

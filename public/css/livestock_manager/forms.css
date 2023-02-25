@@ -1,40 +1,11 @@
 .form-container {
-    /* margin-left: 30px;
-    margin-right: 30px; */
     margin: 0 auto;
     margin-top: 5px;
     margin-bottom: 5px;
     padding: 5px;
     background-color: rgb(245, 244, 240);
     box-shadow: 0 4px 8px 0 black;
-    width: 60%;
-    /* text-align: center; */
-}
-
-input[type=text],
-input[type=date],
-input[type=password],
-input[type=number],
-input[type=email] {
-    border: 1px solid #d5d2d2;
-    border-radius: 5px;
-    width: 95%;
-    height: 30 px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 15px;
-    margin-right: 30px;
-    font-size: 15px;
-    outline: none;
-    display: block;
-}
-
-input[type=text]:focus,
-input[type=date]:focus,
-input[type=password]:focus,
-input[type=number]:focus,
-input[type=email]:focus {
-    border: 1.5px solid #00BFFF;
+    width: 80%;
 }
 
 .form-input-title {
@@ -45,6 +16,101 @@ input[type=email]:focus {
     color: red;
     margin-bottom: 10px;
 }
+
+input[type=text],
+input[type=date],
+input[type=password],
+input[type=number] {
+    border: 1px solid #d5d2d2;
+    border-radius: 5px;
+    width: 95%;
+    height: 28px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    margin-right: 25px;
+    font-size: 15px;
+    outline: none;
+    display: block;
+}
+
+.form-container select {
+    border: 1px solid #d5d2d2;
+    border-radius: 5px;
+    width: 95%;
+    height: 28px;
+    /* padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px; */
+    margin-right: 25px;
+    font-size: 15px;
+    outline: none;
+    display: block;
+}
+/* 
+input[type=text]:focus,
+input[type=date]:focus,
+input[type=password]:focus,
+input[type=number]:focus {
+    border: 1.5px solid #00BFFF;
+} */
+
+
+
+
+
+/*  */
+.submit-btn {
+    margin-left: 15vw;
+    width: 600px;
+    background: #04086B;
+    -webkit-border-radius: 30;
+    -moz-border-radius: 30;
+    border-radius: 30px;
+    border: none;
+    color: #ffffff;
+    font-size: 17px;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* .form-container input[type=text] {
+    border: 1px solid #d5d2d2;
+    border-radius: 5px;
+    width: 98%;
+    height: 28px;
+    padding-top: 10px;
+    padding-bottom: 8px;
+    padding-left: 15px;
+    margin-right: 25px;
+    font-size: 15px;
+    outline: none;
+    display: block;
+} */
+
+/* .form-container input[type=date] {
+    border: 1px solid #d5d2d2;
+    border-radius: 5px;
+    width: 90%;
+    height: 30px;
+    padding-top: 10px;
+    padding-bottom: 8px;
+    padding-left: 15px;
+    margin-right: 30px;
+    margin-top: 5px;
+    font-size: 15px;
+    outline: none;
+    display: block;
+} */
+
+
+.form-container input[type=text]:focus,
+input[type=date]:focus,
+input[type=text]:focus {
+    border: 1.5px solid #00BFFF;
+}
+
 
 
 /*make it responsive design*/
