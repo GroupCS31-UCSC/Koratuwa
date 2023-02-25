@@ -24,50 +24,34 @@
           'dob'=>trim($_POST['dob']),
           'gender'=>trim($_POST['gender']),
           'breed'=>trim($_POST['breed']),
-          'regDate'=>trim($_POST['reg_date']),
-          'buyPrice'=>trim($_POST['buy_price']),
           'weight'=>trim($_POST['weight']),
           'height'=>trim($_POST['height']),
           'health'=>trim($_POST['health']),
+          'method'=>trim($_POST['method']),
+          // 'regDate'=>trim($_POST['regDate']),
 
           'dob_err'=>'',
           'gender_err'=>'',
           'breed_err'=>'',
-          'regDate_err'=>'',
-          'buyPrice_err'=>'',
           'weight_err'=>'',
           'height_err'=>'',
-          'health_err'=>''
+          'health_err'=>'',
+          'method_err'=>'',
+          // 'regDate_err'=>'',
         ];
 
         //validation
-        if (empty($data['dob'])) {
-          $data['dob_err'] = '*' ;
-        }
-        if ($data['gender']=='Select') {
-          $data['gender_err'] = '*' ;
-        }
-        if ($data['breed']=='Select') {
-          $data['breed_err'] = '*' ;
-        }
-        if (empty($data['regDate'])) {
-          $data['regDate_err'] = '*' ;
-        }
-        if (empty($data['buyPrice'])) {
-          $data['buyPrice_err'] = '*' ;
-        }
-        if (empty($data['weight'])) {
-          $data['weight_err'] = '*' ;
-        }
-        if (empty($data['height'])) {
-          $data['height_err'] = '*' ;
-        }
-        if (empty($data['health'])) {
-          $data['health_err'] = '*' ;
-        }
+        if (empty($data['dob'])) { $data['dob_err'] = '*' ; }
+        if ($data['gender']=='Select') { $data['gender_err'] = '*' ; }
+        if ($data['breed']=='Select') { $data['breed_err'] = '*' ; }
+        if (empty($data['weight'])) { $data['weight_err'] = '*' ; }
+        if (empty($data['height'])) { $data['height_err'] = '*' ; }
+        if (empty($data['health'])) { $data['health_err'] = '*' ; }
+        if ($data['method']=='Select') { $data['method_err'] = '*' ; }
+        // if (empty($data['regDate'])) { $data['regDate_err'] = '*' ; }
 
         //if no errors
-        if(empty($data['dob_err']) && empty($data['gender_err']) && empty($data['breed_err']) && empty($data['regDate_err']) && empty($data['buyPrice_err']) && empty($data['weight_err']) && empty($data['height_err']) && empty($data['health_err']) ) {
+        if(empty($data['dob_err']) && empty($data['gender_err']) && empty($data['breed_err']) && empty($data['weight_err']) && empty($data['height_err']) && empty($data['health_err']) && empty($data['method_err']) /*&& empty($data['regDate_err']) */) {
           $data['cowId']= $this->livestockModel->findCowId();
 
           if($this->livestockModel->addCattle($data)) {
@@ -90,20 +74,20 @@
           'dob'=>'',
           'gender'=>'',
           'breed'=>'',
-          'regDate'=>'',
-          'buyPrice'=>'',
           'weight'=>'',
           'height'=>'',
           'health'=>'',
+          'method'=>'',
+          // 'regDate'=>'',
 
           'dob_err'=>'',
           'gender_err'=>'',
           'breed_err'=>'',
-          'regDate_err'=>'',
-          'buyPrice_err'=>'',
           'weight_err'=>'',
           'height_err'=>'',
           'health_err'=>'',
+          'method_err'=>'',
+          // 'regDate_err'=>'',
         ];
         $this->view('livestock_Manager/addCattle', $data);
       }

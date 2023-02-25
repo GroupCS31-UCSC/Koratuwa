@@ -72,7 +72,7 @@
       if ($days > 0 || ($years == 0 && $months == 0)) { $ageStr .= $days . ' days'; }
       $data['age'] = $ageStr;
       
-      $this->db->query('INSERT INTO cattle(cow_id, dob, age, gender, cow_breed, reg_date, buy_price, weight, height, health, stall_no) VALUES(:cowId, :dob, :age, :gender, :breed, :regDate, :buyPrice, :weight, :height, :health, :stallNo)');
+      $this->db->query('INSERT INTO cattle(cow_id, dob, age, gender, cow_breed, weight, height, health, method, /*reg_date,*/ stall_no) VALUES(:cowId, :dob, :age, :gender, :breed, :weight, :height, :health, :method,/* regDate,*/ :stallNo)');
 
       //value binding
       $this->db->bind(':cowId', $data['cowId']);
@@ -80,11 +80,11 @@
       $this->db->bind(':age', $data['age']);
       $this->db->bind(':gender', $data['gender']);
       $this->db->bind(':breed', $data['breed']);
-      $this->db->bind(':regDate', $data['regDate']);
-      $this->db->bind(':buyPrice', $data['buyPrice']);
       $this->db->bind(':weight', $data['weight']);
       $this->db->bind(':height', $data['height']);
       $this->db->bind(':health', $data['health']);
+      $this->db->bind(':method', $data['method']);
+      // $this->db->bind(':regDate', $data['regDate']);
       $this->db->bind(':stallNo', $_SESSION['user_id']);
 
       //execute
@@ -113,16 +113,13 @@
     }
 
     public function updateCattle($data) {
-      $this->db->query('UPDATE cattle SET dob=:dob, gender= :gender, cow_breed= :breed, reg_date= :regDate, buy_price= :buyPrice, weight= :weight, height= :height, health= :health WHERE cow_id= :cowId');
+      $this->db->query('UPDATE cattle SET dob=:dob, gender= :gender, cow_breed= :breed, weight= :weight, height= :height WHERE cow_id= :cowId');
       $this->db->bind(':cowId', $data['cowId']);
       $this->db->bind(':dob', $data['dob']);
       $this->db->bind(':gender', $data['gender']);
       $this->db->bind(':breed', $data['breed']);
-      $this->db->bind(':regDate', $data['regDate']);
-      $this->db->bind(':buyPrice', $data['buyPrice']);
       $this->db->bind(':weight', $data['weight']);
       $this->db->bind(':height', $data['height']);
-      $this->db->bind(':health', $data['health']);
 
       if($this->db->execute())
       {

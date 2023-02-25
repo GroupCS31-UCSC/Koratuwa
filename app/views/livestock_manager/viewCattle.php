@@ -25,13 +25,13 @@
         <th>COW ID</th>
         <!-- <th>Image</th> -->
         <th>Date of birth</th>
+        <th>Age</th>
         <th>Gender</th>
         <th>Breed</th>
-        <th>Age</th>
-        <th>Reg Date</th>
-        <th>Buy Price</th>
-        <!-- <th>Health Status</th> -->
+        <th>Weight</th>
+        <th>Height</th>
         <th>Health</th>
+        <th>Registration Date</th>
         <th>Action</th>
       </tr>
 
@@ -39,11 +39,13 @@
       <tr>
         <td><?php echo $cattle->cow_id; ?></td>
         <td><?php echo $cattle->dob; ?></td>
+        <td><?php echo $cattle->age; ?></td>
         <td><?php echo $cattle->gender; ?></td>
         <td><?php echo $cattle->cow_breed; ?></td>
-        <td><?php echo $cattle->age; ?></td>
+        <td><?php echo $cattle->weight; ?></td>
+        <td><?php echo $cattle->height; ?></td>
+        <td><?php echo $cattle->health; ?></td>
         <td><?php echo $cattle->reg_date; ?></td>
-        <td><?php echo $cattle->buy_price; ?></td>
         <!-- <td>
           if(height normal range) {
             heaith is 25%
@@ -54,7 +56,6 @@
          
           
         </td> -->
-        <td><?php echo $cattle->health; ?></td>
         <td>
         <?php if($cattle->stall_no == $_SESSION['user_id']): ?>
           <div class="table-btns">
