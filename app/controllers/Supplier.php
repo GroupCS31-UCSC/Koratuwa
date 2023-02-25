@@ -103,10 +103,11 @@
             $data = [
               'supOrderId' => '',
               'quantity' => trim($_POST['quantity']),
-              'date' => 2023-02-25,
+              'date' => '',
               'address' => 'dfr,gbh,lkjabc',
               'status' => 'Not Collected',    //initial set value;later can be change
               'price' => '100',   //temp set value
+              'quality' => 'N/A',
 
               'quantity_err' => '',
               'date_err' => '',
