@@ -6,7 +6,6 @@
 	<div class="form-header">
 		<h3>Basic Information</h3>
 	</div>
-	<br>
 	<form action="<?php echo URLROOT; ?>/Livestock_Manager/addCattle" method="POST">
     <div class="dob-breed">
       <div class="dob">
@@ -15,9 +14,9 @@
         <input type="date" name="dob" id="dob" class="dob" value="<?php echo $data['dob']; ?>">
       </div>
       <div class="breed">
-		    <div class="form-input-title">Breed</div>
-        <span class="form-invalid"><?php echo $data['breed_err']; ?></span>
-        <select class="breed" name="breed" id="breed" value="<?php echo $data['breed']; ?>">
+		    <div class="form-input-title">Gender</div>
+        <span class="form-invalid"><?php echo $data['gender_err']; ?></span>
+        <select class="breed" name="gender" id="gender" value="<?php echo $data['gender']; ?>">
           <option value="--Select--">Select</option>
           <option value="Male">Male</option>
           <option value="Female">Female</option>
@@ -25,9 +24,9 @@
       </div>
     </div>
 		<!--type-->
-		<div class="form-input-title">Cow Type</div>
-    <span class="form-invalid"><?php echo $data['type_err']; ?></span>
-    <select class="type" name="type" id="type" value="<?php echo $data['type']; ?>">
+		<div class="form-input-title">Cow Breed</div>
+    <span class="form-invalid"><?php echo $data['breed_err']; ?></span>
+    <select class="type" name="breed" id="breed" value="<?php echo $data['breed']; ?>">
       <option value="--Select--">Select</option>
       <option value="Jersey">Jersey (British breed)</option>
       <option value="Persian">Persian (Newzealend breed)</option>
@@ -39,9 +38,9 @@
     <input type="text" name="other" id="other" class="other" value="">
     <div class="buying">
       <div class="date">
-        <div class="form-input-title">Buy Date</div>
-        <span class="form-invalid"><?php echo $data['buyDate_err']; ?></span>
-        <input type="date" name="buy_date" id="buy_date" class="buy_date" value="<?php echo $data['buyDate']; ?>">
+        <div class="form-input-title">Reg Date</div>
+        <span class="form-invalid"><?php echo $data['regDate_err']; ?></span>
+        <input type="date" name="reg_date" id="reg_date" class="reg_date" value="<?php echo $data['regDate']; ?>">
       </div>
       <div class="price">
         <div class="form-input-title">Buy Price</div>
@@ -63,30 +62,10 @@
     </div>    
     <div class="pregnancy">
       <div class="status">
-        <div class="form-input-title">Pregnant Status</div>
-        <span class="form-invalid"><?php echo $data['pregnantStatus_err']; ?></span>
-        <select class="pregnant_status" name="pregnant_status" id="pregnant_status" value="<?php echo $data['pregnantStatus']; ?>">
-          <option value="Not Pregnant">No</option>
-          <option value="Pregnant">Yes</option>
-        </select>
-      </div>
-      <div class="npregnant">
-        <div class="form-input-title">No of Pregnant</div>
-        <span class="form-invalid"><?php echo $data['noOfPregnant_err']; ?></span>
-        <input type="text" name="no_of_pregnant" id="no_of_pregnant" class="no_of_pregnant" value="<?php echo $data['noOfPregnant']; ?>">
-      </div>
-    </div>
-    <div class="next-milk">
-      <div class="next">
-        <div class="form-input-title">Next Pregnant Date</div>
-        <span class="form-invalid"><?php echo $data['nextPregnant_err']; ?></span>
-        <input type="date" name="next_pregnant" id="next_pregnant" class="next_pregnant" value="<?php echo $data['nextPregnant']; ?>">
-      </div>
-      <div class="milk">
-        <div class="form-input-title">Milk Per Day(LTR)</div>
-        <span class="form-invalid"><?php echo $data['milkPerDay_err']; ?></span>
-        <input type="text" name="milk_per_day" id="milk_per_day" class="milk_per_day" value="<?php echo $data['milkPerDay']; ?>">
-      </div>
+        <div class="form-input-title">Health</div>
+        <span class="form-invalid"><?php echo $data['health_err']; ?></span>
+        <input type="text" name="health" id="health" class="health" value="<?php echo $data['health']; ?>">
+      </div>  
     </div>
     <!-- <div class="vaccination">
         //previeous vaccination done---yes or no
@@ -106,11 +85,11 @@
         <li><input type="checkbox" name="vaccination[]" value="Other">Other</li>
 
     </div> -->
-    <div class="form-header">
+    <!-- <div class="form-header">
 		  <h3>Vaccination Previously done</h3>
 	  </div>
-	  <form action="<?php echo URLROOT; ?>/Livestock_Manager/addVaccination" method="POST">
-      <div class="vac-row">
+	  <form action="<?php echo URLROOT; ?>/Livestock_Manager/addVaccination" method="POST"> -->
+      <!-- <div class="vac-row">
         <div class="col-md-4">
           <label class="checkbox-inline">
             <input type="checkbox" name="vaccines[]" value="1">
@@ -148,9 +127,9 @@
           </label>
         </div>
       </div>
-    </form>
+    </form> -->
 		<br>
-		<input type="submit" value="Submit" class="submitBtn">
+		<input type="submit" value="Submit" class="submit-btn">
   </form>
   <br>
 </div>

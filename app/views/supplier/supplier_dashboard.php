@@ -22,13 +22,12 @@
           <span class="title"> Dashboard</span>
         </a>
       </li>
-      <li>
+      <!-- <li>
         <a href="<?php echo URLROOT; ?>/supplier/placeSupply">
-        <!--  -->
           <span class="icon"><i class="fa-solid fa-truck-field"></i></span>
           <span class="title">Place Supply Order</span>
         </a>
-      </li>
+      </li> -->
       <li>
         <a href="<?php echo URLROOT; ?>/supplier/viewSupply">
         <!--  -->
@@ -46,7 +45,7 @@
       </li>
   
       <li>
-        <a href="#">
+        <a href="<?php echo URLROOT; ?>/supplier/sup_feedback">
           <!--  -->
           <span class="icon"><i class="fa-solid fa-comment-dots"></i></span>
           <span class="title">Feedback</span>
@@ -76,7 +75,7 @@
                                     <span><img src="<?php echo URLROOT; ?>/public/img/users/sasindu.jpg" alt=""></span>                    
                                 </div>
                                 <hr>
-                                <a href="#" class="sub-menu-link">
+                                <a href="<?php echo URLROOT; ?>/Users/userProfile/<?php echo $_SESSION['user_id']; ?>" class="sub-menu-link">
                                     <i class="fa-solid fa-user"></i>
                                     <p>View Profile</p>
                                 </a>   

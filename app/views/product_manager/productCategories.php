@@ -8,8 +8,9 @@
 <!-- <?php echo $_SESSION['user_id']; ?></h2> -->
 
 <div class="section">
-<img class="img-bg" src="<?php echo URLROOT; ?>/public/img/price.jpg" alt="no"> 
 <h2>Our Products</h2>
+<img class="img-bg" src="<?php echo URLROOT; ?>/public/img/price.jpg" alt="no"> 
+
 </div>
 
 
@@ -57,10 +58,6 @@
 
 <!-- <input type="button" value="Add new Product Category" class="add-btn" onclick="location.href='<?php echo URLROOT; ?>/Product_Manager/addCategory' "> 
   -->
-<input type="button" value="Logout" class="form-btn" onclick="location.href='<?php echo URLROOT; ?>/Users/logout' ">
-<input type="button" value="View Profile" class="form-btn" onclick="location.href='<?php echo URLROOT; ?>/Users/login' ">
-<input type="button" value="Change Password" class="form-btn" onclick="location.href='<?php echo URLROOT; ?>/Users/login' ">
- -->
 
 
 <?php require APPROOT.'/views/include/footer.php'; ?>

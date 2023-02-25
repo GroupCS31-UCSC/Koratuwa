@@ -22,7 +22,7 @@
   <table>
     <tr>
       <th>Date</th>
-      <th>Cow Number</th>
+      <th>Cow ID</th>
       <th>Note</th>
       <th>Action</th>
     </tr>
@@ -39,7 +39,8 @@
                 <h4 class="feedItem-title"><i class="fa fa-info-circle edit-color"></i> Item Details</h4>
               </div>
               <div class="feedItem-body">
-                <table class="table table-bordered table-striped table-responsive">                     <tr>
+                <table class="table table-bordered table-striped table-responsive">
+                  <tr>
                     <th>Food Item</th>
                     <th>Item Quantity</th>
                     <th>Feeding Time</th>
@@ -72,7 +73,7 @@
       </td>
     </tr>
     <tr>
-      <td>Feb 15, 2020</td>
+      <td>Feb 15, 2023</td>
       <td>COW102</td>
       <td>Regular Same food until notice.</td>
       <td>

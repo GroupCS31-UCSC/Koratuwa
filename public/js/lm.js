@@ -54,3 +54,11 @@ function openFeedItem(){
 function closeFeedItem(){
   document.getElementById("feedItem").classList.remove("open-feedItem");
 }
+
+// Popup window for vaccination types
+function openVaccinationItem(){
+  document.getElementById("vaccinationItem").classList.add("open-vaccinationItem");
+}
+function closeVaccinationItem(){
+  document.getElementById("vaccinationItem").classList.remove("open-vaccinationItem");
+}

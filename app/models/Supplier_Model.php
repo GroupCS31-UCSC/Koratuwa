@@ -42,7 +42,7 @@
 
     public function get_supOrderSum()
     {
-      $this->db->query('SELECT sum(quantity) as totMilk from supply_order WHERE supplier_id = :supId');
+      $this->db->query('SELECT sum(quantity) as totMilk from supply_order WHERE supplier_id = :supId AND status="Collected" ');
       $this->db->bind(':supId',$_SESSION['user_id']);
 
       $row = $this->db->single();
