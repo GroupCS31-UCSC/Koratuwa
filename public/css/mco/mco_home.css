@@ -98,10 +98,6 @@ section {
 
 /* section 2 */
 
-.section2 {
-    border: 1px solid black;
-}
-
 .details {
     border: 1px solid red;
     position: relative;
@@ -234,16 +230,25 @@ section {
 }
 
 
-/* price  section*/
+/* purchasing price section*/
 
-.price {
+
+/* .price {
+    position: relative;
+    display: grid;
+    min-height: 500px;
+    padding: 20px;
+    box-shadow: 0.7px 25px rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
+} */
+
+
+/* .price {
     border: 1px solid green;
 }
 
 .displayPrice {
     display: flex;
-    /* justify-content: space-between; */
-    /* align-items: flex-start; */
     border: 1px solid blueviolet;
     height: 15vh;
 }
@@ -294,10 +299,9 @@ section {
     height: 5vh;
     margin: 15px auto 15px auto;
 }
+*/
 
 .setPrice .setBtn {
-    /* margin: -60px 20px 20px 20px; */
-    /* position: relative; */
     width: 400px;
     background: #04086B;
     -webkit-border-radius: 30;
@@ -381,7 +385,11 @@ section {
     }
 }
 
-.priceChart {
+
+/*charts*/
+
+
+/* .priceChart {
     margin-top: 10px;
     border: 1px solid red;
     height: 500px;
@@ -391,10 +399,7 @@ section {
     width: 98%;
     box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
     border-radius: 20px;
-}
-
-
-/*charts*/
+} */
 
 .graphBox {
     position: relative;

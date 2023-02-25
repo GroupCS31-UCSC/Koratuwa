@@ -54,14 +54,14 @@ var myChart = new Chart(totProfit, {
 });
 
 
-var price = document.getElementById('price').getContext('2d');
+var price = document.getElementById('pricelist').getContext('2d');
 var myChart = new Chart(price, {
-    type: 'bar',
+    type: 'line',
     data: {
-        labels: ['June', 'July', 'August'],
+        labels: ['02/18', '02/19', '02/20', '02/21', '02/22', '02/23', '02/24'],
         datasets: [{
             label: 'Total collection',
-            data: [2200, 2090, 1080],
+            data: [100, 90, 98, 98, 106, 102, 101],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)', ,
                 'rgba(255, 206, 86, 0.2)',

@@ -56,8 +56,9 @@
 
 <!-- add set price and table -->
 <section>
-<div class="section2">
+
 <div class="details">
+  <!-- table -->
   <div class="recentOrders">
     <div class="cardHeader">
       <h2>Recent Orders</h2>
@@ -91,10 +92,13 @@
       <?php endforeach; ?>
       </tbody>
     </table>
-
   </div>
+  <!-- table end -->
   
+  <!-- purchasing price section -->
   <div class="price">
+
+  <!-- display price box -->
     <div class="displayPrice">
 
       <div class="name">
@@ -111,6 +115,8 @@
       </div>
 
     </div>
+
+    <!-- set price button -->
     <div class="setPrice">
         <a href="#popup1"><button class="setBtn">Set Today Milk Purchasing Price</button></a>
     </div>
@@ -135,17 +141,22 @@
   </div>
   <!------------------------------------------------------>
 
+  <!-- chart -->
     <div class="priceChart">
       <div class="box">
-      <label><center>Milk Purchasing Price</center></label>
-      <canvas id="price"></canvas>
+        <label><center>Milk Purchasing Price</center></label>
+        <canvas id="pricelist"></canvas>
+      </div>
     </div>
+  <!-- end chart -->
 
-    </div>
+
   </div>
+  <!-- purchasing price section -->
 
-</div>
-</div>
+</div> 
+<!-- details end -->
+
 </section>
 
 
