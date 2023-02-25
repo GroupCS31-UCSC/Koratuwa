@@ -22,13 +22,12 @@
           <span class="title"> Dashboard</span>
         </a>
       </li>
-      <li>
+      <!-- <li>
         <a href="<?php echo URLROOT; ?>/supplier/placeSupply">
-        <!--  -->
           <span class="icon"><i class="fa-solid fa-truck-field"></i></span>
           <span class="title">Place Supply Order</span>
         </a>
-      </li>
+      </li> -->
       <li>
         <a href="<?php echo URLROOT; ?>/supplier/viewSupply">
         <!--  -->

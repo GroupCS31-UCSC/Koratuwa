@@ -13,13 +13,88 @@
           }          
         }
 
-        public function supplierHome()
-        {
-          $data = [];
-          $this->view('supplier/sup_home',$data);
-        }
+        // public function supplierHome()
+        // {
+        //   $data = [];
+        //   $this->view('supplier/sup_home',$data);
+        // }
 
-        public function placeSupply()
+        // public function placeSupply()
+        // {
+        //   if($_SERVER['REQUEST_METHOD'] == 'POST')
+        //   {
+        //     $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+        //     $data = [
+        //       'supOrderId' => '',
+        //       'quantity' => trim($_POST['quantity']),
+        //       'date' => trim($_POST['date']),
+        //       'address' => trim($_POST['address']),
+        //       'status' => 'Not Collected',    //initial set value;later can be change
+        //       'price' => '100',   //temp set value
+
+        //       'quantity_err' => '',
+        //       'date_err' => '',
+        //       'address_err' => ''
+        //     ];
+
+        //     //validation
+        //     if (empty($data['quantity'])){
+        //       $data['quantity_err'] = '*' ;
+        //     }
+        //     elseif ($data['quantity'] <10) {
+        //       $data['quantity_err'] = 'Required minimum 10L to place an Order' ;
+        //     }
+
+        //     if (empty($data['date'])){
+        //       $data['date_err'] = '*' ;
+        //     }
+        //     elseif (strtotime($data['date']) < strtotime(date('y-m-d')))  {
+        //       $data['date_err'] = 'Invalid date' ;
+        //     }
+
+        //     if (empty($data['address']))  { $data['address_err'] = '*' ; }
+
+        //     //if no errors
+        //     if(empty($data['quantity_err']) && empty($data['date_err']) && empty($data['address_err']) )
+        //     {
+        //       $data['supOrderId']=$this->supplierModel->findSupOrderId();
+
+        //       if($this->supplierModel->placeSupply($data))
+        //       {
+        //         flash('placeSupply_flash','Supply Order is successfully placed!');
+        //         redirect('Supplier/viewSupply');
+        //       }
+        //       else
+        //       {
+        //         die('Something went wrong!');
+        //       }
+        //     }
+        //     else
+        //     {
+        //       //loading the form with the errors
+        //       $this->view('supplier/placeSupply',$data);
+        //     }
+        //   }
+        //   else
+        //   {
+        //     //initial form loading
+        //     $data = [
+        //       'supOrderId' => '',
+        //       'quantity' => '',
+        //       'date' => '',
+        //       'address' => '',
+        //       'status' => '',
+        //       'price' => '',  //temp set value
+
+        //       'quantity_err' => '',
+        //       'date_err' => '',
+        //       'address_err' => ''
+        //     ];
+        //     $this->view('supplier/placeSupply',$data);
+        //   }
+        // }
+        public function supplierHome()
         {
           if($_SERVER['REQUEST_METHOD'] == 'POST')
           {
@@ -28,8 +103,8 @@
             $data = [
               'supOrderId' => '',
               'quantity' => trim($_POST['quantity']),
-              'date' => trim($_POST['date']),
-              'address' => trim($_POST['address']),
+              'date' => 2023-02-25,
+              'address' => 'dfr,gbh,lkjabc',
               'status' => 'Not Collected',    //initial set value;later can be change
               'price' => '100',   //temp set value
 
@@ -46,17 +121,17 @@
               $data['quantity_err'] = 'Required minimum 10L to place an Order' ;
             }
 
-            if (empty($data['date'])){
-              $data['date_err'] = '*' ;
-            }
-            elseif (strtotime($data['date']) < strtotime(date('y-m-d')))  {
-              $data['date_err'] = 'Invalid date' ;
-            }
+            // if (empty($data['date'])){
+            //   $data['date_err'] = '*' ;
+            // }
+            // elseif (strtotime($data['date']) < strtotime(date('y-m-d')))  {
+            //   $data['date_err'] = 'Invalid date' ;
+            // }
 
-            if (empty($data['address']))  { $data['address_err'] = '*' ; }
+            // if (empty($data['address']))  { $data['address_err'] = '*' ; }
 
             //if no errors
-            if(empty($data['quantity_err']) && empty($data['date_err']) && empty($data['address_err']) )
+            if(empty($data['quantity_err']))
             {
               $data['supOrderId']=$this->supplierModel->findSupOrderId();
 
@@ -73,7 +148,7 @@
             else
             {
               //loading the form with the errors
-              $this->view('supplier/placeSupply',$data);
+              $this->view('supplier/sup_home',$data);
             }
           }
           else
@@ -91,10 +166,9 @@
               'date_err' => '',
               'address_err' => ''
             ];
-            $this->view('supplier/placeSupply',$data);
+            $this->view('supplier/sup_home',$data);
           }
         }
-
 
 
         public function viewSupply()
