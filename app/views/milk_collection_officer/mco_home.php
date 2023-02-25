@@ -98,15 +98,18 @@
     <div class="displayPrice">
 
       <div class="name">
-      <h2>Milk Purchasing Price</h2>
+        <h1>Milk Purchasing Price</h1>
+        <div class="lastdate">
+        <h2>Last set on :<?php echo $data['lastDate']; ?></h2>
+        </div>
       </div>
-      <div class="lastdate">
-      <h3><?php echo $data['lastDate']; ?></h3>
-      </div>
-      <div class="lastprice">
-      <h3><?php echo $data['lastPrice']; ?></h3>
       
+      <div class="lastprice">
+        <div class="priceBox">
+        <h1>Rs.<?php echo $data['lastPrice']; ?></h1>
+        </div>       
       </div>
+
     </div>
     <div class="setPrice">
         <a href="#popup1"><button class="setBtn">Set Today Milk Purchasing Price</button></a>
@@ -133,6 +136,10 @@
   <!------------------------------------------------------>
 
     <div class="priceChart">
+      <div class="box">
+      <label><center>Milk Purchasing Price</center></label>
+      <canvas id="price"></canvas>
+    </div>
 
     </div>
   </div>

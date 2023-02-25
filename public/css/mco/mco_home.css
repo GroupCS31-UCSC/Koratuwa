@@ -241,13 +241,58 @@ section {
 }
 
 .displayPrice {
+    display: flex;
+    /* justify-content: space-between; */
+    /* align-items: flex-start; */
     border: 1px solid blueviolet;
     height: 15vh;
+}
+
+.displayPrice .name {
+    align-items: left;
+    font-size: large;
+    border: 1px solid brown;
+    padding: 15px 10px 10px 10px;
+    color: red;
+    background-color: lightcyan;
+}
+
+.displayPrice .name .lastdate {
+    align-items: left;
+    font-size: large;
+    border: 1px solid brown;
+    padding: 10px 10px 5px 10px;
+    color: var(--blue);
+}
+
+.displayPrice .lastPrice h1 {
+    border: 1px solid red;
+    text-align: center;
+    align-items: center;
+    padding: 10px 10px 10px 10px;
+    color: red;
+}
+
+.priceBox {
+    border: 1px solid red;
+    padding: 20px 20px 20px 20px;
+    background-color: grey;
+    align-items: center;
+    font-size: 38px;
+    width: 150%;
+    color: whitesmoke;
+}
+
+.priceBox:hover {
+    color: black;
+    background-color: lightyellow;
+    cursor: pointer;
 }
 
 .setPrice {
     border: 1px solid greenyellow;
     height: 5vh;
+    margin: 15px auto 15px auto;
 }
 
 .setPrice .setBtn {
@@ -337,7 +382,15 @@ section {
 }
 
 .priceChart {
-    border: 1px solid royalblue;
+    margin-top: 10px;
+    border: 1px solid red;
+    height: 500px;
+    position: relative;
+    background: aliceblue;
+    padding: 20px 0 0 0;
+    width: 98%;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
 }
 
 

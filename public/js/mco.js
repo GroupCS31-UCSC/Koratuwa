@@ -1,4 +1,3 @@
-// //charts - Admin Dashboard page
 var profit = document.getElementById('milk').getContext('2d');
 
 var myChart = new Chart(profit, {
@@ -33,6 +32,36 @@ var myChart = new Chart(totProfit, {
         datasets: [{
             label: 'Total collection',
             data: [2200, 2090, 1080, 2010, 1200, 1548],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)', ,
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+            ],
+            borderWidth: 0.5
+        }]
+    },
+    options: {
+        responsive: true,
+
+    }
+});
+
+
+var price = document.getElementById('price').getContext('2d');
+var myChart = new Chart(price, {
+    type: 'bar',
+    data: {
+        labels: ['June', 'July', 'August'],
+        datasets: [{
+            label: 'Total collection',
+            data: [2200, 2090, 1080],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)', ,
                 'rgba(255, 206, 86, 0.2)',
