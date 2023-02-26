@@ -1,0 +1,172 @@
+/* .addBtn {
+    margin-top: -50px;
+    margin-right: 15px;
+} */
+
+section {
+    position: absolute;
+    top: 44px;
+    left: 0;
+    height: 94%;
+    width: 100%;
+    background: url(http://localhost/koratuwa/img/mco/mco_milkcollection.jpg);
+    background-size: cover;
+    background-position: center;
+    /* filter: blur(1px) brightness(30%); */
+}
+
+.container {
+    opacity: 0.85;
+}
+
+.viewBox {
+    border: 0.5px solid black;
+    position: relative;
+    /* display: grid; */
+    min-height: 500px;
+    background: var(--white);
+    padding: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.09);
+    border-radius: 20px;
+    background-color: rgb(247, 247, 247, 0.9);
+    margin: 10vh 40vh auto 35vh;
+}
+
+.viewBoxHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    color: var(--blue);
+    margin-bottom: 0px;
+    padding: 0 auto 5px 0;
+}
+
+.viewBoxHeader .close {
+    text-decoration: none;
+    font-size: 4 0px;
+    color: black;
+    margin-top: -15px;
+}
+
+.viewBoxHeader .close:hover {
+    color: red;
+}
+
+
+/* set price popup window styles */
+
+
+/* .overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+    height: 50px;
+    width: 80px;
+    background-color: white;
+}
+
+.overlay:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+.popup {
+    margin: 70px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    width: 60%;
+    height: 80%;
+    position: relative;
+    transition: all 5s ease-in-out;
+}
+
+.popup h2 {
+    margin-top: 0;
+    color: white;
+    font-family: Tahoma, Arial, sans-serif;
+    background-color: blue;
+}
+
+.popup .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+}
+
+.popup .close:hover {
+    color: #06D85F;
+}
+
+.popup .content {
+    max-height: 30%;
+    overflow: auto;
+} */
+
+
+/* .overlay {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #000000;
+    display: none;
+}
+
+.popup {
+    background-color: white;
+    border: 2px solid black;
+    display: block;
+    width: 350px;
+    z-index: 1001;
+    top: 60px;
+    left: 240px;
+    position: fixed;
+    padding-left: 10px;
+    margin: auto;
+} */
+
+
+/* 
+@media screen and (max-width: 700px) {
+    .popup {
+        width: 70%;
+    }
+}
+ */
+
+
+/*make it responsive design*/
+
+@media (max-width: 991px) {
+    .graphBox {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+    .navigation {
+        left: -275px;
+    }
+    .navigation.active {
+        width: 275px;
+        left: 0;
+    }
+    .main {
+        width: 100%;
+        left: 0;
+    }
+    .main.active {
+        left: 275px;
+    }
+}

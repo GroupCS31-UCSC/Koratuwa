@@ -24,10 +24,7 @@
     {
       $this->db->query('SELECT stall_id ,collected_date,collected_time FROM milk_collection WHERE milk_collection_id=:mcId');
 			$this->db->bind(':mcId', $mcId);
-
-      if($this->db->execute())
-        {
-          $row = $this->db->single();
+      $row = $this->db->single();
           $stallId = $row->stall_id;
           $cDate = $row->collected_date;
           $cTime = $row->collected_time;
@@ -37,28 +34,8 @@
 			    $this->db->bind(':cDate', $cDate);
 			    $this->db->bind(':cTime', $cTime);
 
-          if($this->db->execute())
-          {
-            $result = $this->db->resultSet();
-
-            return $result;
-          }
-          else
-          {
-            return false;
-          }
-        }
-        else
-        {
-          return false;
-        }
-
-      
-      
-
-      
-			
-
+          $result = $this->db->resultSet();
+          return $result;
 
     }
 

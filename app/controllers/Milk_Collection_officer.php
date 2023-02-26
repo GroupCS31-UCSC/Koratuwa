@@ -44,11 +44,12 @@
         //get the details of milk collection one by one
         public function collectionDetails($mcId)
         {
-          $milkView= $this->mcoModel->get_farmMilkCollectionView();
+          // $milkView= $this->mcoModel->get_farmMilkCollectionView();
           $collectionView= $this->mcoModel->get_collectionDetails($mcId); 
           $data = [
-              'milkView' => $milkView,
-              'cView' => $collectionView
+              'cView' => $collectionView,
+               'mcId' => $mcId
+
           ];
 
           $this->view('milk_collection_officer/collection_details',$data);
