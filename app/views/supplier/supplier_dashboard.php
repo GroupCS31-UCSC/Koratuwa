@@ -6,7 +6,7 @@
 
 <div class="full-container">
   <div class="navigation active">
-  <!-- <div class="back">
+    <!-- <div class="back">
       <a href="#"><i class="fa-solid fa-chevron-left"></i></a>
     </div> -->
     <ul>
@@ -88,11 +88,12 @@
                                     <i class="fa-solid fa-right-from-bracket"></i>
                                     <p>Log out</p>
                                 </a>
-                            </div>
-                        </div>
+                                
                     </div>
                 </div>
             </div>
         </div>
+   </div>
+</div>
 <?php require APPROOT.'/views/include/footer.php'; ?>
 <script src="<?php echo URLROOT; ?>/js/dashboard.js"></script>        

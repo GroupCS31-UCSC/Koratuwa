@@ -7,7 +7,7 @@
 
 
 <section class="sec1">
-  <div class="container">
+  <div class="heading">
   <h1 class="h">Koratuwa provides the<br> best value for you!</h1>
     <!-- <div class="feature">
 

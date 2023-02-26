@@ -3,6 +3,13 @@ section {
     padding: 40px 0px;
     /* border: solid red; */
 }
+.heading{
+    display: inline-block;
+    align-items: stretch;
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 1300px;
+}
 .sec1{
     background: url(http://localhost/koratuwa/img/supplier/sup_home.jpg);
     background-size: cover;
@@ -14,7 +21,6 @@ section {
     background-position: center;    
 }
 .sec3{
-    padding-top: 70px;
     /* background-color: #468486; */
     background-image: url(http://localhost/koratuwa/img/supplier/viewsupply.jpg);
     background-size: cover;
@@ -162,7 +168,7 @@ h2 {
 /*-----------charts-----------------*/
 
 .graphBox {
-    position: absolute;
+    position: relative;
     width: 80%;
     padding: 10px 10px 10px 10px;
     display: grid;
