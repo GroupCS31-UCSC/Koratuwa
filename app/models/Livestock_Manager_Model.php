@@ -41,7 +41,7 @@
     public function findVaccinationId() {
       $this->db->query('SELECT * FROM vaccination order by vaccination_id desc limit 1');
       $row = $this->db->single();
-      $lastId=$row->vacc_id;
+      $lastId=$row->vaccination_id;
 
       if($lastId == '')	{
         $id='VACC101';

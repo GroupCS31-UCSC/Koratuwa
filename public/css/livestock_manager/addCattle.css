@@ -1,18 +1,3 @@
-
-
-/* .status {
-    width: 45%;
-    margin-right: 45px;
-}
-.vac-row {
-    height: 10vh;
-    margin-top: 10px;
-}
-.col-md-4 {
-    width: 33.3%;
-    float: right;
-} */
-
 /*make it responsive design*/
 @media (max-width: 991px) {
     .graphBox {
