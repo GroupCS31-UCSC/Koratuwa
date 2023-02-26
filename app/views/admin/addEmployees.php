@@ -11,7 +11,7 @@
 	</div>
 	<br>
 
-	<form id="addForm" action="<?php echo URLROOT; ?>/Admin/addEmployees" method="POST">
+	<form id="addForm" action="<?php echo URLROOT; ?>/Admin/addEmployees" method="POST" enctype="multipart/form-data">
 
 		<!--name-->
     <div class="feature">
@@ -34,34 +34,20 @@
       <input type="text" name="tp_num" id="tp_num" class="tp_num" autocomplete="off" value="<?php echo $data['tp_num']; ?>">
     </div>
 
-    <!--gender          RADIO BUTTONS DANNA-->
+    <!-- gender -->
     <div class="feature">
       <div class="form-input-title">Gender</div>
-      <span class="form-invalid"><?php echo $data['gender_err']; ?></span>
-      <select class="gender" name="gender" id="gender"  value="<?php echo $data['gender']; ?>">
-        <option value="Select">Select</option>
-        <option value="Male">Male</option>
-        <option value="Female">Female</option>
-      </select>    
-    </div>
-    <!-- <div class="feature">
-    <div class="form-input-title">Gender</div>
-      <span class="form-invalid"><?php echo $data['gender_err']; ?></span>
-      <input type="radio" name="gender" id="name" <?php if (isset($gender) && $gender=="Female") echo "checked";?> value="Female"> Female<br>
-      <input type="radio" name="gender" id="name" <?php if (isset($gender) && $gender=="Male") echo "checked";?> value="Male"> Male
-    </div> -->
 
-    <!--DOB-->
-    <div class="feature">
-      <div class="form-input-title">Date Of Birth</div>
-      <span class="form-invalid"><?php echo $data['dob_err']; ?></span>
-      <input type="date" name="dob" id="dob" class="dob" value="<?php echo $data['dob']; ?>">
+      <input type="radio" name="gender" id="gender" <?php if (isset($gender) && $gender=="Male") echo "checked";?> value="Male"> Male
+      <input type="radio" name="gender" id="gender" <?php if (isset($gender) && $gender=="Female") echo "checked";?> value="Female"> Female
+
+      <!-- <input type="radio" name="gender" id="gender" value="Male"> Male
+      <input type="radio" name="gender" id="gender" value="Female"> Female -->
     </div>
 
     <!--address-->
     <div class="feature">
       <div class="form-input-title">Address</div>
-      <span class="form-invalid"><?php echo $data['address_err']; ?></span>
       <input type="text" name="address" id="address" class="address" autocomplete="off" value="<?php echo $data['address']; ?>">
     </div>
 
@@ -72,12 +58,16 @@
       <input type="email" name="email" id="email" class="email" autocomplete="off" value="<?php echo $data['email']; ?>">
     </div>
 
-		<!--employment DROP DOWN EKK DANNA-->
+		<!--employment-->
     <div class="feature">
       <div class="form-input-title">Employment</div>
       <span class="form-invalid"><?php echo $data['employment_err']; ?></span>
       <select class="employment" name="employment" id="employment" value="<?php echo $data['employment']; ?>">
-        <option value="Select">Select</option>
+      <!-- foreach($categories as $category){
+        <option value="$category[]">$category[]</option>
+
+      } -->
+        <option value="Select">--Select--</option>
         <option value="Product Manager">Product Manager</option>
         <option value="Livestock Manager">Livestock Manager</option>
         <option value="Milk Collection Officer">Milk Collection Officer</option>
@@ -87,15 +77,17 @@
     </div>
 
     <!--image-->
-    <!-- <div class="feature">
+    <div class="feature">
       <div class="form-input-title">Image</div>
-      <span class="form-invalid"><?php echo $data['image_err']; ?></span>
       <input type="file" name="image" id="image" class="image" value="<?php echo $data['image']; ?>"><br>
-    </div> -->
+    </div>
+    
 
 		<br>
     <div class="feature">
-      <input type="submit" value="Submit" class="submitBtn" onclick="adding(event)">
+      <!-- <input type="submit" value="Submit" class="submitBtn" onclick="adding(event)"> -->
+      <input type="submit" value="Submit" class="submitBtn">
+
     </div>
     
 	</form>

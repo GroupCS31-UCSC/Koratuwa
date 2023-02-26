@@ -1,93 +1,6 @@
-.submit-btn {
-    margin-left: 15vw;
-    width: 600px;
-    background: #04086B;
-    -webkit-border-radius: 30;
-    -moz-border-radius: 30;
-    border-radius: 30px;
-    border: none;
-    color: #ffffff;
-    font-size: 17px;
-    padding: 10px 20px 10px 20px;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.form-container {
-    width: 80%;
-}
-
-.form-container input[type=text] {
-    border: 1px solid #d5d2d2;
-    border-radius: 5px;
-    width: 100%;
-    height: 28px;
-    padding-top: 10px;
-    padding-bottom: 8px;
-    padding-left: 15px;
-    margin-right: 25px;
-    font-size: 15px;
-    outline: none;
-    display: block;
-}
-
-.form-container input[type=date] {
-    border: 1px solid #d5d2d2;
-    border-radius: 5px;
-    width: 90%;
-    height: 30px;
-    padding-top: 10px;
-    padding-bottom: 8px;
-    padding-left: 15px;
-    margin-right: 30px;
-    margin-top: 5px;
-    font-size: 15px;
-    outline: none;
-    display: block;
-}
 
 
-.form-container input[type=text]:focus,
-input[type=date]:focus,
-input[type=text]:focus {
-    border: 1.5px solid #00BFFF;
-}
-
-.form-container select {
-    width: 100%;
-    height: 30px;
-    margin: 5px;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-    border-radius: 5px;
-}
-
-.form-container select .breed, .price {
-    margin-top: 10px;
-}
-
-.form-container select:focus {
-    border: 1.5px solid #00BFFF;
-}
-
-.dob-breed, .buying, .weight-height, .pregnancy, .next-milk {
-    display: flex;
-}
-
-.dob, .date, .breed, .price, .weight, .height, .next {
-    width: 50%;
-}
-
-.weight {
-    margin-right: 45px;
-    width: 420px;
-}
-
-.npregnant, .milk {
-    width: 470px;
-}
-
-.status {
+/* .status {
     width: 45%;
     margin-right: 45px;
 }
@@ -98,7 +11,7 @@ input[type=text]:focus {
 .col-md-4 {
     width: 33.3%;
     float: right;
-}
+} */
 
 /*make it responsive design*/
 @media (max-width: 991px) {

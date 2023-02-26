@@ -6,7 +6,7 @@
 
 <div class="full-container">
   <div class="navigation active">
-  <!-- <div class="back">
+    <!-- <div class="back">
       <a href="#"><i class="fa-solid fa-chevron-left"></i></a>
     </div> -->
     <ul>
@@ -22,13 +22,12 @@
           <span class="title"> Dashboard</span>
         </a>
       </li>
-      <li>
+      <!-- <li>
         <a href="<?php echo URLROOT; ?>/supplier/placeSupply">
-        <!--  -->
           <span class="icon"><i class="fa-solid fa-truck-field"></i></span>
           <span class="title">Place Supply Order</span>
         </a>
-      </li>
+      </li> -->
       <li>
         <a href="<?php echo URLROOT; ?>/supplier/viewSupply">
         <!--  -->
@@ -63,6 +62,7 @@
             </div>
             <div class="topmenu">
                 <ul>
+                    <li><a href=""><i class="fa-solid fa-gift"></i></a></li>
                     <li><a href=""><i class="fas fa-bell"></i></a></li>
                     <li><div class="img-user"><img src="<?php echo URLROOT; ?>/img/users/sasindu.jpg" alt="user"></div></li>
                     <li><a href=""><?php echo $_SESSION['user_name']; ?></a></li>
@@ -88,11 +88,12 @@
                                     <i class="fa-solid fa-right-from-bracket"></i>
                                     <p>Log out</p>
                                 </a>
-                            </div>
-                        </div>
+                                
                     </div>
                 </div>
             </div>
         </div>
+   </div>
+</div>
 <?php require APPROOT.'/views/include/footer.php'; ?>
 <script src="<?php echo URLROOT; ?>/js/dashboard.js"></script>        

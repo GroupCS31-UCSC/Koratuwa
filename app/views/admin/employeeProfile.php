@@ -12,7 +12,7 @@
     <li>Address :<?php echo $emp->address; ?></li>
     <li>Contact Number :<?php echo $emp->contact_number; ?></li>
     <li>Date of Birth :<?php echo $emp->dob; ?></li>
-    <li>Age :</li>
+    <li>Age :<?php echo time_diff($emp->dob); ?></li>
     <li>Gender :<?php echo $emp->gender; ?></li>
     <li>Email :<?php echo $emp->email; ?></li>
     <li>Salary :<?php echo $emp->salary; ?></li>
@@ -26,4 +26,13 @@
 <?php endforeach; ?>
 <?php require APPROOT.'/views/include/footer.php'; ?>
 <script src="<?php echo URLROOT; ?>/js/admin.js"></script>
-
+ 
+<!-- find difference among two dates -->
+<?php 
+function time_diff($oldDate)
+{
+    $nowDate=date("Y-m-d");
+    $diff=date_diff(date_create($oldDate),date_create($nowDate));
+    return $diff->format('%y')." Years ".$diff->format('%m')." months ".$diff->format('%d')." days";
+}
+?>

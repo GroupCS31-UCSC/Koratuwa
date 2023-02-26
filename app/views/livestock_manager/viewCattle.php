@@ -25,14 +25,13 @@
         <th>COW ID</th>
         <!-- <th>Image</th> -->
         <th>Date of birth</th>
-        <th>Breeding type</th>
-        <th>Type</th>
         <th>Age</th>
-        <th>Bye Date</th>
-        <th>Buy Price</th>
-        <!-- <th>Health Status</th> -->
-        <th>Pregnant Status</th>
-        <th>Milk per day</th>
+        <th>Gender</th>
+        <th>Breed</th>
+        <th>Weight</th>
+        <th>Height</th>
+        <th>Health</th>
+        <th>Registration Date</th>
         <th>Action</th>
       </tr>
 
@@ -40,18 +39,13 @@
       <tr>
         <td><?php echo $cattle->cow_id; ?></td>
         <td><?php echo $cattle->dob; ?></td>
+        <td><?php echo $cattle->age; ?></td>
+        <td><?php echo $cattle->gender; ?></td>
         <td><?php echo $cattle->cow_breed; ?></td>
-        <td><?php echo $cattle->cow_type; ?></td>
-        <td>
-        <?php
-          $bday = strtotime($cattle->dob);
-          $today = new DateTime();
-          $diff = $today->diff(new DateTime($cattle->dob));
-          echo $diff->y . ' years, ' . $diff->m.' months';
-        ?>
-        </td>
-        <td><?php echo $cattle->buy_date; ?></td>
-        <td><?php echo $cattle->buy_price; ?></td>
+        <td><?php echo $cattle->weight; ?></td>
+        <td><?php echo $cattle->height; ?></td>
+        <td><?php echo $cattle->health; ?></td>
+        <td><?php echo $cattle->reg_date; ?></td>
         <!-- <td>
           if(height normal range) {
             heaith is 25%
@@ -62,10 +56,8 @@
          
           
         </td> -->
-        <td><?php echo $cattle->pregnant_status; ?></td>
-        <td><?php echo $cattle->milk_per_day; ?></td>
         <td>
-        <?php if($cattle->employee_id == $_SESSION['user_id']): ?>
+        <?php if($cattle->stall_no == $_SESSION['user_id']): ?>
           <div class="table-btns">
             <a href="<?php echo URLROOT?>/Livestock_Manager/updateCattle/<?php echo $cattle->cow_id ?>"><button class="updateBtn">UPDATE</button></a>
             <a href="<?php echo URLROOT?>/Livestock_Manager/deleteCattle/<?php echo $cattle->cow_id ?>"><button class="deleteBtn">DELETE</button></a>
