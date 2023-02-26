@@ -58,7 +58,7 @@
         </div>
         <div class="table-btns">
           <a href="#"><button class="viewBtn" onclick="openVaccinationItem()">VIEW</button></a>
-          <a href="#"><button class="updateBtn">UPDATE</button></a>
+          <a href="<?php echo URLROOT?>/Livestock_Manager/updateVaccination/<?php echo $vaccination->vaccination_id ?>"><button class="updateBtn">UPDATE</button></a>
           <a href="#"><button class="deleteBtn">DELETE</button></a>
         </div>
       </td>
