@@ -9,14 +9,57 @@
       $this->db = new Database();
     }
 
-    //to get all milk collection deails
-    public function get_milkCollectionView()
+    //to get total farm milk collection deails
+    public function get_farmMilkCollectionView()
     {
       $this->db->query('SELECT * FROM milk_collection');
 
       $result = $this->db->resultSet();
 
       return $result;
+    }
+
+    //to get farm milk collection deails one by one
+    public function get_collectionDetails($mcId)
+    {
+      $this->db->query('SELECT stall_id ,collected_date,collected_time FROM milk_collection WHERE milk_collection_id=:mcId');
+			$this->db->bind(':mcId', $mcId);
+
+      if($this->db->execute())
+        {
+          $row = $this->db->single();
+          $stallId = $row->stall_id;
+          $cDate = $row->collected_date;
+          $cTime = $row->collected_time;
+
+          $this->db->query('SELECT * FROM cattle_milking WHERE stall_id=:sId AND collected_date=:cDate AND collected_time=:cTime');
+          $this->db->bind(':sId', $stallId);
+			    $this->db->bind(':cDate', $cDate);
+			    $this->db->bind(':cTime', $cTime);
+
+          if($this->db->execute())
+          {
+            $result = $this->db->resultSet();
+
+            return $result;
+          }
+          else
+          {
+            return false;
+          }
+        }
+        else
+        {
+          return false;
+        }
+
+      
+      
+
+      
+			
+
+
     }
 
     //to get all supplier deails
@@ -33,16 +76,6 @@
     public function get_supOrderView()
     {
       $this->db->query('SELECT * FROM supply_order');
-
-      $result = $this->db->resultSet();
-
-      return $result;
-    }
-
-    //to get all farm milk deails
-    public function get_farmMilkView()
-    {
-      $this->db->query('SELECT * FROM farm_milk_collection');
 
       $result = $this->db->resultSet();
 
