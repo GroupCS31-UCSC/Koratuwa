@@ -22,14 +22,14 @@
         <a href="<?php echo URLROOT; ?>/Cashier/viewSale">
 
           <span class="icon"><i class="fa-solid fa-scale-balanced"></i></span>
-          <span class="title">Sales</span>
+          <span class="title">Onside Sales</span>
         </a>
       </li>
       <li>
         <!-- Customer orders -->
         <a href="<?php echo URLROOT; ?>/Cashier/viewCustomerOrders">
           <span class="icon"><i class="fa-brands fa-joget"></i></span>
-          <span class="title">Customer Orders </span>
+          <span class="title">Online Sales</span>
         </a>
       </li>
     </ul>
