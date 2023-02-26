@@ -1,16 +1,23 @@
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 .container {
-    z-index: 1;
+    /* z-index: 1; */
     position: relative;
     margin: 0 auto;
     padding: 0px 20px 0 20px;
     max-width: 1200px;
+    /* border: solid green; */
 }
 section {
+    width: 100%;
     text-align: center;
     padding: 40px 0px;
 }
-/*--------description----------*/
+/* --------description----------*/
 /* :root{
     --main-color: #a40120;
 }
@@ -48,7 +55,7 @@ section {
     font-size: 9rem;
     line-height: 2rem;
 }
-/* .hero-search{
+.hero-search{
     margin-top: 1.5rem;
     display: flex;
     background: #fff;
@@ -56,8 +63,8 @@ section {
     margin-right: 3rem;
     height: 40px;
     align-items: center;
-} */
-/* .hero-social{
+}
+ .hero-social{
     position: absolute;
     top: -45vh;
     transform: translateY(45vh);
@@ -174,10 +181,12 @@ main{
     height: 500px;
 }
 .product_cat{
-    /* background-color: aliceblue; */
+    position: relative;
+    top: 0px;
     background-image: url(http://localhost/koratuwa/img/customer/hero.jpg);
     background-size: cover;
-    z-index: -1;
+    /* border: solid yellow; */
+
 
 }
 /*---------yourget--------*/
