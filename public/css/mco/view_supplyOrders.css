@@ -1,0 +1,132 @@
+/* button styles */
+
+.status.collected {
+    padding: 2px 4px;
+    background: #8de02c;
+    color: white;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.status.rejected {
+    padding: 2px 4px;
+    background: #f00;
+    color: white;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.pendingBtn {
+    border: 0.25px solid rgb(60, 255, 0);
+    border-radius: 7px;
+    box-shadow: 0px 2px 3px #666666;
+    color: white;
+    padding: 4px 8px 4px 8px;
+    background: #28c728;
+    font-size: 18px;
+}
+
+.pendingBtn:hover {
+    border: 0.25px solid black;
+    color: black;
+    background: #12fc0a;
+    cursor: pointer;
+}
+
+
+/* updated table styles */
+
+table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+table tr:nth-child(odd) {
+    background-color: #ddd;
+}
+
+table tr:nth-child(1) {
+    background-color: #04AA6D;
+}
+
+table tr:hover {
+    /* background-color: #ddd; */
+    background-color: lightcyan;
+}
+
+
+/* table tr:nth-child(odd):hover {
+    background-color: #f2f2f2;
+} */
+
+table tr:nth-child(1):hover {
+    background-color: #04AA6D;
+}
+
+table {
+    margin: 40px auto 100px auto;
+}
+
+
+/* titles */
+
+.title1,
+.title2 {
+    /* background-color: lightskyblue; */
+    text-align: center;
+    border: 1px solid blue;
+}
+
+.title1 h1 {
+    background-color: powderblue;
+    z-index: 9;
+    color: black;
+}
+
+.title2 {
+    background-color: powderblue;
+    /* background-color: #04086B; */
+    color: black;
+}
+
+section {
+    /* position: absolute; */
+    /* top: 11.5vh;
+    left: 0; */
+    margin-top: 0px;
+    height: 36%;
+    width: 100%;
+    background: url(http://localhost/koratuwa/img/mco/milk.jpg);
+    background-size: cover;
+    background-position: center;
+    filter: blur(1px) brightness(60%);
+}
+
+
+/*  */
+
+.ongoingOrders {
+    /* background-color: rgb(86, 86, 86); */
+    /* border: 1px solid powderblue; */
+    margin: 0px auto 0px auto;
+    /* background-color: powderblue; */
+    /* padding: 100px auto 50px auto; */
+}
+
+
+/*  */
+
+.pastOrders {
+    border: 1px solid gold;
+    margin: 0px auto 0px auto;
+    background-color: rgb(86, 86, 86);
+}
+
+
+/* divider */
+
+.divider {
+    /* background-color: green; */
+    /* height: 10vh; */
+}
