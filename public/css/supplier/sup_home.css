@@ -1,6 +1,14 @@
 section {
     text-align: center;
+    padding: 40px 0px;
     /* border: solid red; */
+}
+.heading{
+    display: inline-block;
+    align-items: stretch;
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 1300px;
 }
 .sec1{
     background: url(http://localhost/koratuwa/img/supplier/sup_home.jpg);
@@ -12,18 +20,28 @@ section {
     background-size: cover;
     background-position: center;    
 }
+.sec3{
+    /* background-color: #468486; */
+    background-image: url(http://localhost/koratuwa/img/supplier/viewsupply.jpg);
+    background-size: cover;
+    background-position: center; 
+}
 
 .container {
-    position: relative;
-    margin: 0 auto;
     display: flex;
-    padding: 20px 0px 20px 0px;
-    max-width: 1200px;
-    max-height: 1000px;
+    align-items: stretch;
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 1300px;
     /* border: solid green; */
 }
 .feature{
-    width: 100%;
+    margin-top: 20px;
+    text-align: center;
+    display: inline-block;
+    /* justify-content: center; */
+    height: 400px;
+    min-width: 50%;
     /* border: solid blue; */
 }
 
@@ -36,9 +54,14 @@ section {
     border: #00BFFF solid;
 }
 .text{
-    background-color: rgb(0,0,0,0.6);
-    padding: 20px 20px 30px 20px;
+    margin-top: 30px;
+    margin: 30px 10px 30px 10px;
+    width: 100%;
+    /* background-color: rgb(0,0,0,0.4); */
+    padding: 20px 0px 20px 0px;
+    line-height: 40px;
     border-radius: 10px;
+    color: #fff;
 }
 .h{
     margin-top:20px;
@@ -69,7 +92,7 @@ section {
 }
 
 .model3 {
-    margin: 50px auto 50px 200px;
+    margin: 20px 160px 20px auto;
     width: 300px;
     height: 200px;
     line-height: 30px;
@@ -119,8 +142,8 @@ h2 {
 }
 /*------place order button----------*/
 .place_order {
-    margin: 50px;
-    width: 30%;
+    /* margin: 50px; */
+    min-width: 30%;
     border-radius: 28px;
     box-shadow: 0px 2px 3px #666666;
     font-family: Arial;
@@ -145,25 +168,24 @@ h2 {
 /*-----------charts-----------------*/
 
 .graphBox {
-  width: 80%;
-  padding: 10px;
-  margin-left: 10%;
-  display: grid;
-  grid-template-columns: 2fr 2fr;
-  grid-gap: 30px;
-  min-height: 300px;
-  /* border: solid red; */
+    position: relative;
+    width: 80%;
+    padding: 10px 10px 10px 10px;
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    grid-gap: 30px;
+    min-height: 300px;
+    /* top: 150px;
+    left: 50px; */
 }
 
-.graphBox .box {   
-    margin-top: 20%;
-    margin-bottom: 20%;    
-  position: relative;
-  background: aliceblue;
-  padding: 20px 10px 10px 10px;
-  width: 100%;
-  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
-  border-radius: 20px;
+.graphBox .box {
+    position: relative;
+    background:rgb(254, 254, 254,0.7);
+    padding: 20px 10px 10px 10px;
+    width: 100%;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.4);
+    border-radius: 20px;
 }
 
 /*-------------------------------Model------------------------------*/
@@ -241,3 +263,26 @@ h2 {
     background-color: #04086B;
     color: white;
   }
+
+  /*make it responsive design*/
+
+@media (max-width: 991px) {
+    .graphBox {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+    .navigation {
+        left: -275px;
+    }
+    .navigation.active {
+        width: 275px;
+        left: 0;
+    }
+    .main {
+        width: 100%;
+        left: 0;
+    }
+    .main.active {
+        left: 275px;
+    }
+}

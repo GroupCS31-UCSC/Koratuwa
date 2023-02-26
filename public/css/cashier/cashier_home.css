@@ -1,17 +1,25 @@
-/* cards */
-section {
-    text-align: center;
-    padding:0;
+.container {
+  text-align: center;
+  padding:0;
+  margin-top: 30px;
+
+}
+
+.report-area {
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 50px;
+  margin-bottom: 10px;
+  font-size: 1rem;
 }
 
 /* Content */
 .cardBox {
-    /* position: relative;
-    width: 100%;
-    padding: 40px;
-    display: grid; */
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 30px;
+  grid-template-columns: repeat(4, 2fr);
+  grid-gap: 30px;
 }
 
 .cardBox .card {
@@ -63,7 +71,6 @@ section {
 .cardBox .card:hover{
   background: rgba(229, 223, 237, 0.3);
 }
-  
 /*charts*/
 .graphBox{
   position: relative;
@@ -82,6 +89,9 @@ section {
   box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
   border-radius: 20px;
 }
+
+
+
 
 
 /*make it responsive design*/
@@ -103,5 +113,15 @@ section {
   }
   .main.active {
     left: 275px;
+  }
+  .cardBox {
+    width: 33.3%;
+    min-width: 0px;
+  }
+}
+
+@media (max-width: 767px) {
+  .cardBox {
+    width: 100%;
   }
 }

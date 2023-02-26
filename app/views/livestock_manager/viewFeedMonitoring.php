@@ -58,7 +58,7 @@
         </div>
         <div class="table-btns">
           <a href="#"><button class="viewBtn" onclick="openFeedItem()">VIEW</button></a>
-          <a href="#"><button class="updateBtn">UPDATE</button></a>
+          <a href="<?php echo URLROOT?>/Livestock_Manager/updateFeedMonitoring/<?php echo $feed_monitoring->feed_id ?>"><button class="updateBtn">UPDATE</button></a>
           <a href="#"><button class="deleteBtn">DELETE</button></a>
         </div>
       </td>

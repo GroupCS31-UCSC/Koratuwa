@@ -6,7 +6,7 @@
 
         public function __construct()
         {
-          $this->pmModel = $this->model('Product_Manager_Model');
+          $this->pmModel = $this->model('Product_Manager_Model'); //instatiate the model
 
           if(!$_SESSION['user_email']){
             redirect('Users/login');
@@ -24,6 +24,17 @@
         {
           $data = [];
           $this->view('product_manager/pm_home',$data);
+        }
+
+        public function viewStock()
+        {
+          $stockView= $this->pmModel->getProductStockDetails();
+
+          $data = [
+              'stockView' => $stockView
+          ];
+
+          $this->view('product_manager/viewStock',$data);
         }
 
         public function analyze()
@@ -90,9 +101,9 @@
 
             //validation
             if (empty($data['name']))        { $data['name_err'] = '*' ;  }
-            if (empty($data['cost']))     { $data['cost_err'] = '*' ; }
-            if (empty($data['price']))     { $data['price_err'] = '*' ; }
-            if (empty($data['ingredients']))        { $data['ingredients_err'] = '*' ; }
+            if (empty($data['cost']))         { $data['cost_err'] = '*' ; }
+            if (empty($data['price']))        { $data['price_err'] = '*' ; }
+            if (empty($data['ingredients']))  { $data['ingredients_err'] = '*' ; }
             if (empty($data['image']))        { $data['image_err'] = '*' ; }
 
             
@@ -181,7 +192,7 @@
               if($this->pmModel->addStock($data))
               {
                 flash('addCategory_flash','New Category Stock details are successfully added!');
-                redirect('Product_Manager/addStock');
+                redirect('Product_Manager/viewStock');
               }
               else
               {
@@ -326,6 +337,8 @@
           $this->view('product_manager/viewCategory',$data);
         }
 
+     
+
         public function productCategories()
         {
           $categoryView= $this->pmModel->get_categoryView();
@@ -350,15 +363,7 @@
           }
         }
 
-        public function viewStock() {
-          $stockView= $this->pmModel->viewStock();
-    
-          $data = [
-            'stockView' => $stockView
-          ];
-    
-          $this->view('product_Manager/addStock',$data);
-        }
+       
 
 
     }

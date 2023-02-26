@@ -7,6 +7,10 @@
 
 <!-- <?php echo $_SESSION['user_id']; ?></h2> -->
 
+
+
+
+
 <div class="section">
 <h2>Our Products</h2>
 <img class="img-bg" src="<?php echo URLROOT; ?>/public/img/price.jpg" alt="no"> 

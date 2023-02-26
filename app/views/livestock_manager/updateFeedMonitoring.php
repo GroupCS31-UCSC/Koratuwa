@@ -9,21 +9,26 @@
 	</div>
 	<br>
 	<form action="<?php echo URLROOT; ?>/Livestock_Manager/updateFeedMonitoring" method="POST">
-        <!-- Cow Id -->
-        <div class="form-input-title">COW ID</div>
-        <input type="text" name="cow_id" id="cow_id" class="cow_id" value="#">
-
         <!-- Feed item -->
         <div class="form-input-title">Feed Item</div>
-        <input type="text" name="feed_item" id="feed_item" class="feed_item" value="#">
+        <span class="form-invalid"><?php echo $data['feedItem_err']; ?></span>
+        <label for="Select the Feed Item"></label>
         
+        <select name="feedItem" id="feedItem">            
+            <option value="Grass" name="feedItem">Grass</option>
+            <option value="Water" name="feedItem">Water</option>
+            <option value="Salt" name="feedItem">Salt</option>
+        </select>
+
 		<!--Quantity-->
 		<div class="form-input-title">Quantity</div>
-        <input type="text" name="quantity" id="quantity" class="quantity" value="#">
+        <span class="form-invalid"><?php echo $data['feedQuantity_err']; ?></span>
+        <input type="number" name="feedQuantity" id="feedQuantity" class="feedQuantity" value="<?php echo $data['feedQuantity'];?>" required>
         
-        <!--remarks-->
-        <div class="form-input-title">Remarks</div>
-        <input type="text" name="remarks" id="remarks" class="remarks" value="#">
+        <!--Note-->
+        <div class="form-input-title">Note</div>
+        <span class="form-invalid"><?php echo $data['note_err']; ?></span>
+        <input type="text" name="note" id="note" class="note" value="<?php echo $data['note'];?>" required>
     
 		<br>
 		<input type="submit" value="Submit" class="submitBtn">
