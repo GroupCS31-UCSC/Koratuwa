@@ -7,9 +7,10 @@
 
 
 <section class="sec1">
-  <div class="container">
+  <div class="heading">
+  <h1 class="h">Koratuwa provides the<br> best value for you!</h1>
+    <!-- <div class="feature">
 
-    <div class="feature">
       <div class="text">
         <h1 class="h">Koratuwa provides the<br> best value for you!</h1>
         <div class="text2">
@@ -22,8 +23,8 @@
         </div>
       </div>
       <button id="myBtn" class="place_order"><i class="fa-solid fa-truck-field"></i> Place Order</button>
-    </div>
-    <div class="feature">
+    </div> -->
+    <!-- <div class="feature">
       <div class="model3">
         <div class="container4">
             <label class="label1">Today Purchasing Price</label>
@@ -34,7 +35,7 @@
             </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
   </div> 
 </section>
@@ -51,20 +52,64 @@
 
 
 <section class="sec2">
-  <div class="graphBox">
+  <div class="container">
 
-        <div class="box">
-          <label><center>Quality</center></label>
-          <canvas id="quality"></canvas>
-        </div>
+    <div class="feature">
+        <div class="graphBox">
 
-        <div class="box">
-          <label><center>Price</center></label>
-          <canvas id="price"></canvas>
-        </div>
+          <div class="box">
+            <label><center>Price</center></label>
+            <canvas id="price"></canvas>
+          </div>
 
-  </div>  
+        </div>  
+    </div>
+
+    <div class="feature">
+      <div class="model3">
+          <div class="container4">
+              <label class="label1">Today Purchasing Price</label>
+              <div class="items">
+                <h2>
+                  RS. <span class="counter_up" data-number="95" data-speed="10000"></span>
+                </h2>
+              </div>
+          </div>
+      </div>
+      <button id="myBtn" class="place_order"><i class="fa-solid fa-truck-field"></i> Place Order</button>
+    </div>
+
+  </div>
 </section>
+
+<section class = "sec3">
+  <div class="container">
+
+    <div class="feature">
+      <div class="graphBox">
+
+          <div class="box">
+            <label><center>Quality</center></label>
+            <canvas id="quality"></canvas>
+          </div>
+
+      </div>       
+    </div>
+
+    <div class="feature">
+      <div class="text">
+            <p>We appriciate you according to <br>your supply quality</p>
+            <ul>
+              <li>Good - 20% water presentage</li>
+              <li>Average - 40% water presentage</li>
+              <li>Bad - 50% water presentage</li>
+            </ul>
+      </div>      
+    </div>
+
+  </div>
+</section>
+
 <!-- The Modal -->
 <div id="myModal" class="modal">
 
