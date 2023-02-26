@@ -6,11 +6,20 @@
 
     public function __construct()
     {
-      $this->db = new Database();
+      $this->db = new Database(); //instantiate the databass class in the database.php file
     }
 
     public function getProductCategoryDetails(){
       $this->db->query('SELECT * FROM product_category');
+
+      $result = $this->db->resultSet();
+
+      return $result;
+    }
+
+    public function getProductStockDetails(){
+      $this->db->query('SELECT * FROM product_stock');
+
 
       $result = $this->db->resultSet();
 
@@ -108,7 +117,7 @@
 
     public function addCategory($data)
     {
-      $this->db->query('INSERT INTO product_category(product_id,product_name,unit_price,unit_cost,ingredients,image,employee_id) VALUES(:pId, :name, :price, :cost, :ingredients, :image, :pmId)');
+      $this->db->query('INSERT INTO product_category(product_id,product_name,unit_price,unit_cost,ingredients,image) VALUES(:pId, :name, :price, :cost, :ingredients, :image)');
       //value binding
       $this->db->bind(':pId', $data['pId']);
       $this->db->bind(':name', $data['name']);
@@ -116,7 +125,7 @@
       $this->db->bind(':cost', $data['cost']);
       $this->db->bind(':ingredients', $data['ingredients']);
       $this->db->bind(':image', $data['image']);
-      $this->db->bind(':pmId', $_SESSION['user_id']);
+      // $this->db->bind(':pmId', $_SESSION['user_id']);
 
       //execute
       if($this->db->execute())
