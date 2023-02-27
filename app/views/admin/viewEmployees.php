@@ -61,7 +61,7 @@
     <td>
     <div class="table-btns">
       <a href="<?php echo URLROOT?>/Admin/EmployeeProfile/<?php echo $emp->email ?>"><button class="viewBtn">View</button></a>
-      </div>
+    </div>
     </td>
 
 
