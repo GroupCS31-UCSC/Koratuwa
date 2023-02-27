@@ -1,5 +1,5 @@
 table {
-    top: 100px;
+    /* top: 50px; */
     left: 60px;
     font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;
@@ -31,12 +31,6 @@ table th {
     background-color: #04AA6D;
     color: white;
 }
-
-
-/* .table_content {
-    position: relative;
-    top: 70px;
-} */
 
 @media (max-width: 991px) {
     .graphBox {

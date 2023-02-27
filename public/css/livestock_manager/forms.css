@@ -56,25 +56,6 @@ input[type=number]:focus {
 } */
 
 
-
-
-
-/*  */
-.submit-btn {
-    margin-left: 15vw;
-    width: 600px;
-    background: #04086B;
-    -webkit-border-radius: 30;
-    -moz-border-radius: 30;
-    border-radius: 30px;
-    border: none;
-    color: #ffffff;
-    font-size: 17px;
-    padding: 10px 20px 10px 20px;
-    text-decoration: none;
-    cursor: pointer;
-}
-
 /* .form-container input[type=text] {
     border: 1px solid #d5d2d2;
     border-radius: 5px;

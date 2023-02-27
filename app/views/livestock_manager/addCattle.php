@@ -52,7 +52,7 @@
     
 
 		<br>
-		<input type="submit" value="Submit" class="submit-btn">
+		<input type="submit" value="Submit" class="submitBtn">
   </form>
   <br>
 </div>

@@ -57,9 +57,9 @@
           </div>
         </div>
         <div class="table-btns">
-          <a href="#"><button class="viewBtn" onclick="openFeedItem()">VIEW</button></a>
-          <a href="<?php echo URLROOT?>/Livestock_Manager/updateFeedMonitoring/<?php echo $feed_monitoring->feed_id ?>"><button class="updateBtn">UPDATE</button></a>
-          <a href="#"><button class="deleteBtn">DELETE</button></a>
+          <a href="#"><button class="viewBtn" onclick="openFeedItem()"><i class="fas fa-eye"></i></button></a>
+          <a href="<?php echo URLROOT?>/Livestock_Manager/updateFeedMonitoring/<?php echo $feed_monitoring->feed_id ?>"><button class="updateBtn"><i class="fa-regular fa-pen-to-square"></i></button></a>
+          <a href="#"><button class="deleteBtn"><i class="fa-regular fa-trash-can"></i></button></a>
         </div>
       </td>
     </tr>
