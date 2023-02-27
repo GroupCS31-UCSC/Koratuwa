@@ -1,105 +1,56 @@
-.home-btn {
-    background-color: #00BFFF;
-    color: aliceblue;
-    padding: 16px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 20%;
-    transition: .2s all;
-}
-
-.home-btn:hover {
-    background-color: rgb(36, 105, 110);
-    border-radius: 5px;
-}
-
-
-/* .form-btn {
-	background-color: #00BFFF;
-	color: aliceblue;
-	padding: 16px 20px;
-	margin: 8px 0;
-	border: none;
-	cursor: pointer;
-	width: 100%;
-	transition: .2s all;
-
-}
-.form-btn:hover{
-	background-color: rgb(36, 105, 110);
-	border-radius: 5px;
-} */
-
-
 /*add button */
-
-.addBtn {
-    position: absolute;
+.add-btn {
     width: 300px;
-    top: 75px;
-    /* left: 900px; */
-    margin-top: -50px;
-    margin-right: 15px;
-    right: 75px;
     background: #04086B;
     -webkit-border-radius: 30;
     -moz-border-radius: 30;
     border-radius: 30px;
     border: none;
-    font-family: Arial;
     color: #ffffff;
     font-size: 17px;
     padding: 10px 20px 10px 20px;
     text-decoration: none;
+    cursor: pointer;
 }
 
-.addBtn:hover {
+.add-btn:hover {
     background: #3cb0fd;
     text-decoration: none;
     cursor: pointer;
 }
 
 
-/*update button*/
-
+/*view button*/
 .viewBtn {
-    border-radius: 28px;
+    border: 0.25px solid rgb(11, 103, 223);
+    border-radius: 4px;
     box-shadow: 0px 2px 3px #666666;
-    font-family: Arial;
-    color: black;
-    font-size: 10px;
-    font: bold 20px;
-    background: #4828c7;
-    padding: 10px 30px 10px 30px;
-    text-decoration: none;
-    border-color: #4828c7;
-    /*z-index: 1;*/
+    color: white;
+    padding: 2px 6px 2px 6px;
+    background: #209af8;
 }
 
 .viewBtn:hover {
-    background: #4828c7;
-    text-decoration: none;
+    border: 0.25px solid black;
+    color: black;
+    background: rgb(0, 200, 255);
     cursor: pointer;
 }
 
+/* update button */
 .updateBtn {
-    border-radius: 28px;
+    border: 0.25px solid rgb(60, 255, 0);
+    border-radius: 4px;
     box-shadow: 0px 2px 3px #666666;
-    font-family: Arial;
-    color: black;
-    font-size: 10px;
-    font: bold 20px;
+    color: white;
+    padding: 2px 6px 2px 6px;
     background: #28c728;
-    padding: 10px 18px 10px 20px;
-    text-decoration: none;
-    border-color: #28c728;
-    /*z-index: 1;*/
 }
 
 .updateBtn:hover {
+    border: 0.25px solid black;
+    color: black;
     background: #12fc0a;
-    text-decoration: none;
     cursor: pointer;
 }
 
@@ -107,43 +58,36 @@
 /*delete button*/
 
 .deleteBtn {
-    border-radius: 28px;
+    border: 0.25px solid white;
+    border-radius: 4px;
     box-shadow: 0px 2px 3px #666666;
-    font-family: Arial;
-    color: black;
-    font-size: 10px;
-    background: red;
-    padding: 10px 18px 10px 20px;
-    text-decoration: none;
-    border-color: red;
-    z-index: 1;
+    color: white;
+    padding: 2px 6.5px 2px 6.5px;
+    background: rgb(250, 10, 10);
 }
 
 .deleteBtn:hover {
-    background: #e35858;
-    text-decoration: none;
+    border: 0.25px solid black;
+    color: #353935;
+    background: red;
     cursor: pointer;
 }
 
 
 /*submit button*/
-
 .submitBtn {
-    display: block;
-    width: 100%;
-    height: 50px;
-    border-radius: 25px;
-    margin: 1rem 0;
-    font-size: 1.2rem;
-    outline: none;
+    margin-left: 15vw;
+    width: 600px;
+    background: #04086B;
+    -webkit-border-radius: 30;
+    -moz-border-radius: 30;
+    border-radius: 30px;
     border: none;
-    background-color: #0A2558;
-    /* background-image: linear-gradient(to right, #0A2558, #0e3276, #0A2558); */
+    color: #ffffff;
+    font-size: 17px;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
     cursor: pointer;
-    color: #fff;
-    text-transform: uppercase;
-    background-size: 200%;
-    transition: 0.5s;
 }
 
 .submitBtn:hover {

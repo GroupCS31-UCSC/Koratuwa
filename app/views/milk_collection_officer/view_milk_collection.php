@@ -3,55 +3,59 @@
 <?php require APPROOT.'/views/milk_collection_officer/mco_dashboard.php';  ?>
 <!-- ______________________________________________________________________________________________________-->
 
-<?php flash('addEmp_flash') ?>
-<?php flash('updateEmp_flash') ?>
-<?php flash('dltEmp_flash') ?>
-
-<br><br><br>
-<h1><center>Koratuwa Milk Collection</center></h1>
+<div class="container" style="overflow-x: auto;">
 <section>
-  <div class="container" style="overflow-x: auto;">
+</section>
 
-    <table>
-      <tr>
-        <!-- <th>Milk Collection ID</th> -->
-        <th>Collected Date</th>
-        <th>Collected Time</th>
-        <th>Quantity(L)</th>
-        <th>Remarks</th>
-        <!-- more -->
-        <th>Action</th>
-      </tr>
+<div class="tableSection">
+  <h1>Koratuwa Internal Milk Collection</h1>
+
+  <table>
+    <tr>
+      <th>Collection Id</th>
+      <th>Collected Date</th>
+      <th>Collected Time</th>
+      <th>Stall Id</th>
+      <th>Quantity(L)</th>
+      <th>More</th>       
+    </tr>
       
   <?php foreach ($data['milkView'] as $mc) : ?>
-  <tr>
-    <!-- <td><?php echo $mc->milk_collection_id; ?></td> -->
-    <td><?php echo $mc->collected_date; ?></td>
-    <td><?php echo $mc->collected_time; ?></td>
-    <!-- <td><?php echo $emp->salary; ?></td> -->
-    <td><?php echo $mc->quantity; ?></td>
-    <td><?php echo $mc->remarks; ?></td>
-    <td>
-
+    <tr>
+      <td><?php echo $mc->milk_collection_id; ?></td>
+      <td><?php echo $mc->collected_date; ?></td>
+      <td><?php echo $mc->collected_time; ?></td>
+      <td><?php echo $mc->stall_id; ?></td>
+      <td><?php echo $mc->quantity; ?></td>
+      <td>
       <div class="table-btns">
-      <a href="<?php echo URLROOT?>/Milk_Collection_Officer/updateMilkCollection/"><button class="updateBtn">UPDATE</button></a>
-      <a href="<?php echo URLROOT?>/Milk_Collection_Officer/deleteMilkCollection/"><button class="deleteBtn">DELETE</button></a>
+        <a href="<?php echo URLROOT?>/Milk_Collection_Officer/collectionDetails/<?php echo $mc->milk_collection_id ?>"><button class="viewBtn">View</button></a>
       </div>
-
-    <!-- 
-    <form id="EditForm" action="<?php echo URLROOT?>/Admin/deleteEmployees/<?php echo $emp->email ?>">
-    <button class="deleteBtn" onclick="deletion(event)">Delete</button>
-    </form> -->
-    
-    </td>
-  </tr><br>
+      <!------------ set price popup window ---------------->
+    <div id="popup1" class="overlay">
+    <div class="popup">
+      <h2>collection details</h2>
+      <a class="close" href="#">&times;</a>
+      <div class="content">
+      <?php foreach ($data['cView'] as $cView) : ?>
+      Cow ID<?php echo $cView->cow_id; ?>
+      <?php endforeach; ?>
+      
+        
+      </div>
+    </div>
+  </div>
+  <!------------------------------------------------------>
+      
+      </td>
+    </tr>
   <?php endforeach; ?>
 
-    </table>
+  </table>
+</div>
+
+
     
-<input type="button" value="Add New Collection" class="addBtn" onclick="location.href='<?php echo URLROOT; ?>/Milk_Collection_Officer/addCollection' ">
-
-
   
 <?php require APPROOT.'/views/include/footer.php'; ?>
 <script src="<?php echo URLROOT; ?>/js/mco.js"></script>

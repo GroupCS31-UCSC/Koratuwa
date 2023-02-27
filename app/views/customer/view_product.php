@@ -7,32 +7,43 @@
     <div class="container">
         <div class="feature">
             <div class="product_img">
-                <img class="pic_product" src="<?php echo URLROOT; ?>/img/customer/yourget.png">
-                <!-- <img src="<?php echo UPLOADS . $data['productDetails']->image ?>"> -->
+            
+                <img class="pic_product" src="<?php foreach ($data['productDetails'] as $productCategory) : ?><?php echo UPLOADS . $productCategory->image; ?><?php endforeach; ?>"width='200' height='400'>
+                <!-- <img class="pic_product" src="<?php echo UPLOADS . $productCategory->image ?>" width='200' height='200'>     -->
             </div>
         </div>
-        <div class="feature">
+        <div class="feature_form">
             <div class="form_container">
-                <form action="">
+                <h1>Product Details</h1>
+                <form action="<?php echo URLROOT; ?>/Customer/buyNow" method="POST">
+
                     <div class="feature1">
-                        <div class="form-input-title">Product Name</div>
-                        <input type="text" name="p_name" id="p_name" class="p_name" autocomplete="off" >
+                        <div class="form-input-title">Product Name:</div>
+                        <label><?php foreach ($data['productDetails'] as $product) : ?><?php echo $product->product_name; ?><?php endforeach; ?></label>
                     </div>
                     <div class="feature1">
-                        <div class="form-input-title">Price</div>
-                        <input type="text" name="p_price" id="p_price" class="p_price" autocomplete="off" >
+                        <div class="form-input-title">Price:</div>
+                        <label>RS. <?php foreach ($data['productDetails'] as $product) : ?><?php echo $product->unit_price; ?><?php endforeach; ?></label>
                     </div>
                     <div class="feature1">
-                        <div class="form-input-title">Ingreadients</div>
-                        <input type="text" name="ingreadients" id="ingreadients" class="ingreadients" autocomplete="off" >
+                        <div class="form-input-title">Ingreadients:</div>
+                        <label><?php foreach ($data['productDetails'] as $product) : ?><?php echo $product->ingredients; ?><?php endforeach; ?></label>
                     </div>
-                    <div class="feature1">
-                        <div class="form-input-title">Ingreadients</div>
+                    <!-- <div class="feature1">
+                        <div class="form-input-title">Quantity</div>
                         <div class="quantity">
                             <span class="minus">-</span>
                             <span class="num"></span>
                             <span class="plus">+</span>
                         </div>
+                    </div> -->
+                    <div class="feature1">
+                        <div class="form-input-title">Enter quantity:</div>
+                        <input type="text" value="<?php echo $data['quantity']; ?>">
+                    </div>
+                    <div class="feature1">
+                        <div class="form-input-title">Total Price:</div>
+                        <label><?php foreach ($data['productDetails'] as $product) : ?><?php echo $product->unit_price * 2 ; ?><?php endforeach; ?></label>
                     </div>
                     <div class="feature1">
                         <!-- <input type="button" value="Buy Now" class="buynowBtn" onclick=""> -->
@@ -77,6 +88,6 @@
                     
 
 </section>
-
+          
 <?php require APPROOT.'/views/include/footer.php'; ?>
 <script src="<?php echo URLROOT; ?>/js/customer.js"></script>

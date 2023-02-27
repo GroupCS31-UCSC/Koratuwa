@@ -3,6 +3,95 @@
     margin-right: 15px;
 } */
 
+section {
+    position: absolute;
+    top: 44px;
+    left: 0;
+    height: 40%;
+    width: 100%;
+    background: url(http://localhost/koratuwa/img/mco/mco_milkcollection-copy.jpg);
+    background-size: cover;
+    background-position: center;
+    /* filter: blur(1px) brightness(30%); */
+}
+
+.tableSection {
+    position: relative;
+    margin-top: 40vh;
+}
+
+h1 {
+    text-align: center;
+    margin: -1px auto -5px auto;
+    background-color: black;
+    color: whitesmoke;
+    height: 7vh;
+}
+
+
+/* set price popup window styles */
+
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.overlay:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+.popup {
+    margin: 70px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    width: 60%;
+    height: 80%;
+    position: relative;
+    transition: all 5s ease-in-out;
+}
+
+.popup h2 {
+    margin-top: 0;
+    color: white;
+    font-family: Tahoma, Arial, sans-serif;
+    background-color: blue;
+}
+
+.popup .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+}
+
+.popup .close:hover {
+    color: #06D85F;
+}
+
+.popup .content {
+    max-height: 30%;
+    overflow: auto;
+}
+
+@media screen and (max-width: 700px) {
+    .popup {
+        width: 70%;
+    }
+}
+
 
 /*make it responsive design*/
 

@@ -1,0 +1,21 @@
+h1 {
+    text-align: center;
+    margin: 40px auto -20px auto;
+    color: whitesmoke;
+}
+
+section {
+    position: absolute;
+    top: 44px;
+    left: 0;
+    height: 94%;
+    width: 100%;
+    background: url(http://localhost/koratuwa/img/mco/mco_supplierImage.jpg);
+    background-size: cover;
+    background-position: center;
+    filter: blur(1px) brightness(30%);
+}
+
+.container {
+    opacity: 0.85;
+}

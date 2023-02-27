@@ -41,7 +41,7 @@
     public function findVaccinationId() {
       $this->db->query('SELECT * FROM vaccination order by vaccination_id desc limit 1');
       $row = $this->db->single();
-      $lastId=$row->vacc_id;
+      $lastId=$row->vaccination_id;
 
       if($lastId == '')	{
         $id='VACC101';
@@ -289,7 +289,7 @@
 
     public function updateVaccination($data) {
       $this->db->query('UPDATE vaccination SET vaccination_type= :vaccinationType, vaccination_quantity= :vaccinationQuantity, note= :note WHERE vaccination_id= :vaccId');
-      $this->db->bind(':vaccinationId', $data['vaccinationId']);
+      $this->db->bind(':vaccId', $data['vaccId']);
       $this->db->bind(':vaccinationType', $data['vaccinationType']);
       $this->db->bind(':vaccinationQuantity', $data['vaccinationQuantity']);
       $this->db->bind(':note', $data['note']);

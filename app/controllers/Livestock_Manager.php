@@ -272,9 +272,77 @@
         $this->view('livestock_Manager/addFeedMonitoring', $result);
       }
     }
-    public function updateFeedMonitoring() {
-      $data = [];
-      $this->view('livestock_Manager/updateFeedMonitoring',$data);
+    public function updateFeedMonitoring($feedId) {
+      if($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+        
+        $data = [
+          'feedId'=>trim($_POST['feedId']),
+          'cowId'=>trim($_POST['cowId']),
+          'feedItem'=>trim($_POST['feedItem']),
+          'feedQuantity'=>trim($_POST['feedQuantity']),
+          'note'=>trim($_POST['note']),
+
+          'cowId_err'=>'',
+          'feedItem_err'=>'',
+          'feedQuantity_err'=>'',
+          'note_err'=>'',
+        ];
+
+        //validation
+        if ($data['cowId']=='Select') {
+          $data['cowId_err'] = '*' ;
+        }
+        if ($data['feedItem']=='Select') {
+          $data['feedItem_err'] = '*' ;
+        }
+        if (empty($data['feedQuantity'])) {
+          $data['feedQuantity_err'] = '*' ;
+        }
+        if (empty($data['note'])) {
+          $data['note_err'] = '*' ;
+        }
+
+        // if no errors
+        if(empty($data['cowId_err']) && empty($data['feedItem_err']) && empty($data['feedQuantity_err']) && empty($data['note_err']) ) {
+          if($this->livestockModel->updateFeedMonitoring($data)) {
+            flash('updateFeed_flash','New feed monitoring details are successfully Updated!');
+            redirect('Livestock_Manager/viewFeedMonitoring');
+          }
+          else {
+            die('Something went wrong!');
+          }
+        }
+        else {
+          //loading the form with the errors
+          $this->view('livestock_Manager/updateFeedMonitoring',$data);
+        }
+      }
+      else {
+        $feedMonitoring = $this->livestockModel->getFeedMonitoringById($feedId);
+
+        $data = [
+            'feedId' => $feedMonitoring->feed_id,
+            'cowId' => $feedMonitoring->cow_id,
+            'feedItem' => $feedMonitoring->feed_item,
+            'feedQuantity' => $feedMonitoring->feed_quantity,
+            'note' => $feedMonitoring->note,
+            'cowId_err' => '',
+            'feedItem_err' => '',
+            'feedQuantity_err' => '',
+            'note_err' => ''
+        ];
+        
+        $cattle = $this->livestockModel->getCattleById($feedMonitoring->cow_id);
+
+        $data2 = [
+            'cattle' => $cattle
+        ];
+
+        $result = array($data, $data2);
+
+        $this->view('livestock_Manager/updateFeedMonitoring', $result);
+      }
     }
 
     public function viewVaccination() {
@@ -357,7 +425,7 @@
     
     public function updateVaccination() {
       $data = [];
-      $this->view('livestock_Manager/addFeedMonitoring',$data);
+      $this->view('livestock_Manager/updateVaccination',$data);
     }
   }
 

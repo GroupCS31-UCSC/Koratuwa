@@ -22,26 +22,9 @@
 }
 
 
-.add-btn {
-    width: 300px;
-    background: #04086B;
-    -webkit-border-radius: 30;
-    -moz-border-radius: 30;
-    border-radius: 30px;
-    border: none;
-    color: #ffffff;
-    font-size: 17px;
-    padding: 10px 20px 10px 20px;
-    text-decoration: none;
-    cursor: pointer;
-}
 
-table {
-    margin-left: 50px;
-}
-td {
-    text-align: center;
-}
+
+
 
 /* .add-btn:hover {
     background: #3cb0fd;

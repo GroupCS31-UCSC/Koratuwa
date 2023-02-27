@@ -1,20 +1,57 @@
-.addBtn {
-    margin-top: -10px;
-    margin-right: 15px;
-
+.flash-msg {
+    height: 10vh;
 }
 
+.search-add {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin-left: 50px;
+    margin-bottom: 20px;
+}
+
+.search-area {
+    width: 40%;
+    display: flex;
+    align-items: center;
+}
+
+.search {
+    width: 10rem;
+}
+
+
+.add-btn {
+    width: 300px;
+    background: #04086B;
+    -webkit-border-radius: 30;
+    -moz-border-radius: 30;
+    border-radius: 30px;
+    border: none;
+    color: #ffffff;
+    font-size: 17px;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+table {
+    margin-left: 50px;
+}
 td {
     text-align: center;
 }
-
+.container {
+    margin-top: 5px;
+}
 /* .add-btn:hover {
     background: #3cb0fd;
     text-decoration: none;
     cursor: pointer;
 } */
-
  /*make it responsive design*/
+
 @media (max-width: 991px) {
     .graphBox {
         grid-template-columns: 1fr;
