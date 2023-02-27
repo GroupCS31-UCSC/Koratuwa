@@ -17,7 +17,7 @@
 
 h2{
   margin-left: 40%;
-  margin-top: 430px;
+  margin-top: 20px;
   position: absolute;
   font-size: 2rem;
   color:#444;
@@ -31,7 +31,7 @@ h2{
 table{
   margin-left: 50px;
   margin-bottom: 50px;
-  margin-top: 0px;
+  margin-top: 100px;
 
 }
 td {
@@ -88,5 +88,4 @@ td {
     text-decoration: none;
     cursor: pointer;
 }
-
 

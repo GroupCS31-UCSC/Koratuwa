@@ -1,32 +1,98 @@
 
-.cardWrapper {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 300px));
-    /* padding: 50px; */
-    gap: 50px;
-    margin: 50px;
-}
-
-.card {
-    background-color: red;
-    min-height: 300px;
-    border-radius: 25px;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+*{
+    margin:0; padding:0;
+    box-sizing: border-box;
+    outline: none; border:none;
     text-decoration: none;
-    color: black;
-    padding: 50px;
-    margin:20px;
-    border: black;
-    /* transition: .5s; */
-}
-
-.card:hover{
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16),
-    0 3px 6px rgba(0, 0, 0, 0.23);
+    transition: all .2s linear;
+    text-transform: capitalize;
+ }
  
-}
+ 
+ body{
+    background: #eee;
+ }
+ 
+ .container{
+    max-width: 800px;
+    margin:0 auto;
+    padding:3rem 2rem;
+ }
+ 
+ .container .title{
+    font-size: 2rem;
+    color:#444;
+    margin-bottom: 3rem;
+    text-transform: uppercase;
+    text-align: center;
+ }
+ 
+ .container .products-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    gap:3rem;
+ }
+ 
+ .container .products-container .product{
+    text-align: center;
+    /* padding:3rem 2rem; */
+    background: #fff;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+    outline: .1rem solid #ccc;
+   
+ }
+ 
+ /* .container .products-container .product:hover{
+   
+ } */
+ 
+ .container .products-container .product img{
+    height: 10rem;
+    width: 10rem;
+    padding: 10px;
+ }
+ 
+ /* .container .products-container .product:hover img{
+    
+ } */
+ 
+ .container .products-container .product h3{
+    padding:.5rem 0;
+    font-size: 2rem;
+    color:#444;
+ }
+ 
+ /* .container .products-container .product:hover h3{
+    color:#27ae60;
+ } */
+ 
+ .container .products-container .product .price{
+    font-size: 2rem;
+    color:#444;
+ }
+ 
 
-.box{
-    background-color: purple;
-    margin: 20px;
-}
+ 
+ /* @media (max-width:991px){
+ 
+    html{
+       font-size: 55%;
+    }
+ 
+ }
+ 
+ @media (max-width:768px){
+ 
+    .products-preview .preview img{
+       height: 25rem;
+    }
+ 
+ }
+ 
+ @media (max-width:450px){
+ 
+    html{
+       font-size: 50%;
+    }
+ 
+ } */

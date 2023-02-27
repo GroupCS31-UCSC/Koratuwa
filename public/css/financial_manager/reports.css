@@ -1,0 +1,13 @@
+
+input[type=date]{
+    width: 100%;
+    
+}
+
+.from{
+    float: right;
+}
+
+.to{
+    float: left;
+}
