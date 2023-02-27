@@ -103,16 +103,6 @@
       $this->view('livestock_Manager/viewCattle',$data);
     }
 
-    public function viewFeedMonitoring() {
-      $feedMonitoringView= $this->livestockModel->get_feedMonitoringView();
-
-      $data = [
-        'feedMonitoringView' => $feedMonitoringView
-      ];
-
-      $this->view('livestock_Manager/viewFeedMonitoring',$data);
-    }
-
     public function deleteCattle($cowId) {
       if($this->livestockModel->deleteCattle($cowId)){
         flash('deleteCattle_flash','Cattle details are successfully deleted');
@@ -204,6 +194,16 @@
       }
     }
 
+    public function viewFeedMonitoring() {
+      $feedMonitoringView= $this->livestockModel->get_feedMonitoringView();
+
+      $data = [
+        'feedMonitoringView' => $feedMonitoringView
+      ];
+
+      $this->view('livestock_Manager/viewFeedMonitoring',$data);
+    }
+
     public function addFeedMonitoring() {
       if($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
@@ -223,10 +223,10 @@
         ];
   
         //validation
-        if ($data['cowId']=='Select') {
+        if (empty($data['cowId'])) {
           $data['cowId_err'] = '*' ;
         }
-        if ($data['feedItem']=='Select') {
+        if (empty($data['feedItem'])) {
           $data['feedItem_err'] = '*' ;
         }
         if (empty($data['feedQuantity'])) {
@@ -278,21 +278,21 @@
         
         $data = [
           'feedId'=>trim($_POST['feedId']),
-          'cowId'=>trim($_POST['cowId']),
+          // 'cowId'=>trim($_POST['cowId']),
           'feedItem'=>trim($_POST['feedItem']),
           'feedQuantity'=>trim($_POST['feedQuantity']),
           'note'=>trim($_POST['note']),
 
-          'cowId_err'=>'',
+          // 'cowId_err'=>'',
           'feedItem_err'=>'',
           'feedQuantity_err'=>'',
           'note_err'=>'',
         ];
 
         //validation
-        if ($data['cowId']=='Select') {
-          $data['cowId_err'] = '*' ;
-        }
+        // if ($data['cowId']=='Select') {
+        //   $data['cowId_err'] = '*' ;
+        // }
         if ($data['feedItem']=='Select') {
           $data['feedItem_err'] = '*' ;
         }
@@ -304,7 +304,7 @@
         }
 
         // if no errors
-        if(empty($data['cowId_err']) && empty($data['feedItem_err']) && empty($data['feedQuantity_err']) && empty($data['note_err']) ) {
+        if(/*empty($data['cowId_err']) && */empty($data['feedItem_err']) && empty($data['feedQuantity_err']) && empty($data['note_err']) ) {
           if($this->livestockModel->updateFeedMonitoring($data)) {
             flash('updateFeed_flash','New feed monitoring details are successfully Updated!');
             redirect('Livestock_Manager/viewFeedMonitoring');
@@ -323,25 +323,25 @@
 
         $data = [
             'feedId' => $feedMonitoring->feed_id,
-            'cowId' => $feedMonitoring->cow_id,
+            // 'cowId' => $feedMonitoring->cow_id,
             'feedItem' => $feedMonitoring->feed_item,
             'feedQuantity' => $feedMonitoring->feed_quantity,
             'note' => $feedMonitoring->note,
-            'cowId_err' => '',
+            // 'cowId_err' => '',
             'feedItem_err' => '',
             'feedQuantity_err' => '',
             'note_err' => ''
         ];
         
-        $cattle = $this->livestockModel->getCattleById($feedMonitoring->cow_id);
+        // $cattle = $this->livestockModel->getCattleById($feedMonitoring->cow_id);
 
-        $data2 = [
-            'cattle' => $cattle
-        ];
+        // $data2 = [
+        //     'cattle' => $cattle
+        // ];
 
-        $result = array($data, $data2);
+        // $result = array($data, $data2);
 
-        $this->view('livestock_Manager/updateFeedMonitoring', $result);
+        $this->view('livestock_Manager/updateFeedMonitoring', $data);
       }
     }
 
@@ -374,10 +374,10 @@
         ];
 
         //validation
-        if ($data['cowId']=='Select') {
+        if (empty($data['cowId'])) {
           $data['cowId_err'] = '*' ;
         }
-        if ($data['vaccinationType']=='Select') {
+        if (empty($data['vaccinationType'])) {
           $data['vaccinationType_err'] = '*' ;
         }
         if (empty($data['vaccinationQuantity'])) {
@@ -390,7 +390,8 @@
         $result = array($data,$data2);
         //if no errors
         if(empty($data['cowId_err']) && empty($data['vaccinationType_err']) && empty($data['vaccinationQuantity_err']) && empty($data['note_err']) ) {
-          $data['vaccinationId'] = $this->livestockModel->findVaccinationId();
+          $data['vaccId'] = $this->livestockModel->findVaccinationId();
+          
           if($this->livestockModel->addVaccination($data)) {
             flash('addVaccination_flash','New vaccination details are successfully added!');
             redirect('Livestock_Manager/viewVaccination');
@@ -423,9 +424,69 @@
       }
     }
     
-    public function updateVaccination() {
-      $data = [];
-      $this->view('livestock_Manager/updateVaccination',$data);
+    public function updateVaccination($vaccId) {
+      if($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+        
+        $data = [
+          'vaccId'=>trim($_POST['vaccId']),
+          // 'cowId'=>trim($_POST['cowId']),
+          'vaccinationType'=>trim($_POST['vaccinationType']),
+          'vaccinationQuantity'=>trim($_POST['vaccinationQuantity']),
+          'note'=>trim($_POST['note']),
+
+          // 'cowId_err'=>'',
+          'vaccinationType_err'=>'',
+          'vaccinationQuantity_err'=>'',
+          'note_err'=>'',
+        ];
+
+        //validation
+        // if (empty($data['cowId'])) {
+        //   $data['cowId_err'] = '*' ;
+        // }
+        if ($data['vaccinationType'] == 'Select') {
+          $data['vaccinationType_err'] = '*' ;
+        }
+        if (empty($data['vaccinationQuantity'])) {
+          $data['vaccinationQuantity_err'] = '*' ;
+        }
+        if (empty($data['note'])) {
+          $data['note_err'] = '*' ;
+        }
+
+        // if no errors
+        if(/*empty($data['cowId_err']) && */empty($data['vaccinationType_err']) && empty($data['vaccinationQuantity_err']) && empty($data['note_err']) ) {
+          if($this->livestockModel->updateVaccination($data)) {
+            flash('updateVaccination_flash','New vaccination details are successfully Updated!');
+            redirect('Livestock_Manager/viewVaccination');
+          }
+          else {
+            die('Something went wrong!');
+          }
+        }
+        else {
+          //loading the form with the errors
+          $this->view('livestock_Manager/updateVaccination',$data);
+        }
+      }
+      else {
+        $vaccination = $this->livestockModel->getVaccinationById($vaccId);
+
+        $data = [
+            'vaccId' => $vaccination->vaccination_id,
+            // 'cowId' => $vaccination->cow_id,
+            'vaccinationType' => $vaccination->vaccination_type,
+            'vaccinationQuantity' => $vaccination->vaccination_quantity,
+            'note' => $vaccination->note,
+            // 'cowId_err' => '',
+            'vaccinationType_err' => '',
+            'vaccinationQuantity_err' => '',
+            'note_err' => ''
+        ];
+
+        $this->view('livestock_Manager/updateVaccination', $data);
+      }
     }
   }
 

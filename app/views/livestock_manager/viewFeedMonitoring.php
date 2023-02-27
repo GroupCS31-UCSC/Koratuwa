@@ -32,7 +32,7 @@
       <td><?php echo $feed_monitoring->cow_id ?></td>
       <td><?php echo $feed_monitoring->note ?></td>
       <td>
-        <div class="feedItem fade in" id="feedItem" tableindex="-1" style="display: block;padding-right: 17px;">
+        <div class="feedItem fade in" id="feedItem" style="display: block;padding-right: 17px;">
           <div class="feedItem-dialog">
             <div class="feedItem-content">
               <div class="feedItem-header">
@@ -50,7 +50,8 @@
                     <td><?php echo $feed_monitoring->feed_item ?></td>
                     <td><?php echo $feed_monitoring->feed_quantity ?></td>
                     <td><?php echo $feed_monitoring->feed_time ?></td>
-                  </tr>                       
+                  </tr> 
+                                      
                 </table><br>
               </div>
             </div>
@@ -59,7 +60,7 @@
         <div class="table-btns">
           <a href="#"><button class="viewBtn" onclick="openFeedItem()"><i class="fas fa-eye"></i></button></a>
           <a href="<?php echo URLROOT?>/Livestock_Manager/updateFeedMonitoring/<?php echo $feed_monitoring->feed_id ?>"><button class="updateBtn"><i class="fa-regular fa-pen-to-square"></i></button></a>
-          <a href="#"><button class="deleteBtn"><i class="fa-regular fa-trash-can"></i></button></a>
+          <a href="<?php echo URLROOT?>/Livestock_Manager/deleteFeedMonitoring/<?php echo $feed_monitoring->feed_id ?>"><button class="deleteBtn"><i class="fa-regular fa-trash-can"></i></button></a>
         </div>
       </td>
     </tr>

@@ -1,6 +1,7 @@
 table {
     /* top: 50px; */
     left: 60px;
+    margin-left: 50px;
     font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     width: 90%;
