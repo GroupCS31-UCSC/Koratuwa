@@ -8,7 +8,7 @@
 		<center><h1>Update Vaccination</h1></center>
 	</div>
 	<br>
-	<form action="<?php echo URLROOT; ?>/Livestock_Manager/updateVaccination" method="POST">
+	<form action="<?php echo URLROOT; ?>/Livestock_Manager/updateVaccination/<?php echo $data['vaccId']; ?>" method="POST">
     <div class="form-input-title">Vaccination Type</div>
     <!-- <span class="form-invalid"><?php echo $data['vaccinationType_err']; ?></span> -->
     <label for="Select the Vaccination"></label>

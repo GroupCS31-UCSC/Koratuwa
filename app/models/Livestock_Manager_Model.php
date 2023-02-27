@@ -28,12 +28,12 @@
       $lastId=$row->feed_id;
 
       if($lastId == '')	{
-				$id='FEED101';
+				$id='FED101';
 			}
 			else {
 				$id = substr($lastId,3);
 				$id = intval($id);
-				$id = "FEED".($id+1);
+				$id = "FED".($id+1);
 			}
       return $id;
     }
@@ -44,12 +44,12 @@
       $lastId=$row->vaccination_id;
 
       if($lastId == '')	{
-        $id='VACC101';
+        $id='VAC101';
       }
       else {
         $id = substr($lastId,3);
         $id = intval($id);
-        $id = "VACC".($id+1);
+        $id = "VAC".($id+1);
       }
       return $id;
     }
@@ -110,21 +110,21 @@
 			return $result;
     }
 
-    public function viewFeedMonitoringById($feedId) {
-      $this->db->query('SELECT * FROM feed_monitoring WHERE feed_id = :feedId' );
-      $this->db->bind(':feedId',$feedId);
+    // public function viewFeedMonitoringById($feedId) {
+    //   $this->db->query('SELECT * FROM feed_monitoring WHERE feed_id = :feedId' );
+    //   $this->db->bind(':feedId',$feedId);
 
-      $result = $this->db->resultSet();
-      return $result;
-    }
+    //   $result = $this->db->resultSet();
+    //   return $result;
+    // }
 
-    public function viewVaccinationById($vaccId) {
-      $this->db->query('SELECT * FROM vaccination WHERE vaccination_id = :vaccId' );
-      $this->db->bind(':vaccId',$vaccId);
+    // public function viewVaccinationById($vaccId) {
+    //   $this->db->query('SELECT * FROM vaccination WHERE vaccination_id = :vaccId' );
+    //   $this->db->bind(':vaccId',$vaccId);
 
-      $result = $this->db->resultSet();
-      return $result;
-    }
+    //   $result = $this->db->resultSet();
+    //   return $result;
+    // }
 
     public function addCattle($data) {
       // calculate age
@@ -306,6 +306,12 @@
 
     public function viewFeedMonitoring() {
       $this->db->query('SELECT * FROM feed_monitoring');
+      $results = $this->db->resultSet();
+      return $results;
+    }
+
+    public function viewVaccination() {
+      $this->db->query('SELECT * FROM vaccination');
       $results = $this->db->resultSet();
       return $results;
     }

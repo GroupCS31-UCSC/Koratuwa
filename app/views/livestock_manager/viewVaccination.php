@@ -59,7 +59,7 @@
         <div class="table-btns">
           <a href="#"><button class="viewBtn" onclick="openVaccinationItem()"><i class="fas fa-eye"></i></button></a>
           <a href="<?php echo URLROOT?>/Livestock_Manager/updateVaccination/<?php echo $vaccination->vaccination_id ?>"><button class="updateBtn"><i class="fa-regular fa-pen-to-square"></i></button></a>
-          <a href="#"><button class="deleteBtn"><i class="fa-regular fa-trash-can"></i></button></a>
+          <a href="<?php echo URLROOT?>/Livestock_Manager/deleteVaccination/<?php echo $vaccination->vaccination_id ?>"><button class="deleteBtn"><i class="fa-regular fa-trash-can"></i></button></a>
         </div>
       </td>
     </tr>
