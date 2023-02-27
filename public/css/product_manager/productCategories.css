@@ -9,10 +9,15 @@
   }
 
 h2{
-    margin-left: 35%;
-    margin-top: 135px;
+    margin-left: 40%;
+    margin-top: 130px;
     position: absolute;
-    font-size: 60px;
+    
+    font-size: 2rem;
+    color:#444;
+    
+    text-transform: uppercase;
+    text-align: center;
     
   
 }
@@ -38,15 +43,15 @@ h2{
     transition: .4s;
     color: white;
     font-size: 20px;
-    background: #00bff0;
     margin-top: 200px;
-    border: black;
+    
 }
 
 .products:hover {
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16),
   0 3px 6px rgba(0, 0, 0, 0.23);
   transform: translate(0px,8px);
+
   
 }
 
@@ -54,7 +59,7 @@ h2{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 300px));
     /* padding: 50px; */
-    gap: 90px;
+    gap: 110px;
     margin: 50px 100px;
 }
 
@@ -65,14 +70,18 @@ h2{
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
     text-decoration: none;
     color: black;
-  
+    width: 350px;
     transition: .5s; 
+    outline: .1rem solid #ccc;
+    outline-offset: -1.5rem;
 }
 
 .card:hover{
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16),
     0 3px 6px rgba(0, 0, 0, 0.23);
      transform: translate(0px,8px); 
+     outline: .2rem solid #222;
+     outline-offset: 0;
 }
 
 .card>.img {
@@ -85,7 +94,15 @@ h2{
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: .5s;
+    
 }
+
+.card>.img>img:hover {
+    transform: scale(.9);
+    
+}
+
 
 .card>.cardContent {
     width: 100%;
@@ -98,6 +115,10 @@ h2{
 .card>.cardContent>p {
     padding: 20px auto;
     font-size: 1.5rem;
+}
+.card>.cardContent:hover {
+   
+   font-weight: 200;
 }
 
 .pmaddBtn{

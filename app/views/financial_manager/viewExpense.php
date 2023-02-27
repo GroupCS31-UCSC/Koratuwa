@@ -8,12 +8,13 @@
 <?php flash('deleteExpense_flash') ?>
 
 <div class="section">
-<img class="img-bg" src="<?php echo URLROOT; ?>/public/img/ex.png" alt="no"> 
 <h2>Expenses</h2>
+<img class="img-bg" src="<?php echo URLROOT; ?>/public/img/ex.png" alt="no"> 
+
 </div>
 
 <session>
-  <div class="container" style="overflow-x: auto;">
+  <div class="container" >
 </form>
 
     <table>
@@ -38,11 +39,13 @@
           <!-- <a href="<?php echo URLROOT?>/financial_Manager/updateExpense/"><button class="updateBtn">UPDATE</button></a>
           <a href="<?php echo URLROOT?>/financial_Manager/deleteExpense/"><button class="deleteBtn">DELETE</button></a> -->
 
-          <a href="<?php echo URLROOT?>/financial_Manager/updateExpense/"><button class="viewBtn">View Recipt</button></a>
+          <a href="<?php echo URLROOT?>/financial_Manager/viewExpense/"><button class="viewBtn">View Recipt</button></a>
          
         </div>
     </td>
-        
+    <!-- <div class="img">
+        <img src="<?php echo UPLOADS . $expense->image ?>" width='200' height='200'>
+      </div> -->
       </tr><br>
       <?php endforeach; ?>
     </table>
