@@ -37,7 +37,7 @@
       $this->db->bind(':time', $data['time']);
       $this->db->bind(':pId', $data['product_id']);
       $this->db->bind(':pName', $data['product_name']);
-      $this->db->bind(':quantity', $data['quantity']);   //added for intemorary
+      $this->db->bind(':quantity', $data['quantity']);   
       $this->db->bind(':uPrice', $data['unit_price']);
       $this->db->bind(':tPrice', $_SESSION['total_price']);
 

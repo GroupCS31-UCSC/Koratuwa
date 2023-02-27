@@ -120,7 +120,7 @@
       <h2>Place Supply Order</h2>
     </div>
     <div class="modal-body">
-      <p>Some text in the Modal Body</p><br>
+      <p></p><br>
       <form action="<?php echo URLROOT; ?>/Supplier/supplierHome" method="POST">
         <div class="form-input-title">Supply Quantity (LITER)</div>
         <span class="form-invalid"><?php echo $data['quantity_err']; ?></span>

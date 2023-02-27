@@ -9,7 +9,8 @@
             </div>
             <div class="topmenu">
                 <ul>
-                    <li><a href=""><i class="fa-solid fa-gift"></i></a></li>
+                    <li><a href=""><i title="Add Cart" class="fa-solid fa-cart-shopping" ></i></a></li>
+                    <li><i title="Offer" class="fa-solid fa-gift"></i></a></li>
                     <li><a href=""><i class="fas fa-bell"></i></a></li>
                     <li><div class="img-user"><img src="<?php echo URLROOT; ?>/img/users/sasindu.jpg" alt="user"></div></li>
                     <li><a href=""><?php echo $_SESSION['user_name']; ?></a></li>

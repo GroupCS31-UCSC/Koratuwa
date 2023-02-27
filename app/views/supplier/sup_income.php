@@ -2,13 +2,17 @@
 <link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/public/css/supplier/sup_income.css">
 <?php require APPROOT.'/views/supplier/supplier_dashboard.php'; ?>
 
-<div class="graphBox">
+<section>
 
-    <div class="box">
-    <label><center>Income</center></label>
-    <canvas id="income"></canvas>
+</section>
+<section>
+    <div class="graphBox">
+
+        <div class="box">
+        <label><center>Income</center></label>
+        <canvas id="income"></canvas>
+        </div>
     </div>
-</div>
-
+</section>
 <?php require APPROOT.'/views/include/footer.php'; ?>
 <script src="<?php echo URLROOT; ?>/js/supplier.js"></script>

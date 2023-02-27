@@ -51,8 +51,8 @@
               'total_price' => '',
 
               'quantity_err' => '',
-              'date_err' => '',
-              'time_err' => ''
+              // 'date_err' => '',
+              // 'time_err' => ''
             ];
 
             //validation
@@ -83,11 +83,11 @@
             //   //loading the form with the errors
             //   $this->view('customer/view_product',$data);
              }
-            //  else
-            //  {
-            //    //loading the form with the errors
-            //    $this->view('customer/buy_now',$data);
-            //  }
+             else
+             {
+               //loading the form with the errors
+               $this->view('customer/buy_now',$data);
+             }
           }
           else
           {

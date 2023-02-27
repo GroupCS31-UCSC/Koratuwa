@@ -18,10 +18,6 @@
       <input type="text" name="lname">
     </label>
     <label>
-      <span>Company Name (Optional)</span>
-      <input type="text" name="cn">
-    </label>
-    <label>
       <span>Address <span class="required">*</span></span>
       <input type="text" name="houseadd" placeholder="House number and street name" required>
     </label>
@@ -31,10 +27,6 @@
     </label> -->
     <label>
       <span>Town / City <span class="required">*</span></span>
-      <input type="text" name="city"> 
-    </label>
-    <label>
-      <span>Postcode / ZIP <span class="required">*</span></span>
       <input type="text" name="city"> 
     </label>
     <label>
