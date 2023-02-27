@@ -22,9 +22,21 @@
         <?php break; ?>
         <?php endforeach; ?>
         
-        <?php foreach ($data['cView'] as $cView) : ?>
-           cow id: <?php echo $cView->cow_id; ?>
-        <?php endforeach; ?>
+        <table>
+            <tr>
+                <th> COW ID</th>
+                <th> QUANTITY</th>
+            </tr>
+            
+            <?php foreach ($data['cView'] as $cView) : ?>
+            <tr>
+            <td><?php echo $cView->cow_id; ?></td>
+            <td><?php echo $cView->quantity; ?></td>
+            </tr><br>
+            <?php endforeach; ?>
+
+        </table>
+        
         
     </div>
 

@@ -36,7 +36,8 @@
         <!-- <td><?php echo $ordView->status; ?></td>     -->
         <td>
           <div class="table-btns">
-            <a href="<?php echo URLROOT?>/Milk_Collection_Officer/collectionDetails/<?php echo $ordView->supply_order_id; ?>"><button class="pendingBtn">Pending</button></a>
+            <a href="#popup1"><button class="pendingBtn">Pending</button></a>
+        
           </div> 
         </td>
       </tr>
@@ -44,7 +45,6 @@
     <?php endforeach; ?>
 
     </table>
-
 
   </div>
 
@@ -100,6 +100,46 @@
     </table>
 
   </div>
+
+  <!------------ order checking popup window ---------------->
+  <div id="popup1" class="overlay">
+    <div class="popup">
+      <h2>Order Checking...</h2>
+      <a class="close" href="#">&times;</a>
+
+      <div class="content">
+      <form id="addForm" action="<?php echo URLROOT; ?>/Milk_Collection_Officer/orderChecking" method="POST">
+        <div class="feature">
+
+        <?php foreach ($data['ordView'] as $ordView) : ?>
+          <div class="form-input-title">Supplier Id :</div> <?php echo $ordView->supplier_id; ?>
+          <div class="form-input-title">Supplier Name :</div> <?php echo " "; ?>
+          <div class="form-input-title">Supply Order Id :</div> <?php echo $ordView->supply_order_id; ?>
+          <div class="form-input-title">Quantity :</div> <?php echo $ordView->quantity; ?>
+          <div class="form-input-title">Unit Price :</div> <?php echo $ordView->unit_price; ?>
+          <div class="form-input-title">Payment has to do :</div> <?php echo $ordView->quantity; ?> * <?php echo $ordView->unit_price; ?>
+          <div class="form-input-title">Status :</div>  <?php echo $ordView->status; ?>
+
+          <div class="form-input-title">Enter the density :</div>
+
+          <input type="decimal" name="density" id="density" class="density" autocomplete="off" value="<?php echo $ordView->density; ?> ">
+          <div class="btn">
+          <input type="submit" value="Accept" class="acceptBtn">
+          <input type="submit" value="Reject" class="dltBtn">
+          </div>
+          <?php break; ?>
+          <?php endforeach; ?>
+
+        </div>
+      </form>
+      </div>
+
+    </div>
+  </div>
+<!------------------------------------------------------>
+
+
+
 
 
     
