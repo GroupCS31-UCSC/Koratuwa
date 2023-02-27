@@ -39,19 +39,17 @@
                     </div> -->
                     <div class="feature1">
                         <div class="form-input-title">Enter quantity:</div>
-                        <input type="text" value="<?php echo $data['quantity']; ?>">
+                        <input type="text" name="quantity" id="quantity" class="quantity" value="<?php echo $data['quantity']; ?>">
                     </div>
                     <div class="feature1">
                         <div class="form-input-title">Total Price:</div>
                         <label><?php foreach ($data['productDetails'] as $product) : ?><?php echo $product->unit_price * 2 ; ?><?php endforeach; ?></label>
                     </div>
                     <div class="feature1">
-                        <!-- <input type="button" value="Buy Now" class="buynowBtn" onclick=""> -->
                         <input type="button" value="Buy Now" class="buynowBtn" onclick="location.href='<?php echo URLROOT; ?>/Customer/buyNow' ">
 
                     </div>
                     <div class="feature1">
-                        <!-- <input type="button" value="Add to Cart" class="AddtoCartBtn" onclick=""> -->
                         <input type="button" value="Add to Cart" class="AddtoCartBtn" onclick="location.href='<?php echo URLROOT; ?>/Customer/addToCart' ">
                     </div>                                                             
                 </form>
