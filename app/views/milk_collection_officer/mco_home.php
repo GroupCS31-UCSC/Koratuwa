@@ -62,14 +62,14 @@
   <div class="recentOrders">
     <div class="cardHeader">
       <h2>Recent Orders</h2>
-      <a href="" class="viewBtn">View All</a>
+      <a href="<?php echo URLROOT; ?>/Milk_Collection_Officer/viewSupplyOrders" class="viewBtn">View All</a>
     </div>
     <table>
       <thead>
         <tr>
           <td>Supplier</td>
           <td>Quantity</td>
-          <td>Price</td>
+          <td>Address</td>
           <td>Status</td>
         </tr>
       </thead>
@@ -78,7 +78,7 @@
         <tr>
           <td><?php echo $orderView->supplier_id; ?></td>
           <td><?php echo $orderView->quantity; ?></td>
-          <td><?php echo $orderView->price_hastopay; ?></td>
+          <td><?php echo $orderView->supplying_address; ?></td>
           <td>
           <?php if($orderView->status == 'Collected') : ?>
             <span class="status collected">Collected</span>
@@ -138,7 +138,7 @@
         
       </div>
     </div>
-  </div>
+    </div>
   <!------------------------------------------------------>
 
   <!-- chart -->

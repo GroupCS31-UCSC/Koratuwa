@@ -60,6 +60,7 @@
 
     public function placeSupply($data)
     {
+      $data['date'] = date("Y-m-d");
       $this->db->query('INSERT INTO supply_order(supply_order_id,quantity,supply_date,status,supplying_address,unit_price, supplier_id,quality) VALUES(:supOrderId, :quantity, :supDate, :status, :address, :price, :supId, :quality)');
       //value binding
       $this->db->bind(':supOrderId', $data['supOrderId']);

@@ -21,6 +21,15 @@
           $this->view('financial_manager/fm_home',$data);
         }
 
+        public function revenues() {
+          $data = [];
+          $this->view('financial_manager/revenues',$data);
+        }
+
+        public function reports() {
+          $data = [];
+          $this->view('financial_manager/reports',$data);
+        }
         public function addExpense()
         {
           if($_SERVER['REQUEST_METHOD'] == 'POST')

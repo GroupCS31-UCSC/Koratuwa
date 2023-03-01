@@ -9,7 +9,7 @@
 
   <div class="section">
  
-<h2>Stock Details</h2>
+<h2>Stock History</h2>
 </div>
 
   <table>

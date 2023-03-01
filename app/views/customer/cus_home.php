@@ -58,17 +58,20 @@
     <div class="container">
         <?php foreach ($data['productCategory'] as $productCategory) : ?>
 
-        <a href="<?php echo URLROOT?>/Customer/viewProductDetails/<?php echo $productCategory->product_id ?>" class="feature" >
-            <div class="img">
-                <img src="<?php echo UPLOADS . $productCategory->image ?>" width='200' height='200'>
-            </div>
+        <!-- <a href="<?php echo URLROOT?>/Customer/viewProductDetails/<?php echo $productCategory->product_id ?>" class="feature" > -->
             <div class="cardContent">
-                <div class="product_name"><p><?php echo $productCategory->product_name ?></div><br>
-                <!-- <?php echo $productCategory->price ?> -->
-                </p>
+                <h1><div class="product_name"><?php echo $productCategory->product_name ?></div></h1>
+                <div class="img">
+                    <a href="<?php echo URLROOT?>/Customer/viewProductDetails/<?php echo $productCategory->product_id ?>" class="feature" >
+                    <img src="<?php echo UPLOADS . $productCategory->image ?>" width='200px' height='250px'></a>
+                </div>
+            
+                <br>
+                <div class="product_price">Rs. <?php echo $productCategory->unit_price ?>.00</div>
+                
                 <input type="button" value="Add to Cart" class="AddtoCartBtn">
             </div>
-        </a>
+        
        
         <?php endforeach; ?>
         

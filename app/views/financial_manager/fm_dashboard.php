@@ -26,14 +26,14 @@
         </a>
       </li>
       <li>
-      <a href="<?php echo URLROOT; ?>/Financial_Manager/">
+      <a href="<?php echo URLROOT; ?>/Financial_Manager/revenues">
           <span class="icon"><i class="fa-solid fa-file-import"></i></span>
           <span class="title">Revenues</span>
         </a>
       </li>
 
       <li>
-      <a href="<?php echo URLROOT; ?>/Financial_Manager/">
+      <a href="<?php echo URLROOT; ?>/Financial_Manager/reports">
           <span class="icon"><i class="fa-solid fa-file-invoice"></i></span>
           <span class="title">Reports</span>
         </a>

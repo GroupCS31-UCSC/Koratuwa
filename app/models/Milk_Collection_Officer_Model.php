@@ -72,7 +72,7 @@
     //to get recent order details view
     public function get_RecentOrderView()
     {
-      $this->db->query('SELECT supplier_id,quantity,price_hastopay,status FROM supply_order WHERE supply_date=CURDATE()');
+      $this->db->query('SELECT supplier_id,quantity,supplying_address,status FROM supply_order WHERE supply_date=CURDATE()');
 
       $result = $this->db->resultSet();
 

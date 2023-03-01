@@ -54,7 +54,7 @@
             <td><?php echo $supOrd->supply_date; ?></td>
             <td><?php echo $supOrd->quantity; ?></td>
             <td><?php echo $supOrd->unit_price; ?></td>
-            <!-- <td><?php echo $supOrd->supplying_address; ?></td> -->
+            <!-- <td><?php echo ($data['supOrderView'])->supplying_address; ?></td> -->
             <td><?php echo $supOrd->status; ?></td>
             <td><?php echo $supOrd->quality; ?></td>
             <td>
@@ -127,27 +127,31 @@
   <div class="modal-content">
     <div class="modal-header">
       <span class="close">&times;</span>
-      <h2>Modal Header</h2>
+      <h2>Koratuwa Dairy Farm</h2>
     </div>
     <div class="modal-body">
-      <p>Some text in the Modal Body</p>
-      <p>Some other text...</p>
+      <ul>
+        <li>
+          Your Income:
+        </li>
+        <li>
+          asdfgh
+        </li>
+      </ul>
     </div>
     <div class="modal-footer">
-      <h3>Modal Footer</h3>
+      <h3>***</h3>
     </div>
   </div>
 
 </div>
 <script>
   //--------------Model form---------------------------//
-  // Get the modal
+
   var modal = document.getElementById("myModal");
 
-  // Get the button that opens the modal
   var btn = document.getElementById("myBtn");
 
-  // Get the <span> element that closes the modal
   var span = document.getElementsByClassName("close")[0];
 
   // When the user clicks the button, open the modal 
