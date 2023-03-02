@@ -7,42 +7,61 @@
 <session class="cardBox">
   <!-- Total cattles -->
   <div class="container">
-    <div class="card">
+    <div class="totCattle">
       <div>
-        <div class="cardName">Total Cattle</div>
-        <div class="numbers">200</div>
+        <div class="cardName">Total Cattle</div><br>
+        <div class="numbers">45</div>
       </div>
     </div>
     <div class="card">
       <div>
-        <div class="cardName">Total Female Cattle</div>
-        <div class="numbers">150</div>
+        <div class="cardName">Stall:01-Milk collection(L.)</div>
+        <div class="numbers">100</div>
       </div>
     </div>
     <div class="card">
       <div>
-        <div class="cardName">Total Male Cattle</div>
-        <div class="numbers">30</div>
+        <div class="cardName">Stall:02-Milk collection(L.)</div>
+        <div class="numbers">120</div>
       </div>
     </div>
     <div class="card">
     <div>
-      <div class="cardName">Total Calf</div>
-      <div class="numbers">20</div>
+      <div class="cardName">Stall:03-Milk collection(L.)</div>
+      <div class="numbers">130</div>
     </div>
   </div>
+  <div class="card">
+    <div>
+      <div class="cardName">Stall:04-Milk collection(L.)</div>
+      <div class="numbers">100</div>
+    </div>
 </div> 
 </session>
 
 <!--Add charts-->
 <div class="graphBox">
   <div class="box">
-  <label><center>Vaccination</center></label>
-    <canvas id="cattle"></canvas>
+  <label><center>Milk collection</center></label>
+  <!-- Filters -->
+  <div class="filter">
+  <div class="date-input">
+    <label for="fromDate">From:</label>
+    <input type="date" id="fromDate" name="fromDate">
+  </div>
+  <div class="date-input">
+    <label for="toDate">To:</label>
+    <input type="date" id="toDate" name="toDate">
+  </div>
+</div>
+
+
+  
+    <canvas id="milkCollect"></canvas>
   </div>
   <div class="box">
     <label><center>Milking cattle</center></label>
-    <canvas id="pCattle"></canvas>
+    <canvas id="mCattle"></canvas>
   </div>
 </div>
 
