@@ -79,14 +79,6 @@
         </div>
       </div>
     </div>
-    <div class="subnavbar">
-      <div class="submenu">
-        <a class="active" href="#">Stall 01</a>
-        <a href="#">Stall 02</a>
-        <a href="#">Stall 03</a>
-        <a href="#">Stall 04</a>
-      </div>
-    </div>
 
 <?php require APPROOT.'/views/include/footer.php'; ?>
 <script src="<?php echo URLROOT; ?>/js/dashboard.js"></script>          

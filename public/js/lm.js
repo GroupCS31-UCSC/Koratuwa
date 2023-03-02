@@ -1,3 +1,4 @@
+// charts
 var cattle = document.getElementById('milkCollect').getContext('2d');
 var myChart = new Chart(cattle, {
   type: 'line',
@@ -72,4 +73,11 @@ function openVaccinationItem(){
 }
 function closeVaccinationItem(){
   document.getElementById("vaccinationItem").classList.remove("open-vaccinationItem");
+}
+
+function openModel(){
+  document.getElementById("model").classList.add("open-model");
+}
+function closeModel(){
+  document.getElementById("model").classList.remove("open-model");
 }
