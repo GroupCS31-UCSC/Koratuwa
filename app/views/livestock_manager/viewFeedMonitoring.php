@@ -21,46 +21,22 @@
 <div class="container" style="overflow-x: auto;">
   <table>
     <tr>
+      <th>Stall ID</th>
       <th>Date</th>
-      <th>Cow ID</th>
-      <th>Note</th>
+      <th>Solid (Kg)</th>
+      <th>Liquid (L)</th>
       <th>Action</th>
     </tr>
     <tr>
       <?php foreach ($data['feedMonitoringView'] as $feed_monitoring) : ?>
-      <td><?php echo $feed_monitoring->feed_date ?></td>
-      <td><?php echo $feed_monitoring->cow_id ?></td>
-      <td><?php echo $feed_monitoring->note ?></td>
+      <td><?php echo $feed_monitoring->stall_id ?></td>
+      <td><?php echo $feed_monitoring->date ?></td>
+      <td><?php echo $feed_monitoring->solid ?></td>
+      <td><?php echo $feed_monitoring->liquid ?></td>
       <td>
-        <div class="feedItem fade in" id="feedItem" style="display: block;padding-right: 17px;">
-          <div class="feedItem-dialog">
-            <div class="feedItem-content">
-              <div class="feedItem-header">
-                <button type="button" class="close" onclick="closeFeedItem()" ><span aria-hidden="true">×</span></button>
-                <h4 class="feedItem-title"><i class="fa fa-info-circle edit-color"></i> Item Details</h4>
-              </div>
-              <div class="feedItem-body">
-                <table class="table table-bordered table-striped table-responsive">
-                  <tr>
-                    <th>Food Item</th>
-                    <th>Item Quantity</th>
-                    <th>Feeding Time</th>
-                  </tr>
-                  <tr>
-                    <td><?php echo $feed_monitoring->feed_item ?></td>
-                    <td><?php echo $feed_monitoring->feed_quantity ?></td>
-                    <td><?php echo $feed_monitoring->feed_time ?></td>
-                  </tr> 
-                                      
-                </table><br>
-              </div>
-            </div>
-          </div>
-        </div>
         <div class="table-btns">
-          <a href="#"><button class="viewBtn" onclick="openFeedItem()"><i class="fas fa-eye"></i></button></a>
-          <a href="<?php echo URLROOT?>/Livestock_Manager/updateFeedMonitoring/<?php echo $feed_monitoring->feed_id ?>"><button class="updateBtn"><i class="fa-regular fa-pen-to-square"></i></button></a>
-          <a href="<?php echo URLROOT?>/Livestock_Manager/deleteFeedMonitoring/<?php echo $feed_monitoring->feed_id ?>"><button class="deleteBtn"><i class="fa-regular fa-trash-can"></i></button></a>
+          <a href="<?php echo URLROOT?>/Livestock_Manager/updateFeedMonitoring/<?php echo $feed_monitoring->stall_id ?>"><button class="updateBtn"><i class="fa-regular fa-pen-to-square"></i></button></a>
+          <a href="<?php echo URLROOT?>/Livestock_Manager/deleteFeedMonitoring/<?php echo $feed_monitoring->stall_id ?>"><button class="deleteBtn"><i class="fa-regular fa-trash-can"></i></button></a>
         </div>
       </td>
     </tr>

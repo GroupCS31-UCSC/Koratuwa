@@ -22,35 +22,41 @@
       return $id;
     }
     
-
-    public function findFeedMonitoringId() {
-      $this->db->query('SELECT * FROM feed_monitoring order by feed_id desc limit 1');
+    public function get_cattleDetails($cowId) {
+      $this->db->query('SELECT * FROM cattle WHERE cow_id = :cowId');
+      $this->db->bind(':cowId', $cowId);
       $row = $this->db->single();
-      $lastId=$row->feed_id;
-
-      if($lastId == '')	{
-				$id='FED1';
-			}
-			else {
-				$id = substr($lastId,3);
-				$id = intval($id);
-				$id = "FED".($id+1);
-			}
-      return $id;
+      return $row;
     }
 
-    public function findVaccinationId() {
-      $this->db->query('SELECT * FROM vaccination order by vaccination_id desc limit 1');
+    // public function findFeedMonitoringId() {
+    //   $this->db->query('SELECT * FROM feed_monitoring order by feed_id desc limit 1');
+    //   $row = $this->db->single();
+    //   $lastId=$row->feed_id;
+
+    //   if(empty($lastId)) {
+    //     $id = 'FED1';
+    //   } else {
+    //     $id = substr($lastId, 3);
+    //     $id = intval($id);
+    //     $id = "FED". ($id + 1);
+    //   }
+    //   return $id;
+    // }
+  
+
+    public function findcattleMilkingId() {
+      $this->db->query('SELECT * FROM cattle_milking order by milk_id desc limit 1');
       $row = $this->db->single();
-      $lastId=$row->vaccination_id;
+      $lastId=$row->milk_id;
 
       if($lastId == '')	{
-        $id='VAC1';
+        $id='MIL1';
       }
       else {
         $id = substr($lastId,3);
         $id = intval($id);
-        $id = "VAC".($id+1);
+        $id = "MIL".($id+1);
       }
       return $id;
     }
@@ -71,8 +77,8 @@
       return $result;
     }
 
-    public function get_vaccinationView() {
-      $this->db->query('SELECT * FROM vaccination');
+    public function get_cattleMilkingView() {
+      $this->db->query('SELECT * FROM cattle_milking');
 
       $result = $this->db->resultSet();
 
@@ -87,17 +93,34 @@
 			return $row;
     }
 
-    public function getFeedMonitoringById($feedId) {
-      $this->db->query('SELECT * FROM feed_monitoring WHERE feed_id = :feedId' );
-      $this->db->bind(':feedId',$feedId);
+    // public function getFeedMonitoringById($feedId) {
+    //   $this->db->query('SELECT * FROM feed_monitoring WHERE feed_id = :feedId' );
+    //   $this->db->bind(':feedId',$feedId);
 
+    //   $row = $this->db->single();
+    //   return $row;
+    // }
+    public function getFeedMonitoringById($stallId, $date) {
+      $this->db->query('SELECT * FROM feed_monitoring WHERE stall_id = :stallId AND date = :date');
+      $this->db->bind(':stallId', $stallId);
+      $this->db->bind(':date', $date);
+  
       $row = $this->db->single();
       return $row;
     }
 
-    public function getVaccinationById($vaccId) {
-      $this->db->query('SELECT * FROM vaccination WHERE vaccination_id = :vaccId' );
-      $this->db->bind(':vaccId',$vaccId);
+    public function viewFeedMonitoringById($stallId, $date) {
+      $this->db->query('SELECT * FROM feed_monitoring WHERE stall_id = :stallId AND date = :date' );
+      $this->db->bind(':stallId', $stallId);
+      $this->db->bind(':date', $date);
+
+      $result = $this->db->resultSet();
+      return $result;
+    }
+
+    public function getcattleMilkingById($milkId) {
+      $this->db->query('SELECT * FROM cattle_milking WHERE milk_id = :milkId' );
+      $this->db->bind(':milkId',$milkId);
 
       $row = $this->db->single();
       return $row;
@@ -118,14 +141,15 @@
     //   $result = $this->db->resultSet();
     //   return $result;
     // }
+    
 
-    // public function viewVaccinationById($vaccId) {
-    //   $this->db->query('SELECT * FROM vaccination WHERE vaccination_id = :vaccId' );
-    //   $this->db->bind(':vaccId',$vaccId);
+    public function viewCattleMilkingById($milkId) {
+      $this->db->query('SELECT * FROM cattle_milking WHERE milk_id = :milkId' );
+      $this->db->bind(':milkId',$milkId);
 
-    //   $result = $this->db->resultSet();
-    //   return $result;
-    // }
+      $result = $this->db->resultSet();
+      return $result;
+    }
 
     public function addCattle($data) {
       // calculate age
@@ -199,14 +223,14 @@
     }
 
     public function addFeedMonitoring($data) {
-      $this->db->query('INSERT INTO feed_monitoring(feed_id, cow_id, feed_item, feed_quantity, note) VALUES(:feedId, :cowId, :feedItem, :feedQuantity, :note)');
+      $this->db->query('INSERT INTO feed_monitoring(stall_id, solid, liquid, remarks) VALUES(:stallId, :solid, :liquid, :remarks)');
 
       //value binding
-      $this->db->bind(':feedId', $data['feedId']);
-      $this->db->bind(':cowId', $data['cowId']);
-      $this->db->bind(':feedItem', $data['feedItem']);
-      $this->db->bind(':feedQuantity', $data['feedQuantity']);
-      $this->db->bind(':note', $data['note']);
+      // $this->db->bind(':feedId', $data['feedId']);
+      $this->db->bind(':stallId', $data['stallId']);
+      $this->db->bind(':solid', $data['solid']);
+      $this->db->bind(':liquid', $data['liquid']);
+      $this->db->bind(':remarks', $data['remarks']);
 
       //execute
       if($this->db->execute())
@@ -219,9 +243,10 @@
       }
     }
 
-    public function deleteFeedMonitoring($feedId) {
-      $this->db->query('DELETE FROM feed_monitoring WHERE feed_id= :feedId');
-      $this->db->bind(':feedId', $feedId);
+    public function deleteFeedMonitoring($stallId, $date) {
+      $this->db->query('DELETE FROM feed_monitoring WHERE stall_id = :stallId AND date = :date');
+      $this->db->bind(':stallId', $stallId);
+      $this->db->bind(':date', $date);
 
       if($this->db->execute())
       {
@@ -234,11 +259,12 @@
     }
 
     public function updateFeedMonitoring($data) {
-      $this->db->query('UPDATE feed_monitoring SET feed_item= :feedItem, feed_quantity= :feedQuantity, note= :note WHERE feed_id= :feedId');
+      $this->db->query('UPDATE feed_monitoring SET stallId= :stallId, solid= :solid, liquid= :liqid, remarks= :remarks WHERE stall_id = :stallId AND date = :date');
       $this->db->bind(':feedId', $data['feedId']);
-      $this->db->bind(':feedItem', $data['feedItem']);
-      $this->db->bind(':feedQuantity', $data['feedQuantity']);
-      $this->db->bind(':note', $data['note']);
+      $this->db->bind(':stallId', $data['stallId']);
+      $this->db->bind(':solid', $data['solid']);
+      $this->db->bind(':liquid', $data['liquid']);
+      $this->db->bind(':remarks', $data['remarks']);
 
       if($this->db->execute())
       {
@@ -250,15 +276,13 @@
       }
     }
 
-    public function addVaccination($data) {
-      $this->db->query('INSERT INTO vaccination(vaccination_id, cow_id, vaccination_type, vaccination_quantity, note) VALUES(:vaccId, :cowId, :vaccinationType, :vaccinationQuantity, :note)');
+    public function addCattleMilking($data) {
+      $this->db->query('INSERT INTO cattle_milking(milk_id, cow_id, quantity) VALUES(:milkId, :cowId, :quantity)');
 
       //value binding
-      $this->db->bind(':vaccId', $data['vaccId']);
+      $this->db->bind(':milkId', $data['milkId']);
       $this->db->bind(':cowId', $data['cowId']);
-      $this->db->bind(':vaccinationType', $data['vaccinationType']);
-      $this->db->bind(':vaccinationQuantity', $data['vaccinationQuantity']);
-      $this->db->bind(':note', $data['note']);
+      $this->db->bind(':quantity', $data['quantity']);
 
       //execute
       if($this->db->execute())
@@ -271,9 +295,9 @@
       }
     }
 
-    public function deleteVaccination($vaccId) {
-      $this->db->query('DELETE FROM vaccination WHERE vaccination_id= :vaccId');
-      $this->db->bind(':vaccId', $vaccId);
+    public function deleteCattleMilking($milkId) {
+      $this->db->query('DELETE FROM cattle_milking WHERE milk_id= :milkId');
+      $this->db->bind(':milkId', $milkId);
 
       if($this->db->execute())
       {
@@ -285,12 +309,10 @@
       }
     }
 
-    public function updateVaccination($data) {
-      $this->db->query('UPDATE vaccination SET vaccination_type= :vaccinationType, vaccination_quantity= :vaccinationQuantity, note= :note WHERE vaccination_id= :vaccId');
-      $this->db->bind(':vaccId', $data['vaccId']);
-      $this->db->bind(':vaccinationType', $data['vaccinationType']);
-      $this->db->bind(':vaccinationQuantity', $data['vaccinationQuantity']);
-      $this->db->bind(':note', $data['note']);
+    public function updateMilking($data) {
+      $this->db->query('UPDATE cattle_milking SET quantity= :quantity WHERE milk_id= :milkId');
+      $this->db->bind(':milkId', $data['milkId']);
+      $this->db->bind(':quantity', $data['quantity']);
 
       if($this->db->execute())
       {
@@ -308,8 +330,8 @@
       return $results;
     }
 
-    public function viewVaccination() {
-      $this->db->query('SELECT * FROM vaccination');
+    public function viewCattleMilking() {
+      $this->db->query('SELECT * FROM cattle_milking');
       $results = $this->db->resultSet();
       return $results;
     }
