@@ -10,12 +10,24 @@
 	<br>
 
 	<form action="<?php echo URLROOT; ?>/Livestock_Manager/updateCattle/<?php echo $data['cowId']; ?>" method="POST">
-    <div class="form-input-title">Weight</div>
-    <span class="form-invalid"><?php echo $data['weight_err']; ?></span>
-    <input type="text" name="weight" id="weight" class="weight" value="<?php echo $data['weight']; ?>">
-    <div class="form-input-title">Height</div>
-    <span class="form-invalid"><?php echo $data['height_err']; ?></span>
-    <input type="text" name="height" id="height" class="height" value="<?php echo $data['height']; ?>">
+    <div class="form-input-title">Breed</div>
+    <span class="form-invalid"><?php echo $data['breed_err']; ?></span>
+    <select class="breed" name="breed" id="breed" value="<?php echo $data['breed']; ?>">
+      <option value="Select">Select</option>
+      <option value="Jersey">Jersey (British breed)</option>
+      <option value="Persian">Persian (Newzealend breed)</option>
+      <option value="Sahiwal">Sahiwal (Indian breed)</option>
+      <option value="Girlandor">Girlandor (Indian breed(new))</option>
+      <option value="Other">Other</option>
+    </select>
+    <!-- milking -->
+    <div class="form-input-title">Milking</div>
+    <span class="form-invalid"><?php echo $data['milking_err']; ?></span>
+    <select class="milking" name="milking" id="milking" value="<?php echo $data['milking']; ?>">
+      <option value="Select">Select</option>
+      <option value="Yes">Yes</option>
+      <option value="No">No</option>
+    </select>
     <!-- line -->
 		<!-- <br>
     <hr> -->

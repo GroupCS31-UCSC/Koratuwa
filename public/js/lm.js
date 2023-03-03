@@ -1,32 +1,44 @@
-var cattle= document.getElementById('cattle').getContext('2d');
-var myChart= new Chart(cattle, {
-  type: 'polarArea',
+// charts
+var cattle = document.getElementById('milkCollect').getContext('2d');
+var myChart = new Chart(cattle, {
+  type: 'line',
   data: {
-    labels: ['Killes Vaccine', 'Live attenuated vaccine', 'Toxoid vaccine', 'Subunit vaccine'],
+    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
     datasets: [{
-      label: 'Vaccine Types',
-      data: [20,40,150,30],
-      backgroundColor: [
-        'rgba(255, 99, 132)',,
-        'rgba(75, 192, 192)',
-        'rgba(255, 205, 86)',
-        'rgba(201, 203, 207)',
-      ],
-      borderWidth:0.5
+      label: 'Stall 01',
+      data: [65, 59, 80, 81, 56, 55, 40],
+      fill: false,
+      borderColor: 'rgba(255, 99, 132)',
+      tension: 0.1
+    }, {
+      label: 'Stall 02',
+      data: [28, 48, 40, 19, 86, 27, 90],
+      fill: false,
+      borderColor: 'rgba(75, 192, 192)',
+      tension: 0.1
+    }, {
+      label: 'Stall 03',
+      data: [40, 75, 23, 54, 32, 68, 88],
+      fill: false,
+      borderColor: 'rgba(255, 205, 86)',
+      tension: 0.1
+    }, {
+      label: 'Stall 04',
+      data: [22, 62, 35, 55, 70, 45, 10],
+      fill: false,
+      borderColor: 'rgba(201, 203, 207)',
+      tension: 0.1
     }]
-  },
-  options: {
-    responsive: true,
-
   }
 });
 
 
-var pCattle= document.getElementById('pCattle').getContext('2d');
-var myChart= new Chart(pCattle, {
+
+var pCattle= document.getElementById('mCattle').getContext('2d');
+var myChart= new Chart(mCattle, {
   type: 'doughnut',
   data: {
-    labels: ['Pregnant', 'Milking Cattle'],
+    labels: ['Non-milking Cattle', 'Milking Cattle'],
     datasets: [{
       label: 'Milking Cattle Precentages',
       data: [90, 10],
@@ -61,4 +73,11 @@ function openVaccinationItem(){
 }
 function closeVaccinationItem(){
   document.getElementById("vaccinationItem").classList.remove("open-vaccinationItem");
+}
+
+function openModel(){
+  document.getElementById("model").classList.add("open-model");
+}
+function closeModel(){
+  document.getElementById("model").classList.remove("open-model");
 }

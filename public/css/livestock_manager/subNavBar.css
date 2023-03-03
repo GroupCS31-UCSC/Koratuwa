@@ -1,0 +1,23 @@
+.subnavbar {
+    background-color: rgb(246, 232, 232);
+    overflow: hidden;
+}
+
+.subnavbar a {
+    float: left;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.subnavbar a:hover {
+    background-color: #1bc8d1;
+    color: black;
+}
+
+.subnavbar a.active {
+    background-color: #040aaa;
+    color: white;
+}
