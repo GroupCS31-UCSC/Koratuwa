@@ -28,18 +28,6 @@
       <option value="Yes">Yes</option>
       <option value="No">No</option>
     </select>
-    <!-- line -->
-		<!-- <br>
-    <hr> -->
-    <!-- pregnant status -->
-    <!-- <div class="form-input-title">Pregnant Status</div>
-    <span class="form-invalid"><?php echo $data['pregnant_err']; ?></span>
-    <select name="pregnant" id="pregnant" class="pregnant">
-      <option value="0" <?php if($data['pregnant'] == 0) echo 'selected'; ?>>Not Pregnant</option>
-      <option value="1" <?php if($data['pregnant'] == 1) echo 'selected'; ?>>Pregnant</option>
-    </select> -->
-    <!-- if click not pregnant don't show below if yes show pregnant date -->
-    
     <br>
 
 		<input type="submit" value="Submit" class="submit-btn">

@@ -10,6 +10,9 @@
   <button class="tablinks" onclick="openTab(event, 'Stall4')">Stall 04</button>
 </div>
 
+
+
+<div id="Stall1" class="tabcontent active">
 <div class="flash-msg">
   <?php flash('addCattle_flash') ?>
   <?php flash('updateCattle_flash') ?>
@@ -25,8 +28,6 @@
   </div>
   <input type="button" value="Add New Cattle" class="add-btn" onclick="location.href='<?php echo URLROOT; ?>/Livestock_Manager/addCattle' ">
 </div>
-
-<div id="Stall1" class="tabcontent active">
 <div class="container" style="overflow-x: auto;">
     <table>
       <tr>
