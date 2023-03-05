@@ -10,44 +10,45 @@
 	<div class="form-header">
 		<center><h1>Add new Product Stock</h1></center>
 	</div>
-	<br>
-  
-	<form action="<?php echo URLROOT; ?>/Product_Manager/addStock" method="POST" enctype="multipart/form-data">
+	<br>  
 
-
+	<form action="<?php echo URLROOT; ?>/Product_Manager/addStock/<?php echo $data['pId'] ?>" method="POST" enctype="multipart/form-data">
 		<!--category name-->
-	<div class="form-input-title">Product ID</div>
-    <span class="form-invalid"><?php echo $data[0]['pId_err']; ?></span>
+	<!-- <div class="form-input-title">Product ID</div>
+    <span class="form-invalid"><?php echo $data['pId_err']; ?></span>
 	<label for="Select the Product"></label>
   
-    <?php $values = $data[1]?>
+    <?php $values = $data?>
     <select name="pId" id="pId">
       <?php foreach($values as $product_id):?>
         <option value="<?=$product_id->product_id?>" name="pId"><?=$product_id->product_id?></option>
       <?php endforeach;?>
-  </select>
-
+  </select> -->
+    
+    <div class="form-input-title">Product</div>
+    <span class="form-invalid"><?php echo $data['pId_err']; ?></span>
+    <input type="text" name="pId" id="pId" class="pId" value="<?php echo $data['pId'];?>" defaultValue="<?php echo $data['pId'];?>" disabled >
 
     <!--cost-->
     <div class="form-input-title">Quanitity</div>
-    <span class="form-invalid"><?php echo $data[0]['qty_err']; ?></span>
-    <input type="number" name="qty" id="qty" class="qty" value="<?php echo $data[0]['qty'];?>" >
+    <span class="form-invalid"><?php echo $data['qty_err']; ?></span>
+    <input type="number" min="100" name="qty" id="qty" class="qty" value="<?php echo $data['qty'];?>" >
 
     <!--price-->
     <div class="form-input-title">Manufactured Date</div>
-    <span class="form-invalid"><?php echo $data[0]['mfd_err']; ?></span>
-    <input type="date" name="mfd" id="mfd" class="mfd" value="<?php echo $data[0]['mfd']; ?>" >
+    <span class="form-invalid"><?php echo $data['mfd_err']; ?></span>
+    <input type="date" name="mfd" id="mfd" class="mfd" value="<?php echo $data['mfd']; ?>" >
 
     <!--ingredients-->
-    <div class="form-input-title">Expiry Date</div>
-    <span class="form-invalid"><?php echo $data[0]['exp_err']; ?></span>
-    <input type="date" name="exp" id="exp" class="exp" value="<?php echo $data[0]['exp']; ?>"  >
+    <!-- <div class="form-input-title">Expiry Date</div>
+    <span class="form-invalid"><?php echo $data['exp_err']; ?></span>
+    <input type="date" name="exp" id="exp" class="exp" value="<?php echo $data['exp']; ?>"  > -->
 
    
 
 
 		<br>
-		<input type="submit" value="Submit" class="submitBtn">
+		<input type="submit" value="Submit" class="submitBtn" >
 
 
 	</form>

@@ -87,21 +87,26 @@
 
             $data=[
               'pId'=>'',
+              'duration_months'=>trim($_POST['duration_months']),
               'name'=>trim($_POST['name']),
-              'cost'=>trim($_POST['cost']),
+              'duration'=>trim($_POST['duration']),
+              'size'=>trim($_POST['size']),
               'price'=>trim($_POST['price']),
               'ingredients'=>trim($_POST['ingredients']),
               'image'=> $new_img_name,
               'name_err'=>'',
-              'cost_err'=>'',
+              'duration_err'=>'',
+              'size_err'=>'',
               'price_err'=>'',
               'ingredients_err'=>'',
-              'image_err'=>''
+              'image_err'=>'',
+              'duration_months_err'=>''
             ];
 
             //validation
             if (empty($data['name']))        { $data['name_err'] = '*' ;  }
-            if (empty($data['cost']))         { $data['cost_err'] = '*' ; }
+            if (empty($data['duration']))     { $data['duration_err'] = '*' ; }
+            if (empty($data['size']))         { $data['size_err'] = '*' ; }
             if (empty($data['price']))        { $data['price_err'] = '*' ; }
             if (empty($data['ingredients']))  { $data['ingredients_err'] = '*' ; }
             if (empty($data['image']))        { $data['image_err'] = '*' ; }
@@ -109,7 +114,7 @@
             
 
             //if no errors
-            if(empty($data['name_err']) && empty($data['cost_err']) && empty($data['price_err']) && empty($data['ingredients_err']) && empty($data['image_err']) )
+            if(empty($data['name_err']) && empty($data['duration_err']) && empty($data['size_err'])&& empty($data['price_err']) && empty($data['ingredients_err']) && empty($data['image_err']) )
             {
               $data['pId']= $this->pmModel->findProductId();
 
@@ -135,39 +140,46 @@
             $data=[
               'pId'=>'',
               'name'=>'',
-              'cost'=>'',
+              'duration'=>'',
+              'duration_months'=>'',
+              'size'=>'',
               'price'=>'',
               'ingredients'=>'',
               'image'=>'',
 
               'name_err'=>'',
-              'cost_err'=>'',
+              'duration_err'=>'',
+              'size_err'=>'',
               'price_err'=>'',
               'ingredients_err'=>'',
-              'image_err'=>''
+              'image_err'=>'',
+              'duration_months_err'=> ''
             ];
             $this->view('product_manager/addCategory', $data);
 
           }
         }
 
-        public function addStock()
+        public function addStock($pId)
         {
+          $expireDays = $this->pmModel->getProductExpireDays($pId);
           if($_SERVER['REQUEST_METHOD'] == 'POST')
           {
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
-            $data2 = $this->pmModel->getProductCategoryDetails();
-              
             
-
+            $expireSeconds = $expireDays * 86400;
+            
+            $expireDate = date('Y-m-d', strtotime($_POST['mfd']) + $expireSeconds);
+            // $expireDateString = date_format($expireDate, 'Y-m-d');
             $data=[
 
               'sId'=>'',
-              'pId'=>trim($_POST['pId']),
+              'pId'=>trim($pId),
               'qty'=>trim($_POST['qty']),
               'mfd'=>trim($_POST['mfd']),
-              'exp'=>trim($_POST['exp']),
+              'exp'=>$expireDate,
+              
               
               'pId_err'=>'',
               'qty_err'=>'',
@@ -176,12 +188,12 @@
             ];
 
             //validation
-            if (empty($data['pId']))        { $data['pId_err'] = '*' ;  }
-            if (empty($data['qty']))         { $data['qty_err'] = '*' ; }
+            if (empty($data['pId']))        { $data['pId_err'] = '*' ; }
+            if (empty($data['qty']))        { $data['qty_err'] = '*' ; }
             if (empty($data['mfd']))        { $data['mfd_err'] = '*' ; }
             if (empty($data['exp']))        { $data['exp_err'] = '*' ; }
             
-            $result = array($data,$data2);
+            // $result = array($data,$data2);
             
 
             //if no errors
@@ -202,16 +214,16 @@
             else
             {
               //loading the form with the errors
-              $this->view('product_manager/addStock',$result);
+              $this->view('product_manager/addStock',$data);
             }
           }
           else
           {
-            $data2 = $this->pmModel->getProductCategoryDetails();
+            // $data2 = $this->pmModel->getProductCategoryDetails();
             //initial form loading
             $data=[
               'sId'=>'',
-              'pId'=>'',
+              'pId'=>$pId,
               'qty'=>'',
               'mfd'=>'',
               'exp'=>'',
@@ -223,12 +235,13 @@
               'exp_err'=>''
             ];
 
-            $result = array($data,$data2);
+            // $result = array($data,$data2);
 
-            $this->view('product_manager/addStock', $result);
+            $this->view('product_manager/addStock', $data);
 
           }
         }
+
         public function updateCategory($pId)
         {
           if($_SERVER['REQUEST_METHOD'] == 'POST')
@@ -256,13 +269,15 @@
             $data=[
               'pId'=>$pId,
               'name'=>trim($_POST['name']),
-              'cost'=>trim($_POST['cost']),
+              'duration'=>trim($_POST['duration']),
+              'size'=>trim($_POST['size']),
               'price'=>trim($_POST['price']),
               'ingredients'=>trim($_POST['ingredients']),
               'image'=>$new_img_name,
 
               'name_err'=>'',
-              'cost_err'=>'',
+              'duration_err'=>'',
+              'size_err'=>'',
               'price_err'=>'',
               'ingredients_err'=>'',
               'image_err'=>''
@@ -270,13 +285,15 @@
 
             //validation
             if (empty($data['name']))        { $data['name_err'] = '*' ;  }
-            if (empty($data['qty']))     { $data['qty_err'] = '*' ; }
-            if (empty($data['mfd']))     { $data['mfd_err'] = '*' ; }
-            if (empty($data['exp']))        { $data['exp_err'] = '*' ; }
+            if (empty($data['duration']))     { $data['duration_err'] = '*' ; }
+            if (empty($data['size']))         { $data['size_err'] = '*' ; }
+            if (empty($data['price']))        { $data['price_err'] = '*' ; }
+            if (empty($data['ingredients']))  { $data['ingredients_err'] = '*' ; }
+            if (empty($data['image']))        { $data['image_err'] = '*' ; }
 
 
             //if no errors
-            if(empty($data['name_err']) && empty($data['cost_err']) && empty($data['price_err']) && empty($data['ingredients_err']) && empty($data['image_err']) )
+            if(empty($data['name_err']) && empty($data['duration_err']) && empty($data['size_err']) && empty($data['price_err']) && empty($data['ingredients_err']) && empty($data['image_err']) )
             {
               if($this->pmModel->updateCategory($data))
               {
@@ -308,13 +325,15 @@
             $data=[
               'pId'=>$category->product_id,
               'name'=>$category->product_name,
-              'cost'=>$category->unit_cost,
+              'duration'=>$category->expiry_duration,
+              'size'=>$category->size,
               'price'=>$category->unit_price,
               'ingredients'=>$category->ingredients,
               'image'=>$category->image,
 
               'name_err'=>'',
-              'cost_err'=>'',
+              'duration_err'=>'',
+              'size_err'=>'',
               'price_err'=>'',
               'ingredients_err'=>'',
               'image_err'=>''
@@ -328,10 +347,13 @@
 
         public function viewCategory($pId)
         {
+          $expireDays = $this->pmModel->getProductExpireDays($pId);
           $category= $this->pmModel->viewCategorybyId($pId);
-
+          $productStock= $this->pmModel->getProductStockDetailsForProduct($pId);
           $data = [
-              'category' => $category
+              'category' => $category,
+              'productStock' => $productStock,
+              'expireDays' => $expireDays
           ];
 
           $this->view('product_manager/viewCategory',$data);

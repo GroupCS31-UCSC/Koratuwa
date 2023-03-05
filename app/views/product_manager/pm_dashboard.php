@@ -21,22 +21,22 @@
       </li>
       <li>
         <a href="<?php echo URLROOT; ?>/Product_Manager/productCategories">
-          <span class="icon"><i class="fa-solid fa-boxes-stacked"></i></span>
-          <span class="title"> Product Categories</span>
+          <span class="icon"><i class="fa-solid fa-cubes-stacked"></i></span>
+          <span class="title"> Products</span>
         </a>
       </li>
-      <li>
+      <!-- <li>
       <a href="<?php echo URLROOT; ?>/Product_Manager/viewStock">
           <span class="icon"><i class="fa-solid fa-cubes-stacked"></i></span>
           <span class="title">Product Stocks</span>
         </a>
-      </li>
-      <li>
+      </li> -->
+      <!-- <li>
       <a href="<?php echo URLROOT; ?>/Product_Manager/analyze">
           <span class="icon"><i class="fa-solid fa-chart-simple"></i></span>
           <span class="title">Product Analysis</span>
         </a>
-      </li>
+      </li> -->
      
     </ul>
   </div>

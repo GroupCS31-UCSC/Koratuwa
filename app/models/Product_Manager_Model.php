@@ -11,7 +11,7 @@
 
     public function getProductCategoryDetails(){
       $this->db->query('SELECT * FROM product_category');
-
+      
       $result = $this->db->resultSet();
 
       return $result;
@@ -24,6 +24,26 @@
       $result = $this->db->resultSet();
 
       return $result;
+    }
+
+    public function getProductStockDetailsForProduct($pId){
+      $this->db->query('SELECT * FROM product_stock WHERE product_id = :pId');
+      $this->db->bind(':pId',$pId);
+
+
+      $result = $this->db->resultSet();
+
+      return $result;
+    }
+
+    public function getProductExpireDays($pId){
+      $this->db->query('SELECT SUM(expiry_duration + expiry_duration_months*30) FROM product_category WHERE product_id = :pId');
+      $this->db->bind(':pId',$pId);
+      $result = $this->db->resultSet();
+      $array = get_object_vars($result[0]);
+
+      return $array['SUM(expiry_duration + expiry_duration_months*30)'] ;
+
     }
   
     public function findProductId()
@@ -117,12 +137,14 @@
 
     public function addCategory($data)
     {
-      $this->db->query('INSERT INTO product_category(product_id,product_name,unit_price,unit_cost,ingredients,image) VALUES(:pId, :name, :price, :cost, :ingredients, :image)');
+      $this->db->query('INSERT INTO product_category(product_id,product_name,unit_price,expiry_duration,expiry_duration_months,size,ingredients,image) VALUES(:pId, :name, :price, :duration, :duration_months,:size, :ingredients, :image)');
       //value binding
       $this->db->bind(':pId', $data['pId']);
       $this->db->bind(':name', $data['name']);
       $this->db->bind(':price', $data['price']);
-      $this->db->bind(':cost', $data['cost']);
+      $this->db->bind(':duration', $data['duration']);
+      $this->db->bind(':duration_months', $data['duration_months']);
+      $this->db->bind(':size', $data['size']);
       $this->db->bind(':ingredients', $data['ingredients']);
       $this->db->bind(':image', $data['image']);
       // $this->db->bind(':pmId', $_SESSION['user_id']);
@@ -140,10 +162,11 @@
 
     public function updateCategory($data)
     {
-      $this->db->query('UPDATE product_category SET product_name= :name, ingredients= :ingredients, unit_price= :price, unit_cost=:cost, image= :image WHERE product_id= :pId');
+      $this->db->query('UPDATE product_category SET product_name= :name, ingredients= :ingredients, unit_price= :price, expiry_duration=:duration,size= :size,  image= :image WHERE product_id= :pId');
       $this->db->bind(':name', $data['name']);
       $this->db->bind(':price', $data['price']);
-      $this->db->bind(':cost', $data['cost']);
+      $this->db->bind(':duration', $data['duration']);
+      $this->db->bind(':size', $data['size']);
       $this->db->bind(':ingredients', $data['ingredients']);
       $this->db->bind(':image', $data['image']);
       $this->db->bind(':pId', $data['pId']);

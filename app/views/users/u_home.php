@@ -48,7 +48,7 @@
 <h1>Our Products</h1>
 <div class="gallery">
   <div class="content">
-  <img class="img-content" src="<?php echo URLROOT; ?>/img/mi.jpeg" alt="no"> 
+  <img class="img-content" src="<?php echo URLROOT; ?>/img/milkbottle.jpeg" alt="no"> 
   <h3>Fresh Milk</h3>
 
   <h6></h6>

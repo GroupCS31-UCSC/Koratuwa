@@ -8,18 +8,18 @@
 <!-- <?php echo $_SESSION['user_id']; ?></h2> -->
 
 
-<div class="section">
-<h2>Our Products</h2>
-<img class="img-bg" src="<?php echo URLROOT; ?>/public/img/price.jpg" alt="no"> 
+<!-- <div class="section">
+  <h2>Our Products</h2> 
+ <img class="img-bg" src="<?php echo URLROOT; ?>/public/img/hel.jpeg" alt="no">  
 
-</div>
+</div> -->
 
 
 
 
 
 <div class="btnWrapper">
-  <input type="button" value="Add new Product Category" class="pmaddBtn" onclick="location.href='<?php echo URLROOT; ?>/Product_Manager/addCategory' "> 
+  <input type="button" value="Add new Product" class="pmaddBtn" onclick="location.href='<?php echo URLROOT; ?>/Product_Manager/addCategory' "> 
 </div>
 
 
@@ -41,18 +41,22 @@
 
     <a href="<?php echo URLROOT?>/Product_Manager/viewCategory/<?php echo $category->product_id ?>" class="card" >
       <div class="img">
-        <img src="<?php echo UPLOADS . $category->image ?>" width='200' height='200'>
+        <img src="<?php echo UPLOADS . $category->image ?>" width='100' height='100'>
       </div>
       <div class="cardContent">
         <p><?php echo $category->product_name ?></p>
+     
+        <!-- <div class="table-btns">
+      <a href="<?php echo URLROOT?>/Product_Manager/updateCategory/<?php echo $category->product_id  ?>"><button class="updateBtn" title="Update"><i class="fa-regular fa-pen-to-square"></i></button></a>
+      <a href="<?php echo URLROOT?>/Product_Manager/deleteCategory/<?php echo $category->product_id ?>"><button class="deleteBtn" title="Delete"><i class="fa-regular fa-trash-can"></i></button></a>
+   </div> -->
       </div>
   </a>
-
-    
+ 
     <?php endforeach; ?>
     
   </div>
-  </div>
+  
 
 
 

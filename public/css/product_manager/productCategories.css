@@ -5,12 +5,13 @@
     margin: auto;
   display: block;
     z-index: -1;
+
   
   }
 
 h2{
     margin-left: 40%;
-    margin-top: 130px;
+    margin-top: 10px;
     position: absolute;
     
     font-size: 2rem;
@@ -61,6 +62,8 @@ h2{
     /* padding: 50px; */
     gap: 110px;
     margin: 50px 100px;
+
+    
 }
 
 .card {
@@ -148,3 +151,7 @@ h2{
     background-color: #00bff0;
 }
 
+.table-btns{
+    width: 10px;
+    height: 10px;
+}
