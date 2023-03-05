@@ -11,7 +11,7 @@
 	</div>
  	<br>
 
-  <form id="updateForm" action="<?php echo URLROOT; ?>/Admin/updateEmployees/<?php echo $data['email']; ?>" method="post" enctype="multipart/form-data">
+  <form id="updateForm" action="<?php echo URLROOT; ?>/Admin/updateEmployees/<?php echo $data['empId']; ?>" method="post" enctype="multipart/form-data">
   <!-- <form action="Admin/updateEmployees" method="post" onsubmit="return updateForm(this);"> -->
 
     <!--name-->

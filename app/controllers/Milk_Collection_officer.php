@@ -13,20 +13,54 @@
           }          
         }
 
-        //redirect to the mco Home page
+        //redirect to the mco Home page with details
         public function mcoHome()
         {
-          $recentOrderView= $this->mcoModel->get_RecentOrderView();
+          $todayOrderView= $this->mcoModel->get_todayOrderView();
           $lastDate = $this->mcoModel->get_lastDate();
           $lastPrice = $this->mcoModel->get_lastPrice();
 
           $data = [
-            'orderView' => $recentOrderView,
+            'orderView' => $todayOrderView,
             'lastDate' => strval($lastDate),
             'lastPrice' => strval($lastPrice)
 
           ];
           $this->view('milk_collection_officer/mco_home',$data);
+        }
+        
+        //set milk purchasing unit price
+        public function setUnitPrice()
+        {
+          if($_SERVER['REQUEST_METHOD'] == 'POST')
+          {
+            //sanitize the data
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+            //input data
+            $data = [
+              'price' => trim($_POST['price'])
+            ];
+
+            if($this->mcoModel->setPrice($data))
+            {
+              redirect('Milk_Collection_Officer/mcoHome');
+            }
+            else
+            {
+              die('Today Purchasing Price is Already Set!');
+            }
+
+          }
+          else
+          {
+            //initial form
+            $data = [
+              'price' => ''
+            ];
+            //load the addCollection form
+            $this->view('milk_collection_officer/mco_home',$data);
+          }
         }
 
         //get the details of total milk collection
@@ -91,40 +125,6 @@
           $this->view('milk_collection_officer/view_supplyMilk',$data);
         }
         
-
-        //get the details of supply milk collection
-        public function setPriceDaily()
-        {
-          if($_SERVER['REQUEST_METHOD'] == 'POST')
-          {
-            //sanitize the data
-            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-
-            //input data
-            $data = [
-              'price' => trim($_POST['price'])
-            ];
-
-            if($this->mcoModel->setPrice($data))
-            {
-              redirect('Milk_Collection_Officer/mcoHome');
-            }
-            else
-            {
-              die('Today Purchasing Price is Already Set!');
-            }
-
-          }
-          else
-          {
-            //initial form
-            $data = [
-              'price' => ''
-            ];
-            //load the addCollection form
-            $this->view('milk_collection_officer/mco_home',$data);
-          }
-        }
 
 
         

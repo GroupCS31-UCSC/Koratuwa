@@ -61,7 +61,7 @@
   <!-- table -->
   <div class="recentOrders">
     <div class="cardHeader">
-      <h2>Recent Orders</h2>
+      <h2>Today Orders</h2>
       <a href="<?php echo URLROOT; ?>/Milk_Collection_Officer/viewSupplyOrders" class="viewBtn">View All</a>
     </div>
     <table>
@@ -124,11 +124,11 @@
     <!------------ set price popup window ---------------->
     <div id="popup1" class="overlay">
     <div class="popup">
-      <h2>Set Today Milk Purchasing Price</h2>
+      <h2>Set Milk Purchasing Price</h2>
       <a class="close" href="#">&times;</a>
       <div class="content">
 
-      <form id="addForm" action="<?php echo URLROOT; ?>/Milk_Collection_Officer/setPriceDaily" method="POST">
+      <form id="addForm" action="<?php echo URLROOT; ?>/Milk_Collection_Officer/setUnitPrice" method="POST">
           <div class="feature">
             <div class="form-input-title">Unit Price for Litre</div>
             <input type="number" name="price" id="price" class="price" autocomplete="off" value="<?php error_reporting(0); echo $data['price']; ?> ">

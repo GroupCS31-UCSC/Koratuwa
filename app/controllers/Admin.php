@@ -7,8 +7,13 @@
         public function __construct()
         {
           $this->adminModel = $this->model('Admin_Model');
-
+          
+          //check if the user logged in(user authentication)
           if(!$_SESSION['user_email']){
+            redirect('Users/login');
+          }
+          //check if logged user has authorize to log this pages(user authorization)
+          elseif($_SESSION['user_type']!='Admin'){
             redirect('Users/login');
           }
         }
@@ -168,7 +173,7 @@
 
 
         //update selected employee's details
-        public function updateEmployees($email)
+        public function updateEmployees($empId)
         {
           if($_SERVER['REQUEST_METHOD'] == 'POST')
           {
@@ -202,7 +207,7 @@
               'address' => trim($_POST['address']),
               'employment' => trim($_POST['employment']),
               'image' => $new_img_name,
-              'email' => $email,
+              'empId' => $empId,
 
 
               // 'id_err' => '',
@@ -241,7 +246,7 @@
           else
           {
             
-            $emp = $this->adminModel->getEmpByEmail($email);
+            $emp = $this->adminModel->getEmpByEmail($empId);
             // $img= UPLOADS . $emp->image;
             //$emp  is a data set that retrieved from db
             $data = [
@@ -250,9 +255,9 @@
               'tp_num' => $emp->contact_number,
               'gender' => $emp->gender,
               'address' => $emp->address,
-              'email' => $emp->email,
               'employment' => $emp->employment,
               'image' => "<?php echo UPLOADS . $emp->image ?>",
+              'empId' => $empId,
 
               // 'id_err' => '',
               'name_err' => '',
@@ -268,9 +273,9 @@
 
 
         //delete a selected employee
-        public function deleteEmployees($email)
+        public function deleteEmployees($empId)
         {
-          if($this->adminModel->deleteEmployees($email))
+          if($this->adminModel->deleteEmployees($empId))
           {
             flash('dltEmp_flash','Employee is successfully deleted');
             redirect('Admin/viewEmployees');

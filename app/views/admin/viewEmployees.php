@@ -40,16 +40,14 @@
     <td><?php echo $emp->employee_id; ?></td>
     <td><?php echo $emp->employee_name; ?></td>
     <td><?php echo $emp->employment; ?></td>
-    <!-- <td><?php echo $emp->nic; ?></td> -->
     <td><?php echo $emp->contact_number; ?></td>
     <td><?php echo $emp->gender; ?></td>
-    <!-- <td><?php echo $emp->email; ?></td> -->
 
     <td>
 
       <div class="table-btns">
-      <a href="<?php echo URLROOT?>/Admin/updateEmployees/<?php echo $emp->email ?>"><button class="updateBtn" title="Update"><i class="fa-regular fa-pen-to-square"></i></button></a>
-      <a href="<?php echo URLROOT?>/Admin/deleteEmployees/<?php echo $emp->email ?>"><button class="deleteBtn" title="Delete"><i class="fa-regular fa-trash-can"></i></button></a>
+      <a href="<?php echo URLROOT?>/Admin/updateEmployees/<?php echo $emp->employee_id ?>"><button class="updateBtn" title="Update"><i class="fa-regular fa-pen-to-square"></i></button></a>
+      <a href="<?php echo URLROOT?>/Admin/deleteEmployees/<?php echo $emp->employee_id ?>"><button class="deleteBtn" title="Delete"><i class="fa-regular fa-trash-can"></i></button></a>
       </div>
 
     <!-- 
@@ -60,7 +58,7 @@
     </td>
     <td>
     <div class="table-btns">
-      <a href="<?php echo URLROOT?>/Admin/EmployeeProfile/<?php echo $emp->email ?>"><button class="viewBtn">View</button></a>
+      <a href="<?php echo URLROOT?>/Users/userProfile/<?php echo $emp->employee_id ?>"><button class="viewBtn">View</button></a>
     </div>
     </td>
 
