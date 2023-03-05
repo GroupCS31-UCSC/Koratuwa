@@ -10,7 +10,10 @@
 
           if(!$_SESSION['user_email']){
             redirect('Users/login');
-          }          
+          }    
+          elseif($_SESSION['user_type']!='Financial Manager'){
+            redirect('Users/login');
+          }      
         }
 
 

@@ -39,11 +39,12 @@ section {
     margin-top: 20px;
     text-align: center;
     display: inline-block;
-    /* justify-content: center; */
-    height: 400px;
+    /* height: 400px; */
     min-width: 50%;
     /* border: solid blue; */
 }
+
+
 
 .content{
     /* position: relative; */
@@ -169,7 +170,7 @@ h2 {
 
 .graphBox {
     position: relative;
-    width: 80%;
+    /* width: 80%; */
     padding: 10px 10px 10px 10px;
     display: grid;
     grid-template-columns: 2fr 2fr;
@@ -177,6 +178,7 @@ h2 {
     min-height: 300px;
     /* top: 150px;
     left: 50px; */
+    /* border: solid red; */
 }
 
 .graphBox .box {
@@ -186,8 +188,12 @@ h2 {
     width: 100%;
     box-shadow: 0 7px 25px rgba(0, 0, 0, 0.4);
     border-radius: 20px;
+    /* border: solid red; */
 }
-
+canvas{
+    width: 80vh;
+    height: 50vh;
+}
 /*-------------------------------Model------------------------------*/
 /* The Modal (background) */
 .modal {
