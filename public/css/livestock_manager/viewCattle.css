@@ -24,17 +24,26 @@
 .model {
     position: fixed;
     top: 0;
-    right: 0;
-    bottom: 0;
+    width: 100vw;
+    height: 100vh;
     left: 0;
     z-index: 1050;
     visibility: hidden;
     overflow: hidden;
     outline: 0;
     background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .open-model {
     visibility: visible;
+    display: flex;
+}
+
+.open-model .model {
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .fade.in {
@@ -46,10 +55,6 @@
     -o-transition: opacity .15s linear;
     transition: opacity .15s linear;
 }
-.model-open .model {
-    overflow-x: hidden;
-    overflow-y: auto;
-}
 
 .model.in .model-dialog {
     -webkit-transform: translate(0,0);
@@ -60,28 +65,34 @@
 
 .model-dialog {
     position: relative;
-    width: auto;
-    margin: 150px;
+    max-height: 80vh;
 }
+
+/* .modal.fade .modal-dialog {
+    -webkit-transition: -webkit-transform .3s ease-out;
+    -o-transition: -o-transform .3s ease-out;
+    transition: transform .3s ease-out;
+    -webkit-transform: translate(0,-25%);
+    -ms-transform: translate(0,-25%);
+    -o-transform: translate(0,-25%);
+    transform: translate(0,-25%);
+} */
 
 .model-content {
     border-radius: 0;
-    -webkit-box-shadow: 0 2px 3px rgb(0 0 0 / 13%);
-    box-shadow: 0 2px 3px rgb(0 0 0 / 13%);
-    border: 0;
     position: relative;
     background-color: #fff;
-    -webkit-background-clip: padding-box;
+    /* -webkit-background-clip: padding-box; */
     background-clip: padding-box;
     border: 1px solid #999;
     border-radius: 6px;
     outline: 0;
-    -webkit-box-shadow: 0 3px 9px rgb(0 0 0 / 50%);
+    /* -webkit-box-shadow: 0 3px 9px rgb(0 0 0 / 50%); */
     box-shadow: 0 3px 9px rgb(0 0 0 / 50%);
 }
 
 .model-header {
-    padding: 15px;
+    padding: 10px;
     border-bottom: 1px solid #e5e5e5;
     border-bottom-color: #f4f4f4;
 }
@@ -91,8 +102,21 @@
     padding: 15px;
 }
 
-.model-header .close {
-    margin-top: 1px;
+.tableForm {
+    background-color: #fff;
+    border: 1px solid #f4f4f4;
+    min-height: .01%;
+    overflow-x: auto;
+    width: 90%;
+    max-width: 80%;
+    margin-bottom: 50px;
+}
+
+.modal-footer {
+    border-top-color: #f4f4f4;
+    padding: 15px;
+    text-align: right;
+    border-top: 1px solid #e5e5e5;
 }
 
 button.close {
@@ -114,17 +138,13 @@ button.close {
 }
 .model-title {
     margin: 0;
-    line-height: 1.42857143;
+    line-height: 1;
 }
 
 h4 {
     display: block;
-    margin-block-start: 1.33em;
-    margin-block-end: 1.33em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
     font-weight: bold;
-    font-weight: 400px;
+    font-weight: 500px;
 }
 
 .edit-color {
@@ -136,25 +156,12 @@ h4 {
     font: normal normal normal 14px/1 FontAwesome;
     font-size: inherit;
     text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    /* -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale; */
 }
 
 i {
     font-style: italic;
-}
-
-.table .table {
-    background-color: #fff;
-}
-
-.table-bordered {
-    border: 1px solid #f4f4f4;
-}
-
-.table-responsive {
-    min-height: .01%;
-    overflow-x: auto;
 }
 
 table {
@@ -164,19 +171,9 @@ td {
     text-align: center;
 }
 
-
-/* .add-btn:hover {
-    background: #3cb0fd;
-    text-decoration: none;
-    cursor: pointer;
-} */
  /*make it responsive design*/
 
 @media (max-width: 991px) {
-    .graphBox {
-        grid-template-columns: 1fr;
-        height: auto;
-    }
     .navigation {
         left: -275px;
     }
@@ -192,3 +189,30 @@ td {
         left: 275px;
     }
 }
+
+/* @media (min-width: 768px) {
+.modal-dialog {
+    width: 600px;
+    margin: 30px auto;
+}
+.modal-dialog {
+    position: relative;
+    width: auto;
+    margin: 10px;
+}} */
+/* @media (min-width: 768px){
+.modal-content {
+    -webkit-box-shadow: 0 2px 3px rgb(0 0 0 / 13%);
+    box-shadow: 0 2px 3px rgb(0 0 0 / 13%);
+}
+.modal-content {
+    border-radius: 0;
+    -webkit-box-shadow: 0 2px 3px rgb(0 0 0 / 13%);
+    box-shadow: 0 2px 3px rgb(0 0 0 / 13%);
+    border: 0;
+}}
+@media (min-width: 768px){
+.modal-content {
+    -webkit-box-shadow: 0 5px 15px rgb(0 0 0 / 50%);
+    box-shadow: 0 5px 15px rgb(0 0 0 / 50%);
+}} */

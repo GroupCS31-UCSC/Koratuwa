@@ -2,6 +2,33 @@
 <?php require APPROOT.'/views/livestock_manager/livestock_dashboard.php'; ?>
 <link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/public/css/livestock_manager/viewFeed.css">
 
+<div class="viewFeeds">
+<img class="img-feed" src="<?php echo URLROOT; ?>/img/lm/cowFeed.webp">
+</div>
+
+<div class="feedDetails">
+  <table class="items">
+    <tr>
+      <th>Solid foods (60%)</th>
+      <th>Liquid foods (40%)</th>
+    </tr>
+    <tr>
+      <td>Grass, Leaves </td>
+      <td>sailege (salt + sugar)</td>
+    </tr>
+    <tr>
+      <td>[CO3/CO4/CO5 super napier, sorghum, pachon]</td>
+      <td>Azolla(high protein)</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>punakku, corn, Rice powder</td>
+    </tr>
+  </table>
+</div>
+
+
+
 <div class="flash-msg">
   <?php flash('addfeed_flash') ?>
   <?php flash('updatefeed_flash') ?>

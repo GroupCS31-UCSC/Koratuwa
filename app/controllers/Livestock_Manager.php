@@ -16,19 +16,21 @@
     }
 
     public function viewCattle() {
-      $cattleView= $this->livestockModel->get_cattleView();
+      $stall=$_GET['stall'] ?? 'STALL1';
+      $cattleView= $this->livestockModel->get_cattleView($stall);
 
       $data = [
-        'cattleView' => $cattleView
+        'cattleView' => $cattleView,
+        'stall' =>$stall
       ];
-
+ 
       $this->view('livestock_Manager/viewCattle',$data);
     }
 
     public function addCattle() {
       if($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-
+        
         $data=[
           'cowId'=>'',
           'dob'=>trim($_POST['dob']),
@@ -56,15 +58,15 @@
         if ($data['breed']=='Select') { $data['breed_err'] = '*' ; }
         if ($data['milking']=='Select') { $data['milking_err'] = '*' ; }
         if ($data['method']=='Select') { $data['method_err'] = '*' ; }
-        if (empty($data['price'])) { $data['price_err'] = '*' ; }
+        // if (empty($data['price'])) { $data['price_err'] = '*' ; }
         if ($data['stallId']=='Select') { $data['stallId_err'] = '*' ; }
-       
-
+      
         //if no errors
         if(empty($data['dob_err']) && empty($data['gender_err']) && empty($data['breed_err']) && empty($data['milking_err']) && empty($data['method_err']) && empty($data['price_err']) && empty($data['stallId_err'])) {
           $data['cowId']= $this->livestockModel->findCowId();
-
+          
           if($this->livestockModel->addCattle($data)) {
+            
             flash('addCattle_flash','New cattle details are successfully added!');
             redirect('Livestock_Manager/viewCattle');
           }
@@ -109,7 +111,7 @@
 
         $data=[
           'cowId'=>$cowId,
-          'breed'=>trim($_POST['gender']),
+          'breed'=>trim($_POST['breed']),
           'milking'=>trim($_POST['milking']),
           
           'breed_err'=>'',
@@ -165,7 +167,7 @@
       $data = [
         'feedMonitoringView' => $feedMonitoringView
       ];
-
+     
       $this->view('livestock_Manager/viewFeedMonitoring',$data);
     }
 
@@ -185,12 +187,19 @@
           'liquid_err'=>'',
           'remarks_err'=>'',
         ];
+
+//         print_r('sldi');
+// exit;
   
         //validation
         if ($data['stallId']=='Select') { $data['stallId_err'] = '*' ; }
         if (empty($data['solid'])) { $data['solid_err'] = '*' ; }
         if (empty($data['liquid'])) { $data['liquid_err'] = '*' ; }
         if (empty($data['remarks'])) { $data['remarks_err'] = '*' ; }
+
+        //  echo '<pre>';
+        // print_r($data);
+        // exit;
         
         //if no errors
         if(empty($data['stallId_err']) && empty($data['solid_err']) && empty($data['liquid_err']) && empty($data['remarks_err'])) {
@@ -205,6 +214,7 @@
           }
         }
         else {
+          
           $this->view('livestock_Manager/addFeedMonitoring',$data);
         }
       }
@@ -221,7 +231,7 @@
           'liquid_err'=>'',
           'remarks_err'=>'',
         ];
-
+        
         $this->view('livestock_Manager/addFeedMonitoring', $data);
       }
     }

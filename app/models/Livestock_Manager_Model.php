@@ -9,8 +9,11 @@
     public function findCowId() {
       $this->db->query('SELECT * FROM cattle order by cow_id desc limit 1');
       $row = $this->db->single();
-      $lastId = $row->cow_id;
-    
+      $lastId ='';
+      if($row) {
+        $lastId = $row->cow_id;
+      }
+      
       if($lastId == '') {
         $id = 'COW1';
       } else {
@@ -22,9 +25,9 @@
       return $id;
     }
     
-    public function get_cattleView() {
-      $this->db->query('SELECT * FROM cattle');
-
+    public function get_cattleView($stallId) {
+      $this->db->query('SELECT * FROM cattle WHERE stall_id="'.$stallId.'" order by cow_id');
+  
       $result = $this->db->resultSet();
 
       return $result;
@@ -38,6 +41,14 @@
 			return $row;
     }
 
+    public function getCattleByStall($stallId) {
+      $this->db->query('SELECT * FROM cattle WHERE stallId = :stallId');
+      $this->db->bind(':stallId', $stallId);
+
+      $result = $this->db->resultSet();
+      return $result;
+    }
+
     public function addCattle($data) {
       // calculate age
       $dob = $data['dob'];
@@ -46,12 +57,17 @@
       $years = $age->y;
       $months = $age->m;
       $days = $age->d;
+      $ageStr = '';
 
       // format age
       if ($years > 0) { $ageStr = $years . ' years'; if ($months > 0 || $days > 0) { $ageStr .= ', '; }}
       if ($months > 0) { $ageStr .= $months . ' months'; if ($days > 0) { $ageStr .= ', '; }}
       if ($days > 0 || ($years == 0 && $months == 0)) { $ageStr .= $days . ' days'; }
       $data['age'] = $ageStr;
+
+      if($data['price'] == '') {
+        $data['price'] = NULL;
+      }
       
       $this->db->query('INSERT INTO cattle(cow_id, dob, age, gender, cow_breed, milking_status, reg_method, bought_price, stall_id) VALUES(:cowId, :dob, :age, :gender, :breed, :milking, :method, :price, :stallId)');
 
@@ -112,8 +128,10 @@
     public function findFeedMonitoringId() {
       $this->db->query('SELECT * FROM feed_monitoring order by feed_id desc limit 1');
       $row = $this->db->single();
-      $lastId = $row->feed_id;
-    
+      $lastId = '';
+      if($row) {
+        $lastId = $row->feed_id;
+      }
       if(empty($lastId)) {
         $id = 'FED1';
       } else {
@@ -142,7 +160,7 @@
     }
 
     public function addFeedMonitoring($data) {
-      $this->db->query('INSERT INTO feed_monitoring(feed_id, stall_id, solid, liquid, remarks) VALUES(feedId, :stallId, :solid, :liquid, :remarks)');
+      $this->db->query('INSERT INTO feed_monitoring(feed_id, stall_id, solid, liquid, remarks) VALUES(:feedId, :stallId, :solid, :liquid, :remarks)');
 
       //value binding
       $this->db->bind(':feedId', $data['feedId']);
@@ -196,8 +214,9 @@
     public function findcattleMilkingId() {
       $this->db->query('SELECT * FROM cattle_milking order by milk_id desc limit 1');
       $row = $this->db->single();
-      $lastId=$row->milk_id;
-
+      if($row) {
+        $lastId=$row->milk_id;
+      }
       if($lastId == '')	{
         $id='MIL1';
       }

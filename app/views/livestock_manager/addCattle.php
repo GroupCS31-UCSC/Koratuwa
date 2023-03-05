@@ -23,10 +23,10 @@
       <option value="Other">Other</option>
     </select>
     <!-- If select other -->
-    <!-- <div id="other-input" style="display:none;"> -->
+    <div id="other-input" style="display:none;">
     <label for="other">Other:</label>
     <input type="text" name="other" id="other" class="other" value="">
-    <!-- </div> -->
+    </div>
     <!-- Gender -->
     <div class="form-input-title">Gender</div>
     <span class="form-invalid"><?php echo $data['gender_err']; ?></span>
@@ -43,19 +43,6 @@
       <option value="Yes">Yes</option>
       <option value="No">No</option>
     </select>
-    <!-- <div class="form-input-title">Weight</div>
-    <span class="form-invalid"><?php echo $data['weight_err']; ?></span>
-    <input type="text" name="weight" id="weight" class="weight" value="<?php echo $data['weight']; ?>">
-    <div class="form-input-title">Height</div>
-    <span class="form-invalid"><?php echo $data['height_err']; ?></span>
-    <input type="text" name="height" id="height" class="height" value="<?php echo $data['height']; ?>">
-    <div class="form-input-title">Health</div>
-    <span class="form-invalid"><?php echo $data['health_err']; ?></span>
-    <select class="health" name="health" id="health" value="<?php echo $data['health']; ?>">
-      <option value="Select">Select</option>
-      <option value="Good">Good</option>
-      <option value="Bad">Bad</option>
-    </select> -->
     <!-- Method -->
     <div class="form-input-title">Method</div>
     <span class="form-invalid"><?php echo $data['method_err']; ?></span>
@@ -65,10 +52,10 @@
       <option value="Birth">Birth</option>
     </select>
     <!-- If select buy -->
-    <!-- <div id="price-input" style="display:none;"> -->
+    <div id="price-input" style="display:none;">
     <label for="price">Price:</label>
     <input type="text" name="price" id="price" class="price" value="">
-    <!-- </div> -->
+    </div>
     <!-- stall no -->
     <div class="form-input-title">Stall Id</div>
     <span class="form-invalid"><?php echo $data['stallId_err']; ?></span>
@@ -90,13 +77,16 @@
 
 
 <?php require APPROOT.'/views/include/footer.php'; ?>
-<!-- <script>
-var breedSelect = document.getElementById('breed');
+<script src="<?php echo URLROOT; ?>/js/lm.js"></script>
+
+<script>
+  var breedSelect = document.getElementById('breed');
 var methodSelect = document.getElementById('method');
 var otherInput = document.getElementById('other-input');
 var priceInput = document.getElementById('price-input');
 
 breedSelect.addEventListener('change', function() {
+
   if (breedSelect.value == 'Other') {
     otherInput.style.display = 'block';
   } else {
@@ -111,4 +101,4 @@ methodSelect.addEventListener('change', function() {
     priceInput.style.display = 'none';
   }
 });
-</script> -->
+</script>
