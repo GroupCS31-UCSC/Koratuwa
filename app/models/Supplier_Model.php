@@ -117,6 +117,35 @@
     }
 
 
+    public function supFeedback($data)
+    {
+      // $data['date'] = date("Y-m-d");
+      $this->db->query('INSERT INTO  supplier_feedback(supplier_id ,feedback) VALUES(:supId, :feedback)');
+
+      $this->db->bind(':supId', $_SESSION['user_id']);
+      $this->db->bind(':feedback', $data['feedback']);
+
+      //execute
+      if($this->db->execute())
+      {
+        return true;
+      }
+      else
+      {
+        return false;
+      }
+    }
+// ----------get supplier feedback---------------//
+    public function viewFeedback()
+    {
+      $this->db->query('SELECT * FROM supplier_feedback ORDER BY time,date DESC');
+
+      $result = $this->db->resultSet();
+
+      return $result;
+    }
+
+
 
   }
 
