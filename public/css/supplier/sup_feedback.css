@@ -5,7 +5,12 @@
    outline: none;
    /* color: #fff;  */
 }
-section{
+section {
+    width: 100%;
+    text-align: center;
+    padding: 40px 0px;
+}
+/* .bg-img{
     position: absolute;
     top: 44px;
     left: 0;
@@ -15,7 +20,7 @@ section{
     background-size: cover;
     background-position: center;
     filter: blur(1px) brightness(30%);
-}
+} */
 .wrapper{
     display: flex;
     min-height: 100hv;
@@ -23,9 +28,9 @@ section{
     justify-content: center;
 }
 .container{
-    position: relative;
+    /* position: relative;
     top: 150px;
-    width: 360px;
+    width: 360px; */
     background: #000;
     box-shadow: 0 0 8px rgba(250, 250, 250, 0.6);
     opacity: 0.6;
@@ -34,6 +39,9 @@ section{
     width: 100%;
     text-align: center;
     padding: 25px 20px;
+}
+form h1{
+    color: white;
 }
 form .id{
     position: relative;
@@ -56,6 +64,7 @@ form input{
     padding: 0 15px;
     padding-right: 45px;
     font-size: 20px;
+    color: black;
 }
 form textarea{
     padding: 5px 15px;
@@ -81,7 +90,8 @@ form button{
 form input:focus,
 form textarea:focus{
     border: 1px solid #00fff0;
-    color: #fff0;
+    /* color: #fff0; */
+    color: #fff;
     transition: all 0.3s ease;
 }
 form input:focus::placeholder,
@@ -92,4 +102,18 @@ form textarea:focus::placeholder{
 }
 form input:focus +i{
     transition: all 0.3s ease;
+}
+
+/*-------------------------------------------*/
+.card{
+    border: solid red;
+    margin: 10px;
+}
+
+.container1{
+    border: solid black;
+    position: relative;
+    margin: 0 auto;
+    padding: 0px 20px 0 20px;
+    max-width: 1400px;;
 }
