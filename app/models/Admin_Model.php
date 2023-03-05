@@ -20,24 +20,14 @@
     }
 
     //to get all employee deails for user profile
-    public function get_empProfileView($email)
+    public function get_empProfileView($empId)
     {
-      $this->db->query('SELECT * FROM employee where email= :email');
-      $this->db->bind(':email', $email);
+      $this->db->query('SELECT * FROM employee where employee_id= :empId');
+      $this->db->bind(':empId', $empId);
 
       $result = $this->db->resultSet();
 
       return $result;
-    }
-
-    //get the details of a relavant email owner
-    public function getEmpByEmail($email)
-    {
-      $this->db->query('SELECT * FROM employee WHERE email = :email' );
-      $this->db->bind(':email', $email);
-
-      $row = $this->db->single();
-			return $row;
     }
 
     // check email is already registered or not in the system db
@@ -83,77 +73,64 @@
     //add newly registering employee's details
     public function addEmployees($data)
     {
-      $this->db->query('INSERT INTO employee(employee_id, employee_name, nic, contact_number,gender,address, employment, email,image) VALUES(:id, :name, :nic, :tp_num,:gender, :address, :employment, :email, :img) ');
-      //value binding
-      $this->db->bind(':id', $data['id']);
-      $this->db->bind(':name', $data['name']);
-      $this->db->bind(':nic', $data['nic']);
-			$this->db->bind(':img', $data['image']);
-      $this->db->bind(':tp_num', $data['tp_num']);
-      $this->db->bind(':gender', $data['gender']);
-      $this->db->bind(':address', $data['address']);
-      $this->db->bind(':employment', $data['employment']);
+      $this->db->query('INSERT INTO user(user_id,email,password,user_type) VALUES(:id, :email, :password, :user_type)');
+			//value binding
+			$this->db->bind(':id', $data['id']);
 			$this->db->bind(':email', $data['email']);
+			$this->db->bind(':password', $data['password']);
+			$this->db->bind(':user_type',$data['employment']);
+			
 
-      if($this->db->execute())
-      {
-        $this->db->query('INSERT INTO user(user_id, name, nic, email, contact_number, address, password, user_type, gender, image) VALUES(:id, :name, :nic, :email, :tp_num, :address, :pw, :employment, :gender, :img) ');
-        //value binding
-        $this->db->bind(':id', $data['id']);
-        $this->db->bind(':name', $data['name']);
-  			$this->db->bind(':nic', $data['nic']);
-        $this->db->bind(':email', $data['email']);
-        $this->db->bind(':img', $data['image']);
+			if($this->db->execute())
+			{
+				$this->db->query('INSERT INTO employee(employee_id,employee_name,nic,contact_number,gender,address,image,employment) VALUES(:id, :name, :nic, :num, :gender, :address, :img, :employment)');
+				//value binding
+				$this->db->bind(':id', $data['id']);
+				$this->db->bind(':name', $data['name']);
+				$this->db->bind(':nic', $data['nic']);
+				$this->db->bind(':num', $data['tp_num']);
         $this->db->bind(':gender', $data['gender']);
-        $this->db->bind(':tp_num', $data['tp_num']);
-        $this->db->bind(':address', $data['address']);
-        $this->db->bind(':pw', $data['password']);
+				$this->db->bind(':address', $data['address']);
+        $this->db->bind(':img', $data['image']);
         $this->db->bind(':employment', $data['employment']);
 
-        if($this->db->execute())
-        {
-          return true;
-        }
-        else
-        {
-          return false;
-        }
-      }
-      else
-      {
-        return false;
-      }
+				if($this->db->execute())
+				{
+					return true;
+				}
+				else
+				{
+					return false;
+				}
+			}
+			else
+			{
+				return false;
+			}
+
     }
 
 
     //update selected employee's details
     public function updateEmployees($data)
     {
-      $this->db->query('UPDATE employee SET employee_name= :name, nic= :nic, image= :img, contact_number=:tp_num, gender=:gender, address=:address, employment=:employment  WHERE email= :email');
-      // $this->db->bind(':id', $data['id']);
-      $this->db->bind(':name', $data['name']);
-      $this->db->bind(':nic', $data['nic']);
-      $this->db->bind(':img', $data['image']);
-      $this->db->bind(':tp_num', $data['tp_num']);
-      $this->db->bind(':gender', $data['gender']);
-      $this->db->bind(':address', $data['address']);
+      $this->db->query('UPDATE user SET user_type=:employment  WHERE user_id= :empId');
       $this->db->bind(':employment', $data['employment']);
-      $this->db->bind(':email', $data['email']);
-
+      $this->db->bind(':empId', $data['empId']);
 
       //execute
       if($this->db->execute())
       {
-        $this->db->query('UPDATE user SET name= :name, nic= :nic, contact_number=:tp_num, image= :img, address=:address, gender=:gender, user_type=:employment  WHERE email= :email');
-        // $this->db->bind(':id', $data['id']);
+        $this->db->query('UPDATE employee SET employee_name= :name, nic= :nic, contact_number=:tp_num, gender=:gender, address=:address, image= :img, employment=:employment  WHERE employee_id= :empId');
         $this->db->bind(':name', $data['name']);
         $this->db->bind(':nic', $data['nic']);
-        $this->db->bind(':img', $data['image']);
-        $this->db->bind(':gender', $data['gender']);
         $this->db->bind(':tp_num', $data['tp_num']);
+        $this->db->bind(':gender', $data['gender']);
         $this->db->bind(':address', $data['address']);
+        $this->db->bind(':img', $data['image']);
         $this->db->bind(':employment', $data['employment']);
-        $this->db->bind(':email', $data['email']);
+        $this->db->bind(':empId', $data['empId']);
+        
 
         if($this->db->execute())
         {
@@ -170,17 +147,27 @@
       }
     }
 
-    //delete a selected employee
-    public function deleteEmployees($email)
+    //get the details of a relavant email owner
+    public function getEmpByEmail($empId)
     {
-      $this->db->query('DELETE FROM employee WHERE email= :email');
-      $this->db->bind(':email', $email);
+      $this->db->query('SELECT * FROM employee WHERE employee_id = :empId' );
+      $this->db->bind(':empId', $empId);
+
+      $row = $this->db->single();
+			return $row;
+    }
+
+    //delete a selected employee
+    public function deleteEmployees($empId)
+    {      
+      $this->db->query('DELETE FROM user WHERE user_id= :empId');
+      $this->db->bind('empId', $empId);
 
       //execute
       if($this->db->execute())
       {
-        $this->db->query('DELETE FROM user WHERE email= :email');
-        $this->db->bind(':email', $email);
+        $this->db->query('DELETE FROM employee WHERE employee_id= :empId');
+        $this->db->bind(':empId', $empId);
 
         if($this->db->execute())
         {

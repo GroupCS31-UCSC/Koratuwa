@@ -8,12 +8,14 @@
           $this->userModel = $this->model('Users_Model');
         }
 
+        //load the home page
         public function home()
         {
           $data = [];
           $this->view('users/u_home',$data);
         }
 
+        //load the selection page
         public function selection()
         {
           $data = [];
@@ -22,7 +24,7 @@
         }
 
 
-
+        //register suppliers
         public function registerSupplier()
         {
           //if the server submitted the form, the request method is post
@@ -109,7 +111,7 @@
                 //Hash the password
                 $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
 
-                $data['id'] = $this->userModel->FindSupplierId();
+                $data['id'] = $this->userModel->generateSupplierId();
                 //Register user
                   if($this->userModel->registerAsSupplier($data))
                   {
@@ -160,7 +162,7 @@
             }
         }
 
-
+        //register customers
         public function registerCustomer()
         {
           //if the server submitted the form, the request method is post
@@ -247,7 +249,7 @@
                 //Hash the password
                 $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
 
-                $data['id'] = $this->userModel->FindCustomerId();
+                $data['id'] = $this->userModel->generateCustomerId();
 
                 //Register user
                   if($this->userModel->registerAsCustomer($data))
@@ -302,6 +304,7 @@
 
 
 //----------------------------------------------------------------------------------------------
+        //log into the system
         public function login()
         {
             if($_SERVER['REQUEST_METHOD'] == 'POST')
@@ -394,11 +397,14 @@
 
 
 //----------------------------------------------------------------------------------------------
+        //create user session when logged in to the system
         public function createUserSession($user)
         {
           $_SESSION['user_id'] = $user->user_id;
           $_SESSION['user_email'] = $user->email;
           $_SESSION['user_name'] = $user->name;
+          $_SESSION['user_type'] = $user->user_type;
+
 
           switch ($this->userModel->findUserRole($_SESSION['user_email'])) {
 
@@ -435,17 +441,21 @@
 
         }
 
+        //logout from the system
         public function logout()
         {
           unset($_SESSION['user_id']);
           unset($_SESSION['user_email']);
           unset($_SESSION['user_name']);
+          unset($_SESSION['user_type']);
+
           session_destroy();
 
           redirect('Users/home');
 
         }
-
+      
+        //check whether user logged in or not
         public function isLoggedIn()
         {
           if(isset($_SESSION['user_id']))
