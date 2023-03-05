@@ -91,7 +91,8 @@
               'email' => trim($_POST['email']),
               'employment' => trim($_POST['employment']),
               'image' => $new_img_name,
-              'password' => '1234',
+              // 'password' => trim($_POST['tp_num']) ,
+              'password' =>'1234',
 
               'name_err' => '',
               'nic_err' => '',
@@ -129,9 +130,8 @@
               if($this->adminModel->addEmployees($data))
               {
                   flash('addEmp_flash','New Employee Details are successfully added!');
-                  sendMail($data);
-                  // redirect('Admin/sendEmail',$data);
-                  // redirect('Admin/viewEmployees');              
+                  sendMail($data);;
+                  redirect('Admin/viewEmployees');              
               }
               else
               {
