@@ -15,6 +15,7 @@
 	//UPLOADS
 	define('UPLOADS', URLROOT . '/public/img/uploads/');
 
+
 	//WEBSITE NAME
 	 define('SITENAME', 'කොරටුව​');
 
