@@ -24,15 +24,24 @@ function sendMail($data){
         $mail->setFrom('koratuwadairy@gmail.com', 'Koratuwa');
         $mail->addAddress($data['email']);     //Add a recipient
         
+        $name=$data['name'];
+        $num=$data['tp_num'];
+        $email=$data['email'];
 
         //Content
         $mail->isHTML(true);                              
-        $mail->Subject = 'Verify Your Koratuwa Email Address';
-        $mail->Body    = "<p> Dear ,</p> <h3>Your verification code is.<br></h3>
-        <p> Use this code to login your account.</p>
-        <br><br>
+        $mail->Subject = 'Welcome to Koratuwa Community!';
+        $mail->Body    = "<p> Dear $name,</p> <h4>It is a pleasure to hire you as an employee at <i>Koratuwa</i>.<br>
+        <p> Use you provided email and contact number as username and password respectively to login to our web system given below url.</p>
+        <p>http://localhost/Koratuwa/Users/u_home</p>
+        username: $email<br>
+        password:$num</h4>
+        <h3><strong>Be sure to remember to change the password after you log in once!</strong></h3>
+        <h4>
+        Good Luck!
+        <br>
         <p>With regards,</p>
-        <b>Koratuwa.</b>";
+        <b>Koratuwa.</b></h4>";
 
         $mail->send();
     } catch (Exception $e) {
