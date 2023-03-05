@@ -24,17 +24,21 @@
 .model {
     position: fixed;
     top: 0;
-    right: 0;
-    bottom: 0;
+    width: 100vw;
+    height: 100vh;
     left: 0;
     z-index: 1050;
     visibility: hidden;
     overflow: hidden;
     outline: 0;
     background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .open-model {
     visibility: visible;
+    display: flex;
 }
 
 .open-model .model {
@@ -61,8 +65,7 @@
 
 .model-dialog {
     position: relative;
-    width: auto;
-    margin: 150px;
+    max-height: 80vh;
 }
 
 /* .modal.fade .modal-dialog {

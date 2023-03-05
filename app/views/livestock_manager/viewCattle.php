@@ -4,10 +4,11 @@
 <link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/public/css/livestock_manager/subNavBar.css">
 
 <div class="tab">
-  <button class="tablinks active" onclick="openTab(event, 'Stall1')">Stall 01</button>
-  <button class="tablinks" onclick="openTab(event, 'Stall2')">Stall 02</button>
-  <button class="tablinks" onclick="openTab(event, 'Stall3')">Stall 03</button>
-  <button class="tablinks" onclick="openTab(event, 'Stall4')">Stall 04</button>
+<?php $stall=$_GET['stall']??'STALL1';?>
+  <button class="tablinks <?= $stall==="STALL1"?'active':''?>" onclick="openTab(event, 'STALL1')">Stall 01</button> 
+  <button class="tablinks <?= $stall==="STALL2"?'active':''?> " onclick="openTab(event, 'STALL2')">Stall 02</button>
+  <button class="tablinks <?= $stall==="STALL3"?'active':''?>" onclick="openTab(event, 'STALL3')">Stall 03</button>
+  <button class="tablinks <?= $stall==="STALL4"?'active':''?>" onclick="openTab(event, 'STALL4')">Stall 04</button>
 </div>
 
 <div class="flash-msg">
@@ -68,7 +69,7 @@
 </div>
 
 <!-- popup view -->
-<div class="model fade in" id="model" tabindex="-1" style="display: block;padding-right: 17px;">
+<div class="model fade in" id="model" tabindex="-1">
   <div class="model-dialog">
     <div class="model-content">
       <div class="model-header">
