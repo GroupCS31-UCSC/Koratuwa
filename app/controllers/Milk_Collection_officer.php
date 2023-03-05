@@ -10,7 +10,10 @@
 
           if(!$_SESSION['user_email']){
             redirect('Users/login');
-          }          
+          }  
+          elseif($_SESSION['user_type']!='Milk Collection Officer'){
+            redirect('Users/login');
+          }        
         }
 
         //redirect to the mco Home page with details

@@ -10,7 +10,10 @@
 
           if(!$_SESSION['user_email']){
             redirect('Users/login');
-          }          
+          }   
+          elseif($_SESSION['user_type']!='Supplier'){
+            redirect('Users/login');
+          }       
         }
 
         // public function supplierHome()
