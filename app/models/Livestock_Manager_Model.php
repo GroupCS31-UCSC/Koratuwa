@@ -38,6 +38,14 @@
 			return $row;
     }
 
+    // public function getCattleByStall($stallId) {
+    //   $this->db->query('SELECT * FROM cattle WHERE stallId = :stallId');
+    //   $this->db->bind(':stallId', $stallId);
+
+    //   $result = $this->db->resultSet();
+    //   return $result;
+    // }
+
     public function addCattle($data) {
       // calculate age
       $dob = $data['dob'];
