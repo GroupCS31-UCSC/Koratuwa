@@ -7,7 +7,10 @@
 
           if(!$_SESSION['user_email']){
             redirect('Users/login');
-          }          
+          } 
+          elseif($_SESSION['user_type']!='Cashier'){
+            redirect('Users/login');
+          }         
         }
 
         public function cashierHome() {

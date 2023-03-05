@@ -31,7 +31,7 @@
         </a>
       </li>
       <li>
-        <a href="<?php echo URLROOT; ?>/Livestock_Manager/viewVaccination">
+        <a href="<?php echo URLROOT; ?>/Livestock_Manager/viewCattleMilking">
           <span class="icon"><i class="fa-solid fa-blender"></i></span>
           <span class="title">Milking</span>
         </a>

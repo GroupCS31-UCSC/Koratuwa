@@ -38,17 +38,19 @@ var pCattle= document.getElementById('mCattle').getContext('2d');
 var myChart= new Chart(mCattle, {
   type: 'doughnut',
   data: {
-    labels: ['Non-milking Cattle', 'Milking Cattle'],
+    labels: ['Female', 'Male', 'Calf'],
     datasets: [{
-      label: 'Milking Cattle Precentages',
+      label: 'Cattles',
       data: [90, 10],
       backgroundColor: [
-        'rgba(255, 99, 132, 0.2)',,
+        'rgba(255, 99, 132, 0.2)',
         'rgba(255, 206, 86, 0.2)',
+        'rgba(255, 100, 60, 0.2)',
       ],
       borderColor: [
         'rgba(255, 99, 132, 1)',
         'rgba(255, 206, 86, 1)',
+        'rgba(255, 100, 60, 0.2)',
       ],
       borderWidth:0.5
     }]
@@ -81,3 +83,27 @@ function openModel(){
 function closeModel(){
   document.getElementById("model").classList.remove("open-model");
 }
+
+
+// tabs
+function openTab(evt, tabName) {
+  var i, tabcontent, tablinks;
+  
+  // tabcontent = document.getElementsByClassName("tabcontent");
+  // for (i = 0; i < tabcontent.length; i++) {
+  //   tabcontent[i].style.display = "none";
+  // }
+
+  // tablinks = document.getElementsByClassName("tablinks");
+  // for (i = 0; i < tablinks.length; i++) {
+  //   tablinks[i].className = tablinks[i].className.replace(" active", "");
+  // }
+  
+  // document.getElementById(tabName).style.display = "block";
+  // evt.currentTarget.className += " active";
+
+  window.location.href='/koratuwa/Livestock_Manager/viewCattle?stall='+tabName;
+}
+
+
+

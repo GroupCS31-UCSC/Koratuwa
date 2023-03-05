@@ -9,26 +9,17 @@
 	</div>
 	<br>
 	<form action="<?php echo URLROOT; ?>/Livestock_Manager/updateFeedMonitoring/<?php echo $data['feedId']; ?>" method="POST">
-        <!-- Feed item -->
-        <div class="form-input-title">Feed Item</div>
-        <span class="form-invalid"><?php echo $data['feedItem_err']; ?></span>
-        <label for="Select the Feed Item"></label>
-        
-        <select name="feedItem" id="feedItem">            
-            <option value="Grass" name="feedItem">Grass</option>
-            <option value="Water" name="feedItem">Water</option>
-            <option value="Salt" name="feedItem">Salt</option>
-        </select>
+    <div class="form-input-title">Solid (Kg)</div>
+        <span class="form-invalid"><?php echo $data['solid_err']; ?></span>
+        <input type="number" name="solid" id="solid" class="solid" value="<?php echo $data['solid'];?>" required>
 
-		<!--Quantity-->
-		<div class="form-input-title">Quantity</div>
-        <span class="form-invalid"><?php echo $data['feedQuantity_err']; ?></span>
-        <input type="number" name="feedQuantity" id="feedQuantity" class="feedQuantity" value="<?php echo $data['feedQuantity'];?>" required>
-        
-        <!--Note-->
-        <div class="form-input-title">Note</div>
-        <span class="form-invalid"><?php echo $data['note_err']; ?></span>
-        <input type="text" name="note" id="note" class="note" value="<?php echo $data['note'];?>" required>
+		<div class="form-input-title">Liquid (L)</div>
+        <span class="form-invalid"><?php echo $data['liquid_err']; ?></span>
+        <input type="number" name="liquid" id="liquid" class="liquid" value="<?php echo $data['liquid'];?>" required>
+      
+        <div class="form-input-title">Remarks</div>
+        <span class="form-invalid"><?php echo $data['remarks_err']; ?></span>
+        <input type="text" name="remarks" id="remarks" class="remarks" value="<?php echo $data['remarks'];?>" required>
     
 		<br>
 		<input type="submit" value="Submit" class="submitBtn">

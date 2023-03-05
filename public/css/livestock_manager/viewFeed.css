@@ -1,3 +1,20 @@
+.viewFeeds {
+    height: 20vh;
+    width: 100%;
+    background-color: #e21d1d;
+}
+
+.feedDetails {
+    height:50vh
+}
+
+.feedDetails .items tr td,.feedDetails .items tr th{
+    font-size: 30px;
+}
+
+.feedDetails .items tr td{
+    color: #eeefea;
+}
 .flash-msg {
     height: 10vh;
 }
