@@ -285,11 +285,74 @@
         }
 
         //Load Supplier feedback
+        // public function sup_feedback()
+        // {
+        //   $data = [];
+        //   $this->view('supplier/sup_feedback',$data);
+        // }
+//-----------------------------------------------------------------------
         public function sup_feedback()
         {
-          $data = [];
-          $this->view('supplier/sup_feedback',$data);
+          
+          if($_SERVER['REQUEST_METHOD'] == 'POST')
+          {
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+            $data = [
+              'supplier_id' => '',
+              'feedback' => trim($_POST['feedback']),
+
+              'feedback_err' => '',
+
+            ];
+
+            //validation
+            if (empty($data['feedback'])){
+              $data['feedback_err'] = '*' ;
+            }
+
+            //if no errors
+            if(empty($data['feedback_err']))
+            {
+              // $data['supplier_Id']=$this->supplierModel->findSupId();
+
+              
+              if($this->supplierModel->supFeedback($data))
+              {
+                
+                redirect('Supplier/sup_feedback');
+              }
+              else
+              {
+                die('Something went wrong!');
+              }
+
+            }
+            else
+            {
+              //loading the form with the errors
+              $this->view('supplier/sup_feedback',$data);
+            }
+          }
+          else
+          {
+            
+            $supFeedback = $this->supplierModel->viewFeedback();
+
+            //initial form loading
+            $data = [
+              'supplier_id ' => '',
+              'feedback' => '',
+              'supFeedback' => $supFeedback,
+
+              'feedback_err' => '',
+
+            ];
+            $this->view('supplier/sup_feedback',$data);
+          }
         }
+
+
     }
 
 ?>
