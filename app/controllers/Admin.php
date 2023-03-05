@@ -128,8 +128,10 @@
 
               if($this->adminModel->addEmployees($data))
               {
-                flash('addEmp_flash','New Employee Details are successfully added!');
-                redirect('Admin/viewEmployees');
+                  flash('addEmp_flash','New Employee Details are successfully added!');
+                  sendMail($data);
+                  // redirect('Admin/sendEmail',$data);
+                  // redirect('Admin/viewEmployees');              
               }
               else
               {
@@ -168,6 +170,11 @@
             //load the addemployee form
             $this->view('admin/addEmployees',$data);
           }
+        }
+
+        public function sendEmail($data)
+        {
+
         }
 
 
