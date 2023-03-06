@@ -10,6 +10,7 @@
     <div class="totCattle">
       <div>
         <div class="cardName">Total Cattle</div><br>
+        <!-- <div class="numbers"><?php echo $cattleCount; ?></div> -->
         <div class="numbers">45</div>
       </div>
     </div>

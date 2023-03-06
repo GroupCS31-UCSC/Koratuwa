@@ -2,7 +2,7 @@
 <?php require APPROOT.'/views/livestock_manager/livestock_dashboard.php'; ?>
 <link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/public/css/livestock_manager/viewCattle.css">
 <link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/public/css/livestock_manager/subNavBar.css">
-
+<div class="section">
 <div class="tab">
 <?php $stall=$_GET['stall']??'STALL1';?>
   <button class="tablinks <?= $stall==="STALL1"?'active':''?>" onclick="openTab(event, 'STALL1')">Stall 01</button> 
@@ -10,6 +10,7 @@
   <button class="tablinks <?= $stall==="STALL3"?'active':''?>" onclick="openTab(event, 'STALL3')">Stall 03</button>
   <button class="tablinks <?= $stall==="STALL4"?'active':''?>" onclick="openTab(event, 'STALL4')">Stall 04</button>
 </div>
+
 
 <div class="flash-msg">
   <?php flash('addCattle_flash') ?>
@@ -67,7 +68,7 @@
     <p>stall3</p>
   </div>
 </div>
-
+</div>
 <!-- popup view -->
 <div class="model fade in" id="model" tabindex="-1">
   <div class="model-dialog">

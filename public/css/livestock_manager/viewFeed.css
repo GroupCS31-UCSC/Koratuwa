@@ -4,6 +4,10 @@
     background: url(http://localhost/koratuwa/img/supplier/sup_home.jpg);
 } */
 
+.section {
+    background-color: #c6bcb2;
+}
+
 .feedDetails {
     /* background-size: cover; */
     /* background-position: center; */

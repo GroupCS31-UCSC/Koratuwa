@@ -27,6 +27,16 @@
       $this->view('livestock_Manager/viewCattle',$data);
     }
 
+    public function showCatttleCount() {
+      $cattleCount= $this->livestockModel->getTotalCattleCount();
+      $data = [
+        'cattleCount' => $cattleCount
+      ];
+
+ 
+      $this->view('livestock_Manager/showCattleCount',$data);
+    }
+
     public function addCattle() {
       if($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
@@ -298,10 +308,12 @@
     }
 
     public function viewCattleMilking() {
-      $cattleMilkingView= $this->livestockModel->get_cattleMilkingView();
+      $stall=$_GET['stall'] ?? 'STALL1';
+      $cattleMilkingView= $this->livestockModel->get_cattleMilkingView($stall);
 
       $data = [
-        'cattleMilkingView' => $cattleMilkingView
+        'cattleMilkingView' => $cattleMilkingView,
+        'stall' => $stall
       ];
 
       $this->view('livestock_Manager/viewCattleMilking',$data);

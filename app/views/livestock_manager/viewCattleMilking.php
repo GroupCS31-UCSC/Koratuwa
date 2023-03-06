@@ -3,12 +3,14 @@
 <link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/public/css/livestock_manager/viewMilking.css">
 <link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/public/css/livestock_manager/subNavBar.css">
 
-<div class="tab">
+
+<div class="section">
+<div class="tabmilk">
 <?php $stall=$_GET['stall']??'STALL1';?>
-  <button class="tablinks <?= $stall==="STALL1"?'active':''?>" onclick="openTab(event, 'STALL1')">Stall 01</button> 
-  <button class="tablinks <?= $stall==="STALL2"?'active':''?> " onclick="openTab(event, 'STALL2')">Stall 02</button>
-  <button class="tablinks <?= $stall==="STALL3"?'active':''?>" onclick="openTab(event, 'STALL3')">Stall 03</button>
-  <button class="tablinks <?= $stall==="STALL4"?'active':''?>" onclick="openTab(event, 'STALL4')">Stall 04</button>
+  <button class="tablinksmilk <?= $stall==="STALL1"?'active':''?>" onclick="openTabmilk(event, 'STALL1')">Stall 01</button> 
+  <button class="tablinksmilk <?= $stall==="STALL2"?'active':''?> " onclick="openTabmilk(event, 'STALL2')">Stall 02</button>
+  <button class="tablinksmilk <?= $stall==="STALL3"?'active':''?>" onclick="openTabmilk(event, 'STALL3')">Stall 03</button>
+  <button class="tablinksmilk <?= $stall==="STALL4"?'active':''?>" onclick="openTabmilk(event, 'STALL4')">Stall 04</button>
 </div>
 
 <div class="flash-msg">
@@ -27,7 +29,7 @@
   <input type="button" value="Add New Milk" class="add-btn" onclick="location.href='<?php echo URLROOT; ?>/Livestock_Manager/addCattleMilking' ">
 </div>
 
-<div id="Stall1" class="tabcontent active">
+<div id="Stall1" class="tabcontentmilk active">
 <div class="container" style="overflow-x: auto;">
   <table>
     <tr>
@@ -54,17 +56,18 @@
   </table>
 </div>
 </div>
-<div id="Stall2" class="tabcontent">
+<div id="Stall2" class="tabcontentmilk">
   <h3>Stall 02</h3>
   <p>Some content in Stall 02.</p>
 </div>
-<div id="Stall3" class="tabcontent">
+<div id="Stall3" class="tabcontentmilk">
   <h3>Stall 03</h3>
   <p>Some content in Stall 03.</p>
 </div>
-<div id="Stall4" class="tabcontent">
+<div id="Stall4" class="tabcontentmilk">
   <h3>Stall 04</h3>
   <p>Some content in Stall 04.</p>
+</div>
 </div>
 
 

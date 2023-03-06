@@ -1,3 +1,11 @@
+.section {
+    background: url(http://localhost/koratuwa/img/lm/cow.jpeg);
+    /* background-size: cover; */
+    /* background-position: center; */
+    height: 92.5vh;
+    width: 100%;
+}
+
 .flash-msg {
     height: 10vh;
 }

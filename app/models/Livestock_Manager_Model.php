@@ -238,18 +238,24 @@
       return $id;
     }
 
-    public function get_cattleMilkingView() {
-      $this->db->query('SELECT * FROM cattle_milking');
+    public function get_cattleMilkingView($stallId) {
+      $this->db->query('SELECT * FROM cattle_milking WHERE stall_id = "'.$stallId.'" ORDER BY collected_date DESC');
 
       $result = $this->db->resultSet();
 
       return $result;
     }
 
-    public function viewCattleMilking() {
-      $this->db->query('SELECT * FROM cattle_milking');
-      $results = $this->db->resultSet();
-      return $results;
+    // public function viewCattleMilking() {
+    //   $this->db->query('SELECT * FROM cattle_milking');
+    //   $results = $this->db->resultSet();
+    //   return $results;
+    // }
+
+    public function getTotalCattleCount() {
+      $this->db->query('SELECT COUNT(*) AS total FROM cattle WHERE existence=1');
+      $result = $this->db->single();
+      return $result['totalCattle'];
     }
 
     public function getcattleMilkingById($milkId) {
