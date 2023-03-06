@@ -4,7 +4,6 @@
 <section>
     <div class="wrapper">
     <section class="bg-img"></section>
-        <div class="container">
             <form action="<?php echo URLROOT; ?>/Supplier/sup_feedback" method="POST">
                 <h1>Give Your Feedback</h1>
                 
@@ -23,21 +22,23 @@
                 </div>                
                 <!-- <textarea cols="15" rows="5" placeholder="Enter your opinions here..." ></textarea> -->
                 <!-- <button>Send</button> -->
-                <input type="submit" value="Post" class="submitBtn">
+                <input type="submit" value="Post" class="postbtn">
             </form>
             
-        </div>
     </div>
 </section>
 <section>
-    <div class="container1">
+    <div class="container">
     <?php foreach ($data['supFeedback'] as $supFeedback) : ?>
 
         <div class="feature">
             <div class="card">
-                <!-- <div class="sup_name"> Sasindu Udayanga</div> -->
-                <div class="sup_name"><?php echo $supFeedback->supplier_id ?></div>
-                <div class="sup_name"><?php echo $supFeedback->date ?></div>
+               
+                <div class="card-head">
+                    <img class="img-user" src="<?php echo URLROOT; ?>/img/users/sasindu.jpg" alt="user">
+                    <div class="sup_name">Sasindu Udayanga</div>
+                    <div class="sup_date"><?php echo $supFeedback->date ?></div>
+                </div>    
                 <div class="sup_feedback"><?php echo $supFeedback->feedback ?></div>
             </div>
         </div>

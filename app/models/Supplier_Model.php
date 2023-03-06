@@ -57,6 +57,28 @@
       $row = $this->db->single();
 			return $row;
     }
+    //generate id for invoice id
+    public function generateInvoiceId()
+		{
+			$this->db->query('SELECT * FROM supply_order order by invoice_id desc limit 1');
+			$row = $this->db->single();
+			$lastId=$row->invoice_id;
+
+			if($lastId == '')
+			{
+				$id='INV101';
+			}
+			else
+			{
+				$id = substr($lastId,3);
+				$id = intval($id);
+				$id = "INV".($id+1);
+			}
+
+			return $id;
+		}
+
+    
 
     public function placeSupply($data)
     {
@@ -116,13 +138,34 @@
       }
     }
 
+    //generate id for feedbacks
+    public function generateFeedbackId()
+		{
+			$this->db->query('SELECT * FROM sup_feedback order by feedback_id desc limit 1');
+			$row = $this->db->single();
+			$lastId=$row->feedback_id;
 
+			if($lastId == '')
+			{
+				$id='F101';
+			}
+			else
+			{
+				$id = substr($lastId,3);
+				$id = intval($id);
+				$id = "F".($id+1);
+			}
+
+			return $id;
+		}
     public function supFeedback($data)
     {
       // $data['date'] = date("Y-m-d");
-      $this->db->query('INSERT INTO  supplier_feedback(supplier_id ,feedback) VALUES(:supId, :feedback)');
+      $this->db->query('INSERT INTO  sup_feedback(feedback_id, supplier_id, sup_name, feedback) VALUES(:Fid, :supId, :supName, :feedback)');
 
+      $this->db->bind(':Fid', $data['feedback_id']);
       $this->db->bind(':supId', $_SESSION['user_id']);
+      $this->db->bind(':supName', $_SESSION['user_name']);
       $this->db->bind(':feedback', $data['feedback']);
 
       //execute
@@ -138,7 +181,7 @@
 // ----------get supplier feedback---------------//
     public function viewFeedback()
     {
-      $this->db->query('SELECT * FROM supplier_feedback ORDER BY time,date DESC');
+      $this->db->query('SELECT * FROM sup_feedback');
 
       $result = $this->db->resultSet();
 
@@ -148,5 +191,6 @@
 
 
   }
+
 
 ?>
