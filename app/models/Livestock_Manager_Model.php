@@ -26,7 +26,7 @@
     }
     
     public function get_cattleView($stallId) {
-      $this->db->query('SELECT * FROM cattle WHERE stall_id="'.$stallId.'" order by cow_id');
+      $this->db->query('SELECT * FROM cattle WHERE existence = 1 AND stall_id="'.$stallId.'" order by cow_id');
   
       $result = $this->db->resultSet();
 
@@ -34,19 +34,11 @@
     }
 
     public function getCattleById($cowId) {
-      $this->db->query('SELECT * FROM cattle WHERE cow_id = :cowId' );
+      $this->db->query('SELECT * FROM cattle WHERE cow_id = :cowId AND existence = 1' );
       $this->db->bind(':cowId',$cowId);
 
       $row = $this->db->single();
 			return $row;
-    }
-
-    public function getCattleByStall($stallId) {
-      $this->db->query('SELECT * FROM cattle WHERE stallId = :stallId');
-      $this->db->bind(':stallId', $stallId);
-
-      $result = $this->db->resultSet();
-      return $result;
     }
 
     public function addCattle($data) {
@@ -69,7 +61,7 @@
         $data['price'] = NULL;
       }
       
-      $this->db->query('INSERT INTO cattle(cow_id, dob, age, gender, cow_breed, milking_status, reg_method, bought_price, stall_id) VALUES(:cowId, :dob, :age, :gender, :breed, :milking, :method, :price, :stallId)');
+      $this->db->query('INSERT INTO cattle(cow_id, dob, age, gender, cow_breed, milking_status, reg_method, bought_price, stall_id, existence) VALUES(:cowId, :dob, :age, :gender, :breed, :milking, :method, :price, :stallId, 1)');
 
       //value binding
       $this->db->bind(':cowId', $data['cowId']);
@@ -112,7 +104,8 @@
     }
 
     public function deleteCattle($cowId) {
-      $this->db->query('DELETE FROM cattle WHERE cow_id= :cowId');
+      // $this->db->query('DELETE FROM cattle WHERE cow_id= :cowId');
+      $this->db->query('UPDATE cattle SET existence=0 WHERE cow_id= :cowId');
       $this->db->bind(':cowId', $cowId);
 
       if($this->db->execute())
@@ -144,7 +137,7 @@
     }
   
     public function get_feedMonitoringView() {
-      $this->db->query('SELECT * FROM feed_monitoring');
+      $this->db->query('SELECT * FROM feed_monitoring ORDER BY date DESC');
 
       $result = $this->db->resultSet();
 
@@ -228,6 +221,22 @@
       return $id;
     }
    
+    public function findMilkCollectionId() {
+      $this->db->query('SELECT * FROM milk_collection order by milk_collection_id desc limit 1');
+      $row = $this->db->single();
+      if($row) {
+        $lastId=$row->milk_collection_id;
+      }
+      if($lastId == '')	{
+        $id='MIC1';
+      }
+      else {
+        $id = substr($lastId,3);
+        $id = intval($id);
+        $id = "MIC".($id+1);
+      }
+      return $id;
+    }
 
     public function get_cattleMilkingView() {
       $this->db->query('SELECT * FROM cattle_milking');
@@ -260,21 +269,33 @@
     }
 
     public function addCattleMilking($data) {
-      $this->db->query('INSERT INTO cattle_milking(milk_id, cow_id, quantity, stall_id) VALUES(:milkId, :cowId, :quantity, :stallId)');
+      $this->db->query('INSERT INTO milk_collection(milk_collection_id, quantity, stall_id) VALUES(:mcId, :quantity, :stallId)');
 
       //value binding
-      $this->db->bind(':milkId', $data['milkId']);
-      $this->db->bind(':cowId', $data['cowId']);
+      $this->db->bind(':mcId', $data['mcId']);
       $this->db->bind(':quantity', $data['quantity']);
       $this->db->bind(':stallId', $data['stallId']);
 
-      //execute
-      if($this->db->execute())
-      {
-        return true;
+      if($this->db->execute()){
+        $this->db->query('INSERT INTO cattle_milking(milk_id, cow_id, quantity, stall_id) VALUES(:milkId, :cowId, :quantity, :stallId)');
+
+        //value binding
+        $this->db->bind(':milkId', $data['milkId']);
+        $this->db->bind(':cowId', $data['cowId']);
+        $this->db->bind(':quantity', $data['quantity']);
+        $this->db->bind(':stallId', $data['stallId']);
+
+        //execute
+        if($this->db->execute())
+        {
+          return true;
+        }
+        else
+        {
+          return false;
+        }
       }
-      else
-      {
+      else {
         return false;
       }
     }
