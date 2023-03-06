@@ -104,13 +104,19 @@
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
             $data = [
-              'supOrderId' => '',
+              'supply_order_id' => '',
               'quantity' => trim($_POST['quantity']),
               'date' => '',
-              'address' => 'dfr,gbh,lkjabc',
-              'status' => 'Not Collected',    //initial set value;later can be change
-              'price' => '100',   //temp set value
+              'time' => '',
+              'supplying_address' => 'dfr,gbh,lkjabc',
+              'status' => 'Not Collected',   //initial set value;later can be change
+              'density' => '',
               'quality' => 'N/A',
+              'unit_price' => '100',   //temp set value
+              'total_payment' =>'',
+              'supplier_id ' =>'',
+              'invoice_id' =>'',
+              
 
               'quantity_err' => '',
               'date_err' => '',
@@ -138,6 +144,7 @@
             if(empty($data['quantity_err']))
             {
               $data['supOrderId']=$this->supplierModel->findSupOrderId();
+              $data['invoice_id'] = $this->supplierModel->generateInvoiceId();
 
               if($this->supplierModel->placeSupply($data))
               {
@@ -302,7 +309,11 @@
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
             $data = [
+              'feedback_id' => '',
               'supplier_id' => '',
+              'sup_name' => '',
+              'date' => '',
+              'time' => '',
               'feedback' => trim($_POST['feedback']),
 
               'feedback_err' => '',
@@ -317,8 +328,8 @@
             //if no errors
             if(empty($data['feedback_err']))
             {
+              $data['feedback_id'] = $this->supplierModel->generateFeedbackId();
               // $data['supplier_Id']=$this->supplierModel->findSupId();
-
               
               if($this->supplierModel->supFeedback($data))
               {
@@ -344,7 +355,11 @@
 
             //initial form loading
             $data = [
-              'supplier_id ' => '',
+              'feedback_id' => '',
+              'supplier_id' => '',
+              'sup_name' => '',
+              'date' => '',
+              'time' => '',
               'feedback' => '',
               'supFeedback' => $supFeedback,
 
