@@ -39,9 +39,12 @@
     $months = floor($data['expireDays']/30);
     $days = $data['expireDays'] - ($months * 30);
     if($months>0){
-      echo $months ." ". "months and ";
+      echo $months ." ". "months ";
     } 
-    echo $days ." ". "days";  ?></div>
+    if($days>0){
+      echo $days ." ". "days"; 
+    } 
+     ?></div>
     <div class="l">Unit Price </div><div class="r"><?php echo "Rs."." ".  $cat->unit_price; ?></div>
 
     
@@ -54,7 +57,7 @@
         
 
       </div>
-   <br>
+  
   <?php endforeach; ?>
 
   </div>

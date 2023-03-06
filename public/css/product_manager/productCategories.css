@@ -1,6 +1,6 @@
 
 .img-bg{
-    height: 400px;
+    height: 300px;
     width: 100%;
     margin: auto;
   display: block;
@@ -10,11 +10,11 @@
   }
 
 h2{
-    margin-left: 40%;
-    margin-top: 10px;
+    margin-left: 30%;
+    margin-top: 80px;
     position: absolute;
     
-    font-size: 2rem;
+    font-size: 3rem;
     color:#444;
     
     text-transform: uppercase;
