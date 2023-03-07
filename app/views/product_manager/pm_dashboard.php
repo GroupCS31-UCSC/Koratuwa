@@ -25,12 +25,12 @@
           <span class="title"> Products</span>
         </a>
       </li>
-      <!-- <li>
+      <li>
       <a href="<?php echo URLROOT; ?>/Product_Manager/viewStock">
           <span class="icon"><i class="fa-solid fa-cubes-stacked"></i></span>
-          <span class="title">Product Stocks</span>
+          <span class="title">Product Batches</span>
         </a>
-      </li> -->
+      </li> 
       <!-- <li>
       <a href="<?php echo URLROOT; ?>/Product_Manager/analyze">
           <span class="icon"><i class="fa-solid fa-chart-simple"></i></span>

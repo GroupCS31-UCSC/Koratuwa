@@ -105,7 +105,7 @@
 
             //validation
             if (empty($data['name']))        { $data['name_err'] = '*' ;  }
-            if (empty($data['duration']))     { $data['duration_err'] = '*' ; }
+            // if (empty($data['duration']))     { $data['duration_err'] = '*' ; }
             if (empty($data['size']))         { $data['size_err'] = '*' ; }
             if (empty($data['price']))        { $data['price_err'] = '*' ; }
             if (empty($data['ingredients']))  { $data['ingredients_err'] = '*' ; }
@@ -114,7 +114,7 @@
             
 
             //if no errors
-            if(empty($data['name_err']) && empty($data['duration_err']) && empty($data['size_err'])&& empty($data['price_err']) && empty($data['ingredients_err']) && empty($data['image_err']) )
+            if(empty($data['name_err']) && empty($data['size_err'])&& empty($data['price_err']) && empty($data['ingredients_err']) && empty($data['image_err']) )
             {
               $data['pId']= $this->pmModel->findProductId();
 
