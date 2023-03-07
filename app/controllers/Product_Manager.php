@@ -10,7 +10,10 @@
 
           if(!$_SESSION['user_email']){
             redirect('Users/login');
-          }          
+          }  
+          elseif($_SESSION['user_type']!='Product Manager'){
+            redirect('Users/login');
+          }        
         }
 
       //   public function index() {
