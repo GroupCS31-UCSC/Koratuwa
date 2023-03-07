@@ -1,10 +1,10 @@
-.tab {
+.tab, .tabmilk {
     overflow: hidden;
-    border: 1px solid #ccc;
-    background-color: #f1f1f1;
+    /* border: 1px solid #ccc; */
+    background-color: transparent;
 }
 
-.tab button {
+.tab button, .tabmilk button {
     background-color: inherit;
     float: left;
     border: none;
@@ -14,20 +14,20 @@
     transition: 0.3s;
 }
 
-.tab button:hover {
+.tab button:hover, .tabmilk button:hover {
     background-color: #1bc8d1;
     color: black;
 }
 
-.tab button.active {
+.tab button.active, .tabmilk button.active {
     background-color: #040aaa;
     color: white;
 }
 
-.tabcontent {
+.tabcontent, .tabcontentmilk {
     display: none;
 }
 
-.tabcontent.active {
+.tabcontent.active, .tabcontentmilk.active {
     display: block;
 }

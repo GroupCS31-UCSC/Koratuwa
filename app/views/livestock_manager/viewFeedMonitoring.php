@@ -2,12 +2,11 @@
 <?php require APPROOT.'/views/livestock_manager/livestock_dashboard.php'; ?>
 <link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/public/css/livestock_manager/viewFeed.css">
 
-<div class="viewFeeds">
-<img class="img-feed" src="<?php echo URLROOT; ?>/img/lm/cowFeed.webp">
-</div>
-
+<div class="section">
 <div class="feedDetails">
-  <table class="items">
+  <h1>Feed Details</h1>
+  <p>Feed is the most important factor in the production of milk. The amount of feed required for a cow to produce 1 litre of milk is 2.5 kg. The feed should be given in two meals a day. The first meal should be given in the morning and the second meal should be given in the evening. The amount of feed given in the morning should be 60% of the total amount of feed given in a day and the amount of feed given in the evening should be 40% of the total amount of feed given in a day. The feed should be given in the form of solid and liquid. The solid feed should be given in the form of grass, leaves, super napier, sorghum, pachon, etc. and the liquid feed should be given in the form of sailege (salt + sugar), azolla (high protein), punakku, corn, rice powder, etc. The feed should be given in the ratio of 60% solid and 40% liquid. The feed should be given in the form of grass, leaves, super napier, sorghum, pachon, etc. and the liquid feed should be given in the form of sailege (salt + sugar), azolla (high protein), punakku, corn, rice powder, etc. The feed should be given in the ratio of 60% solid and 40% liquid.</p>
+  <!-- <table class="items">
     <tr>
       <th>Solid foods (60%)</th>
       <th>Liquid foods (40%)</th>
@@ -24,7 +23,7 @@
       <td></td>
       <td>punakku, corn, Rice powder</td>
     </tr>
-  </table>
+  </table> -->
 </div>
 
 
@@ -69,6 +68,7 @@
     </tr>
     <?php endforeach; ?>
   </table>
+</div>
 </div>
 
       
