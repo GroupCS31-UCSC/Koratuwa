@@ -9,6 +9,7 @@ section {
     width: 100%;
     text-align: center;
     padding: 40px 0px;
+    background: url(http://localhost/koratuwa/img/supplier/feedback_bg.jpg);
 }
 /* .bg-img{
     position: absolute;
@@ -21,18 +22,26 @@ section {
     background-position: center;
     filter: blur(1px) brightness(30%);
 } */
-.wrapper{
-    display: inline-block;
+.wrapper-left{
+    /* display: inline-block; */
     min-height: 100hv;
     align-items: center;
-    justify-content: center;
+    /* justify-content: center; */
+    margin-left: 50px;
+    border: solid green;
+}
+.wrapper-right{
+    display: inline-block;
+    border: solid green;
+    width: 60%;
 }
 .container{
     border: solid black;
     position: relative;
     margin: 0 auto;
-    padding: 0px 20px 0 20px;
-    max-width: 1400px;
+    display:flex;
+    max-width:95%;
+    max-height: 100%;
     text-align: -webkit-center;
 }
 form{
@@ -125,6 +134,7 @@ form input:focus +i{
 }
 .card-head{
     display: flex;
+    margin-bottom: 10px;
 }
 .sup_date{
     margin-left: auto;
@@ -132,5 +142,8 @@ form input:focus +i{
 .sup_name{
     padding-top: 10px;
     padding-left: 5px;
+}
+.sup_feedback{
+    text-align: left;
 }
 /*---------------------------------------*/

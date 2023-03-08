@@ -151,7 +151,7 @@
 			}
 			else
 			{
-				$id = substr($lastId,3);
+				$id = substr($lastId,1);
 				$id = intval($id);
 				$id = "F".($id+1);
 			}
@@ -181,7 +181,7 @@
 // ----------get supplier feedback---------------//
     public function viewFeedback()
     {
-      $this->db->query('SELECT * FROM sup_feedback');
+      $this->db->query('SELECT * FROM sup_feedback ORDER BY 	feedback_id DESC LIMIT 10');
 
       $result = $this->db->resultSet();
 
