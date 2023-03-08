@@ -1,5 +1,6 @@
 <?php require APPROOT.'/views/include/header.php'; ?>
 <link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/public/css/product_manager/addCategory.css">
+<script src="<?php echo URLROOT; ?>/js/pm.js"></script>
 <?php require APPROOT.'/views/product_manager/pm_dashboard.php'; ?>
 <!-- ______________________________________________________________________________________________________-->
 
@@ -31,9 +32,11 @@
     <input type="number" min="1" step="any" name="price" id="price" class="price" value="<?php echo $data['price']; ?>">
 
     <!--ingredients-->
-    <div class="form-input-title">Ingredients</div>
+     <div class="form-input-title">Ingredients</div>
     <span class="form-invalid"><?php echo $data['ingredients_err']; ?></span>
-    <input type="text" name="ingredients" id="ingredients" class="ingredients" value="<?php echo $data['ingredients']; ?>">
+    <input type="text" name="ingredients" id="ingredients" class="ingredients" value="<?php echo $data['ingredients']; ?>"> 
+
+
   <br>
     <div class="input-container">Expiry Duration
     

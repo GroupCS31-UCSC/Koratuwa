@@ -56,3 +56,4 @@ var myChart= new Chart(totProfit, {
 
   }
 });
+
