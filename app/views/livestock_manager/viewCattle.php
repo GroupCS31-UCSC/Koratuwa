@@ -69,6 +69,7 @@
   </div>
 </div>
 </div>
+
 <!-- popup view -->
 <div class="model fade in" id="model" tabindex="-1">
   <div class="model-dialog">
