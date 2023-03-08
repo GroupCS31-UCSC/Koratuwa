@@ -11,7 +11,7 @@
 
     public function get_productCategories()
     {
-      $this->db->query('SELECT * FROM product_category');
+      $this->db->query('SELECT * FROM product');
 
       $result = $this->db->resultSet();
 
@@ -20,7 +20,7 @@
 
     public function viewProductById($pId)
     {
-      $this->db->query('SELECT * FROM product_category WHERE product_id = :pId' );
+      $this->db->query('SELECT * FROM product WHERE product_id = :pId' );
       $this->db->bind(':pId',$pId);
       // $this->db->bind(':pId',$_SESSION['user_id']);
 
