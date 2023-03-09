@@ -18,8 +18,20 @@
       $this->view('livestock_Manager/livestock_home',$data);
     }
 
-    public function viewCattle() {
+    public function viewCattle($ID=null) {
       $stall=$_GET['stall'] ?? 'STALL1';
+    
+      if($ID) {
+        $cattleView= $this->livestockModel->getCattleByCowID($ID);
+        if($cattleView) {
+          header('Content-Type: application/json');
+          echo json_encode($cattleView);
+          exit();
+        }
+          
+      } else {
+        $cattleView= $this->livestockModel->get_cattleView($stall);
+      }
       $cattleView= $this->livestockModel->get_cattleView($stall);
 
       $data = [
@@ -323,78 +335,55 @@
     }
 
     public function addCattleMilking() {
-      if($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-
-        $data2 = $this->livestockModel->get_cattleView();
-        $data = [
-          'milkId'=>'',
-          'cowId'=>trim($_POST['cowId']),
-          'quantity'=>trim($_POST['quantity']),
-          'stallId'=>trim($_POST['stallId']),
+      if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+          $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
   
-          'cowId_err'=>'',
-          'quantity_err'=>'',
-          'stallId_err'=>'',
-        ];
-
-        // $data3 = [
-        //   'mcId'=>'',
-        //   'quantity'=>trim($_POST['quantity']),
-        //   'stallId'=>trim($_POST['stallId']),
-
-        //   'quantity_err'=>'',
-        //   'stallId_err'=>'',
-        // ];
-
-        //validation
-        if (empty($data['cowId'])) { $data['cowId_err'] = '*' ; }
-        if (empty($data['quantity'])) { $data['quantity_err'] = '*' ; }
-        if (empty($data['stallId'])) { $data['stallId_err'] = '*' ; }
-
-        $result = array($data,$data2);
-        //if no errors
-        if(empty($data['cowId_err']) && empty($data['quantity_err']) && empty($data['stallId_err'])) {
-          // $data3['mcId'] = $this->livestockModel->findMilkCollectionId();
-          $data['milkId'] = $this->livestockModel->findcattleMilkingId();
-          
-          if($this->livestockModel->addCattleMilking($data)) {
-            flash('addMilk_flash','New collect milk details are successfully added!');
-            redirect('Livestock_Manager/viewCattleMilking');
+          $data2 = $this->livestockModel->get_cattleView();
+          $data = [
+              'cowId' => trim($_POST['cowId']),
+              'quantity' => trim($_POST['quantity']),
+              'stallId' => trim($_POST['stallId']),
+  
+              'cowId_err' => '',
+              'quantity_err' => '',
+              'stallId_err' => '',
+          ];
+  
+          //validation
+          if (empty($data['cowId'])) { $data['cowId_err'] = '*' ; }
+          if (empty($data['quantity'])) { $data['quantity_err'] = '*' ; }
+          if (empty($data['stallId'])) { $data['stallId_err'] = '*' ; }
+  
+          $result = array($data, $data2);
+          //if no errors
+          if (empty($data['cowId_err']) && empty($data['quantity_err']) && empty($data['stallId_err'])) {
+              if ($this->livestockModel->addCattleMilking($data)) {
+                  flash('addMilk_flash', 'New collect milk details are successfully added!');
+                  redirect('Livestock_Manager/viewCattleMilking');
+              } else {
+                  die('Something went wrong!');
+              }
+          } else {
+              //loading the form with the errors
+              $this->view('livestock_Manager/addCattleMilking', $result);
           }
-          else {
-            die('Something went wrong!');
-          }
-        }
-        else {
-          //loading the form with the errors
-          $this->view('livestock_Manager/addCattleMilking',$result);
-        }
+      } else {
+          $data2 = $this->livestockModel->get_cattleView();
+          $data = [
+              'cowId' => '',
+              'quantity' => '',
+              'stallId' => '',
+  
+              'cowId_err' => '',
+              'quantity_err' => '',
+              'stallId_err' => '',
+          ];
+  
+          $result = array($data, $data2);
+          $this->view('livestock_Manager/addCattleMilking', $result);
       }
-      else {
-        $data2 = $this->livestockModel->get_cattleView();
-        $data = [
-          'milkId'=>'',
-          'cowId'=>'',
-          'quantity'=>'',
-          'stallId'=>'',
-
-          'cowId_err'=>'',
-          'quantity_err'=>'',
-          'stallId_err'=>''
-        ];
-        // $data3 = [
-        //   'mcId'=>'',
-        //   'quantity'=>'',
-        //   'stallId'=>'',
-
-        //   'quantity_err'=>'',
-        //   'stallId_err'=>''
-        // ];
-        $result = array($data,$data2);
-        $this->view('livestock_Manager/addCattleMilking', $result);
-      }
-    }
+  }
+  
     
     public function updateCattleMilking($milkId) {
       if($_SERVER['REQUEST_METHOD'] == 'POST') {

@@ -246,16 +246,16 @@
       return $result;
     }
 
-    // public function viewCattleMilking() {
-    //   $this->db->query('SELECT * FROM cattle_milking');
-    //   $results = $this->db->resultSet();
-    //   return $results;
-    // }
-
     public function getTotalCattleCount() {
       $this->db->query('SELECT COUNT(*) AS total FROM cattle WHERE existence=1');
       $result = $this->db->single();
       return $result['totalCattle'];
+    }
+
+    public function getCattleByCowID($cowID) {
+      $this->db->query('SELECT * FROM cattle WHERE cow_id = "'.$cowID.'"');
+      $result = $this->db->single();
+      return $result;
     }
 
     public function getcattleMilkingById($milkId) {
@@ -283,13 +283,14 @@
       $this->db->bind(':stallId', $data['stallId']);
 
       if($this->db->execute()){
-        $this->db->query('INSERT INTO cattle_milking(milk_id, cow_id, quantity, stall_id) VALUES(:milkId, :cowId, :quantity, :stallId)');
+        $this->db->query('INSERT INTO cattle_milking(milk_id, cow_id, quantity, stall_id, milk_collection_id) VALUES(:milkId, :cowId, :quantity, :stallId, :mcId)');
 
         //value binding
         $this->db->bind(':milkId', $data['milkId']);
         $this->db->bind(':cowId', $data['cowId']);
         $this->db->bind(':quantity', $data['quantity']);
         $this->db->bind(':stallId', $data['stallId']);
+        $this->db->bind(':mcId', $data['mcId']);
 
         //execute
         if($this->db->execute())
@@ -335,5 +336,19 @@
       }
     }
  
+    public function getCowIds() {
+      $this->db->query('SELECT cow_id FROM cattle WHERE existence=1');
+      $results = $this->db->resultSet();
+
+      return $results;
+    }
+
+    public function findStallIdByCowId($cowId) {
+      $this->db->query('SELECT stall_id FROM cattle WHERE cow_id = :cowId');
+      $this->db->bind(':cowId', $cowId);
+      $row = $this->db->single();
+      return $row->stallId;
+    }
+
   }
 ?>

@@ -77,8 +77,28 @@ function closeVaccinationItem(){
   document.getElementById("vaccinationItem").classList.remove("open-vaccinationItem");
 }
 
-function openModel(){
+function openModel(id){
+  // var id = data["id"];
+  const url ="/koratuwa/Livestock_Manager/viewCattle/"+id;
+  const form = new FormData();
+  form.append("id", id);
+  fetch(url, {
+    method: "GET"
+  }).then(response => response.json())
+  .then(data => {
+    if(data){
+    document.getElementById("Model_Stall_No").innerText = data.stall_id;
+    document.getElementById("Model_DOB").innerText = data.dob;
+    document.getElementById("Model_Age").innerText = data.age;
+    document.getElementById("Model_Gender").innerText = data.breed;
+    document.getElementById("Model_milkin_Status").innerText = data.milking_status;
+    }
+
+  });
   document.getElementById("model").classList.add("open-model");
+  //document.getElementById("model").innerHTML += "<?PHP $dataID = ${id}; ?>"
+  // console.log(data["id"]);
+  
 }
 function closeModel(){
   document.getElementById("model").classList.remove("open-model");
