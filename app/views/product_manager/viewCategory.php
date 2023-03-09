@@ -80,7 +80,29 @@
         <td><?php echo $product_stock->stock_id; ?></td>
         <td><?php echo $product_stock->quantity; ?></td>
         <td><?php echo $product_stock->mfd_date; ?></td>
-        <td><?php echo $product_stock->exp_date; ?></td>        
+        <td><?php echo $product_stock->exp_date; ?></td>    
+        <td><?php
+        
+        $today = date('Y-m-d');
+        $futureDate=$product_stock->exp_date;
+        $difference = strtotime($futureDate) - strtotime($today);
+        $days = abs($difference/(60 * 60)/24);
+        if($days ==0)
+        {
+          echo "This batch has expired";
+        }
+
+        else{
+          if($days ==1)
+          {
+            echo $days ." day left to expire";
+          }
+          else{
+          echo $days ." days left to expire";
+        }
+        }
+        
+        ?></td>        
       </tr><br>
       <?php endforeach; ?>
 </table>
