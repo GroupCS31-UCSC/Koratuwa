@@ -33,7 +33,7 @@
   <div class="heading">Details</div> <br>
     <hr>
     <br>
-    <div class="l">Size of a Pack  </div><div class="r"><?php echo $cat->size;  ?></div>
+    <div class="l">Size of a Pack  </div><div class="r"><?php echo $cat->unit_size;  ?></div>
     <div class="l">Ingredients </div><div class="r"><?php echo $cat->ingredients; ?></div>
     <div class="l">Expiry Duration </div><div class="r"><?php 
     $months = floor($data['expireDays']/30);
