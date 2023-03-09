@@ -27,7 +27,7 @@
       </li>
       <li>
       <a href="<?php echo URLROOT; ?>/Product_Manager/viewStock">
-          <span class="icon"><i class="fa-solid fa-cubes-stacked"></i></span>
+          <span class="icon"><i class="fa-solid fa-boxes-stacked"></i></span>
           <span class="title">Product Batches</span>
         </a>
       </li> 
