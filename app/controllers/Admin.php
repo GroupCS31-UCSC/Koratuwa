@@ -130,7 +130,7 @@
               if($this->adminModel->addEmployees($data))
               {
                   flash('addEmp_flash','New Employee Details are successfully added!');
-                  sendMail($data);;
+                  sendMail($data);
                   redirect('Admin/viewEmployees');              
               }
               else
@@ -185,7 +185,7 @@
           if($_SERVER['REQUEST_METHOD'] == 'POST')
           {
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-
+            // die(var_dump($_POST));
             $file_name = $_FILES['image']['name'];
             $file_size = $_FILES['image']['size'];
             $tmp_name = $_FILES['image']['tmp_name'];

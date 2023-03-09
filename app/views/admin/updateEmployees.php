@@ -37,8 +37,8 @@
 
     <!-- gender -->
     <div class="feature">
-      <input type="radio" name="gender" id="name" <?php if (isset($data['gender']) && $data['gender']=="Male") echo "checked";?> value="<?php echo $data['gender']; ?>"> Male
-      <input type="radio" name="gender" id="name" <?php if (isset($data['gender']) && $data['gender']=="Female") echo "checked";?> value="<?php echo $data['gender']; ?>"> Female
+      <input type="radio" name="gender" id="name" <?php if (isset($data['gender']) && $data['gender']=="Male") echo "checked";?> value="Male"> Male
+      <input type="radio" name="gender" id="name" <?php if (isset($data['gender']) && $data['gender']=="Female") echo "checked";?> value="Female"> Female
     </div>
 
     <!--address-->
