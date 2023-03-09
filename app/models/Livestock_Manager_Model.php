@@ -25,9 +25,12 @@
       return $id;
     }
     
-    public function get_cattleView($stallId) {
-      $this->db->query('SELECT * FROM cattle WHERE existence = 1 AND stall_id="'.$stallId.'" order by cow_id');
-  
+    public function get_cattleView($stallId=null) {
+      if($stallId == null) {
+        $this->db->query('SELECT * FROM cattle WHERE existence = 1 order by cow_id');
+      } else {
+        $this->db->query('SELECT * FROM cattle WHERE existence = 1 AND stall_id="'.$stallId.'" order by cow_id');
+      }  
       $result = $this->db->resultSet();
 
       return $result;
@@ -348,6 +351,12 @@
       $this->db->bind(':cowId', $cowId);
       $row = $this->db->single();
       return $row->stallId;
+    }
+
+    public function get_cattleCount() {
+      $this->db->query('SELECT COUNT(*) AS total FROM cattle WHERE existence=1');
+      $result = $this->db->single();
+      return $result['total'];
     }
 
   }

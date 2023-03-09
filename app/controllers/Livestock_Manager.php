@@ -368,7 +368,8 @@
               $this->view('livestock_Manager/addCattleMilking', $result);
           }
       } else {
-          $data2 = $this->livestockModel->get_cattleView();
+          $stall = $_GET['Stall'] ?? 'STALL1';
+          $data2 = $this->livestockModel->get_cattleView($stall);
           $data = [
               'cowId' => '',
               'quantity' => '',
@@ -382,9 +383,8 @@
           $result = array($data, $data2);
           $this->view('livestock_Manager/addCattleMilking', $result);
       }
-  }
-  
-    
+    }
+   
     public function updateCattleMilking($milkId) {
       if($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
@@ -452,6 +452,10 @@
       else {
         die('Something went wrong');
       }
+    }
+
+    public function showCattleCount() {
+      $cattleCount = $this->livestockModel->get_cattleCount();
     }
   }
 
