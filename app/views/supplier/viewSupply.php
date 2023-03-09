@@ -66,7 +66,7 @@
               <?php else : ?>
                 <div class="table-btns">
                   <!-- <a href="<?php echo URLROOT?>/Supplier/updateSupOrder/<?php echo $supOrd->supply_order_id ?>"><button class="updateBtn">View</button></a> -->
-                  <button id="myBtn" class="updateBtn">View Invoice</button>
+                  <button onclick="openModal('<?php echo $supOrd->supply_order_id; ?>')" class="updateBtn">View Invoice</button>
                 </div>
               <?php endif; ?>
             </td>
@@ -121,55 +121,80 @@
 
 
 <!-- The Modal -->
-<div id="myModal" class="modal">
-
-  <!-- Modal content -->
+<dialog id="viewModal" class="modal">
   <div class="modal-content">
-    <div class="modal-header">
-      <span class="close">&times;</span>
-      <h2>Koratuwa Dairy Farm</h2>
+      <div class="modal-header">
+        <button class="close" onclick="closeModal()">
+          <span>&times;</span>
+        </button>
+        <h2>Koratuwa Dairy Farm</h2>
+        <h2 id="title"></h2>
+      </div>
+      <div class="modal-body">
+        <ul>
+          <li>
+            Your Income:
+          </li>
+          <li>
+            asdfgh
+          </li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <h3>***</h3>
+      </div>
     </div>
-    <div class="modal-body">
-      <ul>
-        <li>
-          Your Income:
-        </li>
-        <li>
-          asdfgh
-        </li>
-      </ul>
-    </div>
-    <div class="modal-footer">
-      <h3>***</h3>
-    </div>
-  </div>
+</dialog>
 
-</div>
+
+
 <script>
   //--------------Model form---------------------------//
 
-  var modal = document.getElementById("myModal");
+  function openModal(id){
+    console.log(id);
+    const viewModal = document.getElementById('viewModal')
+    document.getElementById('title').innerHTML = id
+    viewModal.showModal()
+  }
 
-  var btn = document.getElementById("myBtn");
+  function closeModal(){
+    const viewModal = document.getElementById('viewModal');
+    viewModal.close();
+  }
 
-  var span = document.getElementsByClassName("close")[0];
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  // var modal = document.getElementById("myModal");
+
+  // var btn = document.getElementById("myBtn");
+
+  // var span = document.getElementsByClassName("close")[0];
 
   // When the user clicks the button, open the modal 
-  btn.onclick = function() {
-    modal.style.display = "block";
-  }
+  // btn.onclick = function() {
+  //   modal.style.display = "block";
+  // }
 
   // When the user clicks on <span> (x), close the modal
-  span.onclick = function() {
-    modal.style.display = "none";
-  }
+  // span.onclick = function() {
+  //   modal.style.display = "none";
+  // }
 
   // When the user clicks anywhere outside of the modal, close it
-  window.onclick = function(event) {
-    if (event.target == modal) {
-      modal.style.display = "none";
-    }
-  }  
+  // window.onclick = function(event) {
+  //   if (event.target == modal) {
+  //     modal.style.display = "none";
+  //   }
+  // }  
 
   //--------------counter----------------//
   let counterup = document.querySelectorAll(".counter_up");

@@ -82,16 +82,12 @@
 
     public function placeSupply($data)
     {
-      $data['date'] = date("Y-m-d");
-      $this->db->query('INSERT INTO supply_order(supply_order_id,quantity,supply_date,status,supplying_address,unit_price, supplier_id,quality) VALUES(:supOrderId, :quantity, :supDate, :status, :address, :price, :supId, :quality)');
+      // $data['date'] = date("Y-m-d");
+      $this->db->query('INSERT INTO supply_order(supply_order_id,quantity,supplier_id, invoice_id) VALUES(:supOrderId, :quantity,:supId, :invId)');
       //value binding
       $this->db->bind(':supOrderId', $data['supOrderId']);
       $this->db->bind(':quantity', $data['quantity']);
-      $this->db->bind(':supDate', $data['date']);
-      $this->db->bind(':status', $data['status']);
-      $this->db->bind(':address', $data['address']);
-      $this->db->bind(':price', $data['price']);   //added for intemorary
-      $this->db->bind(':quality', $data['quality']);
+      $this->db->bind(':invId', $data['invoice_id']);
       $this->db->bind(':supId', $_SESSION['user_id']);
 
       //execute
