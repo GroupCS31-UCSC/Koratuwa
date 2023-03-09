@@ -4,7 +4,15 @@
 <?php require APPROOT.'/views/milk_collection_officer/mco_dashboard.php'; ?>
 <!--
  ______________________________________________________________________________________________________-->
+<?php
 
+if(isset($_SESSION['popup_error'])){
+  echo "already exsit";
+  die();
+}
+
+
+?>
 
 <!--cards-->
 <section class="cardBox">
