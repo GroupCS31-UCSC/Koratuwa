@@ -10,7 +10,7 @@
     }
 
     public function getProductCategoryDetails(){
-      $this->db->query('SELECT * FROM product_category');
+      $this->db->query('SELECT * FROM product');
       
       $result = $this->db->resultSet();
 
@@ -37,7 +37,7 @@
     }
 
     public function getProductExpireDays($pId){
-      $this->db->query('SELECT SUM(expiry_duration + expiry_duration_months*30) FROM product_category WHERE product_id = :pId');
+      $this->db->query('SELECT SUM(expiry_duration + expiry_duration_months*30) FROM product WHERE product_id = :pId');
       $this->db->bind(':pId',$pId);
       $result = $this->db->resultSet();
       $array = get_object_vars($result[0]);
@@ -48,7 +48,7 @@
   
     public function findProductId()
     {
-      $this->db->query('SELECT * FROM product_category order by product_id desc limit 1');
+      $this->db->query('SELECT * FROM product order by product_id desc limit 1');
 			$row = $this->db->single();
 			$lastId=$row->product_id;
 
@@ -86,7 +86,7 @@
     }
     public function get_categoryView()
     {
-      $this->db->query('SELECT * FROM product_category');
+      $this->db->query('SELECT * FROM product');
 
       $result = $this->db->resultSet();
 
@@ -95,7 +95,7 @@
 
     public function viewCategorybyId($pId)
     {
-      $this->db->query('SELECT * FROM product_category WHERE product_id = :pId' );
+      $this->db->query('SELECT * FROM product WHERE product_id = :pId' );
       $this->db->bind(':pId',$pId);
 
       $result = $this->db->resultSet();
@@ -104,7 +104,7 @@
 
     public function getCategorybyId($pId)
     {
-      $this->db->query('SELECT * FROM product_category WHERE product_id = :pId' );
+      $this->db->query('SELECT * FROM product WHERE product_id = :pId' );
       $this->db->bind(':pId',$pId);
 
       $row = $this->db->single();
@@ -137,7 +137,7 @@
 
     public function addCategory($data)
     {
-      $this->db->query('INSERT INTO product_category(product_id,product_name,unit_price,expiry_duration,expiry_duration_months,size,ingredients,image) VALUES(:pId, :name, :price, :duration, :duration_months,:size, :ingredients, :image)');
+      $this->db->query('INSERT INTO product(product_id,product_name,unit_price,expiry_duration,expiry_duration_months,unit_size,ingredients,image) VALUES(:pId, :name, :price, :duration, :duration_months,:size, :ingredients, :image)');
       //value binding
       $this->db->bind(':pId', $data['pId']);
       $this->db->bind(':name', $data['name']);
@@ -162,7 +162,7 @@
 
     public function updateCategory($data)
     {
-      $this->db->query('UPDATE product_category SET product_name= :name, ingredients= :ingredients, unit_price= :price, expiry_duration=:duration,size= :size,  image= :image WHERE product_id= :pId');
+      $this->db->query('UPDATE product SET product_name= :name, ingredients= :ingredients, unit_price= :price, expiry_duration=:duration,size= :size,  image= :image WHERE product_id= :pId');
       $this->db->bind(':name', $data['name']);
       $this->db->bind(':price', $data['price']);
       $this->db->bind(':duration', $data['duration']);
@@ -183,7 +183,7 @@
 
     public function deleteCategory($pId)
     {
-      $this->db->query('DELETE FROM product_category WHERE product_id= :pId');
+      $this->db->query('DELETE FROM product WHERE product_id= :pId');
       $this->db->bind(':pId', $pId);
 
       if($this->db->execute())
