@@ -361,6 +361,7 @@
       return $row->stallId;
     }
 
+
     public function get_cattleCount() {
       $this->db->query('SELECT COUNT(*) AS total FROM cattle WHERE existence=1');
       $result = $this->db->single();
