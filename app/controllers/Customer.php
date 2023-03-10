@@ -113,9 +113,33 @@
           }
         }
 
-        public function addToCart(){
-          $data=[];
-          $this->view('customer/add_to_cart',$data);
+        public function addToCart($pId){
+
+          if($_SERVER['REQUEST_METHOD'] == 'POST')
+          {
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+            $data = [
+              'product_id' => $pId,
+              'customer_id' => $_SESSION['user_id'],
+              'quantity' => $_POST['quantity'],
+              'total_price' => $_POST['unit_price'] * $_POST['quantity']
+            ];
+            $res =  $this->customerModel->addItemToCart($data);
+            if($res){
+              redirect('Customer/customerHome/ok');
+            }else {
+              redirect('Customer/customerHome/error');
+            }
+          }
+        }
+
+        public function cart(){
+          $res =  $this->customerModel->viewCartItems($_SESSION['user_id']);
+          $data = [
+            'products' => $res
+          ];
+          $this->view('customer/cart', $data);
+
         }
 
     }

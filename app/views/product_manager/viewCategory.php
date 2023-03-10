@@ -33,7 +33,7 @@
   <div class="heading">Details</div> <br>
     <hr>
     <br>
-    <div class="l">Size of a Pack  </div><div class="r"><?php echo $cat->size;  ?></div>
+    <div class="l">Size of a Pack  </div><div class="r"><?php echo $cat->unit_size;  ?></div>
     <div class="l">Ingredients </div><div class="r"><?php echo $cat->ingredients; ?></div>
     <div class="l">Expiry Duration </div><div class="r"><?php 
     $months = floor($data['expireDays']/30);
@@ -80,7 +80,29 @@
         <td><?php echo $product_stock->stock_id; ?></td>
         <td><?php echo $product_stock->quantity; ?></td>
         <td><?php echo $product_stock->mfd_date; ?></td>
-        <td><?php echo $product_stock->exp_date; ?></td>        
+        <td><?php echo $product_stock->exp_date; ?></td>    
+        <td><?php
+        
+        $today = date('Y-m-d');
+        $futureDate=$product_stock->exp_date;
+        $difference = strtotime($futureDate) - strtotime($today);
+        $days = abs($difference/(60 * 60)/24);
+        if($days ==0)
+        {
+          echo "This batch has expired";
+        }
+
+        else{
+          if($days ==1)
+          {
+            echo $days ." day left to expire";
+          }
+          else{
+          echo $days ." days left to expire";
+        }
+        }
+        
+        ?></td>        
       </tr><br>
       <?php endforeach; ?>
 </table>

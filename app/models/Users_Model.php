@@ -211,12 +211,58 @@
 
 		// get user profile details 
 		public function get_userProfile($userId){
-			$this->db->query('SELECT * FROM user WHERE user_id = :userId');
+
+			$this->db->query('SELECT user_type from user WHERE user_id= :userId ');
 			$this->db->bind(':userId', $userId);
+			$user = $this->db->single();
+			// echo $user_type;
+			$user_type =strval($user->user_type);
+			echo $user_type;
+			
+			if($user_type == 'Supplier')
+			{
+				echo '1';
+				$this->db->query('SELECT * FROM supplier WHERE supplier_id=:userId');
+				$this->db->bind(':userId', $userId);
+	
+				$result = $this->db->resultSet();
+	
+				return $result;	
+			}
+			elseif($user_type == 'Customer')
+			{
+				echo '2';
+				$this->db->query('SELECT * FROM customer WHERE customer_id=:userId');
+				$this->db->bind(':userId', $userId);
+	
+				$result = $this->db->resultSet();
+	
+				return $result;	
+			}
+			elseif($user_type == 'Admin')
+			{
+				echo '21';
+				$this->db->query('SELECT * FROM admin WHERE admin_id=:userId');
+				$this->db->bind(':userId', $userId);
+	
+				$result = $this->db->resultSet();
+	
+				return $result;	
+			}
+			else
+			{
+				echo '3';
+				$this->db->query('SELECT * FROM employee WHERE employee_id=:userId');
+				$this->db->bind(':userId', $userId);
+	
+				$result = $this->db->resultSet();
+	
+				return $result;	
+			}
+			// return $result;
+			echo '4';
 
-			$result = $this->db->resultSet();
-
-			return $result;			
+				
 		}
 
 

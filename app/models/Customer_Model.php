@@ -51,7 +51,33 @@
         return false;
       }    
     }
+
+
+    public function addItemToCart($data){
+      $this->db->query('INSERT INTO cart(product_id, customer_id, quantity, total_price) VALUE(:product_id, :customer_id, :quantity, :total_price)');
+      $this->db->bind(':product_id', $data['product_id']);
+      $this->db->bind(':customer_id', $data['customer_id']);
+      $this->db->bind(':quantity', $data['quantity']);
+      $this->db->bind(':total_price', $data['total_price']);
+      if($this->db->execute())
+      {
+        return true;
+      }
+      else
+      {
+        return false;
+      } 
+    }
+
+  public function viewCartItems($customer_id){
+    $this->db->query('SELECT c.product_id, c.customer_id, c.quantity, c.total_price, p.product_name, p.expiry_duration, p.image  FROM cart as c INNER JOIN product as p ON c.product_id = p.product_id WHERE customer_id=:customer_id');
+    $this->db->bind(':customer_id', $customer_id);
+    $result = $this->db->resultSet();
+		return $result;
   }
+
+}
+
 
   
 

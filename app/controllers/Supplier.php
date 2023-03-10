@@ -168,10 +168,7 @@
             $data = [
               'supOrderId' => '',
               'quantity' => '',
-              'date' => '',
-              'address' => '',
-              'status' => '',
-              'price' => '',  //temp set value
+           
 
               'quantity_err' => '',
               'date_err' => '',
