@@ -81,13 +81,13 @@
         if (empty($data['dob'])) { $data['dob_err'] = '*' ; }
         if ($data['gender']=='Select') { $data['gender_err'] = '*' ; }
         if ($data['breed']=='Select') { $data['breed_err'] = '*' ; }
-        if ($data['milking']=='Select') { $data['milking_err'] = '*' ; }
+        // if ($data['milking']=='Select') { $data['milking_err'] = '*' ; }
         if ($data['method']=='Select') { $data['method_err'] = '*' ; }
         // if (empty($data['price'])) { $data['price_err'] = '*' ; }
         if ($data['stallId']=='Select') { $data['stallId_err'] = '*' ; }
       
         //if no errors
-        if(empty($data['dob_err']) && empty($data['gender_err']) && empty($data['breed_err']) && empty($data['milking_err']) && empty($data['method_err']) && empty($data['price_err']) && empty($data['stallId_err'])) {
+        if(empty($data['dob_err']) && empty($data['gender_err']) && empty($data['breed_err']) &&/* empty($data['milking_err']) && */empty($data['method_err']) && empty($data['price_err']) && empty($data['stallId_err'])) {
           $data['cowId']= $this->livestockModel->findCowId();
           
           if($this->livestockModel->addCattle($data)) {
@@ -137,17 +137,17 @@
         $data=[
           'cowId'=>$cowId,
           'breed'=>trim($_POST['breed']),
-          'milking'=>trim($_POST['milking']),
+          // 'milking'=>trim($_POST['milking']),
           
           'breed_err'=>'',
-          'milking_err'=>'',
+          // 'milking_err'=>'',
         ];
 
         if ($data['breed']=='Select') { $data['breed_err'] = '*' ; }
-        if ($data['milking']=='Select') { $data['milking_err'] = '*' ; }
+        // if ($data['milking']=='Select') { $data['milking_err'] = '*' ; }
 
         //if no errors
-        if(empty($data['breed_err']) && empty($data['milking_err'])) {
+        if(empty($data['breed_err'])/* && empty($data['milking_err'])*/) {
           if($this->livestockModel->updateCattle($data)) {
             flash('updateCattle_flash','New cattle details are successfully Updated!');
             redirect('Livestock_Manager/viewCattle');
@@ -166,10 +166,10 @@
         $data=[
           'cowId'=>$cow->cow_id,
           'breed'=>$cow->cow_breed,
-          'milking'=>$cow->milking_status,
+          // 'milking'=>$cow->milking_status,
 
           'breed_err'=>'',
-          'milking_err'=>''
+          // 'milking_err'=>''
         ];
         $this->view('livestock_Manager/updateCattle', $data);
       }

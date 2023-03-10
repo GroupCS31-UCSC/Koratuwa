@@ -15,11 +15,12 @@
       }
       
       if($lastId == '') {
-        $id = 'COW1';
+        $id = 'C001';
       } else {
-        $id = substr($lastId, 3);
+        $id = substr($lastId, 1);
         $id = intval($id);
-        $id = "COW".($id+1);
+        $id++;
+        $id = 'C'.str_pad($id, 3, '0', STR_PAD_LEFT);
       }
     
       return $id;
@@ -62,6 +63,10 @@
 
       if($data['price'] == '') {
         $data['price'] = NULL;
+      }
+//////////////////////////////  //////////
+      if(($data['gender'] == 'Male') && ($data['age'] < 1)) {
+        $data['milking'] = 'No';
       }
       
       $this->db->query('INSERT INTO cattle(cow_id, dob, age, gender, cow_breed, milking_status, reg_method, bought_price, stall_id, existence) VALUES(:cowId, :dob, :age, :gender, :breed, :milking, :method, :price, :stallId, 1)');
@@ -129,11 +134,12 @@
         $lastId = $row->feed_id;
       }
       if(empty($lastId)) {
-        $id = 'FED1';
+        $id = 'F1';
       } else {
-        $id = substr($lastId, 3);
+        $id = substr($lastId, 1);
         $id = intval($id);
-        $id = "FED". ($id + 1);
+        $id++;
+        $id = 'F'.$id;
       }
     
       return $id;
@@ -214,12 +220,13 @@
         $lastId=$row->milk_id;
       }
       if($lastId == '')	{
-        $id='MIL1';
+        $id='m1';
       }
       else {
-        $id = substr($lastId,3);
+        $id = substr($lastId, 1);
         $id = intval($id);
-        $id = "MIL".($id+1);
+        $id++;
+        $id = 'm'.$id;
       }
       return $id;
     }
@@ -231,12 +238,13 @@
         $lastId=$row->milk_collection_id;
       }
       if($lastId == '')	{
-        $id='MIC1';
+        $id='mc1';
       }
       else {
-        $id = substr($lastId,3);
+        $id = substr($lastId, 1);
         $id = intval($id);
-        $id = "MIC".($id+1);
+        $id++;
+        $id = 'mc'.$id;
       }
       return $id;
     }
