@@ -16,10 +16,10 @@
 
 	<form action="<?php echo URLROOT; ?>/Product_Manager/updateCategory/<?php echo $data['pId'];?>" method="POST" enctype="multipart/form-data">
 
-		<!--category name-->
+		<!-- category name
 		<div class="form-input-title">Product Name</div>
     <span class="form-invalid"><?php echo $data['name_err']; ?></span>
-		<input type="text" name="name" id="name" class="name" value="<?php echo $data['name']; ?>">
+		<input type="text" name="name" id="name" class="name" value="<?php echo $data['name']; ?>"> -->
 
     <!--cost-->
     <!-- <div class="form-input-title">Estimated cost per unit</div>
@@ -32,13 +32,13 @@
     <input type="text" name="price" id="price" class="price" value="<?php echo $data['price']; ?>">
 
     <!--ingredients-->
-    <div class="form-input-title">Ingredients</div>
+    <!-- <div class="form-input-title">Ingredients</div>
     <span class="form-invalid"><?php echo $data['ingredients_err']; ?></span>
-    <input type="text" name="ingredients" id="ingredients" class="ingredients" value="<?php echo $data['ingredients']; ?>">
-
+    <input type="text" name="ingredients" id="ingredients" class="ingredients" value="<?php echo $data['ingredients']; ?>"> -->
+<!-- 
     <div class="form-input-title">Expiry Duration(In Days)</div>
     <span class="form-invalid"><?php echo $data['duration_err']; ?></span>
-    <input type="number" name="duration" id="duration" class="duration" value="<?php echo $data['duration']; ?>">
+    <input type="number" name="duration" id="duration" class="duration" value="<?php echo $data['duration']; ?>"> -->
 
     <!--image-->
     <div class="form-input-title">Image</div>

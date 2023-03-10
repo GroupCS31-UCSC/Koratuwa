@@ -67,7 +67,7 @@
                 </div>
             
                 <br>
-                <div class="product_price">Rs. <?php echo $productCategory->unit_price ?>.00</div>
+                <div class="product_price">Rs. <?php echo $productCategory->unit_price ?></div>
                 
                 <input type="button" value="Add to Cart" class="AddtoCartBtn">
             </div>

@@ -89,7 +89,7 @@ form {
 }
 
 /*-----------quantity---------*/
-.quantity{
+/* .quantity{
     margin: 10px;
 }
 .minus, .plus {
@@ -103,7 +103,35 @@ form {
 }
 .num {
     padding: 0 10px;
+} */
+
+.quantity-selector{
+  margin: 10px 0;
+  display: flex;
+  gap: 5px;
 }
+
+.quantity-selector label {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 5px 10px;
+  width: 50px;
+  font-weight: 600;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.quantity-selector button {
+  min-width: 40px;
+  background-color: rgb(133, 19, 186);
+  color: #fff;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
 /*-----AddtoCart, BuyNow---*/
 
 .buynowBtn, .AddtoCartBtn {

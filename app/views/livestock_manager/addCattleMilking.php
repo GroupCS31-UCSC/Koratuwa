@@ -45,10 +45,12 @@
         <span class="form-invalid"><?php echo $data[0]['cowId_err']; ?></span>
         <label for="Select the Cattle"></label> -->
         <!-- <?php $values = $data[1]?>
+
         <select name="cowId" id="cowId">
             <?php foreach($values as $cow_id):?>
                 <option value="<?=$cow_id->cow_id?>" name="cowId"><?=$cow_id->cow_id?></option>
             <?php endforeach;?>
+            
         </select> -->
     
 		<br>
