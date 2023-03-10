@@ -15,8 +15,9 @@
         <div class="feature_form">
             <div class="form_container">
                 <h1>Product Details</h1>
-                <form action="<?php echo URLROOT; ?>/Customer/buyNow" method="POST">
-
+                
+                <form action="<?php echo URLROOT; ?>/Customer/addToCart/<?php echo $data['productDetails'][0]->product_id?>" method="POST">
+                    <input type="hidden" name="unit_price" value="<?php echo $data['productDetails'][0]->unit_price?>">
                     <div class="feature1">
                         <div class="form-input-title">Product Name:</div>
                         <label><?php foreach ($data['productDetails'] as $product) : ?><?php echo $product->product_name; ?><?php endforeach; ?></label>
@@ -29,6 +30,7 @@
                         <div class="form-input-title">Ingreadients:</div>
                         <label><?php foreach ($data['productDetails'] as $product) : ?><?php echo $product->ingredients; ?><?php endforeach; ?></label>
                     </div>
+                    
                     <!-- <div class="feature1">
                         <div class="form-input-title">Quantity</div>
                         <div class="quantity">
@@ -37,20 +39,26 @@
                             <span class="plus">+</span>
                         </div>
                     </div> -->
-                    <div class="feature1">
-                        <div class="form-input-title">Enter quantity:</div>
-                        <input type="text" name="quantity" id="quantity" class="quantity" value="<?php echo $data['quantity']; ?>">
+
+                    <div class="quantity-selector">
+                      <button  type="button" onclick="decrement()">-</button>
+                      <label id="quantityLabel" for="quantityInput">1</label>
+                      <input type="hidden" name="quantity" id="quantityInput" value="1" id="quantity"/>
+                      <button type="button" onclick="increment()">+</button>  
                     </div>
+                    
                     <div class="feature1">
                         <div class="form-input-title">Total Price:</div>
-                        <label><?php foreach ($data['productDetails'] as $product) : ?><?php echo $product->unit_price * 2 ; ?><?php endforeach; ?></label>
+                        <label id="total-price" data-quantity="<?php echo $data['productDetails'][0]->unit_price ?>"><?php echo $data['productDetails'][0]->unit_price ?></label>
+                        <input type="hidden" id="totalPrice"/>
                     </div>
+
                     <div class="feature1">
                         <input type="button" value="Buy Now" class="buynowBtn" onclick="location.href='<?php echo URLROOT; ?>/Customer/buyNow' ">
 
                     </div>
                     <div class="feature1">
-                        <input type="button" value="Add to Cart" class="AddtoCartBtn" onclick="location.href='<?php echo URLROOT; ?>/Customer/addToCart' ">
+                        <input type="submit" name="add_to_carts" class="AddtoCartBtn" value="Add To Cart">
                     </div>                                                             
                 </form>
             </div>

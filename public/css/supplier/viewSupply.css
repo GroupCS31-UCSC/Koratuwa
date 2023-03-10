@@ -222,8 +222,9 @@ rect.glass {
 
 /*-------------------------------Model------------------------------*/
 /* The Modal (background) */
-.modal {
-    display: none; /* Hidden by default */
+
+#viewModal {
+    border: none;
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
     padding-top: 100px; /* Location of the box */
@@ -268,6 +269,8 @@ rect.glass {
     float: right;
     font-size: 28px;
     font-weight: bold;
+    border: none;
+    background: none;
   }
   
   .close:hover,
