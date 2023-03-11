@@ -37,8 +37,13 @@
 		</form>
 
 		<div class="container" style="background-color:rgb(245, 244, 240)">
-			<input type="button" value="Forgot Password ?" class="fpw" onclick="location.href='<?php echo URLROOT; ?>/Users/login' ">
-    </div>
+			<div class="fpw">
+				<input type="button" value="Forgot Password ?" class="fpw" onclick="location.href='<?php echo URLROOT; ?>/Users/forgotPw' ">
+			</div>
+			<div class="newAcc">
+				<input type="button" value="Don't have an account ?" class="newAcc" onclick="location.href='<?php echo URLROOT; ?>/Users/selection' ">
+			</div>
+    	</div>
 
 	</div>
 </div>

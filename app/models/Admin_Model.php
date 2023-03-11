@@ -114,7 +114,7 @@
     //update selected employee's details
     public function updateEmployees($data)
     {
-      $this->db->query('UPDATE user SET user_type=:employment  WHERE user_id= :empId');
+      $this->db->query('UPDATE user SET user_type=:employment WHERE user_id= :empId');
       $this->db->bind(':employment', $data['employment']);
       $this->db->bind(':empId', $data['empId']);
 

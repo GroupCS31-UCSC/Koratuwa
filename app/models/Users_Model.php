@@ -27,6 +27,36 @@
 			}
 		}
 
+		//save generated otp code in the database
+		public function saveOtpCode($email, $otp)
+		{
+			$this->db->query('UPDATE user SET otp_code=:otp WHERE email=:email ');
+			$this->db->bind(':email', $email);
+			$this->db->bind(':otp', $otp);
+
+			if($this->db->execute())
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+
+		}
+
+		//get the user name of provided email
+		public function getUserName($email)
+		{
+			$this->db->query('SELECT user_name FROM user WHERE email = :email');
+			$this->db->bind(':email', $email);
+
+			$row = $this->db->single();
+
+			return $row->user_name;
+			
+		}
+
 		//create id for supplier
 		public function generateSupplierId()
 		{

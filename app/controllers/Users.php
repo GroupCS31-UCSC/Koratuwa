@@ -23,6 +23,80 @@
           $this->view('users/u_selection',$data);
         }
 
+        //load the forgot password page
+        public function forgotPw()
+        {
+          if($_SERVER['REQUEST_METHOD'] == 'POST')
+            {
+              //Form is submitting
+              $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+              //input data
+              $data = [
+                'email' => trim($_POST['email']),
+
+                'email_err' => ''
+              ];
+
+              //validate email
+              if (empty($data['email']))
+              {
+                $data['email_err'] = 'Please enter the email' ;
+              }
+              else
+              {
+                // check email is existing or not in the system as a registered user email
+                if($this->userModel->findUserByEmail($data['email']))
+                {
+                  //user is found
+                }
+                else
+                {
+                  //user is not found
+                  $data['email_err'] = 'User not found' ;
+                  flash('user_notFount','Provided Email is not registered in <i>Koratuwa</i>!');
+                }
+              }
+
+              //If not error found in email
+              if(empty($data['email_err']))
+              {
+                $email=$data['email'];
+                //generate otp
+                $otp=strval(rand(100000,999999));
+                //send an otp to the user
+                if($this->userModel->saveOtpCode($email, $otp))
+                {
+                  $userName = $this->userModel->getUserName($data['email']);
+                  sendOtp($data['email'],$otp,$userName);
+                  redirect('Users/resetPw');
+                }
+
+
+              }
+              else
+              {
+                flash('error','Some Error Occured, Please Try Again! ');
+                $this->view('users/u_forgotPw',$data);
+              }
+
+
+            }
+            else
+            {
+              //Initial form
+              $data = [
+                'email' => '' ,
+
+                'email_err' => ''
+              ];
+
+              //load the view
+              $this->view('users/u_forgotPw',$data);
+            };
+        }
+
+
 
         //register suppliers
         public function registerSupplier()
