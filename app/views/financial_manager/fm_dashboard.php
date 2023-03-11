@@ -20,7 +20,7 @@
         </a>
       </li>
       <li>
-        <a href="<?php echo URLROOT; ?>/Financial_Manager/viewExpense">
+        <a href="<?php echo URLROOT; ?>/Financial_Manager/addExpense">
           <span class="icon"><i class="fa-solid fa-file-export"></i></span>
           <span class="title"> Expenses</span>
         </a>

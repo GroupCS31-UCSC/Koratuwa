@@ -7,7 +7,7 @@
     padding: 10px;
     background-color: rgb(245, 244, 240);
     box-shadow: 0 4px 8px 0 black;
-    width: 60%;
+    width: 50%;
     /* text-align: center; */
 }
 
@@ -18,7 +18,7 @@ input[type=number],
 input[type=email] {
     border: 1px solid #d5d2d2;
     border-radius: 5px;
-    width: 95%;
+    width: 60%;
     height: 30 px;
     padding-top: 10px;
     padding-bottom: 10px;
