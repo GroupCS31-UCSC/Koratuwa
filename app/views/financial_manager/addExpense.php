@@ -4,11 +4,20 @@
 <!-- ______________________________________________________________________________________________________-->
 
 <div class="row">
-  <div class="column left" style="background-color:#aaa;">
-    <h2>Column 1</h2>
-    <p>Some text..</p>
+  <div class="column left">
+ 
+
+      <div class="box">
+        <label><center>Number of Productions</center></label>
+        <canvas id="ch2"></canvas>
+      </div>
+
+      
+      <div class="total">
+      Total expenses for the month:
+      </div>
   </div>
-  <div class="column right" style="background-color:#bbb;">
+  <div class="column right">
     
   <div class="form-container">
 
@@ -17,7 +26,7 @@
 	</div>
 	<br>
     <div class="dropdown">
-  <button class="dropbtn">Select Month</button>
+  <button class="dropbtn">Select Month <i class="fa-solid fa-caret-down"></i></button>
   <div class="dropdown-content">
   <a href="#">JAN</a>
   <a href="#">FEB</a>
@@ -36,27 +45,27 @@
 
 	<form action="<?php echo URLROOT; ?>/Financial_Manager/addExpense" method="POST" enctype="multipart/form-data"> 
     	 
-    <div class="form-input-title">Production Cost</div>
+    <div class="form-input-title">Production Cost <i class="fa-solid fa-cheese"></i></div>
     <span class="form-invalid"><?php echo $data['dat_err']; ?></span>
 	<input type="text" name="dat" id="dat" class="dat" value="<?php echo $data['dat']; ?>">
 
-    <div class="form-input-title">Transportation Cost</div>
+    <div class="form-input-title">Transportation Cost <i class="fa-solid fa-truck"></i></div>
     <span class="form-invalid"><?php echo $data['dat_err']; ?></span>
 	<input type="text" name="dat" id="dat" class="dat" value="<?php echo $data['dat']; ?>">
 
-    <div class="form-input-title">Supplier Charges</div>
+    <div class="form-input-title">Supplier Charges <i class="fa-solid fa-hand-holding-dollar"></i></div>
     <span class="form-invalid"><?php echo $data['dat_err']; ?></span>
 	<input type="text" name="dat" id="dat" class="dat" value="<?php echo $data['dat']; ?>">
 
-    <div class="form-input-title">Livestock Management Cost</div>
+    <div class="form-input-title">Livestock Management Cost <i class="fa-solid fa-cow"></i></div>
     <span class="form-invalid"><?php echo $data['dat_err']; ?></span>
 	<input type="text" name="dat" id="dat" class="dat" value="<?php echo $data['dat']; ?>">
 
-    <div class="form-input-title">Employee Management Cost</div>
+    <div class="form-input-title">Employee Management Cost <i class="fa-solid fa-users"></i></div>
     <span class="form-invalid"><?php echo $data['dat_err']; ?></span>
 	<input type="text" name="dat" id="dat" class="dat" value="<?php echo $data['dat']; ?>">
 
-    <div class="form-input-title">Other</div>
+    <div class="form-input-title">Other <i class="fa-solid fa-wallet"></i></div>
     <span class="form-invalid"><?php echo $data['dat_err']; ?></span>
 	<input type="text" name="dat" id="dat" class="dat" value="<?php echo $data['dat']; ?>">
 
@@ -115,3 +124,4 @@
 </div>
 
 <?php require APPROOT.'/views/include/footer.php'; ?>
+<script src="<?php echo URLROOT; ?>/js/fm.js"></script>
