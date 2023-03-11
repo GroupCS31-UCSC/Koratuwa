@@ -82,6 +82,27 @@
 			}
 		}
 
+		//check entered pw and current pw is mismatched
+		public function checkCurrentPw($oldPw,$email)
+		{
+			$this->db->query('SELECT password FROM user WHERE email = :email');
+			$this->db->bind(':email', $email);
+
+			$row = $this->db->single();
+
+			$hashed_password= $row->password;
+			
+			if(password_verify($oldPw, $hashed_password))
+			{
+				return false;
+			}
+			else    //entered pw is wrong, it is not the current pw of the user
+			{
+				return true;
+			}
+			
+		}
+
 		//get the user name of provided email
 		public function getUserName($email)
 		{

@@ -92,7 +92,7 @@
                                     <i class="fa-solid fa-user"></i>
                                     <p>View Profile</p>
                                 </a>   
-                                <a href="#" class="sub-menu-link">
+                                <a href="<?php echo URLROOT; ?>/Users/changePw/<?php echo $_SESSION['user_email']; ?>" class="sub-menu-link" class="sub-menu-link">
                                     <i class="fa-solid fa-lock"></i>
                                     <p>Change Password</p>
                                 </a>

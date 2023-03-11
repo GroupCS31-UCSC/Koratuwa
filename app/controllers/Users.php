@@ -155,7 +155,7 @@
         }
 
 
-        //load the reset password page   
+        //load the new pw entering password page   
         public function newPw()
         { 
           $email= $_SESSION['user_email'];
@@ -229,7 +229,90 @@
           }
 
 
+        //load the change password page   
+        public function changePw($email)
+        { 
+          if($_SERVER['REQUEST_METHOD'] == 'POST')
+            {
+              //Form is submitting
+              $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
+              //input data
+              $data = [
+                'old_password' => trim($_POST['old_password']),
+                'password' => trim($_POST['password']),
+                'confirm_password' => trim($_POST['confirm_password']),
+
+                'old_password_err' => '',
+                'password_err' => '',
+                'confirm_password_err' => ''
+              ];
+
+              //check password entered or not
+              if (empty($data['old_password']))
+              {
+                $data['old_password_err'] = 'Please enter your current password' ;
+              }
+              //check the current password is wrong
+              else if($this->userModel->checkCurrentPw($data['old_password'],$email))
+              {
+                $data['old_password_err'] = 'Current Password is Wrong!' ;
+              }
+              else if (empty($data['password']))
+              {
+                $data['password_err'] = 'Please enter a password' ;
+              }
+              else if (empty($data['confirm_password']))
+              {
+                $data['confirm_password_err'] = 'Please confirm the password' ;
+              }
+              else
+              {
+                if($data['password'] != $data['confirm_password'])
+                {
+                  $data['confirm_password_err'] = 'Re-entered Password is not matching' ;
+                }
+              }
+
+              //if no errors then update the password
+              if(empty($data['old_password_err']) && empty($data['password_err']) && empty($data['confirm_password_err']))
+              {
+                $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
+
+                if($this->userModel->setNewPw($email,$data['password']))
+                {
+                  flash('pw_changed','Password changed successfully! Enter your email and new password here to login');
+                  redirect('Users/login');
+                }
+                else{
+                  die('Something went wrong');
+                }
+              }
+              else
+              {
+                //load the form again
+                  $this->view('users/u_changePw',$data);
+              }
+            }
+            else
+            {
+              //Initial form
+              $data = [
+                'old_password' => '',
+                'password' => '' ,
+                'confirm_password' => '',
+
+                'old_password_err' => '',
+                'password_err' => '',
+                'confirm_password_err' => ''
+              ];
+
+              //load the view
+              flash('new_password','Please enter your existing password and new password twice below.');
+              $this->view('users/u_changePw',$data);
+            };
+
+        }
 
         //register suppliers
         public function registerSupplier()
