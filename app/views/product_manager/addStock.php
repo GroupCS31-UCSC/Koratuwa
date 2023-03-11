@@ -8,7 +8,7 @@
 <div class="form-container">
 
 	<div class="form-header">
-		<center><h1>Add new Product Stock</h1></center>
+		<center><h1>Add new Product Batch</h1></center>
 	</div>
 	<br>  
 

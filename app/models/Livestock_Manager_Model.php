@@ -15,19 +15,23 @@
       }
       
       if($lastId == '') {
-        $id = 'COW1';
+        $id = 'C001';
       } else {
-        $id = substr($lastId, 3);
+        $id = substr($lastId, 1);
         $id = intval($id);
-        $id = "COW".($id+1);
+        $id++;
+        $id = 'C'.str_pad($id, 3, '0', STR_PAD_LEFT);
       }
     
       return $id;
     }
     
-    public function get_cattleView($stallId) {
-      $this->db->query('SELECT * FROM cattle WHERE existence = 1 AND stall_id="'.$stallId.'" order by cow_id');
-  
+    public function get_cattleView($stallId=null) {
+      if($stallId == null) {
+        $this->db->query('SELECT * FROM cattle WHERE existence = 1 order by cow_id');
+      } else {
+        $this->db->query('SELECT * FROM cattle WHERE existence = 1 AND stall_id="'.$stallId.'" order by cow_id');
+      }  
       $result = $this->db->resultSet();
 
       return $result;
@@ -59,6 +63,10 @@
 
       if($data['price'] == '') {
         $data['price'] = NULL;
+      }
+//////////////////////////////  //////////
+      if(($data['gender'] == 'Male') && ($data['age'] < 1)) {
+        $data['milking'] = 'No';
       }
       
       $this->db->query('INSERT INTO cattle(cow_id, dob, age, gender, cow_breed, milking_status, reg_method, bought_price, stall_id, existence) VALUES(:cowId, :dob, :age, :gender, :breed, :milking, :method, :price, :stallId, 1)');
@@ -126,11 +134,12 @@
         $lastId = $row->feed_id;
       }
       if(empty($lastId)) {
-        $id = 'FED1';
+        $id = 'F1';
       } else {
-        $id = substr($lastId, 3);
+        $id = substr($lastId, 1);
         $id = intval($id);
-        $id = "FED". ($id + 1);
+        $id++;
+        $id = 'F'.$id;
       }
     
       return $id;
@@ -211,12 +220,13 @@
         $lastId=$row->milk_id;
       }
       if($lastId == '')	{
-        $id='MIL1';
+        $id='m1';
       }
       else {
-        $id = substr($lastId,3);
+        $id = substr($lastId, 1);
         $id = intval($id);
-        $id = "MIL".($id+1);
+        $id++;
+        $id = 'm'.$id;
       }
       return $id;
     }
@@ -228,12 +238,13 @@
         $lastId=$row->milk_collection_id;
       }
       if($lastId == '')	{
-        $id='MIC1';
+        $id='mc1';
       }
       else {
-        $id = substr($lastId,3);
+        $id = substr($lastId, 1);
         $id = intval($id);
-        $id = "MIC".($id+1);
+        $id++;
+        $id = 'mc'.$id;
       }
       return $id;
     }
@@ -246,16 +257,16 @@
       return $result;
     }
 
-    // public function viewCattleMilking() {
-    //   $this->db->query('SELECT * FROM cattle_milking');
-    //   $results = $this->db->resultSet();
-    //   return $results;
-    // }
-
     public function getTotalCattleCount() {
       $this->db->query('SELECT COUNT(*) AS total FROM cattle WHERE existence=1');
       $result = $this->db->single();
       return $result['totalCattle'];
+    }
+
+    public function getCattleByCowID($cowID) {
+      $this->db->query('SELECT * FROM cattle WHERE cow_id = "'.$cowID.'"');
+      $result = $this->db->single();
+      return $result;
     }
 
     public function getcattleMilkingById($milkId) {
@@ -283,13 +294,14 @@
       $this->db->bind(':stallId', $data['stallId']);
 
       if($this->db->execute()){
-        $this->db->query('INSERT INTO cattle_milking(milk_id, cow_id, quantity, stall_id) VALUES(:milkId, :cowId, :quantity, :stallId)');
+        $this->db->query('INSERT INTO cattle_milking(milk_id, cow_id, quantity, stall_id, milk_collection_id) VALUES(:milkId, :cowId, :quantity, :stallId, :mcId)');
 
         //value binding
         $this->db->bind(':milkId', $data['milkId']);
         $this->db->bind(':cowId', $data['cowId']);
         $this->db->bind(':quantity', $data['quantity']);
         $this->db->bind(':stallId', $data['stallId']);
+        $this->db->bind(':mcId', $data['mcId']);
 
         //execute
         if($this->db->execute())
@@ -335,5 +347,26 @@
       }
     }
  
+    public function getCowIds() {
+      $this->db->query('SELECT cow_id FROM cattle WHERE existence=1');
+      $results = $this->db->resultSet();
+
+      return $results;
+    }
+
+    public function findStallIdByCowId($cowId) {
+      $this->db->query('SELECT stall_id FROM cattle WHERE cow_id = :cowId');
+      $this->db->bind(':cowId', $cowId);
+      $row = $this->db->single();
+      return $row->stallId;
+    }
+
+
+    public function get_cattleCount() {
+      $this->db->query('SELECT COUNT(*) AS total FROM cattle WHERE existence=1');
+      $result = $this->db->single();
+      return $result['total'];
+    }
+
   }
 ?>

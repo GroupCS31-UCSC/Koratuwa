@@ -26,7 +26,7 @@
       <span class="icon"><i class="fa-solid fa-search"></i></span>
     <!-- </form> -->
   </div>
-  <input type="button" value="Add New Milk" class="add-btn" onclick="location.href='<?php echo URLROOT; ?>/Livestock_Manager/addCattleMilking' ">
+  <input type="button" value="Add New Milk" class="add-btn" onclick="location.href='<?php echo URLROOT; ?>/Livestock_Manager/addCattleMilking?Stall=<?=$stall?>' ">
 </div>
 
 <div id="Stall1" class="tabcontentmilk active">

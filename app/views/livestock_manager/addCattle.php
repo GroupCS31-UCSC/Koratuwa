@@ -1,12 +1,14 @@
 <?php require APPROOT.'/views/include/header.php'; ?>
 <?php require APPROOT.'/views/livestock_manager/livestock_dashboard.php'; ?>
 <link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/public/css/livestock_manager/addCattle.css">
+<?php $stall=$_GET['Stall']??'STALL1';?>
 
 <div class="form-container">
 	<div class="form-header">
 		<h3>Add Cattle</h3>
 	</div>
 	<form action="<?php echo URLROOT; ?>/Livestock_Manager/addCattle" method="POST">
+    <!-- <input type="hidden" name="stallId" value="STALL1"> -->
     <!-- dob -->
     <div class="form-input-title">Date of birth</div>
     <span class="form-invalid"><?php echo $data['dob_err']; ?></span>
@@ -35,14 +37,16 @@
       <option value="Male">Male</option>
       <option value="Female">Female</option>
     </select>
+
+    <!-- If select Female -->
     <!-- milking -->
-    <div class="form-input-title">Milking</div>
+    <div class="form-input-title" id="milking-input" style="display:none;">Milking</div>
     <span class="form-invalid"><?php echo $data['milking_err']; ?></span>
-    <select class="milking" name="milking" id="milking" value="<?php echo $data['milking']; ?>">
-      <option value="Select">Select</option>
-      <option value="Yes">Yes</option>
+    <select class="milking" name="milking" id="milking" value="<?php echo $data['milking']; ?>" style="display:none;">
       <option value="No">No</option>
+      <option value="Yes">Yes</option>
     </select>
+
     <!-- Method -->
     <div class="form-input-title">Method</div>
     <span class="form-invalid"><?php echo $data['method_err']; ?></span>
@@ -80,7 +84,7 @@
 <script src="<?php echo URLROOT; ?>/js/lm.js"></script>
 
 <script>
-  var breedSelect = document.getElementById('breed');
+var breedSelect = document.getElementById('breed');
 var methodSelect = document.getElementById('method');
 var otherInput = document.getElementById('other-input');
 var priceInput = document.getElementById('price-input');
@@ -101,4 +105,19 @@ methodSelect.addEventListener('change', function() {
     priceInput.style.display = 'none';
   }
 });
+
+var genderSelect = document.getElementById('gender');
+var milkingInput = document.getElementById('milking-input');
+var milkingSelect = document.getElementById('milking');
+
+genderSelect.addEventListener('change', function() {
+  if (genderSelect.value == 'Female') {
+    milkingInput.style.display = 'block';
+    milkingSelect.style.display = 'block';
+  } else {
+    milkingInput.style.display = 'none';
+    milkingSelect.style.display = 'none';
+  }
+});
+
 </script>

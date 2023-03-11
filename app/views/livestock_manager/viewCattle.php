@@ -18,16 +18,17 @@
   <?php flash('deleteCattle_flash') ?>
 </div>
 
-<div id="Stall1" class="tabcontent active">
-  <div class="search-add">
+<div class="search-add">
     <div class="search-area">
       <!-- <form action="<?php echo URLROOT; ?>/Livestock_Manager/searchCattle" method="POST"> -->
       <input type="text" name="search" id="search" class="search" placeholder="Search by COW ID">
       <span class="icon"><i class="fa-solid fa-search"></i></span>
     <!-- </form> -->
     </div>
-    <input type="button" value="Add New Cattle" class="add-btn" onclick="location.href='<?php echo URLROOT; ?>/Livestock_Manager/addCattle' ">
+    <input type="button" value="Add New Cattle" class="add-btn" onclick="location.href='<?php echo URLROOT; ?>/Livestock_Manager/addCattle?Stall=<?=$stall?>' ">
   </div>
+
+<div id="Stall1" class="tabcontent active">
   <div class="container" style="overflow-x: auto;">
     <table>
       <tr>
@@ -36,23 +37,24 @@
         <th>Breed</th>
         <th>Action</th>
       </tr>
-
+      <?php $data_index=0 ?>
       <?php foreach ($data['cattleView'] as $cattle) : ?>
-      <tr>
-        <td><?php echo $cattle->cow_id; ?></td>
-        <td><?php echo $cattle->gender; ?></td>
-        <td><?php echo $cattle->cow_breed; ?></td>
-        <!-- Popup -->
-        
-        <td>          
-          <div class="table-btns">
-            <a href="#"><button class="viewBtn" onclick="openModel()"><i class="fas fa-eye"></i></button></a>
-            <a href="<?php echo URLROOT?>/Livestock_Manager/updateCattle/<?php echo $cattle->cow_id ?>"><button class="updateBtn"><i class="fa-regular fa-pen-to-square"></i></button></a>
-
-            <a href="<?php echo URLROOT?>/Livestock_Manager/deleteCattle/<?php echo $cattle->cow_id ?>"><button class="deleteBtn"><i class="fa-regular fa-trash-can"></i></button></a>
-          </div>
-        </td>
-      </tr>
+        <tr>
+          <td><?php echo $cattle->cow_id; ?></td>
+          <td><?php echo $cattle->gender; ?></td>
+          <td><?php echo $cattle->cow_breed; ?></td>
+          <!-- Popup -->
+          
+          <td>          
+            <div class="table-btns">
+              <a href="#"><button class="viewBtn" onclick="openModel('<?=$cattle->cow_id?>')" id="<?php echo($data_index) ?>"><i class="fas fa-eye"></i></button></a>
+              <a href="<?php echo URLROOT?>/Livestock_Manager/updateCattle/<?php echo $cattle->cow_id ?>"><button class="updateBtn"><i class="fa-regular fa-pen-to-square"></i></button></a>
+              
+              <a href="<?php echo URLROOT?>/Livestock_Manager/deleteCattle/<?php echo $cattle->cow_id ?>"><button class="deleteBtn"><i class="fa-regular fa-trash-can"></i></button></a>
+            </div>
+          </td>
+        </tr>
+        <?php $data_index++; ?> 
       <?php endforeach; ?>
     </table>
   </div>
@@ -69,6 +71,7 @@
   </div>
 </div>
 </div>
+
 <!-- popup view -->
 <div class="model fade in" id="model" tabindex="-1">
   <div class="model-dialog">
@@ -80,27 +83,26 @@
       <div class="model-body">
         <table class="tableForm">
           <tbody>
-          <?php foreach ($data['cattleView'] as $cattle) : ?>
             <tr>
               <td>Stall No</td>
-              <td><?php echo $cattle->stall_id ?></td>
+              <td id="Model_Stall_No"></td>
             </tr>
             <tr>
               <td>Date of Birth</td>
-              <td><?php echo $cattle->dob ?></td>
+              <td id="Model_DOB"></td>
             </tr>
             <tr>
               <td>Age</td>
-              <td><?php echo $cattle->age ?></td>
+              <td id="Model_Age"></td>
             </tr>
             <tr>
               <td>Gender</td>
-              <td><?php echo $cattle->gender ?></td>
+              <td id="Model_Gender"></td>
             </tr>
             <tr>
               <td>Milking Status</td>
-              <td><?php echo $cattle->milking_status ?></td>
-            </tr><?php endforeach; ?>
+              <td id="Model_milkin_Status"></td>
+            </tr>
           </tbody>           
         </table><br>
       </div>
