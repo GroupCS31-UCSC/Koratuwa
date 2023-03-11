@@ -45,6 +45,27 @@
 
 		}
 
+		public function otpVerify($otp, $email)
+		{
+			$enteredOtp= strval($otp);
+
+			$this->db->query('SELECT otp_code FROM user WHERE email = :email');
+			$this->db->bind(':email', $email);
+
+			$row = $this->db->single();
+			$savedOtp=strval($row->otp_code);
+
+			if($enteredOtp == $savedOtp)
+			{
+				return true;
+			}
+			else{
+				return false;
+			}
+
+			
+		}
+
 		//get the user name of provided email
 		public function getUserName($email)
 		{

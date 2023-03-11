@@ -3,9 +3,11 @@
     class Users extends Controller
     {
       public $userModel;
+
         public function __construct()
         {
           $this->userModel = $this->model('Users_Model');
+
         }
 
         //load the home page
@@ -67,8 +69,12 @@
                 //send an otp to the user
                 if($this->userModel->saveOtpCode($email, $otp))
                 {
+                  //get the user's name
                   $userName = $this->userModel->getUserName($data['email']);
+                  //call to the send otp function
                   sendOtp($data['email'],$otp,$userName);
+                  
+                  $_SESSION['user_email']=$email;
                   redirect('Users/resetPw');
                 }
 
@@ -93,6 +99,58 @@
 
               //load the view
               $this->view('users/u_forgotPw',$data);
+            };
+        }
+
+        //load the reset password page   
+        public function resetPw()
+        { 
+          $email= $_SESSION['user_email'];
+          if($_SERVER['REQUEST_METHOD'] == 'POST')
+            {
+              //Form is submitting
+              $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+              //input data
+              $data = [
+                'otp' => trim($_POST['otp']),
+
+                'otp_err' => ''
+              ];
+
+              //check otp entered or not
+              if (empty($data['otp']))
+              {
+                $data['otp_err'] = 'Please enter the otp code' ;
+              }
+              else
+              {
+                // check entered otp and saved otp in the database is same or not
+                if($this->userModel->otpVerify($data['otp'], $email))
+                { 
+                  //otp matched; user is verified
+                  redirect('Users/login');
+                }
+                else
+                {
+                  //user is mismatched; user is not verified
+                  $data['otp_err'] = 'Otp mismactched' ;
+                  flash('otp_mismatched','You have entered incorrect code!');
+                }
+              }
+            }
+            else
+            {
+              //Initial form
+              $data = [
+                'otp' => '' ,
+
+                'otp_err' => ''
+              ];
+
+              //load the view
+              flash('otp_verify','We have sent a password reset otp to your email!');
+              $this->view('users/u_resetPw',$data);
             };
         }
 
