@@ -53,10 +53,10 @@
                         <input type="hidden" id="totalPrice"/>
                     </div>
 
-                    <div class="feature1">
+                    <!-- <div class="feature1">
                         <input type="button" value="Buy Now" class="buynowBtn" onclick="location.href='<?php echo URLROOT; ?>/Customer/buyNow' ">
 
-                    </div>
+                    </div> -->
                     <div class="feature1">
                         <input type="submit" name="add_to_carts" class="AddtoCartBtn" value="Add To Cart">
                     </div>                                                             

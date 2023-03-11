@@ -18,16 +18,17 @@
   <?php flash('deleteCattle_flash') ?>
 </div>
 
-<div id="Stall1" class="tabcontent active">
-  <div class="search-add">
+<div class="search-add">
     <div class="search-area">
       <!-- <form action="<?php echo URLROOT; ?>/Livestock_Manager/searchCattle" method="POST"> -->
       <input type="text" name="search" id="search" class="search" placeholder="Search by COW ID">
       <span class="icon"><i class="fa-solid fa-search"></i></span>
     <!-- </form> -->
     </div>
-    <input type="button" value="Add New Cattle" class="add-btn" onclick="location.href='<?php echo URLROOT; ?>/Livestock_Manager/addCattle' ">
+    <input type="button" value="Add New Cattle" class="add-btn" onclick="location.href='<?php echo URLROOT; ?>/Livestock_Manager/addCattle?Stall=<?=$stall?>' ">
   </div>
+
+<div id="Stall1" class="tabcontent active">
   <div class="container" style="overflow-x: auto;">
     <table>
       <tr>
