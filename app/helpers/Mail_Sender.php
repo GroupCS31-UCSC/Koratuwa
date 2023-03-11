@@ -49,41 +49,39 @@ function sendMail($data){
     }
 }
 
-// function sendMail($email,$user){
-//     $mail = new PHPMailer(true);
-//     $otp=rand(100000,999999);
+function sendOtp($email,$otp,$userName){
+    $mail = new PHPMailer(true);
 
-//     try {
-//         //Server settings
-//         $mail->isSMTP();                                            
-//         $mail->Host       = 'smtp.gmail.com';                       
-//         $mail->SMTPAuth   = true;                                   
-//         $mail->Username   = 'projecttripify@gmail.com';                     
-//         $mail->Password   = MAIL_PASSWORD;                           
-//         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            
-//         $mail->Port       = 465;                                    
+    try {
+        //Server settings
+        $mail->isSMTP();                                            
+        $mail->Host       = 'smtp.gmail.com';                       
+        $mail->SMTPAuth   = true;                                   
+        $mail->Username   = 'koratuwadairy@gmail.com';                     
+        $mail->Password   = 'qveyksinrprmejos';                           
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            
+        $mail->Port       = 465;                                                                       
 
-//         //Recipients
-//         $mail->setFrom('tripify@gmail.com', 'Tripify');
-//         $mail->addAddress($email);     //Add a recipient
+        //Recipients
+        $mail->setFrom('koratuwadairy@gmail.com', 'Koratuwa');
+        $mail->addAddress($email);     //Add a recipient
         
+        //Content
+        $mail->isHTML(true);                              
+        $mail->Subject = 'Password Reset Code';
+        $mail->Body    = "<p> Dear $userName,</p> <h3>Your Password Reset code is $otp.<br></h3>
+        <p> Use this code to verify your account.</p>
+        <br><br>
+        <p>With regards,</p>
+        <b>Koratuwa.</b>";
 
-//         //Content
-//         $mail->isHTML(true);                              
-//         $mail->Subject = 'Verify Your Tripify Email Address';
-//         $mail->Body    = "<p> Dear $user,</p> <h3>Your verification code is $otp.<br></h3>
-//         <p> Use this code to verify your account.</p>
-//         <br><br>
-//         <p>With regards,</p>
-//         <b>Tripify.</b>";
+        $mail->send();
 
-//         $mail->send();
 
-//         return $otp;
-//     } catch (Exception $e) {
-//         echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
-//     }
-// }
+    } catch (Exception $e) {
+        echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+    }
+}
 
 // function sendAdminMail($email,$user){
 //     $mail = new PHPMailer(true);

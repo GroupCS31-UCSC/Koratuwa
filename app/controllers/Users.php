@@ -3,9 +3,11 @@
     class Users extends Controller
     {
       public $userModel;
+
         public function __construct()
         {
           $this->userModel = $this->model('Users_Model');
+
         }
 
         //load the home page
@@ -23,6 +25,294 @@
           $this->view('users/u_selection',$data);
         }
 
+        //load the forgot password page
+        public function forgotPw()
+        {
+          if($_SERVER['REQUEST_METHOD'] == 'POST')
+            {
+              //Form is submitting
+              $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+              //input data
+              $data = [
+                'email' => trim($_POST['email']),
+
+                'email_err' => ''
+              ];
+
+              //validate email
+              if (empty($data['email']))
+              {
+                $data['email_err'] = 'Please enter the email' ;
+              }
+              else
+              {
+                // check email is existing or not in the system as a registered user email
+                if($this->userModel->findUserByEmail($data['email']))
+                {
+                  //user is found
+                }
+                else
+                {
+                  //user is not found
+                  $data['email_err'] = 'User not found' ;
+                  flash('user_notFount','Provided Email is not registered in <i>Koratuwa</i>!');
+                }
+              }
+
+              //If not error found in email
+              if(empty($data['email_err']))
+              {
+                $email=$data['email'];
+                //generate otp
+                $otp=strval(rand(100000,999999));
+                //send an otp to the user
+                if($this->userModel->saveOtpCode($email, $otp))
+                {
+                  //get the user's name
+                  $userName = $this->userModel->getUserName($data['email']);
+                  //call to the send otp function
+                  sendOtp($data['email'],$otp,$userName);
+                  
+                  $_SESSION['user_email']=$email;
+                  redirect('Users/resetPw');
+                }
+
+
+              }
+              else
+              {
+                flash('error','Some Error Occured, Please Try Again! ');
+                $this->view('users/u_forgotPw',$data);
+              }
+
+
+            }
+            else
+            {
+              //Initial form
+              $data = [
+                'email' => '' ,
+
+                'email_err' => ''
+              ];
+
+              //load the view
+              $this->view('users/u_forgotPw',$data);
+            };
+        }
+
+        //load the reset password page   
+        public function resetPw()
+        { 
+          $email= $_SESSION['user_email'];
+          if($_SERVER['REQUEST_METHOD'] == 'POST')
+            {
+              //Form is submitting
+              $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+              //input data
+              $data = [
+                'otp' => trim($_POST['otp']),
+
+                'otp_err' => ''
+              ];
+
+              //check otp entered or not
+              if (empty($data['otp']))
+              {
+                $data['otp_err'] = 'Please enter the otp code' ;
+              }
+              else
+              {
+                // check entered otp and saved otp in the database is same or not
+                if($this->userModel->otpVerify($data['otp'], $email))
+                { 
+                  //otp matched; user is verified
+                  redirect('Users/newPw');
+                }
+                else
+                {
+                  //user is mismatched; user is not verified
+                  $data['otp_err'] = 'Otp mismactched' ;
+                  flash('otp_mismatched','You have entered incorrect code!');
+                }
+              }
+            }
+            else
+            {
+              //Initial form
+              $data = [
+                'otp' => '' ,
+
+                'otp_err' => ''
+              ];
+
+              //load the view
+              flash('otp_verify','We have sent a password reset otp to your email '. $email);
+              $this->view('users/u_resetPw',$data);
+            };
+        }
+
+
+        //load the new pw entering password page   
+        public function newPw()
+        { 
+          $email= $_SESSION['user_email'];
+          if($_SERVER['REQUEST_METHOD'] == 'POST')
+            {
+              //Form is submitting
+              $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+              //input data
+              $data = [
+                'password' => trim($_POST['password']),
+                'confirm_password' => trim($_POST['confirm_password']),
+
+                'password_err' => '',
+                'confirm_password_err' => ''
+              ];
+
+              //check password entered or not
+              if (empty($data['password']))
+              {
+                $data['password_err'] = 'Please enter a password' ;
+              }
+              else if (empty($data['confirm_password']))
+              {
+                $data['confirm_password_err'] = 'Please confirm the password' ;
+              }
+              else
+              {
+                if($data['password'] != $data['confirm_password'])
+                {
+                  $data['confirm_password_err'] = 'Re-entered Password is not matching' ;
+                }
+              }
+
+              //if no errors then update the password
+              if(empty($data['password_err']) && empty($data['confirm_password_err']))
+              {
+                $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
+
+                if($this->userModel->setNewPw($email,$data['password']))
+                {
+                  flash('pw_changed','Password changed successfully! Enter your email and new password here to login');
+                  redirect('Users/login');
+                }
+                else{
+                  die('Something went wrong');
+                }
+              }
+              else
+              {
+                //load the form again
+                  $this->view('users/u_newPw',$data);
+              }
+            }
+            else
+            {
+              //Initial form
+              $data = [
+                'password' => '' ,
+                'confirm_password' => '',
+
+                'password_err' => '',
+                'confirm_password_err' => ''
+              ];
+
+              //load the view
+              flash('new_password','Please create a new password and enter it twice below.');
+              $this->view('users/u_newPw',$data);
+            };
+      
+          }
+
+
+        //load the change password page   
+        public function changePw($email)
+        { 
+          if($_SERVER['REQUEST_METHOD'] == 'POST')
+            {
+              //Form is submitting
+              $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+              //input data
+              $data = [
+                'old_password' => trim($_POST['old_password']),
+                'password' => trim($_POST['password']),
+                'confirm_password' => trim($_POST['confirm_password']),
+
+                'old_password_err' => '',
+                'password_err' => '',
+                'confirm_password_err' => ''
+              ];
+
+              //check password entered or not
+              if (empty($data['old_password']))
+              {
+                $data['old_password_err'] = 'Please enter your current password' ;
+              }
+              //check the current password is wrong
+              else if($this->userModel->checkCurrentPw($data['old_password'],$email))
+              {
+                $data['old_password_err'] = 'Current Password is Wrong!' ;
+              }
+              else if (empty($data['password']))
+              {
+                $data['password_err'] = 'Please enter a password' ;
+              }
+              else if (empty($data['confirm_password']))
+              {
+                $data['confirm_password_err'] = 'Please confirm the password' ;
+              }
+              else
+              {
+                if($data['password'] != $data['confirm_password'])
+                {
+                  $data['confirm_password_err'] = 'Re-entered Password is not matching' ;
+                }
+              }
+
+              //if no errors then update the password
+              if(empty($data['old_password_err']) && empty($data['password_err']) && empty($data['confirm_password_err']))
+              {
+                $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
+
+                if($this->userModel->setNewPw($email,$data['password']))
+                {
+                  flash('pw_changed','Password changed successfully! Enter your email and new password here to login');
+                  redirect('Users/login');
+                }
+                else{
+                  die('Something went wrong');
+                }
+              }
+              else
+              {
+                //load the form again
+                  $this->view('users/u_changePw',$data);
+              }
+            }
+            else
+            {
+              //Initial form
+              $data = [
+                'old_password' => '',
+                'password' => '' ,
+                'confirm_password' => '',
+
+                'old_password_err' => '',
+                'password_err' => '',
+                'confirm_password_err' => ''
+              ];
+
+              //load the view
+              flash('new_password','Please enter your existing password and new password twice below.');
+              $this->view('users/u_changePw',$data);
+            };
+
+        }
 
         //register suppliers
         public function registerSupplier()
