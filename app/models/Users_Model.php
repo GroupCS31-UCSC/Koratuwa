@@ -45,6 +45,7 @@
 
 		}
 
+		//check entered otp and saved otp codes are matched or not
 		public function otpVerify($otp, $email)
 		{
 			$enteredOtp= strval($otp);
@@ -61,9 +62,24 @@
 			}
 			else{
 				return false;
-			}
+			}	
+		}
 
-			
+		//save newly updated password into the db
+		public function setNewPw($email, $password)
+		{
+			$this->db->query('UPDATE user SET password=:pw WHERE email=:email ');
+			$this->db->bind(':email', $email);
+			$this->db->bind(':pw', $password);
+
+			if($this->db->execute())
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
 		}
 
 		//get the user name of provided email

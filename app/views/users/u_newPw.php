@@ -14,19 +14,22 @@
 	<div class="login-container">
 
 		<div class="form-header">
-			<center><h1>OTP Verification</h1></center>
+			<center><h1>Enter New Password</h1></center>
 		</div>
         
-        <?php flash('otp_verify') ?>
+        <?php flash('new_password') ?>		
 
-        <?php flash('otp_mismatched') ?>
-		
+		<form action="<?php echo URLROOT; ?>/Users/newPw" method="POST"> 
 
-		<form action="<?php echo URLROOT; ?>/Users/resetPw" method="POST"> 
+			<!--password-->
+            <div class="form-input-title">New Password</div>
+            <input type="password" name="password" id="password" class="password" value="<?php echo $data['password']; ?>">
+            <span class="form-invalid"><?php echo $data['password_err']; ?></span>
 
-			<!--email-->
-			<input type="text" name="otp" id="otp" placeholder="Enter Code" class="otp" value="<?php echo $data['otp']; ?>">
-			<span class="form-invalid"><?php echo $data['otp_err']; ?></span>
+            <!--confirm password-->
+            <div class="form-input-title">Confirm password</div>
+            <input type="password" name="confirm_password" id="confirm_password" class="confirm_password" value="<?php echo $data['confirm_password']; ?>">
+            <span class="form-invalid"><?php echo $data['confirm_password_err']; ?></span>
 
 			<br>
 			<input type="submit" value="Send" class="submitBtn">

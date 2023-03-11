@@ -17,6 +17,7 @@
 			<center><h1>LOG IN</h1></center>
 		</div>
 		<br>
+		<?php flash('pw_changed') ?>
 		
 
 		<form action="<?php echo URLROOT; ?>/Users/login" method="POST">
