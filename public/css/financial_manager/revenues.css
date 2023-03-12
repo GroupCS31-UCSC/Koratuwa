@@ -1,91 +1,31 @@
-.addBtn {
-    margin-top: -0px;
-    margin-right: 80px;
-    margin-bottom: 30px;
-
-}
-
-.img-bg{
-  height: 500px;
-  width: 100%;
-  margin: auto;
-  display: block;
-  z-index: -1;
-  margin-bottom: 0;
-
-}
-
-h2{
-  margin-left: 40%;
-  margin-top: 20px;
-  position: absolute;
-  font-size: 2rem;
-  color:#444;
+* {
+    box-sizing: border-box;
+  }
   
-  text-transform: uppercase;
-  text-align: center;
+  /* Create three unequal columns that floats next to each other */
+  .column {
+    float: left;
+    padding: 10px;
+    height: 700px; /* Should be removed. Only for demonstration */
+  }
   
+  .left {
+    width: 30%;
+  }
 
-}
+  .middle {
+    width: 40%;
+  }
 
-table{
-  margin-left: 50px;
-  margin-bottom: 50px;
-  margin-top: 100px;
-
-}
-td {
-    text-align: center;
-}
-
-/* .add-btn:hover {
-    background: #3cb0fd;
-    text-decoration: none;
-    cursor: pointer;
-} */
- /*make it responsive design*/
-
-@media (max-width: 991px) {
-    .graphBox {
-        grid-template-columns: 1fr;
-        height: auto;
-    }
-    .navigation {
-        left: -275px;
-    }
-    .navigation.active {
-        width: 275px;
-        left: 0;
-    }
-    .main {
-        width: 100%;
-        left: 0;
-    }
-    .main.active {
-        left: 275px;
-    }
-}
-
-
-  .viewBtn {
-    border-radius: 28px;
-    box-shadow: 0px 2px 3px #666666;
-    font-family: Arial;
-    color: black;
-    font-size: 15px;
-    font: bold 20px;
-    background: #28c728;
-    padding: 10px 18px 10px 20px;
-    text-decoration: none;
-    border-color: #28c728;
-    margin-left: 0px;
-    margin-right: 120px;
-    /*z-index: 1;*/
-}
-
-.viewBtn:hover {
-    background: #12fc0a;
-    text-decoration: none;
-    cursor: pointer;
-}
-
+   .right {
+    width: 30%;
+  }
+  
+ 
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }

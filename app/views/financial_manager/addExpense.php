@@ -6,16 +6,17 @@
 <div class="row">
   <div class="column left">
  
+  <div class="graphBox">
 
-      <div class="box">
-        <label><center>Number of Productions</center></label>
-        <canvas id="ch2"></canvas>
-      </div>
+<div class="box">
+  <label><center>Total Production</center></label>
+  <canvas id="ch1"></canvas>
+</div>
 
-      
-      <div class="total">
-      Total expenses for the month:
-      </div>
+
+
+</div>
+
   </div>
   <div class="column right">
     
