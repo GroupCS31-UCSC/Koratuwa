@@ -97,42 +97,14 @@
     color: white;
 }
 
-.container {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-}
-
-.fpw {
-    display: block;
-    text-align: left;
-    margin-left: 0px;
-    text-decoration: none;
-    color: #999;
-    font-size: 0.9rem;
-    transition: 0.3s;
-    border: none;
-}
-
-.fpw:hover {
+p {
+    /* border: 1px solid red; */
+    text-align: center;
+    margin: 0 2px 5px 2px;
+    padding: 2px 2px 2px 2px;
+    font-size: 2.5vh;
+    font-family: "Comic Sans MS", sans-serif;
     color: #0A2558;
-    cursor: pointer;
-}
-
-.newAcc {
-    display: block;
-    text-align: right;
-    margin-right: 0px;
-    text-decoration: none;
-    color: #999;
-    font-size: 0.9rem;
-    transition: 0.3s;
-    border: none;
-}
-
-.newAcc:hover {
-    color: #0A2558;
-    cursor: pointer;
 }
 
 .msg-flash {

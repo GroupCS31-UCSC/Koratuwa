@@ -27,6 +27,94 @@
 			}
 		}
 
+		//save generated otp code in the database
+		public function saveOtpCode($email, $otp)
+		{
+			$this->db->query('UPDATE user SET otp_code=:otp WHERE email=:email ');
+			$this->db->bind(':email', $email);
+			$this->db->bind(':otp', $otp);
+
+			if($this->db->execute())
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+
+		}
+
+		//check entered otp and saved otp codes are matched or not
+		public function otpVerify($otp, $email)
+		{
+			$enteredOtp= strval($otp);
+
+			$this->db->query('SELECT otp_code FROM user WHERE email = :email');
+			$this->db->bind(':email', $email);
+
+			$row = $this->db->single();
+			$savedOtp=strval($row->otp_code);
+
+			if($enteredOtp == $savedOtp)
+			{
+				return true;
+			}
+			else{
+				return false;
+			}	
+		}
+
+		//save newly updated password into the db
+		public function setNewPw($email, $password)
+		{
+			$this->db->query('UPDATE user SET password=:pw WHERE email=:email ');
+			$this->db->bind(':email', $email);
+			$this->db->bind(':pw', $password);
+
+			if($this->db->execute())
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+
+		//check entered pw and current pw is mismatched
+		public function checkCurrentPw($oldPw,$email)
+		{
+			$this->db->query('SELECT password FROM user WHERE email = :email');
+			$this->db->bind(':email', $email);
+
+			$row = $this->db->single();
+
+			$hashed_password= $row->password;
+			
+			if(password_verify($oldPw, $hashed_password))
+			{
+				return false;
+			}
+			else    //entered pw is wrong, it is not the current pw of the user
+			{
+				return true;
+			}
+			
+		}
+
+		//get the user name of provided email
+		public function getUserName($email)
+		{
+			$this->db->query('SELECT user_name FROM user WHERE email = :email');
+			$this->db->bind(':email', $email);
+
+			$row = $this->db->single();
+
+			return $row->user_name;
+			
+		}
+
 		//create id for supplier
 		public function generateSupplierId()
 		{

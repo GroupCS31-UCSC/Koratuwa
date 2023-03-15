@@ -20,7 +20,7 @@
         </a>
       </li>
       <li>
-        <a href="<?php echo URLROOT; ?>/Financial_Manager/viewExpense">
+        <a href="<?php echo URLROOT; ?>/Financial_Manager/addExpense">
           <span class="icon"><i class="fa-solid fa-file-export"></i></span>
           <span class="title"> Expenses</span>
         </a>
@@ -67,7 +67,7 @@
                                     <i class="fa-solid fa-user"></i>
                                     <p>View Profile</p>
                                 </a>   
-                                <a href="#" class="sub-menu-link">
+                                <a href="<?php echo URLROOT; ?>/Users/changePw/<?php echo $_SESSION['user_email']; ?>" class="sub-menu-link" class="sub-menu-link">
                                     <i class="fa-solid fa-lock"></i>
                                     <p>Change Password</p>
                                 </a>
