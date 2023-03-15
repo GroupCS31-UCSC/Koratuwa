@@ -1,41 +1,57 @@
-.addBtn {
-    margin-top: -0px;
-    margin-right: 80px;
-    margin-bottom: 30px;
-
-}
-
-.img-bg{
-  height: 500px;
-  width: 100%;
-  margin: auto;
-  display: block;
-  z-index: -1;
-  margin-bottom: 0;
-
-}
+* {
+    box-sizing: border-box;
+  }
+  
+  /* Create two unequal columns that floats next to each other */
+  .column {
+    float: left;
+    padding: 10px;
+    height: 700px; /* Should be removed. Only for demonstration */
+  }
+  
+  .left {
+    width: 40%;
+    background-color: #bbb;
+  }
+  
+  .right {
+    width: 60%;
+    background-color: WHITE;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
 
 h2{
-  margin-left: 40%;
-  margin-top: 430px;
+
+   margin-left: 50px;
+  margin-top: 10px;
   position: absolute;
   font-size: 2rem;
   color:#444;
   
   text-transform: uppercase;
-  text-align: center;
+  text-align: center; 
   
 
 }
 
 table{
   margin-left: 50px;
-  margin-bottom: 50px;
-  margin-top: 0px;
+    margin-bottom: 10px; 
+  margin-top: 0px; 
 
 }
+table th{
+    background-color:#aaa;
+}
 td {
-    text-align: center;
+   background-color: white;
+  
 }
 
 /* .add-btn:hover {
@@ -67,7 +83,7 @@ td {
 }
 
 
-  .viewBtn {
+  /* .viewBtn {
     border-radius: 28px;
     box-shadow: 0px 2px 3px #666666;
     font-family: Arial;
@@ -80,13 +96,36 @@ td {
     border-color: #28c728;
     margin-left: 0px;
     margin-right: 120px;
-    /*z-index: 1;*/
+    z-index: 1;
 }
 
 .viewBtn:hover {
     background: #12fc0a;
+    text-decoration: none; 
+    cursor: pointer;
+}*/
+
+.paddBtn {
+    width: 130px;
+    background: #04086B;
+    -webkit-border-radius: 30;
+    -moz-border-radius: 30;
+    border-radius: 30px;
+    border: none;
+    color: #ffffff;
+    font-size: 17px;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+    cursor: pointer;
+    margin-left: 700px;
+    margin-top: 10px;
+    margin-bottom: 0px; 
+   
+}
+
+.paddBtn:hover {
+    background: #3cb0fd;
     text-decoration: none;
     cursor: pointer;
 }
-
 

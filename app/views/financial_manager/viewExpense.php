@@ -7,15 +7,31 @@
 <?php flash('updateExpense_flash') ?>
 <?php flash('deleteExpense_flash') ?>
 
-<div class="section">
+<!-- <div class="section">
 <h2>Expenses</h2>
-<img class="img-bg" src="<?php echo URLROOT; ?>/public/img/ex.png" alt="no"> 
+
+</div> -->
+<div class="row">
+  <div class="column left">
+ 
+  <div class="graphBox">
+
+<div class="box">
+  <label><center>Expenses</center></label>
+  <canvas id="ch2"></canvas>
+</div>
+
+
 
 </div>
 
-<session>
-  <div class="container" >
-</form>
+  </div>
+
+  
+  <div class="column right">
+  <h2>EXPENSES</h2>
+  <input type="button" value="Add New" class="paddBtn" onclick="location.href='<?php echo URLROOT; ?>/financial_Manager/addExpense' ">
+
 
     <table>
       <tr>
@@ -24,7 +40,7 @@
         <th>Description</th>
         <th>Vendor</th>
         <th>Amount </th>
-        <th>Action</th>
+        <!-- <th>Action</th> -->
       </tr>
 
       <?php foreach ($data['expenseView'] as $expense) : ?>
@@ -34,27 +50,28 @@
         <td><?php echo $expense->description; ?></td>
         <td><?php echo $expense->vendor; ?></td>
         <td><?php echo $expense->amount; ?></td>
-        <td>
+         <!--<td>
+      <a href="<?php echo URLROOT?>/Financial_Manager/updateExpense/<?php ?>"><button class="updateBtn" title="Update"><i class="fa-regular fa-pen-to-square"></i></button></a>
+      <a href="<?php echo URLROOT?>/Financial_Manager/deleteExpense/<?php ?>"><button class="deleteBtn" title="Delete"><i class="fa-regular fa-trash-can"></i></button></a> -->
         <div class="table-btns">
           <!-- <a href="<?php echo URLROOT?>/financial_Manager/updateExpense/"><button class="updateBtn">UPDATE</button></a>
           <a href="<?php echo URLROOT?>/financial_Manager/deleteExpense/"><button class="deleteBtn">DELETE</button></a> -->
 
-          <a href="<?php echo URLROOT?>/financial_Manager/viewExpense/"><button class="viewBtn">View Recipt</button></a>
          
         </div>
     </td>
-    <!-- <div class="img">
-        <img src="<?php echo UPLOADS . $expense->image ?>" width='200' height='200'>
-      </div> -->
+    
       </tr><br>
       <?php endforeach; ?>
     </table>
 
-    <input type="button" value="Add New Expense" class="addBtn" onclick="location.href='<?php echo URLROOT; ?>/financial_Manager/addExpense' ">
+   
 
 
 
-
-
+  
+      </div>
+</div>
 
 <?php require APPROOT.'/views/include/footer.php'; ?>
+<script src="<?php echo URLROOT; ?>/js/fm.js"></script>
