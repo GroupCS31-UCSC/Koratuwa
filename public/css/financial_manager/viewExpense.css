@@ -10,12 +10,12 @@
   }
   
   .left {
-    width: 40%;
+    width: 50%;
     background-color: #bbb;
   }
   
   .right {
-    width: 60%;
+    width: 50%;
     background-color: WHITE;
   }
   
@@ -117,7 +117,7 @@ td {
     padding: 10px 20px 10px 20px;
     text-decoration: none;
     cursor: pointer;
-    margin-left: 700px;
+    margin-left: 550px;
     margin-top: 10px;
     margin-bottom: 0px; 
    

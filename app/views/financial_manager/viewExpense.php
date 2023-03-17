@@ -31,14 +31,12 @@
   <div class="column right">
   <h2>EXPENSES</h2>
   <input type="button" value="Add New" class="paddBtn" onclick="location.href='<?php echo URLROOT; ?>/financial_Manager/addExpense' ">
-
-
     <table>
       <tr>
         <th>Expense ID</th>
         <th>Date</th>
         <th>Description</th>
-        <th>Vendor</th>
+        <!-- <th>Vendor</th> -->
         <th>Amount </th>
         <!-- <th>Action</th> -->
       </tr>
@@ -48,7 +46,7 @@
         <td><?php echo $expense->expense_id; ?></td>
         <td><?php echo $expense->date; ?></td>
         <td><?php echo $expense->description; ?></td>
-        <td><?php echo $expense->vendor; ?></td>
+        <!-- <td><?php echo $expense->vendor; ?></td> -->
         <td><?php echo $expense->amount; ?></td>
          <!--<td>
       <a href="<?php echo URLROOT?>/Financial_Manager/updateExpense/<?php ?>"><button class="updateBtn" title="Update"><i class="fa-regular fa-pen-to-square"></i></button></a>

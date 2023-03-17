@@ -3,10 +3,52 @@
 <link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/public/css/financial_manager/revenues.css">
 
 
-
-
-
 <div class="row">
+  <div class="column left">
+
+  <h2>REVENUES</h2>
+ 
+
+
+  <table>
+   <tr>
+     <th>Revenue ID</th>
+     <th>Date</th>
+     <th>Source of Revenue</th>
+     <th>Amount </th>
+   
+   </tr>
+
+ 
+ </table>
+
+ 
+ 
+
+  </div>
+
+  
+  <div class="column right">
+
+    
+  <div class="graphBox">
+
+<div class="box">
+  <label><center>REVENUES</center></label>
+  <canvas id="ch2"></canvas>
+</div>
+
+
+
+</div>
+
+
+  
+      </div>
+</div>
+
+
+<!-- <div class="row">
   <div class="column left" style="background-color:#aaa;">
     <h2>ONLINE REVENUES</h2>
     <p>Some text..</p>
@@ -17,6 +59,11 @@
     <div class="box">
         <label><center>Number of Productions</center></label>
         <canvas id="ch2"></canvas>
+
+        <table>
+   
+      </tr>
+
       </div>
 
   </div>
@@ -24,7 +71,7 @@
     <h2>ONSITE REVENUES</h2>
     <p>Some text..</p>
   </div>
-</div>
+</div> -->
 
 
 

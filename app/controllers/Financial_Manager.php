@@ -1,5 +1,7 @@
 <?php
-
+function alert($msg) {
+  echo "<script type='text/javascript'>alert('$msg');</script>";
+}
     class Financial_Manager extends Controller
     {
       public $financialManagerModel;
@@ -30,7 +32,18 @@
         }
 
         public function reports() {
-          $data = [];
+          
+          $from = isset($_GET['from']) ? $_GET['from'] : date('Y-m-d');
+          $to = isset($_GET['to']) ? $_GET['to'] : date('Y-m-d');
+
+          $reportsView= $this->financialManagerModel->viewReports($from, $to);
+
+          $data = [
+            'reportsView' => $reportsView,
+            'from' => $from,
+            'to' => $to,
+          ];
+
           $this->view('financial_manager/reports',$data);
         }
         public function addExpense()
