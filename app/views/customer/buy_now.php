@@ -65,11 +65,11 @@
     <div>
       <input type="radio" name="dbt" value="cd"> Cash on Delivery
     </div>
-    <div>
+    <!-- <div>
       <input type="radio" name="dbt" value="cd"> Paypal <span>
       <img src="https://www.logolynx.com/images/logolynx/c3/c36093ca9fb6c250f74d319550acac4d.jpeg" alt="" width="50">
       </span>
-    </div>
+    </div> -->
     <button type="button">Place Order</button>
   </div><!-- Yorder -->
  </div>
