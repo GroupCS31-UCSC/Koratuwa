@@ -3,53 +3,7 @@
 <link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/public/css/cashier/cashier_home.css">
 
 
-<!--cards-->
-<!-- <session class="cardBox">
-  <div class="container">
-    <div class="card">
-      <div>
-        <div class="cardName">Online Orders</div>
-        <div class="numbers">100</div>
-        <div class="day"><div class="circle"></div><label for="">Pending</label></div>
-      </div>
-    </div>
-    <div class="card">
-      <div>
-        <div class="cardName">Online Orders</div>
-        <div class="numbers">30</div>
-        <div class="day"><div class="circle"></div><label for="">Delivered</label></div>
-      </div>
-    </div>
-    <div class="card">
-      <div>
-        <div class="cardName">Online Orders</div>
-        <div class="numbers">90</div>
-        <div class="day">
-          <div class="circle"></div>
-          <label for="">Processing</label>
-        </div>
-      </div>
-    </div>
-    <div class="card">
-      <div>
-        <div class="cardName">Onsite Sales</div>
-        <div class="numbers">30</div>
-        <div class="day"><div class="circle"></div><label for="">For Today</label></div>
-      </div>
-    </div>
-  </div>
-  
-</session> -->
-
-
-<div class="container">
-  <div class="report-area">
-    <h3>Shortcut Report</h3>
-    <a href="#profitReport">
-      View Report
-    </a>
-  </div>
-
+<!-- <div class="container">
   <div class="cardBox">
     <div class="card">
       <div>
@@ -88,6 +42,42 @@
     <canvas id="type"></canvas>
   </div>
 
+</div> -->
+
+<div class="ongoing">
+  <div class="card-header">
+    <h3>Ongoing Orders</h3>
+
+  </div>
+  <div class="card-body">
+    <table>
+      <thead>
+        <tr>
+          <th scope="col">Order ID</th>
+          <th scope="col">Customer ID</th>
+          <th scope="col">Date</th>
+          <th scope="col">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php foreach($data['ongoing'] as $ongoing): ?>
+        <tr>
+          <td data-label="Order ID"><?php echo $ongoing->order_id; ?></td>
+          <td data-label="Customer ID"><?php echo $ongoing->customer_id; ?></td>
+          <td data-label="Date"><?php echo $ongoing->date; ?></td>
+          <td>
+          <?php if($ongoing->status == 'ongoing') : ?>
+            <span class="status ongoing">ongoing</span>
+          <?php elseif($ongoing->status == 'delivered') : ?>
+            <span class="status delivered">delivered</span>
+          <?php else : ?>
+            <span class="status cancelled">cancelled</span>
+          <?php endif; ?>
+          </td>
+        </tr>
+        <?php endforeach; ?>
+
+      </tbody>
 </div>
 
 
