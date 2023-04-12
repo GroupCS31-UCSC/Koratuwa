@@ -7,15 +7,7 @@
         <div class="wrapper-left">
                 <form action="<?php echo URLROOT; ?>/Supplier/sup_feedback" method="POST">
                     <h1>Give Your Feedback</h1>
-                    
-                    <!-- <div class="id">
-                        <input type="text" placeholder="Full name">
-                        <i class="far fa-user"></i>
-                    </div>
-                    <div class="id">
-                        <input type="email" placeholder="Email address" >
-                        <i class="far fa-envelope"></i>
-                    </div> -->
+
                     <div class="id">
                         <textarea name="feedback" id="feedback" cols="30" rows="10" placeholder="Enter your opinion" value="<?php echo $data['feedback']; ?>"></textarea>
                         <!-- <input type="text" name="feedback" id="feedback" class="feedback" autocomplete="off" value="<?php echo $data['feedback']; ?>"> -->

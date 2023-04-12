@@ -135,33 +135,56 @@
     }
 
     //generate id for feedbacks
+    // public function generateFeedbackId()
+		// {
+		// 	$this->db->query('SELECT * FROM sup_feedback order by feedback_id desc limit 1');
+		// 	$row = $this->db->single();
+		// 	$lastId=$row->feedback_id;
+
+		// 	if($lastId == '')
+		// 	{
+		// 		$id='F101';
+		// 	}
+		// 	else
+		// 	{
+		// 		$id = substr($lastId,1);
+		// 		$id = intval($id);
+		// 		$id = "F".($id+3);
+		// 	}
+
+		// 	return $id;
+		// }
     public function generateFeedbackId()
-		{
-			$this->db->query('SELECT * FROM sup_feedback order by feedback_id desc limit 1');
-			$row = $this->db->single();
-			$lastId=$row->feedback_id;
-
-			if($lastId == '')
-			{
-				$id='F101';
-			}
-			else
-			{
-				$id = substr($lastId,1);
-				$id = intval($id);
-				$id = "F".($id+1);
-			}
-
-			return $id;
-		}
+    {
+        $this->db->query('SELECT * FROM sup_feedback order by feedback_id desc limit 1');
+        $row = $this->db->single();
+    
+        if ($row !== false && is_object($row)) {
+            $lastId = $row->feedback_id;
+        } else {
+            $lastId = '';
+        }
+    
+        if ($lastId == '') {
+            $id = 'F101';
+        } else {
+            $id = substr($lastId, 1);
+            $id = intval($id);
+            $id = "F" . ($id + 3);
+        }
+    
+        return $id;
+    }
+        
     public function supFeedback($data)
     {
       // $data['date'] = date("Y-m-d");
-      $this->db->query('INSERT INTO  sup_feedback(feedback_id, supplier_id, sup_name, feedback) VALUES(:Fid, :supId, :supName, :feedback)');
-
+      // $this->db->query('INSERT INTO  sup_feedback(feedback_id, supplier_id, sup_name, feedback) VALUES(:Fid, :supId, :supName, :feedback)');
+      $this->db->query('INSERT INTO  sup_feedback(feedback_id, supplier_id, feedback) VALUES(:Fid, :supId, :feedback)');
+      
       $this->db->bind(':Fid', $data['feedback_id']);
       $this->db->bind(':supId', $_SESSION['user_id']);
-      $this->db->bind(':supName', $_SESSION['user_name']);
+      // $this->db->bind(':supName', $_SESSION['user_name']);
       $this->db->bind(':feedback', $data['feedback']);
 
       //execute
