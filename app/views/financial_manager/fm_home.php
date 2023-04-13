@@ -5,7 +5,7 @@
 
 
 <!--cards-->
-<div class="cardBox">
+<!-- <div class="cardBox">
   <div class="card">
     <div>
       <div class="cardName">Total Products</div>
@@ -48,7 +48,7 @@
 
     </div>
 
-    <!--Add charts-->
+    -Add charts
     <div class="graphBox">
 
       <div class="box">
@@ -61,7 +61,7 @@
         <canvas id="ch2"></canvas>
       </div>
 
-    </div>
+    </div> -->
 
   <!-- </div> -->
 

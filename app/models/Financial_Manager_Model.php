@@ -59,6 +59,21 @@
       return $result;
     }
 
+    public function getCattleByCowID($cowID) {
+      $this->db->query('SELECT * FROM cattle WHERE cow_id = "'.$cowID.'"');
+      $result = $this->db->single();
+      return $result;
+    }
+
+    
+    public function viewReports($from, $to) {
+      $this->db->query('SELECT * FROM expense WHERE date > "'.$from.'" and date < "'.$to.'"');
+
+      $result = $this->db->resultSet();
+
+      return $result;
+    }
+
     public function updateExpense($data)
     {
       $this->db->query('UPDATE expense set date=:dat,description=:des,vendor=:ven,amount=:amo WHERE expense_id=$eId');

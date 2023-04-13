@@ -3,23 +3,65 @@
 <?php require APPROOT.'/views/financial_manager/fm_dashboard.php'; ?>
 <!-- ______________________________________________________________________________________________________-->
 
-<div class="row">
+<!-- <div class="row">
   <div class="column left">
  
+  <div class="graphBox">
 
-      <div class="box">
-        <label><center>Number of Productions</center></label>
-        <canvas id="ch2"></canvas>
-      </div>
+<div class="box">
+  <label><center>Expenses</center></label>
+  <canvas id="ch2"></canvas>
+</div>
 
-      
-      <div class="total">
-      Total expenses for the month:
-      </div>
+
+
+</div>
+
   </div>
-  <div class="column right">
-    
+  <div class="column right"> -->
   <div class="form-container">
+
+<div class="form-header">
+  <center><h1>Add new Expense</h1></center>
+</div>
+<br>
+
+<form action="<?php echo URLROOT; ?>/Financial_Manager/addExpense" method="POST" enctype="multipart/form-data"> 
+
+  
+<div class="form-input-title">Date</div>
+  <span class="form-invalid"><?php echo $data['dat_err']; ?></span>
+<input type="date" name="dat" id="dat" class="dat" value="<?php echo $data['dat']; ?>">
+
+
+  <div class="form-input-title">Description</div>
+  <span class="form-invalid"><?php echo $data['des_err']; ?></span>
+  <input type="text" name="des" id="des" class="des" value="<?php echo $data['des']; ?>">
+
+
+  <div class="form-input-title">Vendor</div>
+  <span class="form-invalid"><?php echo $data['ven_err']; ?></span>
+  <input type="text" name="ven" id="ven" class="ven" value="<?php echo $data['ven']; ?>">
+
+  <div class="form-input-title">Amount</div>
+  <span class="form-invalid"><?php echo $data['amo_err']; ?></span>
+  <input type="number" name="amo" id="amo" class="amo" value="<?php echo $data['amo']; ?>">
+
+
+  <!-- <div class="form-input-title">Recipt</div>
+  <span class="form-invalid"><?php echo $data['image_err']; ?></span>
+  <input type="file" name="image" id="image" class="image" value="<?php echo $data['image']; ?>"><br> --> 
+
+
+
+   <br>
+  <input type="submit" value="Submit" class="submitBtn"> 
+
+
+</form>
+</div>
+    
+  <!-- <div class="form-container">
 
 	<div class="form-header">
 		<center><h1>Add Monthly Expenses</h1></center>
@@ -75,53 +117,11 @@
 
 
 	</form>
-  </div>
-</div>
-
+ -->
 
 <!-- 
 
-<div class="form-container">
 
-	<div class="form-header">
-		<center><h1>Add new Expense Record</h1></center>
-	</div>
-	<br>
-
-	<form action="<?php echo URLROOT; ?>/Financial_Manager/addExpense" method="POST" enctype="multipart/form-data"> -->
-
-		
-	<!-- <div class="form-input-title">Date</div>
-    <span class="form-invalid"><?php echo $data['dat_err']; ?></span>
-	<input type="date" name="dat" id="dat" class="dat" value="<?php echo $data['dat']; ?>">
-
- 
-    <div class="form-input-title">Description</div>
-    <span class="form-invalid"><?php echo $data['des_err']; ?></span>
-    <input type="text" name="des" id="des" class="des" value="<?php echo $data['des']; ?>">
-
-
-    <div class="form-input-title">Vendor</div>
-    <span class="form-invalid"><?php echo $data['ven_err']; ?></span>
-    <input type="text" name="ven" id="ven" class="ven" value="<?php echo $data['ven']; ?>">
-
-    <div class="form-input-title">Amount</div>
-    <span class="form-invalid"><?php echo $data['amo_err']; ?></span>
-    <input type="number" name="amo" id="amo" class="amo" value="<?php echo $data['amo']; ?>">
-
-
-    <div class="form-input-title">Recipt</div>
-    <span class="form-invalid"><?php echo $data['image_err']; ?></span>
-    <input type="file" name="image" id="image" class="image" value="<?php echo $data['image']; ?>"><br> -->
-
-
-
-		<!-- <br>
-		<input type="submit" value="Submit" class="submitBtn"> -->
-
-
-	</form>
-</div>
 
 <?php require APPROOT.'/views/include/footer.php'; ?>
 <script src="<?php echo URLROOT; ?>/js/fm.js"></script>
