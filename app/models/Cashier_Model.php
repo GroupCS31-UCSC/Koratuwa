@@ -6,6 +6,30 @@
       $this->db = new Database();
     }
 
+    // public function get_todayOrderView() {
+    //   $this->db->query('SELECT * FROM online_order WHERE date=CURDATE()');
+
+    //   $result = $this->db->resultSet();
+
+    //   return $result;
+    // }
+
+    // public function get_lastDate() {
+    //   $this->db->query('SELECT date FROM online_order order by date desc limit 1');
+
+    //   $row = $this->db->single();
+
+    //   return $row->date;
+    // }
+
+    public function get_ongoingOrderView() {
+      $this->db->query('SELECT order_id, date, customer_id, status FROM online_order WHERE status="ongoing"');
+
+      $result = $this->db->resultSet();
+
+      return $result;
+    }
+
     public function findSaleId() {
       $this->db->query('SELECT * FROM sale order by sale_id desc limit 1');
       $row = $this->db->single();
@@ -60,6 +84,15 @@
       $row = $this->db->single();
       return $row;
     }
+
+    public function getOngoingOrder() {
+      $this->db->query('SELECT * FROM online_order WHERE status = "ongoing"');
+
+      $result = $this->db->resultSet();
+
+      return $result;
+    }
+
 
     // public function addSale($data) {
     //   // Check if customer exists

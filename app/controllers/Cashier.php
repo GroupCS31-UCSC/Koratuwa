@@ -14,7 +14,11 @@
         }
 
         public function cashierHome() {
-          $data = [];
+          $ongoing= $this->cashierModel->get_ongoingOrderView();
+
+          $data = [
+            'ongoing' => $ongoing
+          ];
           $this->view('Cashier/cashier_home',$data);
         }
 
@@ -47,6 +51,14 @@
           $data = [];
           $this->view('Cashier/updateOrderStatus',$data);
         }
+
+        // public function viewOngoingOrders() {
+        //   $orderView= $this->cashierModel->getOngingOrder();
+        //   $data = [
+        //     'orderView' => $orderView
+        //   ];
+        //   $this->view('Cashier/viewOngoingOrders',$data);
+        // }
 
     }
 
