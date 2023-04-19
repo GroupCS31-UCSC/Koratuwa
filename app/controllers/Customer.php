@@ -143,6 +143,7 @@
         }
 
         public function deleteCartItem($time){
+          
           if($this->customerModel->dltCartItems($time))
           {
             redirect('customer/cart');

@@ -21,9 +21,12 @@
                             <h4>RS.<?php echo $product->total_price?></h4>
                             <h4>Quantity: <?php echo $product->quantity?></h4>
                         </div>
+                       
                     </div>
-            
-                    <a href="<?php echo URLROOT?>/Customer/deleteCartItem/<?php echo $product->timestamp ?>" ><button class="clear-button"><i class="fa-solid fa-trash"></i></button></a>
+                    <div class="feature1">
+                        <button class="clear-button"><a href="<?php echo URLROOT?>/Customer/deleteCartItem/<?php echo $product->timestamp ?>" ><i class="fa-solid fa-trash"></i></button></a>
+                    </div>
+                    
                 </div>
                 
                 <?php

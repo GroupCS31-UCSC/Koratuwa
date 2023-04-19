@@ -70,7 +70,7 @@
     }
 
   public function viewCartItems($customer_id){
-    $this->db->query('SELECT c.product_id, c.customer_id, c.quantity, c.total_price, p.product_name, p.expiry_duration, p.unit_size, p.image  FROM cart as c INNER JOIN product as p ON c.product_id = p.product_id WHERE customer_id=:customer_id');
+    $this->db->query('SELECT c.product_id, c.customer_id, c.quantity, c.total_price,c.timestamp, p.product_name, p.expiry_duration, p.unit_size, p.image  FROM cart as c INNER JOIN product as p ON c.product_id = p.product_id WHERE customer_id=:customer_id');
     $this->db->bind(':customer_id', $customer_id);
     $result = $this->db->resultSet();
 		return $result;
@@ -78,9 +78,8 @@
 
   public function dltCartItems($time)
   {
-    
     $this->db->query('DELETE FROM cart WHERE timestamp= :time');
-    $this->db->bind(':time', $timestamp);
+    $this->db->bind(':time', $time);
     
     if($this->db->execute())
     {
