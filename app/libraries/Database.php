@@ -38,6 +38,7 @@
 		public function query($sql)
 		{
 			$this->statement = $this->dbh->prepare($sql);
+			// var_dump($this->statement);
 		}
 
 

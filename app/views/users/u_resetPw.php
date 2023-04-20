@@ -19,7 +19,7 @@
         
         <?php flash('otp_verify') ?>
 
-        <?php flash('otp_mismatched') ?>
+        <?php flash('otp_mismatched') ?> <br>
 		
 
 		<form action="<?php echo URLROOT; ?>/Users/resetPw" method="POST"> 

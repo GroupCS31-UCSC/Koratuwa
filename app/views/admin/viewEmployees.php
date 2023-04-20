@@ -11,10 +11,33 @@
 
 <section class="table-upperSection">
 <div class="upper">
-<input type="text" id="mySearch" onkeyup="searchFunction()" placeholder="Search...">
 <input type="button" value="Add New Employee" class="addBtn" onclick="location.href='<?php echo URLROOT; ?>/Admin/addEmployees' ">
 <div>
 </section>
+
+<div class="search-section">
+    <div class="search-bar">
+  
+    <form id="searchForm" action="<?php echo URLROOT; ?>/Admin/viewEmployees" method="POST">
+
+    <select name="status" id="status" value="<?php echo $data['status']; ?>">
+        <option value="currentEmp">Current Employees</option>
+        <option value="pastEmp">Past Employees</option>
+        <option value="all">All</option>
+    </select>
+
+    <div class="main-search">
+        <input type="text" name="search" placeholder="Filter by Employee Name "  value="<?php echo $data['search'] ?>" >
+        <button><i class="fa-solid fa-magnifying-glass"></i></button>
+    </div>
+
+    </form>
+
+      
+
+    </div>
+</div>
+          
 
 <section class="table1Section">
   <!-- <div class="container" style="overflow-x: auto;"> -->
@@ -74,3 +97,4 @@
 
 <?php require APPROOT.'/views/include/footer.php'; ?>
 <script src="<?php echo URLROOT; ?>/js/admin.js"></script>
+

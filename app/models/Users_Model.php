@@ -140,9 +140,10 @@
 		public function registerAsSupplier($data)
 		{
 
-			$this->db->query('INSERT INTO user(user_id,email,password,user_type) VALUES(:id, :email, :password, :user_type)');
+			$this->db->query('INSERT INTO user(user_id,user_name,email,password,user_type) VALUES(:id, :name, :email, :password, :user_type)');
 			//value binding
 			$this->db->bind(':id', $data['id']);
+			$this->db->bind(':name', $data['name']);
 			$this->db->bind(':email', $data['email']);
 			$this->db->bind(':password', $data['password']);
 			$this->db->bind(':user_type','Supplier');
@@ -215,9 +216,10 @@
 		//Register the customer
 		public function registerAsCustomer($data)
 		{
-			$this->db->query('INSERT INTO user(user_id,email,password,user_type) VALUES(:id, :email, :password, :user_type)');
+			$this->db->query('INSERT INTO user(user_id,user_name,email,password,user_type) VALUES(:id, :name, :email, :password, :user_type)');
 			//value binding
 			$this->db->bind(':id', $data['id']);
+			$this->db->bind(':name', $data['name']);
 			$this->db->bind(':email', $data['email']);
 			$this->db->bind(':password', $data['password']);
 			$this->db->bind(':user_type','Customer');

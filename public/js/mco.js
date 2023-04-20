@@ -258,3 +258,72 @@ function adding(e) {
         });
     return false;
 }
+
+//view milk collection page view
+function openModel1(id){
+    // var id = data["id"];
+    const url ="/koratuwa/Milk_Collection_Officer/collectionDetails/"+id;
+    const form = new FormData();
+    form.append("id", id);
+    fetch(url, {
+      method: "GET"
+    }).then(response => response.text())
+    .then(data => {
+        // console.log(data);
+      if(data){
+      const domp=new DOMParser();
+      const doc= domp.parseFromString(data,'text/html');
+      const newData = doc.getElementById('newData');
+    //   console.log(newData);
+      document.getElementById("newData").innerHTML = newData.innerHTML;
+      
+    //   document.getElementById("Model_Cow_Id").innerText = data.cow_id;
+    //   document.getElementById("Model_Quantity").innerText = data.quantity;
+      }
+  
+    });
+    document.getElementById("model").classList.add("open-model");
+    //document.getElementById("model").innerHTML += "<?PHP $dataID = ${id}; ?>"
+    // console.log(data["id"]);
+    
+}
+
+//view supply orders view
+function openModel2(id){
+    // var id = data["id"];
+    const url ="/koratuwa/Milk_Collection_Officer/viewSupOrderDetails/"+id;
+    const form = new FormData();
+    form.append("id", id);
+    fetch(url, {
+      method: "GET"
+    }).then(response => response.json())
+    .then(data => {
+      if(data){
+      document.getElementById("Model_Order_Id").innerText = data.supply_order_id;
+      document.getElementById("Model_Supplier_Id").innerText = data.supplier_id;
+      document.getElementById("Model_Supplier_Name").innerText = "";
+      document.getElementById("Model_Quantity").innerText = data.quantity;
+      document.getElementById("Model_Unit_Price").innerText = data.unit_price;
+      document.getElementById("Model_Status").innerText = data.status;
+      }
+  
+    });
+    document.getElementById("model").classList.add("open-model");
+    //document.getElementById("model").innerHTML += "<?PHP $dataID = ${id}; ?>"
+    // console.log(data["id"]);
+    
+}
+
+function closeModel(){
+    document.getElementById("model").classList.remove("open-model");
+}
+
+// tabs
+// function openTab(evt, tabName) {
+//     var i, tabcontent, tablinks;
+//     window.location.href='/koratuwa/Milk_Collection_Officer/viewSupplyOrders?tab='+tabName;
+//   }
+
+  
+  
+  
