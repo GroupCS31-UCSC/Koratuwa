@@ -26,16 +26,18 @@
         }
 
         //get the details of Employees
-        public function viewEmployees()
-        {
-          $empView= $this->adminModel->get_empView();
+        // public function viewEmployees()
+        // {
+        //   $empView= $this->adminModel->get_empView();
 
-          $data = [
-              'empView' => $empView
-          ];
+        //   $data = [
+        //       'empView' => $empView,
+        //       'search' => '',
+        //       'status' => ''
+        //   ];
 
-          $this->view('admin/viewEmployees',$data);
-        }
+        //   $this->view('admin/viewEmployees',$data);
+        // }
         
         //get the details of Employee for profile
         public function EmployeeProfile($email)
@@ -172,10 +174,10 @@
           }
         }
 
-        public function sendEmail($data)
-        {
+        // public function sendEmail($data)
+        // {
 
-        }
+        // }
 
 
 
@@ -351,6 +353,56 @@
           ];
 
           $this->view('admin/viewSuppliers',$data);
+        }
+
+
+
+        
+        //search employee details
+        public function viewEmployees()
+        {
+          if($_SERVER['REQUEST_METHOD']=='POST')
+          {
+            $_POST=filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+        
+            $data = [
+              'empView' => '',
+              'status' => trim($_POST['status']),
+              'search' => trim($_POST['search'])
+            ];
+
+            // $empDetail='';
+            if($data['status']=='currentEmp'){
+              $data['empView']=$this->adminModel->currentEmpSearch($data['search']);
+            }
+            else if($data['status']=='pastEmp'){
+              $data['empView']=$this->adminModel->pastEmpSearch($data['search']);
+            }
+            else if($data['status']=='all'){
+              $data['empView']=$this->adminModel->allEmpSearch($data['search']);
+            }
+            else{
+              $data['empView']=$this->adminModel->currentEmpSearch($data['search']);
+            }
+
+          $this->view('admin/viewEmployees',$data);
+
+          }
+          else
+          {
+            $search='';
+            $empDetail=$this->adminModel->currentEmpSearch($search);
+            //initial form
+            $data = [
+              
+              'empView' => $empDetail,
+              'status' => '',
+              'search' => ''
+            ];
+
+            //load the viewEmployee
+            $this->view('admin/viewEmployees',$data);
+          }
         }
 
         

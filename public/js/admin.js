@@ -1,3 +1,4 @@
+
 // //charts - Admin Dashboard page
 var profit = document.getElementById('profit').getContext('2d');
 
@@ -233,3 +234,25 @@ function adding(e) {
         });
     return false;
 }
+
+
+// employee search - status dropdown
+var statusSelect = document.getElementById("status");
+var selectedStatus = localStorage.getItem("selectedStatus");
+
+if (!selectedStatus) {
+  selectedStatus = "currentEmp"; // set default value
+}
+
+for (var i = 0; i < statusSelect.options.length; i++) {
+  var option = statusSelect.options[i];
+  if (option.value == selectedStatus) {
+    option.selected = true;
+  }
+}
+
+statusSelect.addEventListener("change", function() {
+  localStorage.setItem("selectedStatus", statusSelect.value);
+});
+
+ 

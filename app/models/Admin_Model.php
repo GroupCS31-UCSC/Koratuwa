@@ -235,6 +235,24 @@
       return $result;
     }
 
+    //to get employee details
+    public function currentEmpSearch($search)
+    {
+      if(!empty($search)){
+        $this->db->query("SELECT * From employee WHERE employee_name LIKE '%$search%' ");
+        // $this->db->bind(':search', $search);
+        $result=$this->db->resultSet();
+        return $result;
+      }
+      else{
+        $this->db->query('SELECT * From employee');
+        $result=$this->db->resultSet();
+        return $result;
+      }
+    }
+
+    
+
 
 
 
