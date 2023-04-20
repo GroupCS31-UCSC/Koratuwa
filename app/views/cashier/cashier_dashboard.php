@@ -20,17 +20,17 @@
       </li>
       <li>
         
-        <a href="<?php echo URLROOT; ?>/Cashier/viewSale">
+        <a href="<?php echo URLROOT; ?>/Cashier/viewOnsiteSale">
 
           <span class="icon"><i class="fa-solid fa-scale-balanced"></i></span>
-          <span class="title">Onside Sales</span>
+          <span class="title">Onsite Sales</span>
         </a>
       </li>
       <li>
         <!-- Customer orders -->
         <a href="<?php echo URLROOT; ?>/Cashier/viewCustomerOrders">
           <span class="icon"><i class="fa-brands fa-joget"></i></span>
-          <span class="title">Online Sales</span>
+          <span class="title">Customer Orders</span>
         </a>
       </li>
     </ul>

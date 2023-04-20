@@ -4,7 +4,7 @@
 
 
 <div class="container">
-  <!-- <div class="split left"> -->
+  <div class="split left">
     <div class="ongoing">
       <div class="card-header">
         <h3>Ongoing Orders</h3>
@@ -39,20 +39,20 @@
           </tbody>
         </table>
       </div>
-    <!-- </div> -->
+    </div>
   </div>
-  <!-- <div class="split right"> -->
+  <div class="split right">
     <div class="graphBox">
       <div class="box">
         <label><center>Orders</center></label>
         <canvas id="order"></canvas>
       </div>
-      <div class="box">
+      <!-- <div class="box">
         <label><center>Percentages of sales</center></label>
         <canvas id="type"></canvas>
-      </div>
+      </div> -->
     </div>
-  <!-- </div> -->
+  </div>
 </div>
 
 

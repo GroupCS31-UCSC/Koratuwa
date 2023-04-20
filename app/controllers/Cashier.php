@@ -22,44 +22,44 @@
           $this->view('Cashier/cashier_home',$data);
         }
 
-        public function viewSale() {
-          $data = [];
-          $this->view('Cashier/viewSale',$data);
-        }
-
-        public function addSale() {
-          $data = [];
-          $this->view('Cashier/addSale',$data);
-        }
-
-        public function updateSale() {
-          $data = [];
-          $this->view('Cashier/updateSale',$data);
+        public function viewOnsiteSale() {
+          $onsiteSaleView= $this->cashierModel->get_onsiteSaleView();
+          $data = [
+            'onsiteSaleView' => $onsiteSaleView
+          ];
+          $this->view('Cashier/viewOnsiteSale',$data);
+          
         }
 
         public function viewCustomerOrders() {
-          $data = [];
+          $customerOrderView= $this->cashierModel->get_onlineOrderView();
+          $data = [
+            'customerOrderView' => $customerOrderView
+          ];
           $this->view('Cashier/viewCustomerOrders',$data);
         }
 
-        public function generateReceipt() {
-          $data = [];
-          $this->view('Cashier/generateReceipt',$data);
-        }
-
-        public function updateOrderStatus() {
-          $data = [];
-          $this->view('Cashier/updateOrderStatus',$data);
-        }
-
-        // public function viewOngoingOrders() {
-        //   $orderView= $this->cashierModel->getOngingOrder();
-        //   $data = [
-        //     'orderView' => $orderView
-        //   ];
-        //   $this->view('Cashier/viewOngoingOrders',$data);
+        // public function addSale() {
+        //   $data = [];
+        //   $this->view('Cashier/addSale',$data);
         // }
 
+        // public function updateSale() {
+        //   $data = [];
+        //   $this->view('Cashier/updateSale',$data);
+        // }
+
+       
+
+        // public function generateReceipt() {
+        //   $data = [];
+        //   $this->view('Cashier/generateReceipt',$data);
+        // }
+
+        // public function updateOrderStatus() {
+        //   $data = [];
+        //   $this->view('Cashier/updateOrderStatus',$data);
+        // }
     }
 
 ?>

@@ -1,28 +1,50 @@
 .container {
   text-align: center;
   padding:0;
-  margin-top: 30px;
+  /* margin-top: 30px; */
 
 }
 
+.split {
+  float: left;
+  height: 93vh;
+}
+
+.left {
+  width: 50%;
+  /* background-color: #bbb; */
+}
+
+.right {
+  width: 50%;
+  /* background-color: white; */
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
 .ongoing {
-  background-color: #d27171;
-  padding: 10px;
-  margin: 10px;
-  border-radius: 10px;
-  border: 1px solid #e3e3e3;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  /* background-color: #d27171; */
+  /* padding: 10px; */
+  /* margin: 10px; */
+  /* border-radius: 10px; */
+  /* border: 1px solid #e3e3e3; */
+  /* box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05); */
+  height: 100%;
 }
 
 
 /*charts*/
 .graphBox{
   position: relative;
-  right: 0;
+  /* right: 0; */
   width: 100%;
-  padding: 10px;
+  /* padding: 10px; */
   display: grid;
-  grid-template-columns: 2fr 2fr;
+  grid-template-rows: 2fr 2fr;
   grid-gap: 20px;
   min-height: 300px;
 }

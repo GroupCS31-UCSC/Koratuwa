@@ -24,34 +24,31 @@
     <table>
     <tr>
       <th>Sale ID</th>
-      <th>Name</th>
-      <th>Contact no</th>
+      <th>Date</th>
+      <th>Time</th>
+      <th>Payment</th>
+      <th>Receipt ID</th>
       <th>Action</th>
     </tr>
   
     <tr>
-      <td>S1</td>
-      <td>Gunathilaka</td>
-      <td>0715667876</td>
+      <?php foreach ($data ['onsiteSaleView'] as $onsite_sale) : ?>
+      <td><?php echo $onsite_sale->sale_id ?></td>
+      <td><?php echo $onsite_sale->date ?></td>
+      <td><?php echo $onsite_sale->time ?></td>
+      <td><?php echo $onsite_sale->total_payment ?></td>
+      <td><?php echo $onsite_sale->receipt_id ?></td>
       <td>
         <div class="table-btns">
-          <a href="<?php echo URLROOT; ?>/Cashier/updateSale"><button class="updateBtn">UPDATE</button></a>
+          <a href="<?php echo URLROOT?>/Cashier/updateSale/<?php echo $onsite_sale->sale_id ?>"><button class="updateBtn"><i class="fa-regular fa-pen-to-square"></i></button></a>
+          <a href="<?php echo URLROOT?>/Cashier/deleteSale/<?php echo $onsite_sale->sale_id ?>"><button class="deleteBtn"><i class="fa-regular fa-trash-can"></i></button></a>
         </div>
       </td>
     </tr>
-    <tr>
-      <td>S2</td>
-      <td>Yayawardana</td>
-      <td>0714345654</td>
-      <td>
-        <div class="table-btns">
-          <a href="<?php echo URLROOT; ?>/Cashier/updateSale"><button class="updateBtn">UPDATE</button></a>
-        </div>
-      </td>
-    </tr>
+    <?php endforeach; ?>
   </table>
 
-  
+</div>
 </div>
 
   
