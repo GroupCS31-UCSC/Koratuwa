@@ -23,17 +23,20 @@
         <?php endforeach; ?>
         
         <table>
+            <thead>
             <tr>
                 <th> COW ID</th>
                 <th> QUANTITY</th>
             </tr>
-            
+            </thead>
+            <tbody id='newData'>
             <?php foreach ($data['cView'] as $cView) : ?>
             <tr>
             <td><?php echo $cView->cow_id; ?></td>
             <td><?php echo $cView->quantity; ?></td>
             </tr><br>
             <?php endforeach; ?>
+            </tbody>
 
         </table>
         
