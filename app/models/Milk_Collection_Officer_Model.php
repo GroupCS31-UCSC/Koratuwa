@@ -108,24 +108,6 @@
     //to get all supplier order deails
     public function get_supOrderView()
     {
-      // if($tab=="TAB 1"){
-      //   $this->db->query('SELECT * FROM supply_order WHERE status=="Not Collected" ');
-
-      // $result = $this->db->resultSet();
-
-      // return $result;
-
-      // }else if($tab=="TAB 2"){
-      //   $this->db->query('SELECT * FROM supply_order WHERE status=="Collected" ');
-
-      // $result = $this->db->resultSet();
-
-      // return $result;
-
-      // }
-      // else{
-      //   echo"wrong";
-      // }
       $this->db->query('SELECT * FROM supply_order ');
 
       $result = $this->db->resultSet();
@@ -145,9 +127,10 @@
       return $result;
     }
 
+    //to get order details one by one
     public function get_orderDetails($ordID)
     {
-      $this->db->query('SELECT * FROM supply_order WHERE supply_order_id == :ordID');
+      $this->db->query('SELECT * FROM supply_order WHERE supply_order_id = :ordID');
       $this->db->bind(':ordID', $ordID);
       $result = $this->db->resultSet();
 

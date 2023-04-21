@@ -41,7 +41,7 @@
 </div>
 
 
-<!-- popup view -->
+<!----------------- popup view ---------------->
 <div class="model fade in" id="model" tabindex="-1">
   <div class="model-dialog">
     <div class="model-content">
@@ -70,32 +70,7 @@
   </div>
   <div class="modal-footer"></div>
 </div>
-
-
-
-
-
-      <!------------ view popup window ---------------->
-    <!-- <div id="popup1" class="overlay">
-    <div class="popup">
-      <h2>collection details</h2>
-      <a class="close" href="#">&times;</a>
-      <div class="content"> -->
-      <!-- <?php foreach ($data['cView'] as $cView) : ?>
-      Cow ID<?php echo $cView->cow_id; ?>
-      <?php endforeach; ?> -->
-<!--       
-        
-      </div>
-    </div>
-  </div>
-  -------------------------------------------------- -->
-
-
-      
-
-
-
+<!-- ---------------------------- -->
     
   
 <?php require APPROOT.'/views/include/footer.php'; ?>

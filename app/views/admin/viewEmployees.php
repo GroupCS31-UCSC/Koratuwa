@@ -20,6 +20,7 @@
   
     <form id="searchForm" action="<?php echo URLROOT; ?>/Admin/viewEmployees" method="POST">
 
+    <!-- employee details search -->
     <select name="status" id="status" value="<?php echo $data['status']; ?>">
         <option value="currentEmp">Current Employees</option>
         <option value="pastEmp">Past Employees</option>
@@ -32,9 +33,6 @@
     </div>
 
     </form>
-
-      
-
     </div>
 </div>
           
