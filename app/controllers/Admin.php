@@ -24,20 +24,6 @@
           $data = [];
           $this->view('admin/admin_home',$data);
         }
-
-        //get the details of Employees
-        // public function viewEmployees()
-        // {
-        //   $empView= $this->adminModel->get_empView();
-
-        //   $data = [
-        //       'empView' => $empView,
-        //       'search' => '',
-        //       'status' => ''
-        //   ];
-
-        //   $this->view('admin/viewEmployees',$data);
-        // }
         
         //get the details of Employee for profile
         public function EmployeeProfile($email)

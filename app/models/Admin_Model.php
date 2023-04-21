@@ -9,16 +9,6 @@
       $this->db = new Database();
     }
 
-    //to get all employee deails
-    public function get_empView()
-    {
-      $this->db->query('SELECT * FROM employee');
-
-      $result = $this->db->resultSet();
-
-      return $result;
-    }
-
     //to get all employee deails for user profile
     public function get_empProfileView($empId)
     {

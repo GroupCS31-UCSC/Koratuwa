@@ -1,3 +1,4 @@
+//charts
 var profit = document.getElementById('milk').getContext('2d');
 
 var myChart = new Chart(profit, {
@@ -24,6 +25,7 @@ var myChart = new Chart(profit, {
     }
 });
 
+//charts
 var totProfit = document.getElementById('collection').getContext('2d');
 var myChart = new Chart(totProfit, {
     type: 'bar',
@@ -53,7 +55,7 @@ var myChart = new Chart(totProfit, {
     }
 });
 
-
+//charts
 var price = document.getElementById('pricelist').getContext('2d');
 var myChart = new Chart(price, {
     type: 'line',
@@ -83,110 +85,6 @@ var myChart = new Chart(price, {
     }
 });
 
-
-// function deletion() {
-//     swal.fire({
-//             title: "Are You Sure ?",
-//             icon: "warning",
-//             buttons: true,
-//             dangerMode: true,
-//         })
-//         .then((isOkay) => {
-//             if (isOkay) {
-//                 form.submit();
-//             }
-//         });
-//     return false;
-// }
-
-// document.querySelector(".submitBtn").addEventListener('click', function() {
-//     Swal.fire({
-//         position: 'center',
-//         icon: 'success',
-//         title: 'Employee details are successfully added!',
-//         showConfirmButton: false,
-//         timer: 150000
-//     })
-// });
-
-
-// function adding() {
-//     swal({
-//             position: 'center',
-//             icon: 'success',
-//             title: 'Employee details are successfully added!',
-//             buttons: true
-//                 // showConfirmButton: false
-//         })
-//         .then((isOkay) => {
-//             if (isOkay) {
-//                 form.submit();
-//             }
-//         });
-//     return false;
-
-// }
-
-// function adding() {
-//     Swal.fire({
-//         title: 'Employee details are successfully added!',
-//         // text: "You clicked the button!",
-//         icon: "success",
-//         button: "Aww yiss!",
-//     });
-// }
-
-// function deletion() {
-//     Swal.fire({
-//         title: 'Are you sure?',
-//         text: "You won't be able to revert this!",
-//         icon: 'warning',
-//         showCancelButton: true,
-//         confirmButtonColor: '#3085d6',
-//         cancelButtonColor: '#d33',
-//         confirmButtonText: 'Yes, delete it!',
-//         timer: 5000000
-//     }).then((result) => {
-//         if (result.isConfirmed) {
-//             Swal.fire(
-//                 'Deleted!',
-//                 'Your file has been deleted.',
-//                 'success'
-//             )
-//         }
-//     })
-// }
-
-// function adding() {
-//     swal({
-//         title: "Good job!",
-//         text: "You clicked the button!",
-//         icon: "success",
-//         button: "Aww yiss!",
-//     });
-// }
-
-// function deletion() {
-//     swal.fire({
-//             title: 'Are you sure?',
-//             text: "You won't be able to revert this!",
-//             icon: 'warning',
-//             showCancelButton: true,
-//             confirmButtonColor: '#3085d6',
-//             cancelButtonColor: '#d33',
-//             confirmButtonText: 'Yes, delete it!'
-//         })
-//         .then((willDelete) => {
-//             if (willDelete) {
-//                 swal.fire("Poof! Your imaginary file has been deleted!", {
-//                     icon: "success",
-//                     timer: 10000,
-//                 });
-//             } else {
-//                 swal.fire("Your imaginary file is safe!");
-//             }
-//         });
-// }
 
 function deletion(e) {
     e.preventDefault();
@@ -259,7 +157,9 @@ function adding(e) {
     return false;
 }
 
-//view milk collection page view
+
+//view of milk collection one by one
+
 function openModel1(id){
     // var id = data["id"];
     const url ="/koratuwa/Milk_Collection_Officer/collectionDetails/"+id;
@@ -274,7 +174,6 @@ function openModel1(id){
       const domp=new DOMParser();
       const doc= domp.parseFromString(data,'text/html');
       const newData = doc.getElementById('newData');
-    //   console.log(newData);
       document.getElementById("newData").innerHTML = newData.innerHTML;
       
     //   document.getElementById("Model_Cow_Id").innerText = data.cow_id;
@@ -283,12 +182,12 @@ function openModel1(id){
   
     });
     document.getElementById("model").classList.add("open-model");
-    //document.getElementById("model").innerHTML += "<?PHP $dataID = ${id}; ?>"
-    // console.log(data["id"]);
+
     
 }
 
-//view supply orders view
+//view of supply orders one by one
+
 function openModel2(id){
     // var id = data["id"];
     const url ="/koratuwa/Milk_Collection_Officer/viewSupOrderDetails/"+id;
@@ -296,9 +195,14 @@ function openModel2(id){
     form.append("id", id);
     fetch(url, {
       method: "GET"
-    }).then(response => response.json())
+    }).then(response => response.text())
     .then(data => {
+        // console.log(data);
       if(data){
+        const domp=new DOMParser();
+        const doc= domp.parseFromString(data,'text/html');
+        const newData2 = doc.getElementById('newData2');
+
       document.getElementById("Model_Order_Id").innerText = data.supply_order_id;
       document.getElementById("Model_Supplier_Id").innerText = data.supplier_id;
       document.getElementById("Model_Supplier_Name").innerText = "";
@@ -309,8 +213,6 @@ function openModel2(id){
   
     });
     document.getElementById("model").classList.add("open-model");
-    //document.getElementById("model").innerHTML += "<?PHP $dataID = ${id}; ?>"
-    // console.log(data["id"]);
     
 }
 
@@ -318,12 +220,5 @@ function closeModel(){
     document.getElementById("model").classList.remove("open-model");
 }
 
-// tabs
-// function openTab(evt, tabName) {
-//     var i, tabcontent, tablinks;
-//     window.location.href='/koratuwa/Milk_Collection_Officer/viewSupplyOrders?tab='+tabName;
-//   }
-
-  
   
   

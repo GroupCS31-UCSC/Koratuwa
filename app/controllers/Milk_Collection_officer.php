@@ -119,33 +119,10 @@
         //get the details of supply orders
         public function viewSupplyOrders()
         {
-          // $tab=$_GET['tab'] ?? 'TAB1';
-
-          // $ordView= $this->mcoModel->get_supOrderView($tab);
-
-          // if($ordView) {
-          //   header('Content-Type: application/json');
-          //   echo json_encode($ordView);
-          //   exit();
-          // }
-          // else{
-          //   $ordView= $this->mcoModel->get_supOrderView($tab);
-          // }
           $ordView= $this->mcoModel->get_supOrderView();
 
           $data = [
               'ordView' => $ordView
-          ];
-
-          $this->view('milk_collection_officer/view_supplyOrders',$data);
-        }
-
-
-        public function viewSupOrderDetails($ordID){
-          $ordDetails= $this->mcoModel->get_orderDetails($ordID);
-
-          $data = [
-              'ordDetails' => $ordDetails
           ];
 
           $this->view('milk_collection_officer/view_supplyOrders',$data);
@@ -162,6 +139,19 @@
 
           $this->view('milk_collection_officer/view_supplyMilk',$data);
         }
+
+      //get the details of supply orders one by one
+        public function viewSupOrderDetails($ordID){
+          $ordDetails= $this->mcoModel->get_orderDetails($ordID);
+
+          $data = [
+              'ordDetails' => $ordDetails
+          ];
+
+          $this->view('milk_collection_officer/collection_details',$data);
+        }
+
+        
         
 
 
