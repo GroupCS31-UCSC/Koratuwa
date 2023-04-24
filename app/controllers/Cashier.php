@@ -39,15 +39,15 @@
           $this->view('Cashier/viewCustomerOrders',$data);
         }
 
-        // public function addSale() {
-        //   $data = [];
-        //   $this->view('Cashier/addSale',$data);
-        // }
+        public function addSale() {
+          $data = [];
+          $this->view('Cashier/addSale',$data);
+        }
 
-        // public function updateSale() {
-        //   $data = [];
-        //   $this->view('Cashier/updateSale',$data);
-        // }
+        public function updateSale() {
+          $data = [];
+          $this->view('Cashier/updateSale',$data);
+        }
 
        
 
