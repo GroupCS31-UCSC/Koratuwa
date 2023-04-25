@@ -216,7 +216,7 @@
 		//Register the customer
 		public function registerAsCustomer($data)
 		{
-			$this->db->query('INSERT INTO user(user_id,user_name,email,password,user_type,eistence) VALUES(:id, :name, :email, :password, :user_type, 1)');
+			$this->db->query('INSERT INTO user(user_id,user_name,email,password,user_type,existence) VALUES(:id, :name, :email, :password, :user_type, 1)');
 			//value binding
 			$this->db->bind(':id', $data['id']);
 			$this->db->bind(':name', $data['name']);
