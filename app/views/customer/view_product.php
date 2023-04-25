@@ -5,13 +5,13 @@
 
 <section>
     <div class="container">
-        <div class="feature">
-            <div class="product_img">
-            
-                <img class="pic_product" src="<?php foreach ($data['productDetails'] as $productCategory) : ?><?php echo UPLOADS . $productCategory->image; ?><?php endforeach; ?>"width='200' height='400'>
-                <!-- <img class="pic_product" src="<?php echo UPLOADS . $productCategory->image ?>" width='200' height='200'>     -->
-            </div>
+
+        <div class="product_img">
+        
+            <img class="pic_product" src="<?php foreach ($data['productDetails'] as $productCategory) : ?><?php echo UPLOADS . $productCategory->image; ?><?php endforeach; ?>"width='200' height='400'>
+            <!-- <img class="pic_product" src="<?php echo UPLOADS . $productCategory->image ?>" width='200' height='200'>     -->
         </div>
+
         <div class="feature_form">
             <div class="form_container">
                 <h1>Product Details</h1>

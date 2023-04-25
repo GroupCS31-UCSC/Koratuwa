@@ -114,6 +114,7 @@ main{
 
 .cardContent{
     width: 25%;
+    min-width: 35vh;
     padding-top: 10px;
     margin: 10px;
     display: inline-block;
