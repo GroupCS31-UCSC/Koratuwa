@@ -34,8 +34,8 @@
     <tr>
       <?php foreach ($data ['onsiteSaleView'] as $onsite_sale) : ?>
       <td><?php echo $onsite_sale->sale_id ?></td>
-      <td><?php echo $onsite_sale->date ?></td>
-      <td><?php echo $onsite_sale->time ?></td>
+      <td><?php echo $onsite_sale->sale_date ?></td>
+      <td><?php echo $onsite_sale->sale_time ?></td>
       <td><?php echo $onsite_sale->total_payment ?></td>
       <td><?php echo $onsite_sale->receipt_id ?></td>
       <td>
