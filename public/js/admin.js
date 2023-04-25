@@ -62,10 +62,11 @@ var myChart = new Chart(totProfit, {
 // employee search - status dropdown
 var statusSelect = document.getElementById("status");
 var selectedStatus = localStorage.getItem("selectedStatus");
+console.log(selectedStatus);
 
-if (!selectedStatus) {
-  selectedStatus = "currentEmp"; // set default value
-}
+// if (!selectedStatus) {
+//   selectedStatus = "currentEmp"; // set default value
+// }
 
 for (var i = 0; i < statusSelect.options.length; i++) {
   var option = statusSelect.options[i];
