@@ -5,7 +5,7 @@
 
 <div class="topnavbar">
             <div class="home">
-                <i class="fas fa-home"></i>
+                <a href="<?php echo URLROOT; ?>/Customer/customerHome"><i class="fas fa-home"></i></a>
             </div>
             <div class="topmenu">
                 <ul>

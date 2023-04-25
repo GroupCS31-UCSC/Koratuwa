@@ -20,22 +20,15 @@
     <!--------- table------------------>
     <div class="feature1">
       <div class="search">
-          <input type="text" class="searchTerm" placeholder="What are you looking for?">
+          <!-- <input type="text" class="searchTerm" placeholder="What are you looking for?">
           <button type="submit" class="searchButton">
             <i class="fa fa-search"></i>
-          </button>       
+          </button>        -->
+          <input type="date" id="myDateInput" >
+          <button type="submit" class="searchButton" onkeyup="filterTable()">
+
       </div> 
-      <!-- <div class="table-dropdown">
-            <div class="dropdown-menu">
-              <button class="dropdown-toggle">Topics</button>
-              <ul class="list">
-                <li class="list-item" style="--delay:0.2s">All</li>
-                <li class="list-item" style="--delay:0.4s">Collected</li>
-                <li class="list-item" style="--delay:0.6s">Not Collected</li>
-                <li class="list-item" style="--delay:0.8s">@Website_Mentor</li>
-              </ul>
-            </div>
-      </div>               -->
+
       <table>
           <tr>
             <th>Supply Order ID</th>
@@ -54,7 +47,6 @@
             <td><?php echo $supOrd->supply_date; ?></td>
             <td><?php echo $supOrd->quantity; ?></td>
             <td><?php echo $supOrd->unit_price; ?></td>
-            <!-- <td><?php echo ($data['supOrderView'])->supplying_address; ?></td> -->
             <td><?php echo $supOrd->status; ?></td>
             <td><?php echo $supOrd->quality; ?></td>
             <td>
@@ -139,6 +131,7 @@
             asdfgh
           </li>
         </ul>
+        <a href="">Download pdf</a>
       </div>
       <div class="modal-footer">
         <h3>***</h3>
@@ -163,39 +156,6 @@
     viewModal.close();
   }
 
-
-
-
-  
-  
-  
-  
-  
-  
-  
-  // var modal = document.getElementById("myModal");
-
-  // var btn = document.getElementById("myBtn");
-
-  // var span = document.getElementsByClassName("close")[0];
-
-  // When the user clicks the button, open the modal 
-  // btn.onclick = function() {
-  //   modal.style.display = "block";
-  // }
-
-  // When the user clicks on <span> (x), close the modal
-  // span.onclick = function() {
-  //   modal.style.display = "none";
-  // }
-
-  // When the user clicks anywhere outside of the modal, close it
-  // window.onclick = function(event) {
-  //   if (event.target == modal) {
-  //     modal.style.display = "none";
-  //   }
-  // }  
-
   //--------------counter----------------//
   let counterup = document.querySelectorAll(".counter_up");
     let convert = Array.from(counterup);
@@ -212,6 +172,52 @@
         count();
       }, counteritem.dataset.speed/counter);
   }); 
+
+
+//-------------filter----------//
+// function filterTable() {
+//   // Declare variables
+//   var input, filter, table, tr, td, i, txtValue;
+//   input = document.getElementById("myInput");
+//   filter = input.value.toUpperCase();
+//   table = document.getElementsByTagName("table")[0];
+//   tr = table.getElementsByTagName("tr");
+
+//   // Loop through all table rows, and hide those that don't match the search query
+//   for (i = 0; i < tr.length; i++) {
+//     td = tr[i].getElementsByTagName("td")[1]; // Filter based on first column (Supply Order ID)
+//     if (td) {
+//       txtValue = td.textContent || td.innerText;
+//       if (txtValue.toUpperCase().indexOf(filter) > -1) {
+//         tr[i].style.display = "";
+//       } else {
+//         tr[i].style.display = "none";
+//       }
+//     }
+//   }
+// }
+function filterTable() {
+  // Declare variables
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myDateInput");
+  filter = input.value;
+  table = document.getElementsByTagName("table")[0];
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those that don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[1]; // Filter based on second column (Supply Date)
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+
    
 </script>
 

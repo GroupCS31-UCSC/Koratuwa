@@ -16,10 +16,43 @@
         <li><a href="#section2">About</a></li>
         <li><a href="#section3">Products</a></li>
         <li><a href="#section4">Contact</a></li>
-        <li><a href="<?php echo URLROOT; ?>/Users/login">Login</a></li>
-        <li><a href="<?php echo URLROOT; ?>/Users/selection">Register</a></li>
-      </ul>
+        <li><a href="<?php echo URLROOT; ?>/Users/login">Sign in</a></li>
+        <div class="dropdown">
+          <li><a href="">Sign up</a></li>
+          <div class="sub-menu-wrap">
+            <div class="sub-menu">
+              <div class="dropdown-content">
+                <a href="<?php echo URLROOT; ?>/Users/registerSupplier" class="sub-menu-link">
+                  <p>Supplier</p>
+                </a>
+                <a href="<?php echo URLROOT; ?>/Users/registerCustomer" class="sub-menu-link">
+                  <p>Customer</p>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
     </div>
+        <!-- <li><a href="<?php echo URLROOT; ?>/Users/selection">Sign up</a></li> -->
+      </ul>
+      <!-- <div class="dropdown">
+      <i class="fas fa-chevron-down"></i>
+          <div class="sub-menu-wrap">
+            <div class="sub-menu">
+              <div class="dropdown-content">
+                <a href="<?php echo URLROOT; ?>/Users/registerSupplier" class="sub-menu-link" class="sub-menu-link">
+                  <p>Supplier</p>
+                </a>
+                <a href="<?php echo URLROOT; ?>/Users/registerCustomer" class="sub-menu-link" class="sub-menu-link">
+                  <p>Customer</p>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+    </div> -->
     </div>
 
   <div id="section1">

@@ -87,3 +87,4 @@ var myChart= new Chart(price, {
 
   }
 });
+

@@ -14,13 +14,29 @@
         }
 
         public function cashierHome() {
-          $data = [];
+          $ongoing= $this->cashierModel->get_ongoingOrderView();
+
+          $data = [
+            'ongoing' => $ongoing
+          ];
           $this->view('Cashier/cashier_home',$data);
         }
 
-        public function viewSale() {
-          $data = [];
-          $this->view('Cashier/viewSale',$data);
+        public function viewOnsiteSale() {
+          $onsiteSaleView= $this->cashierModel->get_onsiteSaleView();
+          $data = [
+            'onsiteSaleView' => $onsiteSaleView
+          ];
+          $this->view('Cashier/viewOnsiteSale',$data);
+          
+        }
+
+        public function viewCustomerOrders() {
+          $customerOrderView= $this->cashierModel->get_onlineOrderView();
+          $data = [
+            'customerOrderView' => $customerOrderView
+          ];
+          $this->view('Cashier/viewCustomerOrders',$data);
         }
 
         public function addSale() {
@@ -33,21 +49,17 @@
           $this->view('Cashier/updateSale',$data);
         }
 
-        public function viewCustomerOrders() {
-          $data = [];
-          $this->view('Cashier/viewCustomerOrders',$data);
-        }
+       
 
-        public function generateReceipt() {
-          $data = [];
-          $this->view('Cashier/generateReceipt',$data);
-        }
+        // public function generateReceipt() {
+        //   $data = [];
+        //   $this->view('Cashier/generateReceipt',$data);
+        // }
 
-        public function updateOrderStatus() {
-          $data = [];
-          $this->view('Cashier/updateOrderStatus',$data);
-        }
-
+        // public function updateOrderStatus() {
+        //   $data = [];
+        //   $this->view('Cashier/updateOrderStatus',$data);
+        // }
     }
 
 ?>

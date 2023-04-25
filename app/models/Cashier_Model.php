@@ -6,19 +6,52 @@
       $this->db = new Database();
     }
 
-    public function findSaleId() {
-      $this->db->query('SELECT * FROM sale order by sale_id desc limit 1');
-      $row = $this->db->single();
-      $lastId=$row->sale_id;
+    public function get_ongoingOrderView() {
+      $this->db->query('SELECT order_id, date, customer_id, status FROM online_order WHERE status="ongoing"');
 
-      if($lastId == '')	{
-        $id='SALE101';
+      $result = $this->db->resultSet();
+
+      return $result;
+    }
+
+    public function findSaleId() {
+      $this->db->query('SELECT * FROM onsite_sale order by sale_id desc limit 1');
+      $row = $this->db->single();
+      $lastId ='';
+      if($row) {
+        $lastId = $row->sale_id;
       }
-      else {
-        $id = substr($lastId,3);
+
+      if($lastId == '') {
+        $id = 'S001';
+      } else {
+        $id = substr($lastId, 1);
         $id = intval($id);
-        $id = "SALE".($id+1);
+        $id++;
+        $id = 'S'.str_pad($id, 3, '0', STR_PAD_LEFT);
       }
+
+      return $id;
+    }
+
+    public function findReceiptId() {
+      $this->db->query('SELECT * FROM onsite_sale order by receipt_id desc limit 1');
+      $row = $this->db->single();
+      $lastId ='';
+      if($row) {
+        $lastId = $row->receipt_id;
+      }
+
+      if($lastId == '') {
+        $id = 'R001';
+      } else {
+        $id = substr($lastId, 1);
+        $id = intval($id);
+        $id++;
+        $id = 'R'.str_pad($id, 3, '0', STR_PAD_LEFT);
+      }
+
+      return $id;
     }
 
     public function get_onsiteSaleView() {
@@ -29,7 +62,7 @@
       return $result;
     }
 
-    public function get_onlineSaleView() {
+    public function get_onlineOrderView() {
       $this->db->query('SELECT * FROM online_order');
 
       $result = $this->db->resultSet();
@@ -37,15 +70,15 @@
       return $result;
     }
 
-    public function getSaleById($saleId) {
-      $this->db->query('SELECT * FROM sale WHERE sale_id = :saleId' );
-      $this->db->bind(':saleId',$saleId);
+    public function getCustomerOrdersById($orderId) {
+      $this->db->query('SELECT * FROM online_order WHERE order_id = :orderId' );
+      $this->db->bind(':orderId',$orderId);
 
       $row = $this->db->single();
       return $row;
     }
 
-    public function viewOnsideSaleById($saleId) {
+    public function viewOnsiteSaleById($saleId) {
       $this->db->query('SELECT * FROM onsite_sale WHERE sale_id = :saleId' );
       $this->db->bind(':saleId',$saleId);
 
@@ -53,13 +86,14 @@
       return $row;
     }
 
-    public function viewOnlineSaleById($saleId) {
-      $this->db->query('SELECT * FROM online_order WHERE sale_id = :saleId' );
-      $this->db->bind(':saleId',$saleId);
+    public function getOngoingOrder() {
+      $this->db->query('SELECT * FROM online_order WHERE status = "ongoing"');
 
-      $row = $this->db->single();
-      return $row;
+      $result = $this->db->resultSet();
+
+      return $result;
     }
+
 
     // public function addSale($data) {
     //   // Check if customer exists
@@ -100,6 +134,10 @@
     //     return false;
     //   }
     // }
+
+    public function addSale($data) {
+      
+    }
     
     // public function updateSale($data) {
     //   // Check if customer exists

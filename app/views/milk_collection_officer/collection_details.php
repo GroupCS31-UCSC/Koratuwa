@@ -9,10 +9,10 @@
 <div class="container" style="overflow-x: auto;">
 
     <div class="viewBox">
-        <div class="viewBoxHeader">
+        <!-- <div class="viewBoxHeader">
 
         <a class="close" href="<?php echo URLROOT; ?>/Milk_Collection_Officer/viewMilkCollection">&times;</a>
-        </div>
+        </div> -->
         
         <?php foreach ($data['cView'] as $cView) : ?>
         <h2>Milk Collection ID :<?php echo $data['mcId']; ?> </h2>
@@ -23,35 +23,61 @@
         <?php endforeach; ?>
         
         <table>
+            <thead>
             <tr>
                 <th> COW ID</th>
                 <th> QUANTITY</th>
             </tr>
-            
+            </thead>
+            <tbody id='newData'>
             <?php foreach ($data['cView'] as $cView) : ?>
             <tr>
             <td><?php echo $cView->cow_id; ?></td>
             <td><?php echo $cView->quantity; ?></td>
             </tr><br>
             <?php endforeach; ?>
+            </tbody>
 
         </table>
         
         
     </div>
 
-</div>
-
-<!-- 
-<div class="container2">
-    <div class="box">
-    
-
-        jjjjj
-      Cow ID
-      
+    <div class="viewBox2">
+    <table>
+            <tbody id="newData2">
+            <?php foreach ($data['ordDetails'] as $ord) : ?>
+                <tr>
+                    <td>Supply_Order_Id</td>
+                    <td id="Model_Order_Id"><?php echo $ord->supply_order_id; ?></td>
+                </tr>
+                <tr>
+                    <td>Supplier_Id</td>
+                    <td id="Model_Supplier_Id"><?php echo $ord->supplier_id; ?></td>
+                </tr>
+                <tr>
+                    <td>Supplier_Name</td>
+                    <td><?php echo '' ?></td>
+                </tr>
+                <tr>
+                    <td>Quantity</td>
+                    <td id="Model_Quantity"><?php echo $ord->quantity; ?></td>
+                </tr>
+                <tr>
+                    <td>Unit_Price</td>
+                    <td><?php echo $ord->unit_price; ?></td>
+                </tr>
+                <tr>
+                    <td>Status</td>
+                    <td><?php echo $ord->status; ?></td>
+                </tr>
+                <?php endforeach; ?>
+            </tbody>           
+        </table>
+        
+        
     </div>
-</div> -->
+</div>
 
 
     

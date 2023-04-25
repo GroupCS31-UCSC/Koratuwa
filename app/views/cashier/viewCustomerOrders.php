@@ -9,59 +9,39 @@
   <div class="container" style="overflow-x: auto;">
     <table>
     <tr>
-        <th>Sale ID</th>
         <th>Order ID</th>
         <th>Date</th>
+        <th>Time</th>
         <th>Status</th>
-        <th>Receiving Method</th>
-        <th>Customer Name</th>
+        <!-- <th>Receiving Method</th> -->
+        <th>Payment Method</th>
+        <th>Total Payment</th>
+        <th>Receipt ID</th>
+        <th>Customer ID</th>
         <th>Action</th>
     </tr>
-  
     <tr>
-        <td>S1</td>
-        <td>Order1</td>
-        <td>2023-02-10</td>
-        <td>Pending</td>
-        <td>Deliver</td>
-        <td>Yayawardana</td>
+        <?php foreach ($data ['customerOrderView'] as $online_order) : ?>
+        <td><?php echo $online_order->order_id ?></td>
+        <td><?php echo $online_order->date ?></td>
+        <td><?php echo $online_order->time ?></td>
+        <td><?php echo $online_order->status ?></td>
+        <!-- <td><?php echo $online_order->receiving_method ?></td> -->
+        <td><?php echo $online_order->payment_method ?></td>
+        <td><?php echo $online_order->total_payment ?></td>
+        <td><?php echo $online_order->receipt_id ?></td>
+        <td><?php echo $online_order->customer_id ?></td>
         <td>
             <div class="table-btns">
-                <a href="<?php echo URLROOT; ?>/Cashier/updateOrderStatus"><button class="updateBtn">UPDATE</button></a>
-                <a href="<?php echo URLROOT; ?>/Cashier/generateReceipt"><button class="deleteBtn">Generate receipt</button></a>
+            <a href="<?php echo URLROOT?>/Cashier/updateSale/<?php echo $customer_order->order_id ?>"><button class="updateBtn"><i class="fa-regular fa-pen-to-square"></i></button></a>
+            <a href="<?php echo URLROOT?>/Cashier/deleteSale/<?php echo $customer_order->order_id ?>"><button class="deleteBtn"><i class="fa-regular fa-trash-can"></i></button></a>
             </div>
         </td>
     </tr>
-    <tr>
-        <td>S2</td>
-        <td>Order2</td>
-        <td>2023-02-10</td>
-        <td>Processing</td>
-        <td>Pickup</td>
-        <td>Gunathilaka</td>
-        <td>
-            <div class="table-btns">
-                <a href="<?php echo URLROOT; ?>/Cashier/updateOrderStatus"><button class="updateBtn">UPDATE</button></a>
-                <a href="<?php echo URLROOT; ?>/Cashier/generateReceipt"><button class="deleteBtn">Generate receipt</button></a>
-            </div>
-        </td>
-    </tr>
-    <tr>
-        <td>S3</td>
-        <td>Order3</td>
-        <td>2023-02-08</td>
-        <td>Delivered</td>
-        <td>Deliver</td>
-        <td>Yayawardana</td>
-        <td>
-            <div class="table-btns">
-                <a href="<?php echo URLROOT; ?>/Cashier/updateOrderStatus"><button class="updateBtn">UPDATE</button></a>
-                <a href="<?php echo URLROOT; ?>/Cashier/generateReceipt"><button class="deleteBtn">Generate receipt</button></a>
-            </div>
-        </td>
-    </tr>
-    <br><br><br><br><br>
+    <?php endforeach; ?>
   </table>
+</div>
+</session>
 
 
 <?php require APPROOT.'/views/include/footer.php'; ?>

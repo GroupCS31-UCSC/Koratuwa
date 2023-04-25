@@ -4,6 +4,8 @@
   require_once 'helpers/URL_Helper.php';
   require_once 'helpers/Session_Helper.php';
   require_once 'helpers/Mail_Sender.php';
+  require_once 'helpers/stripe-php-master/init.php';
+
 
   #load configurations
   require_once 'config/config.php';

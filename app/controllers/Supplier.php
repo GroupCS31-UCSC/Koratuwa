@@ -308,7 +308,7 @@
             $data = [
               'feedback_id' => '',
               'supplier_id' => '',
-              'sup_name' => '',
+              // 'sup_name' => '',
               'date' => '',
               'time' => '',
               'feedback' => trim($_POST['feedback']),
@@ -354,7 +354,7 @@
             $data = [
               'feedback_id' => '',
               'supplier_id' => '',
-              'sup_name' => '',
+              // 'sup_name' => '',
               'date' => '',
               'time' => '',
               'feedback' => '',
@@ -366,6 +366,10 @@
             $this->view('supplier/sup_feedback',$data);
           }
         }
+        // public function DownloadInv(){
+        //   $data = [];
+        //   this->view('supplier/DownloadInvoice', $data);
+        // }
 
 
     }

@@ -139,6 +139,19 @@
 
           $this->view('milk_collection_officer/view_supplyMilk',$data);
         }
+
+      //get the details of supply orders one by one
+        public function viewSupOrderDetails($ordID){
+          $ordDetails= $this->mcoModel->get_orderDetails($ordID);
+
+          $data = [
+              'ordDetails' => $ordDetails
+          ];
+
+          $this->view('milk_collection_officer/collection_details',$data);
+        }
+
+        
         
 
 

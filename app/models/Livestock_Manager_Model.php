@@ -216,6 +216,7 @@
     public function findcattleMilkingId() {
       $this->db->query('SELECT * FROM cattle_milking order by milk_id desc limit 1');
       $row = $this->db->single();
+      
       if($row) {
         $lastId=$row->milk_id;
       }
@@ -223,10 +224,14 @@
         $id='m1';
       }
       else {
-        $id = substr($lastId, 1);
+        if(strlen($lastId) == 2)
+          $id = substr($lastId, 1);
+        else
+          $id = substr($lastId, 2);
+        
         $id = intval($id);
         $id++;
-        $id = 'm'.$id;
+        $id = 'm'.uniqid(); 
       }
       return $id;
     }
@@ -234,6 +239,8 @@
     public function findMilkCollectionId() {
       $this->db->query('SELECT * FROM milk_collection order by milk_collection_id desc limit 1');
       $row = $this->db->single();
+      
+      
       if($row) {
         $lastId=$row->milk_collection_id;
       }
@@ -241,10 +248,15 @@
         $id='mc1';
       }
       else {
-        $id = substr($lastId, 1);
+        
+        if(strlen($lastId) == 3)
+          $id = substr($lastId, 2);
+        else
+          $id = substr($lastId, 3);
+        
         $id = intval($id);
         $id++;
-        $id = 'mc'.$id;
+        $id = 'mc'.uniqid();  
       }
       return $id;
     }
@@ -286,37 +298,36 @@
     }
 
     public function addCattleMilking($data) {
+      $milkCollectionID= $this->findMilkCollectionId();
       $this->db->query('INSERT INTO milk_collection(milk_collection_id, quantity, stall_id) VALUES(:mcId, :quantity, :stallId)');
-
-      //value binding
-      $this->db->bind(':mcId', $data['mcId']);
+      
+      $this->db->bind(':mcId', $milkCollectionID);
       $this->db->bind(':quantity', $data['quantity']);
-      $this->db->bind(':stallId', $data['stallId']);
-
+      $this->db->bind(':stallId', $data['stall_ID']);
+      $stallID = $data['stall_ID'];
+      unset($data['quantity']);
+      unset($data['stall_ID']);
+         
       if($this->db->execute()){
-        $this->db->query('INSERT INTO cattle_milking(milk_id, cow_id, quantity, stall_id, milk_collection_id) VALUES(:milkId, :cowId, :quantity, :stallId, :mcId)');
-
-        //value binding
-        $this->db->bind(':milkId', $data['milkId']);
-        $this->db->bind(':cowId', $data['cowId']);
-        $this->db->bind(':quantity', $data['quantity']);
-        $this->db->bind(':stallId', $data['stallId']);
-        $this->db->bind(':mcId', $data['mcId']);
-
-        //execute
-        if($this->db->execute())
-        {
-          return true;
+        foreach($data as $d){
+          $milkID = $this->findcattleMilkingId();
+          $cowID = $d['cowId'];
+          $quantity = $d['quantity'];
+          $this->db->query('INSERT INTO cattle_milking(milk_id, cow_id, quantity, stall_id, milk_collection_id) VALUES(:milkId, :cowId, :quantity, :stallId, :mcId)');
+          $this->db->bind(':milkId', $milkID);
+          $this->db->bind(':cowId', $cowID);
+          $this->db->bind(':quantity', intVal($quantity));
+          $this->db->bind(':stallId', $stallID);
+          $this->db->bind(':mcId', $milkCollectionID);
+          $this->db->execute();
         }
-        else
-        {
-          return false;
-        }
+        return true;
       }
       else {
         return false;
       }
     }
+   
 
     public function updateCattleMilking($data) {
       $this->db->query('UPDATE cattle_milking SET quantity= :quantity WHERE milk_id= :milkId');

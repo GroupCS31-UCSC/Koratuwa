@@ -108,6 +108,18 @@
     //to get all supplier order deails
     public function get_supOrderView()
     {
+      $this->db->query('SELECT * FROM supply_order ');
+
+      $result = $this->db->resultSet();
+
+      return $result;
+
+      
+    }
+
+    //to get all supplier milk details
+    public function get_supplyMilkView()
+    {
       $this->db->query('SELECT * FROM supply_order');
 
       $result = $this->db->resultSet();
@@ -115,11 +127,11 @@
       return $result;
     }
 
-    //to get all supplier milk deails
-    public function get_supplyMilkView()
+    //to get order details one by one
+    public function get_orderDetails($ordID)
     {
-      $this->db->query('SELECT * FROM supply_order');
-
+      $this->db->query('SELECT * FROM supply_order WHERE supply_order_id = :ordID');
+      $this->db->bind(':ordID', $ordID);
       $result = $this->db->resultSet();
 
       return $result;
