@@ -387,6 +387,13 @@ padding: 10px;
   margin-bottom: 5px;
 
 }
+.inputBox input[type="text"]{
+  width: 900px;
+  padding: 10px;
+  outline: none;
+  border: 1px solid #333;
+  
+  }
 
 .inputBox input[type="submit"]{
 background: #04086B;
