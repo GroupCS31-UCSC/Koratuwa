@@ -12,7 +12,7 @@
 		//check the supplier is registered using given email
 		public function findSupplierByEmail($email)
 		{
-			$this->db->query('SELECT * FROM user WHERE email = :email');
+			$this->db->query('SELECT * FROM user WHERE email = :email AND existence=1');
 			$this->db->bind(':email', $email);
 
 			$row = $this->db->single();
@@ -30,7 +30,7 @@
 		//save generated otp code in the database
 		public function saveOtpCode($email, $otp)
 		{
-			$this->db->query('UPDATE user SET otp_code=:otp WHERE email=:email ');
+			$this->db->query('UPDATE user SET otp_code=:otp WHERE email=:email AND existence=1');
 			$this->db->bind(':email', $email);
 			$this->db->bind(':otp', $otp);
 
@@ -50,7 +50,7 @@
 		{
 			$enteredOtp= strval($otp);
 
-			$this->db->query('SELECT otp_code FROM user WHERE email = :email');
+			$this->db->query('SELECT otp_code FROM user WHERE email = :email AND existence=1');
 			$this->db->bind(':email', $email);
 
 			$row = $this->db->single();
@@ -68,7 +68,7 @@
 		//save newly updated password into the db
 		public function setNewPw($email, $password)
 		{
-			$this->db->query('UPDATE user SET password=:pw WHERE email=:email ');
+			$this->db->query('UPDATE user SET password=:pw WHERE email=:email AND existence=1 ');
 			$this->db->bind(':email', $email);
 			$this->db->bind(':pw', $password);
 
@@ -85,7 +85,7 @@
 		//check entered pw and current pw is mismatched
 		public function checkCurrentPw($oldPw,$email)
 		{
-			$this->db->query('SELECT password FROM user WHERE email = :email');
+			$this->db->query('SELECT password FROM user WHERE email = :email AND existence=1');
 			$this->db->bind(':email', $email);
 
 			$row = $this->db->single();
@@ -106,7 +106,7 @@
 		//get the user name of provided email
 		public function getUserName($email)
 		{
-			$this->db->query('SELECT user_name FROM user WHERE email = :email');
+			$this->db->query('SELECT user_name FROM user WHERE email = :email AND existence=1');
 			$this->db->bind(':email', $email);
 
 			$row = $this->db->single();
@@ -140,7 +140,7 @@
 		public function registerAsSupplier($data)
 		{
 
-			$this->db->query('INSERT INTO user(user_id,user_name,email,password,user_type) VALUES(:id, :name, :email, :password, :user_type)');
+			$this->db->query('INSERT INTO user(user_id,user_name,email,password,user_type,existence) VALUES(:id, :name, :email, :password, :user_type, 1)');
 			//value binding
 			$this->db->bind(':id', $data['id']);
 			$this->db->bind(':name', $data['name']);
@@ -177,7 +177,7 @@
 		//check the customer is registered using given email
 		public function findCustomerByEmail($email)
 		{
-			$this->db->query('SELECT * FROM user WHERE email = :email');
+			$this->db->query('SELECT * FROM user WHERE email = :email AND existence=1');
 			$this->db->bind(':email', $email);
 
 			$row = $this->db->single();
@@ -216,7 +216,7 @@
 		//Register the customer
 		public function registerAsCustomer($data)
 		{
-			$this->db->query('INSERT INTO user(user_id,user_name,email,password,user_type) VALUES(:id, :name, :email, :password, :user_type)');
+			$this->db->query('INSERT INTO user(user_id,user_name,email,password,user_type,eistence) VALUES(:id, :name, :email, :password, :user_type, 1)');
 			//value binding
 			$this->db->bind(':id', $data['id']);
 			$this->db->bind(':name', $data['name']);
@@ -253,7 +253,7 @@
 		//check the user is registered using given email
 		public function findUserByEmail($email)
 		{
-			$this->db->query('SELECT * FROM user WHERE email = :email');
+			$this->db->query('SELECT * FROM user WHERE email = :email AND existence=1');
 			$this->db->bind(':email', $email);
 
 			$row = $this->db->single();
@@ -271,7 +271,7 @@
 		//login the user
 		public function login($email, $password)
 		{
-			$this->db->query('SELECT * FROM user WHERE email = :email');
+			$this->db->query('SELECT * FROM user WHERE email = :email AND existence=1');
 			$this->db->bind(':email', $email);
 
 			$row = $this->db->single();
@@ -291,7 +291,7 @@
 		//find the user type of logged user
 		public function findUserRole($email)
 		{
-			$this->db->query('SELECT user_type FROM user WHERE email = :email');
+			$this->db->query('SELECT user_type FROM user WHERE email = :email AND existence=1');
 			$this->db->bind(':email', $email);
 
 			$row = $this->db->single();
@@ -302,7 +302,7 @@
 		// get user profile details 
 		public function get_userProfile($userId){
 
-			$this->db->query('SELECT user_type from user WHERE user_id= :userId ');
+			$this->db->query('SELECT user_type from user WHERE user_id= :userId AND existence=1 ');
 			$this->db->bind(':userId', $userId);
 			$user = $this->db->single();
 			// echo $user_type;
