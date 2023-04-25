@@ -30,11 +30,12 @@
             ?>
             <tr>
                 <td>
-                <label for="Cattle" value="" name="cowId"><?=$cows->cow_id?></label>
+                <label for="Cattle" value="" name="cowId[]"><?=$cows->cow_id?></label>
                 </td>
                 <td>
-                <span class="form-invalid"><?php echo $data[0]['quantity_err']; ?></span>
-                <input type="number" name="quantity" id="vaccinationQuantity" class="quantity" value="<?php echo $data[0]['quantity'];?>" required>
+                <!-- <span class="form-invalid"><?php echo $data[0]['quantity_err']; ?></span> -->
+                <input type="hidden" name="stall" value="<?php echo $stall;?>">
+                <input type="number" id="<?php $cows->cow_id ?>" name="quantity[]" id="vaccinationQuantity" class="quantity" value="<?php echo $data[0]['quantity'];?>" required>
                 </td>
             </tr>
             <?php endforeach;?>
