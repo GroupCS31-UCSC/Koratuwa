@@ -42,15 +42,50 @@
     </div>
   </div>
   <div class="split right">
-    <div class="graphBox">
+    <!-- <div class="graphBox">
       <div class="box">
         <label><center>Orders</center></label>
         <canvas id="order"></canvas>
-      </div>
+      </div> -->
       <!-- <div class="box">
         <label><center>Percentages of sales</center></label>
         <canvas id="type"></canvas>
       </div> -->
+      <div class="form-container">
+	<div class="form-header">
+		<center><h1>Product Details</h1></center>
+	</div>
+	<br>
+	<form action="<?php echo URLROOT; ?>/Cashier/addSale" method="POST">        
+        <div class="form-input-title">Product Name</div>
+        <span class="form-invalid"></span>
+        <input type="number" name="product_name" id="product_name" class="product_name" value="" required>
+        <!-- <input type="number" name="product_name" id="product_name" class="product_name" value="<?php echo $data['product_name'];?>" required> -->
+
+		<div class="form-input-title">quantity</div>
+        <span class="form-invalid"></span>
+        <input type="number" name="quantity" id="quantity" class="quantity" value="<?php echo $data['quantity'];?>" required>
+        <!-- <input type="number" name="quantity" id="quantity" class="quantity" value="<?php echo $data['quantity'];?>" required> -->
+    
+		<br>
+		<input type="submit" value="OK" class="submitBtn">
+  </form>
+  
+</div>
+<table>
+      <tr>
+        <th>Product Name</th>
+        <th>Unit Price</th>
+        <th>Quantity</th>
+        <th>Price</th>
+      </tr>
+      <tr>
+        <td>Product 1</td>
+        <td>Rs. 100</td>
+        <td>1</td>
+        <td>Rs. 100</td>        
+      </tr>
+    </table>
     </div>
   </div>
 </div>

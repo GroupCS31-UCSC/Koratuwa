@@ -134,6 +134,10 @@
     //     return false;
     //   }
     // }
+
+    public function addSale($data) {
+      
+    }
     
     // public function updateSale($data) {
     //   // Check if customer exists
