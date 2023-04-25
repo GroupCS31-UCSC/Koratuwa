@@ -47,7 +47,6 @@
             <td><?php echo $supOrd->supply_date; ?></td>
             <td><?php echo $supOrd->quantity; ?></td>
             <td><?php echo $supOrd->unit_price; ?></td>
-            <!-- <td><?php echo ($data['supOrderView'])->supplying_address; ?></td> -->
             <td><?php echo $supOrd->status; ?></td>
             <td><?php echo $supOrd->quality; ?></td>
             <td>
@@ -132,6 +131,7 @@
             asdfgh
           </li>
         </ul>
+        <a href="">Download pdf</a>
       </div>
       <div class="modal-footer">
         <h3>***</h3>
