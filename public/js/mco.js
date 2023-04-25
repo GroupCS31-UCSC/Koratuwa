@@ -202,13 +202,16 @@ function openModel2(id){
         const domp=new DOMParser();
         const doc= domp.parseFromString(data,'text/html');
         const newData2 = doc.getElementById('newData2');
+        console.log(newData2);
 
-      document.getElementById("Model_Order_Id").innerText = data.supply_order_id;
-      document.getElementById("Model_Supplier_Id").innerText = data.supplier_id;
-      document.getElementById("Model_Supplier_Name").innerText = "";
-      document.getElementById("Model_Quantity").innerText = data.quantity;
-      document.getElementById("Model_Unit_Price").innerText = data.unit_price;
-      document.getElementById("Model_Status").innerText = data.status;
+        document.getElementById('newData2').innerHTML = newData2.innerHTML;
+
+    //   document.getElementById("Model_Order_Id").innerText = data.supply_order_id;
+    //   document.getElementById("Model_Supplier_Id").innerText = data.supplier_id;
+    //   document.getElementById("Model_Supplier_Name").innerText = "";
+    //   document.getElementById("Model_Quantity").innerText = data.quantity;
+    //   document.getElementById("Model_Unit_Price").innerText = data.unit_price;
+    //   document.getElementById("Model_Status").innerText = data.status;
       }
   
     });

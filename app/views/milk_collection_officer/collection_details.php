@@ -44,7 +44,7 @@
     </div>
 
     <div class="viewBox2">
-        
+    <table>
             <tbody id="newData2">
             <?php foreach ($data['ordDetails'] as $ord) : ?>
                 <tr>
