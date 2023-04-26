@@ -31,7 +31,7 @@
 
 <section class="footer">
   <div class="social">
-        <a href="https://www.facebook.com/koratuwa.dairyfarm"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.facebook.com/koratuwa.dairyfarm"><i class="fa-brands fa-facebook"></i></a>
   </div>
 
   <ul class="list">
