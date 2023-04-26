@@ -771,5 +771,13 @@
 
         }
 
+        public function tandc()
+        {
+          $data = [];
+
+          $this->view('users/u_tandc',$data);
+        }
+
+
     }
 ?>

@@ -366,10 +366,14 @@
             $this->view('supplier/sup_feedback',$data);
           }
         }
-        // public function DownloadInv(){
-        //   $data = [];
-        //   this->view('supplier/DownloadInvoice', $data);
-        // }
+        public function DownloadInv(){
+          $data = [];
+
+
+
+
+          $this->view('supplier/downloadInvoice', $data);
+        }
 
 
     }
