@@ -80,6 +80,5 @@
       </div>
     </div>
 
-<?php require APPROOT.'/views/include/footer.php'; ?>
 <script src="<?php echo URLROOT; ?>/js/dashboard.js"></script>          
 
