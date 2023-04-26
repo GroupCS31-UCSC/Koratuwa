@@ -1,0 +1,32 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #00bfff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.terms-box{
+    max-width: 500px;
+    background-color: #111;
+    color: #fff;
+    font-family: "Montserrat";
+    padding: 60px 30px;
+    margin: 40px;
+}
+
+.terms-text{
+    padding: 0 20px;
+    height: 500px;
+
+    font-size: 14px;
+    font-weight: 500;
+    color: #f1f1f1;
+
+}
+
+.terms-text h2{
+    text-transform: uppercase;
+}

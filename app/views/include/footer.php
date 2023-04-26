@@ -36,7 +36,7 @@
 
   <ul class="list">
 <li>
-  <a href="#">Home</a>
+  <a href="">Home</a>
 </li>
 
 <li>
@@ -52,7 +52,8 @@
 </li>
 
 <li>
-  <a href="">Terms and Conditions</a>
+  <!-- <a href="">Terms and Conditions</a> -->
+  <a href="<?php echo URLROOT; ?>/users/tandc">Terms and Conditions</a>
 </li>
 
 </ul>
