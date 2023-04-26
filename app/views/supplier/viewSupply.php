@@ -131,7 +131,7 @@
             asdfgh
           </li>
         </ul>
-        <a href="">Download pdf</a>
+        <a href="<?php echo URLROOT?>/Supplier/DownloadInv/">Download pdf</a>
       </div>
       <div class="modal-footer">
         <h3>***</h3>
