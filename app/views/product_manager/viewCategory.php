@@ -30,7 +30,7 @@
   </div>
 
   <div class=" float2">
-  <div class="heading">Details</div> <br>
+  <div class="heading">Product Details</div> <br>
     <hr>
     <br>
     <div class="l">Size of a Pack  </div><div class="r"><?php echo $cat->unit_size;  ?></div>
