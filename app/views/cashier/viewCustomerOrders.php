@@ -11,7 +11,7 @@
     <tr>
         <th>Order ID</th>
         <th>Date</th>
-        <th>Time</th>
+        <!-- <th>Time</th> -->
         <th>Status</th>
         <!-- <th>Receiving Method</th> -->
         <th>Payment Method</th>
@@ -21,10 +21,10 @@
         <th>Action</th>
     </tr>
     <tr>
-        <?php foreach ($data ['customerOrderView'] as $online_order) : ?>
+        <?php foreach ($data ['onlineOrderView'] as $online_order) : ?>
         <td><?php echo $online_order->order_id ?></td>
-        <td><?php echo $online_order->date ?></td>
-        <td><?php echo $online_order->time ?></td>
+        <td><?php echo $online_order->ordered_date ?></td>
+        <!-- <td><?php echo $online_order->order_time ?></td> -->
         <td><?php echo $online_order->status ?></td>
         <!-- <td><?php echo $online_order->receiving_method ?></td> -->
         <td><?php echo $online_order->payment_method ?></td>
@@ -33,8 +33,8 @@
         <td><?php echo $online_order->customer_id ?></td>
         <td>
             <div class="table-btns">
-            <a href="<?php echo URLROOT?>/Cashier/updateSale/<?php echo $customer_order->order_id ?>"><button class="updateBtn"><i class="fa-regular fa-pen-to-square"></i></button></a>
-            <a href="<?php echo URLROOT?>/Cashier/deleteSale/<?php echo $customer_order->order_id ?>"><button class="deleteBtn"><i class="fa-regular fa-trash-can"></i></button></a>
+            <a href="<?php echo URLROOT?>/Cashier/updateSale/<?php echo $online_order->order_id ?>"><button class="updateBtn"><i class="fa-regular fa-pen-to-square"></i></button></a>
+            <a href="<?php echo URLROOT?>/Cashier/deleteSale/<?php echo $online_order->order_id ?>"><button class="deleteBtn"><i class="fa-regular fa-trash-can"></i></button></a>
             </div>
         </td>
     </tr>

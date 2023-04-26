@@ -32,17 +32,60 @@
         }
 
         public function viewCustomerOrders() {
-          $customerOrderView= $this->cashierModel->get_onlineOrderView();
+          $onlineOrderView= $this->cashierModel->get_onlineOrderView();
           $data = [
-            'customerOrderView' => $customerOrderView
+            'onlineOrderView' => $onlineOrderView
           ];
           $this->view('Cashier/viewCustomerOrders',$data);
         }
 
-        public function addSale() {
-          $data = [];
-          $this->view('Cashier/addSale',$data);
+        public function addOnsiteSale() {
+          if($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+            $data2 = $this->cashierModel->get_productSaleView();
+
+            $data = [
+              'saleId'=> $this->cashierModel->findSaleId(),
+              'productName' => trim($_POST['productName']),
+              'quantity' => trim($_POST['quantity']),
+            ];
+
+            //validation
+            if(empty($data['productName'])) { $data['productName_err'] = '*'; }
+            if(empty($data['quantity'])) { $data['quantity_err'] = '*'; }
+
+            $result = array($data,$data2);
+            
+            //if no errors
+            if(empty($data['productName_err']) && empty($data['quantity_err'])) {
+              if($this->cashierModel->addOnsiteSale($data)) {
+                flash('add_onsiteSale_success', 'Sale added successfully');
+                redirect('Cashier/addOnsiteSale');
+              } else {
+                die('Something went wrong');
+              }
+            } else {
+              $this->view('Cashier/addOnsiteSale',$result);
+            }
+          } else {
+            $data2 = $this->cashierModel->get_productSaleView();
+
+            $data = [
+              'saleId'=> '',
+              'productName' => '',
+              'quantity' => '',
+
+              'productName_err' => '',
+              'quantity_err' => '',
+            ];
+
+            $result = array($data,$data2);
+            $this->view('Cashier/addOnsiteSale',$result);
+          }
         }
+
+
 
         public function updateSale() {
           $data = [];

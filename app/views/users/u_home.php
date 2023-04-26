@@ -157,20 +157,20 @@
                     <span>Fist Name</span>
                     <input type="text" placeholder="John" required>
                   </div>
-                  <div class="inputBox">
+                  <!-- <div class="inputBox">
                     <span>Last Name</span>
                     <input type="text" placeholder="Doe" >
-                  </div>
+                  </div> -->
                 </div>
                 <div class="row50">
                   <div class="inputBox">
                     <span>Email</span>
                     <input type="text" placeholder="johndoe@gmail.com" required>
                   </div>
-                  <div class="inputBox">
+                  <!-- <div class="inputBox">
                     <span>Mobile</span>
                     <input type="text" placeholder="+94770430770">
-                  </div>
+                  </div> -->
                 </div>
                 <div class="row100">
                   <div class="inputBox">
@@ -210,8 +210,8 @@
     </div>
 
     <div>
-     <span> <i class="fa-brands fa-facebook-f"></i></span>
-        <a href="https://www.facebook.com/koratuwa.dairyfarm"> Koratuwa Facebook</a>
+     <!-- <span> <i class="fa-brands fa-facebook-f"></i></span>
+        <a href="https://www.facebook.com/koratuwa.dairyfarm"> Koratuwa Facebook</a> -->
       
     </div>
 
