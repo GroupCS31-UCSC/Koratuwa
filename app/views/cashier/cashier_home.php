@@ -24,7 +24,7 @@
             <tr>
               <td data-label="Order ID"><?php echo $ongoing->order_id; ?></td>
               <td data-label="Customer ID"><?php echo $ongoing->customer_id; ?></td>
-              <td data-label="Date"><?php echo $ongoing->date; ?></td>
+              <td data-label="Date"><?php echo $ongoing->ordered_date; ?></td>
               <td>
                 <?php if($ongoing->status == 'ongoing') : ?>
                 <span class="status ongoing">ongoing</span>

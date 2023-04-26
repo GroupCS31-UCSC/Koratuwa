@@ -7,7 +7,15 @@
     }
 
     public function get_ongoingOrderView() {
-      $this->db->query('SELECT order_id, date, customer_id, status FROM online_order WHERE status="ongoing"');
+      $this->db->query('SELECT order_id, ordered_date, customer_id, status FROM online_order WHERE status="ongoing"');
+
+      $result = $this->db->resultSet();
+
+      return $result;
+    }
+
+    public function get_productSaleView() {
+      $this->db->query('SELECT * FROM product_sale');
 
       $result = $this->db->resultSet();
 
@@ -36,21 +44,21 @@
 
     public function findReceiptId() {
       $this->db->query('SELECT * FROM onsite_sale order by receipt_id desc limit 1');
+
       $row = $this->db->single();
-      $lastId ='';
+      $lastId = '';
       if($row) {
         $lastId = $row->receipt_id;
       }
-
-      if($lastId == '') {
-        $id = 'R001';
+      if(empty($lastId)) {
+        $id = 'r1';
       } else {
         $id = substr($lastId, 1);
         $id = intval($id);
         $id++;
-        $id = 'R'.str_pad($id, 3, '0', STR_PAD_LEFT);
+        $id = 'r'.$id;
       }
-
+    
       return $id;
     }
 
