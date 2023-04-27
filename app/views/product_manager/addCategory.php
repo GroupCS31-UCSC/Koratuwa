@@ -22,7 +22,7 @@
     <span class="form-invalid"><?php echo $data['name_err']; ?></span>
 		<input type="text" name="name" id="name" class="name" value="<?php echo $data['name']; ?>">
 
-    <div class="form-input-title">Size of a pack</div>
+    <div class="form-input-title">Size of a pack (milliliters)</div>
     <span class="form-invalid"><?php echo $data['size_err']; ?></span>
     <input type="text" name="size" id="size" class="size" value="<?php echo $data['size']; ?>"> 
 
@@ -34,7 +34,15 @@
     <!--ingredients-->
      <div class="form-input-title">Ingredients</div>
     <span class="form-invalid"><?php echo $data['ingredients_err']; ?></span>
-    <input type="text" name="ingredients" id="ingredients" class="ingredients" value="<?php echo $data['ingredients']; ?>"> 
+     <input type="text" name="ingredients" id="ingredients" class="ingredients" value="<?php echo $data['ingredients']; ?>">  
+  <!-- <input type="checkbox" >
+  <label for="vehicle1"> Cow's Milk</label><br>
+  <input type="checkbox" >
+  <label for="vehicle2">Sugar </label><br>
+  <input type="checkbox" >
+  <label for="vehicle3"> Natural Flavours</label><br>
+  <input type="checkbox">
+  <label for="vehicle4"> Artificial Flavours</label><br> -->
 
 
   <br>
