@@ -4,7 +4,7 @@
 
 
 <div class="container">
-  <div class="split left">
+  <!-- <div class="split left">
     <div class="ongoing">
       <div class="card-header">
         <h3>Ongoing Orders</h3>
@@ -40,8 +40,8 @@
         </table>
       </div>
     </div>
-  </div>
-  <div class="split right">
+  </div> -->
+  <!-- <div class="split right"> -->
     <!-- <div class="graphBox">
       <div class="box">
         <label><center>Orders</center></label>
@@ -56,17 +56,20 @@
 		<center><h1>Product Details</h1></center>
 	</div>
 	<br>
-	<form action="<?php echo URLROOT; ?>/Cashier/addSale" method="POST">        
-        <div class="form-input-title">Product Name</div>
-        <span class="form-invalid"></span>
-        <input type="number" name="product_name" id="product_name" class="product_name" value="" required>
-        <!-- <input type="number" name="product_name" id="product_name" class="product_name" value="<?php echo $data['product_name'];?>" required> -->
+	<form action="<?php echo URLROOT; ?>/Cashier/addSale" method="POST" enctype="multipart/form-data">        
+    <div class="form-input-title">Product Id</div>
+    <span class="form-invalid"><?php echo $data[0]['productId_err']; ?></span>
+    <label for="Select the Product"></label>
+    <?php $values = $data[1]?>
+    <select name="productId" id="productId">
+      <?php foreach($values as $product_id):?>
+        <option value="<?=$product_id->product_id?>" name="productId"><?=$product_id->product_id?></option>
+      <?php endforeach;?>
+    </select>
 
-		<div class="form-input-title">quantity</div>
-        <span class="form-invalid"></span>
-        <input type="number" name="quantity" id="quantity" class="quantity" value="<?php echo $data['quantity'];?>" required>
-        <!-- <input type="number" name="quantity" id="quantity" class="quantity" value="<?php echo $data['quantity'];?>" required> -->
-    
+		<div class="form-input-title">Quantity</div>
+    <span class="form-invalid"><?php echo $data[0]['quantity_err']; ?></span>
+    <input type="number" name="quantity" id="quantity" class="quantity" value="<?php echo $data[0]['quantity'];?>" required>    
 		<br>
 		<input type="submit" value="OK" class="submitBtn">
   </form>
@@ -86,7 +89,7 @@
         <td>Rs. 100</td>        
       </tr>
     </table>
-    </div>
+    <!-- </div> -->
   </div>
 </div>
 
