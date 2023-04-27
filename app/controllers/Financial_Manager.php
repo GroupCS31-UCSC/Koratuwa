@@ -36,15 +36,17 @@ function alert($msg) {
           $from = isset($_GET['from']) ? $_GET['from'] : date('Y-m-d');
           $to = isset($_GET['to']) ? $_GET['to'] : date('Y-m-d');
 
-          $reportsView= $this->financialManagerModel->viewReports($from, $to);
+          $exreportsView= $this->financialManagerModel->viewExpenseReports($from, $to);
 
           $data = [
-            'reportsView' => $reportsView,
+            'exreportsView' => $exreportsView,
             'from' => $from,
             'to' => $to,
           ];
 
           $this->view('financial_manager/reports',$data);
+          
+          
         }
         public function addExpense()
         {
@@ -56,13 +58,13 @@ function alert($msg) {
               'eId'=>'',
               'dat'=>trim($_POST['dat']),
               'des'=>trim($_POST['des']),
-              'ven'=>trim($_POST['ven']),
+    
               'amo'=>trim($_POST['amo']),
              
               
               'dat_err'=>'',
               'des_err'=>'',
-              'ven_err'=>'',
+             
               'amo_err'=>'',
               'image_err'=>''
               
@@ -71,7 +73,7 @@ function alert($msg) {
             //validation
             if (empty($data['dat']))        { $data['dat_err'] = '*' ;  }
             if (empty($data['des']))        { $data['des_err'] = '*' ; }
-            if (empty($data['ven']))        { $data['ven_err'] = '*' ; }
+          
             if (empty($data['amo']))        { $data['amo_err'] = '*' ; }
           
             
@@ -79,7 +81,7 @@ function alert($msg) {
             
 
             //if no errors
-            if(empty($data['dat_err']) && empty($data['des_err']) && empty($data['ven_err']) && empty($data['amo_err'])  )
+            if(empty($data['dat_err']) && empty($data['des_err'])  && empty($data['amo_err'])  )
             {
               $data['eId']= $this->financialManagerModel->findExpenseId();
 
@@ -106,14 +108,14 @@ function alert($msg) {
               'eId'=>'',
               'dat'=>'',
               'des'=>'',
-              'ven'=>'',
+           
               'amo'=>'',
             
               
 
               'dat_err'=>'',
               'des_err'=>'',
-              'ven_err'=>'',
+      
               'amo_err'=>'',
            
               

@@ -31,12 +31,11 @@
     
     public function addExpense($data)
     {
-      $this->db->query('INSERT INTO expense(expense_id,date,description,vendor,amount) VALUES(:eId, :dat, :des, :ven, :amo)');
+      $this->db->query('INSERT INTO expense(expense_id,date,description,amount) VALUES(:eId, :dat, :des, :amo)');
       //value binding
       $this->db->bind(':eId', $data['eId']);
       $this->db->bind(':dat', $data['dat']);
       $this->db->bind(':des', $data['des']);
-      $this->db->bind(':ven', $data['ven']);
       $this->db->bind(':amo', $data['amo']);
       
 
@@ -74,13 +73,32 @@
     // }
 
     
-    public function viewReports($from, $to) {
+    // public function viewReports($from, $to) {
+    //   $this->db->query('SELECT * FROM expense WHERE date > "'.$from.'" and date < "'.$to.'"');
+
+    //   $result = $this->db->resultSet();
+
+    //   return $result;
+    // }
+
+     
+    public function viewExpenseReports($from, $to) {
       $this->db->query('SELECT * FROM expense WHERE date > "'.$from.'" and date < "'.$to.'"');
 
       $result = $this->db->resultSet();
 
       return $result;
     }
+
+    public function viewRevenueReports($from, $to) {
+      $this->db->query('SELECT * FROM revenue WHERE date > "'.$from.'" and date < "'.$to.'"');
+
+      $result = $this->db->resultSet();
+
+      return $result;
+    }
+
+    
 
     // public function updateExpense($data)
     // {
