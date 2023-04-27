@@ -79,6 +79,21 @@ statusSelect.addEventListener("change", function() {
   localStorage.setItem("selectedStatus", statusSelect.value);
 });
 
+// function showIcon(){
+//     const searchVal= document.querySelector(".searchName").value;
+//     const img= document.querySelector(".img");
+
+//     if(searchVal.length <= 0) document.body.classList.hide();
+//     else document.body.classList.add("active");
+//     if(searchVal.length > 0){
+//         img.style.display = "block";
+//     }
+
+//     img.addEventListener("click", () => {
+//         document.querySelector(".searchName").value=" ";
+//         document.body.classList.remove("active");
+//     });   
+// }
  
 
 

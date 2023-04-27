@@ -31,12 +31,12 @@
 
 <section class="footer">
   <div class="social">
-        <a href="https://www.facebook.com/koratuwa.dairyfarm"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.facebook.com/koratuwa.dairyfarm"><i class="fa-brands fa-facebook"></i></a>
   </div>
 
   <ul class="list">
 <li>
-  <a href="#">Home</a>
+  <a href="">Home</a>
 </li>
 
 <li>
@@ -52,7 +52,8 @@
 </li>
 
 <li>
-  <a href="">Terms and Conditions</a>
+  <!-- <a href="">Terms and Conditions</a> -->
+  <a href="<?php echo URLROOT; ?>/users/tandc">Terms and Conditions</a>
 </li>
 
 </ul>

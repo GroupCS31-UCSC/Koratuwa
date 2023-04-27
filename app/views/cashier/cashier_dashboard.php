@@ -1,6 +1,6 @@
-<?php require APPROOT.'/views/include/header.php'; ?>
+<?php require APPROOT . '/views/include/header.php'; ?>
 <link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/public/css/cashier/styles.css">
-<link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/public/css/cashier/addSale.css">
+
 
 
 <div class="full-container">
@@ -19,15 +19,12 @@
         </a>
       </li>
       <li>
-        
         <a href="<?php echo URLROOT; ?>/Cashier/viewOnsiteSale">
-
           <span class="icon"><i class="fa-solid fa-scale-balanced"></i></span>
           <span class="title">Onsite Sales</span>
         </a>
       </li>
       <li>
-        <!-- Customer orders -->
         <a href="<?php echo URLROOT; ?>/Cashier/viewCustomerOrders">
           <span class="icon"><i class="fa-brands fa-joget"></i></span>
           <span class="title">Customer Orders</span>
@@ -45,7 +42,6 @@
       </div>
     <div class="topmenu">
       <ul>
-        <li><a href="" onclick="openSaleModel()"><i class="fa-solid fa-scale-balanced" id="sale"></i></a></li>
         <li><a href=""><i class="fas fa-bell"></i></a></li>
         <li><div class="img-user"><img src="<?php echo URLROOT; ?>/img/users/user.png" alt="user"></div></li>
         <li><a href=""><?php echo $_SESSION['user_name']; ?></a></li>
@@ -77,53 +73,5 @@
         </div>
       </div>
     </div>
-    <div class="model fade in" id="sale" tabindex="-1">
-  <div class="model-dialog">
-    <div class="model-content">
-      <div class="model-header">
-        <button type="button" class="close" onclick="closeSaleModel()" ><span aria-hidden="true">×</span></button>
-        <h4 class="Model-title">Add Sale</h4>
-      </div>
-      <div class="model-body">
-      <table>
-        <tr>
-          <th>Product</th>
-          <th>Quantity</th>
-          <th>Prize</th>
-          <th>Action</th>
-        </tr>
-        <tr>
-          <td>Fresh milk</td>
-          <td><a href=""><button>+</button></a>03<a href=""><button>-</button></a></td>
-          <td>300</td>
-          <td>
-            <a href="<?php echo URLROOT; ?>/Cashier/deleteSale"><button class="deleteBtn">X</button></a>
-          </td>
-        </tr>
-        <tr>
-          <td>Yogurt</td>
-          <td><a href=""><button>+</button></a>02<a href=""><button>-</button></a></td>
-          <td>300</td>
-          <td>
-            <a href="<?php echo URLROOT; ?>/Cashier/deleteSale"><button class="deleteBtn">X</button></a>
-          </td>
-        </tr>
-      </table>
-      </div>
-    </div>
-  </div>
-  <div class="modal-footer"></div>
-</div>
 
-<?php require APPROOT.'/views/include/footer.php'; ?>
 <script src="<?php echo URLROOT; ?>/js/dashboard.js"></script>
-
-<script>
-  function openSaleModel(){
-    document.getElementById('sale').classList.add('open-model');
-  }
-  function closeSaleModel(){
-    document.getElementById('sale').classList.remove('open-model');
-  }
-
-</script>
