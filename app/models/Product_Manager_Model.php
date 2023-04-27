@@ -162,12 +162,12 @@
 
     public function updateCategory($data)
     {
-      $this->db->query('UPDATE product SET product_name= :name, ingredients= :ingredients, unit_price= :price, expiry_duration=:duration,size= :size,  image= :image WHERE product_id= :pId');
-      $this->db->bind(':name', $data['name']);
+      $this->db->query('UPDATE product SET  unit_price= :price, image= :image WHERE product_id= :pId');
+      // $this->db->bind(':name', $data['name']);
       $this->db->bind(':price', $data['price']);
-      $this->db->bind(':duration', $data['duration']);
-      $this->db->bind(':size', $data['size']);
-      $this->db->bind(':ingredients', $data['ingredients']);
+      // $this->db->bind(':duration', $data['duration']);
+      // $this->db->bind(':size', $data['size']);
+      // $this->db->bind(':ingredients', $data['ingredients']);
       $this->db->bind(':image', $data['image']);
       $this->db->bind(':pId', $data['pId']);
 

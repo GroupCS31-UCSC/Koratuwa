@@ -31,12 +31,11 @@
     
     public function addExpense($data)
     {
-      $this->db->query('INSERT INTO expense(expense_id,date,description,vendor,amount) VALUES(:eId, :dat, :des, :ven, :amo)');
+      $this->db->query('INSERT INTO expense(expense_id,date,description,amount) VALUES(:eId, :dat, :des, :amo)');
       //value binding
       $this->db->bind(':eId', $data['eId']);
       $this->db->bind(':dat', $data['dat']);
       $this->db->bind(':des', $data['des']);
-      $this->db->bind(':ven', $data['ven']);
       $this->db->bind(':amo', $data['amo']);
       
 

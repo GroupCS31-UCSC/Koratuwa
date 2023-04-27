@@ -58,13 +58,13 @@ function alert($msg) {
               'eId'=>'',
               'dat'=>trim($_POST['dat']),
               'des'=>trim($_POST['des']),
-              'ven'=>trim($_POST['ven']),
+    
               'amo'=>trim($_POST['amo']),
              
               
               'dat_err'=>'',
               'des_err'=>'',
-              'ven_err'=>'',
+             
               'amo_err'=>'',
               'image_err'=>''
               
@@ -73,7 +73,7 @@ function alert($msg) {
             //validation
             if (empty($data['dat']))        { $data['dat_err'] = '*' ;  }
             if (empty($data['des']))        { $data['des_err'] = '*' ; }
-            if (empty($data['ven']))        { $data['ven_err'] = '*' ; }
+          
             if (empty($data['amo']))        { $data['amo_err'] = '*' ; }
           
             
@@ -81,7 +81,7 @@ function alert($msg) {
             
 
             //if no errors
-            if(empty($data['dat_err']) && empty($data['des_err']) && empty($data['ven_err']) && empty($data['amo_err'])  )
+            if(empty($data['dat_err']) && empty($data['des_err'])  && empty($data['amo_err'])  )
             {
               $data['eId']= $this->financialManagerModel->findExpenseId();
 
@@ -108,14 +108,14 @@ function alert($msg) {
               'eId'=>'',
               'dat'=>'',
               'des'=>'',
-              'ven'=>'',
+           
               'amo'=>'',
             
               
 
               'dat_err'=>'',
               'des_err'=>'',
-              'ven_err'=>'',
+      
               'amo_err'=>'',
            
               

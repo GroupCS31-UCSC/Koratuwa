@@ -271,11 +271,11 @@
           }
             $data=[
               'pId'=>$pId,
-              'name'=>trim($_POST['name']),
-              'duration'=>trim($_POST['duration']),
-              'size'=>trim($_POST['size']),
+              // 'name'=>trim($_POST['name']),
+              // 'duration'=>trim($_POST['duration']),
+              // 'size'=>trim($_POST['size']),
               'price'=>trim($_POST['price']),
-              'ingredients'=>trim($_POST['ingredients']),
+              // 'ingredients'=>trim($_POST['ingredients']),
               'image'=>$new_img_name,
 
               'name_err'=>'',
@@ -287,16 +287,16 @@
             ];
 
             //validation
-            if (empty($data['name']))        { $data['name_err'] = '*' ;  }
-            if (empty($data['duration']))     { $data['duration_err'] = '*' ; }
-            if (empty($data['size']))         { $data['size_err'] = '*' ; }
+            // if (empty($data['name']))        { $data['name_err'] = '*' ;  }
+            // if (empty($data['duration']))     { $data['duration_err'] = '*' ; }
+            // if (empty($data['size']))         { $data['size_err'] = '*' ; }
             if (empty($data['price']))        { $data['price_err'] = '*' ; }
-            if (empty($data['ingredients']))  { $data['ingredients_err'] = '*' ; }
+            // if (empty($data['ingredients']))  { $data['ingredients_err'] = '*' ; }
             if (empty($data['image']))        { $data['image_err'] = '*' ; }
 
 
             //if no errors
-            if(empty($data['name_err']) && empty($data['duration_err']) && empty($data['size_err']) && empty($data['price_err']) && empty($data['ingredients_err']) && empty($data['image_err']) )
+            if( empty($data['price_err']) && empty($data['image_err']) )
             {
               if($this->pmModel->updateCategory($data))
               {
