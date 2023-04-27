@@ -6,24 +6,33 @@
 <div class="row">
   <div class="column left">
 
-  <h2>REVENUES</h2>
+   <h2>REVENUES</h2> 
  
-
-
   <table>
-   <tr>
-     <th>Revenue ID</th>
-     <th>Date</th>
-     <th>Source of Revenue</th>
-     <th>Amount </th>
-   
-   </tr>
+      <tr>
+        <th>Revenue ID</th>
+        <th>Date</th>
+        <th>Source of Reveneue</th>
+        <!-- <th>Vendor</th> -->
+        <th>Amount </th>
+        <!-- <th>Action</th> -->
+      </tr>
 
- 
- </table>
+      <?php foreach ($data['revenueView'] as $revenue) : ?>
+      <tr>
+        <td><?php echo $revenue->revenue_id; ?></td>
+        <td><?php echo $revenue->date; ?></td>
+        <td><?php echo $revenue->source; ?></td>
+        <td><?php echo $revenue->amount; ?></td>
+    
 
- 
- 
+        </div>
+    </td>
+    
+      </tr><br>
+      <?php endforeach; ?>
+    </table>
+
 
   </div>
 

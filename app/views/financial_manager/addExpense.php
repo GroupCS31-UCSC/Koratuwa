@@ -22,7 +22,7 @@
   <div class="form-container">
 
 <div class="form-header">
-  <center><h1>Add new Expense</h1></center>
+  <center><h1>Add Expense</h1></center>
 </div>
 <br>
 
@@ -38,10 +38,10 @@
   <span class="form-invalid"><?php echo $data['des_err']; ?></span>
   <input type="text" name="des" id="des" class="des" value="<?php echo $data['des']; ?>">
 
-
+<!-- 
   <div class="form-input-title">Vendor</div>
   <span class="form-invalid"><?php echo $data['ven_err']; ?></span>
-  <input type="text" name="ven" id="ven" class="ven" value="<?php echo $data['ven']; ?>">
+  <input type="text" name="ven" id="ven" class="ven" value="<?php echo $data['ven']; ?>"> -->
 
   <div class="form-input-title">Amount</div>
   <span class="form-invalid"><?php echo $data['amo_err']; ?></span>
