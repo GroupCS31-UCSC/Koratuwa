@@ -78,6 +78,12 @@ for (var i = 0; i < statusSelect.options.length; i++) {
 statusSelect.addEventListener("change", function() {
   localStorage.setItem("selectedStatus", statusSelect.value);
 });
+//-------------------------------------------------
+
+// function favTutorial() {
+//     var mylist = document.getElementById("myList");
+//     document.getElementById("favourite").value = mylist.options[mylist.selectedIndex].text;
+//     }
 
 // function showIcon(){
 //     const searchVal= document.querySelector(".searchName").value;

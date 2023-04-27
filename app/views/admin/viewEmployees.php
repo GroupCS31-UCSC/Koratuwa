@@ -123,7 +123,6 @@
                   <!-- <th>More Details</th> -->
                 </tr>
 
-                <?php $data_index=0 ?>
                 <?php foreach ($data['empView'] as $emp) : ?>
                 <tr>
                   <td><?php echo $emp->employee_name; ?></td>
@@ -135,7 +134,6 @@
                   <td><?php echo $emp->removed_date; ?></td>
 
                 </tr><br>
-                <?php $data_index++; ?>
                 <?php endforeach; ?>
                 
 
@@ -202,31 +200,31 @@
             <section class="table1Section">
               <!-- <div class="container" style="overflow-x: auto;"> -->
                 
-              <?php $data_index=0 ?>
-              <?php foreach ($data['empView'] as $emp) : ?>
-              <?php if($emp->existence == 1): ?>
+              
+              <?php foreach ($data['labView'] as $lab) : ?>
+              <?php if($lab->existence == 1): ?>
                 <table>
                   <tr>
                     <th>Employee Id</th>
                     <th>Name</th>
-                    <th>Employment</th>
+                    <!-- <th>NIC</th> -->
                     <th>Contact Number</th>
                     <th>Gender</th>
                     <th>Action</th>
                   </tr>
 
-                  <?php foreach ($data['empView'] as $emp) : ?>
+                  <?php $data_index=0 ?>
+                  <?php foreach ($data['labView'] as $lab) : ?>
                   <tr>
-                    <td><?php echo $emp->employee_id; ?></td>
-                    <td><?php echo $emp->employee_name; ?></td>
-                    <td><?php echo $emp->employment; ?></td>
-                    <td><?php echo $emp->contact_number; ?></td>
-                    <td><?php echo $emp->gender; ?></td>
+                    <td><?php echo $lab->laborer_id; ?></td>
+                    <td><?php echo $lab->name; ?></td>
+                    <td><?php echo $lab->contact_number; ?></td>
+                    <td><?php echo $lab->gender; ?></td>
                     <td>
                       <div class="table-btns">
-                      <a href="<?php echo URLROOT?>/Admin/updateLabours/<?php echo $emp->employee_id ?>"><button class="updateBtn" title="Update"><i class="fa-regular fa-pen-to-square"></i></button></a>
-                      <a href="<?php echo URLROOT?>/Admin/deleteLabours/<?php echo $emp->employee_id ?>"><button class="deleteBtn" title="Delete"><i class="fa-regular fa-trash-can"></i></button></a>
-                      <a href="#"><button class="viewBtn" onclick="openModel('<?=$emp->employee_id?>')" id="<?php echo($data_index) ?>"><i class="fas fa-eye"></i></button></a>
+                      <a href="<?php echo URLROOT?>/Admin/updateLabours/<?php echo $lab->laborer_id ?>"><button class="updateBtn" title="Update"><i class="fa-regular fa-pen-to-square"></i></button></a>
+                      <a href="<?php echo URLROOT?>/Admin/deleteLabours/<?php echo $lab->laborer_id ?>"><button class="deleteBtn" title="Delete"><i class="fa-regular fa-trash-can"></i></button></a>
+                      <a href="#"><button class="viewBtn" onclick="openModel('<?=$lab->laborer_id?>')" id="<?php echo($data_index) ?>"><i class="fas fa-eye"></i></button></a>
                       </div>
 
                     <!-- 
@@ -246,7 +244,6 @@
                 <table>
                   <tr>
                     <th>Name</th>
-                    <th>Employment</th>
                     <th>NIC</th>
                     <th>Contact Number</th>
                     <th>Gender</th>
@@ -255,15 +252,14 @@
                     <!-- <th>More Details</th> -->
                   </tr>
 
-                  <?php foreach ($data['empView'] as $emp) : ?>
+                  <?php foreach ($data['empView'] as $lab) : ?>
                   <tr>
-                    <td><?php echo $emp->employee_name; ?></td>
-                    <td><?php echo $emp->employment; ?></td>
-                    <td><?php echo $emp->nic; ?></td>
-                    <td><?php echo $emp->contact_number; ?></td>
-                    <td><?php echo $emp->gender; ?></td>
-                    <td><?php echo $emp->service_time; ?></td>
-                    <td><?php echo $emp->removed_date; ?></td>
+                    <td><?php echo $lab->name; ?></td>
+                    <td><?php echo $lab->nic; ?></td>
+                    <td><?php echo $lab->contact_number; ?></td>
+                    <td><?php echo $lab->gender; ?></td>
+                    <td><?php echo $lab->service_time; ?></td>
+                    <td><?php echo $lab->removed_date; ?></td>
 
                   </tr><br>
                   <?php endforeach; ?>
