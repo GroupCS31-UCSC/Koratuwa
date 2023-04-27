@@ -3,50 +3,75 @@
 <link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/public/css/financial_manager/reports.css">
 <!-- ______________________________________________________________________________________________________-->
 
-
+<div class="filter">
 
 <h2>REPORTS</h2>
 <form>
-    <label for="from">From:</label>
-    <input type="date" id="from" name="from" value="<?php echo $data['from']; ?>">
-    <label for="to">To:</label>
+    <label for="from">From :</label>
+    <input type="date" id="from" name="from" value="<?php echo $data['from']; ?>"><br>
+    <label for="to">  To :</label>
     <input type="date" id="to" name="to" value="<?php echo $data['to']; ?>">
-    <input type="submit" value="Refresh" class="submitBtn"> 
+    <input type="submit" value="Search" class="submitBtn"> 
 </form>
-    <table>
+
+</div>
+
+
+<div class="table1">
+<table>
+  <h1>Expenses</h1>
       <tr>
         <th>Expense ID</th>
         <th>Date</th>
         <th>Description</th>
-        <!-- <th>Vendor</th> -->
         <th>Amount </th>
-        <!-- <th>Action</th> -->
       </tr>
 
-      <?php foreach ($data['reportsView'] as $expense) : ?>
+      <?php foreach ($data['exreportsView'] as $expense) : ?>
       <tr>
         <td><?php echo $expense->expense_id; ?></td>
         <td><?php echo $expense->date; ?></td>
         <td><?php echo $expense->description; ?></td>
         <!-- <td><?php echo $expense->vendor; ?></td> -->
         <td><?php echo $expense->amount; ?></td>
-         <!--<td>
-      <a href="<?php echo URLROOT?>/Financial_Manager/updateExpense/<?php ?>"><button class="updateBtn" title="Update"><i class="fa-regular fa-pen-to-square"></i></button></a>
-      <a href="<?php echo URLROOT?>/Financial_Manager/deleteExpense/<?php ?>"><button class="deleteBtn" title="Delete"><i class="fa-regular fa-trash-can"></i></button></a> -->
-        <div class="table-btns">
-          <!-- <a href="<?php echo URLROOT?>/financial_Manager/updateExpense/"><button class="updateBtn">UPDATE</button></a>
-          <a href="<?php echo URLROOT?>/financial_Manager/deleteExpense/"><button class="deleteBtn">DELETE</button></a> -->
-
-         
-        </div>
-    </td>
+      
     
       </tr><br>
       <?php endforeach; ?>
     </table>
+    </div>
+
+    <!-- <div class="table2">
+
+   - <table>
+  <h1>Revenues</h1>
+      <tr>
+        <th>Revenue ID</th>
+        <th>Date</th>
+        <th>Source of Revenue</th>
+        <th>Amount </th>
+       
+      </tr>
+
+      <?php foreach ($data['rereportsView'] as $revenue) : ?>
+      <tr>
+        <td><?php echo $revenue->expense_id; ?></td>
+        <td><?php echo $revenue->date; ?></td>
+        <td><?php echo $revenue->source; ?></td>
+        <td><?php echo $revenue->amount; ?></td>
+         
+      
+    </td>
+    
+      </tr><br>
+      <?php endforeach; ?>
+    </table> -->
 
 
+  
 
+    <!-- <input type="submit" value="Generate PDF" class="pdfBtn">  -->
+    
 
 
 

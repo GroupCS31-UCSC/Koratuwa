@@ -74,13 +74,32 @@
     // }
 
     
-    public function viewReports($from, $to) {
+    // public function viewReports($from, $to) {
+    //   $this->db->query('SELECT * FROM expense WHERE date > "'.$from.'" and date < "'.$to.'"');
+
+    //   $result = $this->db->resultSet();
+
+    //   return $result;
+    // }
+
+     
+    public function viewExpenseReports($from, $to) {
       $this->db->query('SELECT * FROM expense WHERE date > "'.$from.'" and date < "'.$to.'"');
 
       $result = $this->db->resultSet();
 
       return $result;
     }
+
+    public function viewRevenueReports($from, $to) {
+      $this->db->query('SELECT * FROM revenue WHERE date > "'.$from.'" and date < "'.$to.'"');
+
+      $result = $this->db->resultSet();
+
+      return $result;
+    }
+
+    
 
     // public function updateExpense($data)
     // {

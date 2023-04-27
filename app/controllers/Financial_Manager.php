@@ -36,15 +36,17 @@ function alert($msg) {
           $from = isset($_GET['from']) ? $_GET['from'] : date('Y-m-d');
           $to = isset($_GET['to']) ? $_GET['to'] : date('Y-m-d');
 
-          $reportsView= $this->financialManagerModel->viewReports($from, $to);
+          $exreportsView= $this->financialManagerModel->viewExpenseReports($from, $to);
 
           $data = [
-            'reportsView' => $reportsView,
+            'exreportsView' => $exreportsView,
             'from' => $from,
             'to' => $to,
           ];
 
           $this->view('financial_manager/reports',$data);
+          
+          
         }
         public function addExpense()
         {
