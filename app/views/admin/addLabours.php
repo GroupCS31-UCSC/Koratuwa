@@ -7,15 +7,15 @@
 <div class="form-container">
 
 	<div class="form-header">
-		<center><h1>Add New Employee</h1></center>
+		<center><h1>Add New Labour</h1></center>
 	</div>
 	<br>
 
-	<form id="addForm" action="<?php echo URLROOT; ?>/Admin/addEmployees" method="POST" enctype="multipart/form-data">
+	<form id="addForm" action="<?php echo URLROOT; ?>/Admin/addLabours" method="POST" enctype="multipart/form-data">
 
 		<!--name-->
     <div class="feature">
-      <div class="form-input-title">Employee Name</div>
+      <div class="form-input-title">Name</div>
       <span class="form-invalid"><?php echo $data['name_err']; ?></span>
       <input type="text" name="name" id="name" class="name" autocomplete="off" value="<?php echo $data['name']; ?>">
     </div>
@@ -50,40 +50,9 @@
       <div class="form-input-title">Address</div>
       <input type="text" name="address" id="address" class="address" autocomplete="off" value="<?php echo $data['address']; ?>">
     </div>
-
-		<!--email-->
-    <div class="feature">
-      <div class="form-input-title">Email</div>
-      <span class="form-invalid"><?php echo $data['email_err']; ?></span>
-      <input type="email" name="email" id="email" class="email" autocomplete="off" value="<?php echo $data['email']; ?>">
-    </div>
-
-		<!--employment-->
-    <div class="feature">
-      <div class="form-input-title">Employment</div>
-      <span class="form-invalid"><?php echo $data['employment_err']; ?></span>
-      <select class="employment" name="employment" id="employment" value="<?php echo $data['employment']; ?>">
-      <!-- foreach($categories as $category){
-        <option value="$category[]">$category[]</option>
-
-      } -->
-        <option value="Select">--Select--</option>
-        <option value="Product Manager">Product Manager</option>
-        <option value="Livestock Manager">Livestock Manager</option>
-        <option value="Milk Collection Officer">Milk Collection Officer</option>
-        <option value="Financial Manager">Financial Manager</option>
-        <option value="Cashier">Cashier</option>
-      </select>
-    </div>
-
-    <!--image-->
-    <!-- <div class="feature">
-      <div class="form-input-title">Image</div>
-      <input type="file" name="image" id="image" class="image" value="<?php echo $data['image']; ?>"><br>
-    </div> -->
     
 
-		<br>
+	<br>
     <div class="feature">
       <!-- <input type="submit" value="Submit" class="submitBtn" onclick="adding(event)"> -->
       <input type="submit" value="Submit" class="submitBtn">
