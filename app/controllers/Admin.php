@@ -329,7 +329,7 @@
               {
                   //addPopup();
                   flash('addEmp_flash','New Employee Details are successfully added!');
-                  redirect('Admin/viewEmployees');              
+                  redirect('Admin/viewEmployeesLab');              
               }
               else
               {
@@ -521,15 +521,35 @@
         {
           $search = '';
            $empView= $this->adminModel->currentEmpSearch($search);
+           $labView= $this->adminModel->currentLabourSearch($search);
 
            $data = [
                'empView' => $empView,
+               'labView' => $labView,
                'search' => '',
                'status' => '',
                'msg' =>''
            ];
 
            $this->view('admin/viewEmployees',$data);
+        }
+
+        //view labourer details
+        public function viewEmployeesLab()
+        {
+           $search = '';
+           $empView= $this->adminModel->currentEmpSearch($search);
+           $labView= $this->adminModel->currentLabourSearch($search);
+
+           $data = [
+              'empView' => $empView,
+              'labView' => $labView,
+               'search' => '',
+               'status' => '',
+               'msg' =>''
+           ];
+
+           $this->view('admin/viewEmployeesL',$data);
         }
 
         
@@ -539,13 +559,17 @@
           if($_SERVER['REQUEST_METHOD']=='GET')
           {
             $_GET=filter_input_array(INPUT_GET, FILTER_SANITIZE_STRING);
+            $search = '';
+            $labView= $this->adminModel->currentLabourSearch($search);
         
             $data = [
               'empView' => '',
+              'labView' => $labView,
               'status' => trim($_GET['status']),
               'search' => trim($_GET['search']),
               'msg' =>''
             ];
+
 
             if($data['status']=='currentEmp'){
 
@@ -574,22 +598,25 @@
           if($_SERVER['REQUEST_METHOD']=='GET')
           {
             $_GET=filter_input_array(INPUT_GET, FILTER_SANITIZE_STRING);
+            $search = '';
+            $empView= $this->adminModel->currentEmpSearch($search);
         
             $data = [
-              'empView' => '',
+              'empView' => $empView,
+              'labView' => '',
               'status' => trim($_GET['status']),
               'search' => trim($_GET['search']),
               'msg' =>''
             ];
 
             if($data['status']=='currentLabours'){
-              $data['empView']=$this->adminModel->currentLabourSearch($data['search']);
+              $data['labView']=$this->adminModel->currentLabourSearch($data['search']);
             }
             else if($data['status']=='pastLabours'){
-              $data['empView']=$this->adminModel->pastLabourSearch($data['search']);
+              $data['labView']=$this->adminModel->pastLabourSearch($data['search']);
             }
 
-            if(empty($data['empView'])){ 
+            if(empty($data['labView'])){ 
               $data['msg'] = "No data related to your search";
             }
 
@@ -598,7 +625,7 @@
           }
           else
           {
-            redirect('Admin/viewEmployees');
+            redirect('Admin/viewEmployeesLab');
           }
         }
         

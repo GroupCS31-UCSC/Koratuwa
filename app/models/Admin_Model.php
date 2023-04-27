@@ -206,7 +206,7 @@
 		{
 			$this->db->query('SELECT * FROM laborer order by laborer_id desc limit 1');
 			$row = $this->db->single();
-			$lastId=$row->employee_id;
+			$lastId=$row->laborer_id;
 
 			if($lastId == '')
 			{
@@ -326,7 +326,7 @@
     //to get all livestock deails
     public function get_livestockView()
     {
-      $this->db->query('SELECT * FROM cattle');
+      $this->db->query('SELECT * FROM cattle WHERE existence=1');
 
       $result = $this->db->resultSet();
 
