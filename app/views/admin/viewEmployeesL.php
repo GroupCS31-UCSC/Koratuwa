@@ -13,7 +13,7 @@
 
 <div class="mytabs">
   <!-- tab1 -->
-  <input type="radio" id="tab1" name="mytabs" checked="checked">
+  <input type="radio" id="tab1" name="mytabs">
     <label for="tab1">System Using Employees</label>
       <div class="tab"><p>
         <div class="systemUsers">
@@ -155,7 +155,7 @@
       </p></div>
 
   <!-- tab2 -->
-  <input type="radio" id="tab2" name="mytabs">
+  <input type="radio" id="tab2" name="mytabs" checked="checked">
       <label for="tab2">Non System-Using Employees</label>
         <div class="tab"><p>
           <div class="systemUsers">
