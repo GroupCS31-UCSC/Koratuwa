@@ -100,7 +100,16 @@ statusSelect.addEventListener("change", function() {
 //         document.body.classList.remove("active");
 //     });   
 // }
- 
+// $('#Empstatus').change(function(){
+//     var selector  = $(this).val();
+//     filter_criteria(selector);
+//     // console.log(selector);
+//   });
+  
+//   function filter_criteria(selector){
+//     var target = $('div#content span#' + selector);
+//     console.log(target.show().siblings().hide())
+//   }
 
 
 
@@ -174,4 +183,3 @@ function adding(e) {
         });
     return false;
 }
-

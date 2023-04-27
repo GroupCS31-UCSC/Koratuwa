@@ -329,7 +329,7 @@
               {
                   //addPopup();
                   flash('addEmp_flash','New Employee Details are successfully added!');
-                  redirect('Admin/viewEmployees');              
+                  redirect('Admin/viewEmployeesLab');              
               }
               else
               {
@@ -599,7 +599,7 @@
           {
             $_GET=filter_input_array(INPUT_GET, FILTER_SANITIZE_STRING);
             $search = '';
-            $empView= $this->adminModel->currentLabourSearch($search);
+            $empView= $this->adminModel->currentEmpSearch($search);
         
             $data = [
               'empView' => $empView,
