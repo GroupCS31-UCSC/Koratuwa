@@ -3,7 +3,7 @@
 <link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/public/css/cashier/viewSale.css">
 
 
-<!-- <div class="flash-msg">
+<div class="flash-msg">
   <?php flash('addSale_flash') ?>
   <?php flash('updateSale_flash') ?>
   <?php flash('deleteSale_flash') ?>
@@ -11,14 +11,14 @@
 
 
 <div class="search-add">
-  <div class="search-area"> -->
-    <!-- <form action="<?php echo URLROOT; ?>/Livestock_Manager/searchCattle" method="POST"> -->
-      <!-- <input type="text" name="search" id="search" class="search" placeholder="Search by COW ID">
-      <span class="icon"><i class="fa-solid fa-search"></i></span> -->
-    <!-- </form> -->
-  <!-- </div>
-  <input type="button" value="Add Sale" class="add-btn" onclick="location.href='<?php echo URLROOT; ?>/Cashier/addSale' ">
-</div> -->
+  <div class="search-area">
+    <form action="<?php echo URLROOT; ?>/Cashier/searchReceipt" method="POST">
+      <input type="text" name="search" id="search" class="search" placeholder="Search by Receipt Id">
+      <span class="icon"><i class="fa-solid fa-search"></i></span>
+    </form>
+  </div>
+  <input type="button" value="Add Sale" class="add-btn" onclick="location.href='<?php echo URLROOT; ?>/Cashier/cashierHome' ">
+</div>
 
 <div class="container" style="overflow-x: auto;">
     <table>
@@ -40,8 +40,7 @@
       <td><?php echo $onsite_sale->receipt_id ?></td>
       <td>
         <div class="table-btns">
-          <a href="<?php echo URLROOT?>/Cashier/updateSale/<?php echo $onsite_sale->sale_id ?>"><button class="updateBtn"><i class="fa-regular fa-pen-to-square"></i></button></a>
-          <a href="<?php echo URLROOT?>/Cashier/deleteSale/<?php echo $onsite_sale->sale_id ?>"><button class="deleteBtn"><i class="fa-regular fa-trash-can"></i></button></a>
+          <a href="#"><button class="viewBtn" onclick="openModel('<?=$product_sale->receipt_id?>')" id="<?php echo($data_index) ?>"><i class="fas fa-eye"></i></button></a>
         </div>
       </td>
     </tr>
@@ -49,7 +48,7 @@
   </table>
 
 </div>
-<!-- </div> -->
+<!-- popup for sale -->
 
   
 
