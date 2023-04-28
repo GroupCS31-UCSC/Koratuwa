@@ -23,12 +23,13 @@
       if($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
-        $data2 = $this->cashierModel->get_productSaleView();
+        $data2 = $this->cashierModel->get_productView();
 
         $data = [
-          'saleId'=> '',
+          // 'saleId'=> '',
           'productId' => trim($_POST['productId']),
           'quantity' => trim($_POST['quantity']),
+          'receiptId' => '',
 
           'productId_err' => '',
           'quantity_err' => '',
@@ -42,11 +43,11 @@
             
         //if no errors
         if(empty($data['productId_err']) && empty($data['quantity_err'])) {
-          $data['saleId'] = $this->cashierModel->findSaleId();
+          $data['saleId'] = $this->cashierModel->findReceiptId();
 
           if($this->cashierModel->addSale($data)) {
             flash('add_onsiteSale_success', 'Sale added successfully');
-            redirect('Cashier/addSale');
+            redirect('Cashier/cashier_home');
           }
           else {
             die('Something went wrong');
@@ -58,12 +59,13 @@
         }
       }
       else {
-        $data2 = $this->cashierModel->get_productSaleView();
+        $data2 = $this->cashierModel->get_productView();
 
         $data = [
-          'saleId'=> '',
+          // 'saleId'=> '',
           'productId' => '',
           'quantity' => '',
+          'receiptId' => '',
 
           'productId_err' => '',
           'quantity_err' => '',
@@ -74,6 +76,13 @@
         $this->view('Cashier/cashier_home',$result);
       }
       // $this->view('Cashier/cashier_home',$data);
+    }
+
+    public function getProductName() {
+      $productId = $_POST['productId'];
+      $productName = $this->cashierModel->getProductNameById($productId);
+      echo $productName;
+
     }
 
     public function viewOnsiteSale() {
@@ -92,59 +101,59 @@
       $this->view('Cashier/viewCustomerOrders',$data);
     }
 
-    public function addSale() {
-      if($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+    // public function addSale() {
+    //   if($_SERVER['REQUEST_METHOD'] == 'POST') {
+    //     $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
-        $data2 = $this->cashierModel->get_productSaleView();
+    //     $data2 = $this->cashierModel->get_productView();
 
-        $data = [
-          'saleId'=> '',
-          'productId' => trim($_POST['productId']),
-          'quantity' => trim($_POST['quantity']),
+    //     $data = [
+    //       'saleId'=> '',
+    //       'productId' => trim($_POST['productId']),
+    //       'quantity' => trim($_POST['quantity']),
 
-          'productId_err' => '',
-          'quantity_err' => '',
-        ];
+    //       'productId_err' => '',
+    //       'quantity_err' => '',
+    //     ];
 
-        //validation
-        if(empty($data['productId'])) { $data['productId_err'] = '*'; }
-        if(empty($data['quantity'])) { $data['quantity_err'] = '*'; }
+    //     //validation
+    //     if(empty($data['productId'])) { $data['productId_err'] = '*'; }
+    //     if(empty($data['quantity'])) { $data['quantity_err'] = '*'; }
 
-        $result = array($data,$data2);
+    //     $result = array($data,$data2);
             
-        //if no errors
-        if(empty($data['productId_err']) && empty($data['quantity_err'])) {
-          $data['saleId'] = $this->cashierModel->findSaleId();
+    //     //if no errors
+    //     if(empty($data['productId_err']) && empty($data['quantity_err'])) {
+    //       $data['saleId'] = $this->cashierModel->findSaleId();
 
-          if($this->cashierModel->addSale($data)) {
-            flash('add_onsiteSale_success', 'Sale added successfully');
-            redirect('Cashier/addSale');
-          }
-          else {
-            die('Something went wrong');
-          }
-        }
-        else {
-          $this->view('Cashier/addSale',$result);
-        }
-      }
-      else {
-        $data2 = $this->cashierModel->get_productSaleView();
+    //       if($this->cashierModel->addSale($data)) {
+    //         flash('add_onsiteSale_success', 'Sale added successfully');
+    //         redirect('Cashier/addSale');
+    //       }
+    //       else {
+    //         die('Something went wrong');
+    //       }
+    //     }
+    //     else {
+    //       $this->view('Cashier/addSale',$result);
+    //     }
+    //   }
+    //   else {
+    //     $data2 = $this->cashierModel->get_productView();
 
-        $data = [
-          'saleId'=> '',
-          'productId' => '',
-          'quantity' => '',
+    //     $data = [
+    //       'saleId'=> '',
+    //       'productId' => '',
+    //       'quantity' => '',
 
-          'productId_err' => '',
-          'quantity_err' => '',
-        ];
+    //       'productId_err' => '',
+    //       'quantity_err' => '',
+    //     ];
 
-        $result = array($data,$data2);
-        $this->view('Cashier/addSale',$result);
-      }
-    }
+    //     $result = array($data,$data2);
+    //     $this->view('Cashier/addSale',$result);
+    //   }
+    // }
 
 
 
