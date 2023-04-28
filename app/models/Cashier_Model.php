@@ -14,11 +14,18 @@
       return $result;
     }
 
-    public function get_productSaleView() {
+    public function get_productView() {
       $this->db->query('SELECT * FROM product');
 
       $result = $this->db->resultSet();
 
+      return $result;
+    }
+
+    public function getProductById($id){
+      $this->db->query('SELECT * FROM product WHERE product_id = :id');
+      $this->db->bind(':id', $id);
+      $result = $this->db->single();
       return $result;
     }
 
@@ -144,12 +151,12 @@
     // }
 
     public function addSale($data) {
-      $this->db->query('INSERT INTO product_sale(product_id, quantity, orderOrSale_id) VALUES(:productId, :quantity, :orderOrSaleId)');
+      $this->db->query('INSERT INTO product_sale(product_id, quantity, receipt_id) VALUES(:productId, :quantity, :receipt_Id)');
 
       //values binding
       $this->db->bind(':productId', $data['productId']);
       $this->db->bind(':quantity', $data['quantity']);
-      $this->db->bind(':orderOrSaleId', $data['orderOrSaleId']);
+      $this->db->bind(':receiptId', $data['receiptId']);
 
       //execute
       if($this->db->execute())
