@@ -1,1 +1,67 @@
+h2{
+    margin-bottom: 10px;
+}
 
+.filter{
+    padding: 20px;
+    font-size: 20px;
+    align-items: center;
+}
+
+input[type=date] {
+    
+    width: 60%;
+    height: 30px;
+    font-size: 18px;
+    padding: 12px 20px;
+    margin-bottom: 8px;
+    margin-top: 8px;
+    margin-right: 80%;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+label{
+    width: 30px;
+    margin-right: 30px;
+}
+
+h1{
+    margin-left: 15px;
+    font-size: 25px;
+}
+
+table1{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+table2{
+    margin-bottom: 10px;
+}
+
+.pdfBtn {
+    display: block;
+    width: 30%;
+    height: 50px;
+    border-radius: 25px;
+    margin: 1rem 0;
+    font-size: 1.2rem;
+    outline: none;
+    border: none;
+    background-color: #0A2558;
+    /* background-image: linear-gradient(to right, #0A2558, #0e3276, #0A2558); */
+    cursor: pointer;
+    color: #fff;
+    text-transform: uppercase;
+    background-size: 200%;
+    transition: 0.5s;
+    margin-left: 60%;
+}
+
+.pdfBtn:hover {
+    /* background-position: right; */
+    background-color: #00BFFF;
+    color: white;
+}
