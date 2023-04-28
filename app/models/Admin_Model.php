@@ -74,7 +74,7 @@
 
 			if($this->db->execute())
 			{
-				$this->db->query('INSERT INTO employee(employee_id,employee_name,nic,contact_number,gender,address,image,employment,existence) VALUES(:id, :name, :nic, :num, :gender, :address, :img, :employment,1)');
+				$this->db->query('INSERT INTO employee(employee_id,employee_name,nic,contact_number,gender,address,employment,existence) VALUES(:id, :name, :nic, :num, :gender, :address, :employment,1)');
 				//value binding
 				$this->db->bind(':id', $data['id']);
 				$this->db->bind(':name', $data['name']);
@@ -82,7 +82,6 @@
 				$this->db->bind(':num', $data['tp_num']);
         $this->db->bind(':gender', $data['gender']);
 				$this->db->bind(':address', $data['address']);
-        $this->db->bind(':img', $data['image']);
         $this->db->bind(':employment', $data['employment']);
 
 				if($this->db->execute())
@@ -112,13 +111,12 @@
       //execute
       if($this->db->execute())
       {
-        $this->db->query('UPDATE employee SET employee_name= :name, nic= :nic, contact_number=:tp_num, gender=:gender, address=:address, image= :img, employment=:employment  WHERE employee_id= :empId AND existence=1');
+        $this->db->query('UPDATE employee SET employee_name= :name, nic= :nic, contact_number=:tp_num, gender=:gender, address=:address, employment=:employment  WHERE employee_id= :empId AND existence=1');
         $this->db->bind(':name', $data['name']);
         $this->db->bind(':nic', $data['nic']);
         $this->db->bind(':tp_num', $data['tp_num']);
         $this->db->bind(':gender', $data['gender']);
         $this->db->bind(':address', $data['address']);
-        $this->db->bind(':img', $data['image']);
         $this->db->bind(':employment', $data['employment']);
         $this->db->bind(':empId', $data['empId']);
         
@@ -151,37 +149,165 @@
     //delete a selected employee
     public function deleteEmployees($empId)
     {      
-      $this->db->query('UPDATE user SET existence=0 WHERE user_id= :empId');
-      $this->db->bind('empId', $empId);
+      $date1= date_create(strval($this->db->query('SELECT reg_date FROM user WHERE user_id= $empId AND existence=1')));
+      $date2= date_create(date("Y-m-d"));
+      $diff=intval(date_diff($date1,$date2));
+      
+      if($diff<30){
+        $period ='less than a month';
+      }
+      else if ($diff<365){
+        $m=intval($diff/30);
+        $period= $m.' months';
+      }
+      else{
+        $y=$diff/365;
+        $m=intval(($diff%365)/30);
+        $period=$y.'years '.$m.'months';
+      }
 
-      //execute
+      $this->db->query('INSERT INTO past_employee(user_id,service_time,emp_type) VALUES(:empId, :service_time,"systemUsers") ');
+      $this->db->bind(':empId', $empId);
+      $this->db->bind(':service_time', $period);
+
       if($this->db->execute())
       {
-        $this->db->query('UPDATE employee SET existence=0 WHERE employee_id= :empId');
-        $this->db->bind(':empId', $empId);
+        $this->db->query('UPDATE user SET existence=0 WHERE user_id= :empId');
+        $this->db->bind('empId', $empId);
 
-        if($this->db->execute())
-        {
-          $date1= date_create(strval($this->db->query('SELECT reg_date FROM user WHERE user_id= :empId AND existence=1')));
-          $date2= date_create(date("Y-m-d"));
-          $diff=intval(date_diff($date1,$date2));
-          
-          if($diff<30){
-            $period ='less than a month';
-          }
-          else if ($diff<365){
-            $m=intval($diff/30);
-            $period= $m.' months';
-          }
-          else{
-            $y=$diff/365;
-            $m=intval(($diff%365)/30);
-            $period=$y.'years '.$m.'months';
-          }
-          $this->db->query('INSERT INTO past_employee(user_id,service_time) VALUES(:empId, :p) ');
-          $this->db->bind(':empId', $empId);
-          $this->db->bind(':p', $period);
+          if($this->db->execute())
+          {
+            $this->db->query('UPDATE employee SET existence=0 WHERE employee_id= :empId');
+            $this->db->bind(':empId', $empId);
 
+              if($this->db->execute())
+              {
+                return true;
+              }
+              else
+              {
+                return false;
+              }
+          }
+          else
+          {
+            return false;
+          }
+        
+      }
+      else
+      {
+        return false;
+      }
+    }
+
+    //generate id for registering labours
+    public function generateLabourId()
+		{
+			$this->db->query('SELECT * FROM laborer order by laborer_id desc limit 1');
+			$row = $this->db->single();
+			$lastId=$row->laborer_id;
+
+			if($lastId == '')
+			{
+				$id='L101';
+			}
+			else
+			{
+				$id = substr($lastId,3);
+				$id = intval($id);
+				$id = "L".($id+1);
+			}
+
+			return $id;
+		}
+
+    //add newly registering labour's details
+    public function addLabours($data)
+    {		
+		
+      $this->db->query('INSERT INTO laborer(laborer_id,name,nic,contact_number,gender,address,existence) VALUES(:id, :name, :nic, :num, :gender, :address,1)');
+      //value binding
+      $this->db->bind(':id', $data['id']);
+      $this->db->bind(':name', $data['name']);
+      $this->db->bind(':nic', $data['nic']);
+      $this->db->bind(':num', $data['tp_num']);
+      $this->db->bind(':gender', $data['gender']);
+      $this->db->bind(':address', $data['address']);
+
+      if($this->db->execute())
+      {
+        return true;
+      }
+      else
+      {
+        return false;
+      }
+		
+
+    }
+
+    //update selected employee's details
+    public function updateLabours($data)
+    {
+      $this->db->query('UPDATE employee SET name= :name, nic= :nic, contact_number=:tp_num, gender=:gender, address=:address WHERE employee_id= :LId AND existence=1');
+      $this->db->bind(':name', $data['name']);
+      $this->db->bind(':nic', $data['nic']);
+      $this->db->bind(':tp_num', $data['tp_num']);
+      $this->db->bind(':gender', $data['gender']);
+      $this->db->bind(':address', $data['address']);
+      $this->db->bind(':LId', $data['LId']);
+      
+
+      if($this->db->execute())
+      {
+        return true;
+      }
+      else
+      {
+        return false;
+      }
+
+    }
+
+    //get the details of a relavant labour
+    public function getLabourById($LId)
+    {
+      $this->db->query('SELECT * FROM laborer WHERE laborer_id = :LId AND existence=1' );
+      $this->db->bind(':empId', $LId);
+
+      $row = $this->db->single();
+      return $row;
+    }
+
+    //delete a selected employee
+    public function deleteLabours($LId)
+    {      
+      $date1= date_create(strval($this->db->query('SELECT reg_date FROM laborer WHERE laborer_id= $LId AND existence=1')));
+      $date2= date_create(date("Y-m-d"));
+      $diff=intval(date_diff($date1,$date2));
+      
+      if($diff<30){
+        $period ='less than a month';
+      }
+      else if ($diff<365){
+        $m=intval($diff/30);
+        $period= $m.' months';
+      }
+      else{
+        $y=$diff/365;
+        $m=intval(($diff%365)/30);
+        $period=$y.'years '.$m.'months';
+      }
+
+      $this->db->query('INSERT INTO past_employee(user_id,service_time,emp_type) VALUES(:LId, :service_time,"Labours") ');
+      $this->db->bind(':LId', $LId);
+      $this->db->bind(':service_time', $period);
+
+      if($this->db->execute())
+      {
+        $this->db->query('UPDATE laborer SET existence=0 WHERE laborer_id= :LId');
+        $this->db->bind('LId', $LId);
           if($this->db->execute())
           {
             return true;
@@ -190,11 +316,6 @@
           {
             return false;
           }
-        }
-        else
-        {
-          return false;
-        }  
       }
       else
       {
@@ -205,7 +326,7 @@
     //to get all livestock deails
     public function get_livestockView()
     {
-      $this->db->query('SELECT * FROM cattle');
+      $this->db->query('SELECT * FROM cattle WHERE existence=1');
 
       $result = $this->db->resultSet();
 
@@ -284,20 +405,37 @@
       }
     }
 
-    //to get all employee details
-    // public function allEmpSearch($search)
-    // {
-    //   if(!empty($search)){
-    //     $this->db->query("SELECT * From employee WHERE employee_name LIKE '%$search%'");
-    //     $result=$this->db->resultSet();
-    //     return $result;
-    //   }
-    //   else{
-    //     $this->db->query('SELECT * From employee ');
-    //     $result=$this->db->resultSet();
-    //     return $result;
-    //   }
-    // }
+    //to get current labour details
+    public function currentLabourSearch($search)
+    {
+      if(!empty($search)){
+        $this->db->query("SELECT * From laborer WHERE existence=1 AND name LIKE '%$search%' ");
+        // $this->db->bind(':search', $search);
+        $result=$this->db->resultSet();
+        return $result;
+      }
+      else{
+        $this->db->query('SELECT * From laborer WHERE existence=1');
+        $result=$this->db->resultSet();
+        return $result;
+      }
+    }
+
+    //to get past labour details
+    public function pastLabourSearch($search)
+    {
+      if(!empty($search)){
+        $this->db->query("SELECT * From laborer WHERE existence=0 AND employee_name LIKE '%$search%' ");
+        // $this->db->bind(':search', $search);
+        $result=$this->db->resultSet();
+        return $result;
+      }
+      else{
+        $this->db->query('SELECT * From laborer WHERE existence=0');
+        $result=$this->db->resultSet();
+        return $result;
+      }
+    }
 
     
 

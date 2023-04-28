@@ -22,7 +22,7 @@
   <div class="form-container">
 
 <div class="form-header">
-  <center><h1>Add new Expense</h1></center>
+  <center><h1>Add Expense</h1></center>
 </div>
 <br>
 
@@ -36,12 +36,22 @@
 
   <div class="form-input-title">Description</div>
   <span class="form-invalid"><?php echo $data['des_err']; ?></span>
-  <input type="text" name="des" id="des" class="des" value="<?php echo $data['des']; ?>">
+  <select class="des" name="des" id="des" value="<?php echo $data['des']; ?>">
+      <option value="Select">Select</option>
+      <option value="Production Cost">Production Cost</option>
+      <option value="Transportation Cost">Transportation Cost</option>
+      <option value="Supplier Charges">Supplier Charges</option>
+      <option value="Livestock Management Cost">Livestock Management Cost</option>
+      <option value="Employee Management Cost">Employee Management Cost</option>
+      <option value="Utility Cost">Utility Cost</option>
+      <option value="Other">Other</option>
+    </select>
 
-
-  <div class="form-input-title">Vendor</div>
-  <span class="form-invalid"><?php echo $data['ven_err']; ?></span>
-  <input type="text" name="ven" id="ven" class="ven" value="<?php echo $data['ven']; ?>">
+     <!-- If select other -->
+     <div id="other-input" style="display:none;">
+    <label for="other">Other:</label>
+    <input type="text" name="other" id="other" class="other" value="">
+    </div>
 
   <div class="form-input-title">Amount</div>
   <span class="form-invalid"><?php echo $data['amo_err']; ?></span>
@@ -61,67 +71,25 @@
 </form>
 </div>
     
-  <!-- <div class="form-container">
-
-	<div class="form-header">
-		<center><h1>Add Monthly Expenses</h1></center>
-	</div>
-	<br>
-    <div class="dropdown">
-  <button class="dropbtn">Select Month <i class="fa-solid fa-caret-down"></i></button>
-  <div class="dropdown-content">
-  <a href="#">JAN</a>
-  <a href="#">FEB</a>
-  <a href="#">MAR</a>
-  <a href="#">APR</a>
-  <a href="#">MAY</a>
-  <a href="#">JUNE</a>
-  <a href="#">JULY</a>
-  <a href="#">AUG</a>
-  <a href="#">SEP</a>
-  <a href="#">OCT</a>
-  <a href="#">NOV</a>
-  <a href="#">DEC</a>
-  </div>
-</div>
-
-	<form action="<?php echo URLROOT; ?>/Financial_Manager/addExpense" method="POST" enctype="multipart/form-data"> 
-    	 
-    <div class="form-input-title">Production Cost <i class="fa-solid fa-cheese"></i></div>
-    <span class="form-invalid"><?php echo $data['dat_err']; ?></span>
-	<input type="text" name="dat" id="dat" class="dat" value="<?php echo $data['dat']; ?>">
-
-    <div class="form-input-title">Transportation Cost <i class="fa-solid fa-truck"></i></div>
-    <span class="form-invalid"><?php echo $data['dat_err']; ?></span>
-	<input type="text" name="dat" id="dat" class="dat" value="<?php echo $data['dat']; ?>">
-
-    <div class="form-input-title">Supplier Charges <i class="fa-solid fa-hand-holding-dollar"></i></div>
-    <span class="form-invalid"><?php echo $data['dat_err']; ?></span>
-	<input type="text" name="dat" id="dat" class="dat" value="<?php echo $data['dat']; ?>">
-
-    <div class="form-input-title">Livestock Management Cost <i class="fa-solid fa-cow"></i></div>
-    <span class="form-invalid"><?php echo $data['dat_err']; ?></span>
-	<input type="text" name="dat" id="dat" class="dat" value="<?php echo $data['dat']; ?>">
-
-    <div class="form-input-title">Employee Management Cost <i class="fa-solid fa-users"></i></div>
-    <span class="form-invalid"><?php echo $data['dat_err']; ?></span>
-	<input type="text" name="dat" id="dat" class="dat" value="<?php echo $data['dat']; ?>">
-
-    <div class="form-input-title">Other <i class="fa-solid fa-wallet"></i></div>
-    <span class="form-invalid"><?php echo $data['dat_err']; ?></span>
-	<input type="text" name="dat" id="dat" class="dat" value="<?php echo $data['dat']; ?>">
-
-
-
-		<input type="submit" value="Submit" class="submitBtn"> 
-
-
-	</form>
- -->
-
-<!-- 
+ 
 
 
 
 <?php require APPROOT.'/views/include/footer.php'; ?>
 <script src="<?php echo URLROOT; ?>/js/fm.js"></script>
+
+<script>
+var desSelect = document.getElementById('des');
+var otherInput = document.getElementById('other-input');
+
+
+desSelect.addEventListener('change', function() {
+
+  if (desSelect.value == 'Other') {
+    otherInput.style.display = 'block';
+  } else {
+    otherInput.style.display = 'none';
+  }
+});
+
+</script>

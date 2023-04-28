@@ -5,47 +5,43 @@
 
 <section>
   <div class="container" style="overflow-x: auto;">
+  <!-- <div class="profile-search-area">
+      <input type="text" placeholder="Search accounts..." id="searchInput">
+  </div> -->
+    <table class="cattle-table" id="cattle-table">
+      <thead>
+        <tr>
+          <th>Cow Id</th>
+          <th>Age</th>
+          <th>Gender</th>
+          <th>Breed</th>
+          <th>Milking Status</th>
+          <th>Average Milk<br>Per Day</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php $data_index=0 ?>
+        <?php foreach ($data['livestockView'] as $cow) : ?>
+        <tr>
+          <td><?php echo $cow->cow_id; ?></td>
+          <td><?php echo $cow->age; ?></td>
+          <td><?php echo $cow->gender; ?></td>
+          <td><?php echo $cow->cow_breed; ?></td>
+          <td><?php echo $cow->milking_status; ?></td> 
+          <td><?php echo '' ?></td> 
+          <td>
+            <div class="table-btns">
+              <a href="#"><button class="viewBtn" onclick="openModel('<?=$cow->cow_id?>')" id="<?php echo($data_index) ?>"><i class="fas fa-eye"></i></button></a>
+            </div>
+          
+          </td>
+        </tr><br>
+        <?php $data_index++; ?>
+        <?php endforeach; ?>
+      </tbody>
 
-    <table>
-      <tr>
-        <th>Cow Id</th>
-        <th>Breed</th>
-        <th>Gender</th>
-        <th>Weight</th>
-        <!-- <th>Health</th> -->
-        <th>Vaccination</th>
-        <th>Action</th>
-      </tr>
-      
-  <?php foreach ($data['livestockView'] as $cow) : ?>
-  <tr>
-    <td><?php echo $cow->cow_id; ?></td>
-    <td><?php echo $cow->cow_breed; ?></td>
-    <td><?php echo $cow->gender; ?></td>
-    <td><?php echo $cow->weight; ?></td>
-    <!-- <td><?php echo $cow->health; ?></td> -->
-    <td><?php echo "<a>review</a>" ?></td>
- 
-    <td>
-
-      <div class="table-btns">
-      <a href="<?php echo URLROOT?>/Admin/updateCattle/<?php echo $cow->cow_id ?>"><button class="updateBtn">UPDATE</button></a>
-      <a href="<?php echo URLROOT?>/Admin/deleteCattle' <?php echo $cow->cow_id ?>"><button class="deleteBtn">DELETE</button></a>
-      </div>
-
-    <!-- 
-    <form id="EditForm" action="<?php echo URLROOT?>/Admin/deleteEmployees/<?php echo $emp->email ?>">
-    <button class="deleteBtn" onclick="deletion(event)">Delete</button>
-    </form> -->
-    
-    </td>
-  </tr><br>
-  <?php endforeach; ?>
-
-    </table>
-
-<input type="button" value="Add New Cow" class="addBtn" onclick="location.href='<?php echo URLROOT; ?>/Admin/addCattle' ">
-
+  </table>
 
 <?php require APPROOT.'/views/include/footer.php'; ?>
 <script src="<?php echo URLROOT; ?>/js/admin.js"></script>

@@ -78,8 +78,38 @@ for (var i = 0; i < statusSelect.options.length; i++) {
 statusSelect.addEventListener("change", function() {
   localStorage.setItem("selectedStatus", statusSelect.value);
 });
+//-------------------------------------------------
 
- 
+// function favTutorial() {
+//     var mylist = document.getElementById("myList");
+//     document.getElementById("favourite").value = mylist.options[mylist.selectedIndex].text;
+//     }
+
+// function showIcon(){
+//     const searchVal= document.querySelector(".searchName").value;
+//     const img= document.querySelector(".img");
+
+//     if(searchVal.length <= 0) document.body.classList.hide();
+//     else document.body.classList.add("active");
+//     if(searchVal.length > 0){
+//         img.style.display = "block";
+//     }
+
+//     img.addEventListener("click", () => {
+//         document.querySelector(".searchName").value=" ";
+//         document.body.classList.remove("active");
+//     });   
+// }
+// $('#Empstatus').change(function(){
+//     var selector  = $(this).val();
+//     filter_criteria(selector);
+//     // console.log(selector);
+//   });
+  
+//   function filter_criteria(selector){
+//     var target = $('div#content span#' + selector);
+//     console.log(target.show().siblings().hide())
+//   }
 
 
 
@@ -153,4 +183,3 @@ function adding(e) {
         });
     return false;
 }
-

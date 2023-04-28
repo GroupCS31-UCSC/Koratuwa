@@ -43,7 +43,7 @@ h2{
 table{
   margin-left: 50px;
     margin-bottom: 10px; 
-  margin-top: 0px; 
+
 
 }
 table th{
@@ -106,7 +106,7 @@ td {
 }*/
 
 .paddBtn {
-    width: 130px;
+    width: 230px;
     background: #04086B;
     -webkit-border-radius: 30;
     -moz-border-radius: 30;
@@ -117,9 +117,9 @@ td {
     padding: 10px 20px 10px 20px;
     text-decoration: none;
     cursor: pointer;
-    margin-left: 550px;
+    margin-left: 350px;
     margin-top: 10px;
-    margin-bottom: 0px; 
+     
    
 }
 

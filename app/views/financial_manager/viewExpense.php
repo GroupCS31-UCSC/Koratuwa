@@ -30,7 +30,7 @@
   
   <div class="column right">
   <h2>EXPENSES</h2>
-  <input type="button" value="Add New" class="paddBtn" onclick="location.href='<?php echo URLROOT; ?>/financial_Manager/addExpense' ">
+  <input type="button" value="Add Expense" class="paddBtn" onclick="location.href='<?php echo URLROOT; ?>/financial_Manager/addExpense' ">
     <table>
       <tr>
         <th>Expense ID</th>
@@ -48,14 +48,7 @@
         <td><?php echo $expense->description; ?></td>
         <!-- <td><?php echo $expense->vendor; ?></td> -->
         <td><?php echo $expense->amount; ?></td>
-         <!--<td>
-      <a href="<?php echo URLROOT?>/Financial_Manager/updateExpense/<?php ?>"><button class="updateBtn" title="Update"><i class="fa-regular fa-pen-to-square"></i></button></a>
-      <a href="<?php echo URLROOT?>/Financial_Manager/deleteExpense/<?php ?>"><button class="deleteBtn" title="Delete"><i class="fa-regular fa-trash-can"></i></button></a> -->
-        <div class="table-btns">
-          <!-- <a href="<?php echo URLROOT?>/financial_Manager/updateExpense/"><button class="updateBtn">UPDATE</button></a>
-          <a href="<?php echo URLROOT?>/financial_Manager/deleteExpense/"><button class="deleteBtn">DELETE</button></a> -->
-
-         
+       
         </div>
     </td>
     

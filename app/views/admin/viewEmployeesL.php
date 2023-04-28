@@ -13,7 +13,7 @@
 
 <div class="mytabs">
   <!-- tab1 -->
-  <input type="radio" id="tab1" name="mytabs" checked="checked">
+  <input type="radio" id="tab1" name="mytabs">
     <label for="tab1">System Using Employees</label>
       <div class="tab"><p>
         <div class="systemUsers">
@@ -123,6 +123,7 @@
                   <!-- <th>More Details</th> -->
                 </tr>
 
+                <?php $data_index=0 ?>
                 <?php foreach ($data['empView'] as $emp) : ?>
                 <tr>
                   <td><?php echo $emp->employee_name; ?></td>
@@ -134,6 +135,7 @@
                   <td><?php echo $emp->removed_date; ?></td>
 
                 </tr><br>
+                <?php $data_index++; ?>
                 <?php endforeach; ?>
                 
 
@@ -153,7 +155,7 @@
       </p></div>
 
   <!-- tab2 -->
-  <input type="radio" id="tab2" name="mytabs">
+  <input type="radio" id="tab2" name="mytabs" checked="checked">
       <label for="tab2">Non System-Using Employees</label>
         <div class="tab"><p>
           <div class="systemUsers">
@@ -200,7 +202,7 @@
             <section class="table1Section">
               <!-- <div class="container" style="overflow-x: auto;"> -->
                 
-              
+              <?php $data_index=0 ?>
               <?php foreach ($data['labView'] as $lab) : ?>
               <?php if($lab->existence == 1): ?>
                 <table>
@@ -213,7 +215,6 @@
                     <th>Action</th>
                   </tr>
 
-                  <?php $data_index=0 ?>
                   <?php foreach ($data['labView'] as $lab) : ?>
                   <tr>
                     <td><?php echo $lab->laborer_id; ?></td>
@@ -252,7 +253,7 @@
                     <!-- <th>More Details</th> -->
                   </tr>
 
-                  <?php foreach ($data['empView'] as $lab) : ?>
+                  <?php foreach ($data['labView'] as $lab) : ?>
                   <tr>
                     <td><?php echo $lab->name; ?></td>
                     <td><?php echo $lab->nic; ?></td>

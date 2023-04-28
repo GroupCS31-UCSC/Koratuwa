@@ -1,85 +1,114 @@
-    /* section1 */
-    
-    .table-upperSection {
-        position: relative;
-        /* display: flex; */
-        /* right: 5px; */
+/* tabs styles */
+
+body {
+    background: #ccc;
+    font-family: 'Roboto', sans-serif;
+}
+.mytabs {
+    display: flex;
+    flex-wrap: wrap;
+    /* margin: 50px auto; */
+    /* padding: 25px; */
+}
+.mytabs input[type="radio"] {
+    display: none;
+}
+.mytabs label {
+    padding: 25px;
+    background: #e2e2e2;
+    font-weight: bold;
+}
+
+.mytabs .tab {
+    width: 100%;
+    padding: 20px;
+    background: #fff;
+    order: 1;
+    display: none;
+}
+.mytabs .tab h2 {
+    font-size: 3em;
+}
+
+.mytabs input[type='radio']:checked + label + .tab {
+    display: block;
+}
+
+.mytabs input[type="radio"]:checked + label {
+    background: #fff;
+}
+
+/* section1 */
+
+.table-upperSection {
+    position: relative;
+    /* display: flex; */
+    /* right: 5px; */
+    width: 100%;
+    margin-bottom: 0px;
+}
+/* section 1 inner div tag */
+
+.upper {
+    position: relative;
+    display: flex;
+    width: 100%;
+}
+/* search */
+
+/*add button */
+
+.addBtn {
+    margin: 20px 45px 10px auto;
+    position: relative;
+    width: 200px;
+    /* left: 900px; */
+    /* margin-top: -50px;
+margin-right: 15px; */
+    /* right: 75px; */
+    background: #04086B;
+    -webkit-border-radius: 30;
+    -moz-border-radius: 30;
+    border-radius: 30px;
+    border: 1px solid white;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 2.3vh;
+    padding: 8px 20px 8px 20px;
+    text-decoration: none;
+}
+
+.addBtn:hover {
+    background: #3cb0fd;
+    text-decoration: none;
+    cursor: pointer;
+}
+/* section 2 */
+
+.table1Section {
+    margin-top: 0px;
+    padding: 0px 0px 0px 50px;
+}
+
+/*make it responsive design*/
+
+@media (max-width: 991px) {
+    .graphBox {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+    .navigation {
+        left: -275px;
+    }
+    .navigation.active {
+        width: 275px;
+        left: 0;
+    }
+    .main {
         width: 100%;
-        margin-bottom: 0px;
+        left: 0;
     }
-    /* section 1 inner div tag */
-    
-    .upper {
-        position: relative;
-        display: flex;
-        width: 100%;
+    .main.active {
+        left: 275px;
     }
-    /* search */
-    
-    #mySearch {
-        position: relative;
-        /* top: 20px; */
-        width: 50%;
-        padding: 10px;
-        border: 1px solid brown;
-        margin: 25px auto 0px 80px;
-        border-radius: 5px;
-        box-shadow: 0px 0px 5px #ccc;
-        font-size: 16px;
-        margin-bottom: 10px;
-    }
-    /*add button */
-    
-    .addBtn {
-        margin: 20px 45px 10px auto;
-        position: relative;
-        width: 200px;
-        /* left: 900px; */
-        /* margin-top: -50px;
-    margin-right: 15px; */
-        /* right: 75px; */
-        background: #04086B;
-        -webkit-border-radius: 30;
-        -moz-border-radius: 30;
-        border-radius: 30px;
-        border: 1px solid white;
-        font-family: Arial;
-        color: #ffffff;
-        font-size: 2.3vh;
-        padding: 8px 20px 8px 20px;
-        text-decoration: none;
-    }
-    
-    .addBtn:hover {
-        background: #3cb0fd;
-        text-decoration: none;
-        cursor: pointer;
-    }
-    /* section 2 */
-    
-    .table1Section {
-        margin-top: 0px;
-        padding: 0px 0px 0px 50px;
-    }
-    /*make it responsive design*/
-    
-    @media (max-width: 991px) {
-        .graphBox {
-            grid-template-columns: 1fr;
-            height: auto;
-        }
-        .navigation {
-            left: -275px;
-        }
-        .navigation.active {
-            width: 275px;
-            left: 0;
-        }
-        .main {
-            width: 100%;
-            left: 0;
-        }
-        .main.active {
-            left: 275px;
-        }
-    }
+}
