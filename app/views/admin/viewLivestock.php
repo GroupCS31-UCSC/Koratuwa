@@ -1,17 +1,17 @@
 <?php require APPROOT.'/views/include/header.php'; ?>
 <link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/public/css/admin/viewLivestock.css">
 <?php require APPROOT.'/views/admin/admin_dashboard.php';  ?>
-<script src="<?php echo URLROOT; ?>/js/filter.js"></script>
+
 <!-- ______________________________________________________________________________________________________-->
 
 <section>
   <div class="container" style="overflow-x: auto;">
-  <!-- <div class="profile-search-area">
-      <input type="text" placeholder="Search accounts..." id="searchInput">
-  </div> -->
+  <!-- <div class="profile-search-area"> -->
+      <input type="text" id="searchInput" placeholder="Search for Cow IDs..." onkeyup="searchFunc();">
+  <!-- </div> -->
   <input type="button" value="Refresh" class="addBtn" onclick="location.href='<?php echo URLROOT; ?>/Admin/viewLivestock' ">
   <div class="table-wrapper">
-    <table id="details-table">
+    <table id="detailsTable">
       <thead>
           <th col-index = 1>Cow Id</th>
           <th col-index = 2>Stall Id
@@ -73,10 +73,11 @@
 </section>
 
 <section>
-<input type="button" value="Refresh" class="addBtn" onclick="location.href='<?php echo URLROOT; ?>/Admin/viewLivestock' ">
-  <button onclick="showOrHide()">Delete Cattle Details</button>
+  <button onclick="showOrHide()">Deleted Cattle Details</button>
       <div id="dltTableElement">
-        <table id="dltCowTable">
+      <input type="button" value="Refresh" class="addBtn" onclick="location.href='<?php echo URLROOT; ?>/Admin/viewLivestock' ">
+      <input type="text" id="searchInput2" placeholder="Search for Cow IDs..." onkeyup="searchFunc2();">
+        <table id="detailsTable2">
           <thead>
             <th col-index = 1>Cow Id</th>
             <th col-index = 2>Stall Id
@@ -139,6 +140,6 @@ let showOrHide = function(){
 </script>
 
 <?php require APPROOT.'/views/include/footer.php'; ?>
-<!-- <script src="<?php echo URLROOT; ?>/js/admin.js"></script> -->
+<script src="<?php echo URLROOT; ?>/js/admin.js"></script>
 
 

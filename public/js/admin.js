@@ -81,25 +81,6 @@ statusSelect.addEventListener("change", function() {
 
 
 
-
-
-
-// const divElement = document.querySelector('#dltTableElement');
-// let isClicked = true;
-
-// let showOrHide = function(){
-//     if(isClicked){
-//         divElement.style.display='block';
-//         isClicked= false;
-//     }
-//     else{
-//         divElement.style.display='none';
-//         isClicked= true;
-//     }
-    
-// }
-
-
 //-------------------------------------------------
 
 // function favTutorial() {

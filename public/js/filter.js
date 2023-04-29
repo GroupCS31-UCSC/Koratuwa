@@ -1,3 +1,5 @@
+//filter for table 1-------------------------------------------------------------------------------------------------------------
+
 //1. Get unique values for the desired columns
 
 // {2 : ["s1", "s2","s3","s4"], 3 : ["f", "m"], 4 : ["gil","sah","per"], 5 : ["yes","no"]}
@@ -11,7 +13,7 @@ function getUniqueValuesFromColumn(){
         col_index = filter_i.parentElement.getAttribute("col-index");
         // alert(col_index);
 
-        const rows = document.querySelectorAll("#details-table > tbody > tr");
+        const rows = document.querySelectorAll("#detailsTable > tbody > tr");
 
         rows.forEach((row) => {
             cell_value = row.querySelector("td:nth-child("+col_index+")").innerHTML;
@@ -86,7 +88,7 @@ function filter_rows(){
 
     var col_cell_value_dict = {};
 
-    const rows = document.querySelectorAll("#details-table tbody tr");
+    const rows = document.querySelectorAll("#detailsTable tbody tr");
     rows.forEach((row) => {
         var display_row = true;
 
@@ -127,7 +129,8 @@ function filter_rows(){
 
 
 
-//-------------------------------------------------------------------------------------------------------
+//filter for table 2-------------------------------------------------------------------------------------------------------------
+
 //1. Get unique values for the desired columns
 
 // {2 : ["s1", "s2","s3","s4"], 3 : ["f", "m"], 4 : ["gil","sah","per"], 5 : ["yes","no"]}
@@ -141,7 +144,7 @@ function getUniqueValuesFromColumn2(){
         col_index = filter_i.parentElement.getAttribute("col-index");
         // alert(col_index);
 
-        const rows = document.querySelectorAll("#dltCowTable > tbody > tr");
+        const rows = document.querySelectorAll("#detailsTable2 > tbody > tr");
 
         rows.forEach((row) => {
             cell_value = row.querySelector("td:nth-child("+col_index+")").innerHTML;
@@ -216,7 +219,7 @@ function filter_rows2(){
 
     var col_cell_value_dict = {};
 
-    const rows = document.querySelectorAll("#dltCowTable tbody tr");
+    const rows = document.querySelectorAll("#detailsTable2 tbody tr");
     rows.forEach((row) => {
         var display_row = true;
 
@@ -250,4 +253,72 @@ function filter_rows2(){
 
 
 
+}
+
+
+
+
+//search for table 1-------------------------------------------------------------------------------------------------------------
+
+//search bar
+function searchFunc(){
+    //declare variables
+    var input,filter,table,tr,td,i,textValue;
+
+    input = document.getElementById("searchInput");
+
+    // to search case-sensitive
+    filter = input.value.toUpperCase();
+    table = document.getElementById("detailsTable");
+
+    tr = table.getElementsByTagName("tr");
+
+    //loop through all table rows and hide those don't match the search
+    for(i=0; i < tr.length; i++){
+        td=tr[i].getElementsByTagName("td")[0];
+        if(td){
+            textValue = td.textContent || td.innerText;
+
+            if(textValue.toUpperCase().indexOf(filter) > -1)
+            {
+                tr[i].style.display = "";
+            }
+            else{
+                tr[i].style.display = "none";
+            }
+        }
+    }
+}
+
+
+//search for table 2-------------------------------------------------------------------------------------------------------------
+
+//search bar
+function searchFunc2(){
+    //declare variables
+    var input,filter,table,tr,td,i,textValue;
+
+    input = document.getElementById("searchInput2");
+
+    // to search case-sensitive
+    filter = input.value.toUpperCase();
+    table = document.getElementById("detailsTable2");
+
+    tr = table.getElementsByTagName("tr");
+
+    //loop through all table rows and hide those don't match the search
+    for(i=0; i < tr.length; i++){
+        td=tr[i].getElementsByTagName("td")[0];
+        if(td){
+            textValue = td.textContent || td.innerText;
+
+            if(textValue.toUpperCase().indexOf(filter) > -1)
+            {
+                tr[i].style.display = "";
+            }
+            else{
+                tr[i].style.display = "none";
+            }
+        }
+    }
 }
