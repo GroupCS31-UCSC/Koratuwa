@@ -5,68 +5,227 @@
 
 }
 
-.split {
-  float: left;
-  height: 93vh;
+.form-container {
+  width: 95%;
 }
 
-.left {
-  width: 50%;
-  /* background-color: #bbb; */
+.form-header h3{
+  text-align: left;
 }
 
-.right {
-  width: 50%;
-  /* background-color: white; */
+.form-inpur-container {
+  justify-content: space-between;
 }
 
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-.ongoing {
-  /* background-color: #d27171; */
-  /* padding: 10px; */
-  /* margin: 10px; */
-  /* border-radius: 10px; */
-  /* border: 1px solid #e3e3e3; */
-  /* box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05); */
-  height: 100%;
+.form-input-wrapper {
+  width: 48%;
 }
 
+.action {
+  background-color: white;
+  border: none;
+}
+.sub-table tr th {
+  background-color: whitesmoke;
+}
 
-/*charts*/
-.graphBox{
+.topic {
+  color: black;
+}
+
+/* RECEIPT */
+.receipt {
+  box-shadow: 0 0 1in -0.25in rgba(0, 0, 0, 0.5);
+  padding:2mm;
+  margin: 0 auto;
+  width: 100mm;
+  background: #FFF;
+  margin-top: 2rem;
+}
+
+#top, #mid,#bot {
+  border-bottom: 1px solid #EEE;
+}
+
+#top {
+  min-height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#mid {
+  min-height: 80px;
+}
+
+#bot{
+  min-height: 50px;
+}
+
+#top .logo{
   position: relative;
-  /* right: 0; */
-  width: 100%;
-  /* padding: 10px; */
-  display: grid;
-  grid-template-rows: 2fr 2fr;
-  grid-gap: 20px;
-  min-height: 300px;
+  display: block;
+  min-width: 60px;
+  height: 60px;
+  line-height: 70px;
+  text-align: center;
 }
-.graphBox .box{
+
+.img-logo{
+  width: inherit;
+  height: inherit;
+}
+
+h1 {
+  font-size: 1.5em;
+  color: #222;
+}
+
+h2 {
+  font-size: .9em;
+}
+
+h3 {
+  font-size: 1.2em;
+  font-weight: 300;
+  line-height: 2em;
+}
+  
+p {
+  font-size: .7em;
+  color: #666;
+  line-height: 1.2em;
+}
+
+.info {
+  display: block;
+  margin-left: 0;
+}
+
+.receipt-table {
+  width: 85%;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.receipt-table th, td {
+  padding: 5px;
+  font-size: .5em;
+  background: #fff;
+  color: black;
+  border: .5px solid #000;
+}
+
+.receipt-table td {
+  background: #fff;
+  color: black;
+  border: .5px solid #000;
+}
+  
+#legalcopy{
+  margin-top: 5mm;
+}
+
+/* POPUP RECEIPT */
+.model {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  left: 0;
+  z-index: 1050;
+  visibility: hidden;
+  overflow: hidden;
+  outline: 0;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.open-model {
+  visibility: visible;
+  display: flex;
+}
+
+.open-model .model {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.fade.in {
+  opacity: 1;
+}
+.fade {
+  opacity: 0;
+  -webkit-transition: opacity .15s linear;
+  -o-transition: opacity .15s linear;
+  transition: opacity .15s linear;
+}
+
+.model.in .model-dialog {
+  -webkit-transform: translate(0,0);
+  -ms-transform: translate(0,0);
+  -o-transform: translate(0,0);
+  transform: translate(0,0);
+}
+
+.model-dialog {
   position: relative;
-  background: aliceblue;
-  padding: 20px 0 0 0;
-  width: 98%;
-  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
-  border-radius: 20px;
+  max-height: 80vh;
 }
 
+.model-content {
+  border-radius: 0;
+  position: relative;
+  background-color: #fff;
+  /* -webkit-background-clip: padding-box; */
+  background-clip: padding-box;
+  border: 1px solid #999;
+  border-radius: 6px;
+  outline: 0;
+  /* -webkit-box-shadow: 0 3px 9px rgb(0 0 0 / 50%); */
+  box-shadow: 0 3px 9px rgb(0 0 0 / 50%);
+}
 
+.model-header {
+  padding: 10px;
+  border-bottom: 1px solid #e5e5e5;
+  border-bottom-color: #f4f4f4;
+}
 
+.model-body {
+  position: relative;
+  padding: 15px;
+}
+
+.modal-footer {
+  border-top-color: #f4f4f4;
+  padding: 15px;
+  text-align: right;
+  border-top: 1px solid #e5e5e5;
+}
+
+button.close {
+  padding: 0;
+  cursor: pointer;
+  background: 0 0;
+  border: 0;
+}
+
+.close {
+  float: right;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1;
+  color: #000;
+  text-shadow: 0 1px 0 #e21d1d;
+  filter: alpha(opacity=20);
+  opacity: .2;
+}
 
 
 /*make it responsive design*/
 @media (max-width: 991px) {
-  .graphBox {
-    grid-template-columns: 1fr;
-    height: auto;
-  }
   .navigation {
     left: -275px;
   }
@@ -81,14 +240,13 @@
   .main.active {
     left: 275px;
   }
-  .cardBox {
-    width: 33.3%;
-    min-width: 0px;
-  }
 }
 
 @media (max-width: 767px) {
-  .cardBox {
+  .sub-table th {
+    width: 0;
+  }
+  .sub-table th .topic {
     width: 100%;
   }
 }

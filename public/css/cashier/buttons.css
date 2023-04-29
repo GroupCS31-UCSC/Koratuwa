@@ -14,7 +14,21 @@
     border-radius: 5px;
 }
 
+.viewBtn {
+    border: 0.25px solid rgb(11, 103, 223);
+    border-radius: 4px;
+    box-shadow: 0px 2px 3px #666666;
+    color: white;
+    padding: 2px 6px 2px 6px;
+    background: #209af8;
+}
 
+.viewBtn:hover {
+    border: 0.25px solid black;
+    color: black;
+    background: rgb(0, 200, 255);
+    cursor: pointer;
+}
 /* .form-btn {
 	background-color: #00BFFF;
 	color: aliceblue;
