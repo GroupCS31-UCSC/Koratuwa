@@ -55,11 +55,13 @@
     </div> -->
     </div>
 
+<!--_________________________________________________________________________________________ -->
   <div id="section1">
    <img class="img-bg" src="<?php echo URLROOT; ?>/img/bg-copy.jpg" alt="no"> 
   <h1>WELCOME TO KORATUWA</h1>
   </div>
 
+<!--_________________________________________________________________________________________ -->
 <div id="section2">
 
 <div class="about">
@@ -76,6 +78,7 @@
 </div>
 </div>
 
+<!--_________________________________________________________________________________________ -->
 <div id="section3">
 <!-- <img class="product-bg" src="<?php echo URLROOT; ?>/img/productbg.jpg" alt="no">  -->
 <h1>Our Products</h1>
@@ -141,7 +144,9 @@
 </div>
 </div>
 
-<div id="section4">
+<!--_________________________________________________________________________________________ -->
+
+<div id="section4" class="contactUs">
   <div class="title">
   <h1>Contact Us</h1>
   </div>
@@ -210,8 +215,8 @@
     </div>
 
     <div>
-     <!-- <span> <i class="fa-brands fa-facebook-f"></i></span>
-        <a href="https://www.facebook.com/koratuwa.dairyfarm"> Koratuwa Facebook</a> -->
+     <span> <i class="fa-brands fa-facebook-f"></i></span>
+        <a href="https://www.facebook.com/koratuwa.dairyfarm"> Koratuwa Facebook</a> 
       
     </div>
 
@@ -228,9 +233,7 @@
 
 </div>
 
-
-
-
-
 </div>
+
+<!--_________________________________________________________________________________________ -->
 <?php require APPROOT.'/views/include/footer.php'; ?>

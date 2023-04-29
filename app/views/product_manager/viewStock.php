@@ -7,6 +7,22 @@
 
 <h2>Product Batches</h2>
 
+<div class="search-section">
+              <div class="search-bar">
+            
+              
+
+              <!-- <div class="main-search"> -->
+                  <input type="text" name="search" placeholder="Filter by Employee Name " autocomplete="off" value="<?php echo $data['search'] ?>" >
+           
+                  <button><i class="fa-solid fa-magnifying-glass"></i></button>
+              <!-- </div> -->
+
+              </form>
+
+              </div>
+          </div>
+
   <table>
       <tr>
       <th>Stock ID</th>
