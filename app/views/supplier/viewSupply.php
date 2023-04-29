@@ -40,7 +40,7 @@
             <th>Quality</th>
             <th>Action</th>
           </tr>
-
+          <?php $data_index=0 ?>
           <?php foreach ($data['supOrderView'] as $supOrd) : ?>
           <tr>
             <td><?php echo $supOrd->supply_order_id; ?></td>
@@ -58,11 +58,13 @@
               <?php else : ?>
                 <div class="table-btns">
                   <!-- <a href="<?php echo URLROOT?>/Supplier/updateSupOrder/<?php echo $supOrd->supply_order_id ?>"><button class="updateBtn">View</button></a> -->
-                  <button onclick="openModal('<?php echo $supOrd->supply_order_id; ?>')" class="updateBtn">View Invoice</button>
+                  <!-- <button onclick="openModal('<?php echo $supOrd->supply_order_id; ?>')" class="updateBtn">View Invoice</button> -->
+                  <a href="#"><button class="updateBtn" onclick="openModel1('<?= $supOrd->supply_order_id; ?>')" id="<?php echo($data_index) ?>"><i class="fas fa-eye"></i></button></a>
                 </div>
               <?php endif; ?>
             </td>
           </tr><br>
+          <?php $data_index++; ?> 
           <?php endforeach; ?>
 
       </table>      
@@ -112,49 +114,28 @@
 </section>
 
 
-<!-- The Modal -->
-<dialog id="viewModal" class="modal">
-  <div class="modal-content">
-      <div class="modal-header">
-        <button class="close" onclick="closeModal()">
-          <span>&times;</span>
-        </button>
-        <h2>Koratuwa Dairy Farm</h2>
-        <h2 id="title"></h2>
+<!----------------- popup view ---------------->
+<div class="model fade in" id="model" tabindex="-1">
+  <div class="model-dialog">
+    <div class="model-content">
+      <div class="model-header">
+        <button type="button" class="close" onclick="closeModel()" ><span aria-hidden="true">×</span></button>
+        <h4 class="Model-title"><i class="fa fa-info-circle edit-color"></i> Order Details</h4>
       </div>
-      <div class="modal-body">
+      <div class="model-body">
         <ul>
-          <li>
-            Your Income:
-          </li>
-          <li>
-            asdfgh
-          </li>
+          <li id="Model_OrdId"></li>
+          <li id="Model_date"></li>
+          <li id="Model_quantity"></li>
         </ul>
-        <a href="<?php echo URLROOT?>/Supplier/DownloadInv/">Download pdf</a>
-      </div>
-      <div class="modal-footer">
-        <h3>***</h3>
       </div>
     </div>
-</dialog>
-
+  </div>
+  <div class="modal-footer"></div>
+</div>
 
 
 <script>
-  //--------------Model form---------------------------//
-
-  function openModal(id){
-    console.log(id);
-    const viewModal = document.getElementById('viewModal')
-    document.getElementById('title').innerHTML = id
-    viewModal.showModal()
-  }
-
-  function closeModal(){
-    const viewModal = document.getElementById('viewModal');
-    viewModal.close();
-  }
 
   //--------------counter----------------//
   let counterup = document.querySelectorAll(".counter_up");
@@ -173,51 +154,30 @@
       }, counteritem.dataset.speed/counter);
   }); 
 
-
-//-------------filter----------//
-// function filterTable() {
-//   // Declare variables
-//   var input, filter, table, tr, td, i, txtValue;
-//   input = document.getElementById("myInput");
-//   filter = input.value.toUpperCase();
-//   table = document.getElementsByTagName("table")[0];
-//   tr = table.getElementsByTagName("tr");
-
-//   // Loop through all table rows, and hide those that don't match the search query
-//   for (i = 0; i < tr.length; i++) {
-//     td = tr[i].getElementsByTagName("td")[1]; // Filter based on first column (Supply Order ID)
-//     if (td) {
-//       txtValue = td.textContent || td.innerText;
-//       if (txtValue.toUpperCase().indexOf(filter) > -1) {
-//         tr[i].style.display = "";
-//       } else {
-//         tr[i].style.display = "none";
-//       }
-//     }
-//   }
-// }
-function filterTable() {
-  // Declare variables
-  var input, filter, table, tr, td, i, txtValue;
-  input = document.getElementById("myDateInput");
-  filter = input.value;
-  table = document.getElementsByTagName("table")[0];
-  tr = table.getElementsByTagName("tr");
-
-  // Loop through all table rows, and hide those that don't match the search query
-  for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[1]; // Filter based on second column (Supply Date)
-    if (td) {
-      txtValue = td.textContent || td.innerText;
-      if (txtValue.indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
-      }
+//-------------- view sup orders------------------//
+  function openModel1(id){
+  // var id = data["id"];
+  const url ="/koratuwa/Supplier/viewOrder/"+id;
+  const form = new FormData();
+  form.append("id", id);
+  fetch(url, {
+    method: "GET"
+  }).then(response => response.text())
+  .then(data => {
+      // console.log(data);
+    if(data){
+    const domp=new DOMParser();
+    const doc= domp.parseFromString(data,'text/html');
+    const newData = doc.getElementById('newData');
+    document.getElementById("newData").innerHTML = newData.innerHTML;
+    
     }
-  }
-}
 
+  });
+  document.getElementById("model").classList.add("open-model");
+
+  
+}
    
 </script>
 
