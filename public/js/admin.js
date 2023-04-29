@@ -81,6 +81,45 @@ statusSelect.addEventListener("change", function() {
 
 
 
+
+//view of supply orders one by one
+
+// function openModel1(id){
+//     const url ="/koratuwa/Admin/viewCattleDetails/"+id;
+//     const form = new FormData();
+//     form.append("id", id);
+//     fetch(url, {
+//       method: "GET"
+//     }).then(response => response.text())
+//     .then(data => {
+//         // console.log(data);
+//       if(data){
+//         const domp=new DOMParser();
+//         const doc= domp.parseFromString(data,'text/html');
+//         const newData1 = doc.getElementById('newData1');
+//         console.log(newData1);
+
+//         document.getElementById('newData1').innerHTML = newData1.innerHTML;
+
+//     //   document.getElementById("Model_Order_Id").innerText = data.supply_order_id;
+//     //   document.getElementById("Model_Supplier_Id").innerText = data.supplier_id;
+//     //   document.getElementById("Model_Supplier_Name").innerText = "";
+//     //   document.getElementById("Model_Quantity").innerText = data.quantity;
+//     //   document.getElementById("Model_Unit_Price").innerText = data.unit_price;
+//     //   document.getElementById("Model_Status").innerText = data.status;
+//       }
+  
+//     });
+//     document.getElementById("model1").classList.add("open-model");
+    
+// }
+
+// function closeModel(){
+//     document.getElementById("model1").classList.remove("open-model");
+// }
+
+
+
 //-------------------------------------------------
 
 // function favTutorial() {
@@ -307,3 +346,60 @@ function adding(e) {
     // })
 
 // }
+
+function openModel1(id){
+    const url ="/koratuwa/Admin/viewCattleDetails/"+id;
+    const form = new FormData();
+    form.append("id", id);
+    fetch(url, {
+      method: "GET"
+    }).then(response => response.text())
+    .then(data => {
+        console.log(data);
+      if(data){
+        const domp=new DOMParser();
+        const doc= domp.parseFromString(data,'text/html');
+        const newData1 = doc.getElementById('newData1');
+        console.log(newData1);
+
+        document.getElementById('newData1').innerHTML = newData1.innerHTML;
+      }
+  
+    });
+    document.getElementById("model1").classList.add("open-model");
+    
+}
+
+function closeModel1(){
+    document.getElementById("model1").classList.remove("open-model");
+}
+
+
+
+
+function openModel2(id){
+    const url ="/koratuwa/Admin/viewDeletedCattleDetails/"+id;
+    const form = new FormData();
+    form.append("id", id);
+    fetch(url, {
+      method: "GET"
+    }).then(response => response.text())
+    .then(data => {
+        console.log(data);
+      if(data){
+        const domp=new DOMParser();
+        const doc= domp.parseFromString(data,'text/html');
+        const newData2 = doc.getElementById('newData2');
+        console.log(newData2);
+
+        document.getElementById('newData2').innerHTML = newData2.innerHTML;
+      }
+  
+    });
+    document.getElementById("model2").classList.add("open-model");
+    
+}
+
+function closeModel2(){
+    document.getElementById("model2").classList.remove("open-model");
+}

@@ -404,7 +404,7 @@
               {
                 //updatePopup
                 flash('updateEmp_flash','Employee Details are successfully Updated!');
-                redirect('Admin/viewEmployees');
+                redirect('Admin/viewEmployeesLab');
               }
               else
               {
@@ -448,7 +448,7 @@
           {
             //deletePopup();
             flash('dltEmp_flash','Employee is successfully deleted');
-            redirect('Admin/viewEmployees');
+            redirect('Admin/viewEmployeesLab');
           }
           else
           {
@@ -468,6 +468,26 @@
           ];
 
           $this->view('admin/viewLivestock',$data);
+        }
+
+        public function viewCattleDetails($cattleID){
+          $cattleDetails= $this->adminModel->get_cattleDetails($cattleID);
+
+          $data = [
+              'cattle' => $cattleDetails
+          ];
+
+          $this->view('admin/openViews',$data);
+        }
+
+        public function viewDeletedCattleDetails($cattleID){
+          $dltCattleDetails= $this->adminModel->get_deletedCattleDetails($cattleID);
+
+          $data = [
+              'dltCattle' => $dltCattleDetails
+          ];
+
+          $this->view('admin/openViews',$data);
         }
 
         //get the details of MilkCollection
