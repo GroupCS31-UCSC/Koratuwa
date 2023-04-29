@@ -110,3 +110,157 @@ table td {
 #dltTableElement #dltCowTable{
     margin: 20px;
 }
+
+/* view model */
+.model {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    z-index: 1050;
+    visibility: hidden;
+    overflow: hidden;
+    outline: 0;
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.open-model {
+    visibility: visible;
+    display: flex;
+}
+
+.open-model .model {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.fade.in {
+    opacity: 1;
+}
+.fade {
+    opacity: 0;
+    -webkit-transition: opacity .15s linear;
+    -o-transition: opacity .15s linear;
+    transition: opacity .15s linear;
+}
+
+.model.in .model-dialog {
+    -webkit-transform: translate(0,0);
+    -ms-transform: translate(0,0);
+    -o-transform: translate(0,0);
+    transform: translate(0,0);
+}
+
+.model-dialog {
+    position: relative;
+    max-height: 80vh;
+}
+
+/* .modal.fade .modal-dialog {
+    -webkit-transition: -webkit-transform .3s ease-out;
+    -o-transition: -o-transform .3s ease-out;
+    transition: transform .3s ease-out;
+    -webkit-transform: translate(0,-25%);
+    -ms-transform: translate(0,-25%);
+    -o-transform: translate(0,-25%);
+    transform: translate(0,-25%);
+} */
+
+.model-content {
+    border-radius: 0;
+    position: relative;
+    background-color: #fff;
+    /* -webkit-background-clip: padding-box; */
+    background-clip: padding-box;
+    border: 1px solid #999;
+    border-radius: 6px;
+    outline: 0;
+    /* -webkit-box-shadow: 0 3px 9px rgb(0 0 0 / 50%); */
+    box-shadow: 0 3px 9px rgb(0 0 0 / 50%);
+}
+
+.model-header {
+    padding: 10px;
+    border-bottom: 1px solid #e5e5e5;
+    border-bottom-color: #f4f4f4;
+}
+
+.model-body {
+    position: relative;
+    padding: 15px;
+}
+
+.tableForm {
+    background-color: #fff;
+    border: 1px solid #f4f4f4;
+    min-height: .01%;
+    overflow-x: auto;
+    width: 90%;
+    max-width: 80%;
+    margin-bottom: 50px;
+}
+
+.modal-footer {
+    border-top-color: #f4f4f4;
+    padding: 15px;
+    text-align: right;
+    border-top: 1px solid #e5e5e5;
+}
+
+button.close {
+    padding: 0;
+    cursor: pointer;
+    background: 0 0;
+    border: 0;
+}
+
+.close {
+    float: right;
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #e21d1d;
+    filter: alpha(opacity=20);
+    opacity: .2;
+}
+.model-title {
+    margin: 0;
+    line-height: 1;
+}
+
+h4 {
+    display: block;
+    font-weight: bold;
+    font-weight: 500px;
+}
+
+.edit-color {
+    color: #04086B;
+}
+
+.fa {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    /* -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale; */
+}
+
+i {
+    font-style: italic;
+}
+
+table {
+    margin-left: 50px;
+}
+td {
+    text-align: center;
+}
+
+
+/* -----------------end view model------------------------ */

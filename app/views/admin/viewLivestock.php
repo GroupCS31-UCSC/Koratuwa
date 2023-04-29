@@ -51,7 +51,7 @@
           <td><?php echo '' ?></td> 
           <td>
             <div class="table-btns">
-              <a href="#"><button class="viewBtn" onclick="openModel('<?=$cow->cow_id?>')" id="<?php echo($data_index) ?>"><i class="fas fa-eye"></i></button></a>
+              <a href="#"><button class="viewBtn" onclick="openModel1('<?=$cow->cow_id?>')" id="<?php echo($data_index) ?>"><i class="fas fa-eye"></i></button></a>
             </div>
          </td>
         </tr><br>
@@ -59,6 +59,26 @@
         <?php endforeach; ?>
       </tbody>
     </table>
+
+    <!-- popup view model1 - cattle details-->
+    <div class="model fade in" id="model1" tabindex="-1">
+      <div class="model-dialog">
+        <div class="model-content">
+          <div class="model-header">
+            <button type="button" class="close" onclick="closeModel1()" ><span aria-hidden="true">×</span></button>
+            <h4 class="Model-title"><i class="fa fa-info-circle edit-color"></i>Cattle Details</h4>
+          </div>
+          <div class="model-body">
+            <table class="tableForm">
+              <tbody id="newData1">
+              </tbody>  
+            </table>         
+            <br>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer"></div>
+    </div>
     
     <script>
       window.onload = () => {
@@ -109,7 +129,7 @@
                 <td><?php echo $dltCow->removed_date; ?></td>
                 <td>
                 <div class="table-btns">
-                  <a href="#"><button class="viewBtn" onclick="openModel('<?=$dltCow->cow_id?>')" id="<?php echo($data_index) ?>"><i class="fas fa-eye"></i></button></a>
+                  <a href="#"><button class="viewBtn" onclick="openModel2('<?=$dltCow->cow_id?>')" id="<?php echo($data_index) ?>"><i class="fas fa-eye"></i></button></a>
                 </div>
                 </td>
               </tr><br>
@@ -119,7 +139,25 @@
         </table>
       </div>
 
-</section>
+    <!-- popup view model1 - cattle details-->
+    <div class="model fade in" id="model2" tabindex="-1">
+      <div class="model-dialog">
+        <div class="model-content">
+          <div class="model-header">
+            <button type="button" class="close" onclick="closeModel2()" ><span aria-hidden="true">×</span></button>
+            <h4 class="Model-title"><i class="fa fa-info-circle edit-color"></i>Removed Cattle Details</h4>
+          </div>
+          <div class="model-body">
+            <table class="tableForm">
+              <tbody id="newData2">
+              </tbody>  
+            </table>         
+            <br>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer"></div>
+    </div>
 
 <script>
 getUniqueValuesFromColumn2();
@@ -138,6 +176,12 @@ let showOrHide = function(){
     
 }
 </script>
+</section>
+
+
+
+
+
 
 <?php require APPROOT.'/views/include/footer.php'; ?>
 <script src="<?php echo URLROOT; ?>/js/admin.js"></script>
