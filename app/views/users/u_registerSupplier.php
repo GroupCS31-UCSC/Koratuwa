@@ -1,7 +1,7 @@
 <?php require APPROOT.'/views/include/header.php'; ?>
 <link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/public/css/users/register.css">
-<link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/public/css/users/buttons.css">
-<link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/public/css/users/forms.css">
+<!-- <link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/public/css/users/buttons.css"> -->
+<!-- <link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/public/css/users/forms.css"> -->
 
 <div class="split left">
 	<div class="logo">
@@ -14,7 +14,7 @@
 <div class="form-container">
 
 	<div class="form-header">
-		<center><h1>SUPPLIER SIGNUP</h1></center>
+		<center><h2>SUPPLIER SIGNUP</h2></center>
 	</div>
 	<br>
 	
