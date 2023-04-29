@@ -333,6 +333,16 @@
       return $result;
     }
 
+    //to get all livestock deails
+    public function get_dltCowview()
+    {
+      $this->db->query('SELECT cattle.cow_id, cattle.dob, cattle.age, cattle.gender, cattle.cow_breed, cattle.milking_status, cattle.reg_method, cattle.reg_date, cattle.bought_price,cattle.stall_id, removed_cattle.removed_date, removed_cattle.reason, removed_cattle.sold_price FROM cattle INNER JOIN removed_cattle ON cattle.cow_id = removed_cattle.cow_id;');
+
+      $result = $this->db->resultSet();
+
+      return $result;
+    }
+
     //to get all milk collection deails
     public function get_mcView()
     {

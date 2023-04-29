@@ -460,9 +460,11 @@
         public function viewLivestock()
         {
           $livestockView= $this->adminModel->get_livestockView();
+          $dltCowview= $this->adminModel->get_dltCowview();
 
           $data = [
-              'livestockView' => $livestockView
+              'livestockView' => $livestockView,
+              'dltCowview' => $dltCowview
           ];
 
           $this->view('admin/viewLivestock',$data);

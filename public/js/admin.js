@@ -78,6 +78,28 @@ for (var i = 0; i < statusSelect.options.length; i++) {
 statusSelect.addEventListener("change", function() {
   localStorage.setItem("selectedStatus", statusSelect.value);
 });
+
+
+
+
+
+
+// const divElement = document.querySelector('#dltTableElement');
+// let isClicked = true;
+
+// let showOrHide = function(){
+//     if(isClicked){
+//         divElement.style.display='block';
+//         isClicked= false;
+//     }
+//     else{
+//         divElement.style.display='none';
+//         isClicked= true;
+//     }
+    
+// }
+
+
 //-------------------------------------------------
 
 // function favTutorial() {
@@ -183,6 +205,8 @@ function adding(e) {
         });
     return false;
 }
+
+
 
 
 // Get unique values for the desired columns
