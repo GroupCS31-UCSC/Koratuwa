@@ -366,6 +366,7 @@
             $this->view('supplier/sup_feedback',$data);
           }
         }
+        //----------Download PDF--------------/
         public function DownloadInv(){
           $data = [];
 
@@ -373,6 +374,20 @@
 
 
           $this->view('supplier/downloadInvoice', $data);
+        }
+
+        //---------view order invoice-----------/
+        public function viewOrder($ordId){
+
+          $orderView = $this->supplierModel->viewOrd($ordId);
+
+          $data = [
+            'supply_order_id ' =>'',
+            'supply_date' =>'',
+            'quantity' =>'',
+          ];
+
+          $this->view('supplier/viewSupply', $data);
         }
 
 

@@ -206,6 +206,16 @@
 
       return $result;
     }
+//----------view invoice------------------//
+    public function viewOrd($ordId)
+    {
+      $this->db->query('SELECT * FROM supply_order WHERE supply_order_id = :orderID');
+      $this->db->bind(':orderID',$ordId);
+
+      $result = $this->db->resultSet();
+
+      return $result;
+    }
 
 
 
