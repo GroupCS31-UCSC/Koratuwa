@@ -20,6 +20,16 @@
       return $result;
     }
 
+    public function get_labourProfileView($LId)
+    {
+      $this->db->query('SELECT * FROM laborer where laborer_id= :LId AND existence=1');
+      $this->db->bind(':LId', $LId);
+
+      $result = $this->db->resultSet();
+
+      return $result;
+    }
+
     // check email is already registered or not in the system db
     public function findEmployeeByEmail($email)
 		{
@@ -149,7 +159,8 @@
     //delete a selected employee
     public function deleteEmployees($empId)
     {      
-      $date1= date_create(strval($this->db->query('SELECT reg_date FROM user WHERE user_id= $empId AND existence=1')));
+      $date1= date_create(strval($this->db->query('SELECT reg_date FROM user WHERE user_id= :empId AND existence=1')));
+      $this->db->bind(':empId', $empId);
       $date2= date_create(date("Y-m-d"));
       $diff=intval(date_diff($date1,$date2));
       
@@ -166,7 +177,7 @@
         $period=$y.'years '.$m.'months';
       }
 
-      $this->db->query('INSERT INTO past_employee(user_id,service_time,emp_type) VALUES(:empId, :service_time,"systemUsers") ');
+      $this->db->query('INSERT INTO past_employee(user_id,service_time,emp_type) VALUES(:empId, :service_time,"system users") ');
       $this->db->bind(':empId', $empId);
       $this->db->bind(':service_time', $period);
 
@@ -210,11 +221,11 @@
 
 			if($lastId == '')
 			{
-				$id='L101';
+				$id='L1';
 			}
 			else
 			{
-				$id = substr($lastId,3);
+				$id = substr($lastId,1);
 				$id = intval($id);
 				$id = "L".($id+1);
 			}
@@ -250,7 +261,7 @@
     //update selected employee's details
     public function updateLabours($data)
     {
-      $this->db->query('UPDATE employee SET name= :name, nic= :nic, contact_number=:tp_num, gender=:gender, address=:address WHERE employee_id= :LId AND existence=1');
+      $this->db->query('UPDATE laborer SET name= :name, nic= :nic, contact_number=:tp_num, gender=:gender, address=:address WHERE laborer_id= :LId AND existence=1');
       $this->db->bind(':name', $data['name']);
       $this->db->bind(':nic', $data['nic']);
       $this->db->bind(':tp_num', $data['tp_num']);
@@ -274,7 +285,7 @@
     public function getLabourById($LId)
     {
       $this->db->query('SELECT * FROM laborer WHERE laborer_id = :LId AND existence=1' );
-      $this->db->bind(':empId', $LId);
+      $this->db->bind(':LId', $LId);
 
       $row = $this->db->single();
       return $row;
@@ -283,7 +294,8 @@
     //delete a selected employee
     public function deleteLabours($LId)
     {      
-      $date1= date_create(strval($this->db->query('SELECT reg_date FROM laborer WHERE laborer_id= $LId AND existence=1')));
+      $date1= date_create(strval($this->db->query('SELECT reg_date FROM laborer WHERE laborer_id= :LId AND existence=1')));
+      $this->db->bind(':LId', $LId);
       $date2= date_create(date("Y-m-d"));
       $diff=intval(date_diff($date1,$date2));
       
@@ -328,6 +340,34 @@
     {
       $this->db->query('SELECT * FROM cattle WHERE existence=1');
 
+      $result = $this->db->resultSet();
+
+      return $result;
+    }
+
+    public function get_cattleDetails($cattleID)
+    {
+      $this->db->query('SELECT * FROM cattle WHERE cow_id = :cattle AND existence=1');
+      $this->db->bind(':cattle', $cattleID);
+      $result = $this->db->resultSet();
+
+      return $result;
+    }
+   
+    //to get all livestock deails
+    public function get_dltCowview()
+    {
+      $this->db->query('SELECT cattle.cow_id, cattle.dob, cattle.age, cattle.gender, cattle.cow_breed, cattle.milking_status, cattle.reg_method, cattle.reg_date, cattle.bought_price,cattle.stall_id, removed_cattle.removed_date, removed_cattle.reason, removed_cattle.sold_price FROM cattle INNER JOIN removed_cattle ON cattle.cow_id = removed_cattle.cow_id;');
+
+      $result = $this->db->resultSet();
+
+      return $result;
+    }
+
+    public function get_deletedCattleDetails($cattleID)
+    {
+      $this->db->query('SELECT cattle.cow_id, cattle.dob, cattle.age, cattle.gender, cattle.cow_breed, cattle.milking_status, cattle.reg_method, cattle.reg_date, cattle.bought_price,cattle.stall_id, removed_cattle.removed_date, removed_cattle.reason, removed_cattle.sold_price FROM cattle INNER JOIN removed_cattle ON cattle.cow_id = removed_cattle.cow_id WHERE removed_cattle.cow_id= :cattle; ');
+      $this->db->bind(':cattle', $cattleID);
       $result = $this->db->resultSet();
 
       return $result;

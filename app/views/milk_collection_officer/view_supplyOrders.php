@@ -60,42 +60,19 @@
           <div class="model-content">
             <div class="model-header">
               <button type="button" class="close" onclick="closeModel()" ><span aria-hidden="true">×</span></button>
-              <h4 class="Model-title"><i class="fa fa-info-circle edit-color"></i> Order Checking...</h4>
+              <h4 class="Model-title"><i class="fa fa-info-circle edit-color"></i>Order Checking...</h4>
             </div>
             <div class="model-body">
             <table class="tableForm">
                 <tbody id="newData2">
-                  <tr>
-                    <td>Supply_Order_Id</td>
-                    <td id="Model_Order_Id"></td>
-                  </tr>
-                  <tr>
-                    <td>Supplier_Id</td>
-                    <td id="Model_Supplier_Id"></td>
-                  </tr>
-                  <tr>
-                    <td>Supplier_Name</td>
-                    <td id="Model_Supplier_Name"></td>
-                  </tr>
-                  <tr>
-                    <td>Quantity</td>
-                    <td id="Model_Quantity"></td>
-                  </tr>
-                  <tr>
-                    <td>Unit_Price</td>
-                    <td id="Model_Unit_Price"></td>
-                  </tr>
-                  <tr>
-                    <td>Status</td>
-                    <td id="Model_Status"></td>
-                  </tr>
                 </tbody>           
-              </table><br>
+            </table><br>
             </div>
           </div>
         </div>
         <div class="modal-footer"></div>
       </div>
+      
       </p>
 
     </div>

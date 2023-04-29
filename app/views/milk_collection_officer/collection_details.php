@@ -43,41 +43,49 @@
         
     </div>
 
-    <div class="viewBox2">
-    <table>
-            <tbody id="newData2">
-            <?php foreach ($data['ordDetails'] as $ord) : ?>
-                <tr>
-                    <td>Supply_Order_Id</td>
-                    <td id="Model_Order_Id"><?php echo $ord->supply_order_id; ?></td>
-                </tr>
-                <tr>
-                    <td>Supplier_Id</td>
-                    <td id="Model_Supplier_Id"><?php echo $ord->supplier_id; ?></td>
-                </tr>
-                <tr>
-                    <td>Supplier_Name</td>
-                    <td><?php echo '' ?></td>
-                </tr>
-                <tr>
-                    <td>Quantity</td>
-                    <td id="Model_Quantity"><?php echo $ord->quantity; ?></td>
-                </tr>
-                <tr>
-                    <td>Unit_Price</td>
-                    <td><?php echo $ord->unit_price; ?></td>
-                </tr>
-                <tr>
-                    <td>Status</td>
-                    <td><?php echo $ord->status; ?></td>
-                </tr>
-                <?php endforeach; ?>
-            </tbody>           
-        </table>
+    <!-- <div class="viewBox2"> -->
+    <table class="tableForm">
+        <tbody id="newData2">
+        <?php foreach ($data['ordDetails'] as $ord) : ?>
+            <tr>
+                <td>Supply_Order_Id</td>
+                <td><?php echo $ord->supply_order_id; ?></td>
+            </tr>
+            <tr>
+                <td>Supplier_Id</td>
+                <td><?php echo $ord->supplier_id; ?></td>
+            </tr>
+            <tr>
+                <td>Supplier_Name</td>
+                <td><?php echo '' ?></td>
+            </tr>
+            <tr>
+                <td>Quantity</td>
+                <td><?php echo $ord->quantity; ?></td>
+            </tr>
+            <tr>
+                <td>Unit_Price</td>
+                <td><?php echo $ord->unit_price; ?></td>
+            </tr>
+            <tr>
+                <td>Status</td>
+                <td><?php echo $ord->status; ?></td>
+            </tr>
+            <!-- <tr>
+                <td>Quantity</td>
+                <td id="Model_Quantity"><?php echo $ord->quantity; ?></td>
+            </tr> -->
+            <?php endforeach; ?>
+        </tbody>           
+    </table>
         
         
-    </div>
+    <!-- </div> -->
 </div>
+
+
+
+
 
 
     

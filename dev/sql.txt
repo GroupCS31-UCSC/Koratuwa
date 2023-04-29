@@ -163,4 +163,18 @@
             </div>
         </div>
 <?php require APPROOT.'/views/include/footer.php'; ?>
-<script src="<?php echo URLROOT; ?>/js/dashboard.js"></script>          
+<script src="<?php echo URLROOT; ?>/js/dashboard.js"></script> 
+
+
+
+
+
+
+
+
+//removed cattle + cattle join
+SELECT cattle.cow_id, cattle.dob, cattle.age, cattle.gender, cattle.cow_breed, cattle.milking_status, cattle.reg_method, cattle.reg_date,
+cattle.bought_price,cattle.stall_id, removed_cattle.removed_date, removed_cattle.reason, removed_cattle.sold_price
+FROM cattle 
+INNER JOIN removed_cattle 
+ON cattle.cow_id = removed_cattle.cow_id;
