@@ -26,15 +26,27 @@
         }
         
         //get the details of Employee for profile
-        public function EmployeeProfile($email)
+        public function employeeProfile($empId)
         {
-          $empProfileData= $this->adminModel->get_empProfileView($email);
+          $empProfileData= $this->adminModel->get_empProfileView($empId);
 
           $data = [
               'empProfileData' => $empProfileData
           ];
 
-          $this->view('admin/employeeProfile',$data);
+          $this->view('admin/openViews',$data);
+        }
+
+        //get the details of labour for profile
+        public function labourProfile($LId)
+        {
+          $labProfileData= $this->adminModel->get_labourProfileView($LId);
+
+          $data = [
+              'labProfileData' => $labProfileData
+          ];
+
+          $this->view('admin/openViews',$data);
         }
 
         //add new employee details

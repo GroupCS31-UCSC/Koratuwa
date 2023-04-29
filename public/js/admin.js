@@ -403,3 +403,60 @@ function openModel2(id){
 function closeModel2(){
     document.getElementById("model2").classList.remove("open-model");
 }
+
+
+function openModel3(id){
+    const url ="/koratuwa/Admin/employeeProfile/"+id;
+    const form = new FormData();
+    form.append("id", id);
+    fetch(url, {
+      method: "GET"
+    }).then(response => response.text())
+    .then(data => {
+        console.log(data);
+      if(data){
+        const domp=new DOMParser();
+        const doc= domp.parseFromString(data,'text/html');
+        const newData3 = doc.getElementById('newData3');
+        console.log(newData3);
+
+        document.getElementById('newData3').innerHTML = newData3.innerHTML;
+      }
+  
+    });
+    document.getElementById("model3").classList.add("open-model");
+    
+}
+
+function closeModel3(){
+    document.getElementById("model3").classList.remove("open-model");
+}
+
+
+function openModel4(id){
+    const url ="/koratuwa/Admin/labourProfile/"+id;
+    const form = new FormData();
+    form.append("id", id);
+    fetch(url, {
+      method: "GET"
+    }).then(response => response.text())
+    .then(data => {
+        console.log(data);
+      if(data){
+        const domp=new DOMParser();
+        const doc= domp.parseFromString(data,'text/html');
+        const newData4 = doc.getElementById('newData4');
+        console.log(newData4);
+
+        document.getElementById('newData4').innerHTML = newData4.innerHTML;
+      }
+  
+    });
+    document.getElementById("model4").classList.add("open-model");
+    
+}
+
+function closeModel4(){
+    document.getElementById("model4").classList.remove("open-model");
+}
+

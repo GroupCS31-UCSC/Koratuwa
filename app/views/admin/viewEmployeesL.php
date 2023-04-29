@@ -91,7 +91,7 @@
                     <div class="table-btns">
                       <a href="<?php echo URLROOT?>/Admin/updateEmployees/<?php echo $emp->employee_id ?>"><button class="updateBtn" title="Update"><i class="fa-regular fa-pen-to-square"></i></button></a>
                       <a href="<?php echo URLROOT?>/Admin/deleteEmployees/<?php echo $emp->employee_id ?>"><button class="deleteBtn" title="Delete"><i class="fa-regular fa-trash-can"></i></button></a>
-                      <a href="#"><button class="viewBtn" onclick="openModel('<?=$emp->employee_id?>')" id="<?php echo($data_index) ?>"><i class="fas fa-eye"></i></button></a>
+                      <a href="#"><button class="viewBtn" onclick="openModel3('<?=$emp->employee_id?>')" id="<?php echo($data_index) ?>"><i class="fas fa-eye"></i></button></a>
                     <!-- <div class="table-btns">
                       <a href="<?php echo URLROOT?>/Users/userProfile/<?php echo $emp->employee_id ?>"><button class="viewBtn" title="View More Details"></button></a>
                     </div> -->
@@ -152,7 +152,27 @@
           </section>
 
         </div>
-      </p></div>
+      </p>
+        <!-- popup view model3 - employee details-->
+        <div class="model fade in" id="model3" tabindex="-1">
+            <div class="model-dialog">
+              <div class="model-content">
+                <div class="model-header">
+                  <button type="button" class="close" onclick="closeModel3()" ><span aria-hidden="true">×</span></button>
+                  <h4 class="Model-title"><i class="fa fa-info-circle edit-color"></i>Employee Details</h4>
+                </div>
+                <div class="model-body">
+                  <table class="tableForm">
+                    <tbody id="newData3">
+                    </tbody>  
+                  </table>         
+                  <br>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer"></div>
+          </div>
+      </div>
 
   <!-- tab2 -->
   <input type="radio" id="tab2" name="mytabs" checked="checked">
@@ -225,7 +245,7 @@
                       <div class="table-btns">
                       <a href="<?php echo URLROOT?>/Admin/updateLabours/<?php echo $lab->laborer_id ?>"><button class="updateBtn" title="Update"><i class="fa-regular fa-pen-to-square"></i></button></a>
                       <a href="<?php echo URLROOT?>/Admin/deleteLabours/<?php echo $lab->laborer_id ?>"><button class="deleteBtn" title="Delete"><i class="fa-regular fa-trash-can"></i></button></a>
-                      <a href="#"><button class="viewBtn" onclick="openModel('<?=$lab->laborer_id?>')" id="<?php echo($data_index) ?>"><i class="fas fa-eye"></i></button></a>
+                      <a href="#"><button class="viewBtn" onclick="openModel4('<?=$lab->laborer_id?>')" id="<?php echo($data_index) ?>"><i class="fas fa-eye"></i></button></a>
                       </div>
 
                     <!-- 
@@ -274,7 +294,28 @@
             </section>
 
           </div>
-        </p></div>
+        </p>
+          <!-- popup view model4 - labour details-->
+          <div class="model fade in" id="model4" tabindex="-1">
+              <div class="model-dialog">
+                <div class="model-content">
+                  <div class="model-header">
+                    <button type="button" class="close" onclick="closeModel4()" ><span aria-hidden="true">×</span></button>
+                    <h4 class="Model-title"><i class="fa fa-info-circle edit-color"></i>Labour Details</h4>
+                  </div>
+                  <div class="model-body">
+                    <table class="tableForm">
+                      <tbody id="newData4">
+                      </tbody>  
+                    </table>         
+                    <br>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer"></div>
+            </div>
+          </div>
+        </div>
 
 
 </div>

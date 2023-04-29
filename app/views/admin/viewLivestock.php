@@ -139,7 +139,7 @@
         </table>
       </div>
 
-    <!-- popup view model1 - cattle details-->
+    <!-- popup view model1 - old cattle details-->
     <div class="model fade in" id="model2" tabindex="-1">
       <div class="model-dialog">
         <div class="model-content">

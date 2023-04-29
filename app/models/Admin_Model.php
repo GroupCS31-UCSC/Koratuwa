@@ -20,6 +20,16 @@
       return $result;
     }
 
+    public function get_labourProfileView($LId)
+    {
+      $this->db->query('SELECT * FROM laborer where laborer_id= :LId AND existence=1');
+      $this->db->bind(':LId', $LId);
+
+      $result = $this->db->resultSet();
+
+      return $result;
+    }
+
     // check email is already registered or not in the system db
     public function findEmployeeByEmail($email)
 		{

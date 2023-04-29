@@ -4,7 +4,7 @@
 <?php require APPROOT.'/views/admin/admin_dashboard.php';  ?>
 <!-- ______________________________________________________________________________________________________-->
 
-
+<!-- viewLivestock page- model1 view - cattle details -->
 <table class="tableForm">
     <tbody id="newData1">
     <?php foreach ($data['cattle'] as $cattle) : ?>
@@ -36,6 +36,7 @@
     </tbody>           
 </table>
 
+<!-- viewLivestock page- model2 view - deleted cattle details -->
 
 <table class="tableForm">
     <tbody id="newData2">
@@ -60,6 +61,57 @@
     </tbody>           
 </table>
 
+<!-- viewEmployees page- model1 view - current employee details -->
+
+<table class="tableForm">
+    <tbody id="newData3">
+    <?php foreach ($data['empProfileData'] as $emp) : ?>
+        <tr>
+            <td>Supply_Order_Id</td>
+            <td><?php echo $emp->employee_id; ?></td>
+        </tr>
+        <tr>
+            <td>Supplier_Id</td>
+            <td><?php echo $emp->gender; ?></td>
+        </tr>
+        <tr>
+            <td>Supplier_Name</td>
+            <td><?php echo 'jfdod' ?></td>
+        </tr>
+        <tr>
+            <td>Quantity</td>
+            <td><?php echo 'eeow'; ?></td>
+        </tr>
+        <?php endforeach; ?>
+    </tbody>           
+</table>
+
+
+
+<!-- viewEmployees page- model2 view - labour details -->
+
+<table class="tableForm">
+    <tbody id="newData4">
+    <?php foreach ($data['labProfileData'] as $lab) : ?>
+        <tr>
+            <td>Supply_Order_Id</td>
+            <td><?php echo $lab->laborer_id; ?></td>
+        </tr>
+        <tr>
+            <td>Supplier_Id</td>
+            <td><?php echo $lab->name; ?></td>
+        </tr>
+        <tr>
+            <td>Supplier_Name</td>
+            <td><?php echo 'jfdod' ?></td>
+        </tr>
+        <tr>
+            <td>Quantity</td>
+            <td><?php echo 'eeow'; ?></td>
+        </tr>
+        <?php endforeach; ?>
+    </tbody>           
+</table>
     
 <?php require APPROOT.'/views/include/footer.php'; ?>
 <script src="<?php echo URLROOT; ?>/js/admin.js"></script>
