@@ -7,7 +7,7 @@
 
   <div class="divContainer1">
     <h2>Koratuwa Suppliers</h2>
-    <table>
+    <table id="supTable">
       <thead>
         <th>Supplier Id</th>
         <th>Name</th>
@@ -80,145 +80,26 @@
     <!-- feedbacks -->
     <section class="feedback">
       <div class="full-boxer">
+      <?php foreach ($data['supFeedBacks'] as $supFB) : ?>
         <div class="comment-box">
           <div class="box-top">
             <div class="profile-box">
               <div class="profile-img">
-                <img src="<?php echo URLROOT; ?>/img/users/apsara.jpg" alt="user">
+              <!-- <img src="<?php echo UPLOADS . $supFB->image ?>" width='100' height='100'> -->
               </div>
               <div class="name">
-                <strong>Sasindu</strong>
-                <span>SUP101</span>
+                <strong><?php echo $supFB->feedback_id; ?></strong>
+                <span><?php echo $supFB->supplier_id; ?></span>
               </div>
             </div>
           </div>
           <div class="comment">
             <p>
-              very good product
+            <?php echo $supFB->feedback; ?>
             </p>         
           </div>
         </div>
-        <div class="comment-box">
-          <div class="box-top">
-            <div class="profile-box">
-              <div class="profile-img">
-                <img src="<?php echo URLROOT; ?>/img/users/apsara.jpg" alt="user">
-              </div>
-              <div class="name">
-                <strong>Sasindu</strong>
-                <span>SUP101</span>
-              </div>
-            </div>
-          </div>
-          <div class="comment">
-            <p>
-              very good product
-            </p>         
-          </div>
-        </div><div class="comment-box">
-          <div class="box-top">
-            <div class="profile-box">
-              <div class="profile-img">
-                <img src="<?php echo URLROOT; ?>/img/users/apsara.jpg" alt="user">
-              </div>
-              <div class="name">
-                <strong>Sasindu</strong>
-                <span>SUP101</span>
-              </div>
-            </div>
-          </div>
-          <div class="comment">
-            <p>
-              very good product
-            </p>         
-          </div>
-        </div><div class="comment-box">
-          <div class="box-top">
-            <div class="profile-box">
-              <div class="profile-img">
-                <img src="<?php echo URLROOT; ?>/img/users/apsara.jpg" alt="user">
-              </div>
-              <div class="name">
-                <strong>Sasindu</strong>
-                <span>SUP101</span>
-              </div>
-            </div>
-          </div>
-          <div class="comment">
-            <p>
-              very good product
-            </p>         
-          </div>
-        </div>
-        <div class="comment-box">
-          <div class="box-top">
-            <div class="profile-box">
-              <div class="profile-img">
-                <img src="<?php echo URLROOT; ?>/img/users/apsara.jpg" alt="user">
-              </div>
-              <div class="name">
-                <strong>Sasindu</strong>
-                <span>SUP101</span>
-              </div>
-            </div>
-          </div>
-          <div class="comment">
-            <p>
-              very good product
-            </p>         
-          </div>
-        </div><div class="comment-box">
-          <div class="box-top">
-            <div class="profile-box">
-              <div class="profile-img">
-                <img src="<?php echo URLROOT; ?>/img/users/apsara.jpg" alt="user">
-              </div>
-              <div class="name">
-                <strong>Sasindu</strong>
-                <span>SUP101</span>
-              </div>
-            </div>
-          </div>
-          <div class="comment">
-            <p>
-              very good product
-            </p>         
-          </div>
-        </div><div class="comment-box">
-          <div class="box-top">
-            <div class="profile-box">
-              <div class="profile-img">
-                <img src="<?php echo URLROOT; ?>/img/users/apsara.jpg" alt="user">
-              </div>
-              <div class="name">
-                <strong>Sasindu</strong>
-                <span>SUP101</span>
-              </div>
-            </div>
-          </div>
-          <div class="comment">
-            <p>
-              very good product
-            </p>         
-          </div>
-        </div><div class="comment-box">
-          <div class="box-top">
-            <div class="profile-box">
-              <div class="profile-img">
-                <img src="<?php echo URLROOT; ?>/img/users/apsara.jpg" alt="user">
-              </div>
-              <div class="name">
-                <strong>Sasindu</strong>
-                <span>SUP101</span>
-              </div>
-            </div>
-          </div>
-          <div class="comment">
-            <p>
-              very good product
-            </p>         
-          </div>
-        </div>
+        <?php endforeach; ?>
       </div>
     </section>
     

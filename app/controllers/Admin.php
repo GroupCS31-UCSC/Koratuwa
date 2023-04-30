@@ -528,6 +528,19 @@
           $this->view('admin/viewProduction',$data);
         }
 
+        public function viewSales()
+        {
+          $onsiteSView= $this->adminModel->get_onsiteSalesView();
+          $onlineSView= $this->adminModel->get_onlineSalesView();
+
+          $data = [
+              'onsiteS' => $onsiteSView,
+              'onlineS' => $onlineSView
+          ];
+
+          $this->view('admin/viewSales',$data);
+        }
+
         //get the details of Customers
         public function viewCustomers()
         {
@@ -544,9 +557,11 @@
         public function viewSuppliers()
         {
           $supView= $this->adminModel->get_supView();
+          $supFeedBacks= $this->adminModel->get_supFeedBacks();
 
           $data = [
-              'supView' => $supView
+              'supView' => $supView,
+              'supFeedBacks' => $supFeedBacks
           ];
 
           $this->view('admin/viewSuppliers',$data);

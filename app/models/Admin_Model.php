@@ -402,6 +402,24 @@
       return $result;
     }
 
+    public function get_onsiteSalesView()
+    {
+      $this->db->query('SELECT * FROM onsite_sale');
+
+      $result = $this->db->resultSet();
+
+      return $result;
+    }
+
+    public function get_onlineSalesView()
+    {
+      $this->db->query('SELECT * FROM online_order');
+
+      $result = $this->db->resultSet();
+
+      return $result;
+    }
+
     //to get all customer deails
     public function get_cusView()
     {
@@ -429,6 +447,16 @@
       $result = $this->db->resultSet();
 
       return $result;
+    }
+
+    public function get_supFeedBacks()
+    {
+      $this->db->query('SELECT * FROM sup_feedback');
+
+      $result = $this->db->resultSet();
+
+      return $result;
+
     }
 
     //to get current employee details
