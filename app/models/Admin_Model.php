@@ -422,6 +422,15 @@
       return $result;
     }
 
+    public function get_supDetails($sID)
+    {
+      $this->db->query('SELECT * FROM supplier WHERE supplier_id = :supId');
+      $this->db->bind(':supId', $sID);
+      $result = $this->db->resultSet();
+
+      return $result;
+    }
+
     //to get current employee details
     public function currentEmpSearch($search)
     {

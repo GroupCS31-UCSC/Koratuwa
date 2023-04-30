@@ -460,3 +460,48 @@ function closeModel4(){
     document.getElementById("model4").classList.remove("open-model");
 }
 
+
+
+
+function openModel5(id){
+    const divElement1 = document.querySelector('.part1');
+    const divElement2 = document.querySelector('.part2');
+
+    let isClicked = true;
+    if(isClicked){
+            divElement1.style.display='none';
+            divElement2.style.display='block';
+            isClicked= false;
+        }
+        else{
+            divElement1.style.display='block';
+            divElement2.style.display='none';
+            isClicked= true;
+        }
+    const url ="/koratuwa/Admin/supplierProfile/"+id;
+    const form = new FormData();
+    form.append("id", id);
+    fetch(url, {
+      method: "GET"
+    }).then(response => response.text())
+    .then(data => {
+        console.log(data);
+      if(data){
+        const domp=new DOMParser();
+        const doc= domp.parseFromString(data,'text/html');
+        const newData5 = doc.getElementById('newData5');
+        console.log(newData5);
+
+        document.getElementById('newData5').innerHTML = newData5.innerHTML;
+      }
+  
+    });
+    document.getElementById("model5").classList.add("open-model");
+
+             
+  }
+  function closeModel5(){
+    document.getElementById("model5").classList.remove("open-model");
+    const divElement1 = document.querySelector('.part1');
+    divElement1.style.display='block';
+  }

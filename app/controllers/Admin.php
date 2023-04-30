@@ -552,6 +552,17 @@
           $this->view('admin/viewSuppliers',$data);
         }
 
+        public function supplierProfile($sID)
+        {
+          $sup= $this->adminModel->get_supDetails($sID);
+
+          $data = [
+              'sup' => $sup
+          ];
+
+          $this->view('admin/openViews',$data);
+        }
+
         //view employee details
         public function viewEmployees()
         {
@@ -664,6 +675,8 @@
             redirect('Admin/viewEmployeesLab');
           }
         }
+
+        
         
 
 
