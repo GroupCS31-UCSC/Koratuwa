@@ -116,27 +116,3 @@
 
 <?php require APPROOT.'/views/include/footer.php'; ?>
 <script src="<?php echo URLROOT; ?>/js/admin.js"></script>
-    <!-- <table>
-      <tr>
-        <th>User Id</th>
-        <th>Image</th>
-        <th>Name</th>
-        <th>Nic</th>
-        <th>Contact Number</th>
-        <th>Address</th>
-        <th>Email</th>
-        <th>Action</th>
-      </tr>
-      
-      <tr>
-        <td><?php echo $supView->user_id; ?></td>
-        <td><img src="<?php echo URLROOT; ?>/img/users/user.png" alt="user" width="20" height="20"></td>
-        <td><?php echo $supView->name; ?></td>
-        <td><?php echo $supView->nic; ?></td>
-        <td><?php echo $supView->contact_number; ?></td>
-        <td><?php echo $supView->address; ?></td>
-        <td><?php echo $supView->email; ?></td>
-
-      </tr><br>
-
-    </table> -->

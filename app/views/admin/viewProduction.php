@@ -32,11 +32,6 @@
       <a href="<?php echo URLROOT?>/Admin/updateProduction/"><button class="updateBtn">UPDATE</button></a>
       <a href="<?php echo URLROOT?>/Admin/deleteProduction/"><button class="deleteBtn">DELETE</button></a>
       </div>
-
-    <!-- 
-    <form id="EditForm" action="<?php echo URLROOT?>/Admin/deleteEmployees/<?php echo $emp->email ?>">
-    <button class="deleteBtn" onclick="deletion(event)">Delete</button>
-    </form> -->
     
     </td>
   </tr><br>

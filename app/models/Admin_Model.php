@@ -395,7 +395,7 @@
     //to get all production deails
     public function get_productionView()
     {
-      $this->db->query('SELECT * FROM product_category');
+      $this->db->query('SELECT * FROM product');
 
       $result = $this->db->resultSet();
 
@@ -452,6 +452,16 @@
     public function get_supFeedBacks()
     {
       $this->db->query('SELECT * FROM sup_feedback');
+
+      $result = $this->db->resultSet();
+
+      return $result;
+
+    }
+
+    public function get_cusFeedBacks()
+    {
+      $this->db->query('SELECT * FROM cus_feedback');
 
       $result = $this->db->resultSet();
 

@@ -3,49 +3,79 @@
 <?php require APPROOT.'/views/admin/admin_dashboard.php';  ?>
 <!-- ______________________________________________________________________________________________________-->
 
-<section>
-  <div class="container" style="overflow-x: auto;">
+<div class="container">
 
-    <table>
-      <tr>
-        <th>User Id</th>
-        <th>Image</th>
+  <div class="divContainer1">
+    <div class="graph">
+      graph
+    </div>
+    <div class="cusTable">
+      <h3>Mostly Ordered Customers</h3>
+      <table id="cusTable">
+      <thead>
+        <th>Customer Id</th>
         <th>Name</th>
-        <th>Nic</th>
         <th>Contact Number</th>
-        <th>Address</th>
-        <th>Email</th>
+        <th>Total Orders</th>
         <th>Action</th>
-      </tr>
-      
-  <?php foreach ($data['cusView'] as $cusView) : ?>
-  <tr>
-    <td><?php echo $cusView->user_id; ?></td>
-    <td><img src="<?php echo URLROOT; ?>/img/users/user.png" alt="user" width="20" height="20"></td>
-    <td><?php echo $cusView->name; ?></td>
-    <td><?php echo $cusView->nic; ?></td>
-    <td><?php echo $cusView->contact_number; ?></td>
-    <td><?php echo $cusView->address; ?></td>
-    <td><?php echo $cusView->email; ?></td>
-    <td>
-
-      <div class="table-btns">
-      <a href="<?php echo URLROOT?>/Admin/updateCustomer/"><button class="updateBtn">UPDATE</button></a>
-      <a href="<?php echo URLROOT?>/Admin/deleteCustomer/"><button class="deleteBtn">DELETE</button></a>
-      </div>
-
-    <!-- 
-    <form id="EditForm" action="<?php echo URLROOT?>/Admin/deleteEmployees/<?php echo $emp->email ?>">
-    <button class="deleteBtn" onclick="deletion(event)">Delete</button>
-    </form> -->
-    
-    </td>
-  </tr><br>
-  <?php endforeach; ?>
-
+      </thead>
+      <tbody>   
+        <?php $data_index=0 ?>
+        <?php foreach ($data['cusView'] as $cusView) : ?>
+        <tr>
+          <td><?php echo $cusView->customer_id; ?></td>
+          <td><?php echo $cusView->name; ?></td>
+          <td><?php echo $cusView->contact_number; ?></td>
+          <td><?php echo '' ?></td>
+          <td>
+            <div class="table-btns">
+              <a href="#"><button class="viewBtn" onclick="openModel5('<?=$cusView->customer_id?>')" id="<?php echo($data_index) ?>"><i class="fas fa-eye"></i></button></a>
+            </div>
+          </td>
+        </tr><br>
+        <?php $data_index++; ?>
+        <?php endforeach; ?>
+      </tbody>
     </table>
+    </div>
+  </div>
 
-<input type="button" value="Add New Customer" class="addBtn" onclick="location.href='<?php echo URLROOT; ?>/Admin/addCustomer' ">
+
+  <!-- <div class="divContainer2">
+  </div> -->
+  
+  <div class="divContainer2">
+    <h3>Feedbacks</h3> 
+    <section class="feedback">
+      <div class="full-boxer">
+      <?php foreach ($data['cusFeedBacks'] as $cusFB) : ?>
+        <div class="comment-box">
+          <div class="box-top">
+            <div class="profile-box">
+              <div class="profile-img">
+              <!-- <img src="<?php echo UPLOADS . $cusFB->image ?>" width='100' height='100'> -->
+              </div>
+              <div class="name">
+                <strong><?php echo $cusFB->feedback_id; ?></strong>
+                <span><?php echo $cusFB->supplier_id; ?></span>
+              </div>
+            </div>
+          </div>
+          <div class="comment">
+            <p>
+            <?php echo $cusFB->feedback; ?>
+            </p>         
+          </div>
+        </div>
+        <?php endforeach; ?>
+      </div>
+    </section>
+    
+  </div>
+
+
+</div>
+
 
 
 

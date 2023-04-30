@@ -545,9 +545,11 @@
         public function viewCustomers()
         {
           $cusView= $this->adminModel->get_cusView();
+          $cusFeedBacks= $this->adminModel->get_cusFeedBacks();
 
           $data = [
-              'cusView' => $cusView
+              'cusView' => $cusView,
+              'cusFeedBacks' => $cusFeedBacks
           ];
 
           $this->view('admin/viewCustomers',$data);
