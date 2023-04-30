@@ -21,7 +21,7 @@
 
   <div class="  container">
   
-  <?php foreach ($data['category'] as $cat) : ?>
+  <?php foreach ($data['category'] as $cat) : ?>    <!--category has the  table data -->
  
 
   <div class=" float1">
@@ -66,6 +66,7 @@
   <input type="button" value="Add new Product Batch" class="baddBtn" onclick="location.href='<?php echo URLROOT; ?>/Product_Manager/addStock/<?php echo $cat->product_id ?>' "> 
 </div>
 
+<!-- _______________________________________________ Stock Details for each product_______________________________________________________-->
 <table>
   <tr>
     <th>Batch ID</th>
