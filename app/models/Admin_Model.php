@@ -383,6 +383,15 @@
       return $result;
     }
 
+    public function get_supOrdView()
+    {
+      $this->db->query('SELECT * FROM supply_order');
+
+      $result = $this->db->resultSet();
+
+      return $result;
+    }
+
     //to get all production deails
     public function get_productionView()
     {

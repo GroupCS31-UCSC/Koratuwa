@@ -506,9 +506,11 @@
         public function viewMilkCollection()
         {
           $mcView= $this->adminModel->get_mcView();
+          $supOrdView= $this->adminModel->get_supOrdView();
 
           $data = [
-              'mcView' => $mcView
+              'mcView' => $mcView,
+              'supOrd' => $supOrdView
           ];
 
           $this->view('admin/viewMilkCollection',$data);
