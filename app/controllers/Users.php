@@ -770,6 +770,40 @@
           $this->view('Users/u_profile',$data);
 
         }
+        //Edit user profile
+        public function sup_editProfile($supplier_id){
+          
+          if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+            $data = [
+              'user_id' => $supplier_id,
+              'supplier_id'=> $supplier_id,
+              'name' => trim($_POST['name']),
+              'contact_number' => trim($_POST['contact_number']),
+              'email' => trim($_POST['email']),
+              'address' =>trim($_POST['address']),
+            ];
+            
+            if($this->userModel->editProfile($data))
+            {
+              flash('updateSupply_flash','Your profile is successfully Updated!');
+              redirect('Users/userProfile');
+            }
+            else
+            {
+              die('Something went wrong!');
+            }
+
+          }
+          else{
+            $userProfile= $this->userModel->get_userProfile($supplier_id);
+
+            $data = [
+                'userProfile' => $userProfile
+            ];
+            $this->view('users/u_editProfile',$data);
+          }
+        }
 
         public function tandc()
         {
