@@ -40,11 +40,6 @@
           $this->view('product_manager/viewStock',$data);
         }
 
-        public function analyze()
-        {
-          $data = [];
-          $this->view('product_manager/analyze',$data);
-        }
 
 
         public function addCategory()
@@ -351,7 +346,7 @@
         public function viewCategory($pId)
         {
           $expireDays = $this->pmModel->getProductExpireDays($pId);
-          $category= $this->pmModel->viewCategorybyId($pId);
+          $category= $this->pmModel->viewCategorybyId($pId);         //the result set returned by the model is sent to category
           $productStock= $this->pmModel->getProductStockDetailsForProduct($pId);
           $data = [
               'category' => $category,
@@ -366,7 +361,7 @@
 
         public function productCategories()
         {
-          $categoryView= $this->pmModel->get_categoryView();
+          $categoryView= $this->pmModel->get_categoryView();  ////the result set returned by the model the data from the product table
 
           $data = [
               'categoryView' => $categoryView

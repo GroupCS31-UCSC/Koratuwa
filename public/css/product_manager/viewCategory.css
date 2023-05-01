@@ -221,3 +221,14 @@ cursor: pointer;
     text-align: right;
 } 
 
+
+
+@media (max-width: 900px) {
+    
+    .float1 {
+        display: none;
+    }
+    .float2{
+        width: 100%;
+    }
+}
