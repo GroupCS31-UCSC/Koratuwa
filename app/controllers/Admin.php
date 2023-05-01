@@ -694,6 +694,11 @@
         }
 
         
+        //chart
+        public function totProfitChart()
+        {
+          echo $this->adminModel->get_totProfit();
+        }
         
 
 

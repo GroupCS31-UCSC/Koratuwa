@@ -533,6 +533,14 @@
       }
     }
 
+    //chart
+    public function get_totProfit()
+    {
+      $this->db->query('SELECT * From totProfit ORDER BY tprof_id DESC LIMIT 6');
+      $result=$this->db->resultSet();
+      return json_encode($result);
+    }
+
     
 
 
