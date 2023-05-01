@@ -34,7 +34,6 @@
         <td><?php echo $expense->expense_id; ?></td>
         <td><?php echo $expense->date; ?></td>
         <td><?php echo $expense->description; ?></td>
-        <!-- <td><?php echo $expense->vendor; ?></td> -->
         <td><?php echo $expense->amount; ?></td>
       
     
