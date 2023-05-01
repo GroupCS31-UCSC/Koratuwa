@@ -32,6 +32,7 @@
     </tr>
   
     <tr>
+      <?php $data_index=0 ?>
       <?php foreach ($data ['onsiteSaleView'] as $onsite_sale) : ?>
       <td><?php echo $onsite_sale->sale_id ?></td>
       <td><?php echo $onsite_sale->sale_date ?></td>
@@ -39,18 +40,56 @@
       <td><?php echo $onsite_sale->total_payment ?></td>
       <td><?php echo $onsite_sale->receipt_id ?></td>
       <td>
+      <?php foreach ($data ['productSaleView'] as $product_sale) : ?>
         <div class="table-btns">
           <a href="#"><button class="viewBtn" onclick="openModel('<?=$product_sale->receipt_id?>')" id="<?php echo($data_index) ?>"><i class="fas fa-eye"></i></button></a>
         </div>
+        <?php endforeach; ?>
       </td>
     </tr>
+    <?php $data_index++; ?> 
     <?php endforeach; ?>
   </table>
 
 </div>
 <!-- popup for sale -->
+<div class="model fade in" id="model" tabindex="-1">
+  <div class="model-dialog">
+    <div class="model-content">
+      <div class="model-header">
+        <button type="button" class="close" onclick="closeModel()" ><span aria-hidden="true">×</span></button>
+        <h4 class="Model-title"><i class="fa fa-info-circle edit-color"></i>Products Details</h4>
+      </div>
+      <div class="model-body">
+        <table class="tableForm">
+          <tbody>
+            <tr>
+              <td>Product ID</td>
+              <td id="Model_Product_ID"></td>
+            </tr>
+            <tr>
+              <td>Quantity</td>
+              <td id="Model_Quantity"></td>
+            </tr>
+          </tbody>           
+        </table><br>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer"></div>
+</div>
 
   
 
 
 <?php require APPROOT.'/views/include/footer.php'; ?>
+
+<script>
+  function openModel(status) {
+    
+  }
+
+  function closeModel() {
+    document.getElementById("model").classList.remove("open-model");
+  }
+</script>
