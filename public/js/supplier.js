@@ -88,3 +88,49 @@ var myChart= new Chart(price, {
   }
 });
 
+// view supplier order
+
+function openModel1(id){
+  // var id = data["id"];
+  const url ="/koratuwa/Milk_Collection_Officer/collectionDetails/"+id;
+  const form = new FormData();
+  form.append("id", id);
+  fetch(url, {
+    method: "GET"
+  }).then(response => response.text())
+  .then(data => {
+      // console.log(data);
+    if(data){
+    const domp=new DOMParser();
+    const doc= domp.parseFromString(data,'text/html');
+    const newData = doc.getElementById('newData');
+    document.getElementById("newData").innerHTML = newData.innerHTML;
+    
+  //   document.getElementById("Model_Cow_Id").innerText = data.cow_id;
+  //   document.getElementById("Model_Quantity").innerText = data.quantity;
+    }
+
+  });
+  document.getElementById("model").classList.add("open-model");
+
+  
+}
+
+  //--------------counter----------------//
+  let counterup = document.querySelectorAll(".counter_up");
+    let convert = Array.from(counterup);
+    convert.map((counteritem) => {
+      let counter = 0;
+      function count() {
+        counter++;
+        counteritem.innerHTML = counter;
+        if (counter == counteritem.dataset.number) {
+          clearInterval(timing);
+        }
+      }
+      let timing = setInterval(() => {
+        count();
+      }, counteritem.dataset.speed/counter);
+  }); 
+
+

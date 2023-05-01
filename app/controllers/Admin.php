@@ -26,15 +26,27 @@
         }
         
         //get the details of Employee for profile
-        public function EmployeeProfile($email)
+        public function employeeProfile($empId)
         {
-          $empProfileData= $this->adminModel->get_empProfileView($email);
+          $empProfileData= $this->adminModel->get_empProfileView($empId);
 
           $data = [
               'empProfileData' => $empProfileData
           ];
 
-          $this->view('admin/employeeProfile',$data);
+          $this->view('admin/openViews',$data);
+        }
+
+        //get the details of labour for profile
+        public function labourProfile($LId)
+        {
+          $labProfileData= $this->adminModel->get_labourProfileView($LId);
+
+          $data = [
+              'labProfileData' => $labProfileData
+          ];
+
+          $this->view('admin/openViews',$data);
         }
 
         //add new employee details
@@ -404,7 +416,7 @@
               {
                 //updatePopup
                 flash('updateEmp_flash','Employee Details are successfully Updated!');
-                redirect('Admin/viewEmployees');
+                redirect('Admin/viewEmployeesLab');
               }
               else
               {
@@ -448,7 +460,7 @@
           {
             //deletePopup();
             flash('dltEmp_flash','Employee is successfully deleted');
-            redirect('Admin/viewEmployees');
+            redirect('Admin/viewEmployeesLab');
           }
           else
           {
@@ -460,12 +472,34 @@
         public function viewLivestock()
         {
           $livestockView= $this->adminModel->get_livestockView();
+          $dltCowview= $this->adminModel->get_dltCowview();
 
           $data = [
-              'livestockView' => $livestockView
+              'livestockView' => $livestockView,
+              'dltCowview' => $dltCowview
           ];
 
           $this->view('admin/viewLivestock',$data);
+        }
+
+        public function viewCattleDetails($cattleID){
+          $cattleDetails= $this->adminModel->get_cattleDetails($cattleID);
+
+          $data = [
+              'cattle' => $cattleDetails
+          ];
+
+          $this->view('admin/openViews',$data);
+        }
+
+        public function viewDeletedCattleDetails($cattleID){
+          $dltCattleDetails= $this->adminModel->get_deletedCattleDetails($cattleID);
+
+          $data = [
+              'dltCattle' => $dltCattleDetails
+          ];
+
+          $this->view('admin/openViews',$data);
         }
 
         //get the details of MilkCollection

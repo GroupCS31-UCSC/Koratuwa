@@ -7,6 +7,8 @@
 
 <h2>Product Batches</h2>
 
+
+
   <table>
       <tr>
       <th>Stock ID</th>
@@ -19,18 +21,13 @@
 
       <?php foreach ($data['stockView'] as $product_stock) : ?>
       <tr>
-      <td><?php echo $product_stock->stock_id; ?></td>
+        <td><?php echo $product_stock->stock_id; ?></td>
         <td><?php echo $product_stock->product_id; ?></td>
         <td><?php echo $product_stock->mfd_date; ?></td>
         <td><?php echo $product_stock->exp_date; ?></td>
         <td><?php echo $product_stock->quantity; ?></td>
         
-     
-<!-- 
-        <div class="table-btns">
-      <a href="<?php echo URLROOT?>/product_manager/updateStock/"><button class="updateBtn" title="Update"><i class="fa-regular fa-pen-to-square"></i></button></a>
-      <a href="<?php echo URLROOT?>/product_manager/deleteStock/"><button class="deleteBtn" title="Delete"><i class="fa-regular fa-trash-can"></i></button></a>
-   </div>     -->
+    
 
     </td>
         

@@ -41,9 +41,9 @@
     </table>
     </div>
 
-    <!-- <div class="table2">
+     <div class="table2">
 
-   - <table>
+   <table>
   <h1>Revenues</h1>
       <tr>
         <th>Revenue ID</th>
@@ -55,7 +55,7 @@
 
       <?php foreach ($data['rereportsView'] as $revenue) : ?>
       <tr>
-        <td><?php echo $revenue->expense_id; ?></td>
+        <td><?php echo $revenue->revenue_id; ?></td>
         <td><?php echo $revenue->date; ?></td>
         <td><?php echo $revenue->source; ?></td>
         <td><?php echo $revenue->amount; ?></td>
@@ -65,36 +65,13 @@
     
       </tr><br>
       <?php endforeach; ?>
-    </table> -->
+    </table>
 
 
   
 
-    <!-- <input type="submit" value="Generate PDF" class="pdfBtn">  -->
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+     <input type="submit" value="Generate PDF" class="pdfBtn">  
+  
 
 
 
