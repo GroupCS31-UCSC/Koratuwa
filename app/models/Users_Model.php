@@ -305,13 +305,12 @@
 			$this->db->query('SELECT user_type from user WHERE user_id= :userId AND existence=1 ');
 			$this->db->bind(':userId', $userId);
 			$user = $this->db->single();
-			// echo $user_type;
 			$user_type =strval($user->user_type);
-			echo $user_type;
+			// echo $user_type;
 			
 			if($user_type == 'Supplier')
 			{
-				echo '1';
+				// echo '1';
 				$this->db->query('SELECT * FROM supplier WHERE supplier_id=:userId');
 				$this->db->bind(':userId', $userId);
 	
@@ -354,6 +353,38 @@
 
 				
 		}
+		public function editProfile($data){
+
+			$this->db->query('SELECT user_type from user WHERE user_id= :userId AND existence=1 ');
+			$this->db->bind(':userId', $data['user_id']);
+			$user = $this->db->single();
+			// echo $user_type;
+			$user_type =strval($user->user_type);
+			echo $user_type;	
+			
+			if($user_type == 'Supplier'){
+				echo $user_type;
+				$this->db->query('UPDATE user SET  email=:email WHERE user_id= :userId');
+				$this->db->query('UPDATE supplier SET name=:supName, contact_number=:contact_number, address=:address WHERE supplier_id= :userId');
+				$this->db->bind(':userName',$data['name']);
+				$this->db->bind(':email',$data['email']);
+				$this->db->bind(':userId', $data['user_id']);
+				$this->db->bind(':contact_number',$data['contact_number']);
+				$this->db->bind(':adress',$data['address']);
+			}
+			else{
+
+			}
+			if($this->db->execute())
+			{
+			  return true;
+			}
+			else
+			{
+			  return false;
+			}
+		}
+
 
 
 	}
