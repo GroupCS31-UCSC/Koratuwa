@@ -3,9 +3,11 @@
 <link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/public/css/financial_manager/reports.css">
 <!-- ______________________________________________________________________________________________________-->
 
-<div class="filter">
 
 <h2>REPORTS</h2>
+
+<div class="filter">
+
 <form>
     <label for="from">From :</label>
     <input type="date" id="from" name="from" value="<?php echo $data['from']; ?>"><br>
@@ -67,7 +69,7 @@
       <?php endforeach; ?>
     </table>
 
-
+    </div>
   
 
      <input type="submit" value="Generate PDF" class="pdfBtn">  
