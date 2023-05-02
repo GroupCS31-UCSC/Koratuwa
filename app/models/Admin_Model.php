@@ -319,7 +319,7 @@
       if($this->db->execute())
       {
         $this->db->query('UPDATE laborer SET existence=0 WHERE laborer_id= :LId');
-        $this->db->bind('LId', $LId);
+        $this->db->bind(':LId', $LId);
           if($this->db->execute())
           {
             return true;
@@ -383,10 +383,37 @@
       return $result;
     }
 
+    public function get_supOrdView()
+    {
+      $this->db->query('SELECT * FROM supply_order');
+
+      $result = $this->db->resultSet();
+
+      return $result;
+    }
+
     //to get all production deails
     public function get_productionView()
     {
-      $this->db->query('SELECT * FROM product_category');
+      $this->db->query('SELECT * FROM product');
+
+      $result = $this->db->resultSet();
+
+      return $result;
+    }
+
+    public function get_onsiteSalesView()
+    {
+      $this->db->query('SELECT * FROM onsite_sale');
+
+      $result = $this->db->resultSet();
+
+      return $result;
+    }
+
+    public function get_onlineSalesView()
+    {
+      $this->db->query('SELECT * FROM online_order');
 
       $result = $this->db->resultSet();
 
@@ -411,6 +438,35 @@
       $result = $this->db->resultSet();
 
       return $result;
+    }
+
+    public function get_supDetails($sID)
+    {
+      $this->db->query('SELECT * FROM supplier WHERE supplier_id = :supId');
+      $this->db->bind(':supId', $sID);
+      $result = $this->db->resultSet();
+
+      return $result;
+    }
+
+    public function get_supFeedBacks()
+    {
+      $this->db->query('SELECT * FROM sup_feedback');
+
+      $result = $this->db->resultSet();
+
+      return $result;
+
+    }
+
+    public function get_cusFeedBacks()
+    {
+      $this->db->query('SELECT * FROM cus_feedback');
+
+      $result = $this->db->resultSet();
+
+      return $result;
+
     }
 
     //to get current employee details
@@ -475,6 +531,52 @@
         $result=$this->db->resultSet();
         return $result;
       }
+    }
+
+    //chart
+    public function get_totProfit()
+    {
+      $this->db->query('SELECT * From totProfit ORDER BY tprof_id DESC LIMIT 6');
+      $result=$this->db->resultSet();
+      return json_encode($result);
+    }
+
+    //notification
+    public function get_Notifications()
+    {
+      $this->db->query('SELECT * From cattle_notification WHERE seen=0 ORDER BY notify_id DESC');
+      $result=$this->db->resultSet();
+      return $result;
+    }
+
+    public function update_notifyStatus($nId)
+    {
+      $this->db->query('UPDATE cattle_notification SET seen=1 WHERE notify_id= :nId');
+      $this->db->bind(':nId', $nId);
+        if($this->db->execute())
+        {
+          return true;
+        }
+        else
+        {
+          return false;
+        }
+    }
+
+    public function get_notificationCount()
+    {
+      $this->db->query('SELECT * FROM cattle_notification where seen=1');
+
+			$row = $this->db->single();
+
+			if($this->db->rowCount() > 0)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
     }
 
     
