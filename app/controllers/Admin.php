@@ -21,7 +21,7 @@
         //redirect to the admin Home page
         public function adminHome()
         {
-          $data = [];
+          $data=[];
           $this->view('admin/admin_home',$data);
         }
         
@@ -473,10 +473,12 @@
         {
           $livestockView= $this->adminModel->get_livestockView();
           $dltCowview= $this->adminModel->get_dltCowview();
+          $notify = $this->adminModel->get_Notifications();
 
           $data = [
               'livestockView' => $livestockView,
-              'dltCowview' => $dltCowview
+              'dltCowview' => $dltCowview,
+              'notifications' => $notify
           ];
 
           $this->view('admin/viewLivestock',$data);
@@ -699,6 +701,24 @@
         {
           echo $this->adminModel->get_totProfit();
         }
+
+        //update seen notifications
+        public function updateNotifyStatus($nId)
+        {
+          if($this->adminModel->update_notifyStatus($nId))
+          {
+            redirect('Admin/viewLivestock');
+          }
+          else
+          {
+            die('Something went wrong');
+          }
+
+
+        }
+
+       
+
         
 
 

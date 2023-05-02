@@ -176,7 +176,48 @@ let showOrHide = function(){
     
 }
 </script>
+
 </section>
+
+
+<!-- notification view box -->
+<div class="notifyBox" id="notifyBox">
+  <?php foreach ($data['notifications'] as $notifi) : ?>
+    <div class="comment-box">
+      <div class="box-top">
+        <div class="comment">
+          <p><strong><?php echo $notifi->message; ?></strong></p> 
+        </div>
+        <a href="<?php echo URLROOT?>/Admin/updateNotifyStatus/<?php echo $notifi->notify_id ?>"><button class="" title="Mark As Read"><i class="fa-regular fa-eye"></i></button></a>
+      </div>
+      <div class="name">
+        <span>In<?php echo ' stall1  '; ?>
+        On<?php echo $notifi->date; ?> 
+        At<?php echo $notifi->time; ?>
+        By<?php echo 'emp105'; ?>
+        </span>            
+      </div>
+    </div>
+  <?php endforeach; ?>
+</div>
+
+
+<!-- notification -->
+<script>
+  const noti = document.getElementById('notifyBox');
+  let isBellClicked = true;
+
+  let showNoti = function(){
+    if(isBellClicked){
+      noti.style.display='block';
+      isBellClicked= false;
+    }
+    else{
+      noti.style.display='none';
+      isBellClicked= true;
+    }
+  }
+</script>
 
 
 

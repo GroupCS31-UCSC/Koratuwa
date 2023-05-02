@@ -319,7 +319,7 @@
       if($this->db->execute())
       {
         $this->db->query('UPDATE laborer SET existence=0 WHERE laborer_id= :LId');
-        $this->db->bind('LId', $LId);
+        $this->db->bind(':LId', $LId);
           if($this->db->execute())
           {
             return true;
@@ -539,6 +539,44 @@
       $this->db->query('SELECT * From totProfit ORDER BY tprof_id DESC LIMIT 6');
       $result=$this->db->resultSet();
       return json_encode($result);
+    }
+
+    //notification
+    public function get_Notifications()
+    {
+      $this->db->query('SELECT * From cattle_notification WHERE seen=0 ORDER BY notify_id DESC');
+      $result=$this->db->resultSet();
+      return $result;
+    }
+
+    public function update_notifyStatus($nId)
+    {
+      $this->db->query('UPDATE cattle_notification SET seen=1 WHERE notify_id= :nId');
+      $this->db->bind(':nId', $nId);
+        if($this->db->execute())
+        {
+          return true;
+        }
+        else
+        {
+          return false;
+        }
+    }
+
+    public function get_notificationCount()
+    {
+      $this->db->query('SELECT * FROM cattle_notification where seen=1');
+
+			$row = $this->db->single();
+
+			if($this->db->rowCount() > 0)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
     }
 
     

@@ -546,3 +546,9 @@ function openModel5(id){
     const divElement1 = document.querySelector('.part1');
     divElement1.style.display='block';
   }
+
+
+
+
+
+ 
