@@ -1,5 +1,5 @@
 .container {
-  text-align: center;
+  /* text-align: center; */
   padding:0;
   /* margin-top: 30px; */
 
@@ -13,12 +13,14 @@
   text-align: left;
 }
 
-.form-inpur-container {
-  justify-content: space-between;
+.form-input-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .form-input-wrapper {
-  width: 48%;
+  width: 100%;
 }
 
 .action {

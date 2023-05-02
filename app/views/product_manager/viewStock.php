@@ -7,21 +7,7 @@
 
 <h2>Product Batches</h2>
 
-<div class="search-section">
-              <div class="search-bar">
-            
-              
 
-              <!-- <div class="main-search"> -->
-                  <input type="text" name="search" placeholder="Filter by Employee Name " autocomplete="off" value="<?php echo $data['search'] ?>" >
-           
-                  <button><i class="fa-solid fa-magnifying-glass"></i></button>
-              <!-- </div> -->
-
-              </form>
-
-              </div>
-          </div>
 
   <table>
       <tr>
@@ -35,18 +21,13 @@
 
       <?php foreach ($data['stockView'] as $product_stock) : ?>
       <tr>
-      <td><?php echo $product_stock->stock_id; ?></td>
+        <td><?php echo $product_stock->stock_id; ?></td>
         <td><?php echo $product_stock->product_id; ?></td>
         <td><?php echo $product_stock->mfd_date; ?></td>
         <td><?php echo $product_stock->exp_date; ?></td>
         <td><?php echo $product_stock->quantity; ?></td>
         
-     
-<!-- 
-        <div class="table-btns">
-      <a href="<?php echo URLROOT?>/product_manager/updateStock/"><button class="updateBtn" title="Update"><i class="fa-regular fa-pen-to-square"></i></button></a>
-      <a href="<?php echo URLROOT?>/product_manager/deleteStock/"><button class="deleteBtn" title="Delete"><i class="fa-regular fa-trash-can"></i></button></a>
-   </div>     -->
+    
 
     </td>
         

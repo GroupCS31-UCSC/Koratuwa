@@ -37,9 +37,11 @@ function alert($msg) {
           $to = isset($_GET['to']) ? $_GET['to'] : date('Y-m-d');
 
           $exreportsView= $this->financialManagerModel->viewExpenseReports($from, $to);
+          $rereportsView= $this->financialManagerModel->viewRevenueReports($from, $to);
 
           $data = [
             'exreportsView' => $exreportsView,
+            'rereportsView' => $rereportsView,
             'from' => $from,
             'to' => $to,
           ];
@@ -48,6 +50,8 @@ function alert($msg) {
           
           
         }
+
+        
         public function addExpense()
         {
           if($_SERVER['REQUEST_METHOD'] == 'POST')

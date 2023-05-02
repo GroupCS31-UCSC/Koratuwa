@@ -65,6 +65,7 @@
 
 			return $id;
     }
+
     public function findStockId()
     {
       $this->db->query('SELECT * FROM product_stock order by stock_id desc limit 1');
@@ -84,6 +85,7 @@
 
 			return $id;
     }
+
     public function get_categoryView()
     {
       $this->db->query('SELECT * FROM product');
@@ -196,13 +198,7 @@
       }
     }
 
-    public function viewStock() {
-      $this->db->query('SELECT * FROM expense');
-
-      $result = $this->db->resultSet();
-
-      return $result;
-    }
+    
 
 
 

@@ -3,9 +3,11 @@
 <link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/public/css/financial_manager/reports.css">
 <!-- ______________________________________________________________________________________________________-->
 
-<div class="filter">
 
 <h2>REPORTS</h2>
+
+<div class="filter">
+
 <form>
     <label for="from">From :</label>
     <input type="date" id="from" name="from" value="<?php echo $data['from']; ?>"><br>
@@ -32,7 +34,6 @@
         <td><?php echo $expense->expense_id; ?></td>
         <td><?php echo $expense->date; ?></td>
         <td><?php echo $expense->description; ?></td>
-        <!-- <td><?php echo $expense->vendor; ?></td> -->
         <td><?php echo $expense->amount; ?></td>
       
     
@@ -41,9 +42,9 @@
     </table>
     </div>
 
-    <!-- <div class="table2">
+     <div class="table2">
 
-   - <table>
+   <table>
   <h1>Revenues</h1>
       <tr>
         <th>Revenue ID</th>
@@ -55,7 +56,7 @@
 
       <?php foreach ($data['rereportsView'] as $revenue) : ?>
       <tr>
-        <td><?php echo $revenue->expense_id; ?></td>
+        <td><?php echo $revenue->revenue_id; ?></td>
         <td><?php echo $revenue->date; ?></td>
         <td><?php echo $revenue->source; ?></td>
         <td><?php echo $revenue->amount; ?></td>
@@ -65,36 +66,13 @@
     
       </tr><br>
       <?php endforeach; ?>
-    </table> -->
+    </table>
 
-
+    </div>
   
 
-    <!-- <input type="submit" value="Generate PDF" class="pdfBtn">  -->
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+     <input type="submit" value="Generate PDF" class="pdfBtn">  
+  
 
 
 

@@ -159,8 +159,8 @@
             <div class="formBox">
                 <div class="row50">
                   <div class="inputBox">
-                    <span>Fist Name</span>
-                    <input type="text" placeholder="John" required>
+                    <span>Full Name</span>
+                    <input type="text" placeholder="John Doe" required>
                   </div>
                   <!-- <div class="inputBox">
                     <span>Last Name</span>
