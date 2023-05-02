@@ -45,6 +45,17 @@
     <div class="card">
       <div>
       <div class="cardbg"><img class="img" src="<?php echo URLROOT; ?>/img/supplier/sup_home.jpg" alt="no"></div>
+        <div class="cardName">Total Cattle</div>
+        <div class="value">3,504</div>
+        <div class="day4">
+          <div class="circle"></div><label>last 30 days</label><i class="fa-solid fa-filter"></i>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div>
+      <div class="cardbg"><img class="img" src="<?php echo URLROOT; ?>/img/supplier/sup_home.jpg" alt="no"></div>
         <div class="cardName">Total Milk Collection(L.)</div>
         <div class="value">3,504</div>
         <div class="day4">
@@ -53,7 +64,7 @@
       </div>
     </div>
 
-    <div class="card">
+    <!-- <div class="card">
       <div>
       <div class="cardbg"><img class="img" src="<?php echo URLROOT; ?>/img/supplier/sup_home.jpg" alt="no"></div>
         <div class="cardName">Total Employees</div>
@@ -62,9 +73,9 @@
           <div class="circle"></div><label>last 30 days</label><i class="fa-solid fa-filter"></i>
         </div>
       </div>
-    </div>
+    </div> -->
 
-    <div class="card">
+    <!-- <div class="card">
       <div>
       <div class="cardbg"><img class="img" src="<?php echo URLROOT; ?>/img/supplier/sup_home.jpg" alt="no"></div>
         <div class="cardName">Total Supply Orders</div>
@@ -73,18 +84,9 @@
           <div class="circle"></div><label>last 30 days</label><i class="fa-solid fa-filter"></i>
         </div>
       </div>
-    </div>
+    </div> -->
 
-    <div class="card">
-      <div>
-      <div class="cardbg"><img class="img" src="<?php echo URLROOT; ?>/img/supplier/sup_home.jpg" alt="no"></div>
-        <div class="cardName">Total Cattle</div>
-        <div class="value">3,504</div>
-        <div class="day4">
-          <div class="circle"></div><label>last 30 days</label><i class="fa-solid fa-filter"></i>
-        </div>
-      </div>
-    </div>
+    
     <!-- financial condition -->
 
 </section>
