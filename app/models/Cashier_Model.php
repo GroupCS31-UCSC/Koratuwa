@@ -6,14 +6,6 @@
       $this->db = new Database();
     }
 
-    public function get_ongoingOrderView() {
-      $this->db->query('SELECT order_id, ordered_date, customer_id, status FROM online_order WHERE status="ongoing"');
-
-      $result = $this->db->resultSet();
-
-      return $result;
-    }
-
     public function get_productView() {
       $this->db->query('SELECT * FROM product');
 
@@ -77,8 +69,32 @@
       return $result;
     }
 
+    public function get_productSaleView() {
+      $this->db->query('SELECT * FROM product_sale');
+
+      $result = $this->db->resultSet();
+
+      return $result;
+    }
+
     public function get_onlineOrderView() {
       $this->db->query('SELECT * FROM online_order');
+
+      $result = $this->db->resultSet();
+
+      return $result;
+    }
+
+    public function get_ongoingOrderView() {
+      $this->db->query('SELECT * FROM online_order WHERE status = "Ongoing"');
+
+      $result = $this->db->resultSet();
+
+      return $result;
+    }
+
+    public function get_deliveredOrderView() {
+      $this->db->query('SELECT * FROM online_order WHERE status = "Delivered"');
 
       $result = $this->db->resultSet();
 
@@ -151,12 +167,12 @@
     // }
 
     public function addSale($data) {
-      $this->db->query('INSERT INTO product_sale(product_id, quantity, receipt_id) VALUES(:productId, :quantity, :receipt_Id)');
+      $this->db->query('INSERT INTO product_sale(product_id, quantity) VALUES(:productId, :quantity)');
 
       //values binding
       $this->db->bind(':productId', $data['productId']);
       $this->db->bind(':quantity', $data['quantity']);
-      $this->db->bind(':receiptId', $data['receiptId']);
+      // $this->db->bind(':receiptId', $data['receiptId']);
 
       //execute
       if($this->db->execute())
