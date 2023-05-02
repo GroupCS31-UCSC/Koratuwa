@@ -1,27 +1,26 @@
 .tab, .tabmilk {
-    overflow: hidden;
-    /* border: 1px solid #ccc; */
-    background-color: transparent;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .tab button, .tabmilk button {
-    background-color: inherit;
-    float: left;
     border: none;
     outline: none;
     cursor: pointer;
-    padding: 14px 16px;
-    transition: 0.3s;
+    padding: 25px;
+    background: #e2e2e2;
+    font-weight: bold;
+    font-size: 1em;
 }
 
 .tab button:hover, .tabmilk button:hover {
-    background-color: #1bc8d1;
+    background-color: #fff;
     color: black;
 }
 
 .tab button.active, .tabmilk button.active {
-    background-color: #040aaa;
-    color: white;
+    background-color: transparent;
+    /* color: white; */
 }
 
 .tabcontent, .tabcontentmilk {
