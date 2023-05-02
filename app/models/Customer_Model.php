@@ -91,6 +91,48 @@
     }
   }
 
+  // genarate order id
+  public function generateordId()
+  {
+    $this->db->query('SELECT * FROM online_order order by order_id desc limit 1');
+    $row = $this->db->single();
+    $lastId=$row->order_id;
+
+    if($lastId == '')
+    {
+      $id='ord1';
+    }
+    else
+    {
+      $id = substr($lastId,3);
+      $id = intval($id);
+      $id = "ord".($id+1);
+    }
+
+    return $id;
+  }
+
+  // online order 
+  public function onlineOrder($data){
+    $this->db->query('INSERT INTO online_order(order_id , status, payment_method, total_payment, payment_status, receipt_id ,customer_id) 
+    VALUE (:ordId, "Ongoing", "bank", :payment, "paid", "r3", :customerId: )');
+    
+    $this->db->bind(':ordId', $data['order_id']);
+    $this->db->bind(':payment', $data['payment']);
+    $this->db->bind(':customerId', $_SESSION['user_id']);
+   
+    if($this->db->execute())
+    {
+      return true;
+    }
+    else
+    {
+      return false;
+    }
+
+  }
+
+
 }
 
 
