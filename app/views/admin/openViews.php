@@ -112,6 +112,40 @@
         <?php endforeach; ?>
     </tbody>           
 </table>
+
+
+
+
+<table class="tableForm">
+    <tbody id="newData5">
+    <?php foreach ($data['sup'] as $sup) : ?>
+        <tr>
+            <td>Supplier Id</td>
+            <td><?php echo $sup->supplier_id; ?></td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td><?php echo $sup->name; ?></td>
+        </tr>
+        <tr>
+            <td>Supplier_Name</td>
+            <td><?php echo '' ?></td>
+        </tr>
+        <tr>
+            <td>Quantity</td>
+            <td><?php echo ''; ?></td>
+        </tr>
+        <tr>
+            <td>Unit_Price</td>
+            <td><?php echo '' ?></td>
+        </tr>
+        <tr>
+            <td>Status</td>
+            <td><?php echo ''; ?></td>
+        </tr>
+        <?php endforeach; ?>
+    </tbody>           
+</table>
     
 <?php require APPROOT.'/views/include/footer.php'; ?>
 <script src="<?php echo URLROOT; ?>/js/admin.js"></script>

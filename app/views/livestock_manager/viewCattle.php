@@ -50,7 +50,8 @@
               <a href="#"><button class="viewBtn" onclick="openModel('<?=$cattle->cow_id?>')" id="<?php echo($data_index) ?>"><i class="fas fa-eye"></i></button></a>
               <a href="<?php echo URLROOT?>/Livestock_Manager/updateCattle/<?php echo $cattle->cow_id ?>"><button class="updateBtn"><i class="fa-regular fa-pen-to-square"></i></button></a>
               
-              <a href="<?php echo URLROOT?>/Livestock_Manager/deleteCattle/<?php echo $cattle->cow_id ?>"><button class="deleteBtn"><i class="fa-regular fa-trash-can"></i></button></a>
+              <!-- <a href="<?php echo URLROOT?>/Livestock_Manager/deleteCattle/<?php echo $cattle->cow_id ?>"><button class="deleteBtn"><i class="fa-regular fa-trash-can"></i></button></a> -->
+              <a href="#deleteCattle"><button class="deleteBtn" onclick="openDelete('<?=$cattle->cow_id?>')" id="<?php echo($data_index) ?>"><i class="fa-regular fa-trash-can"></i></button></a>
             </div>
           </td>
         </tr>
@@ -111,7 +112,59 @@
   <div class="modal-footer"></div>
 </div>
 
-<!--  -->
+<!-- popup delete cattle -->
+<div class="dmodel fade in" id="deleteModel" tabindex="-1">
+  <div class="dmodel-dialog">
+    <div class="dmodel-content">
+      <div class="dmodel-header">
+        <button type="button" class="close" onclick="closeDelete()" ><span aria-hidden="true">×</span></button>
+        <h2 class="dModel-title">Are you sure you want to delete?</h2>
+      </div>
+      <div class="dmodel-body">
+        <form action="<?php echo URLROOT?>/Livestock_Manager/deleteCattle/<?php echo $cattle->cow_id ?>">
+          <!-- Reason selection -->
+          <div class="form-group">
+            <label for="reason">Reason</label><br><br>
+            <select name="reason" id="reason" class="form-control">
+              <option value="Dead">Dead</option>
+              <option value="Sold">Sold</option>
+            </select><br><br>
+            <!-- If select sold give sold price -->
+            <div id="sold-price" style="display:none;">
+              <label for="price">Price:</label><br><br>
+              <input type="text" name="price" id="price" class="price" value="">
+            </div>
+          </div>
+        </form>
+      <br>
+      </div>
+    </div>
+  </div>
+  <div class="dmodal-footer"></div>
+</div>
 
 <?php require APPROOT.'/views/include/footer.php'; ?>
 <script src="<?php echo URLROOT; ?>/js/lm.js"></script>
+
+<script>
+  var deleteOptions = document.getElementById("reason");
+  var soldPrice = document.getElementById("sold-price");
+
+  deleteOptions.addEventListener("change", function() {
+    if (deleteOptions.value == "Sold") {
+      soldPrice.style.display = "block";
+    } else {
+      soldPrice.style.display = "none";
+    }
+  });
+
+  function openDelete(id) {
+    document.getElementById("deleteModel").classList.add("open-deleteModel");
+  }
+
+  function closeDelete() {
+    document.getElementById("deleteModel").classList.remove("open-deleteModel");
+  }
+
+  
+</script>

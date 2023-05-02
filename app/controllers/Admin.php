@@ -21,7 +21,7 @@
         //redirect to the admin Home page
         public function adminHome()
         {
-          $data = [];
+          $data=[];
           $this->view('admin/admin_home',$data);
         }
         
@@ -473,10 +473,12 @@
         {
           $livestockView= $this->adminModel->get_livestockView();
           $dltCowview= $this->adminModel->get_dltCowview();
+          $notify = $this->adminModel->get_Notifications();
 
           $data = [
               'livestockView' => $livestockView,
-              'dltCowview' => $dltCowview
+              'dltCowview' => $dltCowview,
+              'notifications' => $notify
           ];
 
           $this->view('admin/viewLivestock',$data);
@@ -506,9 +508,11 @@
         public function viewMilkCollection()
         {
           $mcView= $this->adminModel->get_mcView();
+          $supOrdView= $this->adminModel->get_supOrdView();
 
           $data = [
-              'mcView' => $mcView
+              'mcView' => $mcView,
+              'supOrd' => $supOrdView
           ];
 
           $this->view('admin/viewMilkCollection',$data);
@@ -526,13 +530,28 @@
           $this->view('admin/viewProduction',$data);
         }
 
+        public function viewSales()
+        {
+          $onsiteSView= $this->adminModel->get_onsiteSalesView();
+          $onlineSView= $this->adminModel->get_onlineSalesView();
+
+          $data = [
+              'onsiteS' => $onsiteSView,
+              'onlineS' => $onlineSView
+          ];
+
+          $this->view('admin/viewSales',$data);
+        }
+
         //get the details of Customers
         public function viewCustomers()
         {
           $cusView= $this->adminModel->get_cusView();
+          $cusFeedBacks= $this->adminModel->get_cusFeedBacks();
 
           $data = [
-              'cusView' => $cusView
+              'cusView' => $cusView,
+              'cusFeedBacks' => $cusFeedBacks
           ];
 
           $this->view('admin/viewCustomers',$data);
@@ -542,12 +561,25 @@
         public function viewSuppliers()
         {
           $supView= $this->adminModel->get_supView();
+          $supFeedBacks= $this->adminModel->get_supFeedBacks();
 
           $data = [
-              'supView' => $supView
+              'supView' => $supView,
+              'supFeedBacks' => $supFeedBacks
           ];
 
           $this->view('admin/viewSuppliers',$data);
+        }
+
+        public function supplierProfile($sID)
+        {
+          $sup= $this->adminModel->get_supDetails($sID);
+
+          $data = [
+              'sup' => $sup
+          ];
+
+          $this->view('admin/openViews',$data);
         }
 
         //view employee details
@@ -662,6 +694,31 @@
             redirect('Admin/viewEmployeesLab');
           }
         }
+
+        
+        //chart
+        public function totProfitChart()
+        {
+          echo $this->adminModel->get_totProfit();
+        }
+
+        //update seen notifications
+        public function updateNotifyStatus($nId)
+        {
+          if($this->adminModel->update_notifyStatus($nId))
+          {
+            redirect('Admin/viewLivestock');
+          }
+          else
+          {
+            die('Something went wrong');
+          }
+
+
+        }
+
+       
+
         
 
 
