@@ -154,6 +154,58 @@
           }
         }
 
+
+        //----------------------Payhere--------------------------------------//
+        public function paymentDetails($payment){
+
+
+
+          $amount = $payment;
+          // $hotelid=$hotelid;
+          $merchant_id = "1223042";
+          $order_id = $bookingID;
+          $merchant_secret = "Mjc3MjYxOTQ5ODM4MDk1MDkxMDM0NDIwMDUzMTczMDc1ODY5ODgz";
+          $currency = "LKR";
+
+          $hash = strtoupper(
+              md5(
+                  $merchant_id . 
+                  number_format($amount, 2, '.', '') . 
+                  $currency .  
+                  strtoupper(md5($merchant_secret)) 
+              ) 
+          );
+
+          $array = [];
+          $array["first_name"] = $_SESSION['user_name'];
+          $array["last_name"] = "Kumara";
+          $array["email"] = $_SESSION['user_email'];
+          $array["phone"] = "0777123456";
+          $array["address"] = "No.1, Galle Road";
+          $array["city"] = "Colombo";
+
+          $array["amount"] = $amount;
+          $array["merchant_id"] = $merchant_id;
+          $array["currency"] = $currency;
+          $array["hash"] = $hash;
+
+          $jsonObj = json_encode($array); 
+          echo $jsonObj;
+
+      }  
+      
+      public function onlineOrd($payment){
+        
+        $ordId = $this->customerModel->generateordId();
+        
+        $data=[
+          'order_id' => $ordId -> order_id ,
+          'payment' => $ordId -> total_payment
+        ];
+
+        $this->customerModel->onlineOrder($data);
+      }
+
     }
 
 ?>
