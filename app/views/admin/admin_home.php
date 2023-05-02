@@ -93,7 +93,7 @@
 <section class="graphBox">
 
   <div class="box">
-    <label><center>Total Profit</center></label>
+    <label><center>Total Profit of Last 6 Months</center></label>
     <canvas id="earning"></canvas>
   </div>
 
@@ -103,8 +103,9 @@
   </div>
 
 </section>
+
+
+
 <?php require APPROOT.'/views/include/footer.php'; ?>
 <script src="<?php echo URLROOT; ?>/js/admin.js"></script>
-
-
 

@@ -375,6 +375,23 @@ footer li a:hover {
     color: white;
 }
 
+
+/* notification bell and badge */
+#notifyBell{
+    font-size:x-large;
+}
+.notifyBadge {
+    font-size: small;
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    padding: 5px 5px 5px 5px;
+    border-radius: 50%;
+    background-color: red;
+    color: white;
+    /* display: none; */
+  }
+
 @media screen and (max-width: 480px) {
     .btn {
         display: block;
