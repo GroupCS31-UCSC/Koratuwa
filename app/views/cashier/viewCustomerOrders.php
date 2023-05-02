@@ -6,6 +6,13 @@
 <!-- Flash massages -->
 
 <session>
+  <div class="tab">
+  <?php $status=$_GET['status']??'Ongoing';?>
+    <button class="tablinks <?= $status==="Ongoing"?'active':''?>" onclick="openTab(event, 'Ongoing')">Ongoing</button>
+    <button class="tablinks <?= $status==="Delivered"?'active':''?>" onclick="openTab(event, 'Delivered')">Delivered</button> 
+  </div>
+
+  <div id="Ongoing" class="tabcontent active">
   <div class="container" style="overflow-x: auto;">
     <table>
     <tr>
@@ -42,7 +49,22 @@
     <?php endforeach; ?>
   </table>
 </div>
+</div>
+
+<div id="Delivered" class="tabcontent">
+  <p>Deliverd</p>
+</div>
+
 </session>
 
 
 <?php require APPROOT.'/views/include/footer.php'; ?>
+
+<script>
+  function openTab(evt, tabName) {
+    var i, tabcontent, tablinks;
+    
+    window.location.href = "<?php echo URLROOT?>/Cashier/viewCustomerOrders?status="+tabName;
+  }
+  
+</script>

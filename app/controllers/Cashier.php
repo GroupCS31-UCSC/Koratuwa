@@ -29,7 +29,7 @@
           // 'saleId'=> '',
           'productId' => trim($_POST['productId']),
           'quantity' => trim($_POST['quantity']),
-          'receiptId' => '',
+          // 'receiptId' => '',
 
           'productId_err' => '',
           'quantity_err' => '',
@@ -43,7 +43,7 @@
             
         //if no errors
         if(empty($data['productId_err']) && empty($data['quantity_err'])) {
-          $data['saleId'] = $this->cashierModel->findReceiptId();
+          // $data['saleId'] = $this->cashierModel->findReceiptId();
 
           if($this->cashierModel->addSale($data)) {
             flash('add_onsiteSale_success', 'Sale added successfully');
@@ -65,7 +65,7 @@
           // 'saleId'=> '',
           'productId' => '',
           'quantity' => '',
-          'receiptId' => '',
+          // 'receiptId' => '',
 
           'productId_err' => '',
           'quantity_err' => '',
@@ -87,16 +87,24 @@
 
     public function viewOnsiteSale() {
       $onsiteSaleView= $this->cashierModel->get_onsiteSaleView();
+      $productSaleView= $this->cashierModel->get_productSaleView();
       $data = [
-        'onsiteSaleView' => $onsiteSaleView
+        'onsiteSaleView' => $onsiteSaleView,
+        'productSaleView' => $productSaleView
       ];
       $this->view('Cashier/viewOnsiteSale',$data);    
     }
 
-    public function viewCustomerOrders() {
-      $onlineOrderView= $this->cashierModel->get_onlineOrderView();
+    public function viewCustomerOrders($status) {
+      if($status == 'Ongoing'){
+        $onlineOrderView= $this->cashierModel->get_ongoingOrderView();
+      }
+      else {
+        $onlineOrderView= $this->cashierModel->get_deliveredOrderView();
+      }
       $data = [
-        'onlineOrderView' => $onlineOrderView
+        'onlineOrderView' => $onlineOrderView,
+        'status' => $status
       ];
       $this->view('Cashier/viewCustomerOrders',$data);
     }
