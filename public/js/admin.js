@@ -1,4 +1,43 @@
 //charts - Admin Dashboard page
+var ctx2 = document.getElementById('earning');
+fetch('http://localhost/koratuwa/Admin/totProfitChart')
+    .then(response => response.json())
+    .then(data => {
+      let month_names = data.map(obj => obj.month);
+      let profit_amount = data.map(obj => obj.profit);
+
+      new Chart(ctx2, {
+        type: 'bar',
+        data: {
+          labels: month_names,
+          datasets: [{
+            label: 'Profit(Rs.)',
+            data: profit_amount,
+            backgroundColor:[
+                'rgba(21, 102, 255, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(101, 102, 255, 0.2)',
+                'rgba(153, 74, 255, 0.2)',
+            ],
+            borderColor:['rgba(255, 99, 132, 1)'],
+            borderWidth: 1
+          }]
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      });    
+
+    })
+    .catch(error => console.error(error));
+
+
 var profit = document.getElementById('profit').getContext('2d');
 
 var myChart = new Chart(profit, {
@@ -29,35 +68,37 @@ var myChart = new Chart(profit, {
     }
 });
 
-//charts - Admin Dashboard page
-var totProfit = document.getElementById('earning').getContext('2d');
-var myChart = new Chart(totProfit, {
-    type: 'bar',
-    data: {
-        labels: ['June', 'July', 'August', 'September', 'October', 'November'],
-        datasets: [{
-            label: 'Total profit',
-            data: [320000, 209000, 108000, 401000, 120040, 380000],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)', ,
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-            ],
-            borderWidth: 0.5
-        }]
-    },
-    options: {
-        responsive: true,
 
-    }
-});
+
+//charts - Admin Dashboard page
+// var totProfit = document.getElementById('earning').getContext('2d');
+// var myChart = new Chart(totProfit, {
+//     type: 'bar',
+//     data: {
+//         labels: ['June', 'July', 'August', 'September', 'October', 'November'],
+//         datasets: [{
+//             label: 'Total profit',
+//             data: [320000, 209000, 108000, 401000, 120040, 380000],
+//             backgroundColor: [
+//                 'rgba(255, 99, 132, 0.2)', ,
+//                 'rgba(255, 206, 86, 0.2)',
+//                 'rgba(75, 192, 192, 0.2)',
+//                 'rgba(153, 102, 255, 0.2)',
+//             ],
+//             borderColor: [
+//                 'rgba(255, 99, 132, 1)',
+//                 'rgba(255, 206, 86, 1)',
+//                 'rgba(75, 192, 192, 1)',
+//                 'rgba(153, 102, 255, 1)',
+//             ],
+//             borderWidth: 0.5
+//         }]
+//     },
+//     options: {
+//         responsive: true,
+
+//     }
+// });
 
 // employee search - status dropdown
 var statusSelect = document.getElementById("status");
@@ -460,3 +501,54 @@ function closeModel4(){
     document.getElementById("model4").classList.remove("open-model");
 }
 
+
+
+
+function openModel5(id){
+    const divElement1 = document.querySelector('.part1');
+    const divElement2 = document.querySelector('.part2');
+
+    let isClicked = true;
+    if(isClicked){
+            divElement1.style.display='none';
+            divElement2.style.display='block';
+            isClicked= false;
+        }
+        else{
+            divElement1.style.display='block';
+            divElement2.style.display='none';
+            isClicked= true;
+        }
+    const url ="/koratuwa/Admin/supplierProfile/"+id;
+    const form = new FormData();
+    form.append("id", id);
+    fetch(url, {
+      method: "GET"
+    }).then(response => response.text())
+    .then(data => {
+        console.log(data);
+      if(data){
+        const domp=new DOMParser();
+        const doc= domp.parseFromString(data,'text/html');
+        const newData5 = doc.getElementById('newData5');
+        console.log(newData5);
+
+        document.getElementById('newData5').innerHTML = newData5.innerHTML;
+      }
+  
+    });
+    document.getElementById("model5").classList.add("open-model");
+
+             
+  }
+  function closeModel5(){
+    document.getElementById("model5").classList.remove("open-model");
+    const divElement1 = document.querySelector('.part1');
+    divElement1.style.display='block';
+  }
+
+
+
+
+
+ 

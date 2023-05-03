@@ -13,13 +13,13 @@
       <div class="form-input-container">
         <div class="form-input-wrapper">
           <!-- Product Id -->
-          <div class="form-input-title">Product Id</div>
-          <span class="form-invalid"><?php echo $data[0]['productId_err']; ?></span>
+          <div class="form-input-title">Product Name</div>
+          <!-- <span class="form-invalid"><?php echo $data[0]['productId_err']; ?></span> -->
           <label for="Select the Product"></label>
           <?php $values = $data[1]?>
-          <select name="productId" id="productId">
-            <?php foreach($values as $product_id):?>
-            <option value="<?=$product_id->product_id?>" name="productId" id="productId"><?=$product_id->product_id?></option>
+          <select name="product" id="product">
+            <?php foreach($values as $value):?>
+            <option value='{"ID":"<?=$value->product_id?>","Name":"<?=$value->product_name?>","UP":<?=$value->unit_price?>}' name="product" id="product"><?=$value->product_name?></option>
             <?php endforeach;?>
           </select>
         </div>
@@ -30,8 +30,9 @@
           <input type="number" name="quantity" id="quantity" class="quantity" value="<?php $values = $data[0]?>" required onchange="calculate()">  
         </div>
       </div>
-		  <input type="submit" value="OK" class="submitBtn" onclick="addData()">
+		  
     </form>
+    <button class="submitBtn" onclick="addData()">OK</button>
   </div>
   <hr>
   <table>
@@ -43,8 +44,8 @@
       <th>Price</th>
       <th class="action"></th>
     </tr>
-    <tr id="tbody">
-    </tr>
+    <tbody id="tbody">
+    </tbody>
   </table>
   <hr>
   <table class="sub-table">
@@ -159,17 +160,28 @@
     var price = quantity * unitPrice;
     document.getElementById("price").value = price;
   }
-
+  
+var total = 0;
+  
   function addData(){
-    var cash = document.getElementById("balace").value;
-    document.getElementById("tbody").innerHTML += "<tr><td>" + productId + "</td><td>" + unitPrice + "</td><td>" + quantity + "</td><td>";
-    document.getElementById("productId").value = "";
-    document.getElementById("unitPrice").value = "";
-    document.getElementById("quantity").value = "";
+    const value = document.getElementById("product").value;
+    const btn = document.getElementById("product");
+    const selectedOption=JSON.parse(btn.value);
+    const name = selectedOption.Name;
+    const id = selectedOption.ID;
+    const up = selectedOption.UP;
 
-    document.getElementById("total").innerHTML = unitPrice * quantity;
+    var qnty = document.getElementById("quantity").value;
+    var subTot = up * qnty;
+    
+    document.getElementById("tbody").innerHTML += "<tr><td>" + id + "</td><td>" + name + "</td><td>" + up + "</td><td>" + qnty + "</td><td>" + subTot + "</td><td><button class='deleteBtn' onclick='deleteRow(this)'>-</button></td></tr>";
+   
+    total += parseInt(subTot);
+    // console.log(total);
+    document.getElementById("total").innerHTML = total;
+    var cash = document.getElementById("cash").value;
     document.getElementById("balance").innerHTML = cash - total;
-
+    
   }
 
   function openModel(){
