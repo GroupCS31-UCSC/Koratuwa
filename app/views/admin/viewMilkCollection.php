@@ -12,7 +12,7 @@
     <label for="to">  To :</label>
     <input type="date" id="to" name="to" value="<?php echo $data['to']; ?>">
     <input type="submit" value="Search" class="submitBtn"> 
-</form>
+  </form>
 
   <!-- <input type="date" id="searchInput3" placeholder="Search By Date..." onkeyup="searchFunc3();"> -->
 
@@ -51,6 +51,14 @@
   </div>
 
   <div class="divContainer2">
+  <form action="<?php echo URLROOT; ?>/Admin/viewMilkCollection" method="POST" >
+    <label for="from2">From :</label>
+    <input type="date" id="from2" name="from2" value="<?php echo $data['from2']; ?>"><br>
+    <label for="to2">  To :</label>
+    <input type="date" id="to2" name="to2" value="<?php echo $data['to2']; ?>">
+    <input type="submit" value="Search" class="submitBtn"> 
+  </form>
+  <input type="button" value="Refresh" class="addBtn" onclick="location.href='<?php echo URLROOT; ?>/Admin/viewMilkCollection' ">
     <h2>External Milk Collection</h2>
     <table id="detailsTable4">
       <thead>

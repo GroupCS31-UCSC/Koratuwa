@@ -607,6 +607,33 @@
       return $result;
     }
 
+    public function externalMC_duration($from, $to)
+    {
+      $this->db->query('SELECT * FROM supply_order WHERE supply_date >= "'.$from.'" and supply_date <= "'.$to.'"');
+
+      $result = $this->db->resultSet();
+
+      return $result;
+    }
+
+    public function onsiteSale_duration($from, $to)
+    {
+      $this->db->query('SELECT * FROM onsite_sale WHERE sale_date >= "'.$from.'" and sale_date <= "'.$to.'"');
+
+      $result = $this->db->resultSet();
+
+      return $result;
+    }
+
+    public function onlineSale_duration($from, $to)
+    {
+      $this->db->query('SELECT * FROM online_order WHERE ordered_date >= "'.$from.'" and ordered_date <= "'.$to.'"');
+
+      $result = $this->db->resultSet();
+
+      return $result;
+    }
+
     
 
 

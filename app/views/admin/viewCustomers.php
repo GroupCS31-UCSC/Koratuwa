@@ -11,6 +11,7 @@
     </div>
     <div class="cusTable">
       <h3>Mostly Ordered Customers</h3>
+      <input type="text" id="searchInput4" placeholder="Search By Customer Name..." onkeyup="searchFunc4();">
       <table id="cusTable">
       <thead>
         <th>Customer Id</th>
