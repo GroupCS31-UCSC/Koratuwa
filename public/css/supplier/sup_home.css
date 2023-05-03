@@ -28,7 +28,7 @@ section {
 }
 
 .container {
-    display: flex;
+    display: inline-block;
     align-items: stretch;
     margin: 0 auto;
     padding: 20px;
@@ -38,7 +38,7 @@ section {
 .feature{
     margin-top: 20px;
     text-align: center;
-    display: inline-block;
+    /* display: flex; */
     /* height: 400px; */
     min-width: 50%;
     /* border: solid blue; */
@@ -291,4 +291,16 @@ canvas{
     .main.active {
         left: 275px;
     }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    width: 90%;
+  }
+  .box {
+    font-size: 1em;
+  }
+  .items {
+    font-size: 1.2em;
+  }
 }
