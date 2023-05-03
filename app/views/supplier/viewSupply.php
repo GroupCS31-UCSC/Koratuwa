@@ -24,10 +24,18 @@
           <button type="submit" class="searchButton">
             <i class="fa fa-search"></i>
           </button>        -->
-          <input type="date" id="myDateInput" >
-          <button type="submit" class="searchButton" onkeyup="filterTable()">
+          <!-- <input type="date" id="myDateInput" >
+          <button type="submit" class="searchButton" onkeyup="filterTable()"> -->
 
-      </div> 
+      </div>
+      
+      <form action="<?php echo URLROOT; ?>/Supplier/viewSupply" method="POST" >
+      <label for="from">From :</label>
+      <input type="date" id="from" name="from" value="<?php echo $data['from']; ?>"><br>
+      <label for="to">  To :</label>
+      <input type="date" id="to" name="to" value="<?php echo $data['to']; ?>">
+      <input type="submit" value="Search" class="submitBtn"> 
+    </form>
       <a href="<?php echo URLROOT?>/Supplier/generateSupplyReport/"><button>Genarate PDF</button></a>
       
       <table>
@@ -39,7 +47,7 @@
             <!-- <th>Supplying Address</th> -->
             <th>Status</th>
             <th>Quality</th>
-            <th>Action</th>
+            <th>More</th>
           </tr>
           <?php $data_index=0 ?>
           <?php foreach ($data['supOrderView'] as $supOrd) : ?>
@@ -51,17 +59,20 @@
             <td><?php echo $supOrd->status; ?></td>
             <td><?php echo $supOrd->quality; ?></td>
             <td>
-              <?php if($supOrd->status == 'Not Collected') : ?>
+              <?php if($supOrd->status == 'Ongoing') : ?>
                 <div class="table-btns">
                   <a href="<?php echo URLROOT?>/Supplier/updateSupOrder/<?php echo $supOrd->supply_order_id ?>"><button class="updateBtn">UPDATE</button></a>
                   <a href="<?php echo URLROOT?>/Supplier/deleteSupOrder/<?php echo $supOrd->supply_order_id ?>"><button class="deleteBtn">DELETE</button></a>
                 </div>
+
+              <?php elseif($supOrd->status == 'Collected') : ?>
+                <div class="table-btns">
+                  <a href="<?php echo URLROOT?>/Supplier/getOrderReceipt/<?php echo $supOrd->supply_order_id ?>"><button class="receipt">Receipt</button></a>
+                </div>
               <?php else : ?>
                 <div class="table-btns">
-                  <!-- <a href="<?php echo URLROOT?>/Supplier/updateSupOrder/<?php echo $supOrd->supply_order_id ?>"><button class="updateBtn">View</button></a> -->
-                  <!-- <button onclick="openModal('<?php echo $supOrd->supply_order_id; ?>')" class="updateBtn">View Invoice</button> -->
-                  <a href="#"><button class="updateBtn" onclick="openModel1('<?= $supOrd->supply_order_id; ?>')" id="<?php echo($data_index) ?>"><i class="fas fa-eye"></i></button></a>
-                </div>
+                  <a href="<?php echo URLROOT?>/Supplier/getOrderRejected/<?php echo $supOrd->supply_order_id ?>"><button class="Note">Note</button></a>
+                </div>     
               <?php endif; ?>
             </td>
           </tr><br>

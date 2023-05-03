@@ -59,7 +59,7 @@
 
           <div class="box">
             <label><center>Price</center></label>
-            <canvas id="price"></canvas>
+            <canvas id="milk_purchasing_price"></canvas>
           </div>
 
         </div>  
@@ -182,6 +182,51 @@
     }, counteritem.dataset.speed/counter);
 }); 
 </script> 
+
+
+
+
+<!-- //charts - sup home page -->
+
+<script>
+  var ctx1 = document.getElementById('milk_purchasing_price');
+fetch('http://localhost/koratuwa/Supplier/milkPurchasing_chart')
+    .then(response => response.json())
+    .then(data => {
+      let milk_date = data.map(obj => obj.date);
+      let unit_price = data.map(obj => obj.unit_price);
+
+      new Chart(ctx1, {
+        type: 'line',
+        data: {
+          labels: milk_date,
+          datasets: [{
+            label: 'Income(Rs.)',
+            data: unit_price,
+            backgroundColor:[
+                'rgba(21, 102, 255, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(101, 102, 255, 0.2)',
+                'rgba(153, 74, 255, 0.2)',
+            ],
+            borderColor:['rgba(255, 99, 132, 1)'],
+            borderWidth: 1
+          }]
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      });    
+
+    })
+    .catch(error => console.error(error));
+</script>
 <?php require APPROOT.'/views/include/footer.php'; ?>
 <script src="<?php echo URLROOT; ?>/js/supplier.js"></script>
 

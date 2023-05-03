@@ -1,3 +1,43 @@
+//charts - sup income page
+var ctx2 = document.getElementById('income');
+fetch('http://localhost/koratuwa/Supplier/supIncomeChart')
+    .then(response => response.json())
+    .then(data => {
+      let month_names = data.map(obj => obj.supply_date);
+      let income_amount = data.map(obj => obj.total_payment);
+
+      new Chart(ctx2, {
+        type: 'bar',
+        data: {
+          labels: month_names,
+          datasets: [{
+            label: 'Income(Rs.)',
+            data: income_amount,
+            backgroundColor:[
+                'rgba(21, 102, 255, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(101, 102, 255, 0.2)',
+                'rgba(153, 74, 255, 0.2)',
+            ],
+            borderColor:['rgba(255, 99, 132, 1)'],
+            borderWidth: 1
+          }]
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      });    
+
+    })
+    .catch(error => console.error(error));
+
+
 
 //charts - Dashboard page
 var profit= document.getElementById('quality').getContext('2d');

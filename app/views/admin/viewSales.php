@@ -6,6 +6,14 @@
 <div class="container">
 
   <div class="divContainer1">
+  <form action="<?php echo URLROOT; ?>/Admin/viewSales" method="POST" >
+    <label for="from">From :</label>
+    <input type="date" id="from" name="from" value="<?php echo $data['from']; ?>"><br>
+    <label for="to">  To :</label>
+    <input type="date" id="to" name="to" value="<?php echo $data['to']; ?>">
+    <input type="submit" value="Search" class="submitBtn"> 
+  </form>
+  <input type="button" value="Refresh" class="addBtn" onclick="location.href='<?php echo URLROOT; ?>/Admin/viewSales' ">
     <h2>Onsite Sales</h2>
     <table>
       <thead>
@@ -36,12 +44,25 @@
   </div>
 
   <div class="divContainer2">
+  <form action="<?php echo URLROOT; ?>/Admin/viewSales" method="POST" >
+    <label for="from2">From :</label>
+    <input type="date" id="from2" name="from2" value="<?php echo $data['from2']; ?>"><br>
+    <label for="to2">  To :</label>
+    <input type="date" id="to2" name="to2" value="<?php echo $data['to2']; ?>">
+    <input type="submit" value="Search" class="submitBtn"> 
+  </form>
+  <input type="button" value="Refresh" class="addBtn" onclick="location.href='<?php echo URLROOT; ?>/Admin/viewSales' ">
+
     <h2>Online Sales</h2>
-    <table>
+    <table id="detailsTable5">
       <thead>
-        <th>Order Id</th>
+        <th col-index = 1>Order Id</th>
+        <th col-index = 2>Status
+          <select class="table-filter5" onchange="filter_rows5()">
+            <option value="all"></option>
+          </select>
+        </th>
         <th>Date</th>
-        <th>Status</th>
         <th>Payment</th>
         <th>Customer Id</th>
         <th>View More</th>
@@ -51,8 +72,8 @@
         <?php foreach ($data['onlineS'] as $online) : ?>
         <tr>
           <td><?php echo $online->order_id; ?></td>
-          <td><?php echo $online->ordered_date; ?></td>
           <td><?php echo $online->status; ?></td>
+          <td><?php echo $online->ordered_date; ?></td>
           <td><?php echo $online->total_payment; ?></td>       
           <td><?php echo $online->customer_id; ?></td>
           <td>
@@ -68,6 +89,9 @@
   </div>
 
 </div>
+<script>
+  getUniqueValuesFromColumn5();
+</script>
 
 
 

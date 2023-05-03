@@ -181,18 +181,100 @@
 
         public function viewSupply()
         {
-          $supOrderView= $this->supplierModel->get_supOrderView();
-          $supOrdSum= $this->supplierModel->get_supOrderSum();
-          $ordSum= strval($supOrdSum);
+          if($_SERVER['REQUEST_METHOD'] == 'POST')
+          {
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
-          $data = [
-              'supOrderView' => $supOrderView,
-              'ordSum'=> $ordSum
+            $from = isset($_POST['from']) ? $_POST['from'] : '';
+            $to = isset($_POST['to']) ? $_POST['to'] : '';
+
+            $supOrder_duration= $this->supplierModel->supOrder_duration($from, $to);
+            $supOrdSum= $this->supplierModel->get_supOrderSum();
+            $ordSum= strval($supOrdSum);
+
+            $data = [
+              'supOrderView' => $supOrder_duration,
+              'ordSum'=> $ordSum,
+              'from' => $from,
+              'to' => $to
            ];
-
-          $this->view('supplier/viewSupply',$data);
+            $this->view('supplier/viewSupply',$data);
+          }
+          else{
+            $supOrderView= $this->supplierModel->get_supOrderView();
+            $supOrdSum= $this->supplierModel->get_supOrderSum();
+            $ordSum= strval($supOrdSum);
+  
+            $data = [
+                'supOrderView' => $supOrderView,
+                'ordSum'=> $ordSum,
+                'from' => '',
+                'to' => ''
+             ];
+  
+            $this->view('supplier/viewSupply',$data);
+          }
+          
 
         }
+        // getOrderReceipt one by one as PDF
+        public function getOrderReceipt($order_id){
+          $supOrder_Receipt= $this->supplierModel->get_supOrderReceipt($order_id);
+          $pdf = generatePdf();
+
+          $pdf->AddPage('L','A4');
+        
+          $pdf->SetFont('Arial', 'B', 18);
+          $pdf->Cell(0, 10, 'Koratuwa Supplier Order Details', 0, 1, 'C');
+        
+          $pdfWidth = $pdf->GetPageWidth();
+          $pdfHeight = $pdf->GetPageHeight();
+          $pdf->Rect(5, 5, $pdfWidth-8, $pdfHeight-10, 'D'); 
+
+          $pdf->SetFont('Arial', 'B', 14);
+          $pdf->SetTitle('Koratuwa Supplier Payment Details Report');
+          $pdf->SetTextColor(255, 255, 255);
+
+          $pdf->Cell(60, 10, 'Supply Order Id', 1 , 0, 'C',1);
+          $pdf->Cell(60, 10, 'Supply Quantity (L)', 1 , 0, 'C',1);
+          $pdf->Cell(70, 10, 'Price Received Per Unit', 1 , 0, 'C',1);
+          $pdf->Cell(30, 10, 'Status', 1 , 0, 'C',1);
+          $pdf->Cell(30, 10, 'Quality', 1 , 0, 'C',1);
+          $pdf->Ln();
+          
+          $pdf->SetTextColor(0, 0, 0);
+          
+          $pdf->SetFont('Arial', '', 12);
+          foreach ($supOrder_Receipt as $row) {
+        
+          
+            $pdf->Cell(60,10,$row->supply_order_id, 1 , 0, 'C');
+            $pdf->Cell(60,10,$row->quantity, 1 , 0, 'C');
+            $pdf->Cell(70,10,'Rs. '.$row->unit_price, 1 , 0, 'C');
+            $pdf->Cell(30,10,$row->status, 1 , 0, 'C');
+            $pdf->Cell(30,10,$row->	quality, 1 , 0, 'C');
+            
+           
+            
+            $pdf->Ln();
+        }
+
+        $pdf->AliasNbPages();
+        $pdf->SetFont('Arial', 'B', 12);
+        $pdf->Cell(0, 10, 'Page ' . $pdf->PageNo() . ' of {nb}', 0, 0, 'C');
+
+        // $pdf->Output();
+        $pdf->Output('Supplier Order Details.pdf', 'I');
+           
+        $data=[
+        'supOrder_Receipt' =>  $supOrder_Receipt
+        ];
+    
+        $this->view('supplier/viewSupply',$data);
+        }
+         
+
+
         public function generateSupplyReport(){
           $supOrderView= $this->supplierModel->get_supOrderView();
           $pdf = generatePdf();
@@ -332,8 +414,6 @@
         }
 
 
-
-
         public function deleteSupOrder($supOrdId)
         {
           if($this->supplierModel->dltSupOrder($supOrdId))
@@ -350,7 +430,12 @@
         // Load supplier income page
         public function sup_income()
         {
-          $data = [];
+          $supID = $_SESSION['user_id'];
+          $supIncome= $this->supplierModel->get_supIncome($supID);
+
+          $data = [
+              'supIncome' => $supIncome
+           ];
           $this->view('supplier/sup_income',$data);
         }
 
@@ -451,6 +536,17 @@
           ];
 
           $this->view('supplier/viewSupply', $data);
+        }
+
+        //chart - sup income
+        public function supIncomeChart(){
+          $supID = $_SESSION['user_id'];
+          echo $this->supplierModel->get_totIncome($supID);
+
+        }
+        //chart - milk purchasing price - home page
+        public function milkPurchasing_chart(){
+          echo $this->supplierModel->get_milkPurchasingPrice();
         }
 
 
