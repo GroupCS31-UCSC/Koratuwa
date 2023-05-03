@@ -166,64 +166,83 @@
     //   }
     // }
 
-    public function addSale($data) {
-      $this->db->query('INSERT INTO product_sale(product_id, quantity) VALUES(:productId, :quantity)');
+    // public function addSale($data) {
+    //   $saleID= $this->findSaleId();
+    //   $this->db->query('INSERT INTO onsite_sale(sale_id, total_payment,) VALUES(:saleId, :totalPayment)');
 
       //values binding
-      $this->db->bind(':productId', $data['productId']);
-      $this->db->bind(':quantity', $data['quantity']);
-      // $this->db->bind(':receiptId', $data['receiptId']);
+      // $this->db->bind(':saleId', $saleID);
+      // $this->db->bind(':totalPayment', $data['totalPayment']);
+      // if($this->db->execute()) {
+      //   $this->db->query('INSERT INTO product_sale(product_id, quantity, sale_id) VALUES(:productId, :quantity, :saleId)');
 
-      //execute
-      if($this->db->execute())
-      {
-        return true;
-      }
-      else
-      {
-        return false;
-      }
-    }
-    
-    // public function updateSale($data) {
-    //   // Check if customer exists
-    //   $this->db->query('SELECT * FROM customer WHERE customer_id = :customerId');
-    //   $this->db->bind(':customerId', $data['customerId']);
-    //   $customer = $this->db->single();
-    
-    //   if (!$customer) {
-    //     // Customer does not exist
-    //     return false;
-    //   }
-    
-    //   if($data['saleType'] == 'online') {
-    //     // Update data in online_order table
-    //     $this->db->query('UPDATE online_order SET order_id = :orderId, date = :date, status = :status, receiving_method = :receivingMethod, customer_id = :customerId WHERE sale_id = :saleId');
-    
-    //     // values binding
-    //     $this->db->bind(':saleId', $data['saleId']);
-    //     $this->db->bind(':orderId', $data['orderId']);
-    //     $this->db->bind(':date', $data['date']);
-    //     $this->db->bind(':status', $data['status']);
-    //     $this->db->bind(':receivingMethod', $data['receivingMethod']);
-    //     $this->db->bind(':customerId', $data['customerId']);
-    //   } else {
-    //     // Update data in onsite_sale table
-    //     $this->db->query('UPDATE onsite_sale SET customer_id = :customerId WHERE sale_id = :saleId');
-    
-    //     // values binding
-    //     $this->db->bind(':saleId', $data['saleId']);
-    //     $this->db->bind(':customerId', $data['customerId']);
-    //   }
-    
-    //   // execute
-    //   if($this->db->execute()) {
-    //     return true;
+        //values binding
+        // $this->db->bind(':productId', $data['productId']);
+        // $this->db->bind(':quantity', $data['quantity']);
+        // $this->db->bind(':saleId', $saleID);
+
+        //execute
+    //     if($this->db->execute())
+    //     {
+    //       return true;
+    //     }
+    //     else
+    //     {
+    //       return false;
+    //     }
     //   }
     //   else {
     //     return false;
     //   }
+      
     // }
+
+    public function saveProductSale($data) {
+      $saleID= $this->findSaleId();
+      $quantity = $data['qnty'];
+      $productId = $data['id'];
+      $totalPayment = $data['total'];
+      $this->db->query('INSERT INTO onsite_sale(sale_id, total_payment) VALUES(:saleId, :totalPayment)');
+  
+      //values binding
+      $this->db->bind(':saleId', $saleID);
+      $this->db->bind(':totalPayment', $totalPayment);
+
+      if($this->db->execute()) {
+        $this->db->query('INSERT INTO product_sale(product_id, quantity, sale_id) VALUES(:productId, :quantity, :saleId)');
+  
+        //values binding
+        $this->db->bind(':productId', $productId);
+        $this->db->bind(':quantity', $quantity);
+        $this->db->bind(':saleId', $saleID);
+  
+        //execute
+        if($this->db->execute()) {
+          // $product = $this->getProductById($productId);
+          // $newQuantity = $product['available_quantity'] - $quantity;
+          // $this->db->query('UPDATE product SET available_quantity = :newQuantity WHERE product_id = :productId');
+          // $this->db->bind(':newQuantity', $newQuantity);
+          // $this->db->bind(':productId', $productId);
+          // if($this->db->execute()) {
+          //   return true;
+          // } else {
+          //   return false;
+          // }
+
+          return true;
+        }
+        else
+        {
+          return false;
+        }
+      }
+      else {
+        return false;
+      }
+
+    }
+    
+    
     
 
 
