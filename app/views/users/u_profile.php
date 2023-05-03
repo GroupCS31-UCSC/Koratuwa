@@ -9,44 +9,17 @@
 
 <!---------------------------------Supplier---------------------------------->
 <?php if($_SESSION['user_type'] == 'Supplier') : ?>
-<div class="container_profile">
+
     <?php foreach ($data['userProfile'] as $sup) : ?>
 
 
 
-        <div class="center">
-            <div class="container">
-                <div class="left">
-                    <div class="photo">
-                    <div class="circle"></div>   
-                    <div class="circle2"></div> 
+
                     <img alt="user photo" src="<?php echo URLROOT; ?>/img/users/user.png">
-                    </div>     
-                    <div class="title__contain">
-                    <div class="username"><?php echo $sup->name; ?></div>
-                    <div class="title">Milk Supplier</div>
-                    </div>
+
                     <a href="<?php echo URLROOT; ?>/Users/sup_editProfile/<?php echo $sup->supplier_id; ?>"><button class="follow">Edit Profile</button></a>
                     <a href="<?php echo URLROOT; ?>/Users/changePw/<?php echo $_SESSION['user_email']; ?>" class="sub-menu-link" class="sub-menu-link"><button class="message">Change Password</button></a>
-                </div>
-                <div class="right">
-                    <div class="rightbox">
-                    <span class="large">512</span>
-                    <span class="small">Posts</span>
-                    </div>
-                    <div class="rightbox">
-                    <span class="large">1234</span>
-                    <span class="small">Likes</span>
-                    </div>
-                    <div class="rightbox">
-                    <span class="large">241</span>
-                    <span class="small">Followers</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    <div class="center">        
+     
             <ul>
 
                 <li>User Id : <?php echo $sup->supplier_id; ?></li>
@@ -58,38 +31,10 @@
                 <li>Image :<?php echo $sup->image; ?></li>
 
             </ul>
-    </div>
-    <!-- <input type="checkbox" id="show">
-    <label for="show" class="show-btn">View Form</label>
-    <div class="editProfile_container">
-        <label for="show" class="close-btn fas fa-times"></label>
-        <div class="text">Edit Profile</div>
-        <form action="<?php echo URLROOT; ?>/Users/editProfile/<?php echo $_SESSION['user_id']; ?>"   method="POST">
-            <div class="data">
-                <label>Name</label>
-                <input type="text" value="<?php echo $sup->name; ?>">
-            </div>
-            <div class="data">
-                <label>Address</label>
-                <input type="text" value="<?php echo $sup->address; ?>">
-            </div>
-            <div class="data">
-                <label for="">Contact Number</label>
-                <input type="text" value="<?php echo $sup->contact_number; ?>">
-            </div>
-            <div class="data">
-                <label for="">Email</label>
-                <input type="email" value="<?php echo $_SESSION['user_email']; ?>">
-            </div>
-            <div class="btn">
-                <div class="inner">
-                <input type="submit" value="Submit" class="submit-btn">
-                </div>
-            </div>
-        </form>
-    </div> -->
+
+
         <?php endforeach; ?>
-</div>
+
 
 <!------------------------Customer--------------------------------------------------->
     <?php elseif($_SESSION['user_type'] == 'Customer') : ?>
