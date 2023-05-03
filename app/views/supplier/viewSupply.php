@@ -28,7 +28,8 @@
           <button type="submit" class="searchButton" onkeyup="filterTable()">
 
       </div> 
-
+      <a href="<?php echo URLROOT?>/Supplier/generateSupplyReport/"><button>Genarate PDF</button></a>
+      
       <table>
           <tr>
             <th>Supply Order ID</th>
