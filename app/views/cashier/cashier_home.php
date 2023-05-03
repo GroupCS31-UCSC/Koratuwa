@@ -42,7 +42,6 @@
       <th>Unit Price</th>
       <th>Quantity</th>
       <th>Price</th>
-      <th class="action"></th>
     </tr>
     <tbody id="tbody">
     </tbody>
@@ -151,7 +150,7 @@
 
 
 <?php require APPROOT.'/views/include/footer.php'; ?>
-<script src="<?php echo URLROOT; ?>/js/cashier.js"></script>
+<!-- <script src="<?php echo URLROOT; ?>/js/cashier.js"></script> -->
 
 <script>
   function calculate(){
@@ -174,14 +173,31 @@ var total = 0;
     var qnty = document.getElementById("quantity").value;
     var subTot = up * qnty;
     
-    document.getElementById("tbody").innerHTML += "<tr><td>" + id + "</td><td>" + name + "</td><td>" + up + "</td><td>" + qnty + "</td><td>" + subTot + "</td><td><button class='deleteBtn' onclick='deleteRow(this)'>-</button></td></tr>";
+    document.getElementById("tbody").innerHTML += "<tr><td>" + id + "</td><td>" + name + "</td><td>" + up + "</td><td>" + qnty + "</td><td>" + subTot + "</td></tr>";
    
     total += parseInt(subTot);
     // console.log(total);
     document.getElementById("total").innerHTML = total;
     var cash = document.getElementById("cash").value;
+    cash = paeseInt(cash);
     document.getElementById("balance").innerHTML = cash - total;
-    
+
+    const postData = {
+      id: id,
+      qnty: qnty,
+      subTot: subTot,
+      total: total,
+    }
+
+    fetch('/koratuwa/Cashier/saveProductSale',{
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(postData)
+    }).then(res => res.json()).then(data => {
+      console.log(data);
+    }).catch(err => console.log(err));
   }
 
   function openModel(){
