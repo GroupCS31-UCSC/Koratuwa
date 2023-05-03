@@ -125,95 +125,24 @@
       return $result;
     }
 
-
-    // public function addSale($data) {
-    //   // Check if customer exists
-    //   $this->db->query('SELECT * FROM customer WHERE customer_id = :customerId');
-    //   $this->db->bind(':customerId', $data['customerId']);
-    //   $customer = $this->db->single();
-    
-    //   if (!$customer) {
-    //     // Customer does not exist
-    //     return false;
-    //   }
-    
-    //   if($data['saleType'] == 'online') {
-    //     // Insert data into online_order table
-    //     $this->db->query('INSERT INTO online_order(sale_id, order_id, date, status, receiving_method, customer_id) VALUES(:saleId, :orderId, :date, :status, :receivingMethod, :customerId)');
-    
-    //     // values binding
-    //     $this->db->bind(':saleId', $data['saleId']);
-    //     $this->db->bind(':orderId', $data['orderId']);
-    //     $this->db->bind(':date', $data['date']);
-    //     $this->db->bind(':status', $data['status']);
-    //     $this->db->bind(':receivingMethod', $data['receivingMethod']);
-    //     $this->db->bind(':customerId', $data['customerId']);
-    //   } else {
-    //     // Insert data into onsite_sale table
-    //     $this->db->query('INSERT INTO onsite_sale(sale_id, customer_id) VALUES(:saleId, :customerId)');
-    
-    //     // values binding
-    //     $this->db->bind(':saleId', $data['saleId']);
-    //     $this->db->bind(':customerId', $data['customerId']);
-    //   }
-    
-    //   // execute
-    //   if($this->db->execute()) {
-    //     return true;
-    //   }
-    //   else {
-    //     return false;
-    //   }
-    // }
-
-    // public function addSale($data) {
-    //   $saleID= $this->findSaleId();
-    //   $this->db->query('INSERT INTO onsite_sale(sale_id, total_payment,) VALUES(:saleId, :totalPayment)');
-
-      //values binding
-      // $this->db->bind(':saleId', $saleID);
-      // $this->db->bind(':totalPayment', $data['totalPayment']);
-      // if($this->db->execute()) {
-      //   $this->db->query('INSERT INTO product_sale(product_id, quantity, sale_id) VALUES(:productId, :quantity, :saleId)');
-
-        //values binding
-        // $this->db->bind(':productId', $data['productId']);
-        // $this->db->bind(':quantity', $data['quantity']);
-        // $this->db->bind(':saleId', $saleID);
-
-        //execute
-    //     if($this->db->execute())
-    //     {
-    //       return true;
-    //     }
-    //     else
-    //     {
-    //       return false;
-    //     }
-    //   }
-    //   else {
-    //     return false;
-    //   }
-      
-    // }
-
     public function saveProductSale($data) {
-      $saleID= $this->findSaleId();
+      $saleID= $data['saleId'];
       $quantity = $data['qnty'];
       $productId = $data['id'];
       $totalPayment = $data['total'];
-      $this->db->query('INSERT INTO onsite_sale(sale_id, total_payment) VALUES(:saleId, :totalPayment)');
+
+      $this->db->query('INSERT INTO product_sale(product_id, quantity, sale_id) VALUES(:productId, :quantity, :saleId)');
   
       //values binding
+      $this->db->bind(':productId', $productId);
+      $this->db->bind(':quantity', $quantity);
       $this->db->bind(':saleId', $saleID);
-      $this->db->bind(':totalPayment', $totalPayment);
 
       if($this->db->execute()) {
-        $this->db->query('INSERT INTO product_sale(product_id, quantity, sale_id) VALUES(:productId, :quantity, :saleId)');
+        $this->db->query('INSERT INTO onsite_sale(total_payment) VALUES(:totalPayment) WHERE sale_id = :saleId');
   
         //values binding
-        $this->db->bind(':productId', $productId);
-        $this->db->bind(':quantity', $quantity);
+        $this->db->bind(':totalPayment', $totalPayment);
         $this->db->bind(':saleId', $saleID);
   
         //execute
@@ -240,6 +169,24 @@
         return false;
       }
 
+    }
+
+    public function submitdata($data) {
+      $saleID= $this->findSaleId();
+
+      $this->db->query('INSERT INTO onsite_sale(sale_id) VALUES(:saleId)');
+  
+      //values binding
+      $this->db->bind(':saleId', $saleID);
+
+      if($this->db->execute()) {
+          return true;
+      }
+      else {
+        return false;
+      }
+
+      
     }
     
     
