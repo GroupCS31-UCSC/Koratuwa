@@ -7,6 +7,7 @@
 
   <div class="divContainer1">
     <h2>Koratuwa Suppliers</h2>
+    <input type="text" id="searchInput3" placeholder="Search By Supplier Name..." onkeyup="searchFunc3();">
     <table id="supTable">
       <thead>
         <th>Supplier Id</th>

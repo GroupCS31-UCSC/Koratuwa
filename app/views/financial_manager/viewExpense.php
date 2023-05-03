@@ -28,10 +28,10 @@
   </div>
 
   
+  
   <div class="column right">
   <h2>EXPENSES</h2>
-  <input type="button" value="Add Expense" class="paddBtn" onclick="location.href='<?php echo URLROOT; ?>/financial_Manager/addExpense' ">
-    <table>
+  <input type="button" value="Add Expense" class="paddBtn" onclick="location.href='<?php echo URLROOT; ?>/financial_Manager/addExpense' ">    <table>
       <tr>
         <th>Expense ID</th>
         <th>Date</th>

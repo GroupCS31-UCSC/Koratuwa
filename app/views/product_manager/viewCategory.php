@@ -33,9 +33,21 @@
   <div class="heading">Product Details</div> <br>
     <hr>
     <br>
-    <div class="l">Size of a Pack  </div><div class="r"><?php echo $cat->unit_size;  ?></div>
-    <div class="l">Ingredients </div><div class="r"><?php echo $cat->ingredients; ?></div>
-    <div class="l">Expiry Duration </div><div class="r"><?php 
+
+    <div class="form-input-container">
+
+    <div class="form-input-wrapper">Size of a Pack  </div>
+    <div class="form-input-wrapper"><?php echo $cat->unit_size;  ?></div>
+    </div>
+
+    <div class="form-input-container">
+    <div class="form-input-wrapper">Ingredients </div>
+    <div class="form-input-wrapper"><?php echo $cat->ingredients; ?></div>
+    </div>
+
+    <div class="form-input-container">
+    <div class="form-input-wrapper">Expiry Duration </div>
+    <div class="form-input-wrapper"><?php 
     $months = floor($data['expireDays']/30);
     $days = $data['expireDays'] - ($months * 30);
     if($months>0){
@@ -44,9 +56,14 @@
     if($days>0){
       echo $days ." ". "days"; 
     } 
-     ?></div>
-    <div class="l">Unit Price </div><div class="r"><?php echo "Rs."." ".  $cat->unit_price; ?></div>
+     ?>
+     </div>
+     </div>
 
+    <div class="form-input-container">
+    <div class="form-input-wrapper">Unit Price </div>
+    <div class="form-input-wrapper"><?php echo "Rs."." ".  $cat->unit_price; ?></div>
+    </div>
     
   
         <div class="table-btns">

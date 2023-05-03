@@ -507,13 +507,58 @@
         //get the details of MilkCollection
         public function viewMilkCollection()
         {
-          $mcView= $this->adminModel->get_mcView();
-          $supOrdView= $this->adminModel->get_supOrdView();
+          if($_SERVER['REQUEST_METHOD'] == 'POST')
+          {
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+            
+            $from = isset($_POST['from']) ? $_POST['from'] : '';
+            $to = isset($_POST['to']) ? $_POST['to'] : '';
+            $from2 = isset($_POST['from2']) ? $_POST['from2'] : '';
+            $to2 = isset($_POST['to2']) ? $_POST['to2'] : '';
+            // print_r($from2);
 
-          $data = [
-              'mcView' => $mcView,
-              'supOrd' => $supOrdView
-          ];
+            if($from== ''  && $to=='' && $from2!= ''  && $to2!=''){
+              $mcView= $this->adminModel->get_mcView();
+              $supOrdView= $this->adminModel->externalMC_duration($from2, $to2);
+            }
+            else if($from!= ''  && $to!='' && $from2== ''  && $to2==''){
+              $mcView= $this->adminModel->InternalMC_duration($from, $to);
+              $supOrdView= $this->adminModel->get_supOrdView();
+            }
+            else if($from!= ''  && $to!='' && $from2!= ''  && $to2!=''){
+              $mcView= $this->adminModel->InternalMC_duration($from, $to);
+              $supOrdView= $this->adminModel->externalMC_duration($from2, $to2);
+
+            }
+            else if($from== ''  && $to=='' && $from2== ''  && $to2==''){
+              $mcView= $this->adminModel->get_mcView();
+              $supOrdView= $this->adminModel->get_supOrdView();
+            }
+  
+            $data = [
+                'mcView' => $mcView,
+                'supOrd' => $supOrdView,
+                'from' => $from,
+                'to' => $to,
+                'from2' => $from2,
+                'to2' => $to2
+            ];
+            $this->view('admin/viewMilkCollection',$data);
+          }
+          else{
+            $mcView= $this->adminModel->get_mcView();
+            $supOrdView= $this->adminModel->get_supOrdView();
+  
+            $data = [
+                'mcView' => $mcView,
+                'supOrd' => $supOrdView,
+                'from' => '',
+                'to' => '',
+                'from2' => '',
+                'to2' => ''
+            ];
+
+          }
 
           $this->view('admin/viewMilkCollection',$data);
         }
@@ -532,15 +577,61 @@
 
         public function viewSales()
         {
-          $onsiteSView= $this->adminModel->get_onsiteSalesView();
-          $onlineSView= $this->adminModel->get_onlineSalesView();
+          if($_SERVER['REQUEST_METHOD'] == 'POST')
+          {
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+            
+            $from = isset($_POST['from']) ? $_POST['from'] : '';
+            $to = isset($_POST['to']) ? $_POST['to'] : '';
+            $from2 = isset($_POST['from2']) ? $_POST['from2'] : '';
+            $to2 = isset($_POST['to2']) ? $_POST['to2'] : '';
+            // print_r($from2);
 
-          $data = [
-              'onsiteS' => $onsiteSView,
-              'onlineS' => $onlineSView
-          ];
+            if($from== ''  && $to=='' && $from2!= ''  && $to2!=''){
+              $onsiteSView= $this->adminModel->get_onsiteSalesView();
+              $onlineSView= $this->adminModel->onlineSale_duration($from2, $to2);
+            }
+            else if($from!= ''  && $to!='' && $from2== ''  && $to2==''){
+              $onsiteSView= $this->adminModel->onsiteSale_duration($from, $to);
+              $onlineSView= $this->adminModel->get_onlineSalesView();
+            }
+            else if($from!= ''  && $to!='' && $from2!= ''  && $to2!=''){
+              $onsiteSView= $this->adminModel->onsiteSale_duration($from, $to);
+              $onlineSView= $this->adminModel->onlineSale_duration($from2, $to2);
+
+            }
+            else if($from== ''  && $to=='' && $from2== ''  && $to2==''){
+              $onsiteSView= $this->adminModel->get_onsiteSalesView();
+              $onlineSView= $this->adminModel->get_onlineSalesView();
+            }
+  
+            $data = [
+                'onsiteS' => $onsiteSView,
+                'onlineS' => $onlineSView,
+                'from' => $from,
+                'to' => $to,
+                'from2' => $from2,
+                'to2' => $to2
+            ];
+            $this->view('admin/viewSales',$data);
+          }
+          else{
+            $onsiteSView= $this->adminModel->get_onsiteSalesView();
+            $onlineSView= $this->adminModel->get_onlineSalesView();
+  
+            $data = [
+                'onsiteS' => $onsiteSView,
+                'onlineS' => $onlineSView,
+                'from' => '',
+                'to' => '',
+                'from2' => '',
+                'to2' => ''
+            ];
+
+          }
 
           $this->view('admin/viewSales',$data);
+          
         }
 
         //get the details of Customers

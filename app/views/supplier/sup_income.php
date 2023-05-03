@@ -2,7 +2,61 @@
 <link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/public/css/supplier/sup_income.css">
 <?php require APPROOT.'/views/supplier/supplier_dashboard.php'; ?>
 
-<section>
+<div class="container">
+
+  <div class="divContainer1">
+    <div class="graphBox">
+
+        <div class="box">
+        <label><center>Income</center></label>
+        <canvas id="income"></canvas>
+        </div>
+    </div>
+
+  </div>
+
+  <div class="divContainer2">
+    <div class="cusTable">
+      <h3>My Income</h3>
+
+        <table id="supIncomeTable">
+            <thead>
+                <th>SupplY Order Id</th>
+                <th>Date</th>
+                <th>Income</th>
+                <!-- <th>Total Orders</th> -->
+                <th>Action</th>
+            </thead>
+            <tbody>   
+                <?php $data_index=0 ?>
+                <?php foreach ($data['supIncome'] as $supIncome) : ?>
+                <tr>
+                <td><?php echo $supIncome->supply_order_id; ?></td>
+                <td><?php echo $supIncome->supply_date; ?></td>
+                <td><?php echo $supIncome->total_payment; ?></td>
+
+                <td>
+                    <div class="table-btns">
+                    <a href="#"><button class="viewBtn" onclick="openModel5('<?=$supIncome->supply_order_id?>')" id="<?php echo($data_index) ?>"><i class="fas fa-eye"></i></button></a>
+                    </div>
+                </td>
+                </tr><br>
+                <?php $data_index++; ?>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+    
+  </div>
+
+
+</div>
+
+
+
+
+
+<!-- <section>
 <main>
         <h1>Income Report</h1>
         <div class="income-container">
@@ -33,7 +87,7 @@
         </div>
     </main>
 
-</section>
+</section> -->
 <!-- <section>
     <div class="graphBox">
 
@@ -43,5 +97,7 @@
         </div>
     </div>
 </section> -->
+
+
 <?php require APPROOT.'/views/include/footer.php'; ?>
 <script src="<?php echo URLROOT; ?>/js/supplier.js"></script>

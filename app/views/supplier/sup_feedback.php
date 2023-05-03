@@ -20,7 +20,7 @@
                 
         </div>
 
-        <div class="wrapper-right">
+        <!-- <div class="wrapper-right">
         <?php foreach ($data['supFeedback'] as $supFeedback) : ?>
 
             <div class="feature">
@@ -37,6 +37,33 @@
 
         <?php endforeach; ?>
 
+        </div> -->
+        <div class="divContainer3">
+            <!-- feedbacks -->
+            <section class="feedback">
+            <div class="full-boxer">
+            <?php foreach ($data['supFeedback'] as $supFeedback) : ?>
+                <div class="comment-box">
+                <div class="box-top">
+                    <div class="profile-box">
+                    <div class="profile-img">
+                    <!-- <img src="<?php echo UPLOADS . $supFeedback->image ?>" width='100' height='100'> -->
+                    </div>
+                    <div class="name">
+                        <span><?php echo $supFeedback->date; ?></span>
+                    </div>
+                    </div>
+                </div>
+                <div class="comment">
+                    <p>
+                    <?php echo $supFeedback->feedback; ?>
+                    </p>         
+                </div>
+                </div>
+                <?php endforeach; ?>
+            </div>
+            </section>
+            
         </div>
     </div>
 </section>

@@ -217,6 +217,51 @@
       return $result;
     }
 
+    // ----------view Income-------------------//
+    public function get_supIncome($supID)
+    {
+      $this->db->query('SELECT * FROM supply_order WHERE supplier_id = :supID');
+      $this->db->bind(':supID',$supID);
+
+      $result = $this->db->resultSet();
+
+      return $result;
+    }
+
+    public function supOrder_duration($from, $to)
+    {
+      $this->db->query('SELECT * FROM supply_order WHERE supplier_id=:supID AND supply_date >= "'.$from.'" and supply_date <= "'.$to.'" ');
+      $this->db->bind(':supID',$_SESSION['user_id']);
+      $result = $this->db->resultSet();
+
+      return $result;     
+    }
+
+    public function get_supOrderReceipt($order_id)
+    {
+      $this->db->query('SELECT * FROM supply_order WHERE supply_order_id = :supID');
+      $this->db->bind(':supID',$order_id);
+      $result = $this->db->resultSet();
+
+      return $result;
+    }
+
+    //chart - sup income
+    public function get_totIncome($supID)
+    {
+      $this->db->query('SELECT * From supply_order WHERE supplier_id=:supID AND status="Collected" ORDER BY supply_order_id DESC LIMIT 6');
+      $this->db->bind(':supID',$supID);
+      $result=$this->db->resultSet();
+      return json_encode($result);
+    }
+
+    //chart - purchasing price
+    public function get_milkPurchasingPrice()
+    {
+      $this->db->query('SELECT * From milk_purchasing_price ORDER BY date DESC LIMIT 6');
+      $result=$this->db->resultSet();
+      return json_encode($result);
+    }
 
 
   }
