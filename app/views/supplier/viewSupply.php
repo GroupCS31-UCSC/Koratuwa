@@ -19,7 +19,7 @@
     </div> -->
     <!--------- table------------------>
     <div class="feature1">
-      <div class="search">
+      <!-- <div class="search"> -->
           <!-- <input type="text" class="searchTerm" placeholder="What are you looking for?">
           <button type="submit" class="searchButton">
             <i class="fa fa-search"></i>
@@ -27,7 +27,7 @@
           <!-- <input type="date" id="myDateInput" >
           <button type="submit" class="searchButton" onkeyup="filterTable()"> -->
 
-      </div>
+      <!-- </div> -->
       
       <form action="<?php echo URLROOT; ?>/Supplier/viewSupply" method="POST" >
       <label for="from">From :</label>
@@ -38,17 +38,22 @@
     </form>
       <a href="<?php echo URLROOT?>/Supplier/generateSupplyReport/"><button>Genarate PDF</button></a>
       
-      <table>
-          <tr>
-            <th>Supply Order ID</th>
-            <th>Supply Date</th>
-            <th>Supply Quantity (L) </th>
-            <th>Price Received Per Unit (Rs) </th>
+      <table id="detailsTable6">
+        <thead>
+            <th col-index = 1>Supply Order ID</th>
+            <th col-index = 2>Supply Date</th>
+            <th col-index = 3>Supply Quantity (L) </th>
+            <th col-index = 4>Price Received Per Unit (Rs) </th>
             <!-- <th>Supplying Address</th> -->
-            <th>Status</th>
+            <th col-index = 5>Status
+              <select class="table-filter6" onchange="filter_rows6()">
+                <option value="all"></option>
+              </select>
+            </th>
             <th>Quality</th>
             <th>More</th>
-          </tr>
+        </thead>
+        <tbody>
           <?php $data_index=0 ?>
           <?php foreach ($data['supOrderView'] as $supOrd) : ?>
           <tr>
@@ -78,7 +83,7 @@
           </tr><br>
           <?php $data_index++; ?> 
           <?php endforeach; ?>
-
+        </tbody>
       </table>      
     </div>
   </div>
@@ -193,8 +198,15 @@
    
 </script>
 
+<script>
+      getUniqueValuesFromColumn6();
+    </script>
+
+<!-- for table - status column FILTER -->
+
 <?php require APPROOT.'/views/include/footer.php'; ?>
 <script src="<?php echo URLROOT; ?>/js/supplier.js"></script>
+
 
 
         
