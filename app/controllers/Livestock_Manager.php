@@ -175,14 +175,34 @@
       }
     }
 
-    public function deleteCattle($cowId) {
-      if($this->livestockModel->deleteCattle($cowId)){
+    public function deleteCattle() {
+      // print_r($_GET);
+      $cowId = $_GET['cow_id'];
+      $reason = $_GET['reason'];
+      $price = $_GET['price'];
+      $data =[];
+      $data['cow_id'] = $cowId;
+      $data['reason'] = $reason;
+      if($reason == "SOLD") {
+        $data['price'] = $price;
+      }
+      if($this->livestockModel->deleteCattle($data)) {
         flash('deleteCattle_flash','Cattle details are successfully deleted');
         redirect('livestock_Manager/viewCattle');
       }
       else {
         die('Something went wrong');
       }
+      // $data = json_decode(file_get_contents("php://input"), true);
+
+      // echo json_encode($data);
+      // if($this->livestockModel->deleteCattle($cowId)){
+      //   flash('deleteCattle_flash','Cattle details are successfully deleted');
+      //   redirect('livestock_Manager/viewCattle');
+      // }
+      // else {
+      //   die('Something went wrong');
+      // }
     }
 
     //feed monitoring
