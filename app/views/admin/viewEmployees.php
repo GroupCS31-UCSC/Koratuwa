@@ -18,11 +18,7 @@
       <div class="tab"><p>
         <div class="systemUsers">
 
-          <section class="table-upperSection">
-            <div class="upper">
-            <input type="button" value="Add New Employee" class="addBtn" onclick="location.href='<?php echo URLROOT; ?>/Admin/addEmployees' ">
-            <div>
-          </section>
+          
 
           <div class="search-section">
               <div class="search-bar">
@@ -55,6 +51,8 @@
 
               </div>
           </div>
+
+          
                     
 
           <section class="table1Section">
@@ -62,6 +60,11 @@
               
             <?php foreach ($data['empView'] as $emp) : ?>
             <?php if($emp->existence == 1): ?>
+              <section class="table-upperSection">
+                <div class="upper">
+                  <input type="button" value="Add New Employee" class="addBtn" onclick="location.href='<?php echo URLROOT; ?>/Admin/addEmployees' ">
+                <div>
+              </section>
               <table>
                 <tr>
                   <!-- <th>Image</th> -->
@@ -118,8 +121,8 @@
                   <th>NIC</th>
                   <th>Contact Number</th>
                   <th>Gender</th>
-                  <th>Service_Time</th>
-                  <th>Resigned_date</th>
+                  <th>Service Time</th>
+                  <th>Resigned Date</th>
                   <!-- <th>More Details</th> -->
                 </tr>
 
@@ -177,11 +180,6 @@
         <div class="tab"><p>
           <div class="systemUsers">
 
-            <section class="table-upperSection">
-              <div class="upper">
-              <input type="button" value="Add New Labour" class="addBtn" onclick="location.href='<?php echo URLROOT; ?>/Admin/addLabours' ">
-              <div>
-            </section>
 
             <div class="search-section">
                 <div class="search-bar">
@@ -222,6 +220,11 @@
               
               <?php foreach ($data['labView'] as $lab) : ?>
               <?php if($lab->existence == 1): ?>
+                <section class="table-upperSection">
+                  <div class="upper">
+                    <input type="button" value="Add New Labour" class="addBtn" onclick="location.href='<?php echo URLROOT; ?>/Admin/addLabours' ">
+                  <div>
+                </section>
                 <table>
                   <tr>
                     <th>Employee Id</th>
@@ -266,8 +269,8 @@
                     <th>NIC</th>
                     <th>Contact Number</th>
                     <th>Gender</th>
-                    <th>Service_Time</th>
-                    <th>Resigned_date</th>
+                    <th>Service Time</th>
+                    <th>Resigned date</th>
                     <!-- <th>More Details</th> -->
                   </tr>
 

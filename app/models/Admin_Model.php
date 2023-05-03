@@ -489,13 +489,23 @@
     public function pastEmpSearch($search)
     {
       if(!empty($search)){
-        $this->db->query("SELECT * From employee WHERE existence=0 AND employee_name LIKE '%$search%' ");
+        $this->db->query("SELECT employee.employee_id, employee.employee_name, employee.nic, employee.gender, employee.contact_number, employee.address, employee.employment, employee.existence,
+        past_employee.removed_date,past_employee.service_time
+        FROM employee 
+        INNER JOIN past_employee 
+        ON employee.employee_id = past_employee.user_id WHERE employee.employee_name LIKE '%$search%' ");
         // $this->db->bind(':search', $search);
+
         $result=$this->db->resultSet();
         return $result;
       }
       else{
-        $this->db->query('SELECT * From employee WHERE existence=0');
+        $this->db->query('SELECT employee.employee_id, employee.employee_name, employee.nic, employee.gender, employee.contact_number, employee.address, employee.employment,employee.existence,
+        past_employee.removed_date,past_employee.service_time
+        FROM employee 
+        INNER JOIN past_employee 
+        ON employee.employee_id = past_employee.user_id ');
+
         $result=$this->db->resultSet();
         return $result;
       }
@@ -521,13 +531,22 @@
     public function pastLabourSearch($search)
     {
       if(!empty($search)){
-        $this->db->query("SELECT * From laborer WHERE existence=0 AND employee_name LIKE '%$search%' ");
+        $this->db->query("SELECT laborer.laborer_id, laborer.name, laborer.nic, laborer.gender, laborer.contact_number, laborer.address, laborer.existence,
+        past_employee.removed_date,past_employee.service_time
+        FROM laborer 
+        INNER JOIN past_employee 
+        ON laborer.laborer_id = past_employee.user_id WHERE laborer.name LIKE '%$search%' ");
         // $this->db->bind(':search', $search);
+
         $result=$this->db->resultSet();
         return $result;
       }
       else{
-        $this->db->query('SELECT * From laborer WHERE existence=0');
+        $this->db->query('SELECT laborer.laborer_id, laborer.name, laborer.nic, laborer.gender, laborer.contact_number, laborer.address, laborer.existence,
+        past_employee.removed_date,past_employee.service_time
+        FROM laborer 
+        INNER JOIN past_employee 
+        ON laborer.laborer_id = past_employee.user_id;');
         $result=$this->db->resultSet();
         return $result;
       }
@@ -577,6 +596,15 @@
 			{
 				return false;
 			}
+    }
+
+    public function InternalMC_duration($from, $to)
+    {
+      $this->db->query('SELECT * FROM milk_collection WHERE collected_date >= "'.$from.'" and collected_date <= "'.$to.'"');
+
+      $result = $this->db->resultSet();
+
+      return $result;
     }
 
     

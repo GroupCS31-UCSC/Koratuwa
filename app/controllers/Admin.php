@@ -507,13 +507,35 @@
         //get the details of MilkCollection
         public function viewMilkCollection()
         {
-          $mcView= $this->adminModel->get_mcView();
-          $supOrdView= $this->adminModel->get_supOrdView();
+          if($_SERVER['REQUEST_METHOD'] == 'POST')
+          {
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+            
+            $from = isset($_POST['from']) ? $_POST['from'] : date('Y-m-d');
+            $to = isset($_POST['to']) ? $_POST['to'] : date('Y-m-d');
 
-          $data = [
-              'mcView' => $mcView,
-              'supOrd' => $supOrdView
-          ];
+            $supOrdView= $this->adminModel->get_supOrdView();
+            $mcView= $this->adminModel->InternalMC_duration($from, $to);
+  
+            $data = [
+                'mcView' => $mcView,
+                'supOrd' => $supOrdView,
+                'from' => $from,
+                'to' => $to
+            ];
+          }
+          else{
+            $mcView= $this->adminModel->get_mcView();
+            $supOrdView= $this->adminModel->get_supOrdView();
+  
+            $data = [
+                'mcView' => $mcView,
+                'supOrd' => $supOrdView,
+                'from' => '',
+                'to' => ''
+            ];
+
+          }
 
           $this->view('admin/viewMilkCollection',$data);
         }
