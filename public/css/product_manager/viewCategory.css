@@ -213,15 +213,18 @@ cursor: pointer;
     display: flex;
     justify-content: space-between;
   }
-.l{
-    text-align: left;
-}
-
-.r{
-    text-align: right;
-} 
 
 
+  .form-input-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .form-input-wrapper {
+    width: 100%;
+    margin: 8px;
+  }
 
 @media (max-width: 900px) {
     
