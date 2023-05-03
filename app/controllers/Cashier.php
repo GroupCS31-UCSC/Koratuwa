@@ -26,10 +26,9 @@
         $data2 = $this->cashierModel->get_productView();
 
         $data = [
-          // 'saleId'=> '',
+          'saleId'=> '',
           'productId' => trim($_POST['productId']),
           'quantity' => trim($_POST['quantity']),
-          // 'receiptId' => '',
 
           'productId_err' => '',
           'quantity_err' => '',
@@ -43,7 +42,7 @@
             
         //if no errors
         if(empty($data['productId_err']) && empty($data['quantity_err'])) {
-          // $data['saleId'] = $this->cashierModel->findReceiptId();
+          $data['saleId'] = $this->cashierModel->findSaletId();
 
           if($this->cashierModel->addSale($data)) {
             flash('add_onsiteSale_success', 'Sale added successfully');
@@ -62,7 +61,7 @@
         $data2 = $this->cashierModel->get_productView();
 
         $data = [
-          // 'saleId'=> '',
+          'saleId'=> '',
           'productId' => '',
           'quantity' => '',
           // 'receiptId' => '',
@@ -72,17 +71,8 @@
         ];
 
         $result = array($data,$data2);
-        // $this->view('Cashier/addSale',$result);
         $this->view('Cashier/cashier_home',$result);
       }
-      // $this->view('Cashier/cashier_home',$data);
-    }
-
-    public function getProductName() {
-      $productId = $_POST['productId'];
-      $productName = $this->cashierModel->getProductNameById($productId);
-      echo $productName;
-
     }
 
     public function viewOnsiteSale() {
@@ -179,6 +169,22 @@
     //   $data = [];
     //   $this->view('Cashier/updateOrderStatus',$data);
     // }
+
+    public function saveProductSale() {
+
+       $data = json_decode(file_get_contents('php://input'), true);
+
+      if(!$this->cashierModel->saveProductSale($data)) {
+        echo json_encode(array('success' => false));
+      }
+      else {
+        echo json_encode(array('success' => true));
+      }
+      // echo json_encode($data);
+    }
+
   }
+
+  
 
 ?>
