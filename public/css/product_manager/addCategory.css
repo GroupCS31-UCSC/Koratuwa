@@ -31,7 +31,7 @@ input[type=file] {
     display: block;
 }
 
-#duration {
+.duration {
     border: 1px solid #d5d2d2;
     border-radius: 5px;
     width: 30%;
@@ -45,7 +45,7 @@ input[type=file] {
     display: block;
 }
 
-#duration_months{
+.duration_months{
     border: 1px solid #d5d2d2;
     border-radius: 5px;
     width: 30%;
@@ -59,8 +59,13 @@ input[type=file] {
     display: block;
     float: left;
 }
-.input-container input {
-    display: inline;
-    width: 45%;
-    margin-right: 5%;
+.form-input-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
   }
+  
+  .form-input-wrapper {
+    width: 100%;
+  }
+  

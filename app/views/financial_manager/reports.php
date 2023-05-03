@@ -71,7 +71,9 @@
     </div>
   
 
-     <input type="submit" value="Generate PDF" class="pdfBtn">  
+   
+
+     <a href="<?php echo URLROOT?>/financial_Manager/generateFinanceReport/"><button class="pdfBtn">Genarate PDF</button></a>
   
 
 
