@@ -5,16 +5,16 @@
 
 <div class="container">
   <div class="form-container">
+    
 	  <div class="form-header">
 		  <h3>Product Details</h3>
 	  </div>
-	  <br>
+    <input type="text" id="saleId" value="<?php echo $data[0]['saleId']; ?>" style="display:none">
 	  <form action="<?php echo URLROOT; ?>/Cashier/cashierHome" method="POST" enctype="multipart/form-data">  
       <div class="form-input-container">
         <div class="form-input-wrapper">
           <!-- Product Id -->
           <div class="form-input-title">Product Name</div>
-          <!-- <span class="form-invalid"><?php echo $data[0]['productId_err']; ?></span> -->
           <label for="Select the Product"></label>
           <?php $values = $data[1]?>
           <select name="product" id="product">
@@ -42,7 +42,6 @@
       <th>Unit Price</th>
       <th>Quantity</th>
       <th>Price</th>
-      <th class="action"></th>
     </tr>
     <tbody id="tbody">
     </tbody>
@@ -62,7 +61,7 @@
       <th width="20%"></th>
       <th width="20%" class="topic">Cash:</th>
       <th width="20%" class="topic">
-      <input type="number" name="cash" id="cash" class="cash" required>
+      <input type="number" name="cash" id="cash" class="cash" oninput="updateBalance()" required>
       </th>
     </tr>
     <tr>
@@ -70,9 +69,10 @@
       <th width="20%"></th>
       <th width="20%"></th>
       <th width="20%" class="topic">Balance:</th>
-      <th width="20%" class="topic" id="balace"></th>
+      <th width="20%" class="topic" id="balace"><input readonly type='number' name="balance" id="balance-output"></th>
     </tr>
   </table>
+  <input type="submit" value="submit" class="submitBtn" onclick="payment()">
   <!-- popup receipt -->
   <input type="submit" value="PRINT RECEIPT" class="submitBtn" onclick="openModel()">
 </div>
@@ -124,7 +124,7 @@
               <tr>
 					      <th></th>
 					      <th><h2>Cash</h2></th>
-					      <th id="cash"><h2></h2></th>
+					      <th id="cash" ><h2></h2></th>
 				      </tr>
               <tr>
 					      <th></th>
@@ -151,7 +151,7 @@
 
 
 <?php require APPROOT.'/views/include/footer.php'; ?>
-<script src="<?php echo URLROOT; ?>/js/cashier.js"></script>
+
 
 <script>
   function calculate(){
@@ -171,17 +171,54 @@ var total = 0;
     const id = selectedOption.ID;
     const up = selectedOption.UP;
 
+    var saleId = document.getElementById("saleId").value;
     var qnty = document.getElementById("quantity").value;
     var subTot = up * qnty;
     
-    document.getElementById("tbody").innerHTML += "<tr><td>" + id + "</td><td>" + name + "</td><td>" + up + "</td><td>" + qnty + "</td><td>" + subTot + "</td><td><button class='deleteBtn' onclick='deleteRow(this)'>-</button></td></tr>";
+    document.getElementById("tbody").innerHTML += "<tr><td>" + id + "</td><td>" + name + "</td><td>" + up + "</td><td>" + qnty + "</td><td>" + subTot + "</td></tr>";
    
     total += parseInt(subTot);
-    // console.log(total);
+    
     document.getElementById("total").innerHTML = total;
     var cash = document.getElementById("cash").value;
-    document.getElementById("balance").innerHTML = cash - total;
     
+    document.getElementById("balance").innerHTML = cash - total;
+
+    const postData = {
+      saleId: saleId,
+      id: id,
+      qnty: qnty,
+      subTot: subTot,
+      total: total,
+    }
+
+    fetch('/koratuwa/Cashier/saveProductSale',{
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(postData)
+    }).then(res => res.json()).then(data => {
+      console.log(data);
+    }).catch(err => console.log(err));
+  }
+
+  function payment() {
+    var saleId = document.getElementById("saleId").value;
+
+    const postData = {
+      saleId: saleId,
+    }
+
+    fetch('/koratuwa/Cashier/submitdata',{
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(postData)
+    }).then(res => res.json()).then(data => {
+      console.log(data);
+    }).catch(err => console.log(err));
   }
 
   function openModel(){
@@ -190,4 +227,23 @@ var total = 0;
 function closeModel(){
   document.getElementById("model").classList.remove("open-model");
 }
+
+function updateBalance() {
+  // Get the cash and balance elements by ID
+  const cashElement = document.getElementById('cash');
+  const balanceElement = document.getElementById('balance-output');
+
+  // Get the initial total value from the total element by ID
+  const totalElement = document.getElementById('total');
+  const totalValue = parseFloat(totalElement.textContent);
+
+  // Convert the cash value to a number, or default to 0 if empty
+  const cashValue = parseFloat(cashElement.value) || 0;
+
+  // Calculate the balance value and update the balance element
+  const balanceValue = cashValue - totalValue;
+  balanceElement.value = balanceValue.toFixed(2);
+}
+
+
 </script>

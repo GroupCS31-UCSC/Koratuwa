@@ -6,11 +6,26 @@
 <div class="container">
 
   <div class="divContainer1">
+  <form action="<?php echo URLROOT; ?>/Admin/viewMilkCollection" method="POST" >
+    <label for="from">From :</label>
+    <input type="date" id="from" name="from" value="<?php echo $data['from']; ?>"><br>
+    <label for="to">  To :</label>
+    <input type="date" id="to" name="to" value="<?php echo $data['to']; ?>">
+    <input type="submit" value="Search" class="submitBtn"> 
+  </form>
+
+  <!-- <input type="date" id="searchInput3" placeholder="Search By Date..." onkeyup="searchFunc3();"> -->
+
+  <input type="button" value="Refresh" class="addBtn" onclick="location.href='<?php echo URLROOT; ?>/Admin/viewMilkCollection' ">
     <h2>Internal Milk Collection</h2>
-    <table>
+    <table id="detailsTable3">
       <thead>
-        <th>Collection Id</th>
-        <th>Stall Id</th>
+        <th col-index = 1>Collection Id</th>
+        <th col-index = 2>Stall Id
+          <select class="table-filter3" onchange="filter_rows3()">
+            <option value="all"></option>
+          </select>
+        </th>
         <th>Quantity(L)</th>
         <th>Date</th>
         <th>Action</th>
@@ -36,13 +51,25 @@
   </div>
 
   <div class="divContainer2">
+  <form action="<?php echo URLROOT; ?>/Admin/viewMilkCollection" method="POST" >
+    <label for="from2">From :</label>
+    <input type="date" id="from2" name="from2" value="<?php echo $data['from2']; ?>"><br>
+    <label for="to2">  To :</label>
+    <input type="date" id="to2" name="to2" value="<?php echo $data['to2']; ?>">
+    <input type="submit" value="Search" class="submitBtn"> 
+  </form>
+  <input type="button" value="Refresh" class="addBtn" onclick="location.href='<?php echo URLROOT; ?>/Admin/viewMilkCollection' ">
     <h2>External Milk Collection</h2>
-    <table>
+    <table id="detailsTable4">
       <thead>
-        <th>Supply Id</th>
+        <th col-index = 1>Supply Id</th>
+        <th col-index = 2>Status
+          <select class="table-filter4" onchange="filter_rows4()">
+            <option value="all"></option>
+          </select>
+        </th>
         <th>Date</th>
         <th>Quantity(L)</th>
-        <th>Status</th>
         <th>Supplier Id</th>
         <th>View More</th>
       </thead>
@@ -51,9 +78,9 @@
         <?php foreach ($data['supOrd'] as $supOrd) : ?>
         <tr>
           <td><?php echo $supOrd->supply_order_id; ?></td>
+          <td><?php echo $supOrd->status; ?></td>
           <td><?php echo $supOrd->supply_date; ?></td>
           <td><?php echo $supOrd->quantity; ?></td>
-          <td><?php echo $supOrd->status; ?></td>
           <td><?php echo $supOrd->supplier_id; ?></td>
           <td>
             <div class="table-btns">
@@ -68,6 +95,12 @@
   </div>
 
 </div>
+
+<script>
+
+      getUniqueValuesFromColumn3();
+      getUniqueValuesFromColumn4();
+    </script>
 
 
     
