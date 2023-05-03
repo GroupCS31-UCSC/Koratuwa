@@ -20,6 +20,7 @@
                             <h3> <?php echo $product->unit_size?></h3>
                             <h4>RS.<?php echo $product->total_price?></h4>
                             <h4>Quantity: <?php echo $product->quantity?></h4>
+                            <!-- <?php echo $product->timestamp ?> -->
                         </div>
                        
                     </div>
@@ -55,24 +56,25 @@
 
 <script>
         function paymentGateway(){
-        var bookingType = type;
+        // var bookingType = type;
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = ()=>{
             if(xhttp.readyState == 4){ 
                 
                 let obj=JSON.parse(xhttp.responseText);
+                console.log(obj);
                 // Payment completed. It can be a successful failure.
                 
 
                 // Put the payment variables here
                 var payment = {
                     "sandbox": true,
-                    "merchant_id": "1223006",    // Replace your Merchant ID
-                    "return_url": "<?php echo URLROOT?>Customer/customerHome",     // Important
-                    "cancel_url": "<?php echo URLROOT?>/Customer/cart",     // Important
+                    "merchant_id": "1223042",    // Replace your Merchant ID
+                    "return_url": "<?= URLROOT?>Customer/customerHome",     // Important
+                    "cancel_url": "<?= URLROOT?>/Customer/cart",     // Important
                     "notify_url": "http://sample.com/notify",
-                    "order_id": '', 
-                    "items": "Payment from <?php echo $_SESSION['user_id']?>",
+                    "order_id": obj['order_id'], 
+                    "items": "Payment from <?= $_SESSION['user_id']?>", //Add Name
                     "amount": obj["amount"],
                     "currency": obj["currency"],
                     "hash": obj["hash"], // *Replace with generated hash retrieved from backend
@@ -87,20 +89,20 @@
                     "delivery_city": "Kalutara",
                     "delivery_country": "Sri Lanka",
                     "custom_1": "",
-                    "custom_2": type
+                    "custom_2": ""
                 };
 
                 payhere.startPayment(payment);
             }
         };
-        xhttp.open("GET","<?=URLROOT?>/Customer/paymentDetails/"+<?php echo $subtotal?>,true);
+        xhttp.open("GET","<?=URLROOT?>/Customer/paymentDetails/"+<?= $subtotal?>,true);
         xhttp.send();
     }
 
     payhere.onCompleted = function onCompleted(orderId) {
         console.log("Payment completed. OrderID:" + orderId);
         
-        placeOrder(<?php echo $subtotal?>);
+        placeOrder(<?= $subtotal?>,'http://localhost/koratuwa');
         // Note: validate the payment and show success or failure page to the customer
     };
 
@@ -116,11 +118,12 @@
         console.log("Error:"  + error);
     };
 
-    function placeOrder(payment){
+    function placeOrder(payment,purl){
+        console.log(purl);
         // ajax request liyala back end controller ekata data yawanna
         $.ajax({
                     type: "POST",
-                    url: "<?= URLROOT ?>/Customer/onlineOrd",
+                    url: purl+"/Customer/onlineOrd",
                     data: {
                         amount: payment
                     },
@@ -134,8 +137,24 @@
                         }
                         
                         
+                    },
+                    error:function () {
+                        alert("Wada naaa");
                     }
+
                 });
+        // let xhr=new XMLHttpRequest();
+        // xhr.open("POST","http://localhost/koratuwa/Customer/onlineOrd",true);
+        // xhr.onload=()=>{
+        // if (xhr.readyState===XMLHttpRequest.DONE) {
+        //     if (xhr.status===200) {
+        //         console.log("HI");
+        //     }
+        // }
+        
+        // }
+        // let amount="amount="+payment
+        // xhr.send(amount);
 
     }
 </script>

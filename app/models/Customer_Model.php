@@ -78,8 +78,12 @@
 
   public function dltCartItems($time)
   {
-    $this->db->query('DELETE FROM cart WHERE timestamp= :time');
+    $xtime = $this->db->query('SELECT TIME(:time)');
+    $xdate = $this->db->query('SELECT DATE(:time)');
     $this->db->bind(':time', $time);
+    $timestamp = $xdate.' '.$xtime;
+    $this->db->query('DELETE FROM cart WHERE timestamp= :time');
+    $this->db->bind(':time', $timestamp);
     
     if($this->db->execute())
     {

@@ -143,7 +143,8 @@
         }
 
         public function deleteCartItem($time){
-          
+
+        
           if($this->customerModel->dltCartItems($time))
           {
             redirect('customer/cart');
@@ -159,17 +160,18 @@
         public function paymentDetails($payment){
 
 
-
+          
           $amount = $payment;
           // $hotelid=$hotelid;
           $merchant_id = "1223042";
-          $order_id = $bookingID;
+          $order_id = $this->customerModel->generateordId();
           $merchant_secret = "Mjc3MjYxOTQ5ODM4MDk1MDkxMDM0NDIwMDUzMTczMDc1ODY5ODgz";
           $currency = "LKR";
 
           $hash = strtoupper(
               md5(
-                  $merchant_id . 
+                  $merchant_id .
+                  $order_id.
                   number_format($amount, 2, '.', '') . 
                   $currency .  
                   strtoupper(md5($merchant_secret)) 
@@ -186,6 +188,7 @@
 
           $array["amount"] = $amount;
           $array["merchant_id"] = $merchant_id;
+          $array["order_id"] = $order_id;
           $array["currency"] = $currency;
           $array["hash"] = $hash;
 
@@ -194,17 +197,26 @@
 
       }  
       
-      public function onlineOrd($payment){
-        
+      public function onlineOrd(){
+        // die('Something went wrong');
+        print_r("HI");
         $ordId = $this->customerModel->generateordId();
         
         $data=[
           'order_id' => $ordId -> order_id ,
-          'payment' => $ordId -> total_payment
+          'payment' => $_POST['amount']
         ];
+        print_r($data);
 
-        $this->customerModel->onlineOrder($data);
-      }
+        if($this->customerModel->onlineOrder($data))
+        {
+          redirect('customer/customerHome');
+        }
+        else
+        {
+          die('Something went wrong');
+        }
+       }
 
     }
 
