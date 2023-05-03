@@ -80,13 +80,7 @@
       <div class="modal-footer"></div>
     </div>
     
-    <script>
-      window.onload = () => {
-          console.log(document.querySelector("#product_stock-table > tbody > tr:nth-child(1) > td:nth-child(2) ").innerHTML);
-      };
 
-      getUniqueValuesFromColumn();
-    </script>
 
   </div>
   </div>
