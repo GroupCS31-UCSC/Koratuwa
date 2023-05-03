@@ -193,6 +193,69 @@
           $this->view('supplier/viewSupply',$data);
 
         }
+        public function generateSupplyReport(){
+          $supOrderView= $this->supplierModel->get_supOrderView();
+          $pdf = generatePdf();
+
+          $pdf->AddPage('L','A4');
+        
+          $pdf->SetFont('Arial', 'B', 18);
+          $pdf->Cell(0, 10, 'Koratuwa Supplier Order Details', 0, 1, 'C');
+        
+          $pdfWidth = $pdf->GetPageWidth();
+          $pdfHeight = $pdf->GetPageHeight();
+
+         $pdf->Rect(5, 5, $pdfWidth-8, $pdfHeight-10, 'D');    
+
+        $pdf->SetFont('Arial', 'B', 14);
+        $pdf->SetTitle('Sobawitha Payment Details Report');
+        $pdf->SetTextColor(255, 255, 255);
+       
+
+
+        $pdf->Cell(60, 10, 'Supplier Order Id', 1 , 0, 'C',1);
+        $pdf->Cell(60, 10, 'Supply Quantity (L)', 1 , 0, 'C',1);
+        $pdf->Cell(70, 10, 'Price Received Per Unit', 1 , 0, 'C',1);
+        $pdf->Cell(30, 10, 'Status', 1 , 0, 'C',1);
+        $pdf->Cell(30, 10, 'Quality', 1 , 0, 'C',1);
+        $pdf->Ln();
+        
+        $pdf->SetTextColor(0, 0, 0);
+        
+        $pdf->SetFont('Arial', '', 12);
+        foreach ($supOrderView as $row) {
+        
+          
+            $pdf->Cell(60,10,$row->supply_order_id, 1 , 0, 'C');
+            $pdf->Cell(60,10,$row->quantity, 1 , 0, 'C');
+            $pdf->Cell(70,10,'Rs. '.$row->unit_price, 1 , 0, 'C');
+            $pdf->Cell(30,10,$row->status, 1 , 0, 'C');
+            $pdf->Cell(30,10,$row->	quality, 1 , 0, 'C');
+            
+           
+            
+            $pdf->Ln();
+
+
+
+        }
+
+       
+        
+        $pdf->AliasNbPages();
+        $pdf->SetFont('Arial', 'B', 12);
+        $pdf->Cell(0, 10, 'Page ' . $pdf->PageNo() . ' of {nb}', 0, 0, 'C');
+        
+  
+        // $pdf->Output();
+         $pdf->Output('Supplier Order Details.pdf', 'I');
+           
+            $data=[
+            'supOrderView' =>  $supOrderView
+            ];
+        
+            $this->view('supplier/viewSupply',$data);
+        }
 
 
 
