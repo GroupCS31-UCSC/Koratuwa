@@ -30,7 +30,7 @@ table {
     text-align: center;
     /*z-index: 0;*/
 }
-/* 
+ 
 table td,
 #orders th {
     border: 1px solid #ddd;
@@ -53,4 +53,50 @@ table th {
     text-align: center;
     background-color: rgb(232, 232, 167);
     color: black;
-}  */
+}  
+
+
+
+
+
+
+.cardWrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 300px));
+    /* padding: 50px; */
+    gap: 100px;
+    margin: 50px 100px;
+
+    
+}
+
+.card {
+    background: white;
+    min-height: 100px;
+
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    color: black;
+    width: 350px;
+    transition: .5s; 
+    outline: .1rem solid #ccc;
+    outline-offset: -1.0rem;
+}
+
+
+
+
+.card>.cardContent {
+    width: 100%;
+    /* height: 100%; */
+    display: grid;
+    place-items: center;
+    margin-top: 20px;
+    background-color: #f2f2f2;
+}
+
+.card>.cardContent>p {
+    padding: 10px auto;
+    font-size: 1.5rem;
+
+}
