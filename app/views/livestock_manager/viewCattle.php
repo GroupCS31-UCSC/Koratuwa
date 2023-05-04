@@ -96,10 +96,10 @@
               <td>Age</td>
               <td id="Model_Age"></td>
             </tr>
-            <tr>
+            <!-- <tr>
               <td>Gender</td>
               <td id="Model_Gender"></td>
-            </tr>
+            </tr> -->
             <tr>
               <td>Milking Status</td>
               <td id="Model_milkin_Status"></td>

@@ -90,7 +90,7 @@ function openModel(id){
     document.getElementById("Model_Stall_No").innerText = data.stall_id;
     document.getElementById("Model_DOB").innerText = data.dob;
     document.getElementById("Model_Age").innerText = data.age;
-    document.getElementById("Model_Gender").innerText = data.breed;
+    // document.getElementById("Model_Gender").innerText = data.breed;
     document.getElementById("Model_milkin_Status").innerText = data.milking_status;
     }
 
