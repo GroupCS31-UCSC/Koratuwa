@@ -1,12 +1,12 @@
 //charts - Admin Dashboard page
-var ctx2 = document.getElementById('earning');
+var ctx1 = document.getElementById('earning');
 fetch('http://localhost/koratuwa/Admin/totProfitChart')
     .then(response => response.json())
     .then(data => {
       let month_names = data.map(obj => obj.month);
       let profit_amount = data.map(obj => obj.profit);
 
-      new Chart(ctx2, {
+      new Chart(ctx1, {
         type: 'bar',
         data: {
           labels: month_names,
@@ -38,15 +38,152 @@ fetch('http://localhost/koratuwa/Admin/totProfitChart')
     .catch(error => console.error(error));
 
 
-var profit = document.getElementById('profit').getContext('2d');
+
+//charts- Admin viewLivestock - totCattle
+var ctx2 = document.getElementById('cattleTot');
+fetch('http://localhost/koratuwa/Admin/totCattleChart')
+// console.log($result)
+    .then(response => response.json())
+    .then(data => {
+      let stall = data.map(obj => obj.stall_id);
+      let cattleCount = data.map(obj => obj.cattle_count);
+
+      new Chart(ctx2, {
+        type: 'doughnut',
+        data: {
+          labels: stall,
+          datasets: [{
+            label: 'cattles',
+            data: cattleCount,
+            backgroundColor:[
+                'rgba(21, 102, 255, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(101, 102, 255, 0.2)',
+                'rgba(153, 74, 255, 0.2)',
+            ],
+            borderColor:['rgba(255, 99, 132, 1)',
+            'rgba(255, 99, 105, 1)',
+            'rgba(255, 99, 212, 1)',
+            'rgba(255, 99, 189, 1)'
+            ],
+            borderWidth: 1
+          }]
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      });    
+
+    })
+    .catch(error => console.error(error));
+
+
+
+//charts- Admin viewLivestock - totCattleMilking
+var ctx3 = document.getElementById('ceMilking');
+fetch('http://localhost/koratuwa/Admin/totCattleMilkingChart')
+    .then(response => response.json())
+    .then(data => {
+      let month_names = data.map(obj => obj.month);
+      let profit_amount = data.map(obj => obj.profit);
+
+      new Chart(ctx3, {
+        type: 'bar',
+        data: {
+          labels: month_names,
+          datasets: [{
+            label: 'Profit(Rs.)',
+            data: profit_amount,
+            backgroundColor:[
+                'rgba(21, 102, 255, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(101, 102, 255, 0.2)',
+                'rgba(153, 74, 255, 0.2)',
+            ],
+            borderColor:['rgba(255, 99, 132, 1)'],
+            borderWidth: 1
+          }]
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      });    
+
+    })
+    .catch(error => console.error(error));
+
+
+
+//charts - Admin view suppliers - totorders
+var ctx1 = document.getElementById('earning');
+fetch('http://localhost/koratuwa/Admin/totProfitChart')
+    .then(response => response.json())
+    .then(data => {
+      let month_names = data.map(obj => obj.month);
+      let profit_amount = data.map(obj => obj.profit);
+
+      new Chart(ctx1, {
+        type: 'bar',
+        data: {
+          labels: month_names,
+          datasets: [{
+            label: 'Profit(Rs.)',
+            data: profit_amount,
+            backgroundColor:[
+                'rgba(21, 102, 255, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(101, 102, 255, 0.2)',
+                'rgba(153, 74, 255, 0.2)',
+            ],
+            borderColor:['rgba(255, 99, 132, 1)'],
+            borderWidth: 1
+          }]
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      });    
+
+    })
+    .catch(error => console.error(error));
+
+
+
+
+
+
+
+
+
+
+
+var profit = document.getElementById('totSupOrders').getContext('2d');
 
 var myChart = new Chart(profit, {
-    type: 'doughnut',
+    type: 'bar',
     data: {
-        labels: ['Milk Packets', 'Yogurts', 'Cheese', 'Fresh Milk'],
+        labels: ['April', 'March', 'February', 'January','November','December'],
         datasets: [{
-            label: 'profit by Productions',
-            data: [32000, 29000, 18000, 41000],
+            label: 'Total supply orders',
+            data: [25, 36, 40, 35, 48, 52],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)', ,
                 'rgba(255, 206, 86, 0.2)',

@@ -76,7 +76,7 @@ if(isset($_SESSION['popup_error'])){
       <thead>
         <tr>
           <td>Supplier</td>
-          <td>Quantity</td>
+          <td>Quantity(L)</td>
           <td>Address</td>
           <td>Status</td>
         </tr>
@@ -153,7 +153,7 @@ if(isset($_SESSION['popup_error'])){
     <div class="priceChart">
       <div class="box">
         <label><center>Milk Purchasing Price</center></label>
-        <canvas id="pricelist"></canvas>
+        <canvas id="milk_purchasing_price"></canvas>
       </div>
     </div>
   <!-- end chart -->
@@ -183,6 +183,9 @@ if(isset($_SESSION['popup_error'])){
 
 
 </div>
+
+
+
 <?php require APPROOT.'/views/include/footer.php'; ?>
 <script src="<?php echo URLROOT; ?>/js/mco.js"></script>
 

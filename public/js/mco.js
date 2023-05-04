@@ -56,14 +56,14 @@ var myChart = new Chart(totProfit, {
 });
 
 //charts
-var price = document.getElementById('pricelist').getContext('2d');
+var price = document.getElementById('milk_purchasing_price').getContext('2d');
 var myChart = new Chart(price, {
     type: 'line',
     data: {
-        labels: ['02/18', '02/19', '02/20', '02/21', '02/22', '02/23', '02/24'],
+        labels: ['05/04', '05/03', '03/24', '03/05'],
         datasets: [{
             label: 'Total collection',
-            data: [100, 90, 98, 98, 106, 102, 101],
+            data: [95, 105, 100, 45],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)', ,
                 'rgba(255, 206, 86, 0.2)',
@@ -188,7 +188,7 @@ function openModel1(id){
 
 //view of supply orders one by one
 
-function openModel2(id){
+function openMdfdxxdel2(id){
     // var id = data["id"];
     const url ="/koratuwa/Milk_Collection_Officer/viewSupOrderDetails/"+id;
     const form = new FormData();
@@ -215,7 +215,7 @@ function openModel2(id){
       }
   
     });
-    document.getElementById("model").classList.add("open-model");
+    document.getElementById("mmmfdfodel").classList.add("open-model");
     
 }
 

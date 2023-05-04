@@ -192,3 +192,22 @@ past_employee.removed_date,past_employee.service_time
 FROM laborer 
 INNER JOIN past_employee 
 ON laborer.laborer_id = past_employee.user_id WHERE laborer.name LIKE '%e%';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//stall - cattle view
