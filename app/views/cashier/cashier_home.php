@@ -72,9 +72,15 @@
       <th width="20%" class="topic" id="balace"><input readonly type='number' name="balance" id="balance-output"></th>
     </tr>
   </table>
+  <div class="btn-wrapper"> 
+    <div class="wrapper-1">
   <input type="submit" value="submit" class="submitBtn" onclick="payment()">
+  </div>
   <!-- popup receipt -->
+  <div class="wrapper-1">
   <input type="submit" value="PRINT RECEIPT" class="submitBtn" onclick="openModel()">
+  </div>
+  </div>
 </div>
 
 <div class="model fade in" id="model" tabindex="-1">

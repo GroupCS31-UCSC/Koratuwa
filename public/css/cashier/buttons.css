@@ -145,3 +145,36 @@
     background-color: #00BFFF;
     color: white;
 }
+
+.tab, .tabmilk {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tab button, .tabmilk button {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 25px;
+    background: #e2e2e2;
+    font-weight: bold;
+    font-size: 1em;
+}
+
+.tab button:hover, .tabmilk button:hover {
+    background-color: #fff;
+    color: black;
+}
+
+.tab button.active, .tabmilk button.active {
+    background-color: transparent;
+    /* color: white; */
+}
+
+.tabcontent, .tabcontentmilk {
+    display: none;
+}
+
+.tabcontent.active, .tabcontentmilk.active {
+    display: block;
+}

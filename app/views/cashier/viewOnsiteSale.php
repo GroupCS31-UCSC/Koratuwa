@@ -27,7 +27,7 @@
       <th>Date</th>
       <th>Time</th>
       <th>Payment</th>
-      <th>Receipt ID</th>
+      <!-- <th>Receipt ID</th> -->
       <th>Action</th>
     </tr>
   
@@ -38,13 +38,16 @@
       <td><?php echo $onsite_sale->sale_date ?></td>
       <td><?php echo $onsite_sale->sale_time ?></td>
       <td><?php echo $onsite_sale->total_payment ?></td>
-      <td><?php echo $onsite_sale->receipt_id ?></td>
+      <!-- <td><?php echo $onsite_sale->receipt_id ?></td> -->
       <td>
-      <?php foreach ($data ['productSaleView'] as $product_sale) : ?>
-        <div class="table-btns">
+      <div class="table-btns">
+          <a href="#"><button class="viewBtn" onclick=""><i class="fas fa-eye"></i></button></a>
+        </div> 
+      <!-- <?php foreach ($data ['productSaleView'] as $product_sale) : ?> -->
+        <!-- <div class="table-btns">
           <a href="#"><button class="viewBtn" onclick="openModel('<?=$product_sale->receipt_id?>')" id="<?php echo($data_index) ?>"><i class="fas fa-eye"></i></button></a>
-        </div>
-        <?php endforeach; ?>
+        </div> -->
+        <!-- <?php endforeach; ?> -->
       </td>
     </tr>
     <?php $data_index++; ?> 

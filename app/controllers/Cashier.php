@@ -79,16 +79,23 @@
       $this->view('Cashier/viewOnsiteSale',$data);    
     }
 
-    public function viewCustomerOrders($status) {
-      if($status == 'Ongoing'){
-        $onlineOrderView= $this->cashierModel->get_ongoingOrderView();
-      }
-      else {
-        $onlineOrderView= $this->cashierModel->get_deliveredOrderView();
-      }
+    // public function viewCustomerOrders($status) {
+    //   if($status == 'Ongoing'){
+    //     $onlineOrderView= $this->cashierModel->get_ongoingOrderView();
+    //   }
+    //   else {
+    //     $onlineOrderView= $this->cashierModel->get_deliveredOrderView();
+    //   }
+    //   $data = [
+    //     'onlineOrderView' => $onlineOrderView,
+    //     'status' => $status
+    //   ];
+    //   $this->view('Cashier/viewCustomerOrders',$data);
+    // }
+    public function viewCustomerOrders(){
+      $onlineOrderView= $this->cashierModel->get_onlineOrderView();
       $data = [
-        'onlineOrderView' => $onlineOrderView,
-        'status' => $status
+        'onlineOrderView' => $onlineOrderView
       ];
       $this->view('Cashier/viewCustomerOrders',$data);
     }
