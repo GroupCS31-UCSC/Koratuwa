@@ -55,6 +55,7 @@
 <script type="text/javascript" src="https://www.payhere.lk/lib/payhere.js"></script>
 
 <script>
+        let amount;
         function paymentGateway(){
         // var bookingType = type;
         var xhttp = new XMLHttpRequest();
@@ -64,7 +65,7 @@
                 let obj=JSON.parse(xhttp.responseText);
                 console.log(obj);
                 // Payment completed. It can be a successful failure.
-                
+                amount=obj["amount"];
 
                 // Put the payment variables here
                 var payment = {
@@ -100,9 +101,21 @@
     }
 
     payhere.onCompleted = function onCompleted(orderId) {
-        console.log("Payment completed. OrderID:" + orderId);
+        // console.log("Payment completed. OrderID:" + orderId);
         
-        placeOrder(<?= $subtotal?>,'http://localhost/koratuwa');
+        // placeOrder(<?= $subtotal?>,'http://localhost/koratuwa');
+        console.log("Payment completed. OrderID:" + orderId);
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = ()=>{
+            if(xhttp.readyState == 4){ 
+                window.location.href = "http://localhost/koratuwa/Customer/customerHome"
+                let obj=JSON.parse(xhttp.responseText);
+                console.log(obj);
+            }
+        };
+        xhttp.open("POST","http://localhost/koratuwa/Customer/onlineOrd",true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send("amount="+amount);
         // Note: validate the payment and show success or failure page to the customer
     };
 
@@ -139,7 +152,7 @@
                         
                     },
                     error:function () {
-                        alert("Wada naaa");
+                        alert("Wada naaa");2
                     }
 
                 });
