@@ -29,16 +29,7 @@
           $this->view('product_manager/pm_home',$data);
         }
 
-        public function viewStock()
-        {
-          $stockView= $this->pmModel->getProductStockDetails();
-
-          $data = [
-              'stockView' => $stockView
-          ];
-
-          $this->view('product_manager/viewStock',$data);
-        }
+     
 
 
 
@@ -368,7 +359,24 @@
           ];
 
           $this->view('product_manager/productCategories',$data);
+      
         }
+
+    
+
+        public function viewStock()
+        {
+          $stockView= $this->pmModel->getProductStockDetails();
+          $availableQty= $this->pmModel->get_availableQtyView();
+
+          $data = [
+              'stockView' => $stockView,
+              'availableQty' => $availableQty
+          ];
+
+          $this->view('product_manager/viewStock',$data);
+        }
+
 
         public function deleteCategory($pId)
         {

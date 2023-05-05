@@ -137,7 +137,7 @@ section {
     margin-top: 0px;
     height: 36%;
     width: 100%;
-    background: url(http://localhost/koratuwa/img/mco/milk.jpg);
+    /* background: url(http://localhost/koratuwa/img/mco/milk.jpg); */
     background-size: cover;
     background-position: center;
     filter: blur(1px) brightness(60%);

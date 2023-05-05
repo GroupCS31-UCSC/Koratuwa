@@ -793,6 +793,11 @@
           echo $this->adminModel->get_totProfit();
         }
 
+        public function totCattleChart()
+        {
+          echo $this->adminModel->get_totCattle();
+        }
+
         //update seen notifications
         public function updateNotifyStatus($nId)
         {

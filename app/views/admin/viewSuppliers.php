@@ -50,7 +50,14 @@
     
     <div class="tableElement">
     <div class="part1">
-      GRAPH DETAILS
+      <section class="graphBox">
+
+        <div class="box">
+          <label><center>Total Orders of Last 6 Months</center></label>
+          <canvas id="totSupOrders"></canvas>
+        </div>
+
+      </section>
     </div>
     <div class="part2">
 

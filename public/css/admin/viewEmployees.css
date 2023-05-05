@@ -41,6 +41,7 @@ body {
 /* section1 */
 
 .table-upperSection {
+    /* border: 1px solid violet; */
     position: relative;
     /* display: flex; */
     /* right: 5px; */
@@ -50,10 +51,21 @@ body {
 /* section 1 inner div tag */
 
 .upper {
+    /* border: 1px solid blueviolet; */
     position: relative;
     display: flex;
     width: 100%;
+    margin-bottom: -20px;
+    height: auto;
 }
+
+.empTable{
+    /* border: 1px solid #000; */
+    position: relative;
+    padding: -40px 0px 0px 0px;
+    margin: 0px;
+}
+
 /* search */
 
 /*add button */
@@ -86,8 +98,9 @@ margin-right: 15px; */
 /* section 2 */
 
 .table1Section {
+    /* border: 1px solid red; */
     margin-top: 0px;
-    padding: 0px 0px 0px 50px;
+    padding: 0px 0px 0px 0px;
 }
 
 

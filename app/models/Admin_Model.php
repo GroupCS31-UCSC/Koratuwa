@@ -634,11 +634,19 @@
       return $result;
     }
 
+    public function get_totCattle()
+    {
+      $this->db->query('SELECT * From cattle_stall ');
+      $result=$this->db->resultSet();
+      return json_encode($result);
+    }
+
     
 
-
+// array_merge($data,$date1);
 
 
   }
 
 ?>
+ 
