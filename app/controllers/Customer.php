@@ -198,19 +198,19 @@
       }  
       
       public function onlineOrd(){
-        // die('Something went wrong');
-        print_r("HI");
+
         $ordId = $this->customerModel->generateordId();
         
         $data=[
-          'order_id' => $ordId -> order_id ,
+          'order_id' => $ordId,
           'payment' => $_POST['amount']
         ];
-        print_r($data);
 
         if($this->customerModel->onlineOrder($data))
         {
-          redirect('customer/customerHome');
+          // redirect('Customer/customerHome');
+          $jsonObj=json_encode($data);
+          echo $jsonObj;
         }
         else
         {

@@ -119,7 +119,7 @@
   // online order 
   public function onlineOrder($data){
     $this->db->query('INSERT INTO online_order(order_id , status, payment_method, total_payment, payment_status, receipt_id ,customer_id) 
-    VALUE (:ordId, "Ongoing", "bank", :payment, "paid", "r3", :customerId: )');
+    VALUE (:ordId, "Ongoing", "bank", :payment, "paid", "r3", :customerId)');
     
     $this->db->bind(':ordId', $data['order_id']);
     $this->db->bind(':payment', $data['payment']);

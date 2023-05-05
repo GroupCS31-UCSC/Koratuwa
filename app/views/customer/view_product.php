@@ -8,7 +8,7 @@
 
         <div class="product_img">
         
-            <img class="pic_product" src="<?php foreach ($data['productDetails'] as $productCategory) : ?><?php echo UPLOADS . $productCategory->image; ?><?php endforeach; ?>"width='200' height='400'>
+            <img class="pic_product" src="<?php foreach ($data['productDetails'] as $productCategory) : ?><?php echo UPLOADS . $productCategory->image; ?><?php endforeach; ?>"  width='300' height='300'>
             <!-- <img class="pic_product" src="<?php echo UPLOADS . $productCategory->image ?>" width='200' height='200'>     -->
         </div>
 
@@ -39,12 +39,14 @@
                             <span class="plus">+</span>
                         </div>
                     </div> -->
-
-                    <div class="quantity-selector">
-                      <button  type="button" onclick="decrement()">-</button>
-                      <label id="quantityLabel" for="quantityInput">1</label>
-                      <input type="hidden" name="quantity" id="quantityInput" value="1" id="quantity"/>
-                      <button type="button" onclick="increment()">+</button>  
+                    <div class="feature1">
+                        <div class="form-input-title">Quantity:</div>
+                        <div class="quantity-selector">
+                        <button  type="button" onclick="decrement()">-</button>
+                        <label id="quantityLabel" for="quantityInput">1</label>
+                        <input type="hidden" name="quantity" id="quantityInput" value="1" id="quantity"/>
+                        <button type="button" onclick="increment()">+</button>  
+                        </div>
                     </div>
                     
                     <div class="feature1">

@@ -36,7 +36,7 @@
       return $result;
     }
 
-    public function getProductExpireDays($pId){
+    public function getProductExpireDays($pId){                       //returns the expiry duration in days
       $this->db->query('SELECT SUM(expiry_duration + expiry_duration_months*30) FROM product WHERE product_id = :pId');
       $this->db->bind(':pId',$pId);
       $result = $this->db->resultSet();
@@ -87,6 +87,15 @@
     }
 
     public function get_categoryView()
+    {
+      $this->db->query('SELECT * FROM product');
+
+      $result = $this->db->resultSet();
+
+      return $result;
+    }
+
+    public function get_availableQtyView()
     {
       $this->db->query('SELECT * FROM product');
 

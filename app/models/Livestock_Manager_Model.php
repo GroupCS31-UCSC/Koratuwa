@@ -64,7 +64,7 @@
       if($data['price'] == '') {
         $data['price'] = NULL;
       }
-//////////////////////////////  //////////
+
       if(($data['gender'] == 'Male') && ($data['age'] < 1)) {
         $data['milking'] = 'No';
       }
@@ -111,13 +111,47 @@
       }
     }
 
-    public function deleteCattle($cowId) {
+    public function deleteCattle($data) {
+      $cowId=$data['cow_id'];
+      $reason=$data['reason'];
+      $isSold=isset($data['price']);
       // $this->db->query('DELETE FROM cattle WHERE cow_id= :cowId');
       $this->db->query('UPDATE cattle SET existence=0 WHERE cow_id= :cowId');
       $this->db->bind(':cowId', $cowId);
 
       if($this->db->execute())
       {
+        if($isSold){
+          $price=$data['price'];
+          $this->db->query('INSERT INTO removed_cattle(cow_id,reason,sold_price) VALUES(:cowId, :reason, :price)');
+          $this->db->bind(':cowId', $cowId);
+          $this->db->bind(':reason', 'SOLD');
+          $this->db->bind(':price', $price);
+
+          if($this->db->execute())
+          {
+            return true;
+          }
+          else
+          {
+            return false;
+          }
+        }
+        else {
+          $this->db->query('INSERT INTO removed_cattle(cow_id,reason) VALUES(:cowId, :reason)');
+          $this->db->bind(':cowId', $cowId);
+          $this->db->bind(':reason', $reason);
+
+          if($this->db->execute())
+          {
+            return true;
+          }
+          else
+          {
+            return false;
+          }
+        }
+        
         return true;
       }
       else

@@ -83,8 +83,11 @@ table{
     background-size: 200%;
     transition: 0.5s;
     margin-left: 60%;
+    
 }
-
+a{
+    text-decoration: none;
+}
 .pdfBtn:hover {
     /* background-position: right; */
     background-color: #00BFFF;

@@ -5,7 +5,29 @@
 
 
 
-<h2>Product Batches</h2>
+<h2>Available Product Stock</h2>
+
+<div class="cardWrapper">
+
+  <?php foreach ($data['availableQty'] as $category) : ?>
+    <!-- <a href="<?php echo URLROOT?>/Product_Manager/viewCategory/<?php echo $category->product_id ?>">
+    <button class="products"><?php echo $category->product_name ?></button></a> -->
+
+
+    <a href="<?php echo URLROOT?>/Product_Manager/viewCategory/<?php echo $category->product_id ?>" class="card" >
+      
+      <div class="cardContent">
+        <p><?php echo $category->product_name ?></p>
+        <p><?php echo $category->available_quantity ?></p>
+     
+      </div>
+  </a>
+ 
+    <?php endforeach; ?>
+    
+  </div>
+
+<h2>All Product Stocks</h2>
 
 
 

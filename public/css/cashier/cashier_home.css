@@ -19,7 +19,18 @@
   align-items: center;
 }
 
+.btn-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  
+}
+
 .form-input-wrapper {
+  width: 100%;
+}
+
+.wrapper-1 {
   width: 100%;
 }
 
@@ -224,6 +235,7 @@ button.close {
   filter: alpha(opacity=20);
   opacity: .2;
 }
+
 
 
 /*make it responsive design*/

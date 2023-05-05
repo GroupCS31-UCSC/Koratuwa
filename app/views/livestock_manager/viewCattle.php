@@ -96,10 +96,10 @@
               <td>Age</td>
               <td id="Model_Age"></td>
             </tr>
-            <tr>
+            <!-- <tr>
               <td>Gender</td>
               <td id="Model_Gender"></td>
-            </tr>
+            </tr> -->
             <tr>
               <td>Milking Status</td>
               <td id="Model_milkin_Status"></td>
@@ -121,13 +121,14 @@
         <h2 class="dModel-title">Are you sure you want to delete?</h2>
       </div>
       <div class="dmodel-body">
-        <form action="<?php echo URLROOT?>/Livestock_Manager/deleteCattle/<?php echo $cattle->cow_id ?>">
+        <form action="<?php echo URLROOT?>/Livestock_Manager/deleteCattle">
           <!-- Reason selection -->
           <div class="form-group">
+            <input type="text" name="cow_id" id="del_cowId" style="display:none">
             <label for="reason">Reason</label><br><br>
             <select name="reason" id="reason" class="form-control">
-              <option value="Dead">Dead</option>
-              <option value="Sold">Sold</option>
+              <option value="DIED">Dead</option>
+              <option value="SOLD">Sold</option>
             </select><br><br>
             <!-- If select sold give sold price -->
             <div id="sold-price" style="display:none;">
@@ -135,6 +136,7 @@
               <input type="text" name="price" id="price" class="price" value="">
             </div>
           </div>
+          <input type="submit" value="OK">
         </form>
       <br>
       </div>
@@ -151,7 +153,7 @@
   var soldPrice = document.getElementById("sold-price");
 
   deleteOptions.addEventListener("change", function() {
-    if (deleteOptions.value == "Sold") {
+    if (deleteOptions.value == "SOLD") {
       soldPrice.style.display = "block";
     } else {
       soldPrice.style.display = "none";
@@ -159,6 +161,28 @@
   });
 
   function openDelete(id) {
+    // const reason = document.getElementById("reason").value;
+    // const price = document.getElementById("sold-price").value;
+    // const postData = {
+    //   reason: reason,
+    //   price: price
+    // }
+    // const url = "/koratuwa/Livestock_Manager/deleteCattle/"+id;
+    // const form = new FormData();
+    // form.append("id", id);
+
+    // fetch(url, {
+    //   method: 'POST',
+    //     headers: {
+    //       'Content-Type': 'application/json'
+    //     },
+    //     body: JSON.stringify(postData)
+    // }).then(res => res.json()).then(data => {
+    //   console.log(data);
+    // }).catch(err => console.log(err));
+    const cowId = document.getElementById("del_cowId");
+    cowId.value = id;
+
     document.getElementById("deleteModel").classList.add("open-deleteModel");
   }
 

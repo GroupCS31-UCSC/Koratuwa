@@ -46,18 +46,30 @@
 
 
   <br>
-    <div class="input-container">Expiry Duration
+  Expiry Duration
+    <div class="form-input-container">
     
+    <div class="form-input-wrapper">
+
+
     <div class="form-input-title">Months</div>
     <span class="form-invalid"><?php echo $data['duration_months_err']; ?></span>
     <input type="number" min="0" name="duration_months" id="duration_months" class="duration_months" value="0" defaultValue="0">
-    
+
+    </div>
+
+    <div class="form-input-wrapper">
     
     <div class="form-input-title">Days</div>
     <span class="form-invalid"><?php echo $data['duration_err']; ?></span>
     <input type="number" min="0" name="duration" id="duration" class="duration" value="0" defaultValue="0">
 
     </div>
+
+    </div>
+
+
+
 
     <!--image-->
     <div class="form-input-title">Image</div>
