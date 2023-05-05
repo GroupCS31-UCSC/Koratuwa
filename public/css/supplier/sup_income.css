@@ -138,9 +138,6 @@
   .divContainer2{
       width: 50%;
   }  
-  .divContainer3{
-      width: 50%;
-  }  
 }
 
 @media screen and (max-width:900px) {
@@ -150,7 +147,4 @@
   .divContainer2{
       width: 100%;
   }
-  .divContainer3{
-      width: 100%;
-  } 
 }

@@ -15,6 +15,7 @@
   </form>
   <input type="button" value="Refresh" class="addBtn" onclick="location.href='<?php echo URLROOT; ?>/Admin/viewSales' ">
     <h2>Onsite Sales</h2>
+    <div class="onsiteTable">
     <table>
       <thead>
         <th>Sale Id</th>
@@ -41,6 +42,7 @@
         <?php endforeach; ?>
       </tbody>
     </table>
+    </div>
   </div>
 
   <div class="divContainer2">

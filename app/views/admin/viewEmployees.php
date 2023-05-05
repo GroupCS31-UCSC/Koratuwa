@@ -65,6 +65,7 @@
                   <input type="button" value="Add New Employee" class="addBtn" onclick="location.href='<?php echo URLROOT; ?>/Admin/addEmployees' ">
                 <div>
               </section>
+              <div class="empTable">
               <table>
                 <tr>
                   <!-- <th>Image</th> -->
@@ -112,6 +113,7 @@
                 <?php endforeach; ?>
 
               </table>
+              </div>
 
             <?php else: ?>
               <table>

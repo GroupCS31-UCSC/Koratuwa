@@ -97,8 +97,8 @@ table td {
 }
 /* show or hide */
 #dltTableElement{
-    border: 2px solid black;
-    background-color: gray;
+    /* border: 2px solid black; */
+    /* background-color: gray; */
     color: white;
     font-weight: bold;
     margin: 4px;
@@ -332,3 +332,63 @@ td {
 
 }
 /* -----------------end notifications ------------------------ */
+
+
+
+.divContainer{
+    border: 1px solid blue;
+    width: 100%;
+    height: auto;
+    /* background: #007bbf; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-flow: wrap;
+}
+
+.divContainer1{
+    border: 1px solid red;
+    width: 40%;
+    height:auto;
+    /* background: yellow; */
+    margin: 0px;
+    box-sizing: border-box;
+    /* font-size: 50px; */
+}
+
+.divContainer2{
+    border: 1px solid black;
+    width: 60%;
+    height:auto;
+    /* background: greenyellow; */
+    margin: 0px;
+    box-sizing: border-box;
+    /* font-size: 50px; */
+    overflow-y: scroll;
+    /* overflow-x: scroll; */
+    height: fit-content;
+    max-height: 66.4vh;
+    
+    /* margin-top: 22px; */
+    
+    /* margin: 15px; */
+    /* padding-bottom: 20px; */
+}
+
+@media screen and (max-width:1200px) {
+    .divContainer1{
+        width: 50%;
+    }
+    .divContainer2{
+        width: 50%;
+    }  
+}
+
+@media screen and (max-width:900px) {
+    .divContainer1{
+        width: 100%;
+    }
+    .divContainer2{
+        width: 100%;
+    }
+}
