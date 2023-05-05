@@ -12,7 +12,7 @@ table {
     /*z-index: 0;*/
 }
 
-table td,
+ table td,
 #orders th {
     border: 1px solid #ddd;
     padding: 12px;
@@ -32,7 +32,7 @@ table th {
     text-align: center;
     background-color: #04AA6D;
     color: white;
-}
+} 
 
 @media (max-width: 991px) {
     .graphBox {

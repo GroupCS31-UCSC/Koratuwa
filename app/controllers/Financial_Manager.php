@@ -172,7 +172,8 @@ function alert($msg) {
           $pdf->AddPage('L','A4');
         
           $pdf->SetFont('Arial', 'B', 18);
-          $pdf->Cell(0, 10, 'Finance Report', 0, 1, 'C');
+          $pdf->Cell(0, 10, 'Expenses and Revenues Report ', 0, 1, 'C');
+          $pdf->Ln();
         
           $pdfWidth = $pdf->GetPageWidth();
           $pdfHeight = $pdf->GetPageHeight();
@@ -215,7 +216,7 @@ function alert($msg) {
         }
         $pdf->Ln();
         $pdf->SetFont('Arial', 'B', 14);
-        $pdf->SetTitle('Finance Report');
+        //  $pdf->SetTitle('Reveneues Report');
         $pdf->SetTextColor(255, 255, 255);
 
         $pdf->Cell(60, 10, 'Revenue Id', 1 , 0, 'C',1);
