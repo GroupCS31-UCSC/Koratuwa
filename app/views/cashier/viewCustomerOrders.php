@@ -51,9 +51,9 @@
 </div>
 </div>
 
-<div id="Delivered" class="tabcontent">
+<!-- <div id="Delivered" class="tabcontent">
   <p>Deliverd</p>
-</div>
+</div> -->
 
 </session>
 
