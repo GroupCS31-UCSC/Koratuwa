@@ -79,25 +79,27 @@
       $this->view('Cashier/viewOnsiteSale',$data);    
     }
 
-    // public function viewCustomerOrders($status) {
-    //   if($status == 'Ongoing'){
-    //     $onlineOrderView= $this->cashierModel->get_ongoingOrderView();
-    //   }
-    //   else {
-    //     $onlineOrderView= $this->cashierModel->get_deliveredOrderView();
-    //   }
-    //   $data = [
-    //     'onlineOrderView' => $onlineOrderView,
-    //     'status' => $status
-    //   ];
-    //   $this->view('Cashier/viewCustomerOrders',$data);
-    // }
     public function viewCustomerOrders(){
       $onlineOrderView= $this->cashierModel->get_onlineOrderView();
       $data = [
         'onlineOrderView' => $onlineOrderView
       ];
       $this->view('Cashier/viewCustomerOrders',$data);
+    }
+
+    public function updateStatus() {
+      $orderId = $_POST['order_id'];
+      $data = [
+        'orderId' => $orderId,
+        'status' => 'Delivered'
+      ];
+      if($this->cashierModel->updateStatus($data)) {
+        flash('update_status_success', 'Status updated successfully');
+        redirect('Cashier/viewCustomerOrders');
+      }
+      else {
+        die('Something went wrong');
+      }
     }
 
     public function updateSale() {
