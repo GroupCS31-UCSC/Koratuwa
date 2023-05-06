@@ -207,7 +207,23 @@
       }
     }
 
-    
+    public function ProductStock_duration($from, $to)
+    {
+      $this->db->query('SELECT * FROM product_stock WHERE mfd_date >= "'.$from.'" and mfd_date <= "'.$to.'"');
+
+      $result = $this->db->resultSet();
+
+      return $result; 
+    }
+
+    public function ProductStockDetails_duration($pId, $from, $to)
+    {
+      $this->db->query('SELECT * FROM product_stock WHERE product_id = :pId AND mfd_date >= "'.$from.'" and mfd_date <= "'.$to.'"');
+      $this->db->bind(':pId',$pId);
+      $result = $this->db->resultSet();
+
+      return $result;
+    }
 
 
 
