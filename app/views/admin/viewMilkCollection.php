@@ -21,9 +21,9 @@
     <table id="detailsTable3">
       <thead>
         <th col-index = 1>Collection Id</th>
-        <th col-index = 2>Stall Id
+        <th col-index = 2>
           <select class="table-filter3" onchange="filter_rows3()">
-            <option value="all"></option>
+            <option value="all">Stall Id</option>
           </select>
         </th>
         <th>Quantity(L)</th>
@@ -63,9 +63,9 @@
     <table id="detailsTable4">
       <thead>
         <th col-index = 1>Supply Id</th>
-        <th col-index = 2>Status
+        <th col-index = 2>
           <select class="table-filter4" onchange="filter_rows4()">
-            <option value="all"></option>
+            <option value="all">Status</option>
           </select>
         </th>
         <th>Date</th>

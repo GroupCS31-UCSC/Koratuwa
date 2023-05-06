@@ -59,9 +59,9 @@
     <table id="detailsTable5">
       <thead>
         <th col-index = 1>Order Id</th>
-        <th col-index = 2>Status
+        <th col-index = 2>
           <select class="table-filter5" onchange="filter_rows5()">
-            <option value="all"></option>
+            <option value="all">Status</option>
           </select>
         </th>
         <th>Date</th>
