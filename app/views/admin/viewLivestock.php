@@ -14,24 +14,24 @@
     <table id="detailsTable">
       <thead>
           <th col-index = 1>Cow Id</th>
-          <th col-index = 2>Stall Id
+          <th col-index = 2>
             <select class="table-filter" onchange="filter_rows()">
-              <option value="all"></option>
+              <option value="all">Stall Id</option>
             </select>
           </th>
-          <th col-index = 3>Gender
+          <th col-index = 3>
             <select class="table-filter" onchange="filter_rows()">
-              <option value="all"></option>
+              <option value="all">Gender</option>
             </select>
           </th>
-          <th col-index = 4>Breed
+          <th col-index = 4>
             <select class="table-filter" onchange="filter_rows()">
-              <option value="all"></option>
+              <option value="all">Breed</option>
             </select>
           </th>
-          <th col-index = 5>Milking Status
+          <th col-index = 5>
             <select class="table-filter" onchange="filter_rows()">
-              <option value="all"></option>
+              <option value="all">Milking Status</option>
             </select>
           </th>
           <th col-index = 6>Age</th>
@@ -114,19 +114,19 @@
           <table id="detailsTable2">
             <thead>
               <th col-index = 1>Cow Id</th>
-              <th col-index = 2>Stall Id
+              <th col-index = 2>
                 <select class="table-filter2" onchange="filter_rows2()">
-                  <option value="all"></option>
+                  <option value="all">Stall Id</option>
                 </select>
               </th>
-              <th col-index = 3>Gender
+              <th col-index = 3>
                 <select class="table-filter2" onchange="filter_rows2()">
-                  <option value="all"></option>
+                  <option value="all">Gender</option>
                 </select>
               </th>
-              <th col-index = 4>Reason
+              <th col-index = 4>
                 <select class="table-filter2" onchange="filter_rows2()">
-                  <option value="all"></option>
+                  <option value="all">Reason</option>
                 </select>
               </th>
               <th>Removed Date</th>
