@@ -25,13 +25,31 @@
 
         public function pmHome()
         {
-          $data = [];
+          $product_count = $this->pmModel->get_productsCount();
+          $notify = $this->pmModel->get_Notifications();
+
+          $data = [
+            'product_count' => $product_count,
+            'notifications' => $notify
+          ];
+
           $this->view('product_manager/pm_home',$data);
         }
 
-     
+        //update seen notifications
+        public function updateNotifyStatus($pId)
+        {
+          if($this->pmModel->update_notifyStatus($pId))
+          {
+            redirect('Product_Manager/pmHome');
+          }
+          else
+          {
+            die('Something went wrong');
+          }    
 
 
+        }
 
         public function addCategory()
         {
@@ -193,8 +211,8 @@
               if($this->pmModel->addStock($data))
               {
                 flash('addCategory_flash','New Category Stock details are successfully added!');
-                //redirect('Product_Manager/viewStock');
-                //redirect('Product_Manager/viewCategory($pId)');
+                redirect('Product_Manager/viewStock');
+                // redirect('Product_Manager/viewCategory($pId)');
               }
               else
               {
