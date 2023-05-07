@@ -17,8 +17,13 @@
     <a href="<?php echo URLROOT?>/Product_Manager/viewCategory/<?php echo $category->product_id ?>" class="card" >
       
       <div class="cardContent">
-        <p><?php echo $category->product_name ?></p>
-        <p><?php echo $category->available_quantity ?></p>
+        <?php if($category->product_name == 'Raw Milk'): ?>
+          <p><?php echo $category->product_name ?></p>
+          <p><?php echo number_format($category->available_quantity,2) ?></p>
+        <?php else: ?>
+          <p><?php echo $category->product_name ?></p>
+          <p><?php echo number_format($category->available_quantity) ?></p>
+        <?php endif; ?>
      
       </div>
   </a>
