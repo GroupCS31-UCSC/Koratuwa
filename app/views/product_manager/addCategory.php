@@ -22,7 +22,7 @@
     <span class="form-invalid"><?php echo $data['name_err']; ?></span>
 		<input type="text" name="name" id="name" class="name" value="<?php echo $data['name']; ?>">
 
-    <div class="form-input-title">Size of a pack (milliliters)</div>
+    <div class="form-input-title">Size of a pack</div>
     <span class="form-invalid"><?php echo $data['size_err']; ?></span>
     <input type="text" name="size" id="size" class="size" value="<?php echo $data['size']; ?>"> 
 
