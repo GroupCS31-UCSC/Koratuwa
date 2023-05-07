@@ -2,6 +2,8 @@
 <?php require APPROOT.'/views/livestock_manager/livestock_dashboard.php'; ?>
 <link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/public/css/livestock_manager/viewFeed.css">
 
+<script src="<?php echo URLROOT; ?>/js/lm.js"></script>
+
 <div class="section">
 <div class="feedDetails">
   <h1>Feed Details</h1>
@@ -37,22 +39,39 @@
 <div class="search-add">
   <div class="search-area">
     <!-- <form action="<?php echo URLROOT; ?>/Livestock_Manager/searchCattle" method="POST"> -->
-      <input type="text" name="search" id="search" class="search" placeholder="Search by COW ID">
-      <span class="icon"><i class="fa-solid fa-search"></i></span>
+      <!-- <input type="text" name="search" id="search" class="search" placeholder="Search by COW ID"> -->
+      <!-- <span class="icon"><i class="fa-solid fa-search"></i></span> -->
     <!-- </form> -->
   </div>
+
+<!-- date filter -->
+  <form action="<?php echo URLROOT; ?>/Livestock_Manager/viewFeedMonitoring" method="POST" >
+    <label for="from">From :</label>
+    <input type="date" id="from" name="from" value="<?php echo $data['from']; ?>"><br>
+    <label for="to">  To :</label>
+    <input type="date" id="to" name="to" value="<?php echo $data['to']; ?>">
+    <input type="submit" value="Search" class="submitBtn"> 
+  </form>
+  <!-- refresh button -->
+  <input type="button" value="Refresh" class="addBtn" onclick="location.href='<?php echo URLROOT; ?>/Livestock_Manager/viewFeedMonitoring' ">
+
   <input type="button" value="Add New Feed record" class="add-btn" onclick="location.href='<?php echo URLROOT; ?>/Livestock_Manager/addFeedMonitoring' ">
 </div>
 
 <div class="container" style="overflow-x: auto;">
-  <table>
-    <tr>
-      <th>Stall ID</th>
+  <table id="detailsTable2">
+    <thead>
+      <th col-index = 1>
+        <select class="table-filter2" onchange="filter_rows2()">
+          <option value="all">Stall Id</option>
+        </select>
+      </th>
       <th>Date</th>
       <th>Solid (Kg)</th>
       <th>Liquid (L)</th>
       <th>Action</th>
-    </tr>
+    </thead>
+    <tbody>
     <tr>
       <?php foreach ($data['feedMonitoringView'] as $feed_monitoring) : ?>
       <td><?php echo $feed_monitoring->stall_id ?></td>
@@ -68,10 +87,14 @@
     </tr>
     <?php endforeach; ?>
   </table>
+  </tbody>
 </div>
 </div>
+<script>
+  getUniqueValuesFromColumn2();
+</script>
 
       
 
 <?php require APPROOT.'/views/include/footer.php'; ?>
-<script src="<?php echo URLROOT; ?>/js/lm.js"></script>
+<!-- <script src="<?php echo URLROOT; ?>/js/lm.js"></script> -->

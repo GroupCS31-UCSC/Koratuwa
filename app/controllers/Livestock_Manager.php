@@ -13,8 +13,12 @@
       }         
     }
 
-    public function livestockHome() {
-      $data = [];
+    public function livestockHome()
+    {
+      $cattle_count = $this->livestockModel->cattleCount();
+      $data = [
+        'cattle_count' => $cattle_count,
+      ];
       $this->view('livestock_Manager/livestock_home',$data);
     }
 
@@ -206,14 +210,38 @@
     }
 
     //feed monitoring
-    public function viewFeedMonitoring() {
-      $feedMonitoringView= $this->livestockModel->get_feedMonitoringView();
+    public function viewFeedMonitoring() 
+    {
+      if($_SERVER['REQUEST_METHOD'] == 'POST')
+      {
+        $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+        $from = isset($_POST['from']) ? $_POST['from'] : '';
+        $to = isset($_POST['to']) ? $_POST['to'] : '';
 
-      $data = [
-        'feedMonitoringView' => $feedMonitoringView
-      ];
-     
-      $this->view('livestock_Manager/viewFeedMonitoring',$data);
+        $feedMonitoringView= $this->livestockModel->feedMonitoring_duration($from, $to);
+
+        $data = [
+          'feedMonitoringView' => $feedMonitoringView,
+          'from' => $from,
+          'to' => $to
+        ];
+       
+        $this->view('livestock_Manager/viewFeedMonitoring',$data);
+
+      }
+      else
+      {
+        $feedMonitoringView= $this->livestockModel->get_feedMonitoringView();
+
+        $data = [
+          'feedMonitoringView' => $feedMonitoringView,
+          'from' => '',
+          'to' => ''
+        ];
+       
+        $this->view('livestock_Manager/viewFeedMonitoring',$data);
+      }    
+
     }
 
     public function addFeedMonitoring() {
@@ -342,16 +370,41 @@
       }
     }
 
-    public function viewCattleMilking() {
-      $stall=$_GET['stall'] ?? 'STALL1';
-      $cattleMilkingView= $this->livestockModel->get_cattleMilkingView($stall);
+    public function viewCattleMilking() 
+    {
+      if($_SERVER['REQUEST_METHOD'] == 'POST')
+      {
+        $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+        $from = isset($_POST['from']) ? $_POST['from'] : '';
+        $to = isset($_POST['to']) ? $_POST['to'] : '';
 
-      $data = [
-        'cattleMilkingView' => $cattleMilkingView,
-        'stall' => $stall
-      ];
+        $stall=$_GET['stall'] ?? 'STALL1';
+        $cattleMilkingView= $this->livestockModel->cattleMilking_duration($stall,$from, $to);
+  
+        $data = [
+          'cattleMilkingView' => $cattleMilkingView,
+          'stall' => $stall,
+          'from' => $from,
+          'to' => $to
+        ];
+  
+        $this->view('livestock_Manager/viewCattleMilking',$data);
+      }
+      else
+      {
+        $stall=$_GET['stall'] ?? 'STALL1';
+        $cattleMilkingView= $this->livestockModel->get_cattleMilkingView($stall);
+  
+        $data = [
+          'cattleMilkingView' => $cattleMilkingView,
+          'stall' => $stall,
+          'from' => '',
+          'to' => ''
+        ];
+  
+        $this->view('livestock_Manager/viewCattleMilking',$data);
+      }  
 
-      $this->view('livestock_Manager/viewCattleMilking',$data);
     }
 
     public function addCattleMilking() {
