@@ -413,5 +413,24 @@
       return $result['total'];
     }
 
+    //feedmonitoring duration filter
+    public function feedMonitoring_duration($from, $to)
+    {
+      $this->db->query('SELECT * FROM feed_monitoring WHERE date >= "'.$from.'" and date <= "'.$to.'"');
+
+      $result = $this->db->resultSet();
+
+      return $result;
+    }
+
+    public function cattleMilking_duration($stall, $from, $to)
+    {
+      $this->db->query('SELECT * FROM cattle_milking WHERE stall_id = "'.$stall.'" AND  collected_date >= "'.$from.'" and collected_date <= "'.$to.'"');
+      // SELECT * FROM cattle_milking WHERE stall_id = "'.$stallId.'" ORDER BY collected_date DESC
+      $result = $this->db->resultSet();
+
+      return $result;
+    }
+
   }
 ?>

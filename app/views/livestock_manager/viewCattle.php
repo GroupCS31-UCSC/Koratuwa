@@ -2,6 +2,9 @@
 <?php require APPROOT.'/views/livestock_manager/livestock_dashboard.php'; ?>
 <link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/public/css/livestock_manager/viewCattle.css">
 <link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/public/css/livestock_manager/subNavBar.css">
+
+<script src="<?php echo URLROOT; ?>/js/lm.js"></script>
+
 <div class="section">
 <div class="tab">
 <?php $stall=$_GET['stall']??'STALL1';?>
@@ -21,8 +24,8 @@
 <div class="search-add">
     <div class="search-area">
       <!-- <form action="<?php echo URLROOT; ?>/Livestock_Manager/searchCattle" method="POST"> -->
-      <input type="text" name="search" id="search" class="search" placeholder="Search by COW ID">
-      <span class="icon"><i class="fa-solid fa-search"></i></span>
+      <input type="text" id="searchInput" placeholder="Search By Cow IDs..." onkeyup="searchFunc();">
+      <!-- <span class="icon"><i class="fa-solid fa-search"></i></span> -->
     <!-- </form> -->
     </div>
     <input type="button" value="Add New Cattle" class="add-btn" onclick="location.href='<?php echo URLROOT; ?>/Livestock_Manager/addCattle?Stall=<?=$stall?>' ">
@@ -30,13 +33,22 @@
 
 <div id="Stall1" class="tabcontent active">
   <div class="container" style="overflow-x: auto;">
-    <table>
-      <tr>
-        <th>COW ID</th>
-        <th>Gender</th>
-        <th>Breed</th>
-        <th>Action</th>
-      </tr>
+    <table id="detailsTable">
+      <thead>
+        <th col-index = 1>COW ID</th>
+        <th col-index = 2>
+          <select class="table-filter" onchange="filter_rows()">
+            <option value="all">Gender</option>
+          </select>
+        </th>
+        <th col-index = 3>
+          <select class="table-filter" onchange="filter_rows()">
+            <option value="all">Breed</option>
+          </select>
+        </th>
+        <th col-index = 4>Action</th>
+      </thead>
+      <tbody>
       <?php $data_index=0 ?>
       <?php foreach ($data['cattleView'] as $cattle) : ?>
         <tr>
@@ -57,6 +69,7 @@
         </tr>
         <?php $data_index++; ?> 
       <?php endforeach; ?>
+      </tbody>
     </table>
   </div>
 </div>
@@ -72,6 +85,11 @@
   </div>
 </div>
 </div>
+
+<!-- table filteration function -->
+<script>
+  getUniqueValuesFromColumn();
+</script>
 
 <!-- popup view -->
 <div class="model fade in" id="model" tabindex="-1">
@@ -145,8 +163,8 @@
   <div class="dmodal-footer"></div>
 </div>
 
-<?php require APPROOT.'/views/include/footer.php'; ?>
-<script src="<?php echo URLROOT; ?>/js/lm.js"></script>
+<!-- <?php require APPROOT.'/views/include/footer.php'; ?>
+<script src="<?php echo URLROOT; ?>/js/lm.js"></script> -->
 
 <script>
   var deleteOptions = document.getElementById("reason");
@@ -192,3 +210,7 @@
 
   
 </script>
+
+
+
+

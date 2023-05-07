@@ -22,23 +22,36 @@
 <div class="search-add">
   <div class="search-area">
     <!-- <form action="<?php echo URLROOT; ?>/Livestock_Manager/searchCattle" method="POST"> -->
-      <input type="text" name="search" id="search" class="search" placeholder="Search by COW ID">
-      <span class="icon"><i class="fa-solid fa-search"></i></span>
+    <input type="text" id="searchInput3" placeholder="Search By Cow IDs..." onkeyup="searchFunc3();">
+      <!-- <span class="icon"><i class="fa-solid fa-search"></i></span> -->
     <!-- </form> -->
   </div>
   <input type="button" value="Add New Milk" class="add-btn" onclick="location.href='<?php echo URLROOT; ?>/Livestock_Manager/addCattleMilking?Stall=<?=$stall?>' ">
 </div>
 
+<!-- date filter -->
+  <form action="<?php echo URLROOT; ?>/Livestock_Manager/viewCattleMilking" method="POST" >
+    <label for="from">From :</label>
+    <input type="date" id="from" name="from" value="<?php echo $data['from']; ?>"><br>
+    <label for="to">  To :</label>
+    <input type="date" id="to" name="to" value="<?php echo $data['to']; ?>">
+    <input type="submit" value="Search" class="submitBtn"> 
+  </form>
+  <!-- refresh button -->
+  <input type="button" value="Refresh" class="addBtn" onclick="location.href='<?php echo URLROOT; ?>/Livestock_Manager/viewCattleMilking' ">
+
+
 <div id="Stall1" class="tabcontentmilk active">
 <div class="container" style="overflow-x: auto;">
-  <table>
-    <tr>
+  <table id="detailsTable3">
+    <thead>
       <th>COW ID</th>
       <th>Collected Date</th>
       <th>Collected Time</th>
       <th>Quantity (L)</th>
       <th>Action</th>
-    </tr>
+    </thead>
+    <tbody>
     <tr>
       <?php foreach ($data['cattleMilkingView'] as $cattle_milking) : ?>
       <td><?php echo $cattle_milking->cow_id ?></td>
@@ -53,6 +66,7 @@
       </td>
     </tr>
     <?php endforeach; ?>
+    </tbody>
   </table>
 </div>
 </div>
