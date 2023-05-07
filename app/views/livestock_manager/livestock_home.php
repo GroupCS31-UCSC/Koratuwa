@@ -2,6 +2,7 @@
 <?php require APPROOT.'/views/livestock_manager/livestock_dashboard.php'; ?>
 <link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/public/css/livestock_manager/livestock_home.css">
 
+<?php foreach ($data['cattle_count'] as $cattleCount) : ?>
 
 <!--cards-->
 <session class="cardBox">
@@ -10,8 +11,8 @@
     <div class="totCattle">
       <div>
         <div class="cardName">Total Cattle</div><br>
-        <!-- <div class="numbers"><?php echo $cattleCount; ?></div> -->
-        <div class="numbers">45</div>
+        <!-- <div class="numbers"></div> -->
+        <div class="numbers"><?php echo $cattleCount; ?></div>
       </div>
     </div>
     <div class="card">
@@ -38,6 +39,7 @@
       <div class="numbers">100</div>
     </div>
 </div> 
+<?php endforeach; ?>
 </session>
 
 <!--Add charts-->

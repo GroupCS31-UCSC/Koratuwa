@@ -13,8 +13,12 @@
       }         
     }
 
-    public function livestockHome() {
-      $data = [];
+    public function livestockHome()
+    {
+      $cattle_count = $this->livestockModel->cattleCount();
+      $data = [
+        'cattle_count' => $cattle_count,
+      ];
       $this->view('livestock_Manager/livestock_home',$data);
     }
 

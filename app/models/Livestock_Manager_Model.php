@@ -130,7 +130,18 @@
 
           if($this->db->execute())
           {
-            return true;
+            $this->db->query('INSERT INTO cattle_notification(cow_id,reason,from_user,to_user,seen) VALUES(:cowId,:reason, "LM","ADM",0 )');
+            $this->db->bind(':cowId', $cowId);
+            $this->db->bind(':reason', $reason);
+  
+            if($this->db->execute())
+            {
+              return true;
+            }
+            else
+            {
+              return false;
+            }
           }
           else
           {
@@ -144,7 +155,18 @@
 
           if($this->db->execute())
           {
-            return true;
+            $this->db->query('INSERT INTO cattle_notification(cow_id,reason,from_user,to_user,seen) VALUES(:cowId,:reason, "LM","ADM",0 )');
+            $this->db->bind(':cowId', $cowId);
+            $this->db->bind(':reason', $reason);
+  
+            if($this->db->execute())
+            {
+              return true;
+            }
+            else
+            {
+              return false;
+            }
           }
           else
           {
@@ -152,7 +174,7 @@
           }
         }
         
-        return true;
+        // return true;
       }
       else
       {
@@ -430,6 +452,13 @@
       $result = $this->db->resultSet();
 
       return $result;
+    }
+
+    public function cattleCount()
+    {
+      $this->db->query('SELECT COUNT(cow_id) FROM cattle WHERE existence=1');
+      $row = $this->db->single();
+      return $row;
     }
 
   }
