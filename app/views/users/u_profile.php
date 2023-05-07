@@ -12,10 +12,6 @@
 
     <?php foreach ($data['userProfile'] as $sup) : ?>
 
-            
-
-
-
 <!-- ===== ===== Body Main-Background ===== ===== -->
 <span class="main_bg"></span>
 
@@ -26,8 +22,9 @@
             <!-- ===== ===== Header/Navbar ===== ===== -->
             <header>
                 <div class="brandLogo">
-                    <figure><img src="web_logo.jpg" alt="logo" width="40px" height="40px"></figure>
-                    <span>MarqueTech</span>
+                    <figure><img alt="user photo" src="<?php echo URLROOT; ?>/img/logo.png" width="40px" height="40px"></figure>
+                    
+                    <span>Koratuwa Dairy Farm</span>
                 </div>
             </header>
 
@@ -35,7 +32,7 @@
             <!-- ===== ===== User Main-Profile ===== ===== -->
             <section class="userProfile card">
                 <div class="profile">
-                    <figure><img src="profile.png" alt="profile" width="250px" height="250px"></figure>
+                    <figure><img  alt="user photo" src="<?php echo URLROOT; ?>/img/users/user.png"" width="250px" height="250px"></figure>
                 </div>
             </section>
 
@@ -75,12 +72,12 @@
             <!-- ===== ===== User Details Sections ===== ===== -->
             <section class="userDetails card">
                 <div class="userName">
-                    <h1 class="name">Jeremy Rose</h1>
+                    <h1 class="name"><?php echo $sup->name; ?></h1>
                     <div class="map">
                         <i class="ri-map-pin-fill ri"></i>
-                        <span>New York, NY</span>
+                        <span>Horana</span>
                     </div>
-                    <p>Product Designer</p>
+                    <p>Milk Supplier</p>
                 </div>
 
                 <div class="rank">
@@ -136,22 +133,22 @@
                     <ul>
                         <li class="phone">
                             <h1 class="label">Phone:</h1>
-                            <span class="info">+11 234 567 890</span>
+                            <span class="info"><?php echo $sup->contact_number; ?></span>
                         </li>
 
                         <li class="address">
                             <h1 class="label">Address:</h1>
-                            <span class="info">S34 E 65th Street <br> New York, NY 10651-78 156-187-60</span>
+                            <span class="info"><?php echo $sup->address; ?></span>
                         </li>
 
                         <li class="email">
                             <h1 class="label">E-mail:</h1>
-                            <span class="info">hello@rsmarquetech.com</span>
+                            <span class="info"><?php echo $_SESSION['user_email']; ?></span>
                         </li>
 
                         <li class="site">
                             <h1 class="label">Site:</h1>
-                            <span class="info">www.rsmarquetech.com</span>
+                            <span class="info">www.koratuwa.lk</span>
                         </li>
                     </ul>
                 </div>
@@ -160,8 +157,8 @@
                     <h1 class="heading">Basic Information</h1>
                     <ul>
                         <li class="birthday">
-                            <h1 class="label">Birthday:</h1>
-                            <span class="info">Dec 25, 2000</span>
+                            <h1 class="label">NIC:</h1>
+                            <span class="info"><?php echo $sup->nic; ?></span>
                         </li>
 
                         <li class="sex">
@@ -178,12 +175,11 @@
 
 
 
-                    <img alt="user photo" src="<?php echo URLROOT; ?>/img/users/user.png">
 
-                    <a href="<?php echo URLROOT; ?>/Users/sup_editProfile/<?php echo $sup->supplier_id; ?>"><button class="follow">Edit Profile</button></a>
-                    <a href="<?php echo URLROOT; ?>/Users/changePw/<?php echo $_SESSION['user_email']; ?>" class="sub-menu-link" class="sub-menu-link"><button class="message">Change Password</button></a>
+                    <!-- <a href="<?php echo URLROOT; ?>/Users/sup_editProfile/<?php echo $sup->supplier_id; ?>"><button class="follow">Edit Profile</button></a>
+                    <a href="<?php echo URLROOT; ?>/Users/changePw/<?php echo $_SESSION['user_email']; ?>" class="sub-menu-link" class="sub-menu-link"><button class="message">Change Password</button></a> -->
      
-            <ul>
+            <!-- <ul>
 
                 <li>User Id : <?php echo $sup->supplier_id; ?></li>
                 <li>Full Name :<?php echo $sup->name; ?></li>
@@ -193,7 +189,7 @@
                 <li>Email :<?php echo $_SESSION['user_email']; ?></li>
                 <li>Image :<?php echo $sup->image; ?></li>
 
-            </ul>
+            </ul> -->
 
 
         <?php endforeach; ?>
@@ -264,4 +260,4 @@
 
 
 
-<?php require APPROOT.'/views/include/footer.php'; ?>
+
