@@ -123,17 +123,18 @@ Filter by Manufactured Date:<br><br>
         $days = abs($difference/(60 * 60)/24);
         if($days ==0)
         {
-          echo "This batch has expired";
+          echo "Expired";
         }
 
         else{
-          if($days ==1)
-          {
-            echo $days ." day left to expire";
-          }
-          else{
-          echo $days ." days left to expire";
-        }
+          echo "Not expired";
+        //   if($days ==1)
+        //   {
+        //     echo $days ." day left to expire";
+        //   }
+        //   else{
+        //   echo $days ." days left to expire";
+        // }
         }
         
         ?></td>        

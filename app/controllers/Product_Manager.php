@@ -125,7 +125,7 @@
           }
           else
           {
-            //initial form loading
+            //initial form loading before the inputs are given
             $data=[
               'pId'=>'',
               'name'=>'',
@@ -193,7 +193,8 @@
               if($this->pmModel->addStock($data))
               {
                 flash('addCategory_flash','New Category Stock details are successfully added!');
-                redirect('Product_Manager/viewStock');
+                //redirect('Product_Manager/viewStock');
+                //redirect('Product_Manager/viewCategory($pId)');
               }
               else
               {
@@ -264,11 +265,11 @@
               // 'ingredients'=>trim($_POST['ingredients']),
               'image'=>$new_img_name,
 
-              'name_err'=>'',
-              'duration_err'=>'',
-              'size_err'=>'',
+              // 'name_err'=>'',
+              // 'duration_err'=>'',
+              // 'size_err'=>'',
               'price_err'=>'',
-              'ingredients_err'=>'',
+              // 'ingredients_err'=>'',
               'image_err'=>''
             ];
 
@@ -312,19 +313,19 @@
           {
             $category = $this->pmModel->getCategorybyId($pId);
             $data=[
-              'pId'=>$category->product_id,
-              'name'=>$category->product_name,
-              'duration'=>$category->expiry_duration,
-              'size'=>$category->size,
+              // 'pId'=>$category->product_id,
+              // 'name'=>$category->product_name,
+              // 'duration'=>$category->expiry_duration,
+              // 'size'=>$category->size,
               'price'=>$category->unit_price,
-              'ingredients'=>$category->ingredients,
+              // 'ingredients'=>$category->ingredients,
               'image'=>$category->image,
 
-              'name_err'=>'',
-              'duration_err'=>'',
-              'size_err'=>'',
+              // 'name_err'=>'',
+              // 'duration_err'=>'',
+              // 'size_err'=>'',
               'price_err'=>'',
-              'ingredients_err'=>'',
+              // 'ingredients_err'=>'',
               'image_err'=>''
             ];
             $this->view('product_manager/updateCategory', $data);
