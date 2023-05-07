@@ -336,16 +336,42 @@
 
         public function viewCategory($pId)
         {
-          $expireDays = $this->pmModel->getProductExpireDays($pId);
-          $category= $this->pmModel->viewCategorybyId($pId);         //the result set returned by the model is sent to category
-          $productStock= $this->pmModel->getProductStockDetailsForProduct($pId);
-          $data = [
-              'category' => $category,
-              'productStock' => $productStock,
-              'expireDays' => $expireDays
-          ];
+          if($_SERVER['REQUEST_METHOD'] == 'POST')
+          {
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
-          $this->view('product_manager/viewCategory',$data);
+            $from = isset($_POST['from']) ? $_POST['from'] : '';
+            $to = isset($_POST['to']) ? $_POST['to'] : '';
+
+            $expireDays = $this->pmModel->getProductExpireDays($pId);
+            $category= $this->pmModel->viewCategorybyId($pId);         //the result set returned by the model is sent to category
+            $productStock= $this->pmModel->ProductStockDetails_duration($pId, $from, $to);   //for filteration
+            $data = [
+                'category' => $category,
+                'productStock' => $productStock,
+                'expireDays' => $expireDays,
+                'from' => $from,
+                'to' => $to
+            ];
+  
+            $this->view('product_manager/viewCategory',$data);
+          }
+          else
+          {
+            $expireDays = $this->pmModel->getProductExpireDays($pId);
+            $category= $this->pmModel->viewCategorybyId($pId);         //the result set returned by the model is sent to category
+            $productStock= $this->pmModel->getProductStockDetailsForProduct($pId);
+            $data = [
+                'category' => $category,
+                'productStock' => $productStock,
+                'expireDays' => $expireDays,
+                'from' => '',
+                'to' => ''
+            ];
+  
+            $this->view('product_manager/viewCategory',$data);
+          }  
+;
         }
 
      
@@ -366,15 +392,43 @@
 
         public function viewStock()
         {
-          $stockView= $this->pmModel->getProductStockDetails();
-          $availableQty= $this->pmModel->get_availableQtyView();
+          if($_SERVER['REQUEST_METHOD'] == 'POST')
+          {
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
-          $data = [
-              'stockView' => $stockView,
-              'availableQty' => $availableQty
-          ];
+            $from = isset($_POST['from']) ? $_POST['from'] : '';
+            $to = isset($_POST['to']) ? $_POST['to'] : '';
+            
+            $stockView= $this->pmModel->ProductStock_duration($from, $to);
+            $availableQty= $this->pmModel->get_availableQtyView();
 
-          $this->view('product_manager/viewStock',$data);
+            $data = [
+                'stockView' => $stockView,
+                'availableQty' => $availableQty,
+                'from' => $from,
+                'to' => $to
+            ];
+
+            $this->view('product_manager/viewStock',$data);
+
+
+          }
+          else
+          {
+            $stockView= $this->pmModel->getProductStockDetails();
+            $availableQty= $this->pmModel->get_availableQtyView();
+
+            $data = [
+                'stockView' => $stockView,
+                'availableQty' => $availableQty,
+                'from' => '',
+                'to' => ''
+            ];
+
+            $this->view('product_manager/viewStock',$data);
+
+          }
+          
         }
 
 

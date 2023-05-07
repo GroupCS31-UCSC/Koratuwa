@@ -2,7 +2,7 @@
 <link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/public/css/product_manager/viewStock.css">
 <?php require APPROOT.'/views/product_manager/pm_dashboard.php'; ?>
 <!-- ______________________________________________________________________________________________________-->
-
+<script src="<?php echo URLROOT; ?>/js/pm.js"></script>
 
 
 <h2>Available Product Stock</h2>
@@ -29,33 +29,52 @@
 
 <h2>All Product Stocks</h2>
 
+<!-- search -->
+<input type="text" id="searchInput1" placeholder="Search By Stock ID..." onkeyup="searchFunc1();">
+<br><br><br>
 
+<!-- filter -->
+Filter by Manufactured Date:<br><br>
 
-  <table>
-      <tr>
-      <th>Stock ID</th>
-        <th>Product ID</th>
-        <th>Manufactured Date</th>
-        <th>Expiry Date</th>
-        <th>Quantity</th>
+  <form action="<?php echo URLROOT; ?>/Product_Manager/viewStock" method="POST" >
+    <label for="from">From :</label>
+    <input type="date" id="from" name="from" value="<?php echo $data['from']; ?>"><br>
+    <label for="to">  To :</label>
+    <input type="date" id="to" name="to" value="<?php echo $data['to']; ?>">
+    <input type="submit" value="Search" class="submitBtn"> 
+  </form>
+
+  <input type="button" value="Refresh" class="" onclick="location.href='<?php echo URLROOT; ?>/Product_Manager/viewStock' ">
+  <table id="detailsTable">
+      <thead>
+        <th col-index = 1>Stock ID</th>
+        <th col-index = 2>
+          <select class="table-filter" onchange="filter_rows()">
+            <option value="all">Product ID</option>
+          </select>
+        </th>
+        <th col-index = 3>Manufactured Date</th>
+        <th col-index = 4>Expiry Date</th>
+        <th col-index = 5>Quantity</th>
         
-      </tr>
+      </thead>
+      <tbody>
+        <?php foreach ($data['stockView'] as $product_stock) : ?>
+        <tr>
+          <td><?php echo $product_stock->stock_id; ?></td>
+          <td><?php echo $product_stock->product_id; ?></td>
+          <td><?php echo $product_stock->mfd_date; ?></td>
+          <td><?php echo $product_stock->exp_date; ?></td>
+          <td><?php echo $product_stock->quantity; ?></td>        
+        </tr>
+        <?php endforeach; ?>
+      </tbody>
+  </table>
 
-      <?php foreach ($data['stockView'] as $product_stock) : ?>
-      <tr>
-        <td><?php echo $product_stock->stock_id; ?></td>
-        <td><?php echo $product_stock->product_id; ?></td>
-        <td><?php echo $product_stock->mfd_date; ?></td>
-        <td><?php echo $product_stock->exp_date; ?></td>
-        <td><?php echo $product_stock->quantity; ?></td>
-        
-    
+<script>
+  getUniqueValuesFromColumn();
+</script>
 
-    </td>
-        
-      </tr>
-      <?php endforeach; ?>
-    </table>
 <!-- 
     <img class="img-bg" src="<?php echo URLROOT; ?>/public/img/milk-stock.jpg" alt="no"> -->
 <?php require APPROOT.'/views/include/footer.php'; ?>

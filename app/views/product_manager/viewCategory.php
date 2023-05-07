@@ -82,17 +82,33 @@
 <div class="btnWrapper">
   <input type="button" value="Add new Product Batch" class="baddBtn" onclick="location.href='<?php echo URLROOT; ?>/Product_Manager/addStock/<?php echo $cat->product_id ?>' "> 
 </div>
+<!-- search -->
+<input type="text" id="searchInput2" placeholder="Search By Stock ID..." onkeyup="searchFunc2();">
+
+<br><br><br>
+<!-- filter -->
+Filter by Manufactured Date:<br><br>
+<form action="<?php echo URLROOT; ?>/Product_Manager/viewCategory/<?php echo $cat->product_id  ?>" method="POST" >
+    <label for="from">From :</label>
+    <input type="date" id="from" name="from" value="<?php echo $data['from']; ?>"><br>
+    <label for="to">  To :</label>
+    <input type="date" id="to" name="to" value="<?php echo $data['to']; ?>">
+    <input type="submit" value="Search" class="submitBtn"> 
+</form>
+
+
+<input type="button" value="Refresh" class="" onclick="location.href='<?php echo URLROOT; ?>/Product_Manager/viewCategory/<?php echo $cat->product_id  ?>' ">
 
 <!-- _______________________________________________ Stock Details for each product_______________________________________________________-->
-<table>
-  <tr>
+<table id="detailsTable2">
+  <thead>
     <th>Batch ID</th>
     <th>Quanitity</th>
     <th>Manufactured Date </th>
     <th>Expiry Date</th>
     <th>Status</th>
-  </tr>
-
+  </thead>
+  <tbody>
   <?php foreach ($data['productStock'] as $product_stock) : ?>
       <tr>
         <td><?php echo $product_stock->stock_id; ?></td>
@@ -123,8 +139,10 @@
         ?></td>        
       </tr><br>
       <?php endforeach; ?>
+    </tbody>
 </table>
 
 
 
 <?php require APPROOT.'/views/include/footer.php'; ?>
+<script src="<?php echo URLROOT; ?>/js/pm.js"></script>
