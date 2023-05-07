@@ -95,6 +95,15 @@
       return $result;
     }
 
+    public function get_availableQtyView()
+    {
+      $this->db->query('SELECT * FROM product');
+
+      $result = $this->db->resultSet();
+
+      return $result;
+    }
+
     public function viewCategorybyId($pId)
     {
       $this->db->query('SELECT * FROM product WHERE product_id = :pId' );

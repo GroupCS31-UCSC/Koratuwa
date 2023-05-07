@@ -1,70 +1,104 @@
 <?php require APPROOT.'/views/include/header.php'; ?>
 <?php require APPROOT.'/views/cashier/cashier_dashboard.php'; ?>
-<link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/public/css/cashier/viewSale.css">
+<link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/public/css/cashier/viewCustomerOrders.css">
 
 
 <!-- Flash massages -->
+<?php flash('update_status_success'); ?>
 
-<session>
-  <div class="tab">
-  <?php $status=$_GET['status']??'Ongoing';?>
-    <button class="tablinks <?= $status==="Ongoing"?'active':''?>" onclick="openTab(event, 'Ongoing')">Ongoing</button>
-    <button class="tablinks <?= $status==="Delivered"?'active':''?>" onclick="openTab(event, 'Delivered')">Delivered</button> 
+  <div class="mytabs">
+    <input type="radio" id="tab1" name="mytabs" checked="checked">
+    <label for="tab1">Ongoing Orders</label>
+    <div class="tab">
+      <div class="ongoingOrders">
+        <table>
+          <tr>
+            <th>Order ID</th>
+            <th>Date</th>
+            <th>Payment Method</th>
+            <th>Total Payment</th>
+            <th>Payment Status</th>
+            <th>Customer ID</th>
+            <th>Items</th>
+            <th>Status</th>
+          </tr>
+          <tr>
+          <?php foreach ($data ['onlineOrderView'] as $online_order) : ?>
+            <?php if($online_order->status == "Ongoing"): ?>
+            <td><?php echo $online_order->order_id ?></td>
+            <td><?php echo $online_order->ordered_date ?></td>
+            
+            <td><?php echo $online_order->payment_method ?></td>
+            <td><?php echo $online_order->total_payment ?></td>
+            <td><?php echo $online_order->payment_status ?></td>
+            <td><?php echo $online_order->customer_id ?></td>
+            <td>
+              <div class="table-btns">
+              <a href="#"><button class="viewBtn" onclick="openModel()" id=""><i class="fas fa-eye"></i></button></a>
+              </div>
+            </td>
+            <td>
+              <form action="<?php echo URLROOT; ?>/Cashier/updateStatus/<?php echo $data['orderId']; ?>" method="POST">
+                <input type="hidden" name="order_id" value="<?php echo $online_order->order_id ?>">
+                <button class="ongoingBtn" onclick="changeStatus(this)">Ongoing</button>
+              </form>
+            </td>
+            <!-- <td><?php echo $online_order->status ?></td> -->
+          </tr>
+          <?php endif; ?>
+          <?php endforeach; ?>
+        </table>
+      </div>
+    </div>
+
+    <!-- Deliverd orders -->
+    <input type="radio" id="tab2" name="mytabs">
+    <label for="tab2">Delivered Orders</label>
+    <div class="tab">
+      <div class="deliveredOrders">
+        <table>
+          <tr>
+            <th>Order ID</th>
+            <th>Date</th>
+            <th>Payment Method</th>
+            <th>Total Payment</th>
+            <th>Payment Status</th>
+            <th>Customer ID</th>
+            <th>Items</th>
+            <th>Status</th>
+          </tr>
+          <tr>
+          <?php foreach ($data ['onlineOrderView'] as $online_order) : ?>
+            <?php if($online_order->status == "Delivered"): ?>
+            <td><?php echo $online_order->order_id ?></td>
+            <td><?php echo $online_order->ordered_date ?></td>
+            <td><?php echo $online_order->payment_method ?></td>
+            <td><?php echo $online_order->total_payment ?></td>
+            <td><?php echo $online_order->payment_status ?></td>
+            <td><?php echo $online_order->customer_id ?></td>
+            <td>
+              <div class="table-btns">
+              <a href="#"><button class="viewBtn" onclick="openModel()" id=""><i class="fas fa-eye"></i></button></a>
+              </div>
+            </td>
+            <td>
+              <button class="deliveredBtn"><?php echo $online_order->status ?></button>
+            </td>
+          </tr>
+          <?php endif; ?>
+          <?php endforeach; ?>
+        </table>
+      </div>
+    </div>
   </div>
-
-  <div id="Ongoing" class="tabcontent active">
-  <div class="container" style="overflow-x: auto;">
-    <table>
-    <tr>
-        <th>Order ID</th>
-        <th>Date</th>
-        <!-- <th>Time</th> -->
-        <th>Status</th>
-        <!-- <th>Receiving Method</th> -->
-        <th>Payment Method</th>
-        <th>Total Payment</th>
-        <th>Payment Status</th>
-        <th>Receipt ID</th>
-        <th>Customer ID</th>
-        <th>Action</th>
-    </tr>
-    <tr>
-        <?php foreach ($data ['onlineOrderView'] as $online_order) : ?>
-        <td><?php echo $online_order->order_id ?></td>
-        <td><?php echo $online_order->ordered_date ?></td>
-        <!-- <td><?php echo $online_order->order_time ?></td> -->
-        <td><?php echo $online_order->status ?></td>
-        <!-- <td><?php echo $online_order->receiving_method ?></td> -->
-        <td><?php echo $online_order->payment_method ?></td>
-        <td><?php echo $online_order->total_payment ?></td>
-        <td><?php echo $online_order->payment_status ?></td>
-        <td><?php echo $online_order->receipt_id ?></td>
-        <td><?php echo $online_order->customer_id ?></td>
-        <td>
-            <div class="table-btns">
-            <a href="<?php echo URLROOT?>/Cashier/updateSale/<?php echo $online_order->order_id ?>"><button class="updateBtn"><i class="fa-regular fa-pen-to-square"></i></button></a>
-            </div>
-        </td>
-    </tr>
-    <?php endforeach; ?>
-  </table>
-</div>
-</div>
-
-<div id="Delivered" class="tabcontent">
-  <p>Deliverd</p>
-</div>
-
-</session>
 
 
 <?php require APPROOT.'/views/include/footer.php'; ?>
 
 <script>
-  function openTab(evt, tabName) {
-    var i, tabcontent, tablinks;
-    
-    window.location.href = "<?php echo URLROOT?>/Cashier/viewCustomerOrders?status="+tabName;
+  function changeStatus(button) {
+    button.innerHTML = "Delivered";
+    button.style.backgroundColor = "rgb(215, 31, 89)";
   }
   
 </script>

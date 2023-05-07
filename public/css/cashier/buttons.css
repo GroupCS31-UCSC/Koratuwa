@@ -14,6 +14,7 @@
     border-radius: 5px;
 }
 
+/*view button*/
 .viewBtn {
     border: 0.25px solid rgb(11, 103, 223);
     border-radius: 4px;
@@ -29,25 +30,44 @@
     background: rgb(0, 200, 255);
     cursor: pointer;
 }
-/* .form-btn {
-	background-color: #00BFFF;
-	color: aliceblue;
-	padding: 16px 20px;
-	margin: 8px 0;
-	border: none;
-	cursor: pointer;
-	width: 100%;
-	transition: .2s all;
 
+/* update button */
+.updateBtn {
+    border: 0.25px solid rgb(60, 255, 0);
+    border-radius: 4px;
+    box-shadow: 0px 2px 3px #666666;
+    color: white;
+    padding: 2px 6px 2px 6px;
+    background: #28c728;
 }
-.form-btn:hover{
-	background-color: rgb(36, 105, 110);
-	border-radius: 5px;
-} */
 
+.updateBtn:hover {
+    border: 0.25px solid black;
+    color: black;
+    background: #12fc0a;
+    cursor: pointer;
+}
+
+
+/*delete button*/
+
+.deleteBtn {
+    border: 0.25px solid white;
+    border-radius: 4px;
+    box-shadow: 0px 2px 3px #666666;
+    color: white;
+    padding: 2px 6.5px 2px 6.5px;
+    background: rgb(250, 10, 10);
+}
+
+.deleteBtn:hover {
+    border: 0.25px solid black;
+    color: #353935;
+    background: red;
+    cursor: pointer;
+}
 
 /*add button */
-
 .addBtn {
     position: absolute;
     width: 300px;
@@ -74,50 +94,6 @@
     cursor: pointer;
 }
 
-
-/*update button*/
-
-.updateBtn {
-    border-radius: 28px;
-    box-shadow: 0px 2px 3px #666666;
-    font-family: Arial;
-    color: black;
-    font-size: 10px;
-    font: bold 20px;
-    background: #28c728;
-    padding: 10px 18px 10px 20px;
-    text-decoration: none;
-    border-color: #28c728;
-    /*z-index: 1;*/
-}
-
-.updateBtn:hover {
-    background: #12fc0a;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-
-/*delete button*/
-
-.deleteBtn {
-    border-radius: 28px;
-    box-shadow: 0px 2px 3px #666666;
-    font-family: Arial;
-    color: black;
-    font-size: 10px;
-    background: red;
-    padding: 10px 18px 10px 20px;
-    text-decoration: none;
-    border-color: red;
-    z-index: 1;
-}
-
-.deleteBtn:hover {
-    background: #e35858;
-    text-decoration: none;
-    cursor: pointer;
-}
 
 
 /*submit button*/

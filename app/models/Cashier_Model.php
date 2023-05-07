@@ -41,26 +41,6 @@
       return $id;
     }
 
-    public function findReceiptId() {
-      $this->db->query('SELECT * FROM onsite_sale order by receipt_id desc limit 1');
-
-      $row = $this->db->single();
-      $lastId = '';
-      if($row) {
-        $lastId = $row->receipt_id;
-      }
-      if(empty($lastId)) {
-        $id = 'r1';
-      } else {
-        $id = substr($lastId, 1);
-        $id = intval($id);
-        $id++;
-        $id = 'r'.$id;
-      }
-    
-      return $id;
-    }
-
     public function get_onsiteSaleView() {
       $this->db->query('SELECT * FROM onsite_sale');
 
@@ -107,6 +87,19 @@
 
       $row = $this->db->single();
       return $row;
+    }
+
+    public function updateStatus($data){
+      $this->db->query('UPDATE online_order SET status = :status WHERE order_id = :orderId');
+      $this->db->bind(':orderId', $data['orderId']);
+      $this->db->bind(':status', $data['status']);
+
+      if($this->db->execute()) {
+        return true;
+      }
+      else {
+        return false;
+      }
     }
 
     public function viewOnsiteSaleById($saleId) {

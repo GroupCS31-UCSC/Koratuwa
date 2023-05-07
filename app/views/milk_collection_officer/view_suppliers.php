@@ -17,7 +17,7 @@
       <th>Nic</th>
       <th>Contact Number</th>
       <th>Address</th>
-      <th>Email</th>
+      <!-- <th>Email</th> -->
     </tr>
       
     <?php foreach ($data['supView'] as $supView) : ?>
@@ -28,7 +28,7 @@
       <td><?php echo $supView->nic; ?></td>
       <td><?php echo $supView->contact_number; ?></td>
       <td><?php echo $supView->address; ?></td>
-      <td><?php echo $supView->email; ?></td>
+      <!-- <td><?php echo $supView->email; ?></td> -->
     </tr><br>
     <?php endforeach; ?>
 

@@ -165,14 +165,15 @@ function alert($msg) {
           
           // $expenseView= $this->financialManagerModel->viewExpense();
           $exreportsView= $this->financialManagerModel->viewExpenseReports($from, $to);
-          // $rereportsView= $this->financialManagerModel->viewRevenueReports($from, $to);
+          $rereportsView= $this->financialManagerModel->viewRevenueReports($from, $to);
           // var_dump($exreportsView); die();
           $pdf = generatePdf();
 
           $pdf->AddPage('L','A4');
         
           $pdf->SetFont('Arial', 'B', 18);
-          $pdf->Cell(0, 10, 'Finance Report', 0, 1, 'C');
+          $pdf->Cell(0, 10, 'Expenses and Revenues Report ', 0, 1, 'C');
+          $pdf->Ln();
         
           $pdfWidth = $pdf->GetPageWidth();
           $pdfHeight = $pdf->GetPageHeight();
@@ -191,6 +192,8 @@ function alert($msg) {
         $pdf->Cell(30, 10, 'Amount', 1 , 0, 'C',1);
         // $pdf->Cell(30, 10, 'Quality', 1 , 0, 'C',1);
         $pdf->Ln();
+
+        
         
         $pdf->SetTextColor(0, 0, 0);
         
@@ -211,8 +214,36 @@ function alert($msg) {
 
 
         }
+        $pdf->Ln();
+        $pdf->SetFont('Arial', 'B', 14);
+        //  $pdf->SetTitle('Reveneues Report');
+        $pdf->SetTextColor(255, 255, 255);
 
-       
+        $pdf->Cell(60, 10, 'Revenue Id', 1 , 0, 'C',1);
+        $pdf->Cell(60, 10, 'Date', 1 , 0, 'C',1);
+        $pdf->Cell(70, 10, 'Source of Revenue', 1 , 0, 'C',1);
+        $pdf->Cell(30, 10, 'Amount', 1 , 0, 'C',1);
+        // $pdf->Cell(30, 10, 'Quality', 1 , 0, 'C',1);
+        $pdf->Ln();
+        $pdf->SetTextColor(0, 0, 0);
+        
+        $pdf->SetFont('Arial', '', 12);
+        foreach ($rereportsView as $row) {
+        
+          
+            $pdf->Cell(60,10,$row->revenue_id, 1 , 0, 'C');
+            $pdf->Cell(60,10,$row->date, 1 , 0, 'C');
+            $pdf->Cell(70,10,$row->source, 1 , 0, 'C');
+            $pdf->Cell(30,10,$row->amount, 1 , 0, 'C');
+            // $pdf->Cell(30,10,$row->	quality, 1 , 0, 'C');
+            
+           
+            
+            $pdf->Ln();
+
+
+
+        }
         
         $pdf->AliasNbPages();
         $pdf->SetFont('Arial', 'B', 12);
@@ -224,6 +255,7 @@ function alert($msg) {
            
             $data=[
             'exreportsView' =>  $exreportsView,
+            'rereportsView' =>  $rereportsView,
             'from' => $from,
             'to' => $to,
             ];

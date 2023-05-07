@@ -50,12 +50,12 @@
           <span class="title">Suppliers</span>
         </a>
       </li>
-      <li>
+      <!-- <li>
         <a href="<?php echo URLROOT; ?>/Milk_Collection_Officer/viewAnalysis">
           <span class="icon"><i class="fa-solid fa-chart-line"></i></span>
           <span class="title">Analysis</span>
         </a>
-      </li>
+      </li> -->
     </ul>
   </div>
 
@@ -101,5 +101,4 @@
         </div>
 
 
-<?php require APPROOT.'/views/include/footer.php'; ?>
 <script src="<?php echo URLROOT; ?>/js/dashboard.js"></script>
