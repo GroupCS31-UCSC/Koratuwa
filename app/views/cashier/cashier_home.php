@@ -155,6 +155,43 @@
 
 
 
+<!-- notification view box -->
+<div class="notifyBox" id="notifyBox">
+  <?php foreach ($data[0]['notifications'] as $notifi) : ?>
+    <div class="comment-box">
+      <div class="box-top">
+        <div class="comment">
+          <p><strong><?php echo $notifi->order_id; ?></strong></p> 
+        </div>
+        <a href="<?php echo URLROOT?>/Cashier/updateNotifyStatus/<?php echo $notifi->notify_id ?>"><button class="" title="Mark As Read"><i class="fa-regular fa-eye"></i></button></a>
+      </div>
+      <div class="name">
+        <span>New order Received.</span>    
+        <?php echo $notifi->ordered_date; ?><?php echo $notifi->ordered_time; ?>        
+      </div>
+    </div>
+  <?php endforeach; ?>
+</div>
+
+
+<!-- notification -->
+<script>
+  const noti = document.getElementById('notifyBox');
+  let isBellClicked = true;
+
+  let showNoti = function(){
+    if(isBellClicked){
+      noti.style.display='block';
+      isBellClicked= false;
+    }
+    else{
+      noti.style.display='none';
+      isBellClicked= true;
+    }
+  }
+</script>
+
+
 
 <?php require APPROOT.'/views/include/footer.php'; ?>
 
@@ -253,3 +290,8 @@ function updateBalance() {
 
 
 </script>
+
+
+
+
+

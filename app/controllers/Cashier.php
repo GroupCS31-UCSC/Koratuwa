@@ -17,11 +17,13 @@
         $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
         $data2 = $this->cashierModel->get_productView();
+        $notify = $this->cashierModel->get_Notifications();
 
         $data = [
           'saleId'=> '',
           'productId' => trim($_POST['productId']),
           'quantity' => trim($_POST['quantity']),
+          'notifications' => $notify,
 
           'productId_err' => '',
           'quantity_err' => '',
@@ -53,12 +55,14 @@
       else {
         $getSaleId= $this->cashierModel->findSaleId();
         $data2 = $this->cashierModel->get_productView();
-
+        $notify = $this->cashierModel->get_Notifications();
+        // var_dump($notify);
         $data = [
           'saleId'=> $getSaleId,
           'productId' => '',
           'quantity' => '',
           // 'receiptId' => '',
+          'notifications' => $notify,
 
           'productId_err' => '',
           'quantity_err' => '',
@@ -69,22 +73,67 @@
       }
     }
 
-    public function viewOnsiteSale() {
-      $onsiteSaleView= $this->cashierModel->get_onsiteSaleView();
-      $productSaleView= $this->cashierModel->get_productSaleView();
-      $data = [
-        'onsiteSaleView' => $onsiteSaleView,
-        'productSaleView' => $productSaleView
-      ];
-      $this->view('Cashier/viewOnsiteSale',$data);    
+    public function viewOnsiteSale() 
+    {
+      if($_SERVER['REQUEST_METHOD'] == 'POST')
+      {
+        $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+        $from = isset($_POST['from']) ? $_POST['from'] : '';
+        $to = isset($_POST['to']) ? $_POST['to'] : '';
+
+        $onsiteSaleView= $this->cashierModel->onsiteSale_duration($from, $to);
+        $productSaleView= $this->cashierModel->get_productSaleView();
+        $data = [
+          'onsiteSaleView' => $onsiteSaleView,
+          'productSaleView' => $productSaleView,
+          'from' => $from,
+          'to' => $to
+        ];
+        $this->view('Cashier/viewOnsiteSale',$data); 
+
+      }
+      else
+      {
+        $onsiteSaleView= $this->cashierModel->get_onsiteSaleView();
+        $productSaleView= $this->cashierModel->get_productSaleView();
+        $data = [
+          'onsiteSaleView' => $onsiteSaleView,
+          'productSaleView' => $productSaleView,
+          'from' => '',
+          'to' => ''
+        ];
+        $this->view('Cashier/viewOnsiteSale',$data); 
+      } 
+   
     }
 
-    public function viewCustomerOrders(){
-      $onlineOrderView= $this->cashierModel->get_onlineOrderView();
-      $data = [
-        'onlineOrderView' => $onlineOrderView
-      ];
-      $this->view('Cashier/viewCustomerOrders',$data);
+    public function viewCustomerOrders()
+    {
+      if($_SERVER['REQUEST_METHOD'] == 'POST')
+      {
+        $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+        $from = isset($_POST['from']) ? $_POST['from'] : '';
+        $to = isset($_POST['to']) ? $_POST['to'] : '';
+
+        $onlineOrderView= $this->cashierModel->onlineOrder_duration($from, $to);
+        $data = [
+          'onlineOrderView' => $onlineOrderView,
+          'from' => $from,
+          'to' => $to
+        ];
+        $this->view('Cashier/viewCustomerOrders',$data);
+      }
+      else
+      {
+        $onlineOrderView= $this->cashierModel->get_onlineOrderView();
+        $data = [
+          'onlineOrderView' => $onlineOrderView,
+          'from' => '',
+          'to' => ''
+        ];
+        $this->view('Cashier/viewCustomerOrders',$data);
+      }
+
     }
 
     public function updateStatus() {
@@ -127,6 +176,20 @@
         echo json_encode(array('success' => true));
       }
       // echo json_encode($data);
+    }
+
+
+    //update seen notifications
+    public function updateNotifyStatus($nId)
+    {
+      if($this->cashierModel->update_notifyStatus($nId))
+      {
+        redirect('Cashier/viewCustomerOrders');
+      }
+      else
+      {
+        die('Something went wrong');
+      }
     }
 
   }
