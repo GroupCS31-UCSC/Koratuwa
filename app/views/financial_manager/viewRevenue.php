@@ -21,7 +21,7 @@
   </form>
 
   <!-- refresh button -->
-  <input type="button" value="Refresh" class="" onclick="location.href='<?php echo URLROOT; ?>/Financial_Manager/viewRevenue' ">
+  <input type="button" value="Refresh" class="refreshBtn" onclick="location.href='<?php echo URLROOT; ?>/Financial_Manager/viewRevenue' ">
 
  
   <table id="detailsTable2">

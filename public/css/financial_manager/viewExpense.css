@@ -6,17 +6,20 @@
   .column {
     float: left;
     padding: 10px;
-    height: 700px; /* Should be removed. Only for demonstration */
+    
   }
   
   .left {
     width: 50%;
-    background-color: #bbb;
+    background-color: white;
+    min-height: 700px;
+    margin-top: 200px;
   }
   
   .right {
     width: 50%;
     background-color: WHITE;
+    min-height: 700px;
   }
   
   /* Clear floats after the columns */
@@ -118,7 +121,7 @@ td {
     text-decoration: none;
     cursor: pointer;
     margin-left: 350px;
-    margin-top: 10px;
+   
      
    
 }
@@ -129,3 +132,7 @@ td {
     cursor: pointer;
 }
 
+#searchInput{
+  margin-top:20px;
+  margin-bottom: 10px;
+}

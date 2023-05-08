@@ -6,17 +6,20 @@
   .column {
     float: left;
     padding: 10px;
-    height: 700px; /* Should be removed. Only for demonstration */
+
   }
   
   .right {
     width: 50%;
-    background-color: #bbb;
+    margin-top: 200px;
+    background-color: WHITE;
+    min-height: 700px;
   }
   
   .left {
     width: 50%;
     background-color: WHITE;
+    min-height: 700px;
   }
   
   /* Clear floats after the columns */
@@ -81,4 +84,9 @@ td {
     .main.active {
         left: 275px;
     }
+}
+
+#searchInput2{
+  margin-top:20px;
+  margin-bottom: 10px;
 }

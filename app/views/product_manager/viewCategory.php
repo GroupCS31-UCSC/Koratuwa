@@ -82,12 +82,23 @@
 <div class="btnWrapper">
   <input type="button" value="Add new Product Batch" class="baddBtn" onclick="location.href='<?php echo URLROOT; ?>/Product_Manager/addStock/<?php echo $cat->product_id ?>' "> 
 </div>
-<!-- search -->
-<input type="text" id="searchInput2" placeholder="Search By Stock ID..." onkeyup="searchFunc2();">
 
-<br><br><br>
+<h2>Product Stock</h2>
+<!-- search -->
+<div class="filter">
+
+<div class="topic">Search By Stock ID: </div>
+<div class="form-input-container">
+<div class="form-input-wrapper"><input type="text" id="searchInput2" placeholder="Type in Stock ID..." onkeyup="searchFunc2();" ></div>
+<div class="form-input-wrapper"><i class="fa-solid fa-magnifying-glass"></i></div>
+
+
+</div>
+
 <!-- filter -->
-Filter by Manufactured Date:<br><br>
+
+
+<div class="topic">Filter by Manufactured Date:</div>
 <form action="<?php echo URLROOT; ?>/Product_Manager/viewCategory/<?php echo $cat->product_id  ?>" method="POST" >
     <label for="from">From :</label>
     <input type="date" id="from" name="from" value="<?php echo $data['from']; ?>"><br>
@@ -96,11 +107,12 @@ Filter by Manufactured Date:<br><br>
     <input type="submit" value="Search" class="submitBtn"> 
 </form>
 
-
-<input type="button" value="Refresh" class="" onclick="location.href='<?php echo URLROOT; ?>/Product_Manager/viewCategory/<?php echo $cat->product_id  ?>' ">
+</div>
+<input type="button" value="Refresh" class="refreshBtn" onclick="location.href='<?php echo URLROOT; ?>/Product_Manager/viewCategory/<?php echo $cat->product_id  ?>' ">
 
 <!-- _______________________________________________ Stock Details for each product_______________________________________________________-->
 <table id="detailsTable2">
+
   <thead>
     <th>Batch ID</th>
     <th>Quanitity</th>

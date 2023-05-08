@@ -33,14 +33,16 @@
   </div>
 
 <h2>All Product Stocks</h2>
-
+<div class="filter">
 <!-- search -->
-<input type="text" id="searchInput1" placeholder="Search By Stock ID..." onkeyup="searchFunc1();">
-<br><br><br>
-
+<div class="topic">Search By Stock ID: </div>
+<div class="form-input-container">
+<div class="form-input-wrapper"><input type="text" id="searchInput1" placeholder="Search By Stock ID..." onkeyup="searchFunc1();"></div>
+<div class="form-input-wrapper"><i class="fa-solid fa-magnifying-glass"></i></div>
+</div>
 <!-- filter -->
-Filter by Manufactured Date:<br><br>
 
+<div class="topic">Filter by Manufactured Date:</div>
   <form action="<?php echo URLROOT; ?>/Product_Manager/viewStock" method="POST" >
     <label for="from">From :</label>
     <input type="date" id="from" name="from" value="<?php echo $data['from']; ?>"><br>
@@ -49,7 +51,8 @@ Filter by Manufactured Date:<br><br>
     <input type="submit" value="Search" class="submitBtn"> 
   </form>
 
-  <input type="button" value="Refresh" class="" onclick="location.href='<?php echo URLROOT; ?>/Product_Manager/viewStock' ">
+        </div>
+  <input type="button" value="Refresh" class="refreshBtn" onclick="location.href='<?php echo URLROOT; ?>/Product_Manager/viewStock' ">
   <table id="detailsTable">
       <thead>
         <th col-index = 1>Stock ID</th>

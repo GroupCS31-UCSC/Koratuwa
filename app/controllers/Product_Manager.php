@@ -212,7 +212,14 @@
               {
                 flash('addCategory_flash','New Category Stock details are successfully added!');
                 redirect('Product_Manager/viewStock');
-                // redirect('Product_Manager/viewCategory($pId)');
+                // redirection
+                // $category= $this->pmModel->viewCategorybyId($pId);
+
+                // $data = [
+                //     'category' => $category
+                // ];
+
+                // $this->view('product_manager/viewCategory',$data);
               }
               else
               {

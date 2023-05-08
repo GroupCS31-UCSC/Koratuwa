@@ -32,12 +32,12 @@
     <!--cost-->
     <div class="form-input-title">Quanitity</div>
     <span class="form-invalid"><?php echo $data['qty_err']; ?></span>
-    <input type="number" min="100" name="qty" id="qty" class="qty" value="<?php echo $data['qty'];?>" >
+    <input type="number" min="20"    name="qty" id="qty" class="qty" value="<?php echo $data['qty'];?>" >
 
     <!--price-->
     <div class="form-input-title">Manufactured Date</div>
     <span class="form-invalid"><?php echo $data['mfd_err']; ?></span>
-    <input type="date" name="mfd" id="mfd" class="mfd" value="<?php echo $data['mfd']; ?>" >
+    <input type="date"  name="mfd" id="mfd" class="mfd" value="<?php echo $data['mfd']; ?>" >
 
     <!--ingredients-->
     <!-- <div class="form-input-title">Expiry Date</div>
