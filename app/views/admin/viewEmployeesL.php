@@ -24,6 +24,7 @@
               <form id="searchForm" action="<?php echo URLROOT; ?>/Admin/searchSysEmployees" method="GET">
 
               <!-- employee details search -->
+              <button><i class="fa-solid fa-magnifying-glass"></i></button>
               <select name="status" id="status" value="<?php echo $data['status']; ?>">
               <?php if($data['status']==='currentEmp'):?>
                 <option value="currentEmp" selected>Current Employees</option>
@@ -42,7 +43,7 @@
                   <input type="text" name="search" placeholder="Filter by Employee Name " autocomplete="off" value="<?php echo $data['search'] ?>" >
                   <!-- <input type="text" oninput="return showIcon()" class="searchName" name="search" placeholder="Filter by Employee Name " autocomplete="off" value="<?php echo $data['search'] ?>" > -->
                   <!-- <div class="img"><span class="fa fa-close"></span></div> -->
-                  <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                  
               <!-- </div> -->
 
               </form>
@@ -65,7 +66,8 @@
               <table>
                 <tr>
                   <!-- <th>Image</th> -->
-                  <th>Employee Id</th>
+                  <th>
+                    loyee Id</th>
                   <th>Name</th>
                   <th>Employment</th>
                   <!-- <th>NIC</th> -->

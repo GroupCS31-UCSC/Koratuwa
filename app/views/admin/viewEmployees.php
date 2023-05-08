@@ -26,6 +26,7 @@
               <form id="searchForm" action="<?php echo URLROOT; ?>/Admin/searchSysEmployees" method="GET">
 
               <!-- employee details search -->
+              <button><i class="fa-solid fa-magnifying-glass"></i></button>
               <select name="status" id="status" value="<?php echo $data['status']; ?>">
               <?php if($data['status']==='currentEmp'):?>
                 <option value="currentEmp" selected>Current Employees</option>
@@ -44,7 +45,7 @@
                   <input type="text" name="search" placeholder="Filter by Employee Name " autocomplete="off" value="<?php echo $data['search'] ?>" >
                   <!-- <input type="text" oninput="return showIcon()" class="searchName" name="search" placeholder="Filter by Employee Name " autocomplete="off" value="<?php echo $data['search'] ?>" > -->
                   <!-- <div class="img"><span class="fa fa-close"></span></div> -->
-                  <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                  
               <!-- </div> -->
 
               </form>
@@ -189,6 +190,7 @@
                 <form id="searchForm" action="<?php echo URLROOT; ?>/Admin/searchLabours" method="GET">
 
                 <!-- employee details search -->
+                <button><i class="fa-solid fa-magnifying-glass"></i></button>
                 <select name="status" id="status" value="<?php echo $data['status']; ?>">
                 <?php if($data['status']==='currentLabours'):?>
                   <option value="currentLabours" selected>Current labourers</option>
@@ -207,7 +209,7 @@
                     <input type="text" name="search" placeholder="Filter by Employee Name " autocomplete="off" value="<?php echo $data['search'] ?>" >
                     <!-- <input type="text" oninput="return showIcon()" class="searchName" name="search" placeholder="Filter by Employee Name " autocomplete="off" value="<?php echo $data['search'] ?>" > -->
                     <!-- <div class="img"><span class="fa fa-close"></span></div> -->
-                    <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                    
                 <!-- </div> -->
 
                 </form>
@@ -322,7 +324,18 @@
 
 </div>
 
+<script>
+    $(".default_option").click(function(){
+    $(".dropdown ul").addClass("active");
+  });
+  
+  $(".dropdown ul li").click(function(){
+    var text = $(this).text();
+    $(".default_option").text(text);
+    $(".dropdown ul").removeClass("active");
+  });
 
+</script>
 <?php require APPROOT.'/views/include/footer.php'; ?>
 <script src="<?php echo URLROOT; ?>/js/admin.js"></script>
 
