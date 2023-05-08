@@ -1,4 +1,4 @@
-.mytabs {
+/* .mytabs {
     display: flex;
     flex-wrap: wrap;
 }
@@ -28,6 +28,48 @@
 
 .mytabs input[type="radio"]:checked + label {
     background: #fff;
+} */
+
+.tab, .tabmilk {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tab button, .tabmilk button {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 25px;
+    background: #e2e2e2;
+    font-weight: bold;
+    font-size: 1em;
+}
+
+.tab button:hover, .tabmilk button:hover {
+    background-color: #fff;
+    color: black;
+}
+
+.tab button.active, .tabmilk button.active {
+    background-color: transparent;
+    /* color: white; */
+}
+
+.tabcontent, .tabcontentmilk {
+    display: none;
+}
+
+.tabcontent.active, .tabcontentmilk.active {
+    display: block;
+}
+
+/* ongoing button */
+.newOrderBtn {
+    background-color: rgb(93, 133, 227);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
 }
 
 /* ongoing button */
@@ -46,4 +88,125 @@
     border: none;
     border-radius: 5px;
     padding: 5px 10px;
+}
+
+/* Model */
+.model {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    z-index: 1050;
+    visibility: hidden;
+    overflow: hidden;
+    outline: 0;
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.open-model {
+    visibility: visible;
+    display: flex;
+}
+
+.open-model .model {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.fade.in {
+    opacity: 1;
+}
+.fade {
+    opacity: 0;
+    -webkit-transition: opacity .15s linear;
+    -o-transition: opacity .15s linear;
+    transition: opacity .15s linear;
+}
+
+.model.in .model-dialog {
+    -webkit-transform: translate(0,0);
+    -ms-transform: translate(0,0);
+    -o-transform: translate(0,0);
+    transform: translate(0,0);
+}
+
+
+.model-dialog {
+    position: relative;
+    max-height: 60vh;
+}
+
+.model-content {
+    border-radius: 0;
+    position: relative;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #999;
+    border-radius: 4px;
+    outline: 0;
+    box-shadow: 0 3px 9px rgb(0 0 0 / 50%);
+}
+
+.model-header {
+    padding: 10px;
+    border-bottom: 1px solid #e5e5e5;
+    border-bottom-color: #f4f4f4;
+}
+
+.model-body {
+    position: relative;
+    padding: 15px;
+}
+
+.form-group {
+    width: 20vw;
+    height: 15vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.modal-footer {
+    border-top-color: #f4f4f4;
+    padding: 15px;
+    text-align: right;
+    border-top: 1px solid #e5e5e5;
+}
+
+/* button.close {
+    padding: 0;
+    cursor: pointer;
+    background: 0 0;
+    border: 0;
+}*/
+
+.close {
+    width: 10vw;
+    height: 5vh;
+    font-size: 21px;
+    font-weight: 500;
+    color: #000;
+}
+
+  
+.btn {
+    display: flex;
+    align-items: center;
+    margin-right: 100px;
+}
+
+.model-title {
+    margin: 0;
+    line-height: 1;
+}
+
+@media (max-width: 991px) {
+    .close {
+        width: 20vw;
+        height: 5vh;
+    }
 }

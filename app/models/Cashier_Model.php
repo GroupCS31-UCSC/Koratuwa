@@ -57,8 +57,8 @@
       return $result;
     }
 
-    public function get_onlineOrderView() {
-      $this->db->query('SELECT * FROM online_order');
+    public function get_onlineOrderView($status) {
+      $this->db->query('SELECT * FROM online_order WHERE status = "'.$status.'"');
 
       $result = $this->db->resultSet();
 
@@ -90,6 +90,8 @@
     }
 
     public function updateStatus($data){
+      $orderId = $data['orderId'];
+      $status = 'Ongoing';
       $this->db->query('UPDATE online_order SET status = :status WHERE order_id = :orderId');
       $this->db->bind(':orderId', $data['orderId']);
       $this->db->bind(':status', $data['status']);
@@ -181,9 +183,9 @@
       
     }
 
-    public function onsiteSale_duration($from, $to)
+    public function onsiteSale_duration($status, $from, $to)
     {
-      $this->db->query('SELECT * FROM onsite_sale WHERE sale_date >= "'.$from.'" and sale_date <= "'.$to.'"');
+      $this->db->query('SELECT * FROM onsite_sale WHERE status = "'.$status.'" AND sale_date >= "'.$from.'" and sale_date <= "'.$to.'"');
 
       $result = $this->db->resultSet();
 
