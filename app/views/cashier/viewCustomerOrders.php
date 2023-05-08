@@ -229,7 +229,7 @@
           <td><?php echo $online_order->payment_method ?></td>
           <?php if($online_order->status == "New Order"): ?>
           <td>
-            <form action="<?php echo URLROOT; ?>/Cashier/updateStatus/<?php echo $data['orderId']; ?>" method="POST">
+            <form action="<?php echo URLROOT; ?>/Cashier/updateStatus/<?php $online_order->order_id ?>" method="POST">
               <input type="hidden" name="order_id" value="<?php echo $online_order->order_id ?>">
               <button class="newOrderBtn" onclick="openSendOrder('<?=$online_order->order_id?>')"><?php echo $online_order->status ?></button>
             </form>
@@ -265,7 +265,7 @@
       </div>
       <div class="model-body">
         <form action="<?php echo URLROOT?>/Cashier/updateStatus">
-        <h1 class="Model-title">Is Order is ready to shift?</h1><br>
+        <h1 class="Model-title">Is this order ready to ship?</h1><br>
           <div class="form-group">
             <input type="text" name="order_id" id="newOrderId" style="display:none">
             <div class="btn">

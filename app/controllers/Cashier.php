@@ -147,7 +147,7 @@
         'orderId' => $orderId,
         'status' => $status = 'New Order'
       ];
-      if($this->cashierModel->updateStatus($data)) {
+      if($this->cashierModel->updateStatus($orderId)) {
         flash('update_status_success', 'Status updated successfully');
         redirect('Cashier/viewCustomerOrders');
       }
