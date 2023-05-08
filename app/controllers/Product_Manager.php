@@ -211,7 +211,7 @@
               if($this->pmModel->addStock($data))
               {
                 flash('addCategory_flash','New Category Stock details are successfully added!');
-                redirect('Product_Manager/viewStock');
+                redirect('Product_Manager/viewCategory/'.$pId);
                 // redirection
                 // $category= $this->pmModel->viewCategorybyId($pId);
 
