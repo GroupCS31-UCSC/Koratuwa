@@ -264,3 +264,76 @@ button.close {
     width: 100%;
   }
 }
+
+
+
+
+
+/*-------------------- notification styles----------------- */
+
+.notifyBox{
+  position: fixed;
+  top: 3rem;
+  right: 1rem;
+  background-color:#287bff;
+  /* display: flex; */
+  flex-direction: column;
+  align-items: flex-end;
+  color: hsl(0, 0%, 20%);
+  border: 1px solid red;
+  align-items: center;
+  justify-content: center;
+  display: none;
+  
+}
+
+.box-top{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.comment-box:hover{
+  margin-top: 12px;
+}
+
+.comment-box{
+  border: 1px solid blue;
+  width: 500px;
+  background:white;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 3px 3px 25px rgba(0,0,0,0.3);
+  /* display: flex; */
+  align-items: center;
+  /* justify-content: space-between; */
+}
+
+.name{
+  border: 1px solid grey;
+  display: flex;
+  flex-direction: column;
+  margin-right: 5px;
+}
+
+.name strong{
+  color:black;
+  font-size:16px ;
+  /* font-size: 18px; */
+}
+
+.name span{
+  font-size:14px ;
+  color: #5e5959;
+  margin-top: 2px;
+}
+
+.comment p{
+  color: black;
+
+}
+/* -----------------end notifications ------------------------ */
+

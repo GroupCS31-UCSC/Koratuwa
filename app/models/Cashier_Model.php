@@ -178,12 +178,48 @@
       else {
         return false;
       }
-
       
     }
+
+    public function onsiteSale_duration($from, $to)
+    {
+      $this->db->query('SELECT * FROM onsite_sale WHERE sale_date >= "'.$from.'" and sale_date <= "'.$to.'"');
+
+      $result = $this->db->resultSet();
+
+      return $result;
+    }
+
+    public function onlineOrder_duration($from, $to)
+    {
+      $this->db->query('SELECT * FROM online_order WHERE ordered_date >= "'.$from.'" and ordered_date <= "'.$to.'"');
+
+      $result = $this->db->resultSet();
+
+      return $result;
+    }
     
+    //notification
+    public function get_Notifications()
+    {
+      $this->db->query('SELECT * From onlineOrder_notification WHERE seen=0 ORDER BY notify_id DESC');
+      $result=$this->db->resultSet();
+      return $result;
+    }
     
-    
+    public function update_notifyStatus($nId)
+    {
+      $this->db->query('UPDATE onlineOrder_notification SET seen=1 WHERE notify_id= :nId');
+      $this->db->bind(':nId', $nId);
+        if($this->db->execute())
+        {
+          return true;
+        }
+        else
+        {
+          return false;
+        }
+    }
 
 
   }

@@ -13,24 +13,43 @@
 <div class="search-add">
   <div class="search-area">
     <form action="<?php echo URLROOT; ?>/Cashier/searchReceipt" method="POST">
-      <input type="text" name="search" id="search" class="search" placeholder="Search by Receipt Id">
-      <span class="icon"><i class="fa-solid fa-search"></i></span>
+      <!-- <input type="text" name="search" id="search" class="search" placeholder="Search by Receipt Id"> -->
+      <!-- <span class="icon"><i class="fa-solid fa-search"></i></span> -->
     </form>
   </div>
+
+
+  <!-- search -->
+  <input type="text" id="searchInput" placeholder="Search By Sale IDs..." onkeyup="searchFunc();">
+  
+  <!--date filter -->
+  <form action="<?php echo URLROOT; ?>/Cashier/viewOnsiteSale" method="POST" >
+    <label for="from">From :</label>
+    <input type="date" id="from" name="from" value="<?php echo $data['from']; ?>"><br>
+    <label for="to">  To :</label>
+    <input type="date" id="to" name="to" value="<?php echo $data['to']; ?>">
+    <input type="submit" value="Search" class="submitBtn"> 
+  </form>
+
+  <!-- refresh button -->
+  <input type="button" value="Refresh" class="" onclick="location.href='<?php echo URLROOT; ?>/Cashier/viewOnsiteSale' ">
+
+
+
   <input type="button" value="Add Sale" class="add-btn" onclick="location.href='<?php echo URLROOT; ?>/Cashier/cashierHome' ">
 </div>
 
 <div class="container" style="overflow-x: auto;">
-    <table>
-    <tr>
+    <table id="detailsTable">
+    <thead>
       <th>Sale ID</th>
       <th>Date</th>
       <th>Time</th>
       <th>Payment</th>
       <!-- <th>Receipt ID</th> -->
       <th>Action</th>
-    </tr>
-  
+    </thead>
+    <tbody>
     <tr>
       <?php $data_index=0 ?>
       <?php foreach ($data ['onsiteSaleView'] as $onsite_sale) : ?>
@@ -52,6 +71,7 @@
     </tr>
     <?php $data_index++; ?> 
     <?php endforeach; ?>
+    </tbody>
   </table>
 
 </div>
@@ -96,3 +116,6 @@
     document.getElementById("model").classList.remove("open-model");
   }
 </script>
+
+
+<script src="<?php echo URLROOT; ?>/js/cashier.js"></script>
