@@ -56,3 +56,73 @@ var myChart= new Chart(totProfit, {
 
   }
 });
+
+
+
+
+
+
+//search for table 1--expense table-----------------------------------------------------------------------------------------------------------
+
+//search bar
+function searchFunc(){
+  //declare variables
+  var input,filter,table,tr,td,i,textValue;
+
+  input = document.getElementById("searchInput");
+
+  // to search case-sensitive
+  filter = input.value.toUpperCase();
+  table = document.getElementById("detailsTable");
+
+  tr = table.getElementsByTagName("tr");
+
+  //loop through all table rows and hide those don't match the search
+  for(i=0; i < tr.length; i++){
+      td=tr[i].getElementsByTagName("td")[2];
+      if(td){
+          textValue = td.textContent || td.innerText;
+
+          if(textValue.toUpperCase().indexOf(filter) > -1)
+          {
+              tr[i].style.display = "";
+          }
+          else{
+              tr[i].style.display = "none";
+          }
+      }
+  }
+}
+
+
+//search for table 2----revenue table---------------------------------------------------------------------------------------------------------
+
+//search bar
+function searchFunc2(){
+  //declare variables
+  var input,filter,table,tr,td,i,textValue;
+
+  input = document.getElementById("searchInput2");
+
+  // to search case-sensitive
+  filter = input.value.toUpperCase();
+  table = document.getElementById("detailsTable2");
+
+  tr = table.getElementsByTagName("tr");
+
+  //loop through all table rows and hide those don't match the search
+  for(i=0; i < tr.length; i++){
+      td=tr[i].getElementsByTagName("td")[2];
+      if(td){
+          textValue = td.textContent || td.innerText;
+
+          if(textValue.toUpperCase().indexOf(filter) > -1)
+          {
+              tr[i].style.display = "";
+          }
+          else{
+              tr[i].style.display = "none";
+          }
+      }
+  }
+}

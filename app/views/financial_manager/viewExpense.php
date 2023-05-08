@@ -25,35 +25,51 @@
 
 </div>
 
-  </div>
+  </div> 
 
   
   
   <div class="column right">
   <h2>EXPENSES</h2>
-  <input type="button" value="Add Expense" class="paddBtn" onclick="location.href='<?php echo URLROOT; ?>/financial_Manager/addExpense' ">    <table>
-      <tr>
+<br><br>
+
+
+  <!-- search -->
+  <input type="text" id="searchInput" placeholder="Search By Expense Type..." onkeyup="searchFunc();">
+
+  <!-- date filter -->
+  <form action="<?php echo URLROOT; ?>/Financial_Manager/viewExpense" method="POST" >
+    <label for="from">From :</label>
+    <input type="date" id="from" name="from" value="<?php echo $data['from']; ?>"><br>
+    <label for="to">  To :</label>
+    <input type="date" id="to" name="to" value="<?php echo $data['to']; ?>">
+    <input type="submit" value="Search" class="submitBtn"> 
+  </form>
+
+  <!-- refresh button -->
+  <input type="button" value="Refresh" class="" onclick="location.href='<?php echo URLROOT; ?>/Financial_Manager/viewExpense' ">
+
+  <input type="button" value="Add Expense" class="paddBtn" onclick="location.href='<?php echo URLROOT; ?>/financial_Manager/addExpense' ">    
+    <table id="detailsTable">
+      <thead>
         <th>Expense ID</th>
         <th>Date</th>
         <th>Description</th>
         <!-- <th>Vendor</th> -->
         <th>Amount </th>
         <!-- <th>Action</th> -->
-      </tr>
-
+      </thead>
+      <tbody>
       <?php foreach ($data['expenseView'] as $expense) : ?>
       <tr>
         <td><?php echo $expense->expense_id; ?></td>
         <td><?php echo $expense->date; ?></td>
         <td><?php echo $expense->description; ?></td>
         <!-- <td><?php echo $expense->vendor; ?></td> -->
-        <td><?php echo $expense->amount; ?></td>
-       
-        </div>
-    </td>
-    
+        <td><?php echo $expense->amount; ?></td>   
       </tr><br>
       <?php endforeach; ?>
+      </tbody>
     </table>
 
    
