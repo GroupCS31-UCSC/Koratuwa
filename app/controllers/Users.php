@@ -711,7 +711,7 @@
               redirect('Milk_Collection_Officer/mcoHome');
               break;
             case 'Financial Manager':
-              redirect('Financial_Manager/fmHome');
+              redirect('Financial_Manager/viewExpense');
               break;
             case 'Cashier':
               redirect('Cashier/cashierHome');

@@ -7,16 +7,33 @@
   <div class="column left">
 
    <h2>REVENUES</h2> 
+<br><br>
+  <!-- search -->
+  <input type="text" id="searchInput2" placeholder="Search By Revenue Type..." onkeyup="searchFunc2();">
+
+  <!-- date filter -->
+  <form action="<?php echo URLROOT; ?>/Financial_Manager/viewRevenue" method="POST" >
+    <label for="from">From :</label>
+    <input type="date" id="from" name="from" value="<?php echo $data['from']; ?>"><br>
+    <label for="to">  To :</label>
+    <input type="date" id="to" name="to" value="<?php echo $data['to']; ?>">
+    <input type="submit" value="Search" class="submitBtn"> 
+  </form>
+
+  <!-- refresh button -->
+  <input type="button" value="Refresh" class="" onclick="location.href='<?php echo URLROOT; ?>/Financial_Manager/viewRevenue' ">
+
  
-  <table>
-      <tr>
+  <table id="detailsTable2">
+      <thead>
         <th>Revenue ID</th>
         <th>Date</th>
         <th>Source of Reveneue</th>
         <!-- <th>Vendor</th> -->
         <th>Amount </th>
         <!-- <th>Action</th> -->
-      </tr>
+      </thead>
+      <tbody>
 
       <?php foreach ($data['revenueView'] as $revenue) : ?>
       <tr>
@@ -31,6 +48,7 @@
     
       </tr><br>
       <?php endforeach; ?>
+      </tbody>
     </table>
 
 

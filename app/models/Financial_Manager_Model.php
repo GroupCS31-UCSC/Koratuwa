@@ -98,6 +98,24 @@
       return $result;
     }
 
+    public function Expense_duration($from, $to)
+    {
+      $this->db->query('SELECT * FROM expense WHERE date >= "'.$from.'" and date <= "'.$to.'"');
+
+      $result = $this->db->resultSet();
+
+      return $result;
+    }
+
+    public function Revenue_duration($from, $to)
+    {
+      $this->db->query('SELECT * FROM revenue WHERE date >= "'.$from.'" and date <= "'.$to.'"');
+
+      $result = $this->db->resultSet();
+
+      return $result;
+    }
+
     
 
     // public function updateExpense($data)

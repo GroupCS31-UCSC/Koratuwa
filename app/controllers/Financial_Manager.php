@@ -136,24 +136,71 @@ function alert($msg) {
           }
         }
 
-        public function viewExpense() {
-          $expenseView= $this->financialManagerModel->viewExpense();
+        public function viewExpense() 
+        {
+          if($_SERVER['REQUEST_METHOD'] == 'POST')
+          {
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+            $from = isset($_POST['from']) ? $_POST['from'] : '';
+            $to = isset($_POST['to']) ? $_POST['to'] : '';
+
+            $expenseView= $this->financialManagerModel->Expense_duration($from, $to);
     
-          $data = [
-            'expenseView' => $expenseView
-          ];
+            $data = [
+              'expenseView' => $expenseView,
+              'from' => $from,
+              'to' => $to
+            ];
+      
+            $this->view('financial_Manager/viewExpense',$data);
+          }
+          else
+          {
+            $expenseView= $this->financialManagerModel->viewExpense();
     
-          $this->view('financial_Manager/viewExpense',$data);
+            $data = [
+              'expenseView' => $expenseView,
+              'from' => '',
+              'to' => ''
+            ];
+      
+            $this->view('financial_Manager/viewExpense',$data);
+          }
+
         }
 
-        public function viewRevenue() {
-          $revenueView= $this->financialManagerModel->viewRevenue();
+        public function viewRevenue() 
+        {
+          if($_SERVER['REQUEST_METHOD'] == 'POST')
+          {
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+            $from = isset($_POST['from']) ? $_POST['from'] : '';
+            $to = isset($_POST['to']) ? $_POST['to'] : '';
+
+            $revenueView= $this->financialManagerModel->Revenue_duration($from, $to);
     
-          $data = [
-            'revenueView' => $revenueView
-          ];
+            $data = [
+              'revenueView' => $revenueView,
+              'from' => $from,
+              'to' => $to
+            ];
+      
+            $this->view('financial_Manager/viewRevenue',$data);
+
+          }
+          else
+          {
+            $revenueView= $this->financialManagerModel->viewRevenue();
     
-          $this->view('financial_Manager/viewRevenue',$data);
+            $data = [
+              'revenueView' => $revenueView,
+              'from' => '',
+              'to' => ''
+            ];
+      
+            $this->view('financial_Manager/viewRevenue',$data);
+          }  
+
         }
 
         public function generateFinanceReport(){
