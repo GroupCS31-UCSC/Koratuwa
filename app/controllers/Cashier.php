@@ -115,9 +115,11 @@
         $from = isset($_POST['from']) ? $_POST['from'] : '';
         $to = isset($_POST['to']) ? $_POST['to'] : '';
 
-        $onlineOrderView= $this->cashierModel->onlineOrder_duration($from, $to);
+        $status=$_GET['status'] ?? 'Ongoing';
+        $onlineOrderView= $this->cashierModel->onlineOrder_duration($status, $from, $to);
         $data = [
           'onlineOrderView' => $onlineOrderView,
+          'status' =>$status,
           'from' => $from,
           'to' => $to
         ];
@@ -125,9 +127,11 @@
       }
       else
       {
-        $onlineOrderView= $this->cashierModel->get_onlineOrderView();
+        $status=$_GET['status'] ?? 'Ongoing';
+        $onlineOrderView= $this->cashierModel->get_onlineOrderView($status);
         $data = [
           'onlineOrderView' => $onlineOrderView,
+          'status' => '',
           'from' => '',
           'to' => ''
         ];
@@ -136,11 +140,12 @@
 
     }
 
+    // Update Order status
     public function updateStatus() {
       $orderId = $_POST['order_id'];
       $data = [
         'orderId' => $orderId,
-        'status' => 'Delivered'
+        'status' => $status = 'New Order'
       ];
       if($this->cashierModel->updateStatus($data)) {
         flash('update_status_success', 'Status updated successfully');

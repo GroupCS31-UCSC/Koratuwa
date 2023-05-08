@@ -179,25 +179,6 @@
   });
 
   function openDelete(id) {
-    // const reason = document.getElementById("reason").value;
-    // const price = document.getElementById("sold-price").value;
-    // const postData = {
-    //   reason: reason,
-    //   price: price
-    // }
-    // const url = "/koratuwa/Livestock_Manager/deleteCattle/"+id;
-    // const form = new FormData();
-    // form.append("id", id);
-
-    // fetch(url, {
-    //   method: 'POST',
-    //     headers: {
-    //       'Content-Type': 'application/json'
-    //     },
-    //     body: JSON.stringify(postData)
-    // }).then(res => res.json()).then(data => {
-    //   console.log(data);
-    // }).catch(err => console.log(err));
     const cowId = document.getElementById("del_cowId");
     cowId.value = id;
 
