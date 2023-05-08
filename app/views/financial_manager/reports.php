@@ -17,7 +17,7 @@
 </form>
 
 </div>
-
+<input type="button" value="Refresh" class="refreshBtn" onclick="location.href='<?php echo URLROOT; ?>/financial_manager/reports' ">
 
 <div class="table1">
 <table>

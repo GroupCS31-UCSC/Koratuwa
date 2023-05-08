@@ -44,14 +44,14 @@
       <option value="Livestock Management Cost">Livestock Management Cost</option>
       <option value="Employee Management Cost">Employee Management Cost</option>
       <option value="Utility Cost">Utility Cost</option>
-      <option value="Other">Other</option>
+      <!-- <option value="Other">Other</option> -->
     </select>
 
-     <!-- If select other -->
+     <!-- If select other
      <div id="other-input" style="display:none;">
     <label for="other">Other:</label>
     <input type="text" name="other" id="other" class="other" value="">
-    </div>
+    </div> -->
 
   <div class="form-input-title">Amount</div>
   <span class="form-invalid"><?php echo $data['amo_err']; ?></span>

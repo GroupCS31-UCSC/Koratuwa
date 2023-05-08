@@ -47,7 +47,7 @@
   </form>
 
   <!-- refresh button -->
-  <input type="button" value="Refresh" class="" onclick="location.href='<?php echo URLROOT; ?>/Financial_Manager/viewExpense' ">
+  <input type="button" value="Refresh" class="refreshBtn" onclick="location.href='<?php echo URLROOT; ?>/Financial_Manager/viewExpense' ">
 
   <input type="button" value="Add Expense" class="paddBtn" onclick="location.href='<?php echo URLROOT; ?>/financial_Manager/addExpense' ">    
     <table id="detailsTable">
