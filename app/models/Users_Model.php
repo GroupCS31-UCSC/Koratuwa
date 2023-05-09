@@ -45,6 +45,44 @@
 
 		}
 
+		//save generated otp code in the database for registration process of users - verify email
+		public function saveOtpCode_whenEmailVerify($email, $otp)
+		{
+			$this->db->query('UPDATE user SET otp_code=:otp WHERE email=:email AND existence=0');
+			$this->db->bind(':email', $email);
+			$this->db->bind(':otp', $otp);
+
+			if($this->db->execute())
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+
+		}
+
+		//check entered otp and saved otp codes are matched or not for email verification
+		public function verifyEmailBy_OTP($otp, $email)
+		{
+			$enteredOtp= strval($otp);
+
+			$this->db->query('SELECT * FROM user WHERE email = :email AND existence=0');
+			$this->db->bind(':email', $email);
+
+			$row = $this->db->single();
+			$savedOtp=strval($row->otp_code);
+
+			if($enteredOtp == $savedOtp)
+			{
+				return true;
+			}
+			else{
+				return false;
+			}	
+		}
+
 		//check entered otp and saved otp codes are matched or not
 		public function otpVerify($otp, $email)
 		{
@@ -140,7 +178,7 @@
 		public function registerAsSupplier($data)
 		{
 
-			$this->db->query('INSERT INTO user(user_id,user_name,email,password,user_type,existence) VALUES(:id, :name, :email, :password, :user_type, 1)');
+			$this->db->query('INSERT INTO user(user_id,user_name,email,password,user_type,existence) VALUES(:id, :name, :email, :password, :user_type, 0)');
 			//value binding
 			$this->db->bind(':id', $data['id']);
 			$this->db->bind(':name', $data['name']);
@@ -151,7 +189,7 @@
 
 			if($this->db->execute())
 			{
-				$this->db->query('INSERT INTO supplier(supplier_id,name,nic,contact_number,address) VALUES(:id, :name, :nic, :num, :address)');
+				$this->db->query('INSERT INTO supplier(supplier_id,name,nic,contact_number,address,existence) VALUES(:id, :name, :nic, :num, :address,0)');
 				//value binding
 				$this->db->bind(':id', $data['id']);
 				$this->db->bind(':name', $data['name']);
@@ -173,6 +211,80 @@
 				return false;
 			}
 		}
+
+		//confitm the Registration of the supplier
+		public function confirmRegistration($email)
+		{
+			$this->db->query('UPDATE user SET existence=1 WHERE email = :email AND existence =0');
+			//value binding
+			$this->db->bind(':email', $email);	
+			
+			if($this->db->execute())
+			{
+				$this->db->query('SELECT * FROM user WHERE email = :email AND existence =1');
+				$this->db->bind(':email', $email);
+				$row = $this->db->single();
+				$Id=$row->user_id;
+
+				$id = substr($Id,0,3);
+
+				if($id == "SUP")
+				{
+					if($this->db->execute())
+					{
+						$this->db->query('UPDATE supplier SET existence=1 WHERE supplier_id = :Id AND existence =0');
+						//value binding
+						$this->db->bind(':Id', $Id);	
+		
+						if($this->db->execute())
+						{
+							return true;
+						}
+						else
+						{
+							return false;
+						}
+					}
+					else
+					{
+						return false;
+					}
+				}
+
+				elseif($id == "CUS")
+				{
+					if($this->db->execute())
+					{
+						$this->db->query('UPDATE customer SET existence=1 WHERE customer_id = :Id AND existence =0');
+						//value binding
+						$this->db->bind(':Id', $Id);	
+		
+						if($this->db->execute())
+						{
+							return true;
+						}
+						else
+						{
+							return false;
+						}
+					}
+					else
+					{
+						return false;
+					}
+				}
+
+				
+
+			
+			}
+			else
+			{
+				return false;
+			}
+		}
+		
+
 
 		//check the customer is registered using given email
 		public function findCustomerByEmail($email)
@@ -216,7 +328,7 @@
 		//Register the customer
 		public function registerAsCustomer($data)
 		{
-			$this->db->query('INSERT INTO user(user_id,user_name,email,password,user_type,existence) VALUES(:id, :name, :email, :password, :user_type, 1)');
+			$this->db->query('INSERT INTO user(user_id,user_name,email,password,user_type,existence) VALUES(:id, :name, :email, :password, :user_type, 0)');
 			//value binding
 			$this->db->bind(':id', $data['id']);
 			$this->db->bind(':name', $data['name']);
@@ -227,7 +339,7 @@
 
 			if($this->db->execute())
 			{
-				$this->db->query('INSERT INTO customer(customer_id,name,nic,contact_number,address) VALUES(:id, :name, :nic, :num, :address)');
+				$this->db->query('INSERT INTO customer(customer_id,name,nic,contact_number,address,existence) VALUES(:id, :name, :nic, :num, :address, 0)');
 				//value binding
 				$this->db->bind(':id', $data['id']);
 				$this->db->bind(':name', $data['name']);

@@ -18,6 +18,7 @@
 		</div>
 		<br>
 		<?php flash('pw_changed') ?>
+		<?php flash('user_registered') ?>
 		
 
 		<form action="<?php echo URLROOT; ?>/Users/login" method="POST">

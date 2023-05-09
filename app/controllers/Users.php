@@ -66,7 +66,7 @@
                 $email=$data['email'];
                 //generate otp
                 $otp=strval(rand(100000,999999));
-                //send an otp to the user
+                //save otp
                 if($this->userModel->saveOtpCode($email, $otp))
                 {
                   //get the user's name
@@ -106,7 +106,7 @@
         public function resetPw()
         { 
           $email= $_SESSION['user_email'];
-          if($_SERVER['REQUEST_METHOD'] == 'POST')
+            if($_SERVER['REQUEST_METHOD'] == 'POST')
             {
               //Form is submitting
               $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
@@ -351,7 +351,12 @@
 
               if (empty($data['nic']))
               {
-                $data['nic_err'] = 'Please enter NIC or Company Registration number' ;
+                $data['nic_err'] = 'Please enter a NIC' ;
+              }
+
+              if(!(preg_match("/^([0-9]{10})$/",($data['tp_num'])))) 
+              {
+                 $data['tp_num_err'] = 'Invalid Contact Number' ;
               }
 
               if (empty($data['tp_num']))
@@ -402,12 +407,25 @@
                 $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
 
                 $data['id'] = $this->userModel->generateSupplierId();
+
                 //Register user
                   if($this->userModel->registerAsSupplier($data))
                   {
-                    //create a flash message
-                    flash('reg_flash','You are successfully registered as a Supplier of Koratuwa Dairy Farm!');
-                    redirect('Users/login');
+                    //generate otp
+                    $otp=strval(rand(100000,999999));
+
+                    //save otp
+                    if($this->userModel->saveOtpCode_whenEmailVerify($data['email'], $otp))
+                    {
+                      //send otp
+                      sendOtpForEmailVerification($data['email'],$otp,$data['name']);
+
+                      //create a flash message
+                      // flash('reg_flash','You are successfully registered as a Supplier of Koratuwa Dairy Farm!');
+                      $_SESSION['user_email']=$data['email'];
+                      redirect('Users/verifyRegisteredEmail');
+                    }
+                    
                   }
                   else
                   {
@@ -450,6 +468,70 @@
               //load the view
                 $this->view('users/u_registerSupplier',$data);
             }
+        }
+
+        public function verifyRegisteredEmail()
+        {
+          $email= $_SESSION['user_email'];
+
+          if($_SERVER['REQUEST_METHOD'] == 'POST')
+          {
+            $email= $_SESSION['user_email'];
+            //Form is submitting
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+            //input data
+            $data = [
+              'otp' => trim($_POST['otp']),
+
+              'otp_err' => ''
+            ];
+
+            //check otp entered or not
+            if (empty($data['otp']))
+            {
+              $data['otp_err'] = 'Please enter the otp code' ;
+            }
+            else
+            {
+              // check entered otp and saved otp in the database is same or not
+              if($this->userModel->verifyEmailBy_OTP($data['otp'], $email))
+              { 
+                //otp matched; user is verified
+                if($this->userModel->confirmRegistration($email))
+                {
+                  flash('user_registered','Registration Successfull!');
+                  redirect('Users/login');
+                }
+                else
+                {
+                  redirect('Users/u_home');
+                }
+                
+              }
+              else
+              {
+                redirect('Users/u_home');
+
+                //user is mismatched; user is not verified
+                $data['otp_err'] = 'Otp mismactched' ;
+                flash('otp_mismatched','You have entered incorrect code!');
+              }
+            }
+          }
+          else
+          {
+            //Initial form
+            $data = [
+              'otp' => '' ,
+
+              'otp_err' => ''
+            ];
+
+            //load the view
+            flash('otp_verify','We have sent an otp to your email '. $email);
+            $this->view('users/u_verifyEmail',$data);
+          };
         }
 
         //register customers
@@ -544,9 +626,20 @@
                 //Register user
                   if($this->userModel->registerAsCustomer($data))
                   {
-                    //create a flash message
-                    flash('reg_flash','You are successfully registered as a Customer of Koratuwa Dairy Farm!');
-                    redirect('Users/login');
+                    //generate otp
+                    $otp=strval(rand(100000,999999));
+
+                    //save otp
+                    if($this->userModel->saveOtpCode_whenEmailVerify($data['email'], $otp))
+                    {
+                      //send otp
+                      sendOtpForEmailVerification($data['email'],$otp,$data['name']);
+
+                      //create a flash message
+                      // flash('reg_flash','You are successfully registered as a Supplier of Koratuwa Dairy Farm!');
+                      $_SESSION['user_email']=$data['email'];
+                      redirect('Users/verifyRegisteredEmail');
+                    }
                   }
                   else
                   {
