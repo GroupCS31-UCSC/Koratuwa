@@ -103,10 +103,18 @@
 
             if (empty($data['name']))       { $data['name_err'] = '*' ; }
             if (empty($data['nic']))        { $data['nic_err'] = '*' ;  }
-            if (empty($data['tp_num']))     { $data['tp_num_err'] = '*' ; }
+            
             if (empty($data['gender']))     { $data['gender_err'] = '*' ; }
             if (empty($data['employment'])) { $data['employment_err'] = '*' ; }
             if ($data['employment']=='Select')  { $data['employment_err'] = '*' ; }
+
+            if(!(preg_match("/^([0-9]{10})$/",($data['tp_num'])))) { $data['tp_num_err'] = 'Invalid Contact Number' ;}
+
+            if (empty($data['tp_num']))     { $data['tp_num_err'] = '*' ; }
+
+            // if(         (!(preg_match("/^([0-9,v]{10})$/",($data['nic']))))  ||     (!(preg_match("/^([0-9]{12})$/",($data['nic']))))       ) { 
+            //   $data['nic_err'] = 'Invalid NIC Number' ;
+            // }
 
 
             // if (empty($data['image'])) {
@@ -126,6 +134,11 @@
                 $data['email_err'] = 'Email is already registered' ;
               }
             }
+
+            // if(filter_var($data['email'], FILTER_VALIDATE_EMAIL))
+            // {
+            //   $data['email_err'] = 'Invalid Email' ;
+            // }
 
             //submit form data if no errors
             if(empty($data['name_err']) && empty($data['nic_err']) && empty($data['tp_num_err']) && empty($data['gender_err']) && empty($data['email_err']) && empty($data['employment_err']) )

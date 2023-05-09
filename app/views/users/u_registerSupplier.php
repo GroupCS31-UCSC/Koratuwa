@@ -22,22 +22,22 @@
 	<form action="<?php echo URLROOT; ?>/Users/registerSupplier" method="POST">
 
 		<!--name-->
-		<div class="form-input-title">Person/Company Name</div>
+		<div class="form-input-title">Name</div>
 		<input type="text" name="name" id="name" class="name" value="<?php echo $data['name']; ?>">
 		<span class="form-invalid"><?php echo $data['name_err']; ?></span>
 
-    <!--nic-->
-    <div class="form-input-title">NIC/Company Registration Number</div>
+    	<!--nic-->
+    	<div class="form-input-title">NIC</div>
 		<input type="text" name="nic" id="nic" class="nic" value="<?php echo $data['nic']; ?>">
 		<span class="form-invalid"><?php echo $data['nic_err']; ?></span>
 
-    <!--contact no-->
-    <div class="form-input-title">Contact Number</div>
+    	<!--contact no-->
+    	<div class="form-input-title">Contact Number</div>
 		<input type="number" name="tp_num" id="tp_num" class="tp_num" value="<?php echo $data['tp_num']; ?>">
 		<span class="form-invalid"><?php echo $data['tp_num_err']; ?></span>
 
-    <!--address-->
-    <div class="form-input-title">Address</div>
+    	<!--address-->
+    	<div class="form-input-title">Address</div>
 		<input type="text" name="address" id="address" class="address" value="<?php echo $data['address']; ?>">
 		<span class="form-invalid"><?php echo $data['address_err']; ?></span>
 

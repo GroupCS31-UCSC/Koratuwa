@@ -83,6 +83,43 @@ function sendOtp($email,$otp,$userName){
     }
 }
 
+
+
+
+function sendOtpForEmailVerification($email,$otp,$userName){
+    $mail = new PHPMailer(true);
+
+    try {
+        //Server settings
+        $mail->isSMTP();                                            
+        $mail->Host       = 'smtp.gmail.com';                       
+        $mail->SMTPAuth   = true;                                   
+        $mail->Username   = 'koratuwadairy@gmail.com';                     
+        $mail->Password   = 'qveyksinrprmejos';                           
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            
+        $mail->Port       = 465;                                                                       
+
+        //Recipients
+        $mail->setFrom('koratuwadairy@gmail.com', 'Koratuwa');
+        $mail->addAddress($email);     //Add a recipient
+        
+        //Content
+        $mail->isHTML(true);                              
+        $mail->Subject = 'Email Verification Code';
+        $mail->Body    = "<p> Dear $userName,</p> <h3>Your Email Verification code is $otp.<br></h3>
+        <p> Use this code to Complete Your Registration.</p>
+        <br><br>
+        <p>With regards,</p>
+        <b>Koratuwa.</b>";
+
+        $mail->send();
+
+
+    } catch (Exception $e) {
+        echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+    }
+}
+
 // function sendAdminMail($email,$user){
 //     $mail = new PHPMailer(true);
 //     $otp=rand(100000,999999);
