@@ -354,6 +354,11 @@
                 $data['nic_err'] = 'Please enter NIC or Company Registration number' ;
               }
 
+              if(!(preg_match("/^([0-9]{10})$/",($data['tp_num'])))) 
+              {
+                 $data['tp_num_err'] = 'Invalid Contact Number' ;
+              }
+
               if (empty($data['tp_num']))
               {
                 $data['tp_num_err'] = 'Please enter a contact number' ;
