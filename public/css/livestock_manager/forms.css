@@ -1,6 +1,6 @@
 .form-container {
     margin: 0 auto;
-    margin-top: 5px;
+    margin-top: 10px;
     margin-bottom: 5px;
     padding: 5px;
     background-color: rgb(245, 244, 240);
@@ -23,7 +23,7 @@ input[type=password],
 input[type=number] {
     border: 1px solid #d5d2d2;
     border-radius: 5px;
-    width: 95%;
+    width: 97%;
     height: 28px;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -37,54 +37,13 @@ input[type=number] {
 .form-container select {
     border: 1px solid #d5d2d2;
     border-radius: 5px;
-    width: 95%;
+    width: 97%;
     height: 28px;
-    /* padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 15px; */
     margin-right: 25px;
     font-size: 15px;
     outline: none;
     display: block;
 }
-/* 
-input[type=text]:focus,
-input[type=date]:focus,
-input[type=password]:focus,
-input[type=number]:focus {
-    border: 1.5px solid #00BFFF;
-} */
-
-
-/* .form-container input[type=text] {
-    border: 1px solid #d5d2d2;
-    border-radius: 5px;
-    width: 98%;
-    height: 28px;
-    padding-top: 10px;
-    padding-bottom: 8px;
-    padding-left: 15px;
-    margin-right: 25px;
-    font-size: 15px;
-    outline: none;
-    display: block;
-} */
-
-/* .form-container input[type=date] {
-    border: 1px solid #d5d2d2;
-    border-radius: 5px;
-    width: 90%;
-    height: 30px;
-    padding-top: 10px;
-    padding-bottom: 8px;
-    padding-left: 15px;
-    margin-right: 30px;
-    margin-top: 5px;
-    font-size: 15px;
-    outline: none;
-    display: block;
-} */
-
 
 .form-container input[type=text]:focus,
 input[type=date]:focus,
