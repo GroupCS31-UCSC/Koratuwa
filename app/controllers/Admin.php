@@ -588,6 +588,40 @@
           $this->view('admin/viewProduction',$data);
         }
 
+        //get the stock details of a Product
+        public function viewProductStock($pId)
+        {
+          if($_SERVER['REQUEST_METHOD'] == 'POST')
+          {
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+            $from = isset($_POST['from']) ? $_POST['from'] : '';
+            $to = isset($_POST['to']) ? $_POST['to'] : '';
+
+            $productStockView= $this->adminModel->productStock_duration($pId, $from, $to);
+
+            $data = [
+                'pStockView' => $productStockView,
+                'from' => $from,
+                'to' => $to
+            ];
+  
+            $this->view('admin/viewProductStock',$data);
+          }
+          else
+          {
+            $productStockView= $this->adminModel->get_productStockView($pId);
+
+            $data = [
+                'pStockView' => $productStockView,
+                'from' => '',
+                'to' => ''
+            ];
+  
+            $this->view('admin/viewProductStock',$data);
+          }
+
+        }
+
         public function viewSales()
         {
           if($_SERVER['REQUEST_METHOD'] == 'POST')
