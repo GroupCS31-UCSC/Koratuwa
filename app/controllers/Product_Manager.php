@@ -71,7 +71,7 @@
             //   }
             // }
 
-              
+              //uploading the image
             $file_name = $_FILES['image']['name'];
             $file_size = $_FILES['image']['size'];
             $tmp_name = $_FILES['image']['tmp_name'];
@@ -112,7 +112,7 @@
 
             //validation
             if (empty($data['name']))        { $data['name_err'] = '*' ;  }
-            // if (empty($data['duration']))     { $data['duration_err'] = '*' ; }
+            if (empty($data['duration']) || empty($data['duration_months']))     { $data['duration_err'] = '*' && $data['duration_months_err'] = '*' ; }
             if (empty($data['size']))         { $data['size_err'] = '*' ; }
             if (empty($data['price']))        { $data['price_err'] = '*' ; }
             if (empty($data['ingredients']))  { $data['ingredients_err'] = '*' ; }
@@ -127,7 +127,7 @@
 
               if($this->pmModel->addCategory($data))
               {
-                flash('addCategory_flash','New Product Category details are successfully added!');
+                flash('addCategory_flash','New Product is successfully added!');
                 redirect('Product_Manager/productCategories');
               }
               else
