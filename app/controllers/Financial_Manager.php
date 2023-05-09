@@ -220,7 +220,10 @@ function alert($msg) {
           $pdf->AddPage('L','A4');
         
           $pdf->SetFont('Arial', 'B', 18);
-          $pdf->Cell(0, 10, 'Expenses and Revenues Report ', 0, 1, 'C');
+          $pdf->SetLeftMargin( 30);
+
+          $pdf->Cell(0, 10, 'Financial Report from '.$from, 0, 1, 'C');
+          $pdf->Cell(0, 10, 'to '.$to, 0, 1, 'C');
           $pdf->Ln();
         
           $pdfWidth = $pdf->GetPageWidth();
@@ -244,16 +247,54 @@ function alert($msg) {
         
         
         $pdf->SetTextColor(0, 0, 0);
+        $totalexpenses=0;
         
         $pdf->SetFont('Arial', '', 12);
         foreach ($exreportsView as $row) {
         
           
-            $pdf->Cell(60,10,$row->expense_id, 1 , 0, 'C');
-            $pdf->Cell(60,10,$row->date, 1 , 0, 'C');
-            $pdf->Cell(70,10,$row->description, 1 , 0, 'C');
-            $pdf->Cell(30,10,$row->amount, 1 , 0, 'C');
+            $pdf->Cell(60,10,$row->expense_id, 0 , 0, 'C');
+            $pdf->Cell(60,10,$row->date, 0 , 0, 'C');
+            $pdf->Cell(70,10,$row->description, 0 , 0, 'C');
+            $pdf->Cell(30,10,$row->amount, 0, 0, 'C');
             // $pdf->Cell(30,10,$row->	quality, 1 , 0, 'C');
+            $totalexpenses=  $totalexpenses+$row->amount;
+           
+            
+            $pdf->Ln();
+
+
+
+        }
+
+        $pdf->Ln();
+        $pdf->Cell(370, 10, 'Total Expenses = Rs.  '.$totalexpenses, 0, 1, 'C');
+        
+        $pdf->Ln();
+        $pdf->SetFont('Arial', 'B', 14);
+        //  $pdf->SetTitle('Reveneues Report');
+        
+        $pdf->SetTextColor(255, 255, 255);
+
+        $pdf->Cell(60, 10, 'Revenue Id', 0 , 0, 'C',1);
+        $pdf->Cell(60, 10, 'Date', 0 , 0, 'C',1);
+        $pdf->Cell(70, 10, 'Source of Revenue', 0 , 0, 'C',1);
+        $pdf->Cell(30, 10, 'Amount', 0 , 0, 'C',1);
+        
+        // $pdf->Cell(30, 10, 'Quality', 1 , 0, 'C',1);
+        $pdf->Ln();
+        $pdf->SetTextColor(0, 0, 0);
+        $totalrevenues=0;
+        $pdf->SetFont('Arial', '', 12);
+        foreach ($rereportsView as $row) {
+        
+          
+            $pdf->Cell(60,10,$row->revenue_id, 0 , 0, 'C');
+            $pdf->Cell(60,10,$row->date, 0 , 0, 'C');
+            $pdf->Cell(70,10,$row->source, 0 , 0, 'C');
+            $pdf->Cell(30,10,$row->amount, 0 , 0, 'C');
+            // $pdf->Cell(30,10,$row->	quality, 1 , 0, 'C');
+            $totalrevenues=  $totalrevenues+$row->amount;
             
            
             
@@ -262,42 +303,28 @@ function alert($msg) {
 
 
         }
+
         $pdf->Ln();
-        $pdf->SetFont('Arial', 'B', 14);
-        //  $pdf->SetTitle('Reveneues Report');
-        $pdf->SetTextColor(255, 255, 255);
+        $pdf->Cell(370, 10, 'Total Revenues = Rs.  '.$totalrevenues, 0, 1, 'C');
 
-        $pdf->Cell(60, 10, 'Revenue Id', 1 , 0, 'C',1);
-        $pdf->Cell(60, 10, 'Date', 1 , 0, 'C',1);
-        $pdf->Cell(70, 10, 'Source of Revenue', 1 , 0, 'C',1);
-        $pdf->Cell(30, 10, 'Amount', 1 , 0, 'C',1);
-        // $pdf->Cell(30, 10, 'Quality', 1 , 0, 'C',1);
         $pdf->Ln();
-        $pdf->SetTextColor(0, 0, 0);
-        
-        $pdf->SetFont('Arial', '', 12);
-        foreach ($rereportsView as $row) {
-        
-          
-            $pdf->Cell(60,10,$row->revenue_id, 1 , 0, 'C');
-            $pdf->Cell(60,10,$row->date, 1 , 0, 'C');
-            $pdf->Cell(70,10,$row->source, 1 , 0, 'C');
-            $pdf->Cell(30,10,$row->amount, 1 , 0, 'C');
-            // $pdf->Cell(30,10,$row->	quality, 1 , 0, 'C');
-            
-           
-            
-            $pdf->Ln();
+        $gap=abs($totalrevenues-$totalexpenses);
+        $pdf->Cell(0, 10, 'Gap =  '.$gap, 0, 1, 'C');
 
+        if($totalrevenues > $totalexpenses){
+          $pdf->Cell(250, 10, 'There has been a profit of Rs. '.$gap,  0, 1, 'C');
+        }
 
-
+        else{
+          $pdf->Cell(250, 10, 'There has been a loss of Rs.'.$gap, 0, 1, 'C');
         }
         
         $pdf->AliasNbPages();
         $pdf->SetFont('Arial', 'B', 12);
         $pdf->Cell(0, 10, 'Page ' . $pdf->PageNo() . ' of {nb}', 0, 0, 'C');
         
-  
+       
+
         // $pdf->Output();
          $pdf->Output('Finance Report.pdf', 'I');
            

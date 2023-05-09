@@ -265,8 +265,8 @@ cursor: pointer;
     padding: 5px;
     font-size: 15px;
     align-items: center;
-    background: rgb(240, 240, 237);
-    box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+    
+    
 }
 
 input[type=date] {

@@ -73,7 +73,7 @@
 
    
 
-     <a href="<?php echo URLROOT?>/financial_Manager/generateFinanceReport/"><button class="pdfBtn">Genarate PDF</button></a>
+     <a href="<?php echo URLROOT?>/financial_Manager/generateFinanceReport/"><button class="pdfBtn">Genarate Report</button></a>
   
 
 
