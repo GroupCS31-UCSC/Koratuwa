@@ -351,7 +351,7 @@
 
               if (empty($data['nic']))
               {
-                $data['nic_err'] = 'Please enter NIC or Company Registration number' ;
+                $data['nic_err'] = 'Please enter a NIC' ;
               }
 
               if(!(preg_match("/^([0-9]{10})$/",($data['tp_num'])))) 
