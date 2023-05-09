@@ -1,0 +1,48 @@
+.container{
+    width: 100%;
+    height: auto;
+    /* background: #007bbf; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-flow: wrap;
+}
+
+.container1{
+    border: 1px solid red;
+    width: 70%;
+    height:auto;
+    /* background: yellow; */
+    margin: 0px;
+    box-sizing: border-box;
+    /* font-size: 50px; */
+}
+
+.container2{
+    border: 1px solid black;
+    width: 30%;
+    height:auto;
+    /* background: greenyellow; */
+    margin: 0px;
+    box-sizing: border-box;
+    /* font-size: 50px; */
+}
+
+@media screen and (max-width:1200px) {
+    .container1{
+        width: 70%;
+    }
+    .container2{
+        width: 30%;
+    }   
+}
+
+@media screen and (max-width:900px) {
+    .container1{
+        width: 80%;
+    }
+    .container2{
+        width: 20%;
+    }
+}
+
