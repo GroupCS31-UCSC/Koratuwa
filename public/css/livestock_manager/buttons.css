@@ -76,17 +76,16 @@
 
 /*submit button*/
 .submitBtn {
-    margin-left: 15vw;
-    width: 600px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 5px;
+    width: 73vw;
     background: #04086B;
-    -webkit-border-radius: 30;
-    -moz-border-radius: 30;
     border-radius: 30px;
     border: none;
     color: #ffffff;
     font-size: 17px;
     padding: 10px 20px 10px 20px;
-    text-decoration: none;
     cursor: pointer;
 }
 

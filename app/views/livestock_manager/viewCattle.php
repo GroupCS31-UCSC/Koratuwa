@@ -22,14 +22,11 @@
 </div>
 
 <div class="search-add">
-    <div class="search-area">
-      <!-- <form action="<?php echo URLROOT; ?>/Livestock_Manager/searchCattle" method="POST"> -->
-      <input type="text" id="searchInput" placeholder="Search By Cow IDs..." onkeyup="searchFunc();">
-      <!-- <span class="icon"><i class="fa-solid fa-search"></i></span> -->
-    <!-- </form> -->
-    </div>
-    <input type="button" value="Add New Cattle" class="add-btn" onclick="location.href='<?php echo URLROOT; ?>/Livestock_Manager/addCattle?Stall=<?=$stall?>' ">
+  <div class="search-area">
+    <input type="text" id="searchInput" placeholder="Search By Cow IDs..." onkeyup="searchFunc();">
   </div>
+  <input type="button" value="Add New Cattle" class="add-btn" onclick="location.href='<?php echo URLROOT; ?>/Livestock_Manager/addCattle?Stall=<?=$stall?>' ">
+</div>
 
 <div id="Stall1" class="tabcontent active">
   <div class="container" style="overflow-x: auto;">
@@ -55,15 +52,11 @@
           <td><?php echo $cattle->cow_id; ?></td>
           <td><?php echo $cattle->gender; ?></td>
           <td><?php echo $cattle->cow_breed; ?></td>
-          <!-- Popup -->
-          
           <td>          
             <div class="table-btns">
               <a href="#"><button class="viewBtn" onclick="openModel('<?=$cattle->cow_id?>')" id="<?php echo($data_index) ?>"><i class="fas fa-eye"></i></button></a>
               <a href="<?php echo URLROOT?>/Livestock_Manager/updateCattle/<?php echo $cattle->cow_id ?>"><button class="updateBtn"><i class="fa-regular fa-pen-to-square"></i></button></a>
-              
-              <!-- <a href="<?php echo URLROOT?>/Livestock_Manager/deleteCattle/<?php echo $cattle->cow_id ?>"><button class="deleteBtn"><i class="fa-regular fa-trash-can"></i></button></a> -->
-              <a href="#deleteCattle"><button class="deleteBtn" onclick="openDelete('<?=$cattle->cow_id?>')" id="<?php echo($data_index) ?>"><i class="fa-regular fa-trash-can"></i></button></a>
+              <a href="#"><button class="deleteBtn" onclick="openDelete('<?=$cattle->cow_id?>')" id="<?php echo($data_index) ?>"><i class="fa-regular fa-trash-can"></i></button></a>
             </div>
           </td>
         </tr>
@@ -114,10 +107,6 @@
               <td>Age</td>
               <td id="Model_Age"></td>
             </tr>
-            <!-- <tr>
-              <td>Gender</td>
-              <td id="Model_Gender"></td>
-            </tr> -->
             <tr>
               <td>Milking Status</td>
               <td id="Model_milkin_Status"></td>
@@ -154,7 +143,7 @@
               <input type="text" name="price" id="price" class="price" value="">
             </div>
           </div>
-          <input type="submit" value="OK">
+          <input class="dOk" type="submit" value="OK">
         </form>
       <br>
       </div>
