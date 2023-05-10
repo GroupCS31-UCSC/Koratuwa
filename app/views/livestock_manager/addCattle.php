@@ -71,12 +71,25 @@
     </section>
 
 		<br>
-		<input type="submit" value="Submit" class="submitBtn">
+		<input type="submit" value="Submit" class="submitBtn" onclick="openPopup()">
   </form>
   <br>
 </div>
-    
 
+<!-- Add popup -->
+<div class="add-popup" id="popup">
+  <div class="add-popup-content">
+    <div class="add-popup-header">
+      <i class="fa fa-check-circle" aria-hidden="true"></i>
+    </div>
+    <div class="add-popup-body">
+      <h2>Cattle added successfully</h2>
+    </div>
+  </div>
+  <div class="add-popup-footer">
+    <button class="add-popup-btn" onclick="closePopup()">OK</button>
+  </div>
+</div>
 
 
 <?php require APPROOT.'/views/include/footer.php'; ?>
@@ -118,5 +131,14 @@ genderSelect.addEventListener('change', function() {
     milkingSelect.style.display = 'none';
   }
 });
+
+
+// Popup add
+function openPopup(){
+  document.getElementById("popup").classList.add("open-popup");
+}
+function closePopup(){
+  document.getElementById("popup").classList.remove("open-popup");
+}
 
 </script>
