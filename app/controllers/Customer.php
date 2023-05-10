@@ -200,10 +200,12 @@
       public function onlineOrd(){
 
         $ordId = $this->customerModel->generateordId();
+        $RId = $this->customerModel->generatReceiptId();
         
         $data=[
           'order_id' => $ordId,
-          'payment' => $_POST['amount']
+          'payment' => $_POST['amount'],
+          'receipt_id' => $RId
         ];
 
         if($this->customerModel->onlineOrder($data))

@@ -6,11 +6,12 @@
 <section class="cartList">
     <div class="container">
         <?php
+        $total = 0;
         $subtotal = 0;
 
         if(isset($data['products']) && !empty($data['products'])){
             foreach($data['products'] as $product){
-                $subtotal += $product->total_price;
+                $total += $product->total_price;
                 ?>
                 <div class="itemDetails">
                     <div class="feature1"><img src="<?php echo UPLOADS . $product->image?>" width="100"></div>
@@ -35,9 +36,10 @@
             ?>
             <br>
             <br>
-                    <div class="subtotal">Total Price: RS.<?php echo $subtotal?></div>
+                    <div class="total">Total Price: RS.<?php echo $total?></div>
                     <!-- checkout button -->
-                    <input type="button" value="Buy Now" class="buynowBtn"  onclick="paymentGateway()">
+                    <!-- <input type="button" value="Buy Now" class="buynowBtn"  onclick="paymentGateway()"> -->
+                    <input type="button" value="Buy Now" class="buynowBtn"  onclick="openModel()">
             <?php
         }else {
             ?>
@@ -50,6 +52,41 @@
         ?>
     </div>
 </section>
+
+<!-- Popup buynow -->
+<div class="model fade in" id="model" tabindex="-1">
+  <div class="model-dialog">
+    <div class="model-content">
+      <div class="model-header">
+        <button type="button" class="close" onclick="closeModel()" ><span aria-hidden="true">×</span></button>
+        <h4 class="Model-title"><i class="fa fa-info-circle edit-color"></i> Cart Details</h4>
+      </div>
+      <div class="model-body">
+        <table class="tableForm">
+            <?php $subtotal= $total + 200 ?>
+          <tbody>
+            <tr>
+                <th>Price</th>
+                <td><?php echo $total?></td>
+            </tr>
+            <tr>
+                <th>Delivery fee</th>
+                <td>200</td>
+            </tr>
+            <tr>
+                <th>Total</th>
+                <td><?php echo $subtotal?></td>
+            </tr>
+            
+          </tbody>           
+        </table><br>
+        <input type="button" value="Buy Now" class="buynowBtn"  onclick="paymentGateway()">
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer"></div>
+</div>
+
 
 <script src="<?php echo URLROOT ?>/js/jquery.min.js"></script>
 <script type="text/javascript" src="https://www.payhere.lk/lib/payhere.js"></script>
@@ -170,6 +207,14 @@
         // xhr.send(amount);
 
     }
+
+    // popup
+    function openModel(){
+  document.getElementById("model").classList.add("open-model");
+}
+function closeModel(){
+  document.getElementById("model").classList.remove("open-model");
+}
 </script>
 
 <?php require APPROOT.'/views/include/footer.php'; ?>
