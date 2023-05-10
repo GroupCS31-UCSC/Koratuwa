@@ -30,12 +30,12 @@
       }
 
       if($lastId == '') {
-        $id = 'S001';
+        $id = 'S00000001';
       } else {
         $id = substr($lastId, 1);
         $id = intval($id);
         $id++;
-        $id = 'S'.str_pad($id, 3, '0', STR_PAD_LEFT);
+        $id = 'S'.str_pad($id, 8, '0', STR_PAD_LEFT);
       }
 
       return $id;
