@@ -69,13 +69,10 @@ function alert($msg) {
               'eId'=>'',
               'dat'=>trim($_POST['dat']),
               'des'=>trim($_POST['des']),
-    
               'amo'=>trim($_POST['amo']),
              
-              
               'dat_err'=>'',
               'des_err'=>'',
-             
               'amo_err'=>'',
               'image_err'=>''
               
@@ -84,12 +81,8 @@ function alert($msg) {
             //validation
             if (empty($data['dat']))        { $data['dat_err'] = '*' ;  }
             if (empty($data['des']))        { $data['des_err'] = '*' ; }
-          
             if (empty($data['amo']))        { $data['amo_err'] = '*' ; }
-          
-            
-
-            
+ 
 
             //if no errors
             if(empty($data['dat_err']) && empty($data['des_err'])  && empty($data['amo_err'])  )
@@ -119,14 +112,10 @@ function alert($msg) {
               'eId'=>'',
               'dat'=>'',
               'des'=>'',
-           
               'amo'=>'',
-            
-              
 
               'dat_err'=>'',
               'des_err'=>'',
-      
               'amo_err'=>'',
            
               
@@ -338,82 +327,6 @@ function alert($msg) {
             $this->view('financial_manager/reports',$data);
         }
 
-
-        // public function generateFinanceReport(){
-        //   // $supOrderView= $this->supplierModel->get_supOrderView();
-        //   // $from = isset($_GET['from']) ? $_GET['from'] : date('Y-m-d');
-        //   // $to = isset($_GET['to']) ? $_GET['to'] : date('Y-m-d');
-
-        //   $from = $_SESSION['from'];
-        //   $to = $_SESSION['to'];
-          
-        //   // $expenseView= $this->financialManagerModel->viewExpense();
-        //   $exreportsView= $this->financialManagerModel->viewExpenseReports($from, $to);
-        //   // $rereportsView= $this->financialManagerModel->viewRevenueReports($from, $to);
-        //   // var_dump($exreportsView); die();
-        //   $pdf = generatePdf();
-
-        //   $pdf->AddPage('L','A4');
-        
-        //   $pdf->SetFont('Arial', 'B', 18);
-        //   $pdf->Cell(0, 10, 'Finance Report', 0, 1, 'C');
-        
-        //   $pdfWidth = $pdf->GetPageWidth();
-        //   $pdfHeight = $pdf->GetPageHeight();
-
-        //  $pdf->Rect(5, 5, $pdfWidth-8, $pdfHeight-10, 'D');    
-
-        // $pdf->SetFont('Arial', 'B', 14);
-        // $pdf->SetTitle('Finance Report');
-        // $pdf->SetTextColor(255, 255, 255);
-       
-
-
-        // $pdf->Cell(60, 10, 'Expense Id', 1 , 0, 'C',1);
-        // $pdf->Cell(60, 10, 'Date', 1 , 0, 'C',1);
-        // $pdf->Cell(70, 10, 'Description', 1 , 0, 'C',1);
-        // $pdf->Cell(30, 10, 'Amount', 1 , 0, 'C',1);
-        // // $pdf->Cell(30, 10, 'Quality', 1 , 0, 'C',1);
-        // $pdf->Ln();
-        
-        // $pdf->SetTextColor(0, 0, 0);
-        
-        // $pdf->SetFont('Arial', '', 12);
-        // foreach ($exreportsView as $row) {
-        
-          
-        //     $pdf->Cell(60,10,$row->expense_id, 1 , 0, 'C');
-        //     $pdf->Cell(60,10,$row->date, 1 , 0, 'C');
-        //     $pdf->Cell(70,10,$row->description, 1 , 0, 'C');
-        //     $pdf->Cell(30,10,$row->amount, 1 , 0, 'C');
-        //     // $pdf->Cell(30,10,$row->	quality, 1 , 0, 'C');
-            
-           
-            
-        //     $pdf->Ln();
-
-
-
-        // }
-
-       
-        
-        // $pdf->AliasNbPages();
-        // $pdf->SetFont('Arial', 'B', 12);
-        // $pdf->Cell(0, 10, 'Page ' . $pdf->PageNo() . ' of {nb}', 0, 0, 'C');
-        
-  
-        // // $pdf->Output();
-        //  $pdf->Output('Finance Report.pdf', 'I');
-           
-        //     $data=[
-        //     'exreportsView' =>  $exreportsView,
-        //     'from' => $from,
-        //     'to' => $to,
-        //     ];
-        
-        //     $this->view('financial_manager/reports',$data);
-        // }
 
 
 

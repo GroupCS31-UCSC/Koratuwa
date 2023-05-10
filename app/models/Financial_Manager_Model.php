@@ -66,11 +66,6 @@
       return $result;
     }
 
-    // public function getCattleByCowID($cowID) {
-    //   $this->db->query('SELECT * FROM cattle WHERE cow_id = "'.$cowID.'"');
-    //   $result = $this->db->single();
-    //   return $result;
-    // }
 
     
     // public function viewReports($from, $to) {
@@ -118,27 +113,7 @@
 
     
 
-    // public function updateExpense($data)
-    // {
-    //   $this->db->query('UPDATE expense set date=:dat,description=:des,vendor=:ven,amount=:amo WHERE expense_id=$eId');
-      
-    //   $this->db->bind(':eId', $data['eId']);
-    //   $this->db->bind(':dat', $data['dat']);
-    //   $this->db->bind(':des', $data['des']);
-    //   $this->db->bind(':ven', $data['ven']);
-    //   $this->db->bind(':amo', $data['amo']);
-      
-
-    //   //execute
-    //   if($this->db->execute())
-    //   {
-    //     return true;
-    //   }
-    //   else
-    //   {
-    //     return false;
-    //   }
-    // }
+  
   }
 
 ?>

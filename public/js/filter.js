@@ -925,6 +925,45 @@ function searchFunc4(){
 }
 
 
+
+//search for table 5------product stock table-------------------------------------------------------------------------------------------------------
+
+//search bar
+function searchFunc5(){
+    //declare variables
+    var input,filter,table,tr,td,i,textValue;
+
+    input = document.getElementById("searchInput5");
+
+    // to search case-sensitive
+    filter = input.value.toUpperCase();
+    table = document.getElementById("stockTable");
+
+    tr = table.getElementsByTagName("tr");
+
+    //loop through all table rows and hide those don't match the search
+    for(i=0; i < tr.length; i++){
+
+        td=tr[i].getElementsByTagName("td")[0];
+        if(td){
+            textValue = td.textContent || td.innerText;
+
+            if(textValue.toUpperCase().indexOf(filter) > -1)
+            {
+                tr[i].style.display = "";
+            }
+            else{
+                tr[i].style.display = "none";
+            }
+        }
+
+        
+    }
+}
+
+
+
+
 // function openModel1(id){
 //     const url ="/koratuwa/Admin/viewCattleDetails/"+id;
 //     const form = new FormData();

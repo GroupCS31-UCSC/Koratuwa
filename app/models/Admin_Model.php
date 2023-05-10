@@ -402,6 +402,17 @@
       return $result;
     }
 
+    //to get all product stock deails
+    public function get_productStockView($pId)
+    {
+      $this->db->query('SELECT * FROM product_stock WHERE product_id = :pId ORDER BY stock_id DESC');
+      $this->db->bind(':pId', $pId);
+
+      $result = $this->db->resultSet();
+
+      return $result;
+    }
+
     public function get_onsiteSalesView()
     {
       $this->db->query('SELECT * FROM onsite_sale');
@@ -639,6 +650,16 @@
       $this->db->query('SELECT * From cattle_stall ');
       $result=$this->db->resultSet();
       return json_encode($result);
+    }
+
+    public function productStock_duration($pId, $from, $to)
+    {
+      $this->db->query('SELECT * FROM product_stock WHERE product_id = :pId AND  mfd_date >= "'.$from.'" and mfd_date <= "'.$to.'"');
+      $this->db->bind(':pId', $pId);
+
+      $result = $this->db->resultSet();
+
+      return $result;
     }
 
     

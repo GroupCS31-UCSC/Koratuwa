@@ -46,10 +46,7 @@
       <div class="cardContent">
         <p><?php echo $category->product_name ?></p>
      
-        <!-- <div class="table-btns">
-      <a href="<?php echo URLROOT?>/Product_Manager/updateCategory/<?php echo $category->product_id  ?>"><button class="updateBtn" title="Update"><i class="fa-regular fa-pen-to-square"></i></button></a>
-      <a href="<?php echo URLROOT?>/Product_Manager/deleteCategory/<?php echo $category->product_id ?>"><button class="deleteBtn" title="Delete"><i class="fa-regular fa-trash-can"></i></button></a>
-   </div> -->
+       
       </div>
   </a>
  
