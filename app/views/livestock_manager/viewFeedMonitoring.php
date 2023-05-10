@@ -7,8 +7,7 @@
 <div class="section">
 <div class="feedDetails">
   <h1>Feed Details</h1>
-  <p>Feed is the most important factor in the production of milk. The amount of feed required for a cow to produce 1 litre of milk is 2.5 kg. The feed should be given in two meals a day. The first meal should be given in the morning and the second meal should be given in the evening. The amount of feed given in the morning should be 60% of the total amount of feed given in a day and the amount of feed given in the evening should be 40% of the total amount of feed given in a day. The feed should be given in the form of solid and liquid. The solid feed should be given in the form of grass, leaves, super napier, sorghum, pachon, etc. and the liquid feed should be given in the form of sailege (salt + sugar), azolla (high protein), punakku, corn, rice powder, etc. The feed should be given in the ratio of 60% solid and 40% liquid. The feed should be given in the form of grass, leaves, super napier, sorghum, pachon, etc. and the liquid feed should be given in the form of sailege (salt + sugar), azolla (high protein), punakku, corn, rice powder, etc. The feed should be given in the ratio of 60% solid and 40% liquid.</p>
-  <!-- <table class="items">
+  <table class="items">
     <tr>
       <th>Solid foods (60%)</th>
       <th>Liquid foods (40%)</th>
@@ -25,10 +24,8 @@
       <td></td>
       <td>punakku, corn, Rice powder</td>
     </tr>
-  </table> -->
+  </table>
 </div>
-
-
 
 <div class="flash-msg">
   <?php flash('addfeed_flash') ?>
@@ -36,27 +33,33 @@
   <?php flash('deletefeed_flash') ?>
 </div>
 
-<div class="search-add">
-  <div class="search-area">
-    <!-- <form action="<?php echo URLROOT; ?>/Livestock_Manager/searchCattle" method="POST"> -->
-      <!-- <input type="text" name="search" id="search" class="search" placeholder="Search by COW ID"> -->
-      <!-- <span class="icon"><i class="fa-solid fa-search"></i></span> -->
-    <!-- </form> -->
+<div class="refresh-add">
+  <div class="refresh-area">
+    <!-- refresh button -->
+    <input type="button" value="Refresh" class="add-btn" onclick="location.href='<?php echo URLROOT; ?>/Livestock_Manager/viewFeedMonitoring' ">
+    <!-- Add button -->
+    <input type="button" value="Add New Feed record" class="add-btn" onclick="location.href='<?php echo URLROOT; ?>/Livestock_Manager/addFeedMonitoring' ">
   </div>
+</div>
 
 <!-- date filter -->
+
   <form action="<?php echo URLROOT; ?>/Livestock_Manager/viewFeedMonitoring" method="POST" >
-    <label for="from">From :</label>
-    <input type="date" id="from" name="from" value="<?php echo $data['from']; ?>"><br>
-    <label for="to">  To :</label>
+  <div class="filter">
+  <div class="date-input">
+  <label for="from">From:</label>
+    <input type="date" id="from" name="from" value="<?php echo $data['from']; ?>">
+  </div>
+  <div class="date-input">
+  <label for="to">To:</label>
     <input type="date" id="to" name="to" value="<?php echo $data['to']; ?>">
+  </div>
+  </div>
     <input type="submit" value="Search" class="submitBtn"> 
   </form>
-  <!-- refresh button -->
-  <input type="button" value="Refresh" class="addBtn" onclick="location.href='<?php echo URLROOT; ?>/Livestock_Manager/viewFeedMonitoring' ">
 
-  <input type="button" value="Add New Feed record" class="add-btn" onclick="location.href='<?php echo URLROOT; ?>/Livestock_Manager/addFeedMonitoring' ">
-</div>
+  
+
 
 <div class="container" style="overflow-x: auto;">
   <table id="detailsTable2">

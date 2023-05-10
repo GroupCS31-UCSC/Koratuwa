@@ -1,14 +1,13 @@
 <?php require APPROOT.'/views/include/header.php'; ?>
 <?php require APPROOT.'/views/livestock_manager/livestock_dashboard.php'; ?>
 <link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/public/css/livestock_manager/addCattle.css">
-<?php $stall=$_GET['Stall']??'STALL1';?>
 
 <div class="form-container">
 	<div class="form-header">
-		<h3>Add Cattle</h3>
+  <center><h1>Add Cattle</h1></center>
 	</div>
 	<form action="<?php echo URLROOT; ?>/Livestock_Manager/addCattle" method="POST">
-    <!-- <input type="hidden" name="stallId" value="STALL1"> -->
+  <!-- <input type="" name="stallId" value="<?php echo $data['stallId']; ?>"> -->
     <!-- dob -->
     <div class="form-input-title">Date of birth</div>
     <span class="form-invalid"><?php echo $data['dob_err']; ?></span>

@@ -141,17 +141,17 @@
         $data=[
           'cowId'=>$cowId,
           'breed'=>trim($_POST['breed']),
-          // 'milking'=>trim($_POST['milking']),
+          'milking'=>trim($_POST['milking']),
           
           'breed_err'=>'',
-          // 'milking_err'=>'',
+          'milking_err'=>'',
         ];
 
         if ($data['breed']=='Select') { $data['breed_err'] = '*' ; }
-        // if ($data['milking']=='Select') { $data['milking_err'] = '*' ; }
+        if ($data['milking']=='Select') { $data['milking_err'] = '*' ; }
 
         //if no errors
-        if(empty($data['breed_err'])/* && empty($data['milking_err'])*/) {
+        if(empty($data['breed_err']) && empty($data['milking_err'])) {
           if($this->livestockModel->updateCattle($data)) {
             flash('updateCattle_flash','New cattle details are successfully Updated!');
             redirect('Livestock_Manager/viewCattle');
@@ -170,10 +170,10 @@
         $data=[
           'cowId'=>$cow->cow_id,
           'breed'=>$cow->cow_breed,
-          // 'milking'=>$cow->milking_status,
+          'milking'=>$cow->milking_status,
 
           'breed_err'=>'',
-          // 'milking_err'=>''
+          'milking_err'=>''
         ];
         $this->view('livestock_Manager/updateCattle', $data);
       }
@@ -197,16 +197,6 @@
       else {
         die('Something went wrong');
       }
-      // $data = json_decode(file_get_contents("php://input"), true);
-
-      // echo json_encode($data);
-      // if($this->livestockModel->deleteCattle($cowId)){
-      //   flash('deleteCattle_flash','Cattle details are successfully deleted');
-      //   redirect('livestock_Manager/viewCattle');
-      // }
-      // else {
-      //   die('Something went wrong');
-      // }
     }
 
     //feed monitoring
