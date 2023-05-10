@@ -21,6 +21,14 @@
   <canvas id="ch2"></canvas>
 </div>
 
+<?php 
+    // print_r($data['expenseChart']);
+    $propertyNames = array_keys(get_object_vars($data['expenseChart'][1]));
+    print_r( $data['expenseChart'][1]);   
+    print_r($data['expenseChart'][1]->{$propertyNames[0]}); //8000
+    echo "<br>";
+    // print_r($data['expenseChart'][0][$propertyNames[0]]);
+    ?>
 
 
 </div>
@@ -67,7 +75,7 @@
         <td><?php echo $expense->description; ?></td>
         <!-- <td><?php echo $expense->vendor; ?></td> -->
         <td><?php echo $expense->amount; ?></td>   
-      </tr><br>
+      </tr>
       <?php endforeach; ?>
       </tbody>
     </table>
