@@ -74,7 +74,7 @@
   </table>
   <div class="btn-wrapper"> 
     <div class="wrapper-1">
-  <input type="submit" value="submit" class="submitBtn" onclick="payment()">
+  <input type="button" value="submit" class="submitBtn" onclick="payment()">
   </div>
   <!-- popup receipt -->
   <div class="wrapper-1">
@@ -204,8 +204,8 @@
     document.getElementById("price").value = price;
   }
   
-var total = 0;
-  
+  var total = 0;
+  var products = [];  
   function addData(){
     const value = document.getElementById("product").value;
     const btn = document.getElementById("product");
@@ -230,28 +230,20 @@ var total = 0;
     const postData = {
       saleId: saleId,
       id: id,
-      qnty: qnty,
-      subTot: subTot,
-      total: total,
+      qnty: qnty
     }
 
-    fetch('/koratuwa/Cashier/saveProductSale',{
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(postData)
-    }).then(res => res.json()).then(data => {
-      console.log(data);
-    }).catch(err => console.log(err));
+    products.push(postData);
   }
 
   function payment() {
     var saleId = document.getElementById("saleId").value;
-
     const postData = {
       saleId: saleId,
+      total: total,
+      ps:products
     }
+    console.log(JSON.stringify(postData.ps));
 
     fetch('/koratuwa/Cashier/submitdata',{
         method: 'POST',
@@ -261,33 +253,33 @@ var total = 0;
         body: JSON.stringify(postData)
     }).then(res => res.json()).then(data => {
       console.log(data);
+      window.location.href = "/koratuwa/Cashier/cashierHome";
     }).catch(err => console.log(err));
   }
 
   function openModel(){
   document.getElementById("model").classList.add("open-model");
-}
-function closeModel(){
-  document.getElementById("model").classList.remove("open-model");
-}
+  }
+  function closeModel(){
+    document.getElementById("model").classList.remove("open-model");
+  }
 
-function updateBalance() {
-  // Get the cash and balance elements by ID
-  const cashElement = document.getElementById('cash');
-  const balanceElement = document.getElementById('balance-output');
+  function updateBalance() {
+    // Get the cash and balance elements by ID
+    const cashElement = document.getElementById('cash');
+    const balanceElement = document.getElementById('balance-output');
 
-  // Get the initial total value from the total element by ID
-  const totalElement = document.getElementById('total');
-  const totalValue = parseFloat(totalElement.textContent);
+    // Get the initial total value from the total element by ID
+    const totalElement = document.getElementById('total');
+    const totalValue = parseFloat(totalElement.textContent);
 
-  // Convert the cash value to a number, or default to 0 if empty
-  const cashValue = parseFloat(cashElement.value) || 0;
+    // Convert the cash value to a number, or default to 0 if empty
+    const cashValue = parseFloat(cashElement.value) || 0;
 
-  // Calculate the balance value and update the balance element
-  const balanceValue = cashValue - totalValue;
-  balanceElement.value = balanceValue.toFixed(2);
-}
-
+    // Calculate the balance value and update the balance element
+    const balanceValue = cashValue - totalValue;
+    balanceElement.value = balanceValue.toFixed(2);
+  }
 
 </script>
 

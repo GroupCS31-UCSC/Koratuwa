@@ -161,24 +161,18 @@
       $this->view('Cashier/updateSale',$data);
     }
 
-    public function saveProductSale() {
-      $data = json_decode(file_get_contents('php://input'), true);
-      if(!$this->cashierModel->saveProductSale($data)) {
-        echo json_encode(array('success' => false));
-      }
-      else {
-        echo json_encode(array('success' => true));
-      }
-      // echo json_encode($data);
-    }
-
     public function submitdata() {
       $data = json_decode(file_get_contents('php://input'), true);
       if(!$this->cashierModel->submitdata($data)) {
         echo json_encode(array('success' => false));
       }
       else {
-        echo json_encode(array('success' => true));
+        if(!$this->cashierModel->saveProductSale($data)) {
+          echo json_encode(array('success' => false));
+        }
+        else {
+          echo json_encode(array('success' => true));
+        }
       }
       // echo json_encode($data);
     }
