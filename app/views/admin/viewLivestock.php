@@ -54,7 +54,7 @@
               <a href="#"><button class="viewBtn" onclick="openModel1('<?=$cow->cow_id?>')" id="<?php echo($data_index) ?>"><i class="fas fa-eye"></i></button></a>
             </div>
          </td>
-        </tr><br>
+        </tr>
         <?php $data_index++; ?>
         <?php endforeach; ?>
       </tbody>

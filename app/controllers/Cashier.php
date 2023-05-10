@@ -156,11 +156,6 @@
       }
     }
 
-    public function updateSale() {
-      $data = [];
-      $this->view('Cashier/updateSale',$data);
-    }
-
     public function submitdata() {
       $data = json_decode(file_get_contents('php://input'), true);
       if(!$this->cashierModel->submitdata($data)) {
