@@ -21,7 +21,7 @@
                             <h3> <?php echo $product->unit_size?></h3>
                             <h4>RS.<?php echo $product->total_price?></h4>
                             <h4>Quantity: <?php echo $product->quantity?></h4>
-                            <!-- <?php echo $product->timestamp ?> -->
+                            <!-- <?php echo strval($product->timestamp) ?> -->
                         </div>
                        
                     </div>
@@ -39,6 +39,13 @@
                     <div class="total">Total Price: RS.<?php echo $total?></div>
                     <!-- checkout button -->
                     <!-- <input type="button" value="Buy Now" class="buynowBtn"  onclick="paymentGateway()"> -->
+
+                            <!-- payment method selection -->
+                    <!-- <form id="payForm" action="<?php echo URLROOT; ?>/Admin/addEmployees" method="POST" enctype="multipart/form-data">
+                        <input type="radio" name="gender" id="gender" <?php if (isset($gender) && $gender=="Male") echo "checked";?> value="Male"> Male
+                        <input type="radio" name="gender" id="gender" <?php if (isset($gender) && $gender=="Female") echo "checked";?> value="Female"> Female
+                    </form> -->
+
                     <input type="button" value="Buy Now" class="buynowBtn"  onclick="openModel()">
             <?php
         }else {
@@ -80,6 +87,7 @@
             
           </tbody>           
         </table><br>
+
         <input type="button" value="Buy Now" class="buynowBtn"  onclick="paymentGateway()">
       </div>
     </div>

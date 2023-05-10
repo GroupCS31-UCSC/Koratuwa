@@ -144,7 +144,7 @@
 
         public function deleteCartItem($time){
 
-        
+        // alert($time);
           if($this->customerModel->dltCartItems($time))
           {
             redirect('customer/cart');
@@ -219,6 +219,59 @@
           die('Something went wrong');
         }
        }
+
+       public function Orders()
+       {
+        if($_SERVER['REQUEST_METHOD'] == 'POST')
+        {
+          $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+          $from = isset($_POST['from']) ? $_POST['from'] : '';
+          $to = isset($_POST['to']) ? $_POST['to'] : '';
+
+          $status=$_GET['status'] ?? 'Ongoing';
+          $orderDetails= $this->customerModel->get_OrderDetails();
+
+          $data = [
+            'orderDetails' => $orderDetails,
+            'status' =>$status,
+            'from' => $from,
+            'to' => $to
+          ];
+          $this->view('customer/orders',$data);
+
+        }
+        else
+        {
+          $status=$_GET['status'] ?? 'Ongoing';
+          $orderDetails= $this->customerModel->get_OrderDetails();
+
+          $data = [
+            'orderDetails' => $orderDetails,
+            'status' => '',
+            'from' => '',
+            'to' => ''
+          ];
+          $this->view('customer/orders',$data);
+        }
+
+       }
+
+      // Update Order status
+      public function updateStatus() {
+        $orderId = $_POST['order_id'];
+        $data = [
+          'orderId' => $orderId,
+          'status' => $status = 'Ongoing'
+        ];
+        if($this->customerModel->updateStatus($orderId)) {
+          flash('update_status_success', 'Status updated successfully');
+          redirect('Customer/Orders');
+        }
+        else {
+          die('Something went wrong');
+        }
+      }
 
     }
 

@@ -157,6 +157,31 @@
 
   }
 
+  public function get_OrderDetails()
+  {
+    $this->db->query('SELECT * FROM online_order WHERE customer_id = :user_id');
+    $this->db->bind(':user_id', $_SESSION['user_id']);
+    
+    $result = $this->db->resultSet();
+
+    return $result;
+  }
+
+  public function updateStatus($orderId){
+    // $orderId = $data['orderId'];
+    // $status = 'Ongoing';
+    $this->db->query('UPDATE online_order SET status = "Delivered" WHERE order_id = :orderId');
+    $this->db->bind(':orderId', $orderId);
+    // $this->db->bind(':status', $data['status']);
+
+    if($this->db->execute()) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
+
 
 }
 
