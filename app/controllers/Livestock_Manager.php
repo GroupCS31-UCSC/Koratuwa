@@ -154,7 +154,7 @@
         if(empty($data['breed_err']) && empty($data['milking_err'])) {
           if($this->livestockModel->updateCattle($data)) {
             // flash('updateCattle_flash','New cattle details are successfully Updated!');
-            redirect('Livestock_Manager/viewCattle');
+            // redirect('Livestock_Manager/viewCattle');
           }
           else {
             die('Something went wrong!');

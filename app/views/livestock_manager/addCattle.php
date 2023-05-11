@@ -68,11 +68,12 @@
       <option value="STALL2">2</option>
       <option value="STALL3">3</option>
       <option value="STALL4">4</option>
-    </section>
-
-		<br>
-		<input type="submit" value="Submit" class="submitBtn" onclick="openPopup()">
+    </select>
   </form>
+  <button type="submit" class="submitBtn" onclick="openPopup()">
+  Submit
+  </button>
+
   <br>
 </div>
 
@@ -135,10 +136,14 @@ genderSelect.addEventListener('change', function() {
 
 // Popup add
 function openPopup(){
+  // e.preventDefault();
+  window.location.href = "<?php echo URLROOT; ?>/Livestock_Manager/viewCattle";
   document.getElementById("popup").classList.add("open-popup");
+  
 }
 function closePopup(){
   document.getElementById("popup").classList.remove("open-popup");
+  // window.location.href = "<?php echo URLROOT; ?>/Livestock_Manager/viewCattle";
 }
 
 </script>
