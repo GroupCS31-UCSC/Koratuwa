@@ -57,6 +57,16 @@
       return $result;
     }
 
+    public function get_saleProductView($saleId) {
+      $this->db->query('SELECT ps.product_id, p.product_name, ps.quantity FROM product_sale as ps INNER JOIN onsite_sale as os ON ps.sale_id=os.sale_id INNER JOIN product as p ON p.product_id=ps.product_id WHERE ps.sale_id = :saleId;');
+      // $this->db->query('SELECT * FROM product_sale WHERE sale_id = :saleId');
+      $this->db->bind(':saleId', $saleId);
+
+      $result = $this->db->resultSet();
+
+      return $result;
+    }
+
     public function get_onlineOrderView($status) {
       $this->db->query('SELECT * FROM online_order WHERE status = "'.$status.'"');
 
