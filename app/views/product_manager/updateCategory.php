@@ -10,11 +10,11 @@
 <div class="form-container">
 
 	<div class="form-header">
-		<center><h1>Update Product Details</h1></center>
+		<center><h1>Update Product</h1></center>
 	</div>
 	<br>
 
-	<form action="<?php echo URLROOT; ?>/Product_Manager/updateCategory/<?php echo $data['pId'];?>" method="POST" enctype="multipart/form-data">
+	<form action="<?php echo URLROOT; ?>/Product_Manager/updateCategory/<?php echo $data['pId'] ?>" method="POST" enctype="multipart/form-data">
 
 		<!-- category name
 		<div class="form-input-title">Product Name</div>

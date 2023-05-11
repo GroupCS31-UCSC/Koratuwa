@@ -21,7 +21,7 @@
 
 <div class="table1">
 <table>
-  <h1>Expenses</h1>
+  <h1>Expenses</h1><br>
       <tr>
         <th>Expense ID</th>
         <th>Date</th>
@@ -37,7 +37,7 @@
         <td><?php echo $expense->amount; ?></td>
       
     
-      </tr><br>
+      </tr>
       <?php endforeach; ?>
     </table>
     </div>
@@ -45,7 +45,7 @@
      <div class="table2">
 
    <table>
-  <h1>Revenues</h1>
+  <h1>Revenues</h1><br>
       <tr>
         <th>Revenue ID</th>
         <th>Date</th>
@@ -64,7 +64,7 @@
       
     </td>
     
-      </tr><br>
+      </tr>
       <?php endforeach; ?>
     </table>
 

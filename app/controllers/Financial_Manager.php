@@ -134,9 +134,11 @@ function alert($msg) {
             $to = isset($_POST['to']) ? $_POST['to'] : '';
 
             $expenseView= $this->financialManagerModel->Expense_duration($from, $to);
+            $expenseChart= $this->financialManagerModel->viewExpenseChart();
     
             $data = [
               'expenseView' => $expenseView,
+              'expenseChart' => $expenseChart,
               'from' => $from,
               'to' => $to
             ];
@@ -146,9 +148,11 @@ function alert($msg) {
           else
           {
             $expenseView= $this->financialManagerModel->viewExpense();
+            $expenseChart= $this->financialManagerModel->viewExpenseChart();
     
             $data = [
               'expenseView' => $expenseView,
+              'expenseChart' => $expenseChart,
               'from' => '',
               'to' => ''
             ];
@@ -218,7 +222,7 @@ function alert($msg) {
           $pdfWidth = $pdf->GetPageWidth();
           $pdfHeight = $pdf->GetPageHeight();
 
-         $pdf->Rect(5, 5, $pdfWidth-8, $pdfHeight-10, 'D');    
+        //  $pdf->Rect(5, 5, $pdfWidth-8, $pdfHeight-10, 'D');    
 
         $pdf->SetFont('Arial', 'B', 14);
         $pdf->SetTitle('Finance Report');
@@ -294,7 +298,9 @@ function alert($msg) {
         }
 
         $pdf->Ln();
+        
         $pdf->Cell(370, 10, 'Total Revenues = Rs.  '.$totalrevenues, 0, 1, 'C');
+       
 
         $pdf->Ln();
         $gap=abs($totalrevenues-$totalexpenses);
