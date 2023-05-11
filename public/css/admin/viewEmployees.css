@@ -254,6 +254,7 @@ i {
 
 table {
     margin-left: 50px;
+    margin-bottom: 50px;
 }
 td {
     text-align: center;
@@ -323,4 +324,9 @@ td {
     .main.active {
         left: 275px;
     }
+}
+
+h2{
+    text-transform: uppercase;
+    margin: 10px;
 }

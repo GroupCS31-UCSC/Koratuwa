@@ -342,3 +342,36 @@ td {
     color: black;
 
 }
+
+h2{
+    text-transform: uppercase;
+    margin: 10px;
+}
+
+.search-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .search-box {
+    width: 100%;
+    margin: 8px;
+  }
+
+  #searchInput3{
+    margin-left: 0px;
+  }
+
+  .search-icon button{
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    font-size: 22px;
+    color: #5078ef;
+    cursor: pointer;
+    padding: 1%;
+    background-color: #fff;
+    margin: 5px;
+    border-style: hidden;
+
+}

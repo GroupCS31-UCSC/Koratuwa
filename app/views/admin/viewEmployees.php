@@ -9,12 +9,14 @@
 <?php flash('updateEmp_flash') ?>
 <?php flash('dltEmp_flash') ?>
 
+<h2>Employees</h2>
+
 <div class="container" style="overflow-x: auto;">
 
 <div class="mytabs">
   <!-- tab1 -->
   <input type="radio" id="tab1" name="mytabs" checked="checked">
-    <label for="tab1">System Using Employees</label>
+    <label for="tab1">Registered Employees</label>
       <div class="tab"><p>
         <div class="systemUsers">
 
@@ -179,7 +181,7 @@
 
   <!-- tab2 -->
   <input type="radio" id="tab2" name="mytabs">
-      <label for="tab2">Non System-Using Employees</label>
+      <label for="tab2">Non Registered Employees</label>
         <div class="tab"><p>
           <div class="systemUsers">
 
@@ -322,6 +324,7 @@
         </div>
 
 
+</div>
 </div>
 
 <script>

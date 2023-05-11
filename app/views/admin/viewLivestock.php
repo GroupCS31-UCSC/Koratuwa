@@ -3,13 +3,19 @@
 <?php require APPROOT.'/views/admin/admin_dashboard.php';  ?>
 
 <!-- ______________________________________________________________________________________________________-->
-
+<h2>Cattle</h2>
 <section>
   <div class="container" style="overflow-x: auto;">
   <!-- <div class="profile-search-area"> -->
-      <input type="text" id="searchInput" placeholder="Search for Cow IDs..." onkeyup="searchFunc();">
-  <!-- </div> -->
-  <input type="button" value="Refresh" class="addBtn" onclick="location.href='<?php echo URLROOT; ?>/Admin/viewLivestock' ">
+  <div class="search-container">
+
+<div class="search-icon"><button><i class="fa-solid fa-magnifying-glass"></i></button></div>
+
+<div class="search-box"><input type="text" id="searchInput" placeholder="Search for Cow IDs..." onkeyup="searchFunc();">
+     
+   </div> 
+   </div> 
+  <input type="button" value="Refresh" class="refreshBtn" onclick="location.href='<?php echo URLROOT; ?>/Admin/viewLivestock' ">
   <div class="table-wrapper">
     <table id="detailsTable">
       <thead>
@@ -54,7 +60,7 @@
               <a href="#"><button class="viewBtn" onclick="openModel1('<?=$cow->cow_id?>')" id="<?php echo($data_index) ?>"><i class="fas fa-eye"></i></button></a>
             </div>
          </td>
-        </tr><br>
+        </tr>
         <?php $data_index++; ?>
         <?php endforeach; ?>
       </tbody>

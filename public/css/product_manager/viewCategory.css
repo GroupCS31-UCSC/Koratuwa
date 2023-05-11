@@ -253,21 +253,7 @@ cursor: pointer;
 
     
 } */
-.topic{
-    margin-left: 0px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-right: 10px;
-}
 
-.filter{
-    margin: 5px;
-    padding: 5px;
-    font-size: 15px;
-    align-items: center;
-    
-    
-}
 
 input[type=date] {
     
@@ -344,3 +330,34 @@ input[type=text] {
     background-color: #00BFFF;
     color: white;
 }
+.topic{
+    margin-left: 0px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+
+.filter{
+    margin: 5px;
+    padding: 5px;
+    font-size: 15px;
+    align-items: center;
+    
+    
+}
+
+#searchInput2{
+    margin-left: 0px;
+}
+
+.search-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .search-box {
+    width: 100%;
+    margin: 8px;
+  }
+  

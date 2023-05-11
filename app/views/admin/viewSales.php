@@ -7,13 +7,18 @@
 
   <div class="divContainer1">
   <form action="<?php echo URLROOT; ?>/Admin/viewSales" method="POST" >
+  <div class="filter">
     <label for="from">From :</label>
     <input type="date" id="from" name="from" value="<?php echo $data['from']; ?>"><br>
     <label for="to">  To :</label>
     <input type="date" id="to" name="to" value="<?php echo $data['to']; ?>">
-    <input type="submit" value="Search" class="submitBtn"> 
+    <div class="form-input-container">
+    <div class="form-input-wrapper"><input type="submit" value="Search" class="submitBtn"> </div>
+    <div class="form-input-wrapper"><input type="button" value="Refresh" class="refreshBtn" onclick="location.href='<?php echo URLROOT; ?>/Admin/viewSales' "></div>
   </form>
-  <input type="button" value="Refresh" class="addBtn" onclick="location.href='<?php echo URLROOT; ?>/Admin/viewSales' ">
+  </div>
+  </div>
+
     <h2>Onsite Sales</h2>
     <div class="onsiteTable">
     <table>
@@ -37,7 +42,7 @@
               <a href="#"><button class="viewBtn" onclick="openModel1('<?=$onsite->sale_id?>')" id="<?php echo($data_index) ?>"><i class="fas fa-eye"></i></button></a>
             </div>
           </td>
-        </tr><br>
+        </tr>
         <?php $data_index++; ?>
         <?php endforeach; ?>
       </tbody>
@@ -47,13 +52,17 @@
 
   <div class="divContainer2">
   <form action="<?php echo URLROOT; ?>/Admin/viewSales" method="POST" >
+  <div class="filter">
     <label for="from2">From :</label>
     <input type="date" id="from2" name="from2" value="<?php echo $data['from2']; ?>"><br>
     <label for="to2">  To :</label>
     <input type="date" id="to2" name="to2" value="<?php echo $data['to2']; ?>">
-    <input type="submit" value="Search" class="submitBtn"> 
+    <div class="form-input-container">
+    <div class="form-input-wrapper"><input type="submit" value="Search" class="submitBtn"> </div>
+    <div class="form-input-wrapper"><input type="button" value="Refresh" class="refreshBtn" onclick="location.href='<?php echo URLROOT; ?>/Admin/viewSales' "></div>
   </form>
-  <input type="button" value="Refresh" class="addBtn" onclick="location.href='<?php echo URLROOT; ?>/Admin/viewSales' ">
+  </div>
+ 
 
     <h2>Online Sales</h2>
     <table id="detailsTable5">
@@ -83,7 +92,7 @@
               <a href="#"><button class="viewBtn" onclick="openModel1('<?=$online->order_id?>')" id="<?php echo($data_index) ?>"><i class="fas fa-eye"></i></button></a>
             </div>
           </td>
-        </tr><br>
+        </tr>
         <?php $data_index++; ?>
         <?php endforeach; ?>
       </tbody>

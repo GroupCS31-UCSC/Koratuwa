@@ -149,7 +149,7 @@
 
 /*submit button*/
 
-.submitBtn {
+/* .submitBtn {
     display: block;
     width: 100%;
     height: 50px;
@@ -159,7 +159,7 @@
     outline: none;
     border: none;
     background-color: #0A2558;
-    /* background-image: linear-gradient(to right, #0A2558, #0e3276, #0A2558); */
+  
     cursor: pointer;
     color: #fff;
     text-transform: uppercase;
@@ -168,7 +168,7 @@
 }
 
 .submitBtn:hover {
-    /* background-position: right; */
+   
     background-color: #00BFFF;
     color: white;
-}
+} */
