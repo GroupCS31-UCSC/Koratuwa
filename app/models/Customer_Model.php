@@ -100,11 +100,12 @@
   {
     $this->db->query('SELECT * FROM online_order order by order_id desc limit 1');
     $row = $this->db->single();
+    var_dump($row);
     $lastId=$row->order_id;
 
     if($lastId == '')
     {
-      $id='ord1';
+      $id='ord10001';
     }
     else
     {
@@ -116,24 +117,79 @@
     return $id;
   }
 
+  public function generatReceiptId()
+  {
+    $this->db->query('SELECT * FROM online_order order by order_id desc limit 1');
+    $row = $this->db->single();
+    $lastId=$row->receipt_id;
+
+    if($lastId == '')
+    {
+      $id='R10001';
+    }
+    else
+    {
+      $id = substr($lastId,1);
+      $id = intval($id);
+      $id = "R".($id+1);
+    }
+
+    return $id;
+  }
+
   // online order 
   public function onlineOrder($data){
     $this->db->query('INSERT INTO online_order(order_id , status, payment_method, total_payment, payment_status, receipt_id ,customer_id) 
-    VALUE (:ordId, "New Order", "bank", :payment, "paid", "r4", :customerId)');
+    VALUE (:ordId, "New Order", "bank", :payment, "paid", :receipt_id, :customerId)');
     
     $this->db->bind(':ordId', $data['order_id']);
     $this->db->bind(':payment', $data['payment']);
+    $this->db->bind(':receipt_id', $data['receipt_id']);
     $this->db->bind(':customerId', $_SESSION['user_id']);
-   
     if($this->db->execute())
     {
-      return true;
+      foreach ($data['products'] as $product):
+        $this->db->query('INSERT INTO product_sale(product_id,quantity,sale_id) VALUES(:pId,:qty,:ordId)');
+        $this->db->bind(':pId', $product->product_id );
+        $this->db->bind(':qty', $product->quantity);
+        $this->db->bind(':ordId', $data['order_id']);
+
+        if(!$this->db->execute())  {
+          return false;
+        }
+        endforeach;
+        return true;
     }
     else
     {
       return false;
     }
 
+  }
+
+  public function get_OrderDetails()
+  {
+    $this->db->query('SELECT * FROM online_order WHERE customer_id = :user_id');
+    $this->db->bind(':user_id', $_SESSION['user_id']);
+    
+    $result = $this->db->resultSet();
+
+    return $result;
+  }
+
+  public function updateStatus($orderId){
+    // $orderId = $data['orderId'];
+    // $status = 'Ongoing';
+    $this->db->query('UPDATE online_order SET status = "Delivered" WHERE order_id = :orderId');
+    $this->db->bind(':orderId', $orderId);
+    // $this->db->bind(':status', $data['status']);
+
+    if($this->db->execute()) {
+      return true;
+    }
+    else {
+      return false;
+    }
   }
 
 

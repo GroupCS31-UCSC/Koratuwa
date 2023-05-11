@@ -452,7 +452,7 @@
 			}
 			else
 			{
-				echo '3';
+				// echo '3';
 				$this->db->query('SELECT * FROM employee WHERE employee_id=:userId');
 				$this->db->bind(':userId', $userId);
 	
@@ -485,7 +485,7 @@
 				$this->db->bind(':adress',$data['address']);
 			}
 			else{
-
+				
 			}
 			if($this->db->execute())
 			{

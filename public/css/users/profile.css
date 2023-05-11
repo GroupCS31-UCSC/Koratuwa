@@ -10,8 +10,9 @@
   text-decoration: none;
   font-family: "Poppins", sans-serif;
 }
-
-
+body{
+  font-size: 5px;
+}
 /* ===== =====>> Css Variables  <<===== =====  */
 :root {
   /* =====>>  Font Color  <<===== */
@@ -75,6 +76,8 @@
   background-position: left;
   z-index: -1;
   filter: blur(10px);
+  /* border: solid black; */
+  background: url(http://localhost/koratuwa/public/img/users/profileBg);
 }
 
 /* ===== =====>>  Main-Container Css  <<===== =====  */
@@ -158,6 +161,7 @@ header {
   backdrop-filter: none;
   box-shadow: none;
 }
+
 
 .container .userProfile .profile figure img {
   width: 18rem;
