@@ -100,7 +100,7 @@
   {
     $this->db->query('SELECT * FROM online_order order by order_id desc limit 1');
     $row = $this->db->single();
-    var_dump($row);
+    // var_dump($row);
     $lastId=$row->order_id;
 
     if($lastId == '')

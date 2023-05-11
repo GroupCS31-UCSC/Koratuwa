@@ -30,7 +30,7 @@
       <input type="date" id="to" name="to" value="<?php echo $data['to']; ?>">
       <input type="submit" value="Search" class="submitBtn"> 
     </form>
-    <br><br>
+    <br><br><br>
     <!-- refresh button -->
     <input type="button" value="Refresh" class="" onclick="location.href='<?php echo URLROOT; ?>/Customer/Orders' ">
 
