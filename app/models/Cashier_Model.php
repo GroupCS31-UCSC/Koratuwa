@@ -176,9 +176,9 @@
       return $result;
     }
 
-    public function onlineOrder_duration($from, $to)
+    public function onlineOrder_duration($status, $from, $to)
     {
-      $this->db->query('SELECT * FROM online_order WHERE ordered_date >= "'.$from.'" and ordered_date <= "'.$to.'"');
+      $this->db->query('SELECT * FROM online_order WHERE status = "'.$status.'" AND ordered_date >= "'.$from.'" and ordered_date <= "'.$to.'"');
 
       $result = $this->db->resultSet();
 
