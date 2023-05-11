@@ -29,6 +29,17 @@
 			return $id;
     }
 
+    //find purchasing price
+    public function find_purchasingPrice()
+    {
+      $this->db->query('SELECT * FROM milk_purchasing_price ORDER BY date DESC LIMIT 1 ');
+
+      $row = $this->db->single();
+
+      return $row->unit_price;
+    }
+
+
     public function get_supOrderView()
     {
       $this->db->query('SELECT * FROM supply_order WHERE supplier_id = :supId');

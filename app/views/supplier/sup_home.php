@@ -71,7 +71,7 @@
               <label class="label1">Today Purchasing Price</label>
               <div class="items">
                 <h2>
-                  RS. <span class="counter_up" data-number="95" data-speed="10000"></span>
+                  RS. <span class="counter_up" data-number="<?php echo $data['purchasing_price'] ?>" data-speed="10000"></span>
                 </h2>
               </div>
           </div>

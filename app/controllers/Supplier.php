@@ -102,10 +102,12 @@
           if($_SERVER['REQUEST_METHOD'] == 'POST')
           {
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+            $purchasing_price=$this->supplierModel->find_purchasingPrice();
 
             $data = [
               'supply_order_id' => '',
               'quantity' => trim($_POST['quantity']),
+              'purchasing_price' => $purchasing_price,
               'date' => '',
               'time' => '',
               'supplying_address' => 'dfr,gbh,lkjabc',
@@ -157,10 +159,14 @@
           }
           else
           {
+            //get today milk purchasing price
+            $purchasing_price=$this->supplierModel->find_purchasingPrice();
+
             //initial form loading
             $data = [
               'supOrderId' => '',
               'quantity' => '',
+              'purchasing_price' => $purchasing_price,
            
 
               'quantity_err' => '',
