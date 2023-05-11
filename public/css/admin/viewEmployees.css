@@ -63,7 +63,7 @@ body {
     /* border: 1px solid #000; */
     position: relative;
     padding: -40px 0px 0px 0px;
-    margin: 0px;
+    margin: 20vh;
     min-height: 15vh;
 }
 .empTable table{
@@ -198,6 +198,7 @@ margin-right: 15px; */
     width: 90%;
     max-width: 80%;
     margin-bottom: 50px;
+    margin-top: 1vh;
 }
 
 .modal-footer {
@@ -258,6 +259,17 @@ table {
 td {
     text-align: center;
 }
+
+#newData3 tr{
+    background-color: #fff;
+    /* border: 1px solid #f4f4f4; */
+    min-height: 2%;
+}
+
+#newData3 tr:hover{
+    background-color: #f4f4f4;
+}
+
 /* ------------------search bar styles-------------------- */
 .search-section{
     text-align: -webkit-center;

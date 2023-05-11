@@ -1,21 +1,42 @@
-/*make it responsive design*/
-@media (max-width: 991px) {
-    .graphBox {
-        grid-template-columns: 1fr;
-        height: auto;
-    }
-    .navigation {
-        left: -275px;
-    }
-    .navigation.active {
-        width: 275px;
-        left: 0;
-    }
-    .main {
-        width: 100%;
-        left: 0;
-    }
-    .main.active {
-        left: 275px;
-    }
+/* Add popup */
+.up-popup {
+    width: 400px;
+    background-color: aliceblue;
+    padding: 20px;
+    border-radius: 5px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    visibility: hidden;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.763);
+}
+
+.open-popup {
+    visibility: visible;
+}
+
+.up-popup-header i {
+    color: rgb(0, 116, 0);
+    font-size: 100px;
+    display: flex;
+    justify-content: center;
+
+}
+
+.up-popup-body {
+    padding: 20px 0;
+    text-align: center;
+    color: #000000;
+}
+
+.up-popup-btn {
+    padding: 10px 60px;
+    background-color: rgb(0, 116, 0);
+    color: #fff;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+    transform: translateX(60%);
+    transition: all 0.3s ease;
 }

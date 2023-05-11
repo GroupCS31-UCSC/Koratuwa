@@ -96,7 +96,7 @@
           
           if($this->livestockModel->addCattle($data)) {
             
-            flash('addCattle_flash','New cattle details are successfully added!');
+            // flash('addCattle_flash','New cattle details are successfully added!');
             redirect('Livestock_Manager/viewCattle');
           }
           else {
@@ -153,8 +153,8 @@
         //if no errors
         if(empty($data['breed_err']) && empty($data['milking_err'])) {
           if($this->livestockModel->updateCattle($data)) {
-            flash('updateCattle_flash','New cattle details are successfully Updated!');
-            redirect('Livestock_Manager/viewCattle');
+            // flash('updateCattle_flash','New cattle details are successfully Updated!');
+            // redirect('Livestock_Manager/viewCattle');
           }
           else {
             die('Something went wrong!');
