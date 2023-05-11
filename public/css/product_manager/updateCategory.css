@@ -1,3 +1,7 @@
 .form-container input[type="text"] {
     height: 35px;
 }
+
+.form-container{
+    margin-top: 50%;
+}

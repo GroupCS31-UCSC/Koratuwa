@@ -93,3 +93,17 @@ input[type=file] {
     color: white;
 }
   
+
+input[type=checkbox] {
+margin: 10px;
+width: 15px;
+height: 15px;
+
+
+}
+
+
+label{
+    margin: 5px;
+}
+    
