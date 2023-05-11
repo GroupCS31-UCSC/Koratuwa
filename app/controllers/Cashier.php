@@ -107,6 +107,16 @@
    
     }
 
+    public function getSaleItems($saleId) {
+      $saleProductView = $this->cashierModel->get_saleProductView($saleId);
+
+      $data = [
+        'saleProductView' => $saleProductView
+      ];
+
+      $this->view('Cashier/viewSaleItems', $data);
+    }
+
     public function viewCustomerOrders()
     {
       if($_SERVER['REQUEST_METHOD'] == 'POST')
