@@ -58,18 +58,14 @@
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
            
 
-            // if(!empty($_FILES["image"]["name"])) { 
-            //   // Get file info 
-            //   $fileName = basename($_FILES["image"]["name"]); 
-            //   $fileType = pathinfo($fileName, PATHINFO_EXTENSION); 
-               
-            //   // Allow certain file formats 
-            //   $allowTypes = array('jpg','png','jpeg','gif'); 
-            //   if(in_array($fileType, $allowTypes)){ 
-            //       $image = $_FILES['image']['tmp_name']; 
-            //       $imgContent = addslashes(file_get_contents($image)); 
-            //   }
-            // }
+            $chk ="";
+            if(isset($_POST['ingredients'])){
+              $checkbox = $_POST['ingredients'];
+
+              foreach($checkbox as $chk1){
+                $chk .= $chk1.", ";
+              }
+            }
 
               //uploading the image
             $file_name = $_FILES['image']['name'];
@@ -99,7 +95,7 @@
               'duration'=>trim($_POST['duration']),
               'size'=>trim($_POST['size']),
               'price'=>trim($_POST['price']),
-              'ingredients'=>trim($_POST['ingredients']),
+              'ingredients'=>$chk,
               'image'=> $new_img_name,
               'name_err'=>'',
               'duration_err'=>'',
@@ -212,14 +208,7 @@
               {
                 flash('addCategory_flash','New Category Stock details are successfully added!');
                 redirect('Product_Manager/viewCategory/'.$pId);
-                // redirection
-                // $category= $this->pmModel->viewCategorybyId($pId);
-
-                // $data = [
-                //     'category' => $category
-                // ];
-
-                // $this->view('product_manager/viewCategory',$data);
+              
               }
               else
               {
@@ -260,7 +249,7 @@
         public function updateCategory($pId)
         {
           if($_SERVER['REQUEST_METHOD'] == 'POST')
-          {
+          {          
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
             $file_name = $_FILES['image']['name'];
             $file_size = $_FILES['image']['size'];
@@ -315,9 +304,18 @@
                 flash('updateCategory_flash','New Product Category details are successfully Updated!');
                 //redirection
                 $category= $this->pmModel->viewCategorybyId($pId);
+                $expireDays = $this->pmModel->getProductExpireDays($pId);
+                // $category= $this->pmModel->viewCategorybyId($pId);         //the result set returned by the model is sent to category
+                 $productStock= $this->pmModel->getProductStockDetailsForProduct($pId);   //for filteration
 
                 $data = [
-                    'category' => $category
+                   
+                'category' => $category,
+                'productStock' => $productStock,
+                'expireDays' => $expireDays,
+                'from' => '',
+                'to' => '',
+
                 ];
 
                 $this->view('product_manager/viewCategory',$data);
@@ -338,7 +336,7 @@
           {
             $category = $this->pmModel->getCategorybyId($pId);
             $data=[
-              // 'pId'=>$category->product_id,
+              'pId'=>$category->product_id,
               // 'name'=>$category->product_name,
               // 'duration'=>$category->expiry_duration,
               // 'size'=>$category->size,

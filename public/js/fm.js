@@ -1,7 +1,14 @@
 //charts - Ptoduct Manager Dashboard page
+
 var profit= document.getElementById('ch2').getContext('2d');
 var myChart= new Chart(profit, {
   type: 'doughnut',
+  
+  $var1,
+  $var2,
+  $var3,
+  $var4,
+  $var5,
   data: {
     labels: ['Fresh Milk', 'Yogurts', 'Cheese', 'Flavoured Milk'],
     datasets: [{

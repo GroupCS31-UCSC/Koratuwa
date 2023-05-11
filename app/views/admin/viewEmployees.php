@@ -1,5 +1,6 @@
 <?php require APPROOT.'/views/include/header.php'; ?>
 <link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/public/css/admin/viewEmployees.css">
+<link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/public/css/admin/modelViews.css">
 <?php require APPROOT.'/views/admin/admin_dashboard.php';  ?>
 <!-- ______________________________________________________________________________________________________-->
 
@@ -109,7 +110,7 @@
                   
                   </td>
 
-                </tr><br>
+                </tr>
                 <?php $data_index++; ?>
                 <?php endforeach; ?>
 
@@ -322,6 +323,7 @@
         </div>
 
 
+</div>
 </div>
 
 <script>
