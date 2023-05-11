@@ -30,12 +30,12 @@
       }
 
       if($lastId == '') {
-        $id = 'S001';
+        $id = 'S00000001';
       } else {
         $id = substr($lastId, 1);
         $id = intval($id);
         $id++;
-        $id = 'S'.str_pad($id, 3, '0', STR_PAD_LEFT);
+        $id = 'S'.str_pad($id, 8, '0', STR_PAD_LEFT);
       }
 
       return $id;
@@ -120,59 +120,33 @@
       return $result;
     }
 
-    public function saveProductSale($data) {
-      $saleID= $data['saleId'];
-      $quantity = $data['qnty'];
-      $productId = $data['id'];
-      $totalPayment = $data['total'];
-
-      $this->db->query('INSERT INTO product_sale(product_id, quantity, sale_id) VALUES(:productId, :quantity, :saleId)');
-  
-      //values binding
-      $this->db->bind(':productId', $productId);
-      $this->db->bind(':quantity', $quantity);
-      $this->db->bind(':saleId', $saleID);
-
-      if($this->db->execute()) {
-        $this->db->query('INSERT INTO onsite_sale(total_payment) VALUES(:totalPayment) WHERE sale_id = :saleId');
-  
+    public function saveProductSale($p) {
+      $products = $p['ps'];
+      
+      foreach($products as $product) {
+        
+        $this->db->query('INSERT INTO product_sale(product_id,quantity,sale_id) VALUES(:productId, :quantity, :saleId)');
+    
         //values binding
-        $this->db->bind(':totalPayment', $totalPayment);
-        $this->db->bind(':saleId', $saleID);
-  
-        //execute
-        if($this->db->execute()) {
-          // $product = $this->getProductById($productId);
-          // $newQuantity = $product['available_quantity'] - $quantity;
-          // $this->db->query('UPDATE product SET available_quantity = :newQuantity WHERE product_id = :productId');
-          // $this->db->bind(':newQuantity', $newQuantity);
-          // $this->db->bind(':productId', $productId);
-          // if($this->db->execute()) {
-          //   return true;
-          // } else {
-          //   return false;
-          // }
+        $this->db->bind(':productId', $product['id']);
+        $this->db->bind(':quantity', $product['qnty']);
+        $this->db->bind(':saleId', $product['saleId']);
 
-          return true;
-        }
-        else
-        {
-          return false;
-        }
+        $this->db->execute();
       }
-      else {
-        return false;
-      }
+      return true;
 
     }
 
     public function submitdata($data) {
-      $saleID= $this->findSaleId();
+      $saleID= $data['saleId'];
+      $total= $data['total'];
 
-      $this->db->query('INSERT INTO onsite_sale(sale_id) VALUES(:saleId)');
+      $this->db->query('INSERT INTO onsite_sale(sale_id, total_payment) VALUES(:saleId, :total)');
   
       //values binding
       $this->db->bind(':saleId', $saleID);
+      $this->db->bind('total', $total);
 
       if($this->db->execute()) {
           return true;

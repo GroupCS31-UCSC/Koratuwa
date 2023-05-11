@@ -33,17 +33,37 @@
 
     <!--ingredients-->
      <div class="form-input-title">Ingredients</div>
-    <span class="form-invalid"><?php echo $data['ingredients_err']; ?></span>
-     <input type="text" name="ingredients" id="ingredients" class="ingredients" value="<?php echo $data['ingredients']; ?>">  
-  <!-- <input type="checkbox" >
-  <label for="vehicle1"> Cow's Milk</label><br>
-  <input type="checkbox" >
-  <label for="vehicle2">Sugar </label><br>
-  <input type="checkbox" >
-  <label for="vehicle3"> Natural Flavours</label><br>
-  <input type="checkbox">
-  <label for="vehicle4"> Artificial Flavours</label><br> -->
-
+      <span class="form-invalid"><?php echo $data['ingredients_err']; ?></span>
+ <div class="form-input-container">
+  <div class="form-input-wrapper">
+     <div class="form-input-container">
+     <div class="form-input-wrapper"><label>Cow's Milk</label>  </div>
+     <div class="form-input-wrapper"> <input type ="checkbox" name = "ingredients[]" value = "Cow's Milk"><br></div>
+</div>
+<div class="form-input-container">
+<div class="form-input-wrapper"><label>Sugar</label>  </div>
+<div class="form-input-wrapper"><input type ="checkbox" name = "ingredients[]" value = "Sugar"><br></div>
+</div>
+<div class="form-input-container">
+<div class="form-input-wrapper"><label>Water</label>  </div>
+<div class="form-input-wrapper"><input type ="checkbox" name = "ingredients[]" value = "Water"><br></div>
+     </div>
+  </div>
+     <div class="form-input-wrapper">
+    <div class="form-input-container">
+    <div class="form-input-wrapper"><label>Natural Flavours</label>  </div>
+    <div class="form-input-wrapper"><input type ="checkbox" name = "ingredients[]" value = "Natural Flavours"><br></div>
+    </div>
+    <div class="form-input-container">
+    <div class="form-input-wrapper"><label>Artificial Flavours</label>  </div>
+    <div class="form-input-wrapper"><input type ="checkbox" name = "ingredients[]" value = "Artificial Flavours"><br></div>
+    </div>
+    <div class="form-input-container">
+    <div class="form-input-wrapper"><label>Food Colouring</label>  </div>
+    <div class="form-input-wrapper"><input type ="checkbox" name = "ingredients[]" value = "Food Colouring"><br></div>
+    </div>
+     </div>
+     </div>
 
   <br>
   Expiry Duration
