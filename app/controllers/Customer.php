@@ -202,17 +202,20 @@
         $ordId = $this->customerModel->generateordId();
         $RId = $this->customerModel->generatReceiptId();
         
+        
         $data=[
           'order_id' => $ordId,
           'payment' => $_POST['amount'],
-          'receipt_id' => $RId
+          'receipt_id' => $RId,
+          'products' => json_decode($_POST["products"]),
+          
         ];
 
         if($this->customerModel->onlineOrder($data))
         {
           // redirect('Customer/customerHome');
           $jsonObj=json_encode($data);
-          echo $jsonObj;
+          echo $data['products'];
         }
         else
         {

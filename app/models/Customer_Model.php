@@ -145,10 +145,19 @@
     $this->db->bind(':payment', $data['payment']);
     $this->db->bind(':receipt_id', $data['receipt_id']);
     $this->db->bind(':customerId', $_SESSION['user_id']);
-   
     if($this->db->execute())
     {
-      return true;
+      foreach ($data['products'] as $product):
+        $this->db->query('INSERT INTO product_sale(product_id,quantity,sale_id) VALUES(:pId,:qty,:ordId)');
+        $this->db->bind(':pId', $product->product_id );
+        $this->db->bind(':qty', $product->quantity);
+        $this->db->bind(':ordId', $data['order_id']);
+
+        if(!$this->db->execute())  {
+          return false;
+        }
+        endforeach;
+        return true;
     }
     else
     {

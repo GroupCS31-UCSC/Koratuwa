@@ -90,6 +90,9 @@
   <div id="Delivered" class="tabcontent">
     <p>Delivered</p>
   </div>
+  <div class="addFeedback">
+    <button id="myBtn">Add Feedback</button>
+  </div>
 </div>
 
 <!-- Send new order popup -->
@@ -119,6 +122,31 @@
 </div>
 
 </div>
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2>Add your Feedback</h2>
+    </div>
+    <div class="modal-body">
+      <p></p><br>
+      <form action="<?php echo URLROOT; ?>/Supplier/supplierHome" method="POST">
+        <div class="form-input-title">Supply Quantity (LITER)</div>
+        <span class="form-invalid"><?php echo $data['quantity_err']; ?></span>
+        <input type="text" name="quantity" id="quantity" class="quantity" value="<?php echo $data['quantity']; ?>"><br>
+        <div class="submit_btn"><input type="submit" value="Submit" class="submitBtn"><br></div>
+      </form>
+    </div>  
+    <div class="modal-footer">
+      <h3>Koratuwa Dairy Farm</h3>
+    </div>
+  </div>
+
+</div>
+
 <script>
   getUniqueValuesFromColumn2();
   getUniqueValuesFromColumn3();
@@ -127,6 +155,37 @@
 <?php require APPROOT.'/views/include/footer.php'; ?>
 
 <script>
+  //--------------Model form---------------------------//
+  // Get the modal
+  var modal = document.getElementById("myModal");
+
+  // Get the button that opens the modal
+  var btn = document.getElementById("myBtn");
+
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("close")[0];
+
+  // When the user clicks the button, open the modal 
+  btn.onclick = function() {
+    modal.style.display = "block";
+  }
+
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function() {
+    modal.style.display = "none";
+  }
+
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }  
+ 
+
+
+
+
   function openTab(evt, tabName) {
   var i, tabcontent, tablinks;
   window.location.href='/koratuwa/Customer/Orders?status='+tabName;

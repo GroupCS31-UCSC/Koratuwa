@@ -8,8 +8,11 @@
         <?php
         $total = 0;
         $subtotal = 0;
-
+        $productarray;
         if(isset($data['products']) && !empty($data['products'])){
+            
+            $productarray=json_encode($data['products']);
+            
             foreach($data['products'] as $product){
                 $total += $product->total_price;
                 ?>
@@ -87,7 +90,7 @@
             
           </tbody>           
         </table><br>
-
+        <input type="hidden" id="myArray" value='<?php echo $productarray;?>'>
         <input type="button" value="Buy Now" class="buynowBtn"  onclick="paymentGateway()">
       </div>
     </div>
@@ -101,8 +104,10 @@
 
 <script>
         let amount;
+        let products=[];
         function paymentGateway(){
-        // var bookingType = type;
+            products = JSON.parse(document.getElementById("myArray").value);
+
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = ()=>{
             if(xhttp.readyState == 4){ 
@@ -150,17 +155,18 @@
         
         // placeOrder(<?= $subtotal?>,'http://localhost/koratuwa');
         console.log("Payment completed. OrderID:" + orderId);
+        console.log(products);
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = ()=>{
             if(xhttp.readyState == 4){ 
-                window.location.href = "http://localhost/koratuwa/Customer/customerHome"
+                //window.location.href = "http://localhost/koratuwa/Customer/customerHome"
                 let obj=JSON.parse(xhttp.responseText);
                 console.log(obj);
             }
         };
         xhttp.open("POST","http://localhost/koratuwa/Customer/onlineOrd",true);
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        xhttp.send("amount="+amount);
+        xhttp.send("amount="+amount+"&products="+JSON.stringify(products));
         // Note: validate the payment and show success or failure page to the customer
     };
 
