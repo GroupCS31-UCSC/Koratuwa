@@ -38,5 +38,48 @@
 			
 		</div>  
     <?php endforeach; ?>
+
+
+<?php else: ?> 
+    <?php foreach ($data['userProfile'] as $emp) : ?>
+
+		<div class="form-container">
+
+			<div class="form-header">
+				<center><h1>Edit Profile</h1></center>
+			</div>
+			<br>
+
+			
+			<form id="editForm" action="<?php echo URLROOT; ?>/Users/editProfile/<?php echo $data['empId']; ?>" method="post" enctype="multipart/form-data">
+
+				<!--name-->
+				<div class="feature">
+				<div class="form-input-title">Employee Name</div>
+				<span class="form-invalid"><?php echo $data['name_err']; ?></span>
+				<input type="text" name="name" id="name" class="name" value="<?php echo $data['name']; ?>">
+				</div>
+
+				<!--address-->
+				<div class="feature">
+				<div class="form-input-title">Address</div>
+				<input type="text" name="address" id="address" class="address" value="<?php echo $data['address']; ?>">
+				</div>
+				
+				<!--contact no-->
+				<div class="feature">
+				<div class="form-input-title">Contact Number</div>
+				<span class="form-invalid"><?php echo $data['tp_num_err']; ?></span>
+				<input type="number" name="tp_num" id="tp_num" class="tp_num" value="<?php echo $data['tp_num']; ?>">
+				</div>
+				<br>
+				<input type="submit" value="Submit" class="submitBtn"><br>
+				
+
+			</form>
+			
+		</div>  
+    <?php endforeach; ?>
 <?php endif; ?>
+
 <?php require APPROOT.'/views/include/footer.php'; ?>
