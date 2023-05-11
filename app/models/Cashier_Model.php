@@ -102,7 +102,7 @@
     public function updateStatus($orderId){
       // $orderId = $data['orderId'];
       // $status = 'Ongoing';
-      $this->db->query('UPDATE online_order SET status = "ongoing" WHERE order_id = :orderId');
+      $this->db->query('UPDATE online_order SET status = "Ongoing" WHERE order_id = :orderId');
       $this->db->bind(':orderId', $orderId);
       // $this->db->bind(':status', $data['status']);
 
