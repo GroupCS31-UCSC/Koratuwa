@@ -100,6 +100,7 @@
   {
     $this->db->query('SELECT * FROM online_order order by order_id desc limit 1');
     $row = $this->db->single();
+    var_dump($row);
     $lastId=$row->order_id;
 
     if($lastId == '')
@@ -119,7 +120,7 @@
   // online order 
   public function onlineOrder($data){
     $this->db->query('INSERT INTO online_order(order_id , status, payment_method, total_payment, payment_status, receipt_id ,customer_id) 
-    VALUE (:ordId, "New Order", "bank", :payment, "paid", "r4", :customerId)');
+    VALUE (:ordId, "New Order", "bank", :payment, "paid", "r10", :customerId)');
     
     $this->db->bind(':ordId', $data['order_id']);
     $this->db->bind(':payment', $data['payment']);

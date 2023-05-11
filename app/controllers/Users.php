@@ -898,6 +898,81 @@
           }
         }
 
+        public function editProfile($empId){
+          if($_SERVER['REQUEST_METHOD'] == 'POST')
+          {
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+            $data = [
+              'name' => trim($_POST['name']),
+              'tp_num' => trim($_POST['tp_num']),
+              // 'gender' => trim($_POST['gender']),
+              'address' => trim($_POST['address']),
+
+
+
+              // 'id_err' => '',
+              'name_err' => '',
+              'tp_num_err' => '',
+              // 'gender_err' =>'',
+              'employment_err' => ''
+            ];
+
+            if (empty($data['name']))       { $data['name_err'] = '*' ; }
+            // if (empty($data['nic']))        { $data['nic_err'] = '*' ;  }
+            if (empty($data['tp_num']))     { $data['tp_num_err'] = '*' ; }
+            // if (empty($data['employment'])) { $data['employment_err'] = '*' ; }
+            // if ($data['employment']=='Select')  { $data['employment_err'] = '*' ; }
+
+            if(empty($data['id_err'])&&empty($data['name_err'])&&empty($data['nic_err'])&&empty($data['tp_num_err'])&&empty($data['employment_err']) )
+            {
+              if($this->adminModel->updateEmployees($data))
+              {
+                flash('updateEmp_flash','Employee Details are successfully Updated!');
+                redirect('Admin/viewEmployees');
+                //updatePopup();
+              }
+              else
+              {
+                die('Something went wrong!');
+              }
+            }
+            else
+            {
+              //loading the view with errors
+              $this->view('admin/updateEmployees',$data);
+            }
+
+
+          }
+          else
+          {         
+            $emp = $this->adminModel->getEmpByEmail($empId);
+            // $img= UPLOADS . $emp->image;
+            //$emp  is a data set that retrieved from db
+            $data = [
+              'name' => $emp->employee_name,
+              'nic' => $emp->nic,
+              'tp_num' => $emp->contact_number,
+              'gender' => $emp->gender,
+              'address' => $emp->address,
+              'employment' => $emp->employment,
+              // 'image' => "<?php echo USERS . $emp->image",
+              'empId' => $empId,
+
+              // 'id_err' => '',
+              'name_err' => '',
+              'nic_err' => '',
+              'tp_num_err' => '',
+              'gender_err' =>'',
+              'employment_err' => ''
+            ];
+            $this->view('admin/updateEmployees',$data);
+
+          }
+
+        }
+
         public function tandc()
         {
           $data = [];
