@@ -13,11 +13,14 @@
     <input type="date" id="from" name="from" value="<?php echo $data['from']; ?>"><br>
     <label for="to">  To :</label>
     <input type="date" id="to" name="to" value="<?php echo $data['to']; ?>">
-    <input type="submit" value="Search" class="submitBtn"> 
+    <div class="form-input-container">
+    <div class="form-input-wrapper"><input type="submit" value="Search" class="submitBtn"> </div>
+    <div class="form-input-wrapper"><input type="button" value="Refresh" class="refreshBtn" onclick="location.href='<?php echo URLROOT; ?>/financial_manager/reports' "></div>
+    </div>
 </form>
 
 </div>
-<input type="button" value="Refresh" class="refreshBtn" onclick="location.href='<?php echo URLROOT; ?>/financial_manager/reports' ">
+
 
 <div class="table1">
 <table>

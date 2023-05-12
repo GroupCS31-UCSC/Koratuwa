@@ -87,10 +87,11 @@
 <!-- search -->
 <div class="filter">
 
-<div class="topic">Search By Stock ID: </div>
-<div class="form-input-container">
-<div class="form-input-wrapper"><input type="text" id="searchInput2" placeholder="Type in Stock ID..." onkeyup="searchFunc2();" ></div>
-<div class="form-input-wrapper"><i class="fa-solid fa-magnifying-glass"></i></div>
+
+<div class="search-container">
+<div class="serach-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+<div class="serach-box"><input type="text" id="searchInput2" placeholder="Search By Stock ID..." onkeyup="searchFunc2();" ></div>
+
 
 
 </div>
@@ -104,11 +105,14 @@
     <input type="date" id="from" name="from" value="<?php echo $data['from']; ?>"><br>
     <label for="to">  To :</label>
     <input type="date" id="to" name="to" value="<?php echo $data['to']; ?>">
-    <input type="submit" value="Search" class="submitBtn"> 
+
+    <div class="form-input-container">
+    <div class="form-input-wrapper"><input type="submit" value="Search" class="submitBtn"> </div>
+    <div class="form-input-wrapper"><input type="button" value="Refresh" class="refreshBtn" onclick="location.href='<?php echo URLROOT; ?>/Product_Manager/viewCategory/<?php echo $cat->product_id  ?>' "></div>
 </form>
 
 </div>
-<input type="button" value="Refresh" class="refreshBtn" onclick="location.href='<?php echo URLROOT; ?>/Product_Manager/viewCategory/<?php echo $cat->product_id  ?>' ">
+
 
 <!-- _______________________________________________ Stock Details for each product_______________________________________________________-->
 <table id="detailsTable2">
