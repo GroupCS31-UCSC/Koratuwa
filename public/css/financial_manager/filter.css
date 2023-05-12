@@ -1,66 +1,11 @@
-.container{
-    width: 100%;
-    height: auto;
-    /* background: #007bbf; */
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    flex-flow: wrap;
+.topic{
+    margin-left: 0px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
 }
 
-.divContainer1{
-    border: 1px solid red;
-    width: 50%;
-    height:auto;
-    /* background: yellow; */
-    margin: 0px;
-    box-sizing: border-box;
-    /* font-size: 50px; */
-}
-
-.divContainer2{
-    border: 1px solid black;
-    width: 50%;
-    height:auto;
-    /* background: greenyellow; */
-    margin: 0px;
-    box-sizing: border-box;
-    /* font-size: 50px; */
-}
-
-@media screen and (max-width:1200px) {
-    .divContainer1{
-        width: 50%;
-    }
-    .divContainer2{
-        width: 50%;
-    }   
-}
-
-@media screen and (max-width:900px) {
-    .divContainer1{
-        width: 100%;
-    }
-    .divContainer2{
-        width: 100%;
-    }
-}
-
-h2{
-    margin-bottom: 30px;
-    margin-left: 10px;
-}
-
-select{
-    border-radius: 5px;
-    padding: 5px;
-    background-color:#0A2558;
-    font-weight: 100;
-    color: white;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  }
-
-  .filter{
+.filter{
     margin: 5px;
     padding: 5px;
     font-size: 15px;
@@ -68,18 +13,25 @@ select{
     
 }
 
-.form-input-container {
+  .search-container {
     display: flex;
     flex-direction: row;
     align-items: center;
   }
   
-  .form-input-wrapper {
+  .search-box {
     width: 100%;
     margin: 8px;
   }
+  /* .search-icon {
+    
+     margin-left: 20px; 
+  } */
 
-  
+  #searchInput1{
+    margin-left: 0px;
+}
+
 .submitBtn {
     display: block;
     width: 200px;
@@ -127,3 +79,22 @@ select{
     background-color: #00BFFF;
     color: white;
 }
+.form-input-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .form-input-wrapper {
+    width: 100%;
+    margin: 8px;
+  }
+
+  select{
+    border-radius: 5px;
+    padding: 5px;
+    background-color:#0A2558;
+    font-weight: 100;
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }

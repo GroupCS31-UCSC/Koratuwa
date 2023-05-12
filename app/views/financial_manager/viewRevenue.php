@@ -9,7 +9,12 @@
    <h2>REVENUES</h2> 
 <br><br>
   <!-- search -->
-  <input type="text" id="searchInput2" placeholder="Search By Revenue Type..." onkeyup="searchFunc2();">
+
+
+  <div class="search-container">
+<div class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+<div class="search-box">  <input type="text" id="searchInput2" placeholder="Search By Revenue Type..." onkeyup="searchFunc2();"></div>
+  </div>
 
   <!-- date filter -->
   <form action="<?php echo URLROOT; ?>/Financial_Manager/viewRevenue" method="POST" >
@@ -17,11 +22,14 @@
     <input type="date" id="from" name="from" value="<?php echo $data['from']; ?>"><br>
     <label for="to">  To :</label>
     <input type="date" id="to" name="to" value="<?php echo $data['to']; ?>">
-    <input type="submit" value="Search" class="submitBtn"> 
+    <div class="form-input-container">
+    <div class="form-input-wrapper"><input type="submit" value="Search" class="submitBtn"> </div>
+    <div class="form-input-wrapper"><input type="button" value="Refresh" class="refreshBtn" onclick="location.href='<?php echo URLROOT; ?>/Financial_Manager/viewRevenue' "></div>
+    </div>
   </form>
 
   <!-- refresh button -->
-  <input type="button" value="Refresh" class="refreshBtn" onclick="location.href='<?php echo URLROOT; ?>/Financial_Manager/viewRevenue' ">
+ 
 
  
   <table id="detailsTable2">

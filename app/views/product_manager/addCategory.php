@@ -98,10 +98,30 @@
 
 
 		<br>
-		<input type="submit" value="Submit" class="submitBtn">
-
+    <div class="container">
+		<input type="submit" value="Submit" class="submitBtn" onclick="openPopup()">
+    <div class="popup" id="popup">
+    <img class="img" src="<?php echo URLROOT; ?>/img/tick.png" alt="logo"></span>
+    <p>Your details have been added sucessfully.</p>
+    <button type="button" onclick="closePopup()">OK </button>
+  
+  </div>
+  
+  </div>
 
 	</form>
 </div>
+<script>
+let popup=document.getElementById("popup");
+function openPopup()
+{
+  popup.classList.add("open-popup");
+}
 
+function closePopup()
+{
+  popup.classList.remove("open-popup");
+}
+
+</script>
 <?php require APPROOT.'/views/include/footer.php'; ?>

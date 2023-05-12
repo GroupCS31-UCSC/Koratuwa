@@ -101,20 +101,7 @@ table th {
 
 }
 
-.topic{
-    margin-left: 0px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-right: 10px;
-}
 
-.filter{
-    margin: 5px;
-    padding: 5px;
-    font-size: 15px;
-    align-items: center;
-    
-}
 
 input[type=date] {
     
@@ -210,3 +197,37 @@ input[type=text] {
     color: white;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   }
+
+  .topic{
+    margin-left: 0px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+
+.filter{
+    margin: 5px;
+    padding: 5px;
+    font-size: 15px;
+    align-items: center;
+    
+}
+
+  .search-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .search-box {
+    width: 100%;
+    margin: 8px;
+  }
+  /* .search-icon {
+    
+     margin-left: 20px; 
+  } */
+
+  #searchInput1{
+    margin-left: 0px;
+}

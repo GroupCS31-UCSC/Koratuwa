@@ -7,17 +7,23 @@
 
   <div class="divContainer1">
   <form action="<?php echo URLROOT; ?>/Admin/viewMilkCollection" method="POST" >
+  <div class="filter">
     <label for="from">From :</label>
     <input type="date" id="from" name="from" value="<?php echo $data['from']; ?>"><br>
     <label for="to">  To :</label>
     <input type="date" id="to" name="to" value="<?php echo $data['to']; ?>">
-    <input type="submit" value="Search" class="submitBtn"> 
-  </form>
+    <!-- <input type="button" value="Refresh" class="addBtn" onclick="location.href='<?php echo URLROOT; ?>/Admin/viewMilkCollection' "> -->
+    <div class="form-input-container">
+    <div class="form-input-wrapper"><input type="submit" value="Search" class="submitBtn"> </div>
+    <div class="form-input-wrapper"><input type="button" value="Refresh" class="refreshBtn" onclick="location.href='<?php echo URLROOT; ?>/Admin/viewMilkCollection' "></div>
+  </div>
+</form>
+  </div>
 
   <!-- <input type="date" id="searchInput3" placeholder="Search By Date..." onkeyup="searchFunc3();"> -->
 
-  <input type="button" value="Refresh" class="addBtn" onclick="location.href='<?php echo URLROOT; ?>/Admin/viewMilkCollection' ">
-    <h2>Internal Milk Collection</h2>
+ 
+    <h2>Farm Milk Collection</h2>
     <table id="detailsTable3">
       <thead>
         <th col-index = 1>Collection Id</th>
@@ -43,7 +49,7 @@
               <a href="#"><button class="viewBtn" onclick="openModel1('<?=$mc->milk_collection_id?>')" id="<?php echo($data_index) ?>"><i class="fas fa-eye"></i></button></a>
             </div>
           </td>
-        </tr><br>
+        </tr>
         <?php $data_index++; ?>
         <?php endforeach; ?>
       </tbody>
@@ -52,14 +58,19 @@
 
   <div class="divContainer2">
   <form action="<?php echo URLROOT; ?>/Admin/viewMilkCollection" method="POST" >
+  <div class="filter">
     <label for="from2">From :</label>
     <input type="date" id="from2" name="from2" value="<?php echo $data['from2']; ?>"><br>
     <label for="to2">  To :</label>
     <input type="date" id="to2" name="to2" value="<?php echo $data['to2']; ?>">
-    <input type="submit" value="Search" class="submitBtn"> 
+    <div class="form-input-container">
+    <div class="form-input-wrapper"><input type="submit" value="Search" class="submitBtn"> </div>
+    <div class="form-input-wrapper"><input type="button" value="Refresh" class="refreshBtn" onclick="location.href='<?php echo URLROOT; ?>/Admin/viewMilkCollection' "></div>
+    </div>
+    </div>
   </form>
-  <input type="button" value="Refresh" class="addBtn" onclick="location.href='<?php echo URLROOT; ?>/Admin/viewMilkCollection' ">
-    <h2>External Milk Collection</h2>
+
+    <h2>Supplier Milk Collection</h2><br>
     <table id="detailsTable4">
       <thead>
         <th col-index = 1>Supply Id</th>
@@ -87,7 +98,7 @@
               <a href="#"><button class="viewBtn" onclick="openModel1('<?=$supOrd->supply_order_id?>')" id="<?php echo($data_index) ?>"><i class="fas fa-eye"></i></button></a>
             </div>
           </td>
-        </tr><br>
+        </tr>
         <?php $data_index++; ?>
         <?php endforeach; ?>
       </tbody>

@@ -35,10 +35,11 @@
 <h2>All Product Stocks</h2>
 <div class="filter">
 <!-- search -->
-<div class="topic">Search By Stock ID: </div>
-<div class="form-input-container">
-<div class="form-input-wrapper"><input type="text" id="searchInput1" placeholder="Search By Stock ID..." onkeyup="searchFunc1();"></div>
-<div class="form-input-wrapper"><i class="fa-solid fa-magnifying-glass"></i></div>
+
+<div class="search-container">
+<div class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+<div class="search-box"><input type="text" id="searchInput1" placeholder="Search By Stock ID..." onkeyup="searchFunc1();"></div>
+
 </div>
 <!-- filter -->
 
@@ -48,11 +49,13 @@
     <input type="date" id="from" name="from" value="<?php echo $data['from']; ?>"><br>
     <label for="to">  To :</label>
     <input type="date" id="to" name="to" value="<?php echo $data['to']; ?>">
-    <input type="submit" value="Search" class="submitBtn"> 
+    <div class="form-input-container">
+    <div class="form-input-wrapper"><input type="submit" value="Search" class="submitBtn"> </div>
+    <div class="form-input-wrapper"><input type="button" value="Refresh" class="refreshBtn" onclick="location.href='<?php echo URLROOT; ?>/Product_Manager/viewStock' "></div>
   </form>
 
         </div>
-  <input type="button" value="Refresh" class="refreshBtn" onclick="location.href='<?php echo URLROOT; ?>/Product_Manager/viewStock' ">
+
   <table id="detailsTable">
       <thead>
         <th col-index = 1>Stock ID</th>
