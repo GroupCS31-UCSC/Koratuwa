@@ -13,11 +13,7 @@
 <section class="table-container">
   
   <div class="container">
-    <!-- --------serch bar-------------->
-    <!-- <div class="feature">
-   
-    </div> -->
-    <!--------- table------------------>
+
     <div class="feature1">
       <!-- <div class="search"> -->
           <!-- <input type="text" class="searchTerm" placeholder="What are you looking for?">
@@ -30,12 +26,12 @@
       <!-- </div> -->
       
       <form action="<?php echo URLROOT; ?>/Supplier/viewSupply" method="POST" >
-      <label for="from">From :</label>
-      <input type="date" id="from" name="from" value="<?php echo $data['from']; ?>"><br>
-      <label for="to">  To :</label>
-      <input type="date" id="to" name="to" value="<?php echo $data['to']; ?>">
-      <input type="submit" value="Search" class="submitBtn"> 
-    </form>
+        <label for="from">From :</label>
+        <input type="date" id="from" name="from" value="<?php echo $data['from']; ?>"><br>
+        <label for="to">  To :</label>
+        <input type="date" id="to" name="to" value="<?php echo $data['to']; ?>">
+        <input type="submit" value="Search" class="submitBtn"> 
+      </form>
       <a href="<?php echo URLROOT?>/Supplier/generateSupplyReport/"><button>Genarate PDF</button></a>
       
       <table id="detailsTable6">
@@ -88,7 +84,7 @@
     </div>
   </div>
 </section>
-<section class="details">
+<!-- <section class="details">
   <div class="container">
     <div class="feature2">
       <div class="title"><h1>Total Supply Milk </h1></div>
@@ -112,7 +108,7 @@
       </svg>   
       <div class="items">
         <h2>
-          <!-- display the total milk quantity of relavant supplier -->
+          
           <span class="counter_up" data-number="<?php echo($data['ordSum']) ?>" data-speed="10000"></span> L
         </h2>
       </div>   
@@ -128,7 +124,7 @@
     </div>
 
   </div>
-</section>
+</section> -->
 
 
 <!----------------- popup view ---------------->

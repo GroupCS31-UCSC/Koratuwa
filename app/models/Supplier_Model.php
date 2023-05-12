@@ -29,6 +29,17 @@
 			return $id;
     }
 
+    //find purchasing price
+    public function find_purchasingPrice()
+    {
+      $this->db->query('SELECT * FROM milk_purchasing_price ORDER BY date DESC LIMIT 1 ');
+
+      $row = $this->db->single();
+
+      return $row->unit_price;
+    }
+
+
     public function get_supOrderView()
     {
       $this->db->query('SELECT * FROM supply_order WHERE supplier_id = :supId');
@@ -83,7 +94,7 @@
     public function placeSupply($data)
     {
       // $data['date'] = date("Y-m-d");
-      $this->db->query('INSERT INTO supply_order(supply_order_id,quantity,supplier_id, invoice_id) VALUES(:supOrderId, :quantity,:supId, :invId)');
+      $this->db->query('INSERT INTO supply_order(supply_order_id,quantity,status,supplier_id, invoice_id) VALUES(:supOrderId, :quantity,"Ongoing",:supId, :invId)');
       //value binding
       $this->db->bind(':supOrderId', $data['supOrderId']);
       $this->db->bind(':quantity', $data['quantity']);
