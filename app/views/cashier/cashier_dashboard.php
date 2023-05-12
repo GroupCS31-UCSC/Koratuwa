@@ -14,8 +14,8 @@
       </li><br><br><br>
       <li>
         <a href="<?php echo URLROOT; ?>/Cashier/cashierHome">
-          <span class="icon"><i class="fa-solid fa-gauge"></i></span>
-          <span class="title"> Dashboard</span>
+          <span class="icon"><i class="fa fa-money" aria-hidden="true"></i></i></span>
+          <span class="title"> Add Sale</span>
         </a>
       </li>
       <li>
@@ -26,7 +26,7 @@
       </li>
       <li>
         <a href="<?php echo URLROOT; ?>/Cashier/viewCustomerOrders">
-          <span class="icon"><i class="fa-brands fa-joget"></i></span>
+          <span class="icon"><i class="fa fa-cart-plus"></i></span>
           <span class="title">Customer Orders</span>
         </a>
       </li>

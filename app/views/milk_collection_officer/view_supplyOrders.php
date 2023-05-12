@@ -60,17 +60,22 @@
           <div class="model-content">
             <div class="model-header">
               <button type="button" class="close" onclick="closeModel()" ><span aria-hidden="true">×</span></button>
-              <h4 class="Model-title"><i class="fa fa-info-circle edit-color"></i>Order Checking...</h4>
             </div>
             <div class="model-body">
-            <table class="tableForm">
-                <tbody id="newData2">
-                </tbody>           
-            </table><br>
+              <h3 class="Model-title"><i class="fa fa-circle-o-notch" aria-hidden="true"></i>Order Checking...</h3>  
+            </div>          
+            <div class="modal-footer">
+              <div class="form-group">
+                <form action="<?php echo URLROOT?>/Milk_Collection_Officer/updateCollected">
+                  <input type="submit" class="collected" value="Collected">
+                </form>
+                <form action="<?php echo URLROOT?>/Milk_Collection_Officer/updateRejected">
+                  <input type="submit" class="rejected" value="Rejected">
+                </form>
+              </div>
             </div>
           </div>
         </div>
-        <div class="modal-footer"></div>
       </div>
       
       </p>

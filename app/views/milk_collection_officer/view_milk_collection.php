@@ -51,18 +51,7 @@
       </div>
       <div class="model-body">
         <table class="tableForm">
-          <thead>
-            <tr>
-            
-            <th>Cow ID</th>
-            <th>Quantity</th>
-            </tr>
-            </thead>
             <tbody id="newData">
-            <tr>
-              <td id="Model_Cow_Id"></td>
-              <td id="Model_Quantity"></td>
-            </tr>
           </tbody>           
         </table><br>
       </div>

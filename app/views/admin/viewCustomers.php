@@ -2,6 +2,7 @@
 <link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/public/css/admin/viewCustomers.css">
 <?php require APPROOT.'/views/admin/admin_dashboard.php';  ?>
 <!-- ______________________________________________________________________________________________________-->
+<h2>Customers</h2>
 
 <div class="container">
 
@@ -10,8 +11,16 @@
       graph
     </div>
     <div class="cusTable">
-      <h3>Mostly Ordered Customers</h3>
-      <input type="text" id="searchInput4" placeholder="Search By Customer Name..." onkeyup="searchFunc4();">
+      
+      <div class="search-container">
+
+<div class="search-icon"><button><i class="fa-solid fa-magnifying-glass"></i></button></div>
+
+<div class="search-box">  <input type="text" id="searchInput4" placeholder="Search By Customer Name..." onkeyup="searchFunc4();">
+     
+   </div> 
+   </div> 
+  
       <table id="cusTable">
       <thead>
         <th>Customer Id</th>

@@ -85,16 +85,49 @@
           $cDate = $row->collected_date;
           $cTime = $row->collected_time;
 
-          $this->db->query('SELECT * FROM cattle_milking WHERE stall_id=:sId AND collected_date=:cDate AND collected_time=:cTime');
-          $this->db->bind(':sId', $stallId);
-			    $this->db->bind(':cDate', $cDate);
-			    $this->db->bind(':cTime', $cTime);
+          // $this->db->query('SELECT * FROM cattle_milking WHERE stall_id=:sId AND collected_date=:cDate AND collected_time=:cTime');
+          // $this->db->bind(':sId', $stallId);
+			    // $this->db->bind(':cDate', $cDate);
+			    // $this->db->bind(':cTime', $cTime);
 
           $result = $this->db->resultSet();
           return $result;
 
     }
 
+    public function get_farmCollectionDetails($mcId) {
+      $this->db->query('SELECT * FROM cattle_milking WHERE milk_collection_id=:mcId');
+      $this->db->bind(':mcId', $mcId);
+      
+      $result = $this->db->resultSet();
+      return $result;
+      
+    }
+
+    public function updateCollected($supplyOrderId) {
+      $this->db->query('UPDATE supply_order SET status = "Collected" WHERE supply_order_id = :supplyOrderId');
+      $this->db->bind(':supplyOrderId', $supplyOrderId);
+
+      if($this->db->execute()) {
+        return true;
+      }
+      else {
+        return false;
+      }
+    }
+
+    public function updateRejected($supplyOrderId) {
+      $this->db->query('UPDATE supply_order SET status = "Rejected" WHERE supply_order_id = :supplyOrderId');
+      $this->db->bind(':supplyOrderId', $supplyOrderId);
+
+      if($this->db->execute()) {
+        return true;
+      }
+      else {
+        return false;
+      }
+    }
+    
     //to get all supplier deails
     public function get_supView()
     {
