@@ -58,6 +58,7 @@ table {
     
 }
 
+
 .table-filter {
     border-radius: 5px;
 }
@@ -66,7 +67,7 @@ table th{
     position: sticky; 
     top: 0px;
     
-    background-color: #133b5c;
+    background-color: #1a1163;
     color: rgb(241, 245, 179);
     
     text-align: center;
