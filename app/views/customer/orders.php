@@ -79,10 +79,7 @@
           </td>
           <?php elseif($online_order->status == "Ongoing"): ?>
             <td>
-                <!-- <form action="<?php echo URLROOT; ?>/Customer/updateStatus/<?php $online_order->order_id ?>" method="POST">
-                <input type="hidden" name="order_id" value="<?php echo $online_order->order_id ?>"> -->
                 <button class="ongoingBtn" onclick="openDeliveredOrder('<?=$online_order->order_id?>')"><?php echo $online_order->status ?></button>
-                <!-- </form> -->
             </td>
 
           <?php else: ?>
