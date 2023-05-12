@@ -30,19 +30,18 @@
               </tr>
             <?php $data_index=0 ?>
             <?php foreach ($data['ordView'] as $ordView) : ?>
-              <?php if($ordView->status == "Not Collected"): ?>
+              <?php if($ordView->status == "Ongoing"): ?>
 
               <tr>
                 <td><?php echo $ordView->supply_order_id; ?></td>
-                <td><?php echo $ordView->supplier_id; ?>        <img src="<?php echo URLROOT; ?>/img/users/user.png" alt="user" width="30" height="30"></td>
+                <td><?php echo $ordView->supplier_id; ?>      
                 <td><?php echo $ordView->quantity; ?></td>
                 <td><?php echo $ordView->unit_price; ?></td>
                 <td><?php echo $ordView->supply_date; ?></td>
-                <!-- <td><?php echo $ordView->status; ?></td>     -->
                 <td>
                   <div class="table-btns">
                     <!-- <a href="#popup1"><button class="pendingBtn">Pending</button></a> -->
-                    <a href="#"><button class="pendingBtn" onclick="openModel2('<?=$ordView->supply_order_id?>')" id="<?php echo($data_index) ?>">Pending</button></a>
+                    <a href="#"><button class="pendingBtn" onclick="openModel2('<?=$ordView->supply_order_id?>')" id="<?php echo($data_index) ?>" >Pending</button></a>
                   </div> 
                 </td>
               </tr>
@@ -66,12 +65,14 @@
             </div>          
             <div class="modal-footer">
               <div class="form-group">
-                <form action="<?php echo URLROOT?>/Milk_Collection_Officer/updateCollected">
-                  <input type="submit" class="collected" value="Collected">
+                <form action="<?php echo URLROOT?>/Milk_Collection_Officer/updateCollected/<?php echo $ordView->supply_order_id ?>">
+                  <input type="submit" class="collected" value="Accept">
                 </form>
-                <form action="<?php echo URLROOT?>/Milk_Collection_Officer/updateRejected">
-                  <input type="submit" class="rejected" value="Rejected">
+                <form action="<?php echo URLROOT?>/Milk_Collection_Officer/updateRejected/<?php echo $ordView->supply_order_id ?>">
+                  <input type="submit" class="rejected" value="Reject">
                 </form>
+                <!-- <a href="<?php echo URLROOT?>/Milk_Collection_Officer/updateCollected/<?php echo $ordView->supply_order_id ?>"><button class="collected">Accept</button></a>
+                <a href="<?php echo URLROOT?>/Milk_Collection_Officer/updateRejected/<?php echo $ordView->supply_order_id ?>"><button class="rejected">Reject</button></a> -->
               </div>
             </div>
           </div>
@@ -105,11 +106,11 @@
           </tr>
 
           <?php foreach ($data['ordView'] as $ordView) : ?>
-          <?php if($ordView->status != "Not Collected"): ?>
+          <?php if($ordView->status != "Ongoing"): ?>
 
           <tr>
             <td><?php echo $ordView->supply_order_id; ?></td>
-            <td><?php echo $ordView->supplier_id; ?>        <img src="<?php echo URLROOT; ?>/img/users/user.png" alt="user" width="30" height="30"></td>
+            <td><?php echo $ordView->supplier_id; ?>       
             <td><?php echo $ordView->quantity; ?></td>
             <td><?php echo $ordView->unit_price; ?></td>
             <td><?php echo $ordView->quality; ?></td>
@@ -141,7 +142,19 @@
 </div>
 
 
+<script>
+  function openModel2(id)
+  {
+    document.getElementById("model").classList.add("open-model");
     
+  }
+  
+  function closeModel(){
+      document.getElementById("model").classList.remove("open-model");
+  }
+  
+  
+</script> 
 
 
 <!-- <?php require APPROOT.'/views/include/footer.php'; ?> -->

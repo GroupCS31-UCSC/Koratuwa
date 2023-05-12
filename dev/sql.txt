@@ -193,6 +193,11 @@ FROM laborer
 INNER JOIN past_employee 
 ON laborer.laborer_id = past_employee.user_id WHERE laborer.name LIKE '%e%';
 
+//supplier details join
+SELECT supply_order.supplier_id, supply_order.quantity, supply_order.status,supplier.address
+FROM supply_order 
+INNER JOIN supplier 
+ON supply_order.supplier_id = supplier.supplier_id WHERE supply_order.supply_date=CURDATE();
 
 
 

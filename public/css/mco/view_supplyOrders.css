@@ -158,9 +158,9 @@ section {
 /*  */
 
 .pastOrders {
-    border: 1px solid gold;
+    /* border: 1px solid gold; */
     margin: 0px auto 0px auto;
-    background-color: rgb(86, 86, 86);
+    /* background-color: rgb(86, 86, 86); */
 }
 
 

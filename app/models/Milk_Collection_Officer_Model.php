@@ -9,10 +9,13 @@
       $this->db = new Database();
     }
 
-    //to get today order details to view
+    //[to get today order details to view
     public function get_todayOrderView()
     {
-      $this->db->query('SELECT supplier_id,quantity,supplying_address,status FROM supply_order WHERE supply_date=CURDATE()');
+      $this->db->query('SELECT supply_order.supplier_id, supply_order.quantity, supply_order.status,supplier.address
+      FROM supply_order 
+      INNER JOIN supplier 
+      ON supply_order.supplier_id = supplier.supplier_id WHERE supply_order.supply_date=CURDATE();');
 
       $result = $this->db->resultSet();
 
@@ -170,6 +173,29 @@
       return $result;
     }
     
+    public function get_InternalMilkCollection()
+    {
+      $this->db->query('SELECT SUM(quantity) FROM milk_collection');
+      $row = $this->db->single();
+
+      return $row;
+    }
+
+    public function get_ExternalMilkCollection()
+    {
+      $this->db->query('SELECT SUM(quantity) FROM supply_order WHERE status="Collected" ');
+      $row = $this->db->single();
+
+      return $row;
+    }
+
+    public function get_supOrderCount()
+    {
+      $this->db->query('SELECT COUNT(supply_order_id) FROM supply_order WHERE status="Collected" ');
+      $row = $this->db->single();
+
+      return $row;
+    }
 
 
     

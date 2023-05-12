@@ -330,6 +330,7 @@
                 'nic' => trim($_POST['nic']),
                 'tp_num' => trim($_POST['tp_num']),
                 'address' => trim($_POST['address']),
+                'province' => trim($_POST['province']),
                 'email' => trim($_POST['email']),
                 'password' => trim($_POST['password']),
                 'confirm_password' => trim($_POST['confirm_password']),
@@ -338,6 +339,7 @@
                 'nic_err' => '' ,
                 'tp_num_err' => '' ,
                 'address_err' => '' ,
+                'province_err' => '',
                 'email_err' => '' ,
                 'password_err' => '' ,
                 'confirm_password_err' => ''
@@ -368,6 +370,13 @@
               {
                 $data['address_err'] = 'Please enter your address' ;
               }
+
+
+              if (empty($data['province'])) { $data['province_err'] = 'Please choose your Residential Area' ; }
+              if ($data['province']=='Select')  { $data['province_err'] = 'Please choose your Residential Area' ; }
+
+              if ($data['province']=='Other')  { $data['province_err'] = 'Sorry! Our service is currently available for the Western Province only' ; }
+
 
               //validate email
               if (empty($data['email']))
@@ -401,7 +410,7 @@
               }
 
               //validation is completed and no errors then register the users
-              if(empty($data['name_err']) && empty($data['nic_err']) && empty($data['tp_num_err']) && empty($data['address_err']) && empty($data['email_err']) && empty($data['password_err']) && empty($data['confirm_password_err']) )
+              if(empty($data['name_err']) && empty($data['nic_err']) && empty($data['tp_num_err']) && empty($data['address_err']) && empty($data['province_err']) && empty($data['email_err']) && empty($data['password_err']) && empty($data['confirm_password_err']) )
               {
                 //Hash the password
                 $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
@@ -452,6 +461,7 @@
                 'nic' => '' ,
                 'tp_num' => '' ,
                 'address' => '' ,
+                'province' => '' ,
                 'email' => '' ,
                 'password' => '' ,
                 'confirm_password' => '' ,
@@ -460,6 +470,7 @@
                 'nic_err' => '' ,
                 'tp_num_err' => '' ,
                 'address_err' => '' ,
+                'province_err' => '',
                 'email_err' => '' ,
                 'password_err' => '' ,
                 'confirm_password_err' => ''
