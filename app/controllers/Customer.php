@@ -278,6 +278,16 @@
         }
       }
 
+      public function getSaleItems($saleId) {
+        $itemView = $this->customerModel->get_itemView($saleId);
+  
+        $data = [
+          'itemView' => $itemView
+        ];
+  
+        $this->view('customer/viewItems', $data);
+      }
+
     }
 
 ?>
