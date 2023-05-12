@@ -255,7 +255,7 @@
         if ($data['stallId']=='Select') { $data['stallId_err'] = '*' ; }
         if (empty($data['solid'])) { $data['solid_err'] = '*' ; }
         if (empty($data['liquid'])) { $data['liquid_err'] = '*' ; }
-        if (empty($data['remarks'])) { $data['remarks_err'] = '*' ; }
+        // if (empty($data['remarks'])) { $data['remarks_err'] = '*' ; }
 
         //  echo '<pre>';
         // print_r($data);
@@ -315,10 +315,10 @@
         //validation
         if ($data['solid']=='Select') { $data['solid_err'] = '*' ; }
         if ($data['liquid']=='Select') { $data['liquid_err'] = '*' ; }
-        if ($data['remarks']=='Select') { $data['remarks_err'] = '*' ; }        
+        // if ($data['remarks']=='Select') { $data['remarks_err'] = '*' ; }        
 
         // if no errors
-        if(empty($data['solid_err']) && empty($data['liquid_err']) && empty($data['remarks_err']) ) {
+        if(empty($data['solid_err']) && empty($data['liquid_err']) ) {
           if($this->livestockModel->updateFeedMonitoring($data)) {
             flash('updateFeed_flash','New feed monitoring details are successfully Updated!');
             redirect('Livestock_Manager/viewFeedMonitoring');
@@ -336,7 +336,7 @@
         $feedMonitoring = $this->livestockModel->getFeedMonitoringById($feedId);
 
         $data = [
-            'feedId' => $feedMonitoring->feed_id,
+            'feedId' => $feedId,
             'solid' => $feedMonitoring->solid,
             'liquid' => $feedMonitoring->liquid,
             'remarks' => $feedMonitoring->remarks,

@@ -239,7 +239,7 @@
     }
 
     public function updateFeedMonitoring($data) {
-      $this->db->query('UPDATE feed_monitoring SET solid= :solid, liquid= :liqid, remarks= :remarks WHERE feed_id= :feedId');
+      $this->db->query('UPDATE feed_monitoring SET solid= :solid, liquid= :liquid, remarks= :remarks WHERE feed_id= :feedId');
       $this->db->bind(':feedId', $data['feedId']);
       $this->db->bind(':solid', $data['solid']);
       $this->db->bind(':liquid', $data['liquid']);
