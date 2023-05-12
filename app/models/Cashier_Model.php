@@ -102,7 +102,7 @@
     public function updateStatus($orderId){
       // $orderId = $data['orderId'];
       // $status = 'Ongoing';
-      $this->db->query('UPDATE online_order SET status = "ongoing" WHERE order_id = :orderId');
+      $this->db->query('UPDATE online_order SET status = "Ongoing" WHERE order_id = :orderId');
       $this->db->bind(':orderId', $orderId);
       // $this->db->bind(':status', $data['status']);
 
@@ -176,9 +176,9 @@
       return $result;
     }
 
-    public function onlineOrder_duration($from, $to)
+    public function onlineOrder_duration($status, $from, $to)
     {
-      $this->db->query('SELECT * FROM online_order WHERE ordered_date >= "'.$from.'" and ordered_date <= "'.$to.'"');
+      $this->db->query('SELECT * FROM online_order WHERE status = "'.$status.'" AND ordered_date >= "'.$from.'" and ordered_date <= "'.$to.'"');
 
       $result = $this->db->resultSet();
 

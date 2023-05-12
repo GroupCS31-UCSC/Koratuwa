@@ -19,12 +19,12 @@
   align-items: center;
 }
 
-.btn-wrapper {
+/* .btn-wrapper {
   display: flex;
   flex-direction: row;
   align-items: center;
   
-}
+} */
 
 .form-input-wrapper {
   width: 100%;
@@ -47,7 +47,7 @@
 }
 
 /* RECEIPT */
-.receipt {
+/* .receipt {
   box-shadow: 0 0 1in -0.25in rgba(0, 0, 0, 0.5);
   padding:2mm;
   margin: 0 auto;
@@ -137,8 +137,15 @@ p {
   
 #legalcopy{
   margin-top: 5mm;
+} */
+.product-row{
+  /* maximize front size */
+  font-size: .7rem;
+  font-weight: 400;
+  /* center front in tr */
+  text-align: center;
+  
 }
-
 /* POPUP RECEIPT */
 .model {
   position: fixed;
