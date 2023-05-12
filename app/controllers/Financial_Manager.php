@@ -261,7 +261,17 @@ function alert($msg) {
         }
 
         $pdf->Ln();
-        $pdf->Cell(370, 10, 'Total Expenses = Rs.  '.$totalexpenses, 0, 1, 'C');
+        //draw aline 
+        $pdf->SetDrawColor(0,0,0); // Set the color of the line to black
+        $pdf->SetLineWidth(0.5); // Set the width of the line to 0.5 mm
+        $pdf->Line($pdf->GetX(), $pdf->GetY(), $pdf->GetX() + 220, $pdf->GetY());
+        $pdf->SetFont('Arial', 'B', 16);
+        $pdf->Cell(350, 10, 'Total Expenses = Rs.  '.$totalexpenses, 0, 1, 'C');
+       //draw two lines
+        $pdf->SetDrawColor(0,0,0); // Set the color of the line to black
+        $pdf->SetLineWidth(0.5); // Set the width of the line to 0.5 mm
+        $pdf->Line($pdf->GetX(), $pdf->GetY(), $pdf->GetX() + 220, $pdf->GetY()); // Draw the first line
+        $pdf->Line($pdf->GetX(), $pdf->GetY() + 0.8, $pdf->GetX() + 220, $pdf->GetY() + 0.8); // Draw the second line, slightly above the first
         
         $pdf->Ln();
         $pdf->SetFont('Arial', 'B', 14);
@@ -298,21 +308,36 @@ function alert($msg) {
         }
 
         $pdf->Ln();
+        //draw a line
+        $pdf->SetDrawColor(0,0,0); // Set the color of the line to black
+        $pdf->SetLineWidth(0.5); // Set the width of the line to 0.5 mm
+        $pdf->Line($pdf->GetX(), $pdf->GetY(), $pdf->GetX() + 220, $pdf->GetY());
+        $pdf->SetFont('Arial', 'B', 16);
         
-        $pdf->Cell(370, 10, 'Total Revenues = Rs.  '.$totalrevenues, 0, 1, 'C');
+        $pdf->Cell(350, 10, 'Total Revenues = Rs.  '.$totalrevenues, 0, 1, 'C');
+        
+        //draw two lines
+        $pdf->SetDrawColor(0,0,0); // Set the color of the line to black
+        $pdf->SetLineWidth(0.5); // Set the width of the line to 0.5 mm
+        $pdf->Line($pdf->GetX(), $pdf->GetY(), $pdf->GetX() + 220, $pdf->GetY()); // Draw the first line
+        $pdf->Line($pdf->GetX(), $pdf->GetY() + 0.8, $pdf->GetX() + 220, $pdf->GetY() + 0.8); // Draw the second line, slightly above the first
        
 
         $pdf->Ln();
         $gap=abs($totalrevenues-$totalexpenses);
-        $pdf->Cell(0, 10, 'Gap =  '.$gap, 0, 1, 'C');
+        // $pdf->Cell(0, 10, 'Gap =  '.$gap, 0, 1, 'C');
 
         if($totalrevenues > $totalexpenses){
-          $pdf->Cell(250, 10, 'There has been a profit of Rs. '.$gap,  0, 1, 'C');
+          $pdf->Cell(200, 10, 'There has been a profit of Rs. '.$gap,  0, 1, 'C');
         }
 
         else{
-          $pdf->Cell(250, 10, 'There has been a loss of Rs.'.$gap, 0, 1, 'C');
+          $pdf->Cell(200, 10, 'There has been a loss of Rs. '.$gap, 0, 1, 'C');
         }
+        $pdf->Ln();
+        $pdf->Ln();
+        $pdf->Ln();
+        $pdf->Ln();
         
         $pdf->AliasNbPages();
         $pdf->SetFont('Arial', 'B', 12);

@@ -131,6 +131,7 @@
       $avail_qty=$row->available_quantity;
       $pName=$row->product_name;
 
+      //get available quantity
       $new_qty = number_format($avail_qty,2) + number_format($data['qty'],2);
 
       $this->db->query('UPDATE product SET available_quantity= :new_qty, notify_seen = 0 WHERE product_id= :pId');

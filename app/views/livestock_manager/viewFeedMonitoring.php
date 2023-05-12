@@ -6,7 +6,7 @@
 
 <div class="section">
 <div class="feedDetails">
-  <h1>Feed Details</h1>
+  <br><h2>Cattle Milking</h2>
   <table class="items">
     <tr>
       <th>Solid foods (60%)</th>
@@ -27,18 +27,18 @@
   </table>
 </div>
 
-<div class="flash-msg">
+<!-- <div class="flash-msg">
   <?php flash('addfeed_flash') ?>
   <?php flash('updatefeed_flash') ?>
   <?php flash('deletefeed_flash') ?>
-</div>
+</div> -->
 
 <div class="refresh-add">
   <div class="refresh-area">
     <!-- refresh button -->
-    <input type="button" value="Refresh" class="add-btn" onclick="location.href='<?php echo URLROOT; ?>/Livestock_Manager/viewFeedMonitoring' ">
+  
     <!-- Add button -->
-    <input type="button" value="Add New Feed record" class="add-btn" onclick="location.href='<?php echo URLROOT; ?>/Livestock_Manager/addFeedMonitoring' ">
+    <input type="button" value="Add New Feed Record" class="add-Btn" onclick="location.href='<?php echo URLROOT; ?>/Livestock_Manager/addFeedMonitoring' ">
   </div>
 </div>
 
@@ -55,7 +55,10 @@
     <input type="date" id="to" name="to" value="<?php echo $data['to']; ?>">
   </div>
   </div>
-    <input type="submit" value="Search" class="submitBtn"> 
+  <div class="form-input-container">
+  <div class="form-input-wrapper"><input type="submit" value="Search" class="submitBtn"> </div>
+  <div class="form-input-wrapper"><input type="button" value="Refresh" class="refreshBtn" onclick="location.href='<?php echo URLROOT; ?>/Livestock_Manager/viewFeedMonitoring' "></div>
+  </div>
   </form>
 
   
