@@ -169,15 +169,14 @@ function openModel1(id){
       method: "GET"
     }).then(response => response.text())
     .then(data => {
-        // console.log(data);
+        console.log(data);
       if(data){
       const domp=new DOMParser();
       const doc= domp.parseFromString(data,'text/html');
       const newData = doc.getElementById('newData');
       document.getElementById("newData").innerHTML = newData.innerHTML;
-      
-    //   document.getElementById("Model_Cow_Id").innerText = data.cow_id;
-    //   document.getElementById("Model_Quantity").innerText = data.quantity;
+      console.log(newData);
+      document.getElementById("newData").innerHTML = newData.innerHTML;
       }
   
     });
@@ -188,23 +187,23 @@ function openModel1(id){
 
 //view of supply orders one by one
 
-function openMdfdxxdel2(id){
+function openModel2(id){
     // var id = data["id"];
-    const url ="/koratuwa/Milk_Collection_Officer/viewSupOrderDetails/"+id;
-    const form = new FormData();
-    form.append("id", id);
-    fetch(url, {
-      method: "GET"
-    }).then(response => response.text())
-    .then(data => {
-        // console.log(data);
-      if(data){
-        const domp=new DOMParser();
-        const doc= domp.parseFromString(data,'text/html');
-        const newData2 = doc.getElementById('newData2');
-        console.log(newData2);
+    // const url ="/koratuwa/Milk_Collection_Officer/viewSupOrderDetails/"+id;
+    // const form = new FormData();
+    // form.append("id", id);
+    // fetch(url, {
+    //   method: "GET"
+    // }).then(response => response.text())
+    // .then(data => {
+    //     // console.log(data);
+    //   if(data){
+    //     const domp=new DOMParser();
+    //     const doc= domp.parseFromString(data,'text/html');
+    //     const newData2 = doc.getElementById('newData2');
+    //     console.log(newData2);
 
-        document.getElementById('newData2').innerHTML = newData2.innerHTML;
+    //     document.getElementById('newData2').innerHTML = newData2.innerHTML;
 
     //   document.getElementById("Model_Order_Id").innerText = data.supply_order_id;
     //   document.getElementById("Model_Supplier_Id").innerText = data.supplier_id;
@@ -212,10 +211,10 @@ function openMdfdxxdel2(id){
     //   document.getElementById("Model_Quantity").innerText = data.quantity;
     //   document.getElementById("Model_Unit_Price").innerText = data.unit_price;
     //   document.getElementById("Model_Status").innerText = data.status;
-      }
+    //   }
   
-    });
-    document.getElementById("mmmfdfodel").classList.add("open-model");
+    // });
+    document.getElementById("model").classList.add("open-model");
     
 }
 

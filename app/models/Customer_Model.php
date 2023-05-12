@@ -100,7 +100,7 @@
   {
     $this->db->query('SELECT * FROM online_order order by order_id desc limit 1');
     $row = $this->db->single();
-    var_dump($row);
+    // var_dump($row);
     $lastId=$row->order_id;
 
     if($lastId == '')
@@ -167,22 +167,26 @@
 
   }
 
-  public function get_OrderDetails()
+  public function get_OrderDetailsByDate($status,$from,$to) {
+    $this->db->query('SELECT * FROM online_order WHERE status = "'.$status.'" AND ordered_date >= "'.$from.'" and ordered_date <= "'.$to.'"');
+
+    $result = $this->db->resultSet();
+
+    return $result;
+  }
+
+  public function get_OrderDetails($status)
   {
-    $this->db->query('SELECT * FROM online_order WHERE customer_id = :user_id');
-    $this->db->bind(':user_id', $_SESSION['user_id']);
-    
+    $this->db->query('SELECT * FROM online_order WHERE status = "'.$status.'"');
+
     $result = $this->db->resultSet();
 
     return $result;
   }
 
   public function updateStatus($orderId){
-    // $orderId = $data['orderId'];
-    // $status = 'Ongoing';
     $this->db->query('UPDATE online_order SET status = "Delivered" WHERE order_id = :orderId');
     $this->db->bind(':orderId', $orderId);
-    // $this->db->bind(':status', $data['status']);
 
     if($this->db->execute()) {
       return true;

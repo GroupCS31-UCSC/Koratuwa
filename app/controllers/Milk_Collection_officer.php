@@ -94,14 +94,37 @@
         public function collectionDetails($mcId)
         {
           // $milkView= $this->mcoModel->get_farmMilkCollectionView();
-          $collectionView= $this->mcoModel->get_collectionDetails($mcId); 
+          $farmCollectionView= $this->mcoModel->get_farmCollectionDetails($mcId); 
           $data = [
-              'cView' => $collectionView,
-               'mcId' => $mcId
+              'farmCollectionView' => $farmCollectionView
 
           ];
 
-          $this->view('milk_collection_officer/collection_details',$data);
+          $this->view('milk_collection_officer/openViews',$data);
+        }
+
+        // Supplier order collected
+        public function updateCollected($supplyOrderId)
+        {
+          $collected = $this->mcoModel->updateCollected($supplyOrderId);
+
+          $data = [
+            'collected' => $collected
+          ];
+          
+          $this->view('milk_collection_officer/view_supplyOrders',$data);
+        }
+
+        // Supplier order rejected
+        public function updateRejected($supplyOrderId)
+        {
+          $rejected = $this->mcoModel->updateRejected($supplyOrderId);
+
+          $data = [
+            'rejected' => $rejected
+          ];
+          
+          $this->view('milk_collection_officer/view_supplyOrders',$data);
         }
 
         //get the details of Suppliers

@@ -8,7 +8,6 @@
 <!-- Flash massages -->
 
 <div class="section">
-<div class="divContainer">
   <div class="tab">
     <?php $status=$_GET['status']??'New Order';?>
     <button class="tablinks <?= $status==="New Order"?'active':''?>" onclick="openTab(event, 'New Order')">New Order</button>
@@ -30,7 +29,7 @@
       <input type="date" id="to" name="to" value="<?php echo $data['to']; ?>">
       <input type="submit" value="Search" class="submitBtn"> 
     </form>
-    <br><br>
+    <br><br><br>
     <!-- refresh button -->
     <input type="button" value="Refresh" class="" onclick="location.href='<?php echo URLROOT; ?>/Customer/Orders' ">
 
@@ -56,11 +55,13 @@
           <?php foreach ($data ['orderDetails'] as $online_order) : ?>
           <td><?php echo $online_order->order_id ?></td>
           <td><?php echo $online_order->ordered_date ?></td>
-          <!-- <td><?php echo $online_order->total_payment ?></td> -->
-          <td><?php echo '' ?></td>
-
-
-          <td><?php echo $online_order->payment_method ?></td>
+          <td><?php echo $online_order->total_payment ?></td>
+          <td>
+            <div class="table-btns">
+            <a href="#"><button class="viewBtn" onclick="openModel()" id=""><i class="fas fa-eye"></i></button></a>
+            </div>
+          </td>
+          <!-- <td><?php echo $online_order->payment_method ?></td> -->
           <?php if($online_order->status == "New Order"): ?>
           <td>
             <button class="newOrderBtn"><?php echo $online_order->status ?></button>
@@ -90,13 +91,14 @@
   <div id="Delivered" class="tabcontent">
     <p>Delivered</p>
   </div>
-  <div class="addFeedback">
-    <button id="myBtn">Add Feedback</button>
-  </div>
 </div>
 
-<!-- Send new order popup -->
-<div class="model fade in" id="orderModel" tabindex="-1">
+<div class="addFeedback">
+    <button id="myBtn">Add Feedback</button>
+</div>
+
+<!-- Send receive order popup -->
+<div class="model fade in" id="deliveredModel" tabindex="-1">
   <div class="model-dialog">
     <div class="model-content">
       <div class="model-header">
@@ -121,7 +123,6 @@
   <div class="modal-footer"></div>
 </div>
 
-</div>
 <!-- The Modal -->
 <div id="myModal" class="modal">
 
@@ -200,11 +201,11 @@
     const orderId = document.getElementById("newOrderId");
     orderId.value = id;
 
-    const model = document.getElementById("orderModel").classList.add("open-model");
+    const model = document.getElementById("deliveredModel").classList.add("open-model");
   }
 
   function closeDeliveredOrder() {
-    const model = document.getElementById("orderModel").classList.remove("open-model");
+    const model = document.getElementById("deliveredModel").classList.remove("open-model");
   }
   
   

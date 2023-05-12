@@ -3,7 +3,7 @@
 <?php require APPROOT.'/views/admin/admin_dashboard.php';  ?>
 <!-- ______________________________________________________________________________________________________-->
 
-
+<h2>Products</h2>
 <?php foreach ($data['productionView'] as $pv) : ?>
 
       <div class="product-card">

@@ -221,10 +221,10 @@
         {
           die('Something went wrong');
         }
-       }
+      }
 
-       public function Orders()
-       {
+      public function Orders()
+      {
         if($_SERVER['REQUEST_METHOD'] == 'POST')
         {
           $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
@@ -232,8 +232,9 @@
           $from = isset($_POST['from']) ? $_POST['from'] : '';
           $to = isset($_POST['to']) ? $_POST['to'] : '';
 
-          $status=$_GET['status'] ?? 'Ongoing';
-          $orderDetails= $this->customerModel->get_OrderDetails();
+          $status=$_GET['status'] ?? 'New Order';
+
+          $orderDetails= $this->customerModel->get_OrderDetailsByDate($status,$from,$to);
 
           $data = [
             'orderDetails' => $orderDetails,
@@ -246,8 +247,8 @@
         }
         else
         {
-          $status=$_GET['status'] ?? 'Ongoing';
-          $orderDetails= $this->customerModel->get_OrderDetails();
+          $status=$_GET['status'] ?? 'New Order';
+          $orderDetails= $this->customerModel->get_OrderDetails($status);
 
           $data = [
             'orderDetails' => $orderDetails,
@@ -258,9 +259,10 @@
           $this->view('customer/orders',$data);
         }
 
-       }
+      }
 
       // Update Order status
+      
       public function updateStatus() {
         $orderId = $_POST['order_id'];
         $data = [

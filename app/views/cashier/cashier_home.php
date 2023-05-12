@@ -73,11 +73,11 @@
     </tr>
   </table>
   <div class="btn-wrapper"> 
-    <div class="wrapper-1">
+    <!-- <div class="wrapper-1"> -->
   <input type="button" value="submit" class="submitBtn" onclick="payment()">
   </div>
   <!-- popup receipt -->
-  <div class="wrapper-1">
+  <!-- <div class="wrapper-1">
   <input type="submit" value="PRINT RECEIPT" class="submitBtn" onclick="openModel()">
   </div>
   </div>
@@ -151,7 +151,7 @@
     </div>
   </div>
   <div class="modal-footer"></div>
-</div>
+</div> -->
 
 
 
@@ -218,7 +218,7 @@
     var qnty = document.getElementById("quantity").value;
     var subTot = up * qnty;
     
-    document.getElementById("tbody").innerHTML += "<tr><td>" + id + "</td><td>" + name + "</td><td>" + up + "</td><td>" + qnty + "</td><td>" + subTot + "</td></tr>";
+    document.getElementById("tbody").innerHTML += "<tr class='product-row'><td>" + id + "</td><td>" + name + "</td><td>" + up + "</td><td>" + qnty + "</td><td>" + subTot + "</td></tr>";
    
     total += parseInt(subTot);
     
