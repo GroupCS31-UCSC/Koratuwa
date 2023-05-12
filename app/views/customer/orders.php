@@ -32,6 +32,16 @@
     <br><br><br>
     <!-- refresh button -->
     <input type="button" value="Refresh" class="" onclick="location.href='<?php echo URLROOT; ?>/Customer/Orders' ">
+    
+    <!-- Feedback button -->
+    <?php foreach ($data ['orderDetails'] as $online_order) : ?>
+      <?php if($online_order->status == "Delivered"): ?>
+      <div class="addFeedback">
+        <button class="feedbackBtn" onclick="openFeedback()">Add Feedback</button>
+      </div>
+    <?php endif; ?>
+    <?php break; ?>
+    <?php endforeach; ?>
 
     <table id="detailsTable">
       <thead>
@@ -52,13 +62,14 @@
       </thead>
       <tbody>
         <tr>
+          <?php $data_index=0 ?>
           <?php foreach ($data ['orderDetails'] as $online_order) : ?>
           <td><?php echo $online_order->order_id ?></td>
           <td><?php echo $online_order->ordered_date ?></td>
           <td><?php echo $online_order->total_payment ?></td>
           <td>
             <div class="table-btns">
-            <a href="#"><button class="viewBtn" onclick="openModel()" id=""><i class="fas fa-eye"></i></button></a>
+            <a href="#"><button class="viewBtn" onclick="openModel('<?php echo $online_order->order_id?>')" id="<?php echo($data_index)?>"><i class="fas fa-eye"></i></button></a>
             </div>
           </td>
           <!-- <td><?php echo $online_order->payment_method ?></td> -->
@@ -68,10 +79,10 @@
           </td>
           <?php elseif($online_order->status == "Ongoing"): ?>
             <td>
-                <form action="<?php echo URLROOT; ?>/Customer/updateStatus/<?php $online_order->order_id ?>" method="POST">
-                <input type="hidden" name="order_id" value="<?php echo $online_order->order_id ?>">
+                <!-- <form action="<?php echo URLROOT; ?>/Customer/updateStatus/<?php $online_order->order_id ?>" method="POST">
+                <input type="hidden" name="order_id" value="<?php echo $online_order->order_id ?>"> -->
                 <button class="ongoingBtn" onclick="openDeliveredOrder('<?=$online_order->order_id?>')"><?php echo $online_order->status ?></button>
-                </form>
+                <!-- </form> -->
             </td>
 
           <?php else: ?>
@@ -80,10 +91,11 @@
             </td>
           <?php endif; ?>
         </tr>
+        <?php $data_index++; ?>
         <?php endforeach; ?>
         </tbody>
       </table>
-    </div>
+    </div>  
   </div>
   <div id="Ongoing" class="tabcontent">
     <p>Ongoing</p>
@@ -91,10 +103,6 @@
   <div id="Delivered" class="tabcontent">
     <p>Delivered</p>
   </div>
-</div>
-
-<div class="addFeedback">
-    <button id="myBtn">Add Feedback</button>
 </div>
 
 <!-- Send receive order popup -->
@@ -123,29 +131,45 @@
   <div class="modal-footer"></div>
 </div>
 
-<!-- The Modal -->
-<div id="myModal" class="modal">
-
-  <!-- Modal content -->
-  <div class="modal-content">
-    <div class="modal-header">
-      <span class="close">&times;</span>
-      <h2>Add your Feedback</h2>
-    </div>
-    <div class="modal-body">
-      <p></p><br>
-      <form action="<?php echo URLROOT; ?>/Supplier/supplierHome" method="POST">
-        <div class="form-input-title">Supply Quantity (LITER)</div>
-        <span class="form-invalid"><?php echo $data['quantity_err']; ?></span>
-        <input type="text" name="quantity" id="quantity" class="quantity" value="<?php echo $data['quantity']; ?>"><br>
-        <div class="submit_btn"><input type="submit" value="Submit" class="submitBtn"><br></div>
-      </form>
-    </div>  
-    <div class="modal-footer">
-      <h3>Koratuwa Dairy Farm</h3>
+<!-- View popup -->
+<div class="model fade in" id="model" tabindex="-1">
+  <div class="model-dialog">
+    <div class="model-content">
+      <div class="model-header">
+        <button type="button" class="close" onclick="closeModel()" ><span aria-hidden="true">×</span></button>
+        <h4 class="Model-title"><i class="fa fa-info-circle edit-color"></i> Items</h4>
+      </div>
+      <div class="model-body">
+        <table class="tableForm">
+            <tbody id="items">
+          </tbody>           
+        </table><br>
+      </div>
     </div>
   </div>
+  <div class="modal-footer"></div>
+</div>
 
+<!-- Feedback -->
+<div class="model fade in" id="feedbackModel" tabindex="-1">
+  <div class="model-dialog">
+    <div class="model-content">
+      <div class="model-header">
+        <button type="button" class="close" onclick="closeFeedback()" ><span aria-hidden="true">×</span></button>
+      </div>
+      <div class="model-body">
+      <form action="<?php echo URLROOT; ?>/Customer/customerFeedback" method="POST">
+        <div class="form-input-title">Feedback</div>
+        <!-- <input type="text" name="text" id="feedback" class="feedback" value="<?php echo $data['feedback']; ?>"><br> -->
+        <div class="submit_btn"><input type="submit" value="Submit" class="submitBtn"><br></div>
+      </form>
+      <br>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+  <h3>Koratuwa Dairy Farm</h3>
+  </div>
 </div>
 
 <script>
@@ -156,41 +180,10 @@
 <?php require APPROOT.'/views/include/footer.php'; ?>
 
 <script>
-  //--------------Model form---------------------------//
-  // Get the modal
-  var modal = document.getElementById("myModal");
-
-  // Get the button that opens the modal
-  var btn = document.getElementById("myBtn");
-
-  // Get the <span> element that closes the modal
-  var span = document.getElementsByClassName("close")[0];
-
-  // When the user clicks the button, open the modal 
-  btn.onclick = function() {
-    modal.style.display = "block";
-  }
-
-  // When the user clicks on <span> (x), close the modal
-  span.onclick = function() {
-    modal.style.display = "none";
-  }
-
-  // When the user clicks anywhere outside of the modal, close it
-  window.onclick = function(event) {
-    if (event.target == modal) {
-      modal.style.display = "none";
-    }
-  }  
- 
-
-
-
-
   function openTab(evt, tabName) {
   var i, tabcontent, tablinks;
   window.location.href='/koratuwa/Customer/Orders?status='+tabName;
-}
+  }
 
   function changeStatus(button) {
     button.innerHTML = "Ongoing";
@@ -206,6 +199,43 @@
 
   function closeDeliveredOrder() {
     const model = document.getElementById("deliveredModel").classList.remove("open-model");
+  }
+
+  function openFeedback() {
+    document.getElementById("feedbackModel").classList.add("open-model");
+  }
+
+  function closeFeedback() {
+    document.getElementById("feedbackModel").classList.remove("open-model");
+  }
+
+  function openModel(id) {
+    console.log(id);
+    const url = "/koratuwa/Customer/getSaleItems/"+id;
+    const form = new FormData();
+    form.append("id", id);
+    fetch(url, {
+      method: "GET"
+    }).then(response => response.text())
+    .then(data => {
+      console.log(data);
+      if(data) {
+        const domp = new DOMParser();
+        const doc = domp.parseFromString(data, "text/html");
+        const productDetails = doc.getElementById("items");
+        console.log(items);
+        document.getElementById("items").innerHTML = productDetails.innerHTML;
+        
+
+        document.getElementById("items").innerHTML = productDetails.innerHTML;
+      }
+    });
+    document.getElementById("model").classList.add("open-model");
+    
+  }
+
+  function closeModel() {
+    document.getElementById("model").classList.remove("open-model");
   }
   
   

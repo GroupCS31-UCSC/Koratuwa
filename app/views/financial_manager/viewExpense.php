@@ -11,7 +11,7 @@
 <h2>Expenses</h2>
 
 </div> -->
-<div class="row">
+<!-- <div class="row">
   <div class="column left">
  
   <div class="graphBox">
@@ -33,15 +33,15 @@
 
 </div>
 
-  </div> 
+  </div>  -->
 
   
   
-  <div class="column right">
+  <!-- <div class="column right"> -->
   <h2>EXPENSES</h2>
 <br><br>
 
-
+<div class="filter">
   <!-- search -->
   <div class="search-container">
 <div class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
@@ -59,6 +59,7 @@
     <div class="form-input-wrapper"> <input type="button" value="Refresh" class="refreshBtn" onclick="location.href='<?php echo URLROOT; ?>/Financial_Manager/viewExpense' "></div>
     </div>
   </form>
+  </div>
 
   <!-- refresh button -->
   
@@ -69,9 +70,8 @@
         <th>Expense ID</th>
         <th>Date</th>
         <th>Description</th>
-        <!-- <th>Vendor</th> -->
         <th>Amount </th>
-        <!-- <th>Action</th> -->
+      
       </thead>
       <tbody>
       <?php foreach ($data['expenseView'] as $expense) : ?>
@@ -91,8 +91,8 @@
 
 
   
-      </div>
-</div>
+      <!-- </div> -->
+<!-- </div> -->
 
 <?php require APPROOT.'/views/include/footer.php'; ?>
 <script src="<?php echo URLROOT; ?>/js/fm.js"></script>

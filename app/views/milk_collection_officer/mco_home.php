@@ -11,52 +11,64 @@ if(isset($_SESSION['popup_error'])){
   die();
 }
 
-
 ?>
+
+
 
 <!--cards-->
 <section class="cardBox">
   <div class="container">
     
+  <?php foreach ($data['internalMilk'] as $intMilk) : ?>
     <div class="card">
       <div>
-        <div class="cardName">Internal Milk Collection(L.)</div>
-        <div class="numbers">1548</div>
+        <div class="cardName">Farm Milk Collection(L.)</div>
+        <div class="numbers"><?php echo $intMilk; ?></div>
         <div class="day1">
-          <div class="circle"></div><label>last 30 days</label>
+          <!-- <div class="circle"></div><label>last 30 days</label> -->
         </div>
       </div>
     </div>
+    <?php endforeach; ?>
 
+  <?php foreach ($data['externalMilk'] as $extMilk) : ?>
     <div class="card">
       <div>
-        <div class="cardName">External Milk Collection(L.)</div>
-        <div class="numbers">420</div>
+        <div class="cardName">Supplier Milk Collection(L.)</div>
+        <div class="numbers"><?php echo $extMilk; ?></div>
         <div class="day2">
-          <div class="circle"></div><label>last 30 days</label>
+          <!-- <div class="circle"></div><label>last 30 days</label> -->
         </div>
       </div>
     </div>
+  <?php endforeach; ?>
+  
+  <?php $totMilk= $extMilk + $intMilk ?>
 
     <div class="card">
       <div>
         <div class="cardName">Total Milk Collection(L.)</div>
-        <div class="numbers">2345</div>
+        <div class="numbers"><?php echo number_format($totMilk,2); ?></div>
         <div class="day3">
-          <div class="circle"></div><label>last 30 days</label>
+          <!-- <div class="circle"></div><label>last 30 days</label> -->
         </div>
       </div>
     </div>
 
+  
+
+  <?php foreach ($data['supOrderCount'] as $supOrd) : ?>
     <div class="card">
       <div>
         <div class="cardName">Supply Orders</div>
-        <div class="numbers">124</div>
+        <div class="numbers"><?php echo $supOrd; ?></div>
         <div class="day4">
-          <div class="circle"></div><label>last 30 days</label>
+          <!-- <div class="circle"></div><label>last 30 days</label> -->
         </div>
       </div>
     </div>
+  <?php endforeach; ?>
+  
 
   </div>
 </section>
@@ -86,7 +98,7 @@ if(isset($_SESSION['popup_error'])){
         <tr>
           <td><?php echo $orderView->supplier_id; ?></td>
           <td><?php echo $orderView->quantity; ?></td>
-          <td><?php echo $orderView->supplying_address; ?></td>
+          <td><?php echo $orderView->address; ?></td>
           <td>
           <?php if($orderView->status == 'Collected') : ?>
             <span class="status collected">Collected</span>
