@@ -23,10 +23,20 @@
           $lastDate = $this->mcoModel->get_lastDate();
           $lastPrice = $this->mcoModel->get_lastPrice();
 
+          $internalMilk = $this->mcoModel->get_InternalMilkCollection();
+          $externalMilk = $this->mcoModel->get_ExternalMilkCollection();
+          // $totMilk = intval($internalMilk) + intval($externalMilk);
+          $supOrderCount = $this->mcoModel->get_supOrderCount();
+
           $data = [
             'orderView' => $todayOrderView,
             'lastDate' => strval($lastDate),
-            'lastPrice' => strval($lastPrice)
+            'lastPrice' => strval($lastPrice),
+
+            'internalMilk' => $internalMilk,
+            'externalMilk' => $externalMilk,
+            // 'totMilk' => $totMilk,
+            'supOrderCount' => $supOrderCount
 
           ];
           $this->view('milk_collection_officer/mco_home',$data);
@@ -106,25 +116,26 @@
         // Supplier order collected
         public function updateCollected($supplyOrderId)
         {
-          $collected = $this->mcoModel->updateCollected($supplyOrderId);
-
-          $data = [
-            'collected' => $collected
-          ];
+          if($this->mcoModel->updateCollected($supplyOrderId)) {
+            flash('update_status_success', 'Status updated successfully');
+            redirect('Milk_Collection_Officer/viewSupplyOrders');
+          }
+          else {
+            die('Something went wrong');
+          }
           
-          $this->view('milk_collection_officer/view_supplyOrders',$data);
         }
 
         // Supplier order rejected
         public function updateRejected($supplyOrderId)
         {
-          $rejected = $this->mcoModel->updateRejected($supplyOrderId);
-
-          $data = [
-            'rejected' => $rejected
-          ];
-          
-          $this->view('milk_collection_officer/view_supplyOrders',$data);
+          if($this->mcoModel->updateRejected($supplyOrderId)) {
+            flash('update_status_success', 'Status updated successfully');
+            redirect('Milk_Collection_Officer/viewSupplyOrders');
+          }
+          else {
+            die('Something went wrong');
+          }
         }
 
         //get the details of Suppliers
