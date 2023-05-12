@@ -269,7 +269,7 @@ function alert($msg) {
         
         $pdf->SetTextColor(255, 255, 255);
 
-        $pdf->Cell(60, 10, 'Revenue Id', 0 , 0, 'C',1);
+        $pdf->Cell(60, 10, 'Sale/Order Id', 0 , 0, 'C',1);
         $pdf->Cell(60, 10, 'Date', 0 , 0, 'C',1);
         $pdf->Cell(70, 10, 'Source of Revenue', 0 , 0, 'C',1);
         $pdf->Cell(30, 10, 'Amount', 0 , 0, 'C',1);
@@ -282,7 +282,7 @@ function alert($msg) {
         foreach ($rereportsView as $row) {
         
           
-            $pdf->Cell(60,10,$row->revenue_id, 0 , 0, 'C');
+            $pdf->Cell(60,10,$row->saleOrder_id, 0 , 0, 'C');
             $pdf->Cell(60,10,$row->date, 0 , 0, 'C');
             $pdf->Cell(70,10,$row->source, 0 , 0, 'C');
             $pdf->Cell(30,10,$row->amount, 0 , 0, 'C');
