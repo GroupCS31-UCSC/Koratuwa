@@ -12,33 +12,41 @@
   <button class="tablinksmilk <?= $stall==="STALL3"?'active':''?>" onclick="openTabmilk(event, 'STALL3')">Stall 03</button>
   <button class="tablinksmilk <?= $stall==="STALL4"?'active':''?>" onclick="openTabmilk(event, 'STALL4')">Stall 04</button>
 </div>
-
-<div class="flash-msg">
+<br>
+<!-- <div class="flash-msg">
   <?php flash('addMilk_flash') ?>
   <?php flash('updateMilk_flash') ?>
   <?php flash('deleteMilk_flash') ?>
-</div>
-
+</div> -->
+<h2>Cattle Milking</h2>
+<div class="filter">
 <div class="search-add">
-  <div class="search-area">
-    <!-- <form action="<?php echo URLROOT; ?>/Livestock_Manager/searchCattle" method="POST"> -->
-    <input type="text" id="searchInput3" placeholder="Search By Cow IDs..." onkeyup="searchFunc3();">
-      <!-- <span class="icon"><i class="fa-solid fa-search"></i></span> -->
-    <!-- </form> -->
-  </div>
+
+  <div class="search-container">
+
+<div class="search-icon"><button><i class="fa-solid fa-magnifying-glass"></i></button></div>
+
+<input type="text" id="searchInput3" placeholder="Search By Cow IDs..." onkeyup="searchFunc3();">
+     
+   </div> 
   <input type="button" value="Add New Milk" class="add-btn" onclick="location.href='<?php echo URLROOT; ?>/Livestock_Manager/addCattleMilking?Stall=<?=$stall?>' ">
 </div>
 
 <!-- date filter -->
   <form action="<?php echo URLROOT; ?>/Livestock_Manager/viewCattleMilking" method="POST" >
+ 
     <label for="from">From :</label>
     <input type="date" id="from" name="from" value="<?php echo $data['from']; ?>"><br>
     <label for="to">  To :</label>
     <input type="date" id="to" name="to" value="<?php echo $data['to']; ?>">
-    <input type="submit" value="Search" class="submitBtn"> 
+    <div class="form-input-container">
+    <div class="form-input-wrapper"><input type="submit" value="Search" class="submitBtn"> </div>
+    <div class="form-input-wrapper"><input type="button" value="Refresh" class="refreshBtn" onclick="location.href='<?php echo URLROOT; ?>/Livestock_Manager/viewCattleMilking' "></div>
+    </div>
+    </div>
   </form>
   <!-- refresh button -->
-  <input type="button" value="Refresh" class="addBtn" onclick="location.href='<?php echo URLROOT; ?>/Livestock_Manager/viewCattleMilking' ">
+ 
 
 
 <div id="Stall1" class="tabcontentmilk active">
