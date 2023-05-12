@@ -3,14 +3,14 @@
 <link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/public/css/financial_manager/revenues.css">
 
 
-<div class="row">
-  <div class="column left">
+<!-- <div class="row">
+  <div class="column left"> -->
 
    <h2>REVENUES</h2> 
 <br><br>
   <!-- search -->
 
-
+<div class="filter">
   <div class="search-container">
 <div class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
 <div class="search-box">  <input type="text" id="searchInput2" placeholder="Search By Revenue Type..." onkeyup="searchFunc2();"></div>
@@ -27,6 +27,7 @@
     <div class="form-input-wrapper"><input type="button" value="Refresh" class="refreshBtn" onclick="location.href='<?php echo URLROOT; ?>/Financial_Manager/viewRevenue' "></div>
     </div>
   </form>
+  </div>
 
   <!-- refresh button -->
  
@@ -34,23 +35,21 @@
  
   <table id="detailsTable2">
       <thead>
-        <th>Revenue ID</th>
+        <th>Sale/Order ID</th>
         <th>Date</th>
         <th>Source of Reveneue</th>
-        <!-- <th>Vendor</th> -->
         <th>Amount </th>
-        <!-- <th>Action</th> -->
+        
       </thead>
       <tbody>
 
       <?php foreach ($data['revenueView'] as $revenue) : ?>
       <tr>
-        <td><?php echo $revenue->revenue_id; ?></td>
+        <td><?php echo $revenue->saleOrder_id; ?></td>
         <td><?php echo $revenue->date; ?></td>
         <td><?php echo $revenue->source; ?></td>
         <td><?php echo $revenue->amount; ?></td>
-    
-
+        
         </div>
     </td>
     
@@ -60,10 +59,10 @@
     </table>
 
 
-  </div>
+  <!-- </div> -->
 
   
-  <div class="column right">
+  <!-- <div class="column right">
 
     
   <div class="graphBox">
@@ -79,8 +78,8 @@
 
 
   
-      </div>
-</div>
+      </div> -->
+<!-- </div> -->
 
 
 <!-- <div class="row">

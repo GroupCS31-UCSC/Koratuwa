@@ -50,16 +50,16 @@
    <table>
   <h1>Revenues</h1><br>
       <tr>
-        <th>Revenue ID</th>
+        <th>Sale/Order ID</th>
         <th>Date</th>
-        <th>Source of Revenue</th>
+        <th>Source of Reveneue</th>
         <th>Amount </th>
        
       </tr>
 
       <?php foreach ($data['rereportsView'] as $revenue) : ?>
       <tr>
-        <td><?php echo $revenue->revenue_id; ?></td>
+        <td><?php echo $revenue->saleOrder_id; ?></td>
         <td><?php echo $revenue->date; ?></td>
         <td><?php echo $revenue->source; ?></td>
         <td><?php echo $revenue->amount; ?></td>
