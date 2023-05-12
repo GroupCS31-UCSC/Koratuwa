@@ -41,7 +41,7 @@
                 <td>
                   <div class="table-btns">
                     <!-- <a href="#popup1"><button class="pendingBtn">Pending</button></a> -->
-                    <a href="#"><button class="pendingBtn" onclick="openModel2('<?=$ordView->supply_order_id?>')" id="<?php echo($data_index) ?>" >Pending</button></a>
+                    <button class="pendingBtn" onclick="openModel2('<?=$ordView->supply_order_id?>')" id="<?php echo($data_index) ?>" >Pending</button></button>
                   </div> 
                 </td>
               </tr>
@@ -65,14 +65,12 @@
             </div>          
             <div class="modal-footer">
               <div class="form-group">
-                <form action="<?php echo URLROOT?>/Milk_Collection_Officer/updateCollected/<?php echo $ordView->supply_order_id ?>">
+                <form id="update-form" action="<?php echo URLROOT?>/Milk_Collection_Officer/updateCollected/">
                   <input type="submit" class="collected" value="Accept">
                 </form>
-                <form action="<?php echo URLROOT?>/Milk_Collection_Officer/updateRejected/<?php echo $ordView->supply_order_id ?>">
+                <form id="reject-form" action="<?php echo URLROOT?>/Milk_Collection_Officer/updateRejected/">
                   <input type="submit" class="rejected" value="Reject">
                 </form>
-                <!-- <a href="<?php echo URLROOT?>/Milk_Collection_Officer/updateCollected/<?php echo $ordView->supply_order_id ?>"><button class="collected">Accept</button></a>
-                <a href="<?php echo URLROOT?>/Milk_Collection_Officer/updateRejected/<?php echo $ordView->supply_order_id ?>"><button class="rejected">Reject</button></a> -->
               </div>
             </div>
           </div>
@@ -145,12 +143,16 @@
 <script>
   function openModel2(id)
   {
+    const form = document.getElementById("update-form");
+    form.action = "<?php echo URLROOT?>/Milk_Collection_Officer/updateCollected/"+id;
+    const form2 = document.getElementById("reject-form");
+    form2.action = "<?php echo URLROOT?>/Milk_Collection_Officer/updateRejected/"+id;
+
     document.getElementById("model").classList.add("open-model");
-    
   }
   
   function closeModel(){
-      document.getElementById("model").classList.remove("open-model");
+      const model = document.getElementById("model").classList.remove("open-model");
   }
   
   
@@ -158,4 +160,4 @@
 
 
 <!-- <?php require APPROOT.'/views/include/footer.php'; ?> -->
-<script src="<?php echo URLROOT; ?>/js/mco.js"></script>
+<!-- <script src="<?php echo URLROOT; ?>/js/mco.js"></script> -->
