@@ -6,52 +6,20 @@
 
 
 
-<section class="sec1">
+<!-- <section class="sec1">
   <div class="heading">
   <h1 class="h">Koratuwa provides the<br> best value for you!</h1>
-    <!-- <div class="feature">
-
-      <div class="text">
-        <h1 class="h">Koratuwa provides the<br> best value for you!</h1>
-        <div class="text2">
-          <p>We appriciate you according to <br>your supply quality</p>
-          <ul>
-            <li>Good - 20% water presentage</li>
-            <li>Average - 40% water presentage</li>
-            <li>Bad - 50% water presentage</li>
-          </ul>
-        </div>
-      </div>
-      <button id="myBtn" class="place_order"><i class="fa-solid fa-truck-field"></i> Place Order</button>
-    </div> -->
-    <!-- <div class="feature">
-      <div class="model3">
-        <div class="container4">
-            <label class="label1">Today Purchasing Price</label>
-            <div class="items">
-              <h2>
-                RS. <span class="counter_up" data-number="95" data-speed="10000"></span>
-              </h2>
-            </div>
-        </div>
-      </div>
-    </div> -->
-
   </div> 
-</section>
-<!-- <div class="model4">
-        <div class="container4">
-          <label class="label1">Number of Suppliers</label>
-          <div class="items">
-            <h2>
-              <span class="counter_up" data-number="200" data-speed="10000"></span>
-            </h2>
-          </div>
-        </div>
-</div>    -->
+</section> -->
+
 
 
 <section class="sec2">
+  <div class="heading">
+    <h1 class="h">Koratuwa provides the<br> best value for you!</h1>
+    <button id="myBtn" class="place_order"><i class="fa-solid fa-truck-field"></i> Place Order</button>
+  </div>
+
   <div class="container">
 
     <div class="feature">
@@ -76,13 +44,50 @@
               </div>
           </div>
       </div>
-      <button id="myBtn" class="place_order"><i class="fa-solid fa-truck-field"></i> Place Order</button>
+      <!-- <button id="myBtn" class="place_order"><i class="fa-solid fa-truck-field"></i> Place Order</button> -->
     </div>
+    <?php
+    // $timestamp = time();
+    // $formatted_time = gmdate("H:i:s", $timestamp);
+    // echo $formatted_time;
+//     date_default_timezone_set('Asia/Colombo');
+//     $current_time = date("H:i:s");
+// echo $current_time;
+     ?>
+
+    <div class="feature">
+      <div class="title"><h1>Total Supply Milk </h1></div>
+        <svg viewBox="0 0 100 140">
+          <defs>
+            <filter id="goo">
+                  <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blur" />
+                  <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 5 -2" result="gooey" />
+                  <feComposite in="SourceGraphic" in2="gooey" operator="atop"/>
+            </filter>
+          </defs>
+          <rect id="box" x="10" y="0" width="80" height="0">
+            <animate attributeName="height" from="0" to="85" dur="2s" fill="freeze" begin="1s"/>
+            <animate attributeName="y" from="105" to="20" dur="2s" fill="freeze" begin="1s"/>
+          </rect>
+          <g>
+            <path class="glass" d="M0 0 L0 140 L100 140 L100 0">
+          </path>
+          <rect class="glass" x="0" y="110" width="100" height="30"/>
+          </g>
+        </svg>   
+        <div class="itemsDetails">
+          <h2>
+            <!-- display the total milk quantity of relavant supplier -->
+            <span class="counter_up" data-number="<?php echo($data['ordSum']) ?>" data-speed="10000"></span> L
+          </h2>
+        </div>   
+        
+      </div>
 
   </div>
 </section>
 
-<section class = "sec3">
+<!-- <section class = "sec3">
   <div class="container">
 
     <div class="feature">
@@ -108,7 +113,7 @@
     </div>
 
   </div>
-</section>
+</section> -->
 
 <!-- The Modal -->
 <div id="myModal" class="modal">
@@ -121,11 +126,14 @@
     </div>
     <div class="modal-body">
       <p></p><br>
-      <form action="<?php echo URLROOT; ?>/Supplier/supplierHome" method="POST">
+
+      <!-- <form action="<?php echo URLROOT; ?>/Supplier/supplierHome" method="POST"> -->
+      <form action="<?php echo URLROOT; ?>/Supplier/supplierHome" method="POST" onsubmit="return validateForm()">
+        <span class="form-invalid" style="color: red; display: none;" id="errTime"></span>
         <div class="form-input-title">Supply Quantity (LITER)</div>
-        <span class="form-invalid"><?php echo $data['quantity_err']; ?></span>
+        <span class="form-invalid" style="color: red; display: none;" id="errId">Required minimum 10L to place an Order</span>
         <input type="text" name="quantity" id="quantity" class="quantity" value="<?php echo $data['quantity']; ?>"><br>
-        <div class="submit_btn"><input type="submit" value="Submit" class="submitBtn"><br></div>
+        <div class="submit_btn"><input type="submit" id="submitBtn" value="Submit" class="submitBtn"><br></div>
       </form>
     </div>  
     <div class="modal-footer">
@@ -138,6 +146,36 @@
 <script>
  
   //--------------Model form---------------------------//
+const myInput = document.getElementById("quantity");
+const myError = document.getElementById("errId");
+const myError2 = document.getElementById("errTime");
+const mySubmit = document.getElementById("submitBtn");
+
+myInput.addEventListener("input", function() {
+  if (myInput.value < 10) {
+    myError.style.display = "inline";
+    mySubmit.disabled = true;
+  } else {
+    myError.style.display = "none";
+    mySubmit.disabled = false;
+  }
+});
+
+function validateForm() {
+      var current_time = new Date();
+      var specific_time = new Date();
+      specific_time.setHours(8, 0, 0); // set the specific time to 8 a.m.
+      if (current_time.getTime() > specific_time.getTime()) {
+        // alert("Error: Current time is less than 8 a.m.");
+        myError2.innerHTML = "You have to place orders before 8.00 am";
+        myError2.style.display = "inline";
+        mySubmit.disabled = true; // disable submit button
+        return false;
+      }
+      // If the current time is after 8 a.m., the form will be submitted normally
+      return true;
+    }
+
   // Get the modal
   var modal = document.getElementById("myModal");
 

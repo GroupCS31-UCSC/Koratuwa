@@ -41,6 +41,16 @@
 		<input type="text" name="address" id="address" class="address" value="<?php echo $data['address']; ?>">
 		<span class="form-invalid"><?php echo $data['address_err']; ?></span>
 
+		<!--Province-->
+    	<div class="form-input-title">Residential Area</div>
+		<!-- <input type="text" name="province" id="province" class="province" value="<?php echo $data['province']; ?>"> -->
+		<select class="province" name="province" id="province" value="<?php echo $data['province']; ?>">
+			<option value="Select">--Select--</option>
+			<option value="Western Province">Western Province</option>
+			<option value="Other">Other</option>
+		</select><br>
+		<span class="form-invalid"><?php echo $data['province_err']; ?></span>
+
 		<!--email-->
 		<div class="form-input-title">Email</div>
 		<input type="email" name="email" id="email" class="email" value="<?php echo $data['email']; ?>">

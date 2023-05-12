@@ -103,6 +103,8 @@
           {
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
             $purchasing_price=$this->supplierModel->find_purchasingPrice();
+            $supOrdSum= $this->supplierModel->get_supOrderSum();
+            $ordSum= strval($supOrdSum);
 
             $data = [
               'supply_order_id' => '',
@@ -118,12 +120,15 @@
               'total_payment' =>'',
               'supplier_id ' =>'',
               'invoice_id' =>'',
+              'ordSum'=> $ordSum,
               
 
               'quantity_err' => '',
               'date_err' => '',
-              'address_err' => ''
+              'address_err' => '',
+              'time_err' => ''
             ];
+
 
             //validation
             if (empty($data['quantity'])){
@@ -132,6 +137,33 @@
             elseif ($data['quantity'] <10) {
               $data['quantity_err'] = 'Required minimum 10L to place an Order' ;
             }
+
+            //validate time
+            // if(strtotime(time()) <= strtotime("08:00:00")){
+            //   $data['time_err'] = 'You have to place orders before 8.00 am' ;
+            // }
+            
+            date_default_timezone_set('Asia/Colombo');
+            $current_time = date("H:i:s");
+            // echo $current_time;
+
+            $time1 = new DateTime($current_time);
+            $time2 = new DateTime('08:00:00');
+
+            if ($time1 > $time2) {
+              $data['time_err'] = 'You have to place orders before 8.00 am';
+            } else {
+              $data['time_err'] = '';
+            }
+
+            // if ( $current_time <=  08:00:00){
+              // $timestamp = time();
+              // $formatted_time = gmdate("H:i:s", $timestamp);
+              // echo $formatted_time;
+       
+            // }
+            
+            
 
 
 
@@ -161,17 +193,20 @@
           {
             //get today milk purchasing price
             $purchasing_price=$this->supplierModel->find_purchasingPrice();
+            $supOrdSum= $this->supplierModel->get_supOrderSum();
+            $ordSum= strval($supOrdSum);
 
             //initial form loading
             $data = [
               'supOrderId' => '',
               'quantity' => '',
               'purchasing_price' => $purchasing_price,
-           
+              'ordSum'=> $ordSum,
 
               'quantity_err' => '',
               'date_err' => '',
-              'address_err' => ''
+              'address_err' => '',
+              'time_err' => ''
             ];
             $this->view('supplier/sup_home',$data);
           }
@@ -221,11 +256,15 @@
           $supOrder_Receipt= $this->supplierModel->get_supOrderReceipt($order_id);
           $pdf = generatePdf();
 
-          $pdf->AddPage('L','A4');
-        
+          $pdf->AddPage('P','A4');
+          
+
+          
           $pdf->SetFont('Arial', 'B', 18);
           $pdf->Cell(0, 10, 'Koratuwa Supplier Order Details', 0, 1, 'C');
-        
+          $pdf->Ln(10);
+          $pdf->Cell(0, 10, '', 0, 1, 'C');
+
           $pdfWidth = $pdf->GetPageWidth();
           $pdfHeight = $pdf->GetPageHeight();
           $pdf->Rect(5, 5, $pdfWidth-8, $pdfHeight-10, 'D'); 
@@ -234,32 +273,55 @@
           $pdf->SetTitle('Koratuwa Supplier Payment Details Report');
           $pdf->SetTextColor(255, 255, 255);
 
-          $pdf->Cell(60, 10, 'Supply Order Id', 1 , 0, 'C',1);
-          $pdf->Cell(60, 10, 'Supply Quantity (L)', 1 , 0, 'C',1);
-          $pdf->Cell(70, 10, 'Price Received Per Unit', 1 , 0, 'C',1);
-          $pdf->Cell(30, 10, 'Status', 1 , 0, 'C',1);
-          $pdf->Cell(30, 10, 'Quality', 1 , 0, 'C',1);
+          // $pdf->Cell(60, 10, 'Supply Order Id', 1 , 0, 'C',1);
+          // $pdf->Cell(60, 10, 'Supply Quantity (L)', 1 , 0, 'C',1);
+          // $pdf->Cell(70, 10, 'Price Received Per Unit', 1 , 0, 'C',1);
+          // $pdf->Cell(30, 10, 'Status', 1 , 0, 'C',1);
+          // $pdf->Cell(30, 10, 'Quality', 1 , 0, 'C',1);
           $pdf->Ln();
           
           $pdf->SetTextColor(0, 0, 0);
           
           $pdf->SetFont('Arial', '', 12);
-          foreach ($supOrder_Receipt as $row) {
+        //   foreach ($supOrder_Receipt as $row) {
         
           
-            $pdf->Cell(60,10,$row->supply_order_id, 1 , 0, 'C');
-            $pdf->Cell(60,10,$row->quantity, 1 , 0, 'C');
-            $pdf->Cell(70,10,'Rs. '.$row->unit_price, 1 , 0, 'C');
-            $pdf->Cell(30,10,$row->status, 1 , 0, 'C');
-            $pdf->Cell(30,10,$row->	quality, 1 , 0, 'C');
+        //     $pdf->Cell(60,10,$row->supply_order_id, 1 , 0, 'C');
+        //     $pdf->Cell(60,10,$row->quantity, 1 , 0, 'C');
+        //     $pdf->Cell(70,10,'Rs. '.$row->unit_price, 1 , 0, 'C');
+        //     $pdf->Cell(30,10,$row->status, 1 , 0, 'C');
+        //     $pdf->Cell(30,10,$row->	quality, 1 , 0, 'C');
             
            
             
-            $pdf->Ln();
-        }
+        //     $pdf->Ln();
+        // }
+        foreach ($supOrder_Receipt as $row) {
+          // Add rectangle around content
+          $pdf->Rect(10, $pdf->GetY(), $pdfWidth-20, 40, 'D');          
+          $pdf->SetFont('Arial', 'B', 12);
+          $pdf->Cell(0, 10, 'Supply Order ID: ' . $row->supply_order_id, 0, 1);
+      
+          $pdf->SetFont('Arial', '', 12);
+          $pdf->Cell(50, 10, 'Supply Quantity (L):');
+          $pdf->Cell(0, 10, $row->quantity, 0, 1);
+      
+          $pdf->Cell(50, 10, 'Price Received Per Unit:');
+          $pdf->Cell(0, 10, 'Rs. ' . $row->unit_price, 0, 1);
+      
+          $pdf->Cell(50, 10, 'Status:');
+          $pdf->Cell(0, 10, $row->status, 0, 1);
+      
+          $pdf->Cell(50, 10, 'Quality:');
+          $pdf->Cell(0, 10, $row->quality, 0, 1);
+      
+          $pdf->Ln(5);
+      }
+      
 
         $pdf->AliasNbPages();
         $pdf->SetFont('Arial', 'B', 12);
+        $pdf->SetY(260);
         $pdf->Cell(0, 10, 'Page ' . $pdf->PageNo() . ' of {nb}', 0, 0, 'C');
 
         // $pdf->Output();
@@ -289,7 +351,7 @@
          $pdf->Rect(5, 5, $pdfWidth-8, $pdfHeight-10, 'D');    
 
         $pdf->SetFont('Arial', 'B', 14);
-        $pdf->SetTitle('Sobawitha Payment Details Report');
+        $pdf->SetTitle('Koratuwa Payment Details Report');
         $pdf->SetTextColor(255, 255, 255);
        
 

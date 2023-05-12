@@ -94,7 +94,7 @@
     public function placeSupply($data)
     {
       // $data['date'] = date("Y-m-d");
-      $this->db->query('INSERT INTO supply_order(supply_order_id,quantity,supplier_id, invoice_id) VALUES(:supOrderId, :quantity,:supId, :invId)');
+      $this->db->query('INSERT INTO supply_order(supply_order_id,quantity,status,supplier_id, invoice_id) VALUES(:supOrderId, :quantity,"Ongoing",:supId, :invId)');
       //value binding
       $this->db->bind(':supOrderId', $data['supOrderId']);
       $this->db->bind(':quantity', $data['quantity']);
