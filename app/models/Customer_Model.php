@@ -196,6 +196,16 @@
     }
   }
 
+  public function get_itemView($saleId) {
+    $this->db->query('SELECT p.product_name, ps.quantity FROM product_sale as ps INNER JOIN online_order as oo ON ps.sale_id=oo.order_id INNER JOIN product as p ON p.product_id=ps.product_id WHERE ps.sale_id = :saleId;');
+ 
+    $this->db->bind(':saleId', $saleId);
+
+    $result = $this->db->resultSet();
+
+    return $result;
+  }
+
 
 }
 
