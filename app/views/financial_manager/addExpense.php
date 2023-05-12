@@ -40,7 +40,6 @@
       <option value="Select">Select</option>
       <option value="Production Cost">Production Cost</option>
       <option value="Transportation Cost">Transportation Cost</option>
-      <option value="Supplier Charges">Supplier Charges</option>
       <option value="Livestock Management Cost">Livestock Management Cost</option>
       <option value="Employee Management Cost">Employee Management Cost</option>
       <option value="Utility Cost">Utility Cost</option>

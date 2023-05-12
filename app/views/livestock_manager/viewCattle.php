@@ -15,18 +15,25 @@
 </div>
 
 
-<div class="flash-msg">
+<!-- <div class="flash-msg">
   <?php flash('addCattle_flash') ?>
   <?php flash('updateCattle_flash') ?>
   <?php flash('deleteCattle_flash') ?>
-</div>
+</div> -->
 
-<div class="search-add">
-  <div class="search-area">
-    <input type="text" id="searchInput" placeholder="Search By Cow IDs..." onkeyup="searchFunc();">
-  </div>
-  <input type="button" value="Add New Cattle" class="add-btn" onclick="location.href='<?php echo URLROOT; ?>/Livestock_Manager/addCattle?Stall=<?=$stall?>' ">
-</div>
+<br>
+<h2>Cattle</h2>
+  
+
+
+<div class="search-container">
+
+<div class="search-icon"><button><i class="fa-solid fa-magnifying-glass"></i></button></div>
+
+<input type="text" id="searchInput" placeholder="Search By Cow IDs..." onkeyup="searchFunc();">
+     
+   </div> 
+   <input type="button" value="Add New Cattle" class="add-btn" onclick="location.href='<?php echo URLROOT; ?>/Livestock_Manager/addCattle?Stall=<?=$stall?>' ">
 
 <div id="Stall1" class="tabcontent active">
   <div class="container" style="overflow-x: auto;">
