@@ -144,7 +144,7 @@
 
         public function deleteCartItem($time){
 
-        
+        // alert($time);
           if($this->customerModel->dltCartItems($time))
           {
             redirect('customer/cart');
@@ -200,23 +200,83 @@
       public function onlineOrd(){
 
         $ordId = $this->customerModel->generateordId();
+        $RId = $this->customerModel->generatReceiptId();
+        
         
         $data=[
           'order_id' => $ordId,
-          'payment' => $_POST['amount']
+          'payment' => $_POST['amount'],
+          'receipt_id' => $RId,
+          'products' => json_decode($_POST["products"]),
+          
         ];
 
         if($this->customerModel->onlineOrder($data))
         {
           // redirect('Customer/customerHome');
           $jsonObj=json_encode($data);
-          echo $jsonObj;
+          echo $data['products'];
         }
         else
         {
           die('Something went wrong');
         }
-       }
+      }
+
+      public function Orders()
+      {
+        if($_SERVER['REQUEST_METHOD'] == 'POST')
+        {
+          $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+          $from = isset($_POST['from']) ? $_POST['from'] : '';
+          $to = isset($_POST['to']) ? $_POST['to'] : '';
+
+          $status=$_GET['status'] ?? 'New Order';
+
+          $orderDetails= $this->customerModel->get_OrderDetailsByDate($status,$from,$to);
+
+          $data = [
+            'orderDetails' => $orderDetails,
+            'status' =>$status,
+            'from' => $from,
+            'to' => $to
+          ];
+          $this->view('customer/orders',$data);
+
+        }
+        else
+        {
+          $status=$_GET['status'] ?? 'New Order';
+          $orderDetails= $this->customerModel->get_OrderDetails($status);
+
+          $data = [
+            'orderDetails' => $orderDetails,
+            'status' => '',
+            'from' => '',
+            'to' => ''
+          ];
+          $this->view('customer/orders',$data);
+        }
+
+      }
+
+      // Update Order status
+      
+      public function updateStatus() {
+        $orderId = $_POST['order_id'];
+        $data = [
+          'orderId' => $orderId,
+          'status' => $status = 'Ongoing'
+        ];
+        if($this->customerModel->updateStatus($orderId)) {
+          flash('update_status_success', 'Status updated successfully');
+          redirect('Customer/Orders');
+        }
+        else {
+          die('Something went wrong');
+        }
+      }
 
     }
 

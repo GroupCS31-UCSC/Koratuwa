@@ -1,6 +1,7 @@
 <?php require APPROOT.'/views/include/header.php'; ?>
 
 <link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/public/css/mco/collection_details.css">
+<link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/public/css/admin/modelViews.css">
 <?php require APPROOT.'/views/admin/admin_dashboard.php';  ?>
 <!-- ______________________________________________________________________________________________________-->
 

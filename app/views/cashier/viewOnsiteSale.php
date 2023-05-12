@@ -46,27 +46,20 @@
       <th>Date</th>
       <th>Time</th>
       <th>Payment</th>
-      <!-- <th>Receipt ID</th> -->
       <th>Action</th>
     </thead>
     <tbody>
+    <?php $data_index = 0; ?>
     <tr>
-      <?php $data_index=0 ?>
       <?php foreach ($data ['onsiteSaleView'] as $onsite_sale) : ?>
       <td><?php echo $onsite_sale->sale_id ?></td>
       <td><?php echo $onsite_sale->sale_date ?></td>
       <td><?php echo $onsite_sale->sale_time ?></td>
       <td><?php echo $onsite_sale->total_payment ?></td>
-      <!-- <td><?php echo $onsite_sale->receipt_id ?></td> -->
       <td>
       <div class="table-btns">
-          <a href="#"><button class="viewBtn" onclick=""><i class="fas fa-eye"></i></button></a>
-        </div> 
-      <!-- <?php foreach ($data ['productSaleView'] as $product_sale) : ?> -->
-        <!-- <div class="table-btns">
-          <a href="#"><button class="viewBtn" onclick="openModel('<?=$product_sale->receipt_id?>')" id="<?php echo($data_index) ?>"><i class="fas fa-eye"></i></button></a>
-        </div> -->
-        <!-- <?php endforeach; ?> -->
+        <a href="#"><button class="viewBtn" onclick="openModel('<?=$onsite_sale->sale_id?>')" id="<?php echo($data_index) ?>"><i class="fas fa-eye"></i></button></a>
+      </div>
       </td>
     </tr>
     <?php $data_index++; ?> 
@@ -85,15 +78,7 @@
       </div>
       <div class="model-body">
         <table class="tableForm">
-          <tbody>
-            <tr>
-              <td>Product ID</td>
-              <td id="Model_Product_ID"></td>
-            </tr>
-            <tr>
-              <td>Quantity</td>
-              <td id="Model_Quantity"></td>
-            </tr>
+          <tbody id="productDetails">
           </tbody>           
         </table><br>
       </div>
@@ -108,7 +93,27 @@
 <?php require APPROOT.'/views/include/footer.php'; ?>
 
 <script>
-  function openModel(status) {
+  function openModel(id) {
+    const url = "/koratuwa/Cashier/getSaleItems/"+id;
+    const form = new FormData();
+    form.append("id", id);
+    fetch(url, {
+      method: "GET"
+    }).then(response => response.text())
+    .then(data => {
+      console.log(data);
+      if(data) {
+        const domp = new DOMParser();
+        const doc = domp.parseFromString(data, "text/html");
+        const productDetails = doc.getElementById("productDetails");
+        console.log(productDetails);
+        document.getElementById("productDetails").innerHTML = productDetails.innerHTML;
+        
+
+        document.getElementById("productDetails").innerHTML = productDetails.innerHTML;
+      }
+    });
+    document.getElementById("model").classList.add("open-model");
     
   }
 
