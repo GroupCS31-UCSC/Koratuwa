@@ -84,7 +84,7 @@
 <h1>Our Products</h1>
 <div class="gallery">
   <div class="content">
-  <img class="img-content" src="<?php echo URLROOT; ?>/img/milkbottle.jpeg" alt="no"> 
+  <img class="img-content" src="<?php echo URLROOT; ?>/img/fresh milk.png" alt="no"> 
   <h3>Fresh Milk</h3>
 
   <h6></h6>
@@ -113,7 +113,7 @@
  <button class="buy" onclick="location.href='<?php echo URLROOT; ?>/Users/registerCustomer' ">Buy Now</button>
 </div>
 <div class="content">
-  <img class="img-content" src="<?php echo URLROOT; ?>/img/y.png" alt="no"> 
+  <img class="img-content" src="<?php echo URLROOT; ?>/img/yoghurt.png" alt="no"> 
   <h3>Yoghurt</h3>
   
   <h6></h6>
@@ -128,7 +128,7 @@
 </div>
 
 <div class="content">
-  <img class="img-content" src="<?php echo URLROOT; ?>/img/cheese.jpeg" alt="no"> 
+  <img class="img-content" src="<?php echo URLROOT; ?>/img/cheese.png" alt="no"> 
   <h3>Cheese</h3>
   
   <h6></h6>

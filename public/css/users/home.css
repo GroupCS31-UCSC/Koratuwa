@@ -20,12 +20,10 @@
 
 .img-logo {
   position: relative; 
-   /* width: 130px;
+   width: 130px;
   height: 130px;
-  top: -15px;  */
-  width: 10%;
-  height: 120%;
-  top: -5%;
+  top: -15px;  
+  
 }
 
 .topmenu{
