@@ -12,11 +12,7 @@
   <input type="radio" id="tab1" name="mytabs" checked="checked">
     <label for="tab1">Ongoing Orders</label>
     <div class="tab">
-      <!-- <h2>Free</h2> -->
-      <p>
-        <!-- <div class="title1">
-        <h1>Ongoing Orders</h1>
-        </div> -->
+
           <div class="ongoingOrders">
   
           <table>
@@ -85,19 +81,14 @@
   <input type="radio" id="tab2" name="mytabs">
     <label for="tab2">Completed Orders</label>
     <div class="tab">
-      <!-- <h2>Free</h2> -->
-      <p>
-      <!-- <div class="title2">
-        <h1>Completed Orders</h1>
-      </div> -->
+    <div class="search-box"><input type="text" id="searchInput" placeholder="Search By Order IDs..." onkeyup="searchFunc();">
       <div class="pastOrders">
-        <table>
+        <table id="detailsTable">
           <tr>
             <th>Supply Order Id</th>
             <th>Supplier</th>
             <th>Quantity</th>
             <th>Unit Price</th>
-            <th>Quality</th>
             <th>Supply Date</th>
             <th>Status</th>
             <th>More</th>
@@ -111,7 +102,6 @@
             <td><?php echo $ordView->supplier_id; ?>       
             <td><?php echo $ordView->quantity; ?></td>
             <td><?php echo $ordView->unit_price; ?></td>
-            <td><?php echo $ordView->quality; ?></td>
             <td><?php echo $ordView->supply_date; ?></td>
             <td>
             <?php if($ordView->status == 'Collected') : ?>
@@ -159,5 +149,42 @@
 </script> 
 
 
-<!-- <?php require APPROOT.'/views/include/footer.php'; ?> -->
+<script>
+  //search for table 1-------------------------------------------------------------------------------------------------------------
+
+//search bar
+function searchFunc(){
+    //declare variables
+    var input,filter,table,tr,td,i,textValue;
+
+    input = document.getElementById("searchInput");
+
+    // to search case-sensitive
+    filter = input.value.toUpperCase();
+    table = document.getElementById("detailsTable");
+
+    tr = table.getElementsByTagName("tr");
+
+    //loop through all table rows and hide those don't match the search
+    for(i=0; i < tr.length; i++){
+        td=tr[i].getElementsByTagName("td")[0];
+        if(td){
+            textValue = td.textContent || td.innerText;
+
+            if(textValue.toUpperCase().indexOf(filter) > -1)
+            {
+                tr[i].style.display = "";
+            }
+            else{
+                tr[i].style.display = "none";
+            }
+        }
+    }
+}
+
+
+</script>
+
+
+<?php require APPROOT.'/views/include/footer.php'; ?>
 <!-- <script src="<?php echo URLROOT; ?>/js/mco.js"></script> -->

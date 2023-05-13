@@ -162,7 +162,7 @@ function adding(e) {
 
 function openModel1(id){
     // var id = data["id"];
-    const url ="/koratuwa/Milk_Collection_Officer/collectionDetails/"+id;
+    const url ="/koratuwa/Milk_Collection_officer/collectionDetails/"+id;
     const form = new FormData();
     form.append("id", id);
     fetch(url, {
@@ -357,4 +357,9 @@ function filter_rows(){
 
 
 }
+
+
+
+
+
 
