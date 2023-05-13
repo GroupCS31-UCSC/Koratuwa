@@ -30,33 +30,8 @@
     </select>
     <br>
 
-		<input type="submit" value="Submit" class="submitBtn" onclick="openPopup()">
+		<input type="submit" value="Submit" class="submitBtn">
 	</form>
 </div>
-
-<!-- update popup -->
-<div class="up-popup" id="popup">
-  <div class="up-popup-content">
-    <div class="up-popup-header">
-		<i class="fa fa-thumbs-up" aria-hidden="true"></i>
-    </div>
-    <div class="up-popup-body">
-      <h2>Cattle updated successfully</h2>
-    </div>
-  </div>
-  <div class="up-popup-footer">
-    <button class="up-popup-btn" onclick="closePopup()">OK</button>
-  </div>
-</div>
-
-<script>
-// Popup update
-function openPopup(){
-  document.getElementById("popup").classList.add("open-popup");
-}
-function closePopup(){
-  document.getElementById("popup").classList.remove("open-popup");
-}
-</script>
 
 <?php require APPROOT.'/views/include/footer.php'; ?>
