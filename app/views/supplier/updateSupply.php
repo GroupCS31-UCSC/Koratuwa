@@ -12,22 +12,23 @@
 			</div>
 			<br>
 
-			<form action="<?php echo URLROOT; ?>/Supplier/updateSupOrder/<?php echo $data['supOrderId']; ?>" method="POST">
+			<form action="<?php echo URLROOT; ?>/Supplier/updateSupOrder/<?php echo $data['supOrderId']; ?>" method="POST"  onsubmit="return validateForm()">
 
 				<!--quantity-->
+				<span class="form-invalid" style="color: red; display: none;" id="errTime"></span>
 				<div class="form-input-title">Supply Quantity (LITER)</div>
 				<span class="form-invalid"><?php echo $data['quantity_err']; ?></span>
 				<input type="text" name="quantity" id="quantity" class="quantity" value="<?php echo $data['quantity']; ?>">
 
 				<!--supply_date-->
-				<div class="form-input-title">Supply Date</div>
+				<!-- <div class="form-input-title">Supply Date</div>
 				<span class="form-invalid"><?php echo $data['date_err']; ?></span>
-				<input type="date" name="date" id="date" class="date" value="<?php echo $data['date']; ?>">
+				<input type="date" name="date" id="date" class="date" value="<?php echo $data['date']; ?>"> -->
 
 				<!--address-->
-				<div class="form-input-title">Address</div>
+				<!-- <div class="form-input-title">Address</div>
 				<span class="form-invalid"><?php echo $data['address_err']; ?></span>
-				<input type="text" name="address" id="address" class="address" value="<?php echo $data['address']; ?>">
+				<input type="text" name="address" id="address" class="address" value="<?php echo $data['address']; ?>"> -->
 
 				<br>
 				<input type="submit" value="Submit" class="submitBtn"><br>
@@ -37,5 +38,23 @@
 			
 		</div>  
 	
+<script>
+const myError2 = document.getElementById("errTime");
+const mySubmit = document.getElementById("submitBtn");
 
+function validateForm() {
+      var current_time = new Date();
+      var specific_time = new Date();
+      specific_time.setHours(8, 0, 0); // set the specific time to 8 a.m.
+      if (current_time.getTime() > specific_time.getTime()) {
+        // alert("Error: Current time is less than 8 a.m.");
+        myError2.innerHTML = "You have to update order quantity before 8.00 am";
+        myError2.style.display = "inline";
+        mySubmit.disabled = true; // disable submit button
+        return false;
+      }
+      // If the current time is after 8 a.m., the form will be submitted normally
+      return true;
+    }	
+</script>
 <?php require APPROOT.'/views/include/footer.php'; ?>
