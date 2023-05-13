@@ -37,6 +37,17 @@
       return $result;
     }
 
+    public function get_cattleMilkView($stallId=null) {
+      if($stallId == null) {
+        $this->db->query('SELECT * FROM cattle WHERE existence = 1 order by cow_id AND milking_status="Yes"');
+      } else {
+        $this->db->query('SELECT * FROM cattle WHERE milking_status="Yes" AND existence = 1 AND stall_id="'.$stallId.'" order by cow_id');
+      }  
+      $result = $this->db->resultSet();
+
+      return $result;
+    }
+
     public function getCattleById($cowId) {
       $this->db->query('SELECT * FROM cattle WHERE cow_id = :cowId AND existence = 1' );
       $this->db->bind(':cowId',$cowId);
@@ -189,15 +200,15 @@
       if($row) {
         $lastId = $row->feed_id;
       }
-      if(empty($lastId)) {
-        $id = 'F1';
+      if($lastId == '') {
+        $id = 'F00000001';
       } else {
         $id = substr($lastId, 1);
         $id = intval($id);
         $id++;
-        $id = 'F'.$id;
+        $id = 'F'.str_pad($id, 8, '0', STR_PAD_LEFT);
       }
-    
+
       return $id;
     }
   
@@ -276,19 +287,15 @@
       if($row) {
         $lastId=$row->milk_id;
       }
-      if($lastId == '')	{
-        $id='m1';
-      }
-      else {
-        if(strlen($lastId) == 2)
-          $id = substr($lastId, 1);
-        else
-          $id = substr($lastId, 2);
-        
+      if($lastId == '') {
+        $id = 'M00000001';
+      } else {
+        $id = substr($lastId, 1);
         $id = intval($id);
         $id++;
-        $id = 'm'.uniqid(); 
+        $id = 'M'.str_pad($id, 8, '0', STR_PAD_LEFT);
       }
+
       return $id;
     }
    
@@ -300,20 +307,15 @@
       if($row) {
         $lastId=$row->milk_collection_id;
       }
-      if($lastId == '')	{
-        $id='mc1';
-      }
-      else {
-        
-        if(strlen($lastId) == 3)
-          $id = substr($lastId, 2);
-        else
-          $id = substr($lastId, 3);
-        
+      if($lastId == '') {
+        $id = 'MC000001';
+      } else {
+        $id = substr($lastId, 1);
         $id = intval($id);
         $id++;
-        $id = 'mc'.uniqid();  
+        $id = 'MC'.str_pad($id, 6, '0', STR_PAD_LEFT);
       }
+
       return $id;
     }
 

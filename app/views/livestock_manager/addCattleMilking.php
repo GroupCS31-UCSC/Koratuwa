@@ -10,15 +10,7 @@
 	<br>
 	<form action="<?php echo URLROOT; ?>/Livestock_Manager/addCattleMilking" method="POST" enctype="multipart/form-data
     ">
-        <input type="hidden" name="stallId" value="<?php echo $stall;?>">
-        <!-- Cow Id -->
-        <!-- <div class="form-input-title">COW ID</div>
-        <span class="form-invalid"><?php echo $data[0]['cowId_err']; ?></span>
-        <label for="Select the Cattle"></label>
-        <?php $values = $data[1]?> -->
-        
-
-
+        <input type="hidden" name="stallId" value="<?php echo $stall;?>">   
         <table>
             <tr>
                 <th>COW ID</th>
@@ -33,28 +25,14 @@
                 <label for="Cattle" value="" name="cowId[]"><?=$cows->cow_id?></label>
                 </td>
                 <td>
-                <!-- <span class="form-invalid"><?php echo $data[0]['quantity_err']; ?></span> -->
                 <input type="hidden" name="stall" value="<?php echo $stall;?>">
-                <input type="number" id="<?php $cows->cow_id ?>" name="quantity[]" id="vaccinationQuantity" class="quantity" value="<?php echo $data[0]['quantity'];?>" required>
+                <input type="number" id="<?php $cows->cow_id ?>" name="quantity[]" id="quantity" class="quantity" value="<?php echo $data[0]['quantity'];?>" required>
                 </td>
             </tr>
             <?php endforeach;?>
             </tbody>
         </table>
-
-        <!-- <div class="form-input-title">COW ID</div>
-        <span class="form-invalid"><?php echo $data[0]['cowId_err']; ?></span>
-        <label for="Select the Cattle"></label> -->
-        <!-- <?php $values = $data[1]?>
-
-        <select name="cowId" id="cowId">
-            <?php foreach($values as $cow_id):?>
-                <option value="<?=$cow_id->cow_id?>" name="cowId"><?=$cow_id->cow_id?></option>
-            <?php endforeach;?>
-            
-        </select> -->
-    
-		<br>
+    	<br>
 		<input type="submit" value="Submit" class="submitBtn">
   </form>
 </div>
