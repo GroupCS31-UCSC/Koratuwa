@@ -12,13 +12,22 @@ section {
     max-height: 1000px;
     
 }
+.feature1 form{
+  margin-right: 12%;
+}
+.feature1 form .submitBtn{
+  width: 50%;
+  margin: 3% auto;
+}
 
 .feature1{
     display: inline-block;
     width: 100%;
     
 }
-
+.feature1 table{
+  margin-top: -50vh;
+}
 /* .feature2{
     display: inline-block;
     margin: 40px;
@@ -54,9 +63,7 @@ section {
   }
 }
 
-.table-container{
-    background-color:#ccffff;
-}
+
 
 /*--------------------------------------------*/
 .details{

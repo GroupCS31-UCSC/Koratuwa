@@ -139,7 +139,7 @@
             </div>            
     </div>
 </section>
-<footer>
+<!-- <footer>
         <div class="container">
             <ul>
               <li><a href="#">Home</a></li>
@@ -148,7 +148,7 @@
             </ul>
             <p>&copy; All rights reserved.</p>
         </div>
-</footer>
+</footer> -->
 
 <?php require APPROOT.'/views/include/footer.php'; ?>
 <script src="<?php echo URLROOT; ?>/js/customer.js"></script>
