@@ -96,7 +96,7 @@
           
           if($this->livestockModel->addCattle($data)) {
             
-            // flash('addCattle_flash','New cattle details are successfully added!');
+            flash('addCattle_flash','New cattle details are successfully added!');
             redirect('Livestock_Manager/viewCattle');
           }
           else {

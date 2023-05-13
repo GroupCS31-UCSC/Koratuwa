@@ -69,16 +69,17 @@
       <option value="STALL3">3</option>
       <option value="STALL4">4</option>
     </select>
-  </form>
-  <button type="submit" class="submitBtn" onclick="openPopup()">
+    <button type="submit" class="submitBtn">
   Submit
   </button>
+  </form>
+  
 
   <br>
 </div>
 
 <!-- Add popup -->
-<div class="add-popup" id="popup">
+<!-- <div class="add-popup" id="popup">
   <div class="add-popup-content">
     <div class="add-popup-header">
       <i class="fa fa-check-circle" aria-hidden="true"></i>
@@ -90,7 +91,7 @@
   <div class="add-popup-footer">
     <button class="add-popup-btn" onclick="closePopup()">OK</button>
   </div>
-</div>
+</div> -->
 
 
 <?php require APPROOT.'/views/include/footer.php'; ?>
@@ -135,15 +136,15 @@ genderSelect.addEventListener('change', function() {
 
 
 // Popup add
-function openPopup(){
+// function openPopup(){
   // e.preventDefault();
-  window.location.href = "<?php echo URLROOT; ?>/Livestock_Manager/viewCattle";
-  document.getElementById("popup").classList.add("open-popup");
+//   window.location.href = "<?php echo URLROOT; ?>/Livestock_Manager/viewCattle";
+//   document.getElementById("popup").classList.add("open-popup");
   
-}
-function closePopup(){
-  document.getElementById("popup").classList.remove("open-popup");
+// }
+// function closePopup(){
+//   document.getElementById("popup").classList.remove("open-popup");
   // window.location.href = "<?php echo URLROOT; ?>/Livestock_Manager/viewCattle";
-}
+// }
 
 </script>

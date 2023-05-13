@@ -15,15 +15,25 @@
 </div>
 
 
-<!-- <div class="flash-msg">
+<div class="flash-msg">
   <?php flash('addCattle_flash') ?>
   <?php flash('updateCattle_flash') ?>
   <?php flash('deleteCattle_flash') ?>
-</div> -->
+</div>
 
 <br>
 <h2>Cattle</h2>
   
+
+<script>
+  // Check if flash messages are present, then reload the page after a certain time
+  const flashMsgContainer = document.querySelector('.flash-msg');
+  if (flashMsgContainer) {
+    setTimeout(() => {
+      location.reload();
+    }, 3000); // Refresh after 3 seconds (adjust the time as per your preference)
+  }
+</script>
 
 
 <div class="search-container">
