@@ -4,6 +4,19 @@
 
 <script src="<?php echo URLROOT; ?>/js/lm.js"></script>
 
+<?php $addFeedFlash = flash('addFeed_flash'); ?>
+<?php $updateFeedFlash = flash('updateFeed_flash'); ?>
+<?php $deleteFeedFlash = flash('deleteFeed_flash'); ?>
+
+<?php if ($addFeedFlash || $updateFeedFlash || $deleteFeedFlash): ?>
+  <div class="flash-msg" style="display:block;" >
+    <?php echo $addFeedFlash; ?>
+    <?php echo $updateFeedFlash; ?>
+    <?php echo $deleteFeedFlash; ?>
+  </div>
+
+<?php endif; ?>
+
 <div class="section">
 <div class="feedDetails">
   <br><h2>Cattle Milking</h2>
@@ -27,11 +40,7 @@
   </table>
 </div>
 
-<!-- <div class="flash-msg">
-  <?php flash('addfeed_flash') ?>
-  <?php flash('updatefeed_flash') ?>
-  <?php flash('deletefeed_flash') ?>
-</div> -->
+
 
 <div class="refresh-add">
   <div class="refresh-area">
@@ -98,6 +107,13 @@
 </div>
 <script>
   getUniqueValuesFromColumn2();
+
+  const fm = document.getElementById('msg-flash');
+  fm.style.display = 'block';
+  setTimeout(function() {
+    fm.style.display = 'none';
+  }, 1000);
+  
 </script>
 
       

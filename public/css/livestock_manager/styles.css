@@ -17,6 +17,7 @@
 }
 
 .msg-flash{
+    display: block;
     background-color: rgb(255, 251, 232);
     color: rgb(82, 67, 0);
     padding: 20px 0;
