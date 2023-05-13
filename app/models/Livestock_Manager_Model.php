@@ -292,8 +292,7 @@
       } else {
         $id = substr($lastId, 1);
         $id = intval($id);
-        $id++;
-        $id = 'M'.str_pad($id, 8, '0', STR_PAD_LEFT);
+				$id = "M".($id+1);
       }
 
       return $id;
