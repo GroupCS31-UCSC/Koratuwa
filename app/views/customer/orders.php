@@ -186,7 +186,7 @@
     button.innerHTML = "Ongoing";
     button.style.backgroundColor = "rgb(93, 227, 184)";
   }
-
+  // Delivery
   function openDeliveredOrder(id) {
     const orderId = document.getElementById("newOrderId");
     orderId.value = id;
@@ -197,7 +197,7 @@
   function closeDeliveredOrder() {
     const model = document.getElementById("deliveredModel").classList.remove("open-model");
   }
-
+  // Feedback
   function openFeedback() {
     document.getElementById("feedbackModel").classList.add("open-model");
   }
