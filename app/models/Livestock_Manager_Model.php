@@ -310,10 +310,9 @@
       if($lastId == '') {
         $id = 'MC100001';
       } else {
-        $id = substr($lastId, 1);
-        $id = intval($id);
-        $id++;
-        $id = 'MC'.str_pad($id, 6, '0', STR_PAD_LEFT);
+        $id = substr($lastId, 2);
+				$id = intval($id);
+				$id = "MC".($id+1);
       }
 
       return $id;
