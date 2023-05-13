@@ -87,33 +87,7 @@
   </div>
 </section>
 
-<!-- <section class = "sec3">
-  <div class="container">
 
-    <div class="feature">
-      <div class="graphBox">
-
-          <div class="box">
-            <label><center>Quality</center></label>
-            <canvas id="quality"></canvas>
-          </div>
-
-      </div>       
-    </div>
-
-    <div class="feature">
-      <div class="text">
-            <p>We appriciate you according to <br>your supply quality</p>
-            <ul>
-              <li>Good - 20% water presentage</li>
-              <li>Average - 40% water presentage</li>
-              <li>Bad - 50% water presentage</li>
-            </ul>
-      </div>      
-    </div>
-
-  </div>
-</section> -->
 
 <!-- The Modal -->
 <div id="myModal" class="modal">
@@ -127,8 +101,8 @@
     <div class="modal-body">
       <p></p><br>
 
-      <!-- <form action="<?php echo URLROOT; ?>/Supplier/supplierHome" method="POST"> -->
-      <form action="<?php echo URLROOT; ?>/Supplier/supplierHome" method="POST" onsubmit="return validateForm()">
+      <form action="<?php echo URLROOT; ?>/Supplier/supplierHome" method="POST">
+      <!-- <form action="<?php echo URLROOT; ?>/Supplier/supplierHome" method="POST" onsubmit="return validateForm()"> -->
         <span class="form-invalid" style="color: red; display: none;" id="errTime"></span>
         <div class="form-input-title">Supply Quantity (LITER)</div>
         <span class="form-invalid" style="color: red; display: none;" id="errId">Required minimum 10L to place an Order</span>

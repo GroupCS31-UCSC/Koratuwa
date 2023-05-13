@@ -42,7 +42,11 @@
 
     public function get_supOrderView()
     {
-      $this->db->query('SELECT * FROM supply_order WHERE supplier_id = :supId');
+      // $this->db->query('SELECT * FROM supply_order WHERE supplier_id = :supId');
+      $this->db->query('SELECT supply_order.supply_order_id, supply_order.supplier_id, supply_order.quantity, supply_order.supply_date, supply_order.status,milk_purchasing_price.unit_price
+      FROM supply_order 
+      INNER JOIN milk_purchasing_price 
+      ON supply_order.supply_date = milk_purchasing_price.date WHERE supply_order.supplier_id= :supId');
       $this->db->bind(':supId',$_SESSION['user_id']);
 
       $result = $this->db->resultSet();
@@ -250,10 +254,13 @@
 
     public function get_supOrderReceipt($order_id)
     {
-      $this->db->query('SELECT * FROM supply_order WHERE supply_order_id = :supID');
-      $this->db->bind(':supID',$order_id);
+      // $this->db->query('SELECT * FROM supply_order WHERE supply_order_id = :supId');
+      $this->db->query('SELECT supply_order.supply_order_id, supply_order.supplier_id, supply_order.quantity, supply_order.supply_date,supply_order.time, supply_order.status,supply_order.total_payment,milk_purchasing_price.unit_price
+      FROM supply_order 
+      INNER JOIN milk_purchasing_price 
+      ON supply_order.supply_date = milk_purchasing_price.date WHERE supply_order.supply_order_id= :ordId');
+      $this->db->bind(':ordId',$order_id);
       $result = $this->db->resultSet();
-
       return $result;
     }
 

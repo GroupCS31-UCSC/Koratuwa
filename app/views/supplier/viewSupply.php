@@ -46,7 +46,7 @@
                 <option value="all"></option>
               </select>
             </th>
-            <th>Quality</th>
+
             <th>More</th>
         </thead>
         <tbody>
@@ -58,7 +58,6 @@
             <td><?php echo $supOrd->quantity; ?></td>
             <td><?php echo $supOrd->unit_price; ?></td>
             <td><?php echo $supOrd->status; ?></td>
-            <td><?php echo $supOrd->quality; ?></td>
             <td>
               <?php if($supOrd->status == 'Ongoing') : ?>
                 <div class="table-btns">
