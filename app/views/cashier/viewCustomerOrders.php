@@ -13,20 +13,27 @@
 
 <div class="section">
   <div class="tab">
-    <?php $status=$_GET['status']??'Ongoing';?>
-    <button class="tablinks <?= $status==="Ongoing"?'active':''?>" onclick="openTab(event, 'Ongoing')">Ongoing Orders</button>
+    <?php $status=$_GET['status']??'New Order';?>
     <button class="tablinks <?= $status==="New Order"?'active':''?>" onclick="openTab(event, 'New Order')">New Orders</button>
+    <button class="tablinks <?= $status==="Ongoing"?'active':''?>" onclick="openTab(event, 'Ongoing')">Ongoing Orders</button>
     <button class="tablinks <?= $status==="Delivered"?'active':''?>" onclick="openTab(event, 'Delivered')">Delivered Orders</button>
   </div>
 
   <div id="Ongoing" class="tabcontent active">
     <div class="container" style="overflow-x: auto;">
     <!-- search -->
+    <div class="serch">
+    <div class="search-container">
+    <div class="search-icon"><button><i class="fa-solid fa-magnifying-glass"></i></button></div>
     <input type="text" id="searchInput2" placeholder="Search By Order IDs..." onkeyup="searchFunc2();">
-    <br><br>
+    </div>
     <!-- search -->
+    <div class="search-container">
+    <div class="search-icon"><button><i class="fa-solid fa-magnifying-glass"></i></button></div>
     <input type="text" id="searchInput4" placeholder="Search By Customer IDs..." onkeyup="searchFunc4();">
-    <br><br>
+    </div>
+    </div>
+    
 
     <!--date filter -->
     <form action="<?php echo URLROOT; ?>/Cashier/viewCustomerOrders" method="POST" >
@@ -34,11 +41,17 @@
       <input type="date" id="from" name="from" value="<?php echo $data['from']; ?>"><br>
       <label for="to">  To :</label>
       <input type="date" id="to" name="to" value="<?php echo $data['to']; ?>">
+      <div class="form-input-container">
+      <div class="form-input-wrapper">
       <input type="submit" value="Search" class="submitBtn"> 
+      </div>
+      <div class="form-input-wrapper">
+        <!-- refresh button -->
+    <input type="button" value="Refresh" class="refreshBtn" onclick="location.href='<?php echo URLROOT; ?>/Cashier/viewCustomerOrders' ">
+      </div>
     </form>
-    <br><br>
-    <!-- refresh button -->
-    <input type="button" value="Refresh" class="" onclick="location.href='<?php echo URLROOT; ?>/Cashier/viewCustomerOrders' ">
+    </div>
+    
 
     <table id="detailsTable2">
       <thead>
