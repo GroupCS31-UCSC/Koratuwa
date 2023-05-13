@@ -106,12 +106,24 @@
       $this->db->bind(':orderId', $orderId);
       // $this->db->bind(':status', $data['status']);
 
-      if($this->db->execute()) {
-        return true;
+      if($this->db->execute())
+      {
+        $this->db->query('INSERT INTO cusorder_notification(order_id,seen) VALUES(:orderId, 0)');        $this->db->bind(':orderId', $orderId);
+
+        if($this->db->execute()) {
+          return true;
+        }
+        else {
+          return false;
+        }
+
       }
-      else {
+      else{
         return false;
       }
+
+
+      
     }
 
     public function viewOnsiteSaleById($saleId) {
