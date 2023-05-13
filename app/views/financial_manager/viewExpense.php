@@ -30,10 +30,10 @@
 
 <?php 
     // print_r($data['expenseChart']);
-    $propertyNames = array_keys(get_object_vars($data['expenseChart'][1]));
-    print_r( $data['expenseChart'][1]);   
-    print_r($data['expenseChart'][1]->{$propertyNames[0]}); //8000
-    echo "<br>";
+  //$propertyNames = array_keys(get_object_vars($data['expenseChart'][1]));
+    //print_r( $data['expenseChart'][1]);   
+    //print_r($data['expenseChart'][1]->{$propertyNames[0]}); //8000
+    //echo "<br>";
     // print_r($data['expenseChart'][0][$propertyNames[0]]);
     ?>
 

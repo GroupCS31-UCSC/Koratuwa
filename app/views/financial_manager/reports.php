@@ -60,7 +60,7 @@
       <?php foreach ($data['rereportsView'] as $revenue) : ?>
       <tr>
         <td><?php echo $revenue->saleOrder_id; ?></td>
-        <td><?php echo $revenue->date; ?></td>
+        <td><?php echo $revenue->revenue_date; ?></td>
         <td><?php echo $revenue->source; ?></td>
         <td><?php echo $revenue->amount; ?></td>
          

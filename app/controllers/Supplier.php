@@ -251,90 +251,140 @@
           
 
         }
+
         // getOrderReceipt one by one as PDF
-        public function getOrderReceipt($order_id){
-          $supOrder_Receipt= $this->supplierModel->get_supOrderReceipt($order_id);
-          $pdf = generatePdf();
+      //   public function getOrderReceipt($order_id){
+      //     $supOrder_Receipt= $this->supplierModel->get_supOrderReceipt($order_id);
+      //     // var_dump($supOrder_Receipt); die();
+      //     $pdf = generatePdf();
 
-          $pdf->AddPage('P','A4');
+      //     $pdf->AddPage('P','A4');
           
+      //     $pdf->SetFont('Arial', 'B', 18);
+      //     $pdf->Cell(0, 10, 'Koratuwa Supplier Order Details', 0, 1, 'C');
+  
+      //     $pdf->Ln(10);
+      //     $pdf->Cell(0, 10, '', 0, 1, 'C');
 
-          
-          $pdf->SetFont('Arial', 'B', 18);
-          $pdf->Cell(0, 10, 'Koratuwa Supplier Order Details', 0, 1, 'C');
-          $pdf->Ln(10);
-          $pdf->Cell(0, 10, '', 0, 1, 'C');
+      //     $pdfWidth = $pdf->GetPageWidth();
+      //     $pdfHeight = $pdf->GetPageHeight();
+      //     $pdf->Rect(5, 5, $pdfWidth-8, $pdfHeight-10, 'D'); 
 
-          $pdfWidth = $pdf->GetPageWidth();
-          $pdfHeight = $pdf->GetPageHeight();
-          $pdf->Rect(5, 5, $pdfWidth-8, $pdfHeight-10, 'D'); 
+      //     $pdf->SetFont('Arial', 'B', 14);
+      //     $pdf->SetTitle('Koratuwa Supplier Payment Details Report');
+      //     $pdf->SetTextColor(255, 255, 255);
 
-          $pdf->SetFont('Arial', 'B', 14);
-          $pdf->SetTitle('Koratuwa Supplier Payment Details Report');
-          $pdf->SetTextColor(255, 255, 255);
+      //     $pdf->Ln();
+          
+      //     $pdf->SetTextColor(0, 0, 0);
+          
+      //     $pdf->SetFont('Arial', '', 12);
 
-          // $pdf->Cell(60, 10, 'Supply Order Id', 1 , 0, 'C',1);
-          // $pdf->Cell(60, 10, 'Supply Quantity (L)', 1 , 0, 'C',1);
-          // $pdf->Cell(70, 10, 'Price Received Per Unit', 1 , 0, 'C',1);
-          // $pdf->Cell(30, 10, 'Status', 1 , 0, 'C',1);
-          // $pdf->Cell(30, 10, 'Quality', 1 , 0, 'C',1);
-          $pdf->Ln();
-          
-          $pdf->SetTextColor(0, 0, 0);
-          
-          $pdf->SetFont('Arial', '', 12);
-        //   foreach ($supOrder_Receipt as $row) {
-        
-          
-        //     $pdf->Cell(60,10,$row->supply_order_id, 1 , 0, 'C');
-        //     $pdf->Cell(60,10,$row->quantity, 1 , 0, 'C');
-        //     $pdf->Cell(70,10,'Rs. '.$row->unit_price, 1 , 0, 'C');
-        //     $pdf->Cell(30,10,$row->status, 1 , 0, 'C');
-        //     $pdf->Cell(30,10,$row->	quality, 1 , 0, 'C');
-            
+      //   foreach ($supOrder_Receipt as $row) {
+      //     // Add rectangle around content
+      //     // $pdf->Rect(10, $pdf->GetY(), $pdfWidth-20, 40, 'D');          
+      //     $pdf->SetFont('Arial', '', 12);
+      //     $pdf->Cell(0, 10, 'Supply Order ID: ' . $row->supply_order_id, 0, 1);
+      
+      //     $pdf->SetFont('Arial', '', 12);
+      //     $pdf->Cell(50, 10, 'Supply Quantity (L):');
+      //     $pdf->Cell(0, 10, $row->quantity, 0, 1);
+      
+      //     $pdf->Cell(50, 10, 'Price Received Per Unit:');
+      //     $pdf->Cell(0, 10, 'Rs. ' . $row->unit_price, 0, 1);
+
+      //     $pdf->Cell(50, 10, 'Date:');
+      //     $pdf->Cell(0, 10, $row->supply_date, 0, 1);
+
+      //     $pdf->Cell(50, 10, 'Time:');
+      //     $pdf->Cell(0, 10, $row->time, 0, 1);
+      
+      //     $pdf->Cell(50, 10, 'Status:');
+      //     $pdf->Cell(0, 10, $row->status, 0, 1);
+      
+      //     $pdf->Cell(50, 10, 'Total Payment:');
+      //     $pdf->Cell(0, 10, $row->total_payment, 0, 1);
+      
+      //     $pdf->Ln(5);
+      // }
+      
+
+      //   $pdf->AliasNbPages();
+      //   $pdf->SetFont('Arial', 'B', 12);
+      //   $pdf->SetY(260);
+      //   $pdf->Cell(0, 10, 'Page ' . $pdf->PageNo() . ' of {nb}', 0, 0, 'C');
+
+      //   // $pdf->Output();
+      //   $pdf->Output('Supplier Order Details.pdf', 'I');
            
-            
-        //     $pdf->Ln();
-        // }
+      //   $data=[
+      //   'supOrder_Receipt' =>  $supOrder_Receipt
+      //   ];
+    
+      //   $this->view('supplier/viewSupply',$data);
+      //   }
+      public function getOrderReceipt($order_id){
+        $supOrder_Receipt= $this->supplierModel->get_supOrderReceipt($order_id);
+        // var_dump($supOrder_Receipt); die();
+        $pdf = generatePdf();
+      
+        $pdf->AddPage('P','A4');
+      
+        // Set invoice title and header
+        $pdf->SetFont('Arial', 'B', 18);
+        $pdf->Cell(0, 10, 'Invoice', 0, 1, 'C');
+        $pdf->SetFont('Arial', '', 12);
+        $pdf->Cell(0, 10, 'Invoice Number: INV-' . $order_id, 0, 1, 'R');
+        $pdf->Ln(10);
+      
+        // Include customer details
+        $pdf->SetFont('Arial', 'B', 14);
+        $pdf->Cell(0, 10, 'Supplier Details', 0, 1);
+        $pdf->SetFont('Arial', '', 12);
+        $pdf->Cell(50, 10, 'Name:');
+        $pdf->Cell(0, 10, $_SESSION['user_name'], 0, 1);
+        $pdf->Cell(50, 10, 'Address:');
+        $pdf->Cell(0, 10, '123 Main St, Anytown, USA', 0, 1);
+        $pdf->Cell(50, 10, 'Email:');
+        $pdf->Cell(0, 10, 'john.doe@example.com', 0, 1);
+        $pdf->Ln(10);
+      
+        // Include order details
+        $pdf->SetFont('Arial', 'B', 14);
+        $pdf->Cell(0, 10, 'Order Details', 0, 1);
+      
         foreach ($supOrder_Receipt as $row) {
-          // Add rectangle around content
-          $pdf->Rect(10, $pdf->GetY(), $pdfWidth-20, 40, 'D');          
-          $pdf->SetFont('Arial', 'B', 12);
-          $pdf->Cell(0, 10, 'Supply Order ID: ' . $row->supply_order_id, 0, 1);
-      
           $pdf->SetFont('Arial', '', 12);
-          $pdf->Cell(50, 10, 'Supply Quantity (L):');
-          $pdf->Cell(0, 10, $row->quantity, 0, 1);
+          $pdf->Cell(50, 10, 'Product:');
+          $pdf->Cell(0, 10, 'Fuel', 0, 1);
       
-          $pdf->Cell(50, 10, 'Price Received Per Unit:');
+          $pdf->Cell(50, 10, 'Quantity:');
+          $pdf->Cell(0, 10, $row->quantity . ' L', 0, 1);
+      
+          $pdf->Cell(50, 10, 'Price per Unit:');
           $pdf->Cell(0, 10, 'Rs. ' . $row->unit_price, 0, 1);
       
-          $pdf->Cell(50, 10, 'Status:');
-          $pdf->Cell(0, 10, $row->status, 0, 1);
-      
-          $pdf->Cell(50, 10, 'Quality:');
-          $pdf->Cell(0, 10, $row->quality, 0, 1);
+          $pdf->Cell(50, 10, 'Total Payment:');
+          $pdf->Cell(0, 10, 'Rs. ' . $row->total_payment, 0, 1);
       
           $pdf->Ln(5);
-      }
-      
-
-        $pdf->AliasNbPages();
-        $pdf->SetFont('Arial', 'B', 12);
-        $pdf->SetY(260);
-        $pdf->Cell(0, 10, 'Page ' . $pdf->PageNo() . ' of {nb}', 0, 0, 'C');
-
-        // $pdf->Output();
-        $pdf->Output('Supplier Order Details.pdf', 'I');
-           
-        $data=[
-        'supOrder_Receipt' =>  $supOrder_Receipt
-        ];
-    
-        $this->view('supplier/viewSupply',$data);
         }
-         
-
+      
+        // Include footer with total amount due
+        $pdf->SetFont('Arial', 'B', 14);
+        $pdf->SetY(-40);
+        $pdf->Cell(0, 10, 'Total Amount Due: Rs. ' . $row->total_payment, 0, 1, 'R');
+      
+        // Set output filename and type
+        $pdf->Output('Invoice-' . $order_id . '.pdf', 'I');
+      
+        // Render view with order details
+        $data=[
+          'supOrder_Receipt' =>  $supOrder_Receipt
+        ];
+        $this->view('supplier/viewSupply',$data);
+      }
+                     
 
         public function generateSupplyReport(){
           $supOrderView= $this->supplierModel->get_supOrderView();
