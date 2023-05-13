@@ -13,11 +13,19 @@
   <button class="tablinksmilk <?= $stall==="STALL4"?'active':''?>" onclick="openTabmilk(event, 'STALL4')">Stall 04</button>
 </div>
 <br>
-<!-- <div class="flash-msg">
-  <?php flash('addMilk_flash') ?>
-  <?php flash('updateMilk_flash') ?>
-  <?php flash('deleteMilk_flash') ?>
-</div> -->
+
+<?php $addMilkFlash = flash('addMilk_flash'); ?>
+<?php $updateMilkFlash = flash('updateMilk_flash'); ?>
+<?php $deleteMilkFlash = flash('deleteMilk_flash'); ?>
+
+<?php if ($addMilkFlash || $updateMilkFlash || $deleteMilkFlash): ?>
+  <div class="flash-msg" style="display:block;" >
+    <?php echo $addMilkFlash; ?>
+    <?php echo $updateMilkFlash; ?>
+    <?php echo $deleteMilkFlash; ?>
+  </div>
+<?php endif; ?>
+
 <h2>Cattle Milking</h2>
 <div class="filter">
 <div class="search-add">
@@ -97,3 +105,11 @@
 
 <?php require APPROOT.'/views/include/footer.php'; ?>
 <script src="<?php echo URLROOT; ?>/js/lm.js"></script>
+
+<script>
+  const fm = document.getElementById('msg-flash');
+  fm.style.display = 'block';
+  setTimeout(function() {
+    fm.style.display = 'none';
+  }, 1000);
+</script>

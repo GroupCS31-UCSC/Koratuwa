@@ -4,9 +4,17 @@
 <!-- ______________________________________________________________________________________________________-->
 <!-- navigation bar ------>
   <!-- <img class="img-bg" src="<?php echo URLROOT; ?>/img/sup2.jpg" alt="no"> -->
-   <?php flash('placeSupply_flash') ?>
-  <?php flash('dltSupOrder_flash') ?>
-  <?php flash('updateSupply_flash') ?>
+  <?php $placeSupplyFlash = flash('placeSupply_flash'); ?>
+  <?php $dltSupOrderFlash = flash('dltSupOrder_flash'); ?>
+  <?php $updateSupplyFlash = flash('updateSupply_flash'); ?>
+
+  <?php if($placeSupplyFlash || $dltSupOrderFlash || $updateSupplyFlash): ?>
+    <div class="flash-msg" id="msg-flash" style="display:block;" >
+      <?php echo $placeSupplyFlash; ?>
+      <?php echo $dltSupOrderFlash; ?>
+      <?php echo $updateSupplyFlash; ?>
+    </div>
+  <?php endif; ?>
   <!-- <div class="tabel_content"> -->
 
     
@@ -160,6 +168,14 @@
 <?php require APPROOT.'/views/include/footer.php'; ?>
 </div> -->
 <script src="<?php echo URLROOT; ?>/js/supplier.js"></script>
+
+<script>
+  const fm = document.getElementById('msg-flash');
+  fm.style.display = 'block';
+  setTimeout(function() {
+    fm.style.display = 'none';
+  }, 1000);
+</script>
 
 
 

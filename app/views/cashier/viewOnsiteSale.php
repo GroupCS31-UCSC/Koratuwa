@@ -3,13 +3,6 @@
 <link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/public/css/cashier/viewSale.css">
 
 
-<div class="flash-msg">
-  <?php flash('addSale_flash') ?>
-  <?php flash('updateSale_flash') ?>
-  <?php flash('deleteSale_flash') ?>
-</div>
-
-
 <div class="search-add">
   <div class="search-area">
     <form action="<?php echo URLROOT; ?>/Cashier/searchReceipt" method="POST">

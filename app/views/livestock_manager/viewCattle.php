@@ -20,21 +20,13 @@
 <?php $deleteCattleFlash = flash('deleteCattle_flash'); ?>
 
 <?php if ($addCattleFlash || $updateCattleFlash || $deleteCattleFlash): ?>
-  <div class="flash-msg">
+  <div class="flash-msg" style="display:block;" >
     <?php echo $addCattleFlash; ?>
     <?php echo $updateCattleFlash; ?>
     <?php echo $deleteCattleFlash; ?>
   </div>
 
-  <script>
-  // Check if flash messages are present, then reload the page after a certain time
-  const flashMsgContainer = document.querySelector('.flash-msg');
-  if (flashMsgContainer) {
-    setTimeout(() => {
-      location.reload();
-    }, 3000); // Refresh after 3 seconds (adjust the time as per your preference)
-  }
-</script>
+
 <?php endif; ?>
 
 <br>
@@ -200,7 +192,12 @@
     document.getElementById("deleteModel").classList.remove("open-deleteModel");
   }
 
-  
+  const fm = document.getElementById('msg-flash');
+  fm.style.display = 'block';
+  setTimeout(function() {
+    fm.style.display = 'none';
+  }, 1000);
+
 </script>
 
 

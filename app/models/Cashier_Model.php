@@ -30,7 +30,7 @@
       }
 
       if($lastId == '') {
-        $id = 'S00000001';
+        $id = 'S10000001';
       } else {
         $id = substr($lastId, 1);
         $id = intval($id);
@@ -106,12 +106,24 @@
       $this->db->bind(':orderId', $orderId);
       // $this->db->bind(':status', $data['status']);
 
-      if($this->db->execute()) {
-        return true;
+      if($this->db->execute())
+      {
+        $this->db->query('INSERT INTO cusorder_notification(order_id,seen) VALUES(:orderId, 0)');        $this->db->bind(':orderId', $orderId);
+
+        if($this->db->execute()) {
+          return true;
+        }
+        else {
+          return false;
+        }
+
       }
-      else {
+      else{
         return false;
       }
+
+
+      
     }
 
     public function viewOnsiteSaleById($saleId) {
