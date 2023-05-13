@@ -125,7 +125,7 @@
         $from = isset($_POST['from']) ? $_POST['from'] : '';
         $to = isset($_POST['to']) ? $_POST['to'] : '';
 
-        $status=$_GET['status'] ?? 'Ongoing';
+        $status=$_GET['status'] ?? 'New Order';
         $onlineOrderView= $this->cashierModel->onlineOrder_duration($status, $from, $to);
         $data = [
           'onlineOrderView' => $onlineOrderView,
@@ -137,7 +137,7 @@
       }
       else
       {
-        $status=$_GET['status'] ?? 'Ongoing';
+        $status=$_GET['status'] ?? 'New Order';
         $onlineOrderView= $this->cashierModel->get_onlineOrderView($status);
         $data = [
           'onlineOrderView' => $onlineOrderView,

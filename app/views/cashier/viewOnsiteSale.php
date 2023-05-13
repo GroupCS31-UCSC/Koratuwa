@@ -2,35 +2,32 @@
 <?php require APPROOT.'/views/cashier/cashier_dashboard.php'; ?>
 <link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/public/css/cashier/viewSale.css">
 
+<h2>Onsite Sales</h2><br>
 
 <div class="search-add">
-  <div class="search-area">
-    <form action="<?php echo URLROOT; ?>/Cashier/searchReceipt" method="POST">
-      <!-- <input type="text" name="search" id="search" class="search" placeholder="Search by Receipt Id"> -->
-      <!-- <span class="icon"><i class="fa-solid fa-search"></i></span> -->
-    </form>
+  <div class="search-container">
+    <div class="search-icon"><button><i class="fa-solid fa-magnifying-glass"></i></button></div>
+    <input type="text" id="searchInput" placeholder="Search By Sale IDs..." onkeyup="searchFunc();">
   </div>
-
-
-  <!-- search -->
-  <input type="text" id="searchInput" placeholder="Search By Sale IDs..." onkeyup="searchFunc();">
   
+  <input type="button" value="Add Sale" class="add-btn" onclick="location.href='<?php echo URLROOT; ?>/Cashier/cashierHome' ">
+  </div>
   <!--date filter -->
   <form action="<?php echo URLROOT; ?>/Cashier/viewOnsiteSale" method="POST" >
     <label for="from">From :</label>
     <input type="date" id="from" name="from" value="<?php echo $data['from']; ?>"><br>
     <label for="to">  To :</label>
     <input type="date" id="to" name="to" value="<?php echo $data['to']; ?>">
+    <div class="form-input-container">
+    <div class="form-input-wrapper">
     <input type="submit" value="Search" class="submitBtn"> 
+    </div>
+    <div class="form-input-wrapper">
+    <!-- refresh button -->
+      <input type="button" value="Refresh" class="refreshBtn" onclick="location.href='<?php echo URLROOT; ?>/Cashier/viewOnsiteSale' ">
+    </div>
   </form>
-
-  <!-- refresh button -->
-  <input type="button" value="Refresh" class="" onclick="location.href='<?php echo URLROOT; ?>/Cashier/viewOnsiteSale' ">
-
-
-
-  <input type="button" value="Add Sale" class="add-btn" onclick="location.href='<?php echo URLROOT; ?>/Cashier/cashierHome' ">
-</div>
+</div>  
 
 <div class="container" style="overflow-x: auto;">
     <table id="detailsTable">
