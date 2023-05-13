@@ -80,7 +80,7 @@
 
 
 <!-- notification view box -->
-<!-- <div class="notifyBox" id="notifyBox">
+<div class="notifyBox" id="notifyBox">
   <?php foreach ($data[0]['notifications'] as $notifi) : ?>
     <div class="comment-box">
       <div class="box-top">
@@ -95,11 +95,11 @@
       </div>
     </div>
   <?php endforeach; ?>
-</div> -->
+</div>
 
 
 <!-- notification -->
-<!-- <script>
+<script>
   const noti = document.getElementById('notifyBox');
   let isBellClicked = true;
 
@@ -113,7 +113,7 @@
       isBellClicked= true;
     }
   }
-</script> -->
+</script>
 
 
 
