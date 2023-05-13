@@ -201,7 +201,7 @@
         $lastId = $row->feed_id;
       }
       if($lastId == '') {
-        $id = 'F00000001';
+        $id = 'F10000001';
       } else {
         $id = substr($lastId, 1);
         $id = intval($id);
@@ -288,7 +288,7 @@
         $lastId=$row->milk_id;
       }
       if($lastId == '') {
-        $id = 'M00000001';
+        $id = 'M10000001';
       } else {
         $id = substr($lastId, 1);
         $id = intval($id);
@@ -308,7 +308,7 @@
         $lastId=$row->milk_collection_id;
       }
       if($lastId == '') {
-        $id = 'MC000001';
+        $id = 'MC100001';
       } else {
         $id = substr($lastId, 1);
         $id = intval($id);
