@@ -10,7 +10,7 @@
   <!-- <div class="tabel_content"> -->
 
     
-<section class="table-container">
+
   
   <div class="container">
 
@@ -83,48 +83,6 @@
       </table>      
     </div>
   </div>
-</section>
-<!-- <section class="details">
-  <div class="container">
-    <div class="feature2">
-      <div class="title"><h1>Total Supply Milk </h1></div>
-      <svg viewBox="0 0 100 140">
-        <defs>
-          <filter id="goo">
-                <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blur" />
-                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 5 -2" result="gooey" />
-                <feComposite in="SourceGraphic" in2="gooey" operator="atop"/>
-          </filter>
-        </defs>
-        <rect id="box" x="10" y="0" width="80" height="0">
-          <animate attributeName="height" from="0" to="85" dur="2s" fill="freeze" begin="1s"/>
-          <animate attributeName="y" from="105" to="20" dur="2s" fill="freeze" begin="1s"/>
-        </rect>
-        <g>
-          <path class="glass" d="M0 0 L0 140 L100 140 L100 0">
-        </path>
-        <rect class="glass" x="0" y="110" width="100" height="30"/>
-        </g>
-      </svg>   
-      <div class="items">
-        <h2>
-          
-          <span class="counter_up" data-number="<?php echo($data['ordSum']) ?>" data-speed="10000"></span> L
-        </h2>
-      </div>   
-    </div>
-
-    <div class="feature2">
-      <div class="graphBox">
-        <div class="box">
-          <label><center>Quality</center></label>
-          <canvas id="quality"></canvas>
-        </div>
-      </div>      
-    </div>
-
-  </div>
-</section> -->
 
 
 <!----------------- popup view ---------------->
@@ -199,8 +157,9 @@
     </script>
 
 <!-- for table - status column FILTER -->
-
+<!-- <div class="foot">
 <?php require APPROOT.'/views/include/footer.php'; ?>
+</div> -->
 <script src="<?php echo URLROOT; ?>/js/supplier.js"></script>
 
 

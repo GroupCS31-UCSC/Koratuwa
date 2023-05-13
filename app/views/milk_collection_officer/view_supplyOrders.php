@@ -12,11 +12,7 @@
   <input type="radio" id="tab1" name="mytabs" checked="checked">
     <label for="tab1">Ongoing Orders</label>
     <div class="tab">
-      <!-- <h2>Free</h2> -->
-      <p>
-        <!-- <div class="title1">
-        <h1>Ongoing Orders</h1>
-        </div> -->
+
           <div class="ongoingOrders">
   
           <table>
@@ -41,7 +37,7 @@
                 <td>
                   <div class="table-btns">
                     <!-- <a href="#popup1"><button class="pendingBtn">Pending</button></a> -->
-                    <a href="#"><button class="pendingBtn" onclick="openModel2('<?=$ordView->supply_order_id?>')" id="<?php echo($data_index) ?>" >Pending</button></a>
+                    <button class="pendingBtn" onclick="openModel2('<?=$ordView->supply_order_id?>')" id="<?php echo($data_index) ?>" >Pending</button></button>
                   </div> 
                 </td>
               </tr>
@@ -65,14 +61,12 @@
             </div>          
             <div class="modal-footer">
               <div class="form-group">
-                <form action="<?php echo URLROOT?>/Milk_Collection_Officer/updateCollected/<?php echo $ordView->supply_order_id ?>">
+                <form id="update-form" action="<?php echo URLROOT?>/Milk_Collection_Officer/updateCollected/">
                   <input type="submit" class="collected" value="Accept">
                 </form>
-                <form action="<?php echo URLROOT?>/Milk_Collection_Officer/updateRejected/<?php echo $ordView->supply_order_id ?>">
+                <form id="reject-form" action="<?php echo URLROOT?>/Milk_Collection_Officer/updateRejected/">
                   <input type="submit" class="rejected" value="Reject">
                 </form>
-                <!-- <a href="<?php echo URLROOT?>/Milk_Collection_Officer/updateCollected/<?php echo $ordView->supply_order_id ?>"><button class="collected">Accept</button></a>
-                <a href="<?php echo URLROOT?>/Milk_Collection_Officer/updateRejected/<?php echo $ordView->supply_order_id ?>"><button class="rejected">Reject</button></a> -->
               </div>
             </div>
           </div>
@@ -87,19 +81,14 @@
   <input type="radio" id="tab2" name="mytabs">
     <label for="tab2">Completed Orders</label>
     <div class="tab">
-      <!-- <h2>Free</h2> -->
-      <p>
-      <!-- <div class="title2">
-        <h1>Completed Orders</h1>
-      </div> -->
+    <div class="search-box"><input type="text" id="searchInput" placeholder="Search By Order IDs..." onkeyup="searchFunc();">
       <div class="pastOrders">
-        <table>
+        <table id="detailsTable">
           <tr>
             <th>Supply Order Id</th>
             <th>Supplier</th>
             <th>Quantity</th>
             <th>Unit Price</th>
-            <th>Quality</th>
             <th>Supply Date</th>
             <th>Status</th>
             <th>More</th>
@@ -113,7 +102,6 @@
             <td><?php echo $ordView->supplier_id; ?>       
             <td><?php echo $ordView->quantity; ?></td>
             <td><?php echo $ordView->unit_price; ?></td>
-            <td><?php echo $ordView->quality; ?></td>
             <td><?php echo $ordView->supply_date; ?></td>
             <td>
             <?php if($ordView->status == 'Collected') : ?>
@@ -145,17 +133,58 @@
 <script>
   function openModel2(id)
   {
+    const form = document.getElementById("update-form");
+    form.action = "<?php echo URLROOT?>/Milk_Collection_Officer/updateCollected/"+id;
+    const form2 = document.getElementById("reject-form");
+    form2.action = "<?php echo URLROOT?>/Milk_Collection_Officer/updateRejected/"+id;
+
     document.getElementById("model").classList.add("open-model");
-    
   }
   
   function closeModel(){
-      document.getElementById("model").classList.remove("open-model");
+      const model = document.getElementById("model").classList.remove("open-model");
   }
   
   
 </script> 
 
 
-<!-- <?php require APPROOT.'/views/include/footer.php'; ?> -->
-<script src="<?php echo URLROOT; ?>/js/mco.js"></script>
+<script>
+  //search for table 1-------------------------------------------------------------------------------------------------------------
+
+//search bar
+function searchFunc(){
+    //declare variables
+    var input,filter,table,tr,td,i,textValue;
+
+    input = document.getElementById("searchInput");
+
+    // to search case-sensitive
+    filter = input.value.toUpperCase();
+    table = document.getElementById("detailsTable");
+
+    tr = table.getElementsByTagName("tr");
+
+    //loop through all table rows and hide those don't match the search
+    for(i=0; i < tr.length; i++){
+        td=tr[i].getElementsByTagName("td")[0];
+        if(td){
+            textValue = td.textContent || td.innerText;
+
+            if(textValue.toUpperCase().indexOf(filter) > -1)
+            {
+                tr[i].style.display = "";
+            }
+            else{
+                tr[i].style.display = "none";
+            }
+        }
+    }
+}
+
+
+</script>
+
+
+<?php require APPROOT.'/views/include/footer.php'; ?>
+<!-- <script src="<?php echo URLROOT; ?>/js/mco.js"></script> -->

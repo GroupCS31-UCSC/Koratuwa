@@ -199,8 +199,11 @@ FROM supply_order
 INNER JOIN supplier 
 ON supply_order.supplier_id = supplier.supplier_id WHERE supply_order.supply_date=CURDATE();
 
-
-
+//supply order details join
+SELECT supply_order.supply_order_id, supply_order.supplier_id, supply_order.quantity, supply_order.supply_date, supply_order.status
+FROM supply_order 
+INNER JOIN milk_purchasing_price 
+ON supply_order.supply_date = milk_purchasing_price.date WHERE supply_order.status="Ongoing"
 
 
 

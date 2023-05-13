@@ -6,7 +6,7 @@
 <div class="full-container">
     <div class="topnavbar">
         <div class="home">
-            <a href="<?php echo URLROOT; ?>/Customer/customerHome"><i class="fas fa-home"></i></a>
+            <a href="<?php echo URLROOT; ?>/Customer/customerHome"><img alt="user photo" src="<?php echo URLROOT; ?>/img/koratuwa.png" width="80px" height="80px"></a>
         </div>
         <div class="topmenu">
             <ul>

@@ -144,7 +144,11 @@
     //to get all supplier order deails
     public function get_supOrderView()
     {
-      $this->db->query('SELECT * FROM supply_order ');
+      // $this->db->query('SELECT * FROM supply_order ');
+      $this->db->query('SELECT supply_order.supply_order_id, supply_order.supplier_id, supply_order.quantity, supply_order.supply_date, supply_order.status,milk_purchasing_price.unit_price
+      FROM supply_order 
+      INNER JOIN milk_purchasing_price 
+      ON supply_order.supply_date = milk_purchasing_price.date');
 
       $result = $this->db->resultSet();
 
@@ -197,6 +201,14 @@
       return $row;
     }
 
+    public function farmMilkCollection_duration($from, $to)
+    {
+      $this->db->query('SELECT * FROM milk_collection WHERE collected_date >= "'.$from.'" and collected_date <= "'.$to.'"');
+
+      $result = $this->db->resultSet();
+
+      return $result;
+    }
 
     
 

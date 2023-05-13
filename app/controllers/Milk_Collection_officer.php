@@ -91,13 +91,36 @@
         //get the details of total milk collection
         public function viewMilkCollection()
         {
-          $milkView= $this->mcoModel->get_farmMilkCollectionView();   //data for table
+          if($_SERVER['REQUEST_METHOD'] == 'POST')
+          {
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+            
+            $from = isset($_POST['from']) ? $_POST['from'] : '';
+            $to = isset($_POST['to']) ? $_POST['to'] : '';
 
-          $data = [
-              'milkView' => $milkView
-          ];
+            $milkView= $this->mcoModel->farmMilkCollection_duration($from, $to);  
 
-          $this->view('milk_collection_officer/view_milk_collection',$data);
+            $data = [
+                'milkView' => $milkView,
+                'from' => $from,
+                'to' => $to
+            ];
+  
+            $this->view('milk_collection_officer/view_milk_collection',$data);
+          }
+          else
+          {
+            $milkView= $this->mcoModel->get_farmMilkCollectionView();   //data for table
+
+            $data = [
+                'milkView' => $milkView,
+                'from' => '',
+                'to' => ''
+            ];
+  
+            $this->view('milk_collection_officer/view_milk_collection',$data);
+          }  
+
         }
 
         //get the details of milk collection one by one

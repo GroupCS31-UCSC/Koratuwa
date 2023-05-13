@@ -15,15 +15,30 @@
 </div>
 
 
-<!-- <div class="flash-msg">
-  <?php flash('addCattle_flash') ?>
-  <?php flash('updateCattle_flash') ?>
-  <?php flash('deleteCattle_flash') ?>
-</div> -->
+<?php $addCattleFlash = flash('addCattle_flash'); ?>
+<?php $updateCattleFlash = flash('updateCattle_flash'); ?>
+<?php $deleteCattleFlash = flash('deleteCattle_flash'); ?>
+
+<?php if ($addCattleFlash || $updateCattleFlash || $deleteCattleFlash): ?>
+  <div class="flash-msg">
+    <?php echo $addCattleFlash; ?>
+    <?php echo $updateCattleFlash; ?>
+    <?php echo $deleteCattleFlash; ?>
+  </div>
+
+  <script>
+  // Check if flash messages are present, then reload the page after a certain time
+  const flashMsgContainer = document.querySelector('.flash-msg');
+  if (flashMsgContainer) {
+    setTimeout(() => {
+      location.reload();
+    }, 3000); // Refresh after 3 seconds (adjust the time as per your preference)
+  }
+</script>
+<?php endif; ?>
 
 <br>
 <h2>Cattle</h2>
-  
 
 
 <div class="search-container">

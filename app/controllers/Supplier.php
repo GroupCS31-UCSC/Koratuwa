@@ -411,12 +411,12 @@
             $data = [
               'supOrderId' => $supOrdId,
               'quantity' => trim($_POST['quantity']),
-              'date' => trim($_POST['date']),
-              'address' => trim($_POST['address']),
+              // 'date' => trim($_POST['date']),
+              // 'address' => trim($_POST['address']),
 
               'quantity_err' => '',
-              'date_err' => '',
-              'address_err' => ''
+              // 'date_err' => '',
+              // 'address_err' => ''
             ];
 
             //validation
@@ -463,12 +463,12 @@
             $data = [
               'supOrderId' => $supOrd->supply_order_id,
               'quantity' => $supOrd->quantity,
-              'date' => $supOrd->supply_date,
-              'address' => $supOrd->supplying_address,
+              // 'date' => $supOrd->supply_date,
+              // 'address' => $supOrd->supplying_address,
 
               'quantity_err' => '',
-              'date_err' => '',
-              'address_err' => ''
+              // 'date_err' => '',
+              // 'address_err' => ''
             ];
             $this->view('supplier/updateSupply',$data);
           }

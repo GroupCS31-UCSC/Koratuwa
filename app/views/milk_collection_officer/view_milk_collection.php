@@ -11,6 +11,18 @@
 <div class="tableSection">
   <h1>Koratuwa Internal Milk Collection</h1>
 
+  <!-- <form action="<?php echo URLROOT; ?>/Milk_Collection_officer/viewMilkCollection" method="POST" >
+    <div class="filter">
+      <label for="from">From :</label>
+      <input type="date" id="from" name="from" value="<?php echo $data['from']; ?>"><br>
+      <label for="to">  To :</label>
+      <input type="date" id="to" name="to" value="<?php echo $data['to']; ?>">
+      <div class="form-input-container">
+      <div class="form-input-wrapper"><input type="submit" value="Search" class="submitBtn"> </div>
+    </div>
+  </form> -->
+  <!-- <div class="form-input-wrapper"><input type="button" value="Refresh" class="refreshBtn" onclick="location.href='<?php echo URLROOT; ?>/Milk_Collection_officer/viewMilkCollection' "></div> -->
+
   <table id="detailsTable">
     <thead>
       <th col-index = 1>Collection Id</th>
