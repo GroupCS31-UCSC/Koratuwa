@@ -134,11 +134,11 @@ function alert($msg) {
             $to = isset($_POST['to']) ? $_POST['to'] : '';
 
             $expenseView= $this->financialManagerModel->Expense_duration($from, $to);
-            $expenseChart= $this->financialManagerModel->viewExpenseChart();
+            // $expenseChart= $this->financialManagerModel->viewExpenseChart();
     
             $data = [
               'expenseView' => $expenseView,
-              'expenseChart' => $expenseChart,
+              // 'expenseChart' => $expenseChart,
               'from' => $from,
               'to' => $to
             ];
@@ -148,11 +148,11 @@ function alert($msg) {
           else
           {
             $expenseView= $this->financialManagerModel->viewExpense();
-            $expenseChart= $this->financialManagerModel->viewExpenseChart();
+            // $expenseChart= $this->financialManagerModel->viewExpenseChart();
     
             $data = [
               'expenseView' => $expenseView,
-              'expenseChart' => $expenseChart,
+              // 'expenseChart' => $expenseChart,
               'from' => '',
               'to' => ''
             ];
@@ -293,7 +293,7 @@ function alert($msg) {
         
           
             $pdf->Cell(60,10,$row->saleOrder_id, 0 , 0, 'C');
-            $pdf->Cell(60,10,$row->date, 0 , 0, 'C');
+            $pdf->Cell(60,10,$row->revenue_date, 0 , 0, 'C');
             $pdf->Cell(70,10,$row->source, 0 , 0, 'C');
             $pdf->Cell(30,10,$row->amount, 0 , 0, 'C');
             // $pdf->Cell(30,10,$row->	quality, 1 , 0, 'C');
