@@ -2,10 +2,17 @@
 <?php require APPROOT.'/views/financial_manager/fm_dashboard.php'; ?>
 <link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/public/css/financial_manager/viewExpense.css">
 
+<?php $addExpenseFlash = flash('addExpense_flash'); ?>
+<?php $updateExpenseFlash = flash('updateExpense_flash'); ?>
+<?php $deleteExpenseFlash = flash('deleteExpense_flash'); ?>
 
-<?php flash('addExpense_flash') ?>
-<?php flash('updateExpense_flash') ?>
-<?php flash('deleteExpense_flash') ?>
+<?php if($addExpenseFlash || $updateExpenseFlash || $deleteExpenseFlash): ?>
+  <div class="flash-msg" id="msg-flash" style="display:block;" >
+    <?php echo $addExpenseFlash; ?>
+    <?php echo $updateExpenseFlash; ?>
+    <?php echo $deleteExpenseFlash; ?>
+  </div>
+<?php endif; ?>
 
 <!-- <div class="section">
 <h2>Expenses</h2>
@@ -96,3 +103,11 @@
 
 <?php require APPROOT.'/views/include/footer.php'; ?>
 <script src="<?php echo URLROOT; ?>/js/fm.js"></script>
+
+<script>
+  const fm = document.getElementById('msg-flash');
+  fm.style.display = 'block';
+  setTimeout(function() {
+    fm.style.display = 'none';
+  }, 1000);
+</script>

@@ -4,11 +4,17 @@
 <?php require APPROOT.'/views/admin/admin_dashboard.php';  ?>
 <!-- ______________________________________________________________________________________________________-->
 
+<?php $addEmpFlash = flash('addEmp_flash'); ?>
+<?php $updateEmpFlash = flash('updateEmp_flash'); ?>
+<?php $dltEmpFlash = flash('dltEmp_flash'); ?>
 
-
-<?php flash('addEmp_flash') ?>
-<?php flash('updateEmp_flash') ?>
-<?php flash('dltEmp_flash') ?>
+<?php if ($addEmpFlash || $updateEmpFlash || $dltEmpFlash): ?>
+  <div class="flash-msg" style="display:block;" >
+    <?php echo $addEmpFlash; ?>
+    <?php echo $updateEmpFlash; ?>
+    <?php echo $dltEmpFlash; ?>
+  </div>
+<?php endif; ?>
 
 <h2>Employees</h2>
 
@@ -338,6 +344,12 @@
     $(".default_option").text(text);
     $(".dropdown ul").removeClass("active");
   });
+
+  const fm = document.getElementById('msg-flash');
+  fm.style.display = 'block';
+  setTimeout(function() {
+    fm.style.display = 'none';
+  }, 1000);
 
 </script>
 <?php require APPROOT.'/views/include/footer.php'; ?>

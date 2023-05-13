@@ -3,11 +3,17 @@
 <?php require APPROOT.'/views/admin/admin_dashboard.php';  ?>
 <!-- ______________________________________________________________________________________________________-->
 
+<?php $addEmpFlash = flash('addEmp_flash'); ?>
+<?php $updateEmpFlash = flash('updateEmp_flash'); ?>
+<?php $dltEmpFlash = flash('dltEmp_flash'); ?>
 
-
-<?php flash('addEmp_flash') ?>
-<?php flash('updateEmp_flash') ?>
-<?php flash('dltEmp_flash') ?>
+<?php if($addEmpFlash || $updateEmpFlash || $dltEmpFlash): ?>
+  <div class="flash-msg" style="display:block;" >
+    <?php echo $addEmpFlash; ?>
+    <?php echo $updateEmpFlash; ?>
+    <?php echo $dltEmpFlash; ?>
+  </div>
+<?php endif; ?>
 
 <div class="container" style="overflow-x: auto;">
 
@@ -324,4 +330,12 @@
 
 <?php require APPROOT.'/views/include/footer.php'; ?>
 <script src="<?php echo URLROOT; ?>/js/admin.js"></script>
+
+<script>
+  const fm = document.getElementById('msg-flash');
+  fm.style.display = 'block';
+  setTimeout(function() {
+    fm.style.display = 'none';
+  }, 1000);
+</script>
 

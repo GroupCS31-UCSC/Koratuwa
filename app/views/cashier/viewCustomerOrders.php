@@ -4,8 +4,13 @@
 
 <script src="<?php echo URLROOT; ?>/js/cashier.js"></script>
 
-<!-- Flash massages -->
-<?php flash('update_status_success'); ?>
+<?php $updateStatusFlash = flash('update_status_success'); ?>
+<?php if ($updateStatusFlash): ?>
+  <div class="flash-msg" style="display:block;" >
+    <?php echo $updateStatusFlash; ?>
+  </div>
+<?php endif; ?>
+
 <div class="section">
   <div class="tab">
     <?php $status=$_GET['status']??'Ongoing';?>
@@ -152,5 +157,10 @@
     const model = document.getElementById("orderModel").classList.remove("open-model");
   }
   
+  const fm = document.getElementById('msg-flash');
+  fm.style.display = 'block';
+  setTimeout(function() {
+    fm.style.display = 'none';
+  }, 1000);
   
 </script>
