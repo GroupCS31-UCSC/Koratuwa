@@ -402,7 +402,7 @@
         $stall = $_POST['stall'];
         $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
         
-        $data2 = $this->livestockModel->get_cattleView($stall);
+        $data2 = $this->livestockModel->get_cattleMilkView($stall);
         
         $data= [];
         $quantity=0;
@@ -438,7 +438,7 @@
       }
       else {
         $stall = $_GET['Stall'] ?? 'STALL1';
-        $data2 = $this->livestockModel->get_cattleView($stall);
+        $data2 = $this->livestockModel->get_cattleMilkView($stall);
         
         $data= [];
         foreach ($data2 as $key => $value) {

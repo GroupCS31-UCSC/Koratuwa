@@ -47,12 +47,12 @@
     </select>
 
     <!-- Method -->
-    <div class="form-input-title">Method</div>
+    <div class="form-input-title">Purchased or born in the farm itself</div>
     <span class="form-invalid"><?php echo $data['method_err']; ?></span>
     <select class="method" name="method" id="method" value="<?php echo $data['method']; ?>">
       <option value="Select">Select</option>
-      <option value="Buy">Buy</option>
-      <option value="Birth">Birth</option>
+      <option value="buy">Purchased</option>
+      <option value="birth">Born in the the farm</option>
     </select>
     <!-- If select buy -->
     <div id="price-input" style="display:none;">
