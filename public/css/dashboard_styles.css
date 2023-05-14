@@ -379,6 +379,7 @@ footer li a:hover {
 /* notification bell and badge */
 #notifyBell{
     font-size:x-large;
+    cursor: pointer;
 }
 .notifyBadge {
     font-size: small;

@@ -6,6 +6,7 @@
 
 
 <!-- Flash massages -->
+<?php echo flash('feedback_added'); ?>
 
 <div class="section">
   <div class="tab">
@@ -155,9 +156,13 @@
         <button type="button" class="close" onclick="closeFeedback()" ><span aria-hidden="true">×</span></button>
       </div>
       <div class="model-body">
-      <form action="<?php echo URLROOT; ?>/Customer/customerFeedback" method="POST">
+      <form action="<?php echo URLROOT; ?>/Customer/cusFeedback" method="POST">
         <div class="form-input-title">Feedback</div>
-        <!-- <input type="text" name="text" id="feedback" class="feedback" value="<?php echo $data['feedback']; ?>"><br> -->
+        <div class="id">
+            <textarea name="feedback" id="feedback" cols="30" rows="10" placeholder="Enter your opinion" value="<?php echo $data['feedback']; ?>"></textarea>
+
+            <i class="far fa-feedback"></i>
+        </div>  
         <div class="submit_btn"><input type="submit" value="Submit" class="submitBtn"><br></div>
       </form>
       <br>
@@ -168,6 +173,49 @@
   <h3>Koratuwa Dairy Farm</h3>
   </div>
 </div>
+
+
+
+
+
+<!-- notification view box -->
+<div class="notifyBox" id="notifyBox">
+  <?php foreach ($data['notifications'] as $notifi) : ?>
+    <div class="comment-box">
+      <div class="box-top">
+        <div class="comment">
+          <!-- <p><strong><?php echo $notifi->message; ?></strong></p>  -->
+        </div>
+        <a href="<?php echo URLROOT?>/Customer/updateNotifyStatus/<?php echo $notifi->notify_id ?>"><button class="" title="Mark As Read"><i class="fa-regular fa-eye"></i></button></a>
+      </div>
+      <div class="name">
+        <span><?php echo $notifi->order_id; ?>Has shipped On <?php echo $notifi->shipped_date; ?> At <?php echo $notifi->shipped_time; ?>
+
+        </span>            
+      </div>
+    </div>
+  <?php endforeach; ?>
+</div>
+
+
+<!-- notification -->
+<script>
+  const noti = document.getElementById('notifyBox');
+  let isBellClicked = true;
+
+  let showNoti = function(){
+    if(isBellClicked){
+      noti.style.display='block';
+      isBellClicked= false;
+    }
+    else{
+      noti.style.display='none';
+      isBellClicked= true;
+    }
+  }
+</script>
+
+
 
 <script>
   getUniqueValuesFromColumn2();

@@ -244,34 +244,120 @@
           $status=$_GET['status'] ?? 'New Order';
 
           $orderDetails= $this->customerModel->get_OrderDetailsByDate($status,$from,$to);
+          $notify = $this->adminModel->get_Notifications();
 
           $data = [
             'orderDetails' => $orderDetails,
             'status' =>$status,
             'from' => $from,
-            'to' => $to
+            'to' => $to,
+            'feedback_id' => '',
+            'feedback' => trim($_POST['feedback']),
+            'notifications' => $notify,
+
+            'feedback_err' => '',
           ];
-          $this->view('customer/orders',$data);
+
+          $this->view('customer/orders',$data);          
+            //validation
+            if (empty($data['feedback'])){
+              $data['feedback_err'] = '*' ;
+            }
+
+            //if no errors
+            if(empty($data['feedback_err']))
+            {
+              $data['feedback_id'] = $this->customerModel->generateFeedbackId();
+
+              
+              if($this->customerModel->cusFeedback($data))
+              {
+                
+                redirect('Customer/Orders');
+              }
+              else
+              {
+                die('Something went wrong!');
+              }
+
+            }
+            else
+            {
+              //loading the form with the errors
+              $this->view('customer/orders',$data);
+            }         
 
         }
         else
         {
           $status=$_GET['status'] ?? 'New Order';
           $orderDetails= $this->customerModel->get_OrderDetails($status);
+          $notify = $this->customerModel->get_Notifications();
 
           $data = [
             'orderDetails' => $orderDetails,
             'status' => '',
             'from' => '',
-            'to' => ''
+            'to' => '',
+            'feedback' => '',
+            'notifications' => $notify
           ];
           $this->view('customer/orders',$data);
         }
 
       }
 
-      // Update Order status
+      public function cusFeedback()
+      {
+        if($_SERVER['REQUEST_METHOD'] == 'POST')
+        {
+          $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+          $feedbackId =$this->customerModel->generateFeedbackId();
+
+          $data = [
+            'feedback_id' => $feedbackId,
+            'feedback' => trim($_POST['feedback']),
+            'feedback_err' => ''
+          ];
+
+          if($this->customerModel->cusFeedback($data))
+          {  
+            flash('feedback_added', 'Feedback Send successfully');   
+            redirect('Customer/Orders');
+          }
+          else
+          {
+            die('Something went wrong!');
+          }
+
+        }
+        else
+        {
+          $data = [
+            'feedback' => '',
+            'feedback_err' => ''
+          ];
+          redirect('Customer/Orders');
+        }
+      }
+
+      //update seen notifications
+      public function updateNotifyStatus($nId)
+      {
+        if($this->customerModel->update_notifyStatus($nId))
+        {
+          redirect('customerModel/Orders');
+        }
+        else
+        {
+          die('Something went wrong');
+        }
+
+      }
+
       
+
+      // Update Order status    
       public function updateStatus() {
         $orderId = $_POST['order_id'];
         $data = [
@@ -297,6 +383,8 @@
         $this->view('customer/viewItems', $data);
       }
 
+
+     
     }
 
 ?>

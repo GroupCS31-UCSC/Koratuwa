@@ -10,7 +10,6 @@
 	// define('DB_USER', 'admin');
 	// define('DB_PASSWORD', 'apsara99##');
 	// define('DB_NAME', 'koratuwa');
-
 	//APPROOT
 	 define('APPROOT', dirname(dirname(__FILE__)));
 
