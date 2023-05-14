@@ -5,8 +5,13 @@
 <!--
  ______________________________________________________________________________________________________-->
 
+<?php $purchasePrice =  flash('Purchase_price');?>
+<?php if($purchasePrice): ?>
+<div class="flash-msg" style="display:block;" >
+ <?php echo $purchasePrice; ?>
+</div>
 
- <?php echo flash('Purchase_price'); ?>
+<?php endif; ?>
 
 <!--cards-->
 <section class="cardBox">
@@ -223,4 +228,13 @@
     document.getElementById("model").classList.remove("open-model");
   }
 </script>
+
+<script language="javascript">
+        const fm = document.getElementById('msg-flash');
+  fm.style.display = 'block';
+  setTimeout(function() {
+    fm.style.display = 'none';
+  }, 1000);
+        
+    </script>
 

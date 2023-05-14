@@ -809,7 +809,7 @@
               redirect('Product_Manager/productCategories');
               break;
             case 'Livestock Manager':
-              redirect('Livestock_Manager/livestockHome');
+              redirect('Livestock_Manager/viewCattle');
               break;
             case 'Milk Collection Officer':
               redirect('Milk_Collection_Officer/mcoHome');
@@ -938,7 +938,7 @@
 
             if(empty($data['id_err'])&&empty($data['name_err'])&&empty($data['nic_err'])&&empty($data['tp_num_err'])&&empty($data['employment_err']) )
             {
-              if($this->adminModel->updateEmployees($data))
+              if($this->userModel->updateEmployees($data))
               {
                 flash('updateEmp_flash','Employee Details are successfully Updated!');
                 redirect('Admin/viewEmployees');
@@ -959,7 +959,7 @@
           }
           else
           {         
-            $emp = $this->adminModel->getEmpByEmail($empId);
+            $emp = $this->userModel->getEmpByEmail($empId);
             // $img= UPLOADS . $emp->image;
             //$emp  is a data set that retrieved from db
             $data = [
