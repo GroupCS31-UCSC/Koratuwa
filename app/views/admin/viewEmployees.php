@@ -86,7 +86,7 @@
                   <th>Contact Number</th>
                   <th>Gender</th>
                   <!-- <th>Email</th> -->
-                  <th>Last Accessed On</th>
+                  <!-- <th>Last Accessed On</th> -->
                   <th>Action</th>
                   <!-- <th>More Details</th> -->
                 </tr>
@@ -100,7 +100,7 @@
                   <td><?php echo $emp->employment; ?></td>
                   <td><?php echo $emp->contact_number; ?></td>
                   <td><?php echo $emp->gender; ?></td>
-                  <td><?php echo ''; ?></td>
+                  <!-- <td><?php echo ''; ?></td> -->
                   <td>
                     <div class="table-btns">
                       <a href="<?php echo URLROOT?>/Admin/updateEmployees/<?php echo $emp->employee_id ?>"><button class="updateBtn" title="Update"><i class="fa-regular fa-pen-to-square"></i></button></a>
