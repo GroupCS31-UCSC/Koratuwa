@@ -9,7 +9,7 @@
             </div>
             <div class="topmenu">
                 <ul>
-                    <li><div class="img-user"><img src="<?php echo URLROOT; ?>/img/users/sasindu.jpg" alt="user"></div></li>
+                    <li><div class="img-user"><img src="<?php echo URLROOT; ?>/img/users/user.png" alt="user"></div></li>
                     <li><a href=""><?php echo $_SESSION['user_name']; ?></a></li>
                 </ul>
                 <div class="dropdown">
