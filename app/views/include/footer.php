@@ -15,6 +15,9 @@
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+<!-- jquery -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.7.2.min.js"></script>
+
 <!-- </script> -->
 <!DOCTYPE html>
 <html lang="en">

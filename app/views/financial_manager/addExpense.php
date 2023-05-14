@@ -92,3 +92,19 @@ desSelect.addEventListener('change', function() {
 });
 
 </script>
+
+<script language="javascript">
+        var today = new Date();
+        // today.setDate(today.getDate() + <?php echo 14?>);
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0');
+        var yyyy = today.getFullYear();
+        console.log(today, dd, mm, yyyy);
+        console.log("test");
+        today = yyyy + '-' + mm + '-' + dd;
+        console.log(today);
+        $('#dat').attr('max',today);
+        // $('#to').attr('max',today);
+
+        
+    </script>
