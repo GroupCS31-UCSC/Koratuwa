@@ -195,7 +195,7 @@
 
     public function get_supOrderCount()
     {
-      $this->db->query('SELECT COUNT(supply_order_id) FROM supply_order WHERE status="Collected" ');
+      $this->db->query('SELECT COUNT(supply_order_id) FROM supply_order');
       $row = $this->db->single();
 
       return $row;
