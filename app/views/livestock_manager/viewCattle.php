@@ -36,11 +36,11 @@
 <div class="search-container">
 
 <div class="search-icon"><button><i class="fa-solid fa-magnifying-glass"></i></button></div>
+  <input type="text" id="searchInput" placeholder="Search By Cow IDs..." onkeyup="searchFunc();">
+</div> 
 
-<input type="text" id="searchInput" placeholder="Search By Cow IDs..." onkeyup="searchFunc();">
-     
-   </div> 
-   <input type="button" value="Add New Cattle" class="add-btn" onclick="location.href='<?php echo URLROOT; ?>/Livestock_Manager/addCattle?Stall=<?=$stall?>' ">
+<input type="button" value="Add New Cattle" class="add-btn" onclick="location.href='<?php echo URLROOT; ?>/Livestock_Manager/addCattle?Stall=<?=$stall?>' ">
+<br><br><br><br><br>
 
 <div id="Stall1" class="tabcontent active">
   <div class="container" style="overflow-x: auto;">
@@ -69,7 +69,7 @@
           <td>          
             <div class="table-btns">
               <a href="#"><button class="viewBtn" onclick="openModel('<?=$cattle->cow_id?>')" id="<?php echo($data_index) ?>"><i class="fas fa-eye"></i></button></a>
-              <a href="<?php echo URLROOT?>/Livestock_Manager/updateCattle/<?php echo $cattle->cow_id ?>"><button class="updateBtn"><i class="fa-regular fa-pen-to-square"></i></button></a>
+              <a href="<?php echo URLROOT?>/Livestock_Manager/updateCattle/<?php echo $cattle->cow_id ?>/<?php echo $cattle->gender ?>"><button class="updateBtn"><i class="fa-regular fa-pen-to-square"></i></button></a>
               <a href="#"><button class="deleteBtn" onclick="openDelete('<?=$cattle->cow_id?>')" id="<?php echo($data_index) ?>"><i class="fa-regular fa-trash-can"></i></button></a>
             </div>
           </td>

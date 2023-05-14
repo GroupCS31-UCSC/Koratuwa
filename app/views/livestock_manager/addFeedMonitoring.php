@@ -13,10 +13,10 @@
         <span class="form-invalid"><?php echo $data['stallId_err']; ?></span>
         <label for="Select the stall no"></label>
         <select name="stallId" id="stallId" value="<?php echo $data['stallId']; ?>">
-            <option value="stall1">Stall 01</option>
-            <option value="stall2">Stall 02</option>
-            <option value="stall3">Stall 03</option>
-            <option value="stall4">Stall 04</option>
+            <option value="STALL1">Stall 01</option>
+            <option value="STALL2">Stall 02</option>
+            <option value="STALL3">Stall 03</option>
+            <option value="STALL4">Stall 04</option>
         </select>
         
         <div class="form-input-title">Solid (Kg)</div>
