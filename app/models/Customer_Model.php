@@ -54,7 +54,7 @@
 
 
     public function addItemToCart($data){
-      $this->db->query('INSERT INTO cart(product_id, customer_id, quantity, total_price) VALUE(:product_id, :customer_id, :quantity, :total_price)');
+      $this->db->query('INSERT INTO cart(product_id, customer_id, quantity, total_price) VALUE(:product_id, :customer_id, :quantity, :total_price) ON DUPLICATE KEY UPDATE quantity = quantity + :quantity, total_price = total_price + :total_price');
       $this->db->bind(':product_id', $data['product_id']);
       $this->db->bind(':customer_id', $data['customer_id']);
       $this->db->bind(':quantity', $data['quantity']);
@@ -69,6 +69,20 @@
       } 
     }
 
+
+    public function clearCart($cusId){
+      $this->db->query('DELETE FROM cart WHERE customer_id = :cusId');
+      $this->db->bind(':cusId', $cusId);
+      if($this->db->execute())
+    {
+      return true;
+    }
+    else
+    {
+      return false;
+    }
+    }
+
   public function viewCartItems($customer_id){
     $this->db->query('SELECT c.product_id, c.customer_id, c.quantity, c.total_price,c.timestamp, p.product_name, p.expiry_duration, p.unit_size, p.image  FROM cart as c INNER JOIN product as p ON c.product_id = p.product_id WHERE customer_id=:customer_id');
     $this->db->bind(':customer_id', $customer_id);
@@ -76,14 +90,14 @@
 		return $result;
   }
 
-  public function dltCartItems($time)
+  public function dltCartItems($id)
   {
-    $xtime = $this->db->query('SELECT TIME(:time)');
-    $xdate = $this->db->query('SELECT DATE(:time)');
-    $this->db->bind(':time', $time);
-    $timestamp = $xdate.' '.$xtime;
-    $this->db->query('DELETE FROM cart WHERE timestamp= :time');
-    $this->db->bind(':time', $timestamp);
+    // $xtime = $this->db->query('SELECT TIME(:time)');
+    // $xdate = $this->db->query('SELECT DATE(:time)');
+    // $this->db->bind(':time', $time);
+    // $timestamp = $xdate.' '.$xtime;
+    $this->db->query('DELETE FROM cart WHERE product_id= :pid');
+    $this->db->bind(':pid', $id);
     
     if($this->db->execute())
     {

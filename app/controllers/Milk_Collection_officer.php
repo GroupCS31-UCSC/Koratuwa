@@ -177,6 +177,7 @@
         public function viewSupplyOrders()
         {
           $ordView= $this->mcoModel->get_supOrderView();
+          // var_dump($ordView);
 
           $data = [
               'ordView' => $ordView
