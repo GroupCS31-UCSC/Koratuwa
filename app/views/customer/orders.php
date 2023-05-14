@@ -6,7 +6,12 @@
 
 
 <!-- Flash massages -->
-<?php echo flash('feedback_added'); ?>
+<?php $feedbackFlash = flash('feedback_added'); ?>
+<?php if($feedbackFlash): ?>
+  <div class="flash-msg" style="display:block;" >
+    <?php echo $feedbackFlash; ?>
+  </div>
+<?php endif;?>
 
 <div class="section">
   <div class="tab">
@@ -283,5 +288,10 @@
     document.getElementById("model").classList.remove("open-model");
   }
   
+  const fm = document.getElementById('msg-flash');
+  fm.style.display = 'block';
+  setTimeout(function() {
+    fm.style.display = 'none';
+  }, 1000);
   
 </script>
