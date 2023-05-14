@@ -27,7 +27,7 @@
           <!-- Quantity -->
           <div class="form-input-title">Quantity</div>
           <span class="form-invalid"><?php echo $data[0]['quantity_err']; ?></span>
-          <input type="number" name="quantity" id="quantity" class="quantity" value="<?php $values = $data[0]?>" required onchange="calculate()">  
+          <input type="number" name="quantity" id="quantity" class="quantity" value="<?php $values = $data[0]?>" >  
         </div>
       </div>
 		  
@@ -121,12 +121,6 @@
 
 
 <script>
-  function calculate(){
-    var quantity = document.getElementById("quantity").value;
-    var unitPrice = document.getElementById("unitPrice").value;
-    var price = quantity * unitPrice;
-    document.getElementById("price").value = price;
-  }
   
   var total = 0;
   var products = [];  
@@ -147,16 +141,13 @@
     total += parseInt(subTot);
     
     document.getElementById("total").innerHTML = total;
-    var cash = document.getElementById("cash").value;
-    
-    document.getElementById("balance").innerHTML = cash - total;
 
     const postData = {
       saleId: saleId,
       id: id,
       qnty: qnty
     }
-
+    console.log(saleId);
     products.push(postData);
   }
 
