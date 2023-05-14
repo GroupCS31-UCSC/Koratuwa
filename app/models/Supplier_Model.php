@@ -149,11 +149,10 @@
 
     public function updateSupply($data)
     {
-      $this->db->query('UPDATE supply_order SET quantity= :quantity, supply_date= :supDate, supplying_address=:address WHERE supply_order_id= :supOrderId');
+      $this->db->query('UPDATE supply_order SET quantity= :quantity WHERE supply_order_id= :supOrderId');
       $this->db->bind(':supOrderId', $data['supOrderId']);
       $this->db->bind(':quantity', $data['quantity']);
-      $this->db->bind(':supDate', $data['date']);
-      $this->db->bind(':address', $data['address']);
+
 
       if($this->db->execute())
       {
