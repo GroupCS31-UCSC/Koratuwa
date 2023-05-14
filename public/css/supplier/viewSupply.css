@@ -1,7 +1,9 @@
 section {
     text-align: center;
 }
-
+.flash-msg {
+  height: 10vh;
+}
 .container {
     position: relative;
     margin: 0 auto;
@@ -21,12 +23,15 @@ section {
 }
 
 .feature1{
+    padding: 4%;
     display: inline-block;
     width: 100%;
+    margin-right: 5%;
+    /* border: solid red; */
     
 }
 .feature1 table{
-  margin-top: -50vh;
+  margin-top: -8vh;
 }
 /* .feature2{
     display: inline-block;
