@@ -344,7 +344,8 @@
     $(".default_option").text(text);
     $(".dropdown ul").removeClass("active");
   });
-
+  </script>
+  <script>
   const fm = document.getElementById('msg-flash');
   fm.style.display = 'block';
   setTimeout(function() {

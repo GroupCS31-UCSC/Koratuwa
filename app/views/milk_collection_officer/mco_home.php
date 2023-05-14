@@ -102,7 +102,7 @@ if(isset($_SESSION['popup_error'])){
           <td>
           <?php if($orderView->status == 'Collected') : ?>
             <span class="status collected">Collected</span>
-          <?php elseif($orderView->status == 'Not Collected') : ?>
+          <?php elseif($orderView->status == 'Ongoing') : ?>
             <span class="status notcollected">Pending</span>
           <?php else : ?>
             <span class="status rejected">Rejected</span>

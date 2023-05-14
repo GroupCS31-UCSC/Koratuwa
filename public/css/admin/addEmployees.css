@@ -69,3 +69,12 @@ form {
         left: 275px;
     }
 }
+
+.addForm select{
+    border-radius: 5px;
+    padding: 5px;
+    background-color:white;
+    font-weight: 100;
+    color: black;
+    
+  }

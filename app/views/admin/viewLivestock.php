@@ -9,13 +9,13 @@
   <!-- <div class="profile-search-area"> -->
   <div class="search-container">
 
-<div class="search-icon"><button><i class="fa-solid fa-magnifying-glass"></i></button></div>
+  <div class="search-icon"><button><i class="fa-solid fa-magnifying-glass"></i></button></div>
 
-<div class="search-box"><input type="text" id="searchInput" placeholder="Search for Cow IDs..." onkeyup="searchFunc();">
+  <div class="search-box"><input type="text" id="searchInput" placeholder="Search for Cow IDs..." onkeyup="searchFunc();">
      
    </div> 
    </div> 
-  <input type="button" value="Refresh" class="refreshBtn" onclick="location.href='<?php echo URLROOT; ?>/Admin/viewLivestock' ">
+  <!-- <input type="button" value="Refresh" class="refreshBtn" onclick="location.href='<?php echo URLROOT; ?>/Admin/viewLivestock' "> -->
   <div class="table-wrapper">
     <table id="detailsTable">
       <thead>

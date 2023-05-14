@@ -270,6 +270,7 @@ td {
 #newData3 tr:hover{
     background-color: #f4f4f4;
 }
+/* -----------------end view model------------------------ */
 
 /* ------------------search bar styles-------------------- */
 .search-section{
@@ -309,7 +310,7 @@ td {
     border-color: #fff;
 }
 
-/* -----------------end view model------------------------ */
+/* -----------------end search bar styles------------------------ */
 
 
 
@@ -342,3 +343,13 @@ h2{
     text-transform: uppercase;
     margin: 10px;
 }
+
+.search-bar select{
+    border-radius: 5px;
+    padding: 5px;
+    background-color:white;
+    font-weight: 100;
+    color: black;
+    
+  }
+

@@ -8,13 +8,14 @@
   <div class="divContainer1">
   <form action="<?php echo URLROOT; ?>/Admin/viewSales" method="POST" >
   <div class="filter">
-    <label for="from">From :</label>
+    <label for="from">From:</label>
     <input type="date" id="from" name="from" value="<?php echo $data['from']; ?>"><br>
-    <label for="to">  To :</label>
+    <label for="to">  To:</label>
     <input type="date" id="to" name="to" value="<?php echo $data['to']; ?>">
     <div class="form-input-container">
-    <div class="form-input-wrapper"><input type="submit" value="Search" class="submitBtn"> </div>
-    <div class="form-input-wrapper"><input type="button" value="Refresh" class="refreshBtn" onclick="location.href='<?php echo URLROOT; ?>/Admin/viewSales' "></div>
+    <a href="<?php echo URLROOT?>/Admin/viewSales"><button class="filterBtn" title="Search"><i class="fa-solid fa-magnifying-glass"></i></button></a>
+    <!-- <div class="form-input-wrapper"><input type="submit" value="Search" class="submitBtn"> </div> -->
+    <!-- <div class="form-input-wrapper"><input type="button" value="Refresh" class="refreshBtn" onclick="location.href='<?php echo URLROOT; ?>/Admin/viewSales' "></div> -->
   </form>
   </div>
   </div>
@@ -53,13 +54,16 @@
   <div class="divContainer2">
   <form action="<?php echo URLROOT; ?>/Admin/viewSales" method="POST" >
   <div class="filter">
-    <label for="from2">From :</label>
+    <label for="from2">From:</label>
     <input type="date" id="from2" name="from2" value="<?php echo $data['from2']; ?>"><br>
-    <label for="to2">  To :</label>
+    <label for="to2">  To:</label>
     <input type="date" id="to2" name="to2" value="<?php echo $data['to2']; ?>">
     <div class="form-input-container">
-    <div class="form-input-wrapper"><input type="submit" value="Search" class="submitBtn"> </div>
-    <div class="form-input-wrapper"><input type="button" value="Refresh" class="refreshBtn" onclick="location.href='<?php echo URLROOT; ?>/Admin/viewSales' "></div>
+    <a href="<?php echo URLROOT?>/Admin/viewSales"><button class="filterBtn" title="Search"><i class="fa-solid fa-magnifying-glass"></i></button></a>
+    <!-- <div class="form-input-wrapper"><input type="submit" value="Search" class="submitBtn"> </div> -->
+    <!-- <div class="form-input-wrapper"><input type="button" value="Refresh" class="refreshBtn" onclick="location.href='<?php echo URLROOT; ?>/Admin/viewSales' "></div> -->
+    </div>
+  
   </form>
   </div>
  

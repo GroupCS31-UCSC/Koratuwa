@@ -60,13 +60,6 @@ select{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   }
 
-  .filter{
-    margin: 5px;
-    padding: 5px;
-    font-size: 15px;
-    align-items: center;
-    
-}
 
 .form-input-container {
     display: flex;
@@ -104,26 +97,17 @@ select{
     color: white;
 }
 
-.refreshBtn {
-    display: block;
-    width: 200px;
-    height: 30px;
-    border-radius: 25px;
-    margin: 1rem ;
-    font-size: 1rem;
-    outline: none;
-    border: none;
-    background-color: #580a50;
-    /* background-image: linear-gradient(to right, #0A2558, #0e3276, #0A2558); */
-    cursor: pointer;
-    color: #fff;
-    text-transform: uppercase;
-    background-size: 200%;
-    transition: 0.5s;
-}
 
-.refreshBtn:hover {
-    /* background-position: right; */
-    background-color: #00BFFF;
+/* table column filter */
+select{
+    border-radius: 5px;
+    padding: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color:#04AA6D;
+    font-weight: 150;
     color: white;
-}
+    font-size: medium;
+    
+  }
+
+  
