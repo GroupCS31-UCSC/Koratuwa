@@ -29,7 +29,7 @@
                        
                     </div>
                     <div class="feature1">
-                        <button class="clear-button"><a href="<?php echo URLROOT?>/Customer/deleteCartItem/<?php echo $product->timestamp ?>" ><i class="fa-solid fa-trash"></i></button></a>
+                        <button class="clear-button"><a href="<?php echo URLROOT?>/Customer/deleteCartItem/<?php echo $product->product_id ?>" ><i class="fa-solid fa-trash"></i></button></a>
                     </div>
                     
                 </div>
@@ -49,7 +49,7 @@
                         <input type="radio" name="gender" id="gender" <?php if (isset($gender) && $gender=="Female") echo "checked";?> value="Female"> Female
                     </form> -->
 
-                    <input type="button" value="Buy Now" class="buynowBtn"  onclick="openModel()">
+                    <input type="button" value="Place Order" class="buynowBtn"  onclick="openModel()">
             <?php
         }else {
             ?>
@@ -60,6 +60,7 @@
         }
 
         ?>
+    </div>
     </div>
 </section>
 
@@ -159,7 +160,7 @@
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = ()=>{
             if(xhttp.readyState == 4){ 
-                //window.location.href = "http://localhost/koratuwa/Customer/customerHome"
+                window.location.href = "http://localhost/koratuwa/Customer/clearCart"
                 let obj=JSON.parse(xhttp.responseText);
                 console.log(obj);
             }

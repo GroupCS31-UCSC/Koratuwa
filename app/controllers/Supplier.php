@@ -344,9 +344,9 @@
         $pdf->Cell(50, 10, 'Name:');
         $pdf->Cell(0, 10, $_SESSION['user_name'], 0, 1);
         $pdf->Cell(50, 10, 'Address:');
-        $pdf->Cell(0, 10, '123 Main St, Anytown, USA', 0, 1);
+        $pdf->Cell(0, 10, '123 , Anytown, Horana', 0, 1);
         $pdf->Cell(50, 10, 'Email:');
-        $pdf->Cell(0, 10, 'john.doe@example.com', 0, 1);
+        $pdf->Cell(0, 10, 'sasinduudayanga00@gmail.com', 0, 1);
         $pdf->Ln(10);
       
         // Include order details
@@ -355,8 +355,8 @@
       
         foreach ($supOrder_Receipt as $row) {
           $pdf->SetFont('Arial', '', 12);
-          $pdf->Cell(50, 10, 'Product:');
-          $pdf->Cell(0, 10, 'Fuel', 0, 1);
+          // $pdf->Cell(50, 10, 'Product:');
+          // $pdf->Cell(0, 10, 'Fuel', 0, 1);
       
           $pdf->Cell(50, 10, 'Quantity:');
           $pdf->Cell(0, 10, $row->quantity . ' L', 0, 1);
