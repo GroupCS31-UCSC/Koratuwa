@@ -16,7 +16,7 @@
                     <i class="fas fa-chevron-down"></i>
                     <div class="sub-menu-wrap">
                         <div class="sub-menu">
-                            <div class="dropdown-content">
+                            <!-- <div class="dropdown-content">
                                 <div class="user-info">
                                     <span><img src="<?php echo URLROOT; ?>/public/img/users/sasindu.jpg" alt=""></span>                    
                                 </div>
@@ -33,7 +33,7 @@
                                     <i class="fa-solid fa-right-from-bracket"></i>
                                     <p>Log out</p>
                                 </a>
-                            </div>
+                            </div> -->
                         </div>        
                     </div>
                 </div>

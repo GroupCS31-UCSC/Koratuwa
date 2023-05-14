@@ -113,7 +113,7 @@
 
             <td>
             <div class="table-btns">
-              <a href="<?php echo URLROOT?>/Milk_Collection_Officer/collectionDetails/<?php echo $ordView->supply_order_id; ?>"><button class="viewBtn">View Invoice</button></a>
+              <a href="<?php echo URLROOT?>/Milk_Collection_Officer/viewSupOrderDetails/<?php echo $ordView->supply_order_id; ?>"><button class="viewBtn">View Invoice</button></a>
             </div> 
             </td>
           </tr>
