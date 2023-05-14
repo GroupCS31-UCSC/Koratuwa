@@ -45,10 +45,10 @@
         //set milk purchasing unit price
         public function setUnitPrice($error = null)
         {
-          if(isset($error)){
-            die(var_dump($error));
+          // if(isset($error)){
+          //   die(var_dump($error));
 
-          }
+          // }
 
 
           if($_SERVER['REQUEST_METHOD'] == 'POST')
@@ -61,19 +61,20 @@
               'price' => trim($_POST['price'])
             ];
 
-            // if($this->mcoModel->setPrice($data))
-            // {
-            //   redirect('Milk_Collection_Officer/mcoHome');
-            // }
-            // else
-            // {
-            //   die('Today Purchasing Price is Already Set!');
-            // }
-
-            if(!$this->mcoModel->setPrice($data)){
-              $_SESSION['popup_error'] = "Today Purchasing Price is Already Set!";
+            if($this->mcoModel->setPrice($data))
+            {
+              redirect('Milk_Collection_Officer/mcoHome');
             }
-            redirect('Milk_Collection_Officer/mcoHome');
+            else
+            {
+              flash('Purchase_price','Today Purchasing Price is Already Set!');
+              redirect('Milk_Collection_Officer/mcoHome');
+            }
+
+            // if(!$this->mcoModel->setPrice($data)){
+            //   $_SESSION['popup_error'] = "Today Purchasing Price is Already Set!";
+            // }
+            // redirect('Milk_Collection_Officer/mcoHome');
 
 
           }

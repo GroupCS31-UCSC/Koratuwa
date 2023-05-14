@@ -4,16 +4,9 @@
 <?php require APPROOT.'/views/milk_collection_officer/mco_dashboard.php'; ?>
 <!--
  ______________________________________________________________________________________________________-->
-<?php
-
-if(isset($_SESSION['popup_error'])){
-  echo "already exsit";
-  die();
-}
-
-?>
 
 
+ <?php echo flash('Purchase_price'); ?>
 
 <!--cards-->
 <section class="cardBox">
@@ -138,11 +131,11 @@ if(isset($_SESSION['popup_error'])){
 
     <!-- set price button -->
     <div class="setPrice">
-        <a href="#popup1"><button class="setBtn">Set Today Milk Purchasing Price</button></a>
+        <a href="#popup1"><button class="setBtn" onclick="openModel()">Set Today Milk Purchasing Price</button></a>
     </div>
 
     <!------------ set price popup window ---------------->
-    <div id="popup1" class="overlay">
+    <!-- <div id="popup1" class="overlay">
     <div class="popup">
       <h2>Set Milk Purchasing Price</h2>
       <a class="close" href="#">&times;</a>
@@ -158,7 +151,27 @@ if(isset($_SESSION['popup_error'])){
         
       </div>
     </div>
+    </div> -->
+<div class="model fade in" id="model" tabindex="-1">
+  <div class="model-dialog">
+    <div class="model-content">
+      <div class="model-header">
+        <button type="button" class="close" onclick="closeModel()" ><span aria-hidden="true">×</span></button>
+      </div>
+      <div class="model-body">
+      <form action="<?php echo URLROOT; ?>/Milk_Collection_Officer/setUnitPrice" method="POST">
+        <div class="feature">  
+          <div class="form-input-title">Unit Price for Litre</div>
+          <input type="number" name="price" id="price" class="price" autocomplete="off" value="<?php error_reporting(0); echo $data['price']; ?> ">
+          <input type="submit" value="Submit" class="submitBtn">
+        </div>
+      </form>
+      <br>
+      </div>
     </div>
+  </div>
+</div>
+
   <!------------------------------------------------------>
 
   <!-- chart -->
@@ -201,5 +214,13 @@ if(isset($_SESSION['popup_error'])){
 <?php require APPROOT.'/views/include/footer.php'; ?>
 <script src="<?php echo URLROOT; ?>/js/mco.js"></script>
 
+<script>
+  function openModel() {
+    document.getElementById("model").classList.add("open-model");
+  }
 
+  function closeModel() {
+    document.getElementById("model").classList.remove("open-model");
+  }
+</script>
 
