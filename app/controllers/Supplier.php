@@ -225,7 +225,6 @@
             $supOrder_duration= $this->supplierModel->supOrder_duration($from, $to);
             $supOrdSum= $this->supplierModel->get_supOrderSum();
             $ordSum= strval($supOrdSum);
-
             $data = [
               'supOrderView' => $supOrder_duration,
               'ordSum'=> $ordSum,
@@ -337,26 +336,18 @@
         $pdf->Cell(0, 10, 'Invoice Number: INV-' . $order_id, 0, 1, 'R');
         $pdf->Ln(10);
       
-        // Include customer details
-        $pdf->SetFont('Arial', 'B', 14);
-        $pdf->Cell(0, 10, 'Supplier Details', 0, 1);
-        $pdf->SetFont('Arial', '', 12);
-        $pdf->Cell(50, 10, 'Name:');
-        $pdf->Cell(0, 10, $_SESSION['user_name'], 0, 1);
-        $pdf->Cell(50, 10, 'Address:');
-        $pdf->Cell(0, 10, '123 , Anytown, Horana', 0, 1);
-        $pdf->Cell(50, 10, 'Email:');
-        $pdf->Cell(0, 10, 'sasinduudayanga00@gmail.com', 0, 1);
-        $pdf->Ln(10);
-      
         // Include order details
         $pdf->SetFont('Arial', 'B', 14);
         $pdf->Cell(0, 10, 'Order Details', 0, 1);
+      
+
       
         foreach ($supOrder_Receipt as $row) {
           $pdf->SetFont('Arial', '', 12);
           // $pdf->Cell(50, 10, 'Product:');
           // $pdf->Cell(0, 10, 'Fuel', 0, 1);
+          $pdf->Cell(50, 10, 'Supply OrderID:');
+          $pdf->Cell(0, 10, $row->supply_order_id , 0, 1);
       
           $pdf->Cell(50, 10, 'Quantity:');
           $pdf->Cell(0, 10, $row->quantity . ' L', 0, 1);
@@ -366,15 +357,21 @@
       
           $pdf->Cell(50, 10, 'Total Payment:');
           $pdf->Cell(0, 10, 'Rs. ' . $row->total_payment, 0, 1);
+          $pdf->SetLineWidth(0.5); // set line width to 0.5
+          $pdf->Line(20, $pdf->GetY(), 190, $pdf->GetY()); // draw a line below the Cell()
       
           $pdf->Ln(5);
         }
       
-        // Include footer with total amount due
-        $pdf->SetFont('Arial', 'B', 14);
-        $pdf->SetY(-40);
-        $pdf->Cell(0, 10, 'Total Amount Due: Rs. ' . $row->total_payment, 0, 1, 'R');
-      
+        $pdf->Ln(50);
+        $pdf->SetFont('Arial', 'B', 20); // set font size to 20
+        $pdf->SetDrawColor(255, 0, 0); // set border color to black
+        $pdf->SetLineWidth(1); // set border width to 1
+        $pdf->Cell(0, 30, 'RECEIVED !', 1, 1, 'C'); // add border and center-align
+        
+        // Set border around the page
+        $pdf->SetDrawColor(0, 0, 0); 
+        $pdf->Rect(5, 5, $pdf->getPageWidth() - 10, $pdf->getPageHeight() - 10);
         // Set output filename and type
         $pdf->Output('Invoice-' . $order_id . '.pdf', 'I');
       
