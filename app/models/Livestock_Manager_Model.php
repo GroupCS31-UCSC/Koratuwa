@@ -125,7 +125,7 @@
       $cowId=$data['cow_id'];
       $reason=$data['reason'];
       $isSold=isset($data['price']);
-      // $this->db->query('DELETE FROM cattle WHERE cow_id= :cowId');
+      
       $this->db->query('UPDATE cattle SET existence=0 WHERE cow_id= :cowId');
       $this->db->bind(':cowId', $cowId);
 
@@ -138,8 +138,7 @@
           $this->db->bind(':reason', 'SOLD');
           $this->db->bind(':price', $price);
 
-          if($this->db->execute())
-          {
+          if($this->db->execute()) {
             $this->db->query('INSERT INTO cattle_notification(cow_id,reason,from_user,to_user,seen) VALUES(:cowId,:reason, "LM","ADM",0 )');
             $this->db->bind(':cowId', $cowId);
             $this->db->bind(':reason', $reason);
@@ -163,8 +162,7 @@
           $this->db->bind(':cowId', $cowId);
           $this->db->bind(':reason', $reason);
 
-          if($this->db->execute())
-          {
+          if($this->db->execute()) {
             $this->db->query('INSERT INTO cattle_notification(cow_id,reason,from_user,to_user,seen) VALUES(:cowId,:reason, "LM","ADM",0 )');
             $this->db->bind(':cowId', $cowId);
             $this->db->bind(':reason', $reason);
@@ -184,7 +182,6 @@
           }
         }
         
-        // return true;
       }
       else
       {
@@ -447,7 +444,6 @@
     public function cattleMilking_duration($stall, $from, $to)
     {
       $this->db->query('SELECT * FROM cattle_milking WHERE stall_id = "'.$stall.'" AND  collected_date >= "'.$from.'" and collected_date <= "'.$to.'"');
-      // SELECT * FROM cattle_milking WHERE stall_id = "'.$stallId.'" ORDER BY collected_date DESC
       $result = $this->db->resultSet();
 
       return $result;

@@ -7,7 +7,6 @@
   <center><h1>Add Cattle</h1></center>
 	</div>
 	<form action="<?php echo URLROOT; ?>/Livestock_Manager/addCattle" method="POST">
-  <!-- <input type="" name="stallId" value="<?php echo $data['stallId']; ?>"> -->
     <!-- dob -->
     <div class="form-input-title">Date of birth</div>
     <span class="form-invalid"><?php echo $data['dob_err']; ?></span>
@@ -51,8 +50,8 @@
     <span class="form-invalid"><?php echo $data['method_err']; ?></span>
     <select class="method" name="method" id="method" value="<?php echo $data['method']; ?>">
       <option value="Select">Select</option>
-      <option value="buy">Purchased</option>
-      <option value="birth">Born in the the farm</option>
+      <option value="Buy">Purchased</option>
+      <option value="Birth">Born in the the farm</option>
     </select>
     <!-- If select buy -->
     <div id="price-input" style="display:none;">
@@ -69,30 +68,12 @@
       <option value="STALL3">3</option>
       <option value="STALL4">4</option>
     </select>
-    <button type="submit" class="submitBtn">
-  Submit
-  </button>
+    <button type="submit" class="submitBtn">Submit</button>
   </form>
   
 
   <br>
 </div>
-
-<!-- Add popup -->
-<!-- <div class="add-popup" id="popup">
-  <div class="add-popup-content">
-    <div class="add-popup-header">
-      <i class="fa fa-check-circle" aria-hidden="true"></i>
-    </div>
-    <div class="add-popup-body">
-      <h2>Cattle added successfully</h2>
-    </div>
-  </div>
-  <div class="add-popup-footer">
-    <button class="add-popup-btn" onclick="closePopup()">OK</button>
-  </div>
-</div> -->
-
 
 <?php require APPROOT.'/views/include/footer.php'; ?>
 <script src="<?php echo URLROOT; ?>/js/lm.js"></script>
@@ -134,33 +115,16 @@ genderSelect.addEventListener('change', function() {
   }
 });
 
-
-// Popup add
-// function openPopup(){
-  // e.preventDefault();
-//   window.location.href = "<?php echo URLROOT; ?>/Livestock_Manager/viewCattle";
-//   document.getElementById("popup").classList.add("open-popup");
-  
-// }
-// function closePopup(){
-//   document.getElementById("popup").classList.remove("open-popup");
-  // window.location.href = "<?php echo URLROOT; ?>/Livestock_Manager/viewCattle";
-// }
-
 </script>
 
 <script language="javascript">
-        var today = new Date();
-        // today.setDate(today.getDate() + <?php echo 14?>);
-        var dd = String(today.getDate()).padStart(2, '0');
-        var mm = String(today.getMonth() + 1).padStart(2, '0');
-        var yyyy = today.getFullYear();
-        console.log(today, dd, mm, yyyy);
-        console.log("test");
-        today = yyyy + '-' + mm + '-' + dd;
-        console.log(today);
-        $('#dob').attr('max',today);
-        // $('#to').attr('max',today);
-
-        
-    </script>
+  var today = new Date();
+  var dd = String(today.getDate()).padStart(2, '0');
+  var mm = String(today.getMonth() + 1).padStart(2, '0');
+  var yyyy = today.getFullYear();
+  console.log(today, dd, mm, yyyy);
+  console.log("test");
+  today = yyyy + '-' + mm + '-' + dd;
+  console.log(today);
+  $('#dob').attr('max',today);
+</script>
