@@ -435,7 +435,7 @@
 			}
 			elseif($user_type == 'Customer')
 			{
-				echo '2';
+				// echo '2';
 				$this->db->query('SELECT * FROM customer WHERE customer_id=:userId');
 				$this->db->bind(':userId', $userId);
 	
@@ -445,7 +445,7 @@
 			}
 			elseif($user_type == 'Admin')
 			{
-				echo '21';
+				// echo '21';
 				$this->db->query('SELECT * FROM admin WHERE admin_id=:userId');
 				$this->db->bind(':userId', $userId);
 	
