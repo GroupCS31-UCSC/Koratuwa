@@ -81,7 +81,7 @@
         <?php endforeach; ?>
       </tbody>
   </table>
-
+</div>
 <script>
   getUniqueValuesFromColumn();
 </script>

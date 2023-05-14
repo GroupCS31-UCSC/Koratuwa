@@ -86,7 +86,7 @@
         <a href="<?php echo URLROOT?>/Product_Manager/updateNotifyStatus/<?php echo $notifi->product_id ?>"><button class="" title="Mark As Read"><i class="fa-regular fa-eye"></i></button></a>
       </div>
       <div class="name">
-        <span>Less Available Quantity Of <?php echo $notifi->product_name; ?>
+        <span><?php echo $notifi->product_name; ?> Available Quantity is low
         </span>            
       </div>
     </div>
