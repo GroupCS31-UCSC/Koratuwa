@@ -8,8 +8,12 @@
 
 <div class="bg">
   <div class="navbar">
-    <img class="img-logo" src="<?php echo URLROOT; ?>/img/koratuwa.png" alt="logo"></span>
+    <div class="logo-container">
+      <img class="img-logo" src="<?php echo URLROOT; ?>/img/koratuwa.png" alt="logo"></span>
+    </div>
     <div class="topmenu">
+  
+    
       <ul>
         <!-- <li><a href="<?php echo URLROOT; ?>/Users/u_home">Home</a></li> -->
         <li><a href="#section1">Home</a></li>

@@ -71,6 +71,7 @@
         
       </thead>
       <tbody>
+        <?php $data_index = 0; ?>
         <tr>
           <?php foreach ($data ['onlineOrderView'] as $online_order) : ?>
           <td><?php echo $online_order->order_id ?></td>
@@ -80,7 +81,7 @@
           <td><?php echo $online_order->customer_id ?></td>
           <td>
             <div class="table-btns">
-            <a href="#"><button class="viewBtn" onclick="openModel()" id=""><i class="fas fa-eye"></i></button></a>
+            <a href="#"><button class="viewBtn" onclick="openModel('<?=$online_order->order_id?>')" id="<?php echo($data_index) ?>"><i class="fas fa-eye"></i></button></a>
             </div>
           </td>
           <td><?php echo $online_order->payment_method ?></td>
@@ -101,6 +102,7 @@
             </td>
           <?php endif; ?>
         </tr>
+        <?php $data_index++; ?>
         <?php endforeach; ?>
         </tbody>
       </table>
@@ -114,6 +116,23 @@
   </div>
 </div>
 
+<div class="model fade in" id="model" tabindex="-1">
+  <div class="model-dialog">
+    <div class="model-content">
+      <div class="model-header">
+        <button type="button" class="close" onclick="closeModel()" ><span aria-hidden="true">×</span></button>
+        <h4 class="Model-title"><i class="fa fa-info-circle edit-color"></i>Order Items</h4>
+      </div>
+      <div class="model-body">
+        <table class="tableForm">
+            <tbody id="productDetails2">
+          </tbody>           
+        </table><br>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer"></div>
+</div>
 <!-- Send new order popup -->
 <div class="model fade in" id="orderModel" tabindex="-1">
   <div class="model-dialog">
@@ -170,6 +189,34 @@
     const model = document.getElementById("orderModel").classList.remove("open-model");
   }
   
+  function openModel(id) {
+    const url = "/koratuwa/Cashier/getOrderItems/"+id;
+    const form = new FormData();
+    form.append("id", id);
+    fetch(url, {
+      method: "GET"
+    }).then(response => response.text())
+    .then(data => {
+      console.log(data);
+      if(data) {
+        const domp = new DOMParser();
+        const doc = domp.parseFromString(data, "text/html");
+        const productDetails2 = doc.getElementById("productDetails2");
+        console.log(productDetails2);
+        document.getElementById("productDetails2").innerHTML = productDetails2.innerHTML;
+        
+
+        document.getElementById("productDetails2").innerHTML = productDetails2.innerHTML;
+      }
+    });
+    document.getElementById("model").classList.add("open-model");
+    
+  }
+
+  function closeModel() {
+    document.getElementById("model").classList.remove("open-model");
+  }
+
   const fm = document.getElementById('msg-flash');
   fm.style.display = 'block';
   setTimeout(function() {

@@ -16,40 +16,41 @@
   width: 100%;
   height: 100px;
   background-color: #04086B;
+  
+  z-index: 1;
+}
+
+.logo-container{
+  height: 100%;
+  width: 100px;
+  float: left;
 }
 
 .img-logo {
   position: relative; 
-   width: 130px;
-  height: 130px;
+  width:120px;
+  height:115px;
   top: -15px;  
   
 }
 
 .topmenu{
-  width: 100%;
+  /* width: 100%; */
+  height: inherit;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
+  justify-content: flex-end;
+  padding: 5px;
   position: relative;
 }
 
-.topmenu ul {
-  
+/* .topmenu ul {
   float: right;
-  width: 100%;
   text-align: right;
-  /* margin-top: -160px;
-  margin-bottom: 20px; */
-  margin-top: -10%;
-  margin-left: 50%;
- 
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-end;
-}
+} */
 
 .topmenu ul li {
   font-size: 1.2em;

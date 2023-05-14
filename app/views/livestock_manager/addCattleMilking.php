@@ -5,7 +5,7 @@
 
 <div class="form-container">
 	<div class="form-header">
-		<center><h1>Add Milk collect</h1></center>
+		<center><h1>Add Milk collection</h1></center>
 	</div>
 	<br>
 	<form action="<?php echo URLROOT; ?>/Livestock_Manager/addCattleMilking" method="POST" enctype="multipart/form-data
