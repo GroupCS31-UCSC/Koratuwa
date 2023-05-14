@@ -63,7 +63,7 @@
     <canvas id="milkCollect"></canvas>
   </div>
   <div class="box">
-    <label><center>Milking cattle</center></label>
+    <label><center>Distribution of Cattle Across Stalls</center></label>
     <canvas id="mCattle"></canvas>
   </div>
 </div>

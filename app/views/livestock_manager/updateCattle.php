@@ -19,6 +19,7 @@
       <option value="Girlandor" <?php if(isset($data['Girlandor']) && $data['breed']=="Girlandor")?>>Girlandor (Indian breed(new))</option>
     </select>
     <!-- milking -->
+    
     <div class="form-input-title">Milking</div>
     <span class="form-invalid"><?php echo $data['milking_err']; ?></span>
     <select class="milking" name="milking" id="milking" value="<?php echo $data['milking']; ?>">

@@ -19,7 +19,7 @@
 
 <div class="section">
 <div class="feedDetails">
-  <br><h2>Cattle Milking</h2>
+  <br><h2>Cattle Feeding</h2>
   <table class="items">
     <tr>
       <th>Solid foods (60%)</th>

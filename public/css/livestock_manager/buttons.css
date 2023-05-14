@@ -12,6 +12,8 @@
     text-decoration: none;
     cursor: pointer;
     margin: 10px;
+    float: right;
+    margin-right: 50px;
 }
 
 .add-btn:hover {
