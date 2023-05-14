@@ -806,7 +806,7 @@
               redirect('Admin/adminHome');
               break;
             case 'Product Manager':
-              redirect('Product_Manager/pmHome');
+              redirect('Product_Manager/productCategories');
               break;
             case 'Livestock Manager':
               redirect('Livestock_Manager/livestockHome');

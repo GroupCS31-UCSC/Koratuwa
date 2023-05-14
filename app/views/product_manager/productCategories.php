@@ -4,6 +4,17 @@
 
 
 <!-- ______________________________________________________________________________________________________-->
+<?php $addCategoryFlash = flash('addCategory_flash'); ?>
+<?php $updateCategoryFlash = flash('updateCategory_flash'); ?>
+<?php $deleteCategoryFlash = flash('deleteCategory_flash'); ?>
+
+<?php if($addCategoryFlash || $updateCategoryFlash || $deleteCategoryFlash): ?>
+  <div class="flash-msg" id="msg-flash" style="display:block;" >
+    <?php echo $addCategoryFlash; ?>
+    <?php echo $updateCategoryFlash; ?>
+    <?php echo $deleteCategoryFlash; ?>
+  </div>
+<?php endif; ?>
 
 <!-- <?php echo $_SESSION['user_id']; ?></h2> -->
 
@@ -63,3 +74,11 @@
 
 
 <?php require APPROOT.'/views/include/footer.php'; ?>
+
+<script>
+  const fm = document.getElementById('msg-flash');
+  fm.style.display = 'block';
+  setTimeout(function() {
+    fm.style.display = 'none';
+  }, 1000);
+</script>

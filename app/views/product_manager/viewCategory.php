@@ -3,17 +3,7 @@
 <?php require APPROOT.'/views/product_manager/pm_dashboard.php'; ?>
 <!-- ______________________________________________________________________________________________________-->
 
-<?php $addCategoryFlash = flash('addCategory_flash'); ?>
-<?php $updateCategoryFlash = flash('updateCategory_flash'); ?>
-<?php $deleteCategoryFlash = flash('deleteCategory_flash'); ?>
 
-<?php if($addCategoryFlash || $updateCategoryFlash || $deleteCategoryFlash): ?>
-  <div class="flash-msg" id="msg-flash" style="display:block;" >
-    <?php echo $addCategoryFlash; ?>
-    <?php echo $updateCategoryFlash; ?>
-    <?php echo $deleteCategoryFlash; ?>
-  </div>
-<?php endif; ?>
 
 
 <!-- 
@@ -143,8 +133,8 @@
         $today = date('Y-m-d');
         $futureDate=$product_stock->exp_date;
         $difference = strtotime($futureDate) - strtotime($today);
-        $days = abs($difference/(60 * 60)/24);
-        if($days ==0)
+        $days = ($difference/(60 * 60)/24);
+        if($days ==0 || $days<0)
         {
           echo "Expired";
         }
@@ -171,10 +161,3 @@
 <?php require APPROOT.'/views/include/footer.php'; ?>
 <script src="<?php echo URLROOT; ?>/js/pm.js"></script>
 
-<script>
-  const fm = document.getElementById('msg-flash');
-  fm.style.display = 'block';
-  setTimeout(function() {
-    fm.style.display = 'none';
-  }, 1000);
-</script>
