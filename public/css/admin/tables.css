@@ -1,58 +1,122 @@
+.table-wrapper{
+    overflow-y: scroll;
+    overflow-x: scroll;
+    height: fit-content;
+    max-height: 66.4vh;
+    
+    margin-top: 22px;
+    
+    margin: 15px;
+    padding-bottom: 20px;
+}
 table {
-    /* position: absolute;
-top: 150px;
-left: 60px; */
-    position: relative;
-    /* top: -100px; */
-    margin: -30px 30px auto 30px;
+    left: 60px;
+    margin-left: 50px;
     font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     width: 90%;
-    /* background-color: #3498db; */
-    /* padding: 0px; */
-    border-collapse: collapse;
-    width: 94%;
-    /*z-index: 0;*/
-    /* border-radius: 5px; */
-    font-size: 2.3vh;
+    background-color: #3498db;
+    padding: 20px;
+    margin-bottom: 40px;
 }
 
-table th {
-    text-align: left;
-    /* background-color: #04AA6D; */
-    color: white;
+table td,
+#orders th {
+    border: 1px solid #ddd;
     padding: 12px;
-    border: 1px solid #ddd;
-}
-
-table td {
-    text-align: left;
-    border: 1px solid #ddd;
-    padding: 7px;
-    /* padding-left: 10px; */
-}
-
-table tr {
-    border: 1px solid #ddd;
-    /* padding: 12px; */
 }
 
 table tr:nth-child(even) {
     background-color: #f2f2f2;
 }
 
-table tr:nth-child(odd) {
-    background-color: #3498db;
-}
-
-table tr:nth-child(1) {
-    background-color: #04AA6D;
-}
-
 table tr:hover {
     background-color: #ddd;
 }
 
-table tr:nth-child(1):hover {
+table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
     background-color: #04AA6D;
+    color: white;
 }
+
+@media (max-width: 991px) {
+    .graphBox {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+    .navigation {
+        left: -275px;
+    }
+    .navigation.active {
+        width: 275px;
+        left: 0;
+    }
+    .main {
+        width: 100%;
+        left: 0;
+    }
+    .main.active {
+        left: 275px;
+    }
+}
+
+/* .refreshBtn {
+    display: block;
+    width: 200px;
+    height: 30px;
+    border-radius: 25px;
+    margin: 1rem ;
+    font-size: 1rem;
+    outline: none;
+    border: none;
+    background-color: #580a50;
+    cursor: pointer;
+    color: #fff;
+    text-transform: uppercase;
+    background-size: 200%;
+    transition: 0.5s;
+}
+
+.refreshBtn:hover {
+
+    background-color: #00BFFF;
+    color: white;
+}
+
+ */
+
+
+/* search */
+
+.search-container
+{
+   margin-right: 20%;
+   margin-left: 20%;
+}
+
+
+
+
+  /* for date filters */
+  .filter {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 90%;
+    margin: 5px;
+    padding: 5px;
+    font-size: 15px;
+    align-items: center;
+} 
+
+  .filterBtn{
+    font-size: 1.2rem;
+    outline: none;
+    border: none;
+    color: #3498db;
+    background-color: transparent;
+    cursor: pointer;
+ }

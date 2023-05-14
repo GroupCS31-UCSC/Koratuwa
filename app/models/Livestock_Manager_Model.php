@@ -105,12 +105,11 @@
     }
 
     public function updateCattle($data) {
-      $this->db->query('UPDATE cattle SET cow_breed= :breed, milking_status= :milking WHERE cow_id= :cowId');
+      $this->db->query('UPDATE cattle SET cow_breed= :breed, milking_status= :milking, stall_id=:stallId WHERE cow_id= :cowId');
       $this->db->bind(':cowId', $data['cowId']);
-      // $this->db->bind(':dob', $data['dob']);
-      // $this->db->bind(':gender', $data['gender']);
       $this->db->bind(':breed', $data['breed']);
       $this->db->bind(':milking', $data['milking']);
+      $this->db->bind(':stallId', $data['stallId']);
 
       if($this->db->execute())
       {
@@ -292,8 +291,7 @@
       } else {
         $id = substr($lastId, 1);
         $id = intval($id);
-        $id++;
-        $id = 'M'.str_pad($id, 8, '0', STR_PAD_LEFT);
+				$id = "M".($id+1);
       }
 
       return $id;
@@ -310,10 +308,9 @@
       if($lastId == '') {
         $id = 'MC100001';
       } else {
-        $id = substr($lastId, 1);
-        $id = intval($id);
-        $id++;
-        $id = 'MC'.str_pad($id, 6, '0', STR_PAD_LEFT);
+        $id = substr($lastId, 2);
+				$id = intval($id);
+				$id = "MC".($id+1);
       }
 
       return $id;

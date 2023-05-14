@@ -117,6 +117,16 @@
       $this->view('Cashier/viewSaleItems', $data);
     }
 
+    public function getOrderItems($saleId) {
+      $orderProductView = $this->cashierModel->get_orderProductView($saleId);
+
+      $data = [
+        'orderProductView' => $orderProductView
+      ];
+
+      $this->view('Cashier/viewSaleItems', $data);
+    }
+
     public function viewCustomerOrders()
     {
       if($_SERVER['REQUEST_METHOD'] == 'POST')
@@ -125,7 +135,7 @@
         $from = isset($_POST['from']) ? $_POST['from'] : '';
         $to = isset($_POST['to']) ? $_POST['to'] : '';
 
-        $status=$_GET['status'] ?? 'Ongoing';
+        $status=$_GET['status'] ?? 'New Order';
         $onlineOrderView= $this->cashierModel->onlineOrder_duration($status, $from, $to);
         $data = [
           'onlineOrderView' => $onlineOrderView,
@@ -137,7 +147,7 @@
       }
       else
       {
-        $status=$_GET['status'] ?? 'Ongoing';
+        $status=$_GET['status'] ?? 'New Order';
         $onlineOrderView= $this->cashierModel->get_onlineOrderView($status);
         $data = [
           'onlineOrderView' => $onlineOrderView,

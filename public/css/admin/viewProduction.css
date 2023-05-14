@@ -9,25 +9,25 @@
     width: 100%;    
 }
 
-/* .full-boxer{
+.full-boxer{
     border: 1px solid rebeccapurple;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     width: 100%;
-} */
+}
 
-/* .box-top{
+.box-top{
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
-} */
+}
 
-/* .product-box:hover{
+.product-box:hover{
     margin-top: 12px;
-} */
+}
 
 .product-box{
     border: 1px solid blue;
@@ -43,6 +43,7 @@
     flex-direction: row;
     justify-content: space-around;
     flex-flow: wrap;
+    background-color: rgb(177, 228, 255);
 
 }
 

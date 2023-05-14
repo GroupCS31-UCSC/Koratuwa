@@ -40,7 +40,7 @@
         <input type="date" id="to" name="to" value="<?php echo $data['to']; ?>">
         <input type="submit" value="Search" class="submitBtn"> 
       </form>
-      <a href="<?php echo URLROOT?>/Supplier/generateSupplyReport/"><button>Genarate PDF</button></a>
+      <!-- <a href="<?php echo URLROOT?>/Supplier/generateSupplyReport/"><button>Genarate PDF</button></a> -->
       
       <table id="detailsTable6">
         <thead>
@@ -49,9 +49,9 @@
             <th col-index = 3>Supply Quantity (L) </th>
             <th col-index = 4>Price Received Per Unit (Rs) </th>
             <!-- <th>Supplying Address</th> -->
-            <th col-index = 5>Status
+            <th col-index = 5>
               <select class="table-filter6" onchange="filter_rows6()">
-                <option value="all"></option>
+                <option value="all">Status</option>
               </select>
             </th>
 
@@ -69,8 +69,9 @@
             <td>
               <?php if($supOrd->status == 'Ongoing') : ?>
                 <div class="table-btns">
-                  <a href="<?php echo URLROOT?>/Supplier/updateSupOrder/<?php echo $supOrd->supply_order_id ?>"><button class="updateBtn">UPDATE</button></a>
-                  <a href="<?php echo URLROOT?>/Supplier/deleteSupOrder/<?php echo $supOrd->supply_order_id ?>"><button class="deleteBtn">DELETE</button></a>
+                  <a href="<?php echo URLROOT?>/Supplier/updateSupOrder/<?php echo $supOrd->supply_order_id ?>"><button class="updateBtn" id="updateBtn">UPDATE</button></a>
+                  <a href="<?php echo URLROOT?>/Supplier/deleteSupOrder/<?php echo $supOrd->supply_order_id ?>"><button class="deleteBtn" id="deleteBtn">DELETE</button></a>
+
                 </div>
 
               <?php elseif($supOrd->status == 'Collected') : ?>
@@ -114,7 +115,27 @@
 
 
 <script>
-
+// ------------------------------------------------------//
+  //   var currentTime = new Date();
+  //   var hours = currentTime.getHours();
+  //   var deleteBtn = document.querySelectorAll('.deleteBtn');
+  //   for (var i = 0; i < deleteBtn.length; i++) {
+  //   if (hours >= 8) {
+  //       deleteBtn[i].disabled = true;
+  //       deleteBtn[i].addEventListener('click', function(event) {
+  //           event.preventDefault();
+  //       });
+  //   }
+  // }
+  // var updateBtn = document.querySelectorAll('.updateBtn');
+  // for (var i = 0; i < updateBtn.length; i++) {
+  //   if (hours >= 8) {
+  //       updateBtn[i].disabled = true;
+  //       updateBtn[i].addEventListener('click', function(event) {
+  //           event.preventDefault();
+  //       });
+  //   }
+  // }
   //--------------counter----------------//
   let counterup = document.querySelectorAll(".counter_up");
     let convert = Array.from(counterup);

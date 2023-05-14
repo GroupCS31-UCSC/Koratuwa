@@ -27,7 +27,7 @@
           <!-- Quantity -->
           <div class="form-input-title">Quantity</div>
           <span class="form-invalid"><?php echo $data[0]['quantity_err']; ?></span>
-          <input type="number" name="quantity" id="quantity" class="quantity" value="<?php $values = $data[0]?>" required onchange="calculate()">  
+          <input type="number" name="quantity" id="quantity" class="quantity" value="<?php $values = $data[0]?>" >  
         </div>
       </div>
 		  
@@ -76,83 +76,7 @@
     <!-- <div class="wrapper-1"> -->
   <input type="button" value="submit" class="submitBtn" onclick="payment()">
   </div>
-  <!-- popup receipt -->
-  <!-- <div class="wrapper-1">
-  <input type="submit" value="PRINT RECEIPT" class="submitBtn" onclick="openModel()">
-  </div>
-  </div>
 </div>
-
-<div class="model fade in" id="model" tabindex="-1">
-  <div class="model-dialog">
-    <div class="model-content">
-      <div class="model-header">
-        <button type="button" class="close" onclick="closeModel()"><span aria-hidden="true">×</span></button>
-      </div>
-      <div class="model-body">
-        <div class="receipt" id="receipt">
-        <center id="top">
-		      <div class="logo">
-			      <img class="img-logo" src="<?php echo URLROOT; ?>/img/koratuwa.png" alt="logo">
-		      </div>
-    	    <div class="info"> 
-    		    <h1>Koratuwa Dairy Farm</h1>
-    	    </div>
-        </center>
-        <div id="mid">
-          <div class="info">
-            <h2>Contact Info</h2>
-            <p> 
-            Address : No 88, Koratuwa Road, Anguruwatota</br>
-            Email   : koratuwa@gmail.com</br>
-            Phone   : +9177 067 3739</br>
-			      facebook :  https://www.facebook.com/koratuwa.dairyfarm
-            </p>
-          </div>
-        </div>
-        <div id="bot">
-        <h6>Receipt Id:</h6>
-        <h6 id=receiptId></h6>
-		      <div id="table">
-			      <table class="receipt-table">
-				      <tr>
-					      <th><h2>Product</h2></th>
-					      <th><h2>Quantity</h2></th>
-					      <th><h2>Sub Total</h2></th>
-				      </tr>
-				      <tr id="tbody-receipt">
-              </tr>
-				      <tr>
-					      <th></th>
-					      <th><h2>Total</h2></th>
-					      <th id="total"><h2></h2></th>
-				      </tr>
-              <tr>
-					      <th></th>
-					      <th><h2>Cash</h2></th>
-					      <th id="cash" ><h2></h2></th>
-				      </tr>
-              <tr>
-					      <th></th>
-					      <th><h2>Balance</h2></th>
-					      <th id="balance"><h2></h2></th>
-				      </tr>
-			      </table>
-		      </div>
-		      <div id="legalcopy">
-			      <p class="legal"><strong>Thank you for doing business with us</strong>
-			      Coom again soon!
-			      </p>
-		      </div>
-	      </div>
-        </div>  
-        <br>
-      </div>
-    </div>
-  </div>
-  <div class="modal-footer"></div>
-</div> -->
-
 
 
 <!-- notification view box -->
@@ -197,12 +121,6 @@
 
 
 <script>
-  function calculate(){
-    var quantity = document.getElementById("quantity").value;
-    var unitPrice = document.getElementById("unitPrice").value;
-    var price = quantity * unitPrice;
-    document.getElementById("price").value = price;
-  }
   
   var total = 0;
   var products = [];  
@@ -223,16 +141,13 @@
     total += parseInt(subTot);
     
     document.getElementById("total").innerHTML = total;
-    var cash = document.getElementById("cash").value;
-    
-    document.getElementById("balance").innerHTML = cash - total;
 
     const postData = {
       saleId: saleId,
       id: id,
       qnty: qnty
     }
-
+    console.log(saleId);
     products.push(postData);
   }
 

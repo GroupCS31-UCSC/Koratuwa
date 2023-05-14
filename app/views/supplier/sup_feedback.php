@@ -48,6 +48,7 @@
                     <div class="profile-box">
                     <div class="profile-img">
                     <!-- <img src="<?php echo UPLOADS . $supFeedback->image ?>" width='100' height='100'> -->
+                    <img src="<?php echo URLROOT; ?>/img/users/user.png" >
                     </div>
                     <div class="name">
                         <span><?php echo $supFeedback->date; ?></span>

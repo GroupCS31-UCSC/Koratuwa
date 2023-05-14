@@ -142,13 +142,16 @@
           'cowId'=>$cowId,
           'breed'=>trim($_POST['breed']),
           'milking'=>trim($_POST['milking']),
+          'stallId'=>trim($_POST['stallId']),
           
           'breed_err'=>'',
           'milking_err'=>'',
+          'stallId_err'=>'',
         ];
 
         if ($data['breed']=='Select') { $data['breed_err'] = '*' ; }
         if ($data['milking']=='Select') { $data['milking_err'] = '*' ; }
+        if ($data['stallId']=='Select') { $data['stallId_err'] = '*' ; }
 
         //if no errors
         if(empty($data['breed_err']) && empty($data['milking_err'])) {
@@ -171,9 +174,11 @@
           'cowId'=>$cow->cow_id,
           'breed'=>$cow->cow_breed,
           'milking'=>$cow->milking_status,
+          'stallId'=>$cow->stall_id,
 
           'breed_err'=>'',
-          'milking_err'=>''
+          'milking_err'=>'',
+          'stallId_err'=>''
         ];
         $this->view('livestock_Manager/updateCattle', $data);
       }

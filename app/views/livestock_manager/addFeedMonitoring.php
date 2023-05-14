@@ -29,7 +29,7 @@
       
         <div class="form-input-title">Remarks</div>
         <span class="form-invalid"><?php echo $data['remarks_err']; ?></span>
-        <input type="text" name="remarks" id="remarks" class="remarks" value="<?php echo $data['remarks'];?>" required>
+        <input type="text" name="remarks" id="remarks" class="remarks" value="<?php echo $data['remarks'];?>">
     
 		<br>
 		<input type="submit" value="Submit" class="submitBtn">

@@ -13,20 +13,27 @@
 
 <div class="section">
   <div class="tab">
-    <?php $status=$_GET['status']??'Ongoing';?>
-    <button class="tablinks <?= $status==="Ongoing"?'active':''?>" onclick="openTab(event, 'Ongoing')">Ongoing Orders</button>
+    <?php $status=$_GET['status']??'New Order';?>
     <button class="tablinks <?= $status==="New Order"?'active':''?>" onclick="openTab(event, 'New Order')">New Orders</button>
+    <button class="tablinks <?= $status==="Ongoing"?'active':''?>" onclick="openTab(event, 'Ongoing')">Ongoing Orders</button>
     <button class="tablinks <?= $status==="Delivered"?'active':''?>" onclick="openTab(event, 'Delivered')">Delivered Orders</button>
   </div>
 
   <div id="Ongoing" class="tabcontent active">
     <div class="container" style="overflow-x: auto;">
     <!-- search -->
+    <div class="serch">
+    <div class="search-container">
+    <div class="search-icon"><button><i class="fa-solid fa-magnifying-glass"></i></button></div>
     <input type="text" id="searchInput2" placeholder="Search By Order IDs..." onkeyup="searchFunc2();">
-    <br><br>
+    </div>
     <!-- search -->
+    <div class="search-container">
+    <div class="search-icon"><button><i class="fa-solid fa-magnifying-glass"></i></button></div>
     <input type="text" id="searchInput4" placeholder="Search By Customer IDs..." onkeyup="searchFunc4();">
-    <br><br>
+    </div>
+    </div>
+    
 
     <!--date filter -->
     <form action="<?php echo URLROOT; ?>/Cashier/viewCustomerOrders" method="POST" >
@@ -34,11 +41,17 @@
       <input type="date" id="from" name="from" value="<?php echo $data['from']; ?>"><br>
       <label for="to">  To :</label>
       <input type="date" id="to" name="to" value="<?php echo $data['to']; ?>">
+      <div class="form-input-container">
+      <div class="form-input-wrapper">
       <input type="submit" value="Search" class="submitBtn"> 
+      </div>
+      <div class="form-input-wrapper">
+        <!-- refresh button -->
+    <input type="button" value="Refresh" class="refreshBtn" onclick="location.href='<?php echo URLROOT; ?>/Cashier/viewCustomerOrders' ">
+      </div>
     </form>
-    <br><br>
-    <!-- refresh button -->
-    <input type="button" value="Refresh" class="" onclick="location.href='<?php echo URLROOT; ?>/Cashier/viewCustomerOrders' ">
+    </div>
+    
 
     <table id="detailsTable2">
       <thead>
@@ -58,6 +71,7 @@
         
       </thead>
       <tbody>
+        <?php $data_index = 0; ?>
         <tr>
           <?php foreach ($data ['onlineOrderView'] as $online_order) : ?>
           <td><?php echo $online_order->order_id ?></td>
@@ -67,7 +81,7 @@
           <td><?php echo $online_order->customer_id ?></td>
           <td>
             <div class="table-btns">
-            <a href="#"><button class="viewBtn" onclick="openModel()" id=""><i class="fas fa-eye"></i></button></a>
+            <a href="#"><button class="viewBtn" onclick="openModel('<?=$online_order->order_id?>')" id="<?php echo($data_index) ?>"><i class="fas fa-eye"></i></button></a>
             </div>
           </td>
           <td><?php echo $online_order->payment_method ?></td>
@@ -88,6 +102,7 @@
             </td>
           <?php endif; ?>
         </tr>
+        <?php $data_index++; ?>
         <?php endforeach; ?>
         </tbody>
       </table>
@@ -101,6 +116,23 @@
   </div>
 </div>
 
+<div class="model fade in" id="model" tabindex="-1">
+  <div class="model-dialog">
+    <div class="model-content">
+      <div class="model-header">
+        <button type="button" class="close" onclick="closeModel()" ><span aria-hidden="true">×</span></button>
+        <h4 class="Model-title"><i class="fa fa-info-circle edit-color"></i>Order Items</h4>
+      </div>
+      <div class="model-body">
+        <table class="tableForm">
+            <tbody id="productDetails2">
+          </tbody>           
+        </table><br>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer"></div>
+</div>
 <!-- Send new order popup -->
 <div class="model fade in" id="orderModel" tabindex="-1">
   <div class="model-dialog">
@@ -157,6 +189,34 @@
     const model = document.getElementById("orderModel").classList.remove("open-model");
   }
   
+  function openModel(id) {
+    const url = "/koratuwa/Cashier/getOrderItems/"+id;
+    const form = new FormData();
+    form.append("id", id);
+    fetch(url, {
+      method: "GET"
+    }).then(response => response.text())
+    .then(data => {
+      console.log(data);
+      if(data) {
+        const domp = new DOMParser();
+        const doc = domp.parseFromString(data, "text/html");
+        const productDetails2 = doc.getElementById("productDetails2");
+        console.log(productDetails2);
+        document.getElementById("productDetails2").innerHTML = productDetails2.innerHTML;
+        
+
+        document.getElementById("productDetails2").innerHTML = productDetails2.innerHTML;
+      }
+    });
+    document.getElementById("model").classList.add("open-model");
+    
+  }
+
+  function closeModel() {
+    document.getElementById("model").classList.remove("open-model");
+  }
+
   const fm = document.getElementById('msg-flash');
   fm.style.display = 'block';
   setTimeout(function() {

@@ -30,7 +30,7 @@
       }
 
       if($lastId == '') {
-        $id = 'S10000001';
+        $id = 'S00000001';
       } else {
         $id = substr($lastId, 1);
         $id = intval($id);
@@ -59,7 +59,17 @@
 
     public function get_saleProductView($saleId) {
       $this->db->query('SELECT ps.product_id, p.product_name, ps.quantity FROM product_sale as ps INNER JOIN onsite_sale as os ON ps.sale_id=os.sale_id INNER JOIN product as p ON p.product_id=ps.product_id WHERE ps.sale_id = :saleId;');
-      // $this->db->query('SELECT * FROM product_sale WHERE sale_id = :saleId');
+
+      $this->db->bind(':saleId', $saleId);
+
+      $result = $this->db->resultSet();
+
+      return $result;
+    }
+
+    public function get_orderProductView($saleId) {
+      $this->db->query('SELECT ps.product_id, p.product_name, ps.quantity FROM product_sale as ps INNER JOIN online_order as oo ON ps.sale_id=oo.order_id INNER JOIN product as p ON p.product_id=ps.product_id WHERE ps.sale_id = :saleId;');
+
       $this->db->bind(':saleId', $saleId);
 
       $result = $this->db->resultSet();
