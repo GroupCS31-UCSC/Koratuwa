@@ -142,16 +142,25 @@
 
         }
 
-        public function deleteCartItem($time){
+        public function deleteCartItem($pid){
 
         // alert($time);
-          if($this->customerModel->dltCartItems($time))
+          if($this->customerModel->dltCartItems($pid))
           {
             redirect('customer/cart');
           }
           else
           {
             die('Something went wrong');
+          }
+        }
+
+
+        public function clearCart(){
+
+          $res = $this->customerModel->clearCart($_SESSION['user_id']);
+          if($res){
+            redirect('/Customer/customerHome');
           }
         }
 
