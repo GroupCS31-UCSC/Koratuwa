@@ -159,7 +159,7 @@
 
     public function Revenue_duration($from, $to)
     {
-      $this->db->query('SELECT * FROM revenue WHERE revenue_date >= "'.$from.'" and date <= "'.$to.'"');
+      $this->db->query('SELECT * FROM revenue WHERE revenue_date >= "'.$from.'" and revenue_date <= "'.$to.'"');
 
       $result = $this->db->resultSet();
 
