@@ -98,22 +98,38 @@
     public function placeSupply($data)
     {
       // $data['date'] = date("Y-m-d");
-      $this->db->query('INSERT INTO supply_order(supply_order_id,quantity,status,supplier_id, invoice_id) VALUES(:supOrderId, :quantity,"Ongoing",:supId, :invId)');
-      //value binding
-      $this->db->bind(':supOrderId', $data['supOrderId']);
-      $this->db->bind(':quantity', $data['quantity']);
-      $this->db->bind(':invId', $data['invoice_id']);
-      $this->db->bind(':supId', $_SESSION['user_id']);
-
-      //execute
+      $this->db->query('SELECT * FROM milk_purchasing_price order by date DESC LIMIT 1');
+			$row = $this->db->single();
+      $unit_price = $row->unit_price;
+      // print($unit_price);
+      // print($data['quantity']);
+      $payment =$data['quantity'] * $unit_price;
+      // print($payment);
       if($this->db->execute())
       {
-        return true;
+        $this->db->query('INSERT INTO supply_order(supply_order_id,quantity,status,supplier_id,total_payment, invoice_id) VALUES(:supOrderId, :quantity,"Ongoing",:supId, :payment, :invId)');
+        //value binding
+        $this->db->bind(':supOrderId', $data['supOrderId']);
+        $this->db->bind(':quantity', $data['quantity']);
+        $this->db->bind(':invId', $data['invoice_id']);
+        $this->db->bind(':payment', $payment);
+        $this->db->bind(':supId', $_SESSION['user_id']);
+
+          //execute
+          if($this->db->execute())
+          {
+            return true;
+          }
+          else
+          {
+            return false;
+          }
       }
-      else
-      {
+      else{
         return false;
       }
+    
+
     }
 
     public function dltSupOrder($supOrdId)

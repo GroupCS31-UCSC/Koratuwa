@@ -32,7 +32,7 @@
             <!-- ===== ===== User Main-Profile ===== ===== -->
             <section class="userProfile card">
                 <div class="profile">
-                    <figure><img  alt="user photo" src="<?php echo URLROOT; ?>/img/users/user.png"" width="250px" height="250px"></figure>
+                    <figure><img  alt="user photo" src="<?php echo URLROOT; ?>/img/users/user.png" width="250px" height="250px"></figure>
                 </div>
             </section>
 
@@ -42,30 +42,24 @@
 
                 <!-- ===== ===== Work Contaienr ===== ===== -->
                 <div class="work">
-                    <h1 class="heading">work</h1>
-                    <div class="primary">
-                        <h1>Spotify New York</h1>
-                        <span>Primary</span>
-                        <p>170 William Street <br> New York, NY 10038-212-315-51</p>
-                    </div>
+                <div class="btns">
+                    <ul>
+                        <li class="sendMsg active">
+                            <i class="ri-chat-4-fill ri"></i>
+                            <a href="<?php echo URLROOT; ?>/Users/sup_editProfile/<?php echo $sup->supplier_id; ?>">Edit Profile</a>
+                        </li>
 
-                    <div class="secondary">
-                        <h1>Metropolitan <br> Museum</h1>
-                        <span>Secondary</span>
-                        <p>S34 E 65th Street <br> New York, NY 10651-78 156-187-60</p>
-                    </div>
+                        <li class="sendMsg active">
+                            <i class="ri-check-fill ri"></i>
+                            <a href="<?php echo URLROOT; ?>/Users/changePw/<?php echo $_SESSION['user_email']; ?>">Change Password</a>
+                        </li>
+
+                     
+                    </ul>
+                </div>      
                 </div>
 
-                <!-- ===== ===== Skills Contaienr ===== ===== -->
-                <!-- <div class="skills">
-                    <h1 class="heading">Skills</h1>
-                    <ul>
-                        <li style="--i:0">Android</li>
-                        <li style="--i:1">Web-Design</li>
-                        <li style="--i:2">UI/UX</li>
-                        <li style="--i:3">Video Editing</li>
-                    </ul>
-                </div> -->
+
             </section>
 
 
@@ -75,7 +69,7 @@
                     <h1 class="name"><?php echo $sup->name; ?></h1>
                     <div class="map">
                         <i class="ri-map-pin-fill ri"></i>
-                        <span>Horana</span>
+                        <span></span>
                     </div>
                     <p>Milk Supplier</p>
                 </div>
@@ -93,23 +87,6 @@
                     </div>
                 </div>
 
-                <div class="btns">
-                    <ul>
-                        <li class="sendMsg active">
-                            <i class="ri-chat-4-fill ri"></i>
-                            <a href="<?php echo URLROOT; ?>/Users/sup_editProfile/<?php echo $sup->supplier_id; ?>">Edit Profile</a>
-                        </li>
-
-                        <li class="sendMsg active">
-                            <i class="ri-check-fill ri"></i>
-                            <a href="<?php echo URLROOT; ?>/Users/changePw/<?php echo $_SESSION['user_email']; ?>">Change Password</a>
-                        </li>
-
-                        <!-- <li class="sendMsg">
-                            <a href="#">Report User</a>
-                        </li> -->
-                    </ul>
-                </div>
             </section>
 
 
@@ -117,11 +94,6 @@
             <section class="timeline_about card">
                 <div class="tabs">
                     <ul>
-                        <li class="timeline">
-                            <i class="ri-eye-fill ri"></i>
-                            <span>Timeline</span>
-                        </li>
-
                         <li class="about active">
                             <i class="ri-user-3-fill ri"></i>
                             <span>About</span>
@@ -148,6 +120,11 @@
                         </li>
 
                         <li class="site">
+                            <h1 class="label">Register Date:</h1>
+                            <span class="info"><?php echo $sup->reg_date; ?></span>
+                        </li>
+
+                        <li class="site">
                             <h1 class="label">Site:</h1>
                             <span class="info">www.koratuwa.lk</span>
                         </li>
@@ -162,10 +139,10 @@
                             <span class="info"><?php echo $sup->nic; ?></span>
                         </li>
 
-                        <li class="sex">
+                        <!-- <li class="sex">
                             <h1 class="label">Gender:</h1>
-                            <span class="info">Male</span>
-                        </li>
+                            <span class="info"><?php echo($data['gender']) ?></span>
+                        </li> -->
                     </ul>
                 </div>
             </section>

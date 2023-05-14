@@ -1,6 +1,9 @@
 <?php require APPROOT.'/views/include/header.php'; ?>
 <link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/public/css/users/editProfile.css">
 <?php require APPROOT.'/views/users/u_profile_dashboard.php'; ?>
+<link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/public/css/users/home.css">
+<link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/public/css/users/buttons.css">
+<link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/public/css/users/forms.css">
 <!-- ______________________________________________________________________________________________________-->
 
 <?php if($_SESSION['user_type'] == 'Supplier') : ?>

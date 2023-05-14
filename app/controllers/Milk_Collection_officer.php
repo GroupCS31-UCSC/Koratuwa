@@ -203,14 +203,68 @@
         public function viewSupOrderDetails($ordID){
           $ordDetails= $this->mcoModel->get_orderDetails($ordID);
 
-          $data = [
-              'ordDetails' => $ordDetails
-          ];
+          // $data = [
+          //     'ordDetails' => $ordDetails
+          // ];
 
-          $this->view('milk_collection_officer/collection_details',$data);
+          // $this->view('milk_collection_officer/view_supplyOrders',$data);
+          $pdf = generatePdf();
+      
+          $pdf->AddPage('P','A4');
+        
+          // Set invoice title and header
+          $pdf->SetFont('Arial', 'B', 28);
+          $pdf->Cell(0, 10, 'Invoice', 0, 1, 'C');
+          $pdf->SetFont('Arial', '', 12);
+          $pdf->Cell(0, 10, 'Invoice Number: INV-' . $ordID, 0, 1, 'R');
+          $pdf->Ln(10);
+        
+        // Include order details
+        $pdf->SetFont('Arial', 'B', 14);
+        $pdf->Cell(0, 10, 'Order Details', 0, 1);
+        
+        foreach ($ordDetails as $row) {
+          $pdf->SetFont('Arial', '', 12);
+          // $pdf->Cell(50, 10, 'Product:');
+          // $pdf->Cell(0, 10, 'Fuel', 0, 1);
+      
+          $pdf->Cell(50, 10, 'Supply OrderID:');
+          $pdf->Cell(0, 10, $row->supply_order_id , 0, 1);
+      
+          $pdf->Cell(50, 10, 'Quantity:');
+          $pdf->Cell(0, 10, 'Rs. ' . $row->	quantity, 0, 1);
+      
+          $pdf->Cell(50, 10, 'Unit Price:');
+          $pdf->Cell(0, 10, 'Rs. ' . $row->unit_price, 0, 1);
+      
+          $pdf->Cell(50, 10, 'Total Amount:');
+          $pdf->Cell(0, 10, 'Rs. ' . $row->total_payment, 0, 1);
+          $pdf->SetLineWidth(0.5); // set line width to 0.5
+          $pdf->Line(20, $pdf->GetY(), 190, $pdf->GetY()); // draw a line below the Cell()
+
+          $pdf->Ln(5);
+        }        
+
+        $pdf->Ln(50);
+        $pdf->SetFont('Arial', 'B', 20); // set font size to 20
+        $pdf->SetDrawColor(255, 0, 0); // set border color to black
+        $pdf->SetLineWidth(1); // set border width to 1
+        $pdf->Cell(0, 30, 'PAID !', 1, 1, 'C'); // add border and center-align
+        
+        // Set border around the page
+        $pdf->SetDrawColor(0, 0, 0); 
+        $pdf->Rect(5, 5, $pdf->getPageWidth() - 10, $pdf->getPageHeight() - 10);
+        // Set output filename and type
+        $pdf->Output('Invoice-' . $ordID . '.pdf', 'I'); 
+        
+        $data = [
+          'ordDetails' => $ordDetails
+        ];
+
+        $this->view('milk_collection_officer/view_supplyOrders',$data);        
         }
 
-        
+
         
 
 

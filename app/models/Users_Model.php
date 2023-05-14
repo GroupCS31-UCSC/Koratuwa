@@ -423,7 +423,10 @@
 			if($user_type == 'Supplier')
 			{
 				// echo '1';
-				$this->db->query('SELECT * FROM supplier WHERE supplier_id=:userId');
+				$this->db->query('SELECT supplier.supplier_id, supplier.name, supplier.nic, supplier.contact_number, supplier.address, supplier.image, user.user_type, user.reg_date  
+				FROM supplier
+				INNER JOIN user 
+				ON supplier.supplier_id= user.user_id WHERE supplier.supplier_id=:userId');
 				$this->db->bind(':userId', $userId);
 	
 				$result = $this->db->resultSet();

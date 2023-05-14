@@ -334,36 +334,39 @@ header {
 .userDetails .rank .rating .underrate {
   color: var(--f6-color);
 }
+.work .btns{
+  margin-top: 15%;
+}
 
-.userDetails .btns ul,
-.userDetails .btns ul li {
+.work .btns ul,
+.work .btns ul li {
   display: flex;
   align-items: center;
 }
 
-.userDetails .btns ul li {
+.work .btns ul li {
   margin-right: var(--m-2-5);
   border-radius: 0.5rem;
 }
 
-.userDetails .btns ul li .ri {
+.work .btns ul li .ri {
   margin-right: var(--m-0-5);
   font-size: var(--xl-fs);
 }
 
-.userDetails .btns ul li a {
+.work .btns ul li a {
   font-size: var(--l-fs);
   color: var(--f2-color);
   font-weight: 500;
 }
 
-.userDetails .btns ul .active {
+.work .btns ul .active {
   background: #e6f2ff;
   padding: var(--p-0-5) var(--p-1-5);
 }
 
-.userDetails .btns ul .active a,
-.userDetails .btns ul .active .ri {
+.work .btns ul .active a,
+.work .btns ul .active .ri {
   color: var(--f5-color);
 }
 
@@ -416,6 +419,7 @@ header {
   background: var(--bg5-color);
 }
 
+
 .timeline_about .contact_info .heading,
 .timeline_about .basic_info .heading {
   font-size: var(--xs-fs);
@@ -426,6 +430,7 @@ header {
 
 .timeline_about .contact_info ul,
 .timeline_about .basic_info ul {
+  display: flex;
   margin-bottom: var(--m-1-5);
 }
 
