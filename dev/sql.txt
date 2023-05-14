@@ -206,6 +206,11 @@ INNER JOIN milk_purchasing_price
 ON supply_order.supply_date = milk_purchasing_price.date WHERE supply_order.status="Ongoing"
 
 
+//cus and cus order join for notifications
+SELECT cusorder_notification.notify_id, cusorder_notification.shipped_date, cusorder_notification.shipped_time, cusorder_notification.order_id, online_order.customer_id
+FROM cusorder_notification 
+INNER JOIN online_order 
+ON cusorder_notification.order_id = online_order.order_id WHERE cusorder_notification.seen=0
 
 
 

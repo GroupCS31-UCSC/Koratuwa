@@ -220,7 +220,77 @@
     return $result;
   }
 
+  //generate id for feedbacks
+  public function generateFeedbackId()
+  {
+      $this->db->query('SELECT * FROM cus_feedback order by feedback_id desc limit 1');
+      $row = $this->db->single();
+  
+      if ($row !== false && is_object($row)) {
+          $lastId = $row->feedback_id;
+      } else {
+          $lastId = '';
+      }
+  
+      if ($lastId == '') {
+          $id = 'F101';
+      } else {
+          $id = substr($lastId, 1);
+          $id = intval($id);
+          $id = "F" . ($id + 3);
+      }
+  
+      return $id;
+  }
+  // customer feedback
+  public function cusFeedback($data)
+  {
 
+    $this->db->query('INSERT INTO  cus_feedback(feedback_id, customer_id, feedback) VALUES(:Fid, :cusId, :feedback)');
+    
+    $this->db->bind(':Fid', $data['feedback_id']);
+    $this->db->bind(':cusId', $_SESSION['user_id']);
+    $this->db->bind(':feedback', $data['feedback']);
+
+    //execute
+    if($this->db->execute())
+    {
+      return true;
+    }
+    else
+    {
+      return false;
+    }
+  }
+
+    //notification
+    public function get_Notifications()
+    {
+      // $this->db->query('SELECT * From cusorder_notification WHERE seen=0 AND cus_id=:cusId ORDER BY notify_id DESC');
+      $this->db->query('SELECT cusorder_notification.notify_id, cusorder_notification.shipped_date, cusorder_notification.shipped_time, cusorder_notification.order_id, online_order.customer_id
+      FROM cusorder_notification 
+      INNER JOIN online_order 
+      ON cusorder_notification.order_id = online_order.order_id WHERE cusorder_notification.seen=0 AND online_order.customer_id= :cusId ');
+
+      $this->db->bind(':cusId', $_SESSION['user_id']);
+
+      $result=$this->db->resultSet();
+      return $result;
+    }
+
+    public function update_notifyStatus($nId)
+    {
+      $this->db->query('UPDATE cusorder_notification SET seen=1 WHERE notify_id= :nId');
+      $this->db->bind(':nId', $nId);
+        if($this->db->execute())
+        {
+          return true;
+        }
+        else
+        {
+          return false;
+        }
+    }
 }
 
 
