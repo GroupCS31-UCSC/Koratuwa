@@ -159,27 +159,43 @@
     //delete a selected employee
     public function deleteEmployees($empId)
     {      
-      $date1= date_create(strval($this->db->query('SELECT reg_date FROM user WHERE user_id= :empId AND existence=1')));
+      $regDate= strval($this->db->query('SELECT reg_date FROM user WHERE user_id= :empId AND existence=1'));
       $this->db->bind(':empId', $empId);
-      $date2= date_create(date("Y-m-d"));
-      $diff=intval(date_diff($date1,$date2));
+      // $date2= date_create(date("Y-m-d"));
+      // $diff=intval(date_diff($date1,$date2));
       
-      if($diff<30){
-        $period ='less than a month';
-      }
-      else if ($diff<365){
-        $m=intval($diff/30);
-        $period= $m.' months';
-      }
-      else{
-        $y=$diff/365;
-        $m=intval(($diff%365)/30);
-        $period=$y.'years '.$m.'months';
-      }
+      // if($diff<30){
+      //   $period ='less than a month';
+      // }
+      // else if ($diff<365){
+      //   $m=intval($diff/30);
+      //   $period= $m.' months';
+      // }
+      // else{
+      //   $y=$diff/365;
+      //   $m=intval(($diff%365)/30);
+      //   $period=$y.'years '.$m.'months';
+      // }
+
+      // calculate age
+      $today = new DateTime();
+      $service = $today->diff(new DateTime($regDate));
+      $years = $service->y;
+      $months = $service->m;
+      $days = $service->d;
+      $serviceStr = '';
+
+      // format age
+      if ($years > 0) { $serviceStr = $years . ' years'; if ($months > 0 || $days > 0) { $serviceStr .= ', '; }}
+      if ($months > 0) { $serviceStr .= $months . ' months'; if ($days > 0) { $serviceStr .= ', '; }}
+      if ($days > 0 || ($years == 0 && $months == 0)) { $serviceStr .= $days . ' days'; }
+      $data['service'] = $serviceStr;
+      
 
       $this->db->query('INSERT INTO past_employee(user_id,service_time,emp_type) VALUES(:empId, :service_time,"system users") ');
       $this->db->bind(':empId', $empId);
-      $this->db->bind(':service_time', $period);
+      // $this->db->bind(':service_time',$ServiceStr);
+      $this->db->bind(':service_time',$data['service']);
 
       if($this->db->execute())
       {
