@@ -275,3 +275,80 @@ h4 {
     /* display: none; */
   }
 /* -----------------end notifications ------------------------ */
+#detailsTable{
+    margin-bottom: 3%;
+}
+
+  /* for date filters */
+  .filter {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 90%;
+    margin: 5px;
+    padding: 5px;
+    font-size: 15px;
+    align-items: center;
+} 
+
+  .filterBtn{
+    font-size: 1.2rem;
+    outline: none;
+    border: none;
+    color: #3498db;
+    background-color: transparent;
+    cursor: pointer;
+ }
+
+ /* table column filter */
+select{
+  border-radius: 5px;
+  padding: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color:#04AA6D;
+  font-weight: 150;
+  color: white;
+  font-size: medium;
+  
+}
+
+.close {
+  float: right;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1;
+  color: #000;
+  text-shadow: 0 1px 0 #e21d1d;
+  filter: alpha(opacity=20);
+  opacity: .2;
+}
+
+.model-title {
+  margin: 0;
+  line-height: 1;
+}
+/*------Add feedback btn----------*/
+.feedbackBtn {
+    margin: 3% 3% 1% 5%;
+    min-width: 20%;
+    border-radius: 28px;
+    box-shadow: 0px 2px 3px #666666;
+    font-family: Arial;
+    color: black;
+    font-size: 20px;
+    font: bold 20px;
+    background: #28c728;
+    padding: 10px 18px 10px 20px;
+    text-decoration: none;
+    border-color: #28c728;
+    z-index: 2;
+    
+  }
+  
+  .feedbackBtn:hover {
+    background: #12fc0a;
+    /* box-shadow: 0px 2px 20px 10px #00BFFF; */
+    text-decoration: none;
+    cursor: pointer;
+  }
+  

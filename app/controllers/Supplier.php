@@ -237,14 +237,15 @@
             $supOrderView= $this->supplierModel->get_supOrderView();
             $supOrdSum= $this->supplierModel->get_supOrderSum();
             $ordSum= strval($supOrdSum);
-  
+
             $data = [
                 'supOrderView' => $supOrderView,
                 'ordSum'=> $ordSum,
                 'from' => '',
                 'to' => ''
              ];
-  
+            //  print_r ($data);
+            //  exit;
             $this->view('supplier/viewSupply',$data);
           }
           

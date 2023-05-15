@@ -40,7 +40,7 @@
                     <a href="#"><button class="viewBtn" onclick="openModel5('<?=$supIncome->supply_order_id?>')" id="<?php echo($data_index) ?>"><i class="fas fa-eye"></i></button></a>
                     </div>
                 </td>
-                </tr><br>
+                </tr>
                 <?php $data_index++; ?>
                 <?php endforeach; ?>
             </tbody>

@@ -18,16 +18,16 @@
                 ?>
                 <div class="itemDetails">
                     <div class="feature1"><img src="<?php echo UPLOADS . $product->image?>" width="100"></div>
-                    <div class="feature1">
-                        <div class="productDetails">
-                            <h3> <?php echo $product->product_name?></h3>
-                            <h3> <?php echo $product->unit_size?></h3>
-                            <h4>RS.<?php echo $product->total_price?></h4>
-                            <h4>Quantity: <?php echo $product->quantity?></h4>
-                            <!-- <?php echo strval($product->timestamp) ?> -->
+                        <div class="feature1">
+                            <div class="productDetails">
+                                <h3> <?php echo $product->product_name?></h3>
+                                <h3> <?php echo $product->unit_size?></h3>
+                                <h4>RS.<?php echo $product->total_price?></h4>
+                                <h4>Quantity: <?php echo $product->quantity?></h4>
+                                <!-- <?php echo strval($product->timestamp) ?> -->
+                            </div>
+
                         </div>
-                       
-                    </div>
                     <div class="feature1">
                         <button class="clear-button"><a href="<?php echo URLROOT?>/Customer/deleteCartItem/<?php echo $product->product_id ?>" ><i class="fa-solid fa-trash"></i></button></a>
                     </div>
@@ -60,10 +60,10 @@
         }
 
         ?>
-    </div>
+        </div>
     </div>
 </section>
-
+<?php require APPROOT.'/views/include/footer.php'; ?>
 <!-- Popup buynow -->
 <div class="model fade in" id="model" tabindex="-1">
   <div class="model-dialog">
@@ -232,5 +232,5 @@ function closeModel(){
 }
 </script>
 
-<?php require APPROOT.'/views/include/footer.php'; ?>
+
 <!-- <script src="<?php echo URLROOT; ?>/js/customer.js"></script> -->
