@@ -100,14 +100,21 @@ table td {
 #dltTableElement{
     color: white;
     font-weight: bold;
-    margin: 4px;
+    margin-top: 4%;
+    margin-top: 6%;
     padding: 20px;
-    width: 30%;
+    width: 80%;
     display: none;
+    max-height: 66.4vh;
 }
 
 #dltTableElement #dltCowTable{
-    margin: 20px;
+    width: 100%;
+    margin: 0px;
+}
+
+#detailsTable2{
+margin-top: 2%;
 }
 
 /* view model */
@@ -335,7 +342,7 @@ td {
 
 
 .divContainer{
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
     width: 100%;
     height: auto;
     /* background: #007bbf; */
@@ -346,7 +353,7 @@ td {
 }
 
 .divContainer1{
-    border: 1px solid red;
+    /* border: 1px solid red; */
     width: 40%;
     height:auto;
     /* background: yellow; */
@@ -356,8 +363,8 @@ td {
 }
 
 .divContainer2{
-    border: 1px solid black;
-    width: 60%;
+    /* border: 1px solid black; */
+    width: 100%;
     height:auto;
     /* background: greenyellow; */
     margin: 0px;
@@ -372,6 +379,13 @@ td {
     
     /* margin: 15px; */
     /* padding-bottom: 20px; */
+}
+
+.removed{
+    border: none;
+    color: #04086B;
+    background: transparent;
+    cursor: pointer;
 }
 
 @media screen and (max-width:1200px) {

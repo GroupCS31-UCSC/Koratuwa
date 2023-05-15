@@ -9,7 +9,7 @@
 }
 
 .divContainer1{
-    border: 1px solid red;
+    /* border: 1px solid red; */
     width: 60%;
     height:auto;
     /* background: yellow; */
@@ -19,7 +19,7 @@
 }
 
 .graph{
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
     width: 98%;
     height:auto;
     margin: 5px;
@@ -27,7 +27,7 @@
 }
 
 .cusTable{
-    border: 1px solid blueviolet;
+    /* border: 1px solid blueviolet; */
     width: 98%;
     height:auto;
     margin: 5px;
@@ -42,11 +42,12 @@
 } */
 
 .divContainer2{
-    border: 1px solid black;
+    /* border: 1px solid black; */
     width: 40%;
     height:auto;
     /* background: greenyellow; */
     margin: 0px;
+    margin-top: 0px;
     box-sizing: border-box;
     /* font-size: 50px; */
     overflow-y: scroll;
@@ -87,7 +88,7 @@
 /* feedback */
 
 .feedback{
-    border: 1px solid red;
+    /* border: 1px solid red; */
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -95,7 +96,7 @@
 }
 
 .full-boxer{
-    border: 1px solid rebeccapurple;
+    /* border: 1px solid rebeccapurple; */
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -115,7 +116,7 @@
 }
 
 .comment-box{
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
     width: 500px;
     background:white;
     padding: 10px;
@@ -126,13 +127,13 @@
 }
 
 .profile-box{
-    border: 1px solid green;
+    /* border: 1px solid green; */
     display: flex;
     align-items: center;
 }
 
 .profile-img{
-    border: 1px solid yellow;
+    /* border: 1px solid yellow; */
     width: 40px;
     height: 40px;
     box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.3);
@@ -142,7 +143,7 @@
 }
 
 .profile-img img{
-    border: 1px solid brown;
+    /* border: 1px solid brown; */
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -150,7 +151,7 @@
 }
 
 .name{
-    border: 1px solid grey;
+    /* border: 1px solid grey; */
     display: flex;
     flex-direction: column;
     margin-right: 5px;

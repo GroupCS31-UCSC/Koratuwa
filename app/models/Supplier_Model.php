@@ -45,7 +45,7 @@
       // $this->db->query('SELECT * FROM supply_order WHERE supplier_id = :supId');
       $this->db->query('SELECT supply_order.supply_order_id, supply_order.supplier_id, supply_order.quantity, supply_order.supply_date, supply_order.status,milk_purchasing_price.unit_price
       FROM supply_order 
-      INNER JOIN milk_purchasing_price 
+      LEFT JOIN milk_purchasing_price 
       ON supply_order.supply_date = milk_purchasing_price.date WHERE supply_order.supplier_id= :supId');
       $this->db->bind(':supId',$_SESSION['user_id']);
 
@@ -149,11 +149,10 @@
 
     public function updateSupply($data)
     {
-      $this->db->query('UPDATE supply_order SET quantity= :quantity, supply_date= :supDate, supplying_address=:address WHERE supply_order_id= :supOrderId');
+      $this->db->query('UPDATE supply_order SET quantity= :quantity WHERE supply_order_id= :supOrderId');
       $this->db->bind(':supOrderId', $data['supOrderId']);
       $this->db->bind(':quantity', $data['quantity']);
-      $this->db->bind(':supDate', $data['date']);
-      $this->db->bind(':address', $data['address']);
+
 
       if($this->db->execute())
       {

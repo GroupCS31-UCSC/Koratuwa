@@ -77,7 +77,7 @@ body {
 
 
 /* updated table styles */
-
+/* 
 table tr:nth-child(even) {
     background-color: #f2f2f2;
 }
@@ -91,22 +91,22 @@ table tr:nth-child(1) {
 }
 
 table tr:hover {
-    /* background-color: #ddd; */
+
     background-color: lightcyan;
-}
+} */
 
 
 /* table tr:nth-child(odd):hover {
     background-color: #f2f2f2;
 } */
 
-table tr:nth-child(1):hover {
+/* table tr:nth-child(1):hover {
     background-color: #04AA6D;
 }
 
 table {
     margin: 40px auto 100px auto;
-}
+} */
 
 
 /* titles */
@@ -466,3 +466,24 @@ td {
 
 /* -----------------end view model------------------------ */
 
+
+
+/* search */
+
+/* .search-box
+{
+   margin-right: 20%;
+   margin-left: 20%;
+}
+ */
+ .table-wrapper{
+    overflow-y: scroll;
+    /* overflow-x: scroll; */
+    height: fit-content;
+    max-height: 66.4vh;
+    
+    margin-top: 22px;
+    
+    margin: 15px;
+    padding-bottom: 20px;
+}

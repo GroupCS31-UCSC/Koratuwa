@@ -22,13 +22,14 @@
 
     <h2>Onsite Sales</h2>
     <div class="onsiteTable">
+    <div class="table-wrapper">
     <table>
       <thead>
         <th>Sale Id</th>
         <th>Date</th>
         <th>Time</th>
         <th>Payment</th>
-        <th>Receipt</th>
+        <!-- <th>Receipt</th> -->
       </thead>
       <tbody>   
         <?php $data_index=0 ?>
@@ -38,16 +39,17 @@
           <td><?php echo $onsite->sale_date; ?></td>
           <td><?php echo $onsite->sale_time; ?></td>
           <td><?php echo $onsite->total_payment; ?></td>
-          <td>
+          <!-- <td>
             <div class="table-btns">
               <a href="#"><button class="viewBtn" onclick="openModel1('<?=$onsite->sale_id?>')" id="<?php echo($data_index) ?>"><i class="fas fa-eye"></i></button></a>
             </div>
-          </td>
+          </td> -->
         </tr>
         <?php $data_index++; ?>
         <?php endforeach; ?>
       </tbody>
     </table>
+    </div>
     </div>
   </div>
 
@@ -69,6 +71,7 @@
  
 
     <h2>Online Sales</h2>
+    <div class="table-wrapper">
     <table id="detailsTable5">
       <thead>
         <th col-index = 1>Order Id</th>
@@ -80,7 +83,7 @@
         <th>Date</th>
         <th>Payment</th>
         <th>Customer Id</th>
-        <th>View More</th>
+        <!-- <th>View More</th> -->
       </thead>
       <tbody>   
         <?php $data_index=0 ?>
@@ -91,16 +94,17 @@
           <td><?php echo $online->ordered_date; ?></td>
           <td><?php echo $online->total_payment; ?></td>       
           <td><?php echo $online->customer_id; ?></td>
-          <td>
+          <!-- <td>
             <div class="table-btns">
               <a href="#"><button class="viewBtn" onclick="openModel1('<?=$online->order_id?>')" id="<?php echo($data_index) ?>"><i class="fas fa-eye"></i></button></a>
             </div>
-          </td>
+          </td> -->
         </tr>
         <?php $data_index++; ?>
         <?php endforeach; ?>
       </tbody>
     </table>
+    </div>
   </div>
 
 </div>

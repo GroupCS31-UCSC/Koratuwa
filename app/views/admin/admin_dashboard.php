@@ -14,12 +14,12 @@
           <!--<span class="title" style="font-size:160%;">KORATUWA</span>-->
         </a>
       </li><br><br><br>
-      <li>
+      <!-- <li>
         <a href="<?php echo URLROOT; ?>/Admin/adminHome">
           <span class="icon"><i class="fa-solid fa-gauge"></i></span>
           <span class="title"> Dashboard</span>
         </a>
-      </li>
+      </li> -->
       <li>
         <a href="<?php echo URLROOT; ?>/Admin/viewEmployees">
         <span class="icon"><i class="fa-solid fa-people-group"></i></span>
@@ -75,7 +75,7 @@
       <div class="topmenu">
         <ul>
           <li><a onclick="showNoti()"><i class="fas fa-bell" id="notifyBell"></i><span class="notifyBadge"></span></a></li>
-          <li><div class="img-user"><img src="<?php echo URLROOT; ?>/img/users/apsara.jpg" alt="user"></div></li>
+          <li><div class="img-user"><img src="<?php echo URLROOT; ?>/img/users/user.png" alt="user"></div></li>
           <li><a href=""><?php echo $_SESSION['user_name']; ?></a></li>
         </ul>
         <div class="dropdown">
@@ -85,7 +85,7 @@
                         <div class="sub-menu">
                             <div class="dropdown-content">
                                 <div class="user-info">
-                                    <span><img src="<?php echo URLROOT; ?>/public/img/users/apsara.jpg" alt=""></span>                    
+                                    <span><img src="<?php echo URLROOT; ?>/public/img/users/user.png" alt=""></span>                    
                                 </div>
                                 <hr>
                                 <a href="<?php echo URLROOT; ?>/Users/userProfile/<?php echo $_SESSION['user_id']; ?>" class="sub-menu-link">

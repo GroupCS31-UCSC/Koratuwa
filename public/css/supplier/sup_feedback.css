@@ -11,17 +11,7 @@ section {
     padding: 40px 0px;
     /* background: url(http://localhost/koratuwa/img/supplier/feedback_bg.jpg); */
 }
-/* .bg-img{
-    position: absolute;
-    top: 44px;
-    left: 0;
-    height: 94%;
-    width: 100%;
-    background: url(http://localhost/koratuwa/img/supplier/feedback_bg.jpg);
-    background-size: cover;
-    background-position: center;
-    filter: blur(1px) brightness(30%);
-} */
+
 .wrapper-left{
     /* display: inline-block; */
     min-height: 100hv;

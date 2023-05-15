@@ -1,6 +1,7 @@
 section {
     text-align: center;
 }
+
 .flash-msg {
   height: 10vh;
 }
@@ -26,12 +27,25 @@ section {
     padding: 4%;
     display: inline-block;
     width: 100%;
-    margin-right: 5%;
-    /* border: solid red; */
+    margin-right: 12%;
+    border: 1px solid black;
+    border-radius: 15px;
+    background-color:azure;
+    box-shadow: 0px 2px 3px black;
     
 }
 .feature1 table{
-  margin-top: -8vh;
+  margin-top: 0vh;
+}
+.table-wrapper{
+  overflow-y: scroll;
+  height: fit-content;
+  max-height: 66.4vh;
+  
+  margin-top: 22px;
+  
+  margin: 15px;
+  padding-bottom: 20px;
 }
 /* .feature2{
     display: inline-block;
@@ -423,4 +437,128 @@ h2 {
   max-height: 80vh;
 }
 
+.viewBtn {
+  border: 0.25px solid rgb(11, 103, 223);
+  border-radius: 4px;
+  box-shadow: 0px 2px 3px #666666;
+  color: white;
+  padding: 2px 6px 2px 6px;
+  background: #209af8;
+}
 
+.viewBtn:hover {
+  border: 0.25px solid black;
+  color: black;
+  background: rgb(0, 200, 255);
+  cursor: pointer;
+}
+
+.model-content {
+  border-radius: 0;
+  position: relative;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #999;
+  border-radius: 6px;
+  outline: 0;
+  box-shadow: 0 3px 9px rgb(0 0 0 / 50%);
+}
+
+
+/* table buttons */
+
+.table-btns i {
+  font-size: 12px;
+  padding: 2px;
+  display: inline-block;
+  display: flex;
+}
+
+
+/*update button*/
+
+.updBtn {
+  border: 0.25px solid rgb(60, 255, 0);
+  border-radius: 4px;
+  box-shadow: 0px 2px 3px #666666;
+  color: white;
+  padding: 2px 6px 2px 6px;
+  background: #28c728;
+}
+
+.updBtn:hover {
+  border: 0.25px solid black;
+  color: black;
+  background: #12fc0a;
+  cursor: pointer;
+}
+
+
+/*delete button*/
+
+.dltBtn {
+  border: 0.25px solid white;
+  border-radius: 4px;
+  box-shadow: 0px 2px 3px #666666;
+  color: white;
+  padding: 2px 6.5px 2px 6.5px;
+  background: rgb(250, 10, 10);
+}
+
+.dltBtn:hover {
+  border: 0.25px solid black;
+  color: #353935;
+  background: red;
+  cursor: pointer;
+}
+
+
+
+  /* for date filters */
+  .filter {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 90%;
+    margin: 5px;
+    padding: 5px;
+    font-size: 15px;
+    align-items: center;
+} 
+
+  .filterBtn{
+    font-size: 1.2rem;
+    outline: none;
+    border: none;
+    color: #3498db;
+    background-color: transparent;
+    cursor: pointer;
+ }
+
+ /* table column filter */
+select{
+  border-radius: 5px;
+  padding: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color:#04AA6D;
+  font-weight: 150;
+  color: white;
+  font-size: medium;
+  
+}
+
+.close {
+  float: right;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1;
+  color: #000;
+  text-shadow: 0 1px 0 #e21d1d;
+  filter: alpha(opacity=20);
+  opacity: .2;
+}
+
+.model-title {
+  margin: 0;
+  line-height: 1;
+}

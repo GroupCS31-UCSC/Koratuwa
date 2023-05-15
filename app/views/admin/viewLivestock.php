@@ -40,9 +40,9 @@
               <option value="all">Milking Status</option>
             </select>
           </th>
-          <th col-index = 6>Age</th>
-          <th col-index = 7>Average Milk<br>Per Day</th>
-          <th col-index = 8>Action</th>
+          <!-- <th col-index = 6>Age</th> -->
+          <!-- <th col-index = 7>Average Milk<br>Per Day</th> -->
+          <th col-index = 8>View More</th>
       </thead>
       <tbody>
         <?php $data_index=0 ?>
@@ -53,8 +53,8 @@
           <td><?php echo $cow->gender; ?></td>
           <td><?php echo $cow->cow_breed; ?></td>
           <td><?php echo $cow->milking_status; ?></td> 
-          <td><?php echo $cow->age; ?></td>
-          <td><?php echo '' ?></td> 
+          <!-- <td><?php echo $cow->age; ?></td> -->
+          <!-- <td><?php echo '' ?></td>  -->
           <td>
             <div class="table-btns">
               <a href="#"><button class="viewBtn" onclick="openModel1('<?=$cow->cow_id?>')" id="<?php echo($data_index) ?>"><i class="fas fa-eye"></i></button></a>
@@ -95,27 +95,27 @@
 <section>
 
   <div class="divContainer">
-    <div class="divContainer1">
-      <section class="graphBox">
+    <!-- <div class="divContainer1"> -->
+      <!-- <section class="graphBox"> -->
 
-        <div class="box">
+        <!-- <div class="box">
           <label><center>Total Cattle</center></label>
           <canvas id="cattleTot"></canvas>
-        </div>
+        </div> -->
 
         <!-- <div id="test" class="box">
           <label><center>Cattle Milk</center></label>
           <canvas id="cattleMilking"></canvas>
         </div> -->
 
-      </section>
+      <!-- </section> -->
 
-    </div>
+    <!-- </div> -->
     <div class="divContainer2">
-      <button onclick="showOrHide()">Deleted Cattle Details</button>
+      <button class="removed" onclick="showOrHide()">Removed Cattle's Details</button>
 
       <div id="dltTableElement">
-        <input type="button" value="Refresh" class="addBtn" onclick="location.href='<?php echo URLROOT; ?>/Admin/viewLivestock' ">
+        <!-- <input type="button" value="Refresh" class="addBtn" onclick="location.href='<?php echo URLROOT; ?>/Admin/viewLivestock' "> -->
         <input type="text" id="searchInput2" placeholder="Search for Cow IDs..." onkeyup="searchFunc2();">
           <table id="detailsTable2">
             <thead>
@@ -152,7 +152,7 @@
                     <a href="#"><button class="viewBtn" onclick="openModel2('<?=$dltCow->cow_id?>')" id="<?php echo($data_index) ?>"><i class="fas fa-eye"></i></button></a>
                   </div>
                   </td>
-                </tr><br>
+                </tr>
               <?php $data_index++; ?>
               <?php endforeach; ?>
             </tbody>

@@ -8,22 +8,27 @@
     <div class="container1">
 
     <?php foreach ($data['pStockView'] as $stockV) : ?>
-
+        <div class="search-container">
         <!-- search -->
         <input type="text" id="searchInput5" placeholder="Search for Stock IDs..." onkeyup="searchFunc5();">
-
-        <!-- date filter -->
-        Filter by Manufactured Date: <br>
+        </div>
+        <!-- date filter --><br><br>
+        <center>Filter by Manufactured Date:</center> 
+        
         <form action="<?php echo URLROOT; ?>/Admin/viewProductStock/<?php echo $stockV->product_id ?>" method="POST" >
-            <label for="from">From :</label>
-            <input type="date" id="from" name="from" value="<?php echo $data['from']; ?>"><br>
-            <label for="to">  To :</label>
+        <div class="filter">
+            <label for="from">From:</label>
+            <input type="date" id="from" name="from" value="<?php echo $data['from']; ?>">
+            <label for="to">  To:</label>
             <input type="date" id="to" name="to" value="<?php echo $data['to']; ?>">
-            <input type="submit" value="Search" class="submitBtn"> 
+            <!-- <input type="submit" value="Search" class="submitBtn">  -->
+            <a href=""><button class="filterBtn" title="Search"><i class="fa-solid fa-magnifying-glass"></i></button></a>
+        </div>
         </form>
+        
 
         <!-- refresh -->
-        <input type="button" value="Refresh" class="addBtn" onclick="location.href='<?php echo URLROOT; ?>/Admin/viewProductStock/<?php echo $stockV->product_id ?>' ">
+        <!-- <input type="button" value="Refresh" class="addBtn" onclick="location.href='<?php echo URLROOT; ?>/Admin/viewProductStock/<?php echo $stockV->product_id ?>' "> -->
 
     <?php break; ?>    
     <?php endforeach; ?>
@@ -60,7 +65,7 @@
             </div>
             
             <div class="tot">
-                Total Production : <?php echo $tot; ?>
+                <span><br>Total Production : <?php echo $tot; ?></span>
             </div>
     </div>
 

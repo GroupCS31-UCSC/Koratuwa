@@ -803,7 +803,7 @@
           switch ($this->userModel->findUserRole($_SESSION['user_email'])) {
 
             case 'Admin':
-              redirect('Admin/adminHome');
+              redirect('Admin/viewEmployees');
               break;
             case 'Product Manager':
               redirect('Product_Manager/productCategories');

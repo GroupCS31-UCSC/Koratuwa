@@ -7,8 +7,9 @@
 <section></section>
   
   <div class="container" style="overflow-x: auto;">
-  <h1><u>Suppliers of Koratuwa</u></h1>
-  <div class="search-box"><input type="text" id="searchInput" placeholder="Search for Suppliers..." onkeyup="searchFunc();">
+  <h1>Koratuwa Milk Suppliers</h1>
+  <div class="search-box"><input type="text" id="searchInput" placeholder="Search for Suppliers..." onkeyup="searchFunc();"></div>
+  <div class="table-wrapper1">
   <table id="detailsTable">
     <thead>
       <th>Supplier Id</th>
@@ -31,8 +32,8 @@
     </tbody>
   </table>
   </div>
-
-
+  </div>
+ 
   <script>
   //search for table 1-------------------------------------------------------------------------------------------------------------
 

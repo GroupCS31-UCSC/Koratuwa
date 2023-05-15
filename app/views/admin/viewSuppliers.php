@@ -17,13 +17,14 @@
    </div> 
    </div> 
    
+   <div class="table-wrapper">
     <table id="supTable">
       <thead>
         <th>Supplier Id</th>
         <th>Name</th>
         <th>Contact Number</th>
-        <th>Total <br>Supply Orders</th>
-        <th>Action</th>
+        <th>Address</th>
+        <!-- <th>View</th> -->
       </thead>
       <tbody>   
         <?php $data_index=0 ?>
@@ -32,17 +33,18 @@
           <td><?php echo $supView->supplier_id; ?></td>
           <td><?php echo $supView->name; ?></td>
           <td><?php echo $supView->contact_number; ?></td>
-          <td><?php echo '' ?></td>
-          <td>
+          <td><?php echo $supView->address; ?></td>
+          <!-- <td>
             <div class="table-btns">
               <a href="#"><button class="viewBtn" onclick="openModel5('<?=$supView->supplier_id?>')" id="<?php echo($data_index) ?>"><i class="fas fa-eye"></i></button></a>
             </div>
-          </td>
+          </td> -->
         </tr><br>
         <?php $data_index++; ?>
         <?php endforeach; ?>
       </tbody>
     </table>
+    </div>
   </div>
 
   <!-- <div class="divContainer2">
@@ -55,7 +57,7 @@
       </table>
       </div> -->
 
-  <div class="divContainer2">
+  <!-- <div class="divContainer2">
     
     <div class="tableElement">
     <div class="part1">
@@ -91,22 +93,23 @@
     </div>
     </div>
     </div>
-  </div>
+  </div> -->
   
-  <div class="divContainer3">
-    <!-- feedbacks -->
+  <div class="divContainer2">
+  <h3>Feedbacks</h3>
     <section class="feedback">
       <div class="full-boxer">
       <?php foreach ($data['supFeedBacks'] as $supFB) : ?>
         <div class="comment-box">
           <div class="box-top">
             <div class="profile-box">
-              <div class="profile-img">
-              <!-- <img src="<?php echo UPLOADS . $supFB->image ?>" width='100' height='100'> -->
-              </div>
+              <!-- <div class="profile-img">
+              <img src="<?php echo UPLOADS . $supFB->image ?>" width='100' height='100'>
+              </div> -->
               <div class="name">
-                <strong><?php echo $supFB->feedback_id; ?></strong>
-                <span><?php echo $supFB->supplier_id; ?></span>
+                <!-- <strong><?php echo $supFB->feedback_id; ?></strong> -->
+                <strong><span><?php echo $supFB->supplier_id; ?></span></strong>
+                <span><?php echo $supFB->date; ?></span>
               </div>
             </div>
           </div>

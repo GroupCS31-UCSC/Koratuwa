@@ -34,14 +34,17 @@
       <!-- </div> -->
       
       <form action="<?php echo URLROOT; ?>/Supplier/viewSupply" method="POST" >
-        <label for="from">From :</label>
+      <div class="filter">
+      <label for="from">From:</label>
         <input type="date" id="from" name="from" value="<?php echo $data['from']; ?>"><br>
-        <label for="to">  To :</label>
+        <label for="to">  To:</label>
         <input type="date" id="to" name="to" value="<?php echo $data['to']; ?>">
-        <input type="submit" value="Search" class="submitBtn"> 
+        <!-- <input type="submit" value="Search" class="submitBtn">  -->
+        <a href=''><button class="filterBtn" title="Search"><i class="fa-solid fa-magnifying-glass"></i></button></a>
+        </div>
       </form>
       <!-- <a href="<?php echo URLROOT?>/Supplier/generateSupplyReport/"><button>Genarate PDF</button></a> -->
-      
+      <div class="table-wrapper">
       <table id="detailsTable6">
         <thead>
             <th col-index = 1>Supply Order ID</th>
@@ -69,28 +72,30 @@
             <td>
               <?php if($supOrd->status == 'Ongoing') : ?>
                 <div class="table-btns">
-                  <a href="<?php echo URLROOT?>/Supplier/updateSupOrder/<?php echo $supOrd->supply_order_id ?>"><button class="updateBtn" id="updateBtn">UPDATE</button></a>
-                  <a href="<?php echo URLROOT?>/Supplier/deleteSupOrder/<?php echo $supOrd->supply_order_id ?>"><button class="deleteBtn" id="deleteBtn">DELETE</button></a>
+                  <a href="<?php echo URLROOT?>/Supplier/updateSupOrder/<?php echo $supOrd->supply_order_id ?>"><button class="updBtn" id="updateBtn"><i class="fa-regular fa-pen-to-square"></i></button></a>
+                  <a href="<?php echo URLROOT?>/Supplier/deleteSupOrder/<?php echo $supOrd->supply_order_id ?>"><button class="dltBtn" id="deleteBtn"><i class="fa-regular fa-trash-can"></i></button></a>
 
                 </div>
 
               <?php elseif($supOrd->status == 'Collected') : ?>
                 <div class="table-btns">
-                  <a href="<?php echo URLROOT?>/Supplier/getOrderReceipt/<?php echo $supOrd->supply_order_id ?>"><button class="receipt">Receipt</button></a>
+                  <a href="<?php echo URLROOT?>/Supplier/getOrderReceipt/<?php echo $supOrd->supply_order_id ?>"><button class="viewBtn" title="Invoice"><i class="fa-solid fa-file-lines"></i></button></a>
                 </div>
               <?php else : ?>
                 <div class="table-btns">
-                  <a href="<?php echo URLROOT?>/Supplier/getOrderRejected/<?php echo $supOrd->supply_order_id ?>"><button class="Note">Note</button></a>
+                  <button class="viewBtn" onclick="openModel()" title="Note"><i class="fa-solid fa-file-lines"></i></button>
                 </div>     
               <?php endif; ?>
             </td>
-          </tr><br>
+          </tr>
           <?php $data_index++; ?> 
           <?php endforeach; ?>
         </tbody>
-      </table>      
+      </table>
+      </div>      
     </div>
   </div>
+              
 
 
 <!----------------- popup view ---------------->
@@ -102,11 +107,7 @@
         <h4 class="Model-title"><i class="fa fa-info-circle edit-color"></i> Order Details</h4>
       </div>
       <div class="model-body">
-        <ul>
-          <li id="Model_OrdId"></li>
-          <li id="Model_date"></li>
-          <li id="Model_quantity"></li>
-        </ul>
+        <p>jskdhskzdsjhfshefdshekdhkashkehfkjehfkjsdnlakfhlsdhflkadnf</p>
       </div>
     </div>
   </div>
@@ -153,30 +154,14 @@
       }, counteritem.dataset.speed/counter);
   }); 
 
-//-------------- view sup orders------------------//
-  function openModel1(id){
-  // var id = data["id"];
-  const url ="/koratuwa/Supplier/viewOrder/"+id;
-  const form = new FormData();
-  form.append("id", id);
-  fetch(url, {
-    method: "GET"
-  }).then(response => response.text())
-  .then(data => {
-      // console.log(data);
-    if(data){
-    const domp=new DOMParser();
-    const doc= domp.parseFromString(data,'text/html');
-    const newData = doc.getElementById('newData');
-    document.getElementById("newData").innerHTML = newData.innerHTML;
-    
-    }
+//-------------- view Note------------------//
+function openModel() {
+    document.getElementById("model").classList.add("open-model");
+  }
 
-  });
-  document.getElementById("model").classList.add("open-model");
-
-  
-}
+  function closeModel() {
+   document.getElementById("model").classList.remove("open-model");
+  }
    
 </script>
 

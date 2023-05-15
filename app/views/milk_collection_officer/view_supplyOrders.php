@@ -14,7 +14,7 @@
     <div class="tab">
 
           <div class="ongoingOrders">
-  
+          <div class="table-wrapper">
           <table>
               <tr>
                 <th>Supply Order Id</th>
@@ -46,6 +46,7 @@
             <?php endforeach; ?>
 
             </table>
+            </div>
 
           </div>
 
@@ -81,8 +82,11 @@
   <input type="radio" id="tab2" name="mytabs">
     <label for="tab2">Completed Orders</label>
     <div class="tab">
+
     <div class="search-box"><input type="text" id="searchInput" placeholder="Search By Order IDs..." onkeyup="searchFunc();">
+     
       <div class="pastOrders">
+        <div class="table-wrapper">
         <table id="detailsTable">
           <tr>
             <th>Supply Order Id</th>
@@ -112,16 +116,26 @@
             </td> 
 
             <td>
-            <div class="table-btns">
-              <a href="<?php echo URLROOT?>/Milk_Collection_Officer/viewSupOrderDetails/<?php echo $ordView->supply_order_id; ?>"><button class="viewBtn">View Invoice</button></a>
-            </div> 
+            <!-- <div class="table-btns">
+              <a href="<?php echo URLROOT?>/Milk_Collection_Officer/viewSupOrderDetails/<?php echo $ordView->supply_order_id; ?>"><button class="viewBtn" title="view Invoice"><i class="fa-solid fa-file-lines"></i></button></a>
+            </div>  -->
+
+            <?php if($ordView->status == 'Collected') : ?>
+                <div class="table-btns">
+                  <a href="<?php echo URLROOT?>/Milk_Collection_Officer/viewSupOrderDetails/<?php echo $ordView->supply_order_id ?>"><button class="viewBtn" title="Invoice"><i class="fa-solid fa-file-lines"></i></button></a>
+                </div>
+              <?php else : ?>
+                <div class="table-btns">
+                  <button class="viewBtn" onclick="openModel()" title="Note"><i class="fa-solid fa-file-lines"></i></button>
+                </div>     
+              <?php endif; ?>
             </td>
           </tr>
-          <?php endif ?> 
+          <?php endif; ?> 
           <?php endforeach; ?>
 
         </table>
-
+        </div>
       </div>
       </p>
     </div>

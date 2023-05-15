@@ -1,6 +1,6 @@
 .table-wrapper{
     overflow-y: scroll;
-    overflow-x: scroll;
+    /* overflow-x: scroll; */
     height: fit-content;
     max-height: 66.4vh;
     
@@ -62,31 +62,6 @@ table th {
         left: 275px;
     }
 }
-
-/* .refreshBtn {
-    display: block;
-    width: 200px;
-    height: 30px;
-    border-radius: 25px;
-    margin: 1rem ;
-    font-size: 1rem;
-    outline: none;
-    border: none;
-    background-color: #580a50;
-    cursor: pointer;
-    color: #fff;
-    text-transform: uppercase;
-    background-size: 200%;
-    transition: 0.5s;
-}
-
-.refreshBtn:hover {
-
-    background-color: #00BFFF;
-    color: white;
-}
-
- */
 
 
 /* search */
