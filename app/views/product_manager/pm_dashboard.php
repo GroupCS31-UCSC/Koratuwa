@@ -59,7 +59,7 @@
                         <div class="sub-menu">
                             <div class="dropdown-content">
                                 <div class="user-info">
-                                    <span><img src="<?php echo URLROOT; ?>/public/img/users/dew.jpg" alt=""></span>                    
+                                    <span><img src="<?php echo URLROOT; ?>/public/img/users/user.png" alt=""></span>                    
                                 </div>
                                 <hr>
                                 <a href="<?php echo URLROOT; ?>/Users/userProfile/<?php echo $_SESSION['user_id']; ?>" class="sub-menu-link">
