@@ -100,14 +100,21 @@ table td {
 #dltTableElement{
     color: white;
     font-weight: bold;
-    margin: 4px;
+    margin-top: 4%;
+    margin-top: 6%;
     padding: 20px;
-    width: 30%;
+    width: 80%;
     display: none;
+    max-height: 66.4vh;
 }
 
 #dltTableElement #dltCowTable{
-    margin: 20px;
+    width: 100%;
+    margin: 0px;
+}
+
+#detailsTable2{
+margin-top: 2%;
 }
 
 /* view model */
@@ -357,7 +364,7 @@ td {
 
 .divContainer2{
     /* border: 1px solid black; */
-    width: 60%;
+    width: 100%;
     height:auto;
     /* background: greenyellow; */
     margin: 0px;

@@ -87,7 +87,7 @@
                 </div>     
               <?php endif; ?>
             </td>
-          </tr><br>
+          </tr>
           <?php $data_index++; ?> 
           <?php endforeach; ?>
         </tbody>
