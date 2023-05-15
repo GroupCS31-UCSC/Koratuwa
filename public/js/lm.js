@@ -69,14 +69,6 @@ function closeFeedItem(){
   document.getElementById("feedItem").classList.remove("open-feedItem");
 }
 
-// Popup window for vaccination types
-function openVaccinationItem(){
-  document.getElementById("vaccinationItem").classList.add("open-vaccinationItem");
-}
-function closeVaccinationItem(){
-  document.getElementById("vaccinationItem").classList.remove("open-vaccinationItem");
-}
-
 function openModel(id){
   // var id = data["id"];
   const url ="/koratuwa/Livestock_Manager/viewCattle/"+id;
@@ -90,14 +82,11 @@ function openModel(id){
     document.getElementById("Model_Stall_No").innerText = data.stall_id;
     document.getElementById("Model_DOB").innerText = data.dob;
     document.getElementById("Model_Age").innerText = data.age;
-    // document.getElementById("Model_Gender").innerText = data.breed;
     document.getElementById("Model_milkin_Status").innerText = data.milking_status;
     }
 
   });
   document.getElementById("model").classList.add("open-model");
-  //document.getElementById("model").innerHTML += "<?PHP $dataID = ${id}; ?>"
-  // console.log(data["id"]);
   
 }
 function closeModel(){

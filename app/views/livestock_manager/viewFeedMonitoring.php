@@ -40,38 +40,25 @@
   </table>
 </div>
 
-
-
-<div class="refresh-add">
-  <div class="refresh-area">
-    <!-- refresh button -->
-  
-    <!-- Add button -->
-    <input type="button" value="Add New Feed Record" class="add-Btn" onclick="location.href='<?php echo URLROOT; ?>/Livestock_Manager/addFeedMonitoring' ">
-  </div>
-</div>
+<input type="button" value="Add New Feed Record" class="add-btn" onclick="location.href='<?php echo URLROOT; ?>/Livestock_Manager/addFeedMonitoring' ">
 
 <!-- date filter -->
-
-  <form action="<?php echo URLROOT; ?>/Livestock_Manager/viewFeedMonitoring" method="POST" >
+<form action="<?php echo URLROOT; ?>/Livestock_Manager/viewFeedMonitoring" method="POST" >
   <div class="filter">
-  <div class="date-input">
-  <label for="from">From:</label>
-    <input type="date" id="from" name="from" value="<?php echo $data['from']; ?>">
-  </div>
-  <div class="date-input">
-  <label for="to">To:</label>
-    <input type="date" id="to" name="to" value="<?php echo $data['to']; ?>">
-  </div>
+    <div class="date-input">
+      <label for="from">From:</label>
+      <input type="date" id="from" name="from" value="<?php echo $data['from']; ?>">
+    </div>
+    <div class="date-input">
+      <label for="to">To:</label>
+      <input type="date" id="to" name="to" value="<?php echo $data['to']; ?>">
+    </div>
   </div>
   <div class="form-input-container">
-  <div class="form-input-wrapper"><input type="submit" value="Search" class="submitBtn"> </div>
-  <div class="form-input-wrapper"><input type="button" value="Refresh" class="refreshBtn" onclick="location.href='<?php echo URLROOT; ?>/Livestock_Manager/viewFeedMonitoring' "></div>
+    <div class="form-input-wrapper"><input type="submit" value="Search" class="submitBtn"> </div>
+    <div class="form-input-wrapper"><input type="button" value="Refresh" class="refreshBtn" onclick="location.href='<?php echo URLROOT; ?>/Livestock_Manager/viewFeedMonitoring' "></div>
   </div>
-  </form>
-
-  
-
+</form>
 
 <div class="container" style="overflow-x: auto;">
   <table id="detailsTable2">
@@ -122,17 +109,14 @@
 <!-- <script src="<?php echo URLROOT; ?>/js/lm.js"></script> -->
 
 <script language="javascript">
-        var today = new Date();
-        // today.setDate(today.getDate() + <?php echo 14?>);
-        var dd = String(today.getDate()).padStart(2, '0');
-        var mm = String(today.getMonth() + 1).padStart(2, '0');
-        var yyyy = today.getFullYear();
-        console.log(today, dd, mm, yyyy);
-        console.log("test");
-        today = yyyy + '-' + mm + '-' + dd;
-        console.log(today);
-        $('#from').attr('max',today);
-        $('#to').attr('max',today);
-
-        
-    </script>
+  var today = new Date();
+  var dd = String(today.getDate()).padStart(2, '0');
+  var mm = String(today.getMonth() + 1).padStart(2, '0');
+  var yyyy = today.getFullYear();
+  console.log(today, dd, mm, yyyy);
+  console.log("test");
+  today = yyyy + '-' + mm + '-' + dd;
+  console.log(today);
+  $('#from').attr('max',today);
+  $('#to').attr('max',today);
+</script>

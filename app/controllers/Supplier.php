@@ -474,17 +474,19 @@
               $data['quantity_err'] = 'Required minimum 10L to place an Order' ;
             }
 
-            if (empty($data['date'])){
-              $data['date_err'] = '*' ;
-            }
-            elseif (strtotime($data['date']) < strtotime(date('y-m-d')))  {
-              $data['date_err'] = 'Invalid date' ;
-            }
+            // if (empty($data['date'])){
+            //   $data['date_err'] = '*' ;
+            // }
+            // elseif (strtotime($data['date']) < strtotime(date('y-m-d')))  {
+            //   $data['date_err'] = 'Invalid date' ;
+            // }
 
-            if (empty($data['address']))     { $data['address_err'] = '*' ; }
+            // if (empty($data['address']))     { $data['address_err'] = '*' ; }
 
             //if no errors
-            if(empty($data['quantity_err']) && empty($data['date_err']) && empty($data['address_err']) )
+            // print_r ($data);
+            // exit;
+            if(empty($data['quantity_err']) )
             {
 
               if($this->supplierModel->updateSupply($data))

@@ -10,11 +10,9 @@
 	<br>
 	<form action="<?php echo URLROOT; ?>/Livestock_Manager/updateCattleMilking/<?php echo $data['milkId']; ?>" method="POST">
     <div class="form-input-title">Quantity</div>
-    <!-- <span class="form-invalid"><?php echo $data['vaccinationQuantity_err']; ?></span> -->
     <input type="number" name="quantity" id="quantity" class="quantity" value="<?php echo $data['quantity'];?>" required>
-    
-		<br>
-		<input type="submit" value="Submit" class="submit-btn">
+	<br>
+	<input type="submit" value="Submit" class="submitBtn">
   </form>
 </div>
 

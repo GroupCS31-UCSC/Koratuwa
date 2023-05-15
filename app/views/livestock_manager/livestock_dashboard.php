@@ -11,12 +11,12 @@
           <span class="icon"><img class="img-logo" src="<?php echo URLROOT; ?>/img/koratuwa.png" alt="logo"></span>
         </a>
       </li><br><br><br>
-      <li>
+      <!-- <li>
         <a href="<?php echo URLROOT; ?>/Livestock_Manager/livestockHome">
           <span class="icon"><i class="fa-solid fa-gauge"></i></span>
           <span class="title"> Dashboard</span>
         </a>
-      </li>
+      </li> -->
       <li>
         <!-- Cattle -->
         <a href="<?php echo URLROOT; ?>/Livestock_Manager/viewCattle">
