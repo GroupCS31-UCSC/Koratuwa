@@ -141,14 +141,14 @@
       </div>
       <div class="model-body">
         <form action="<?php echo URLROOT?>/Cashier/updateStatus">
-        <h1 class="Model-title">Is this order ready to ship?</h1><br>
+        <h3 class="Model-title">Is this order ready to be delivered?</h3><br>
           <div class="form-group">
             <input type="text" name="order_id" id="newOrderId" style="display:none">
             <div class="btn">
-              <button type="button" class="close" onclick="closeSendOrder()">Close</button>
+              <button type="button" class="cs" onclick="closeSendOrder()">Close</button>
             </div>
             <div class="btn">
-              <button type="submit" class="close">Yes</button>
+              <button type="submit" class="cs">Yes</button>
             </div>
           </div>
         </form>
