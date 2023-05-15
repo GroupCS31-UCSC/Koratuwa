@@ -13,8 +13,7 @@
       }         
     }
 
-    public function livestockHome()
-    {
+    public function livestockHome() {
       $cattle_count = $this->livestockModel->cattleCount();
       $data = [
         'cattle_count' => $cattle_count,
@@ -46,16 +45,6 @@
       $this->view('livestock_Manager/viewCattle',$data);
     }
 
-    public function showCatttleCount() {
-      $cattleCount= $this->livestockModel->getTotalCattleCount();
-      $data = [
-        'cattleCount' => $cattleCount
-      ];
-
- 
-      $this->view('livestock_Manager/showCattleCount',$data);
-    }
-
     public function addCattle() {
       if($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
@@ -69,7 +58,6 @@
           'method'=>trim($_POST['method']),
           'price'=>trim($_POST['price']),
           'stallId'=>trim($_POST['stallId']),
-          // 'regDate'=>trim($_POST['regDate']),
 
           'dob_err'=>'',
           'gender_err'=>'',
@@ -78,16 +66,13 @@
           'method_err'=>'',
           'price_err'=>'',
           'stallId_err'=>'',
-          // 'regDate_err'=>'',
         ];
 
         //validation
         if (empty($data['dob'])) { $data['dob_err'] = '*' ; }
         if ($data['gender']=='Select') { $data['gender_err'] = '*' ; }
         if ($data['breed']=='Select') { $data['breed_err'] = '*' ; }
-        // if ($data['milking']=='Select') { $data['milking_err'] = '*' ; }
         if ($data['method']=='Select') { $data['method_err'] = '*' ; }
-        // if (empty($data['price'])) { $data['price_err'] = '*' ; }
         if ($data['stallId']=='Select') { $data['stallId_err'] = '*' ; }
       
         //if no errors
@@ -119,7 +104,6 @@
           'method'=>'',
           'price'=>'',
           'stallId'=>'',
-          // 'regDate'=>'',
 
           'dob_err'=>'',
           'gender_err'=>'',
@@ -128,7 +112,6 @@
           'method_err'=>'',
           'price_err'=>'',
           'stallId_err'=>'',
-          // 'regDate_err'=>'',
         ];
         $this->view('livestock_Manager/addCattle', $data);
       }
@@ -365,8 +348,8 @@
       }
     }
 
-    public function viewCattleMilking() 
-    {
+    // milk collection
+    public function viewCattleMilking() {
       if($_SERVER['REQUEST_METHOD'] == 'POST')
       {
         $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
@@ -467,26 +450,15 @@
         
         $data = [
           'milkId'=>$milkId,
-          // 'milkId'=>trim($_POST['milkId']),
-          // 'cowId'=>trim($_POST['cowId']),
           'quantity'=>trim($_POST['quantity']),
-          // 'remarks'=>trim($_POST['remarks']),
-          
-
-          // 'cowId_err'=>'',
-          'quantity_err'=>'',
-          // 'remarks_err'=>''
+ 
+          'quantity_err'=>''
         ];
 
-        //validation
-        // if (empty($data['cowId'])) {
-        //   $data['cowId_err'] = '*' ;
-        // }
         if (empty($data['quantity'])) { $data['quantity_err'] = '*' ; }
-        // if (empty($data['remarks'])) { $data['remarks_err'] = '*' ; }
 
         // if no errors
-        if(/*empty($data['cowId_err']) && */empty($data['quantity_err'])) {
+        if(empty($data['quantity_err'])) {
           if($this->livestockModel->updateCattleMilking($data)) {
             flash('updateMilk_flash','New collect milk details are successfully Updated!');
             redirect('Livestock_Manager/viewMilking');
@@ -505,12 +477,9 @@
 
         $data = [
             'milkId' => $milkId,
-            // 'cowId' => $vaccination->cow_id,
             'quantity' => 
             $cattleMilking->quantity,
-            // 'remarks' => $cattleMilking->remarks,
 
-            // 'cowId_err' => '',
             'quantity_err' => '',
             'remarks_err' => ''
 
