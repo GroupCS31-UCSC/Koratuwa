@@ -7,7 +7,7 @@
 <div class="search-add">
   <div class="search-container">
     <div class="search-icon"><button><i class="fa-solid fa-magnifying-glass"></i></button></div>
-    <input type="text" id="searchInput" placeholder="Search By Sale IDs..." onkeyup="searchFunc();">
+    <input type="text" id="searchInput" placeholder="Search By Sale IDs..." onkeyup="searchFunc();" style="border: none;">
   </div>
   
   <input type="button" value="Add Sale" class="add-btn" onclick="location.href='<?php echo URLROOT; ?>/Cashier/cashierHome' ">

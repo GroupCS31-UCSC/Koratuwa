@@ -56,12 +56,11 @@
         $getSaleId= $this->cashierModel->findSaleId();
         $data2 = $this->cashierModel->get_productView();
         $notify = $this->cashierModel->get_Notifications();
-        // var_dump($notify);
+
         $data = [
           'saleId'=> $getSaleId,
           'productId' => '',
           'quantity' => '',
-          // 'receiptId' => '',
           'notifications' => $notify,
 
           'productId_err' => '',
