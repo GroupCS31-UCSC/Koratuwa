@@ -14,12 +14,12 @@
           <!--<span class="title" style="font-size:160%;">KORATUWA</span>-->
         </a>
       </li><br><br><br>
-      <li>
+      <!-- <li>
         <a href="<?php echo URLROOT; ?>/Admin/adminHome">
           <span class="icon"><i class="fa-solid fa-gauge"></i></span>
           <span class="title"> Dashboard</span>
         </a>
-      </li>
+      </li> -->
       <li>
         <a href="<?php echo URLROOT; ?>/Admin/viewEmployees">
         <span class="icon"><i class="fa-solid fa-people-group"></i></span>

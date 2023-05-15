@@ -2,14 +2,12 @@
 <link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/public/css/admin/viewCustomers.css">
 <?php require APPROOT.'/views/admin/admin_dashboard.php';  ?>
 <!-- ______________________________________________________________________________________________________-->
-<h2>Customers</h2>
+<h2>Koratuwa Customers</h2>
 
 <div class="container">
 
   <div class="divContainer1">
-    <div class="graph">
-      graph
-    </div>
+    
     <div class="cusTable">
       
       <div class="search-container">
@@ -20,14 +18,14 @@
      
    </div> 
    </div> 
-  
+      <div class="table-wrapper">
       <table id="cusTable">
       <thead>
         <th>Customer Id</th>
         <th>Name</th>
         <th>Contact Number</th>
-        <th>Total Orders</th>
-        <th>Action</th>
+        <th>Address</th>
+        <!-- <th>View</th> -->
       </thead>
       <tbody>   
         <?php $data_index=0 ?>
@@ -36,17 +34,19 @@
           <td><?php echo $cusView->customer_id; ?></td>
           <td><?php echo $cusView->name; ?></td>
           <td><?php echo $cusView->contact_number; ?></td>
-          <td><?php echo '' ?></td>
-          <td>
+          <td><?php echo $cusView->address; ?></td>
+          <!-- <td><?php echo '' ?></td> -->
+          <!-- <td>
             <div class="table-btns">
               <a href="#"><button class="viewBtn" onclick="openModel5('<?=$cusView->customer_id?>')" id="<?php echo($data_index) ?>"><i class="fas fa-eye"></i></button></a>
             </div>
-          </td>
+          </td> -->
         </tr><br>
         <?php $data_index++; ?>
         <?php endforeach; ?>
       </tbody>
     </table>
+    </div>
     </div>
   </div>
 
@@ -62,12 +62,13 @@
         <div class="comment-box">
           <div class="box-top">
             <div class="profile-box">
-              <div class="profile-img">
-              <!-- <img src="<?php echo UPLOADS . $cusFB->image ?>" width='100' height='100'> -->
-              </div>
+              <!-- <div class="profile-img">
+              <img src="<?php echo UPLOADS . $cusFB->image ?>" width='100' height='100'>
+              </div> -->
               <div class="name">
-                <strong><?php echo $cusFB->feedback_id; ?></strong>
-                <span><?php echo $cusFB->supplier_id; ?></span>
+                <!-- <strong><?php echo $cusFB->feedback_id; ?></strong> -->
+                <strong><span><?php echo $cusFB->customer_id; ?></span></strong>
+                <span><?php echo $cusFB->date; ?></span>
               </div>
             </div>
           </div>

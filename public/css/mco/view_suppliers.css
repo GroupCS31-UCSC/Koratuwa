@@ -1,7 +1,7 @@
 h1 {
     text-align: center;
     margin: 40px auto -20px auto;
-    color: whitesmoke;
+    /* color: whitesmoke; */
 }
 
 section {
@@ -18,4 +18,29 @@ section {
 
 .container {
     opacity: 0.85;
+}
+
+.search-box
+{
+   background: transparent;
+   margin-top: 8%; 
+   margin-right: 20%;
+   margin-left: 20%;
+   margin-bottom: 10px;
+}
+.table-wrapper1{
+    overflow-y: scroll;
+    /* overflow-x: scroll; */
+    height: fit-content;
+    max-height: 66.4vh;
+    min-width: 65%;
+    margin-top: 22px;
+    
+    margin: 15px;
+    /* padding-bottom: 20px; */
+}
+
+
+.detailsTable{
+    margin: 5%;
 }

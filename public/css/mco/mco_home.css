@@ -99,7 +99,7 @@ section {
 /* section 2 */
 
 .details {
-    border: 1px solid red;
+    /* border: 1px solid red; */
     position: relative;
     width: 100%;
     padding: 20px;
@@ -113,7 +113,7 @@ section {
 /* table */
 
 .recentOrders {
-    border: 1px solid orange;
+    /* border: 1px solid orange; */
     position: relative;
     /* display: grid; */
     min-height: 500px;
@@ -300,6 +300,13 @@ section {
     margin: 15px auto 15px auto;
 }
 */
+
+.displayPrice{
+    margin-top: 20%;
+    background-color: #7bacff;
+    /* border:1px solid red; */
+    margin-bottom: 10px;
+}
 
 .setPrice .setBtn {
     width: 400px;

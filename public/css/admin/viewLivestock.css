@@ -335,7 +335,7 @@ td {
 
 
 .divContainer{
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
     width: 100%;
     height: auto;
     /* background: #007bbf; */
@@ -346,7 +346,7 @@ td {
 }
 
 .divContainer1{
-    border: 1px solid red;
+    /* border: 1px solid red; */
     width: 40%;
     height:auto;
     /* background: yellow; */
@@ -356,7 +356,7 @@ td {
 }
 
 .divContainer2{
-    border: 1px solid black;
+    /* border: 1px solid black; */
     width: 60%;
     height:auto;
     /* background: greenyellow; */
@@ -372,6 +372,13 @@ td {
     
     /* margin: 15px; */
     /* padding-bottom: 20px; */
+}
+
+.removed{
+    border: none;
+    color: #04086B;
+    background: transparent;
+    cursor: pointer;
 }
 
 @media screen and (max-width:1200px) {
