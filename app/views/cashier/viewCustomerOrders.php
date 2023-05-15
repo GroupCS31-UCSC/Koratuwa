@@ -25,12 +25,12 @@
     <div class="serch">
     <div class="search-container">
     <div class="search-icon"><button><i class="fa-solid fa-magnifying-glass"></i></button></div>
-    <input type="text" id="searchInput2" placeholder="Search By Order IDs..." onkeyup="searchFunc2();">
+    <input type="text" id="searchInput2" placeholder="Search By Order IDs..." onkeyup="searchFunc2();" style="border: none;">
     </div>
     <!-- search -->
     <div class="search-container">
     <div class="search-icon"><button><i class="fa-solid fa-magnifying-glass"></i></button></div>
-    <input type="text" id="searchInput4" placeholder="Search By Customer IDs..." onkeyup="searchFunc4();">
+    <input type="text" id="searchInput4" placeholder="Search By Customer IDs..." onkeyup="searchFunc4();" style="border: none;">
     </div>
     </div>
     
