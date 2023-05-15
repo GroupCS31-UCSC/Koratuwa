@@ -20,7 +20,7 @@
 <div class="mytabs">
   <!-- tab1 -->
   <input type="radio" id="tab1" name="mytabs">
-    <label for="tab1">System Using Employees</label>
+    <label for="tab1">Registered Employees</label>
       <div class="tab"><p>
         <div class="systemUsers">
 
@@ -72,15 +72,14 @@
               <table>
                 <tr>
                   <!-- <th>Image</th> -->
-                  <th>
-                    loyee Id</th>
+                  <th>Employee Id</th>
                   <th>Name</th>
                   <th>Employment</th>
                   <!-- <th>NIC</th> -->
                   <th>Contact Number</th>
                   <th>Gender</th>
                   <!-- <th>Email</th> -->
-                  <th>Last Accessed On</th>
+                  <!-- <th>Last Accessed On</th> -->
                   <th>Action</th>
                   <!-- <th>More Details</th> -->
                 </tr>
@@ -94,7 +93,7 @@
                   <td><?php echo $emp->employment; ?></td>
                   <td><?php echo $emp->contact_number; ?></td>
                   <td><?php echo $emp->gender; ?></td>
-                  <td><?php echo ''; ?></td>
+                  <!-- <td><?php echo ''; ?></td> -->
                   <td>
                     <div class="table-btns">
                       <a href="<?php echo URLROOT?>/Admin/updateEmployees/<?php echo $emp->employee_id ?>"><button class="updateBtn" title="Update"><i class="fa-regular fa-pen-to-square"></i></button></a>
@@ -126,7 +125,7 @@
                   <th>NIC</th>
                   <th>Contact Number</th>
                   <th>Gender</th>
-                  <th>Service Time</th>
+                  <!-- <th>Service Time</th> -->
                   <th>Resigned Date</th>
                   <!-- <th>More Details</th> -->
                 </tr>
@@ -139,7 +138,7 @@
                   <td><?php echo $emp->nic; ?></td>
                   <td><?php echo $emp->contact_number; ?></td>
                   <td><?php echo $emp->gender; ?></td>
-                  <td><?php echo $emp->service_time; ?></td>
+                  <!-- <td><?php echo $emp->service_time; ?></td> -->
                   <td><?php echo $emp->removed_date; ?></td>
 
                 </tr><br>
@@ -184,7 +183,7 @@
 
   <!-- tab2 -->
   <input type="radio" id="tab2" name="mytabs" checked="checked">
-      <label for="tab2">Non System-Using Employees</label>
+      <label for="tab2">Labourers</label>
         <div class="tab"><p>
           <div class="systemUsers">
 
@@ -275,7 +274,7 @@
                     <th>NIC</th>
                     <th>Contact Number</th>
                     <th>Gender</th>
-                    <th>Service Time</th>
+                    <!-- <th>Service Time</th> -->
                     <th>Resigned Date</th>
                     <!-- <th>More Details</th> -->
                   </tr>
@@ -286,7 +285,7 @@
                     <td><?php echo $lab->nic; ?></td>
                     <td><?php echo $lab->contact_number; ?></td>
                     <td><?php echo $lab->gender; ?></td>
-                    <td><?php echo $lab->service_time; ?></td>
+                    <!-- <td><?php echo $lab->service_time; ?></td> -->
                     <td><?php echo $lab->removed_date; ?></td>
 
                   </tr><br>

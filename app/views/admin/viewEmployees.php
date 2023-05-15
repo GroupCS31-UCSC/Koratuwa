@@ -126,14 +126,14 @@
               </div>
 
             <?php else: ?>
-              <table>
+              <table id="empTable">
                 <tr>
                   <th>Name</th>
                   <th>Employment</th>
                   <th>NIC</th>
                   <th>Contact Number</th>
                   <th>Gender</th>
-                  <th>Service Time</th>
+                  <!-- <th>Service Time</th> -->
                   <th>Resigned Date</th>
                   <!-- <th>More Details</th> -->
                 </tr>
@@ -145,7 +145,7 @@
                   <td><?php echo $emp->nic; ?></td>
                   <td><?php echo $emp->contact_number; ?></td>
                   <td><?php echo $emp->gender; ?></td>
-                  <td><?php echo $emp->service_time; ?></td>
+                  <!-- <td><?php echo $emp->service_time; ?></td> -->
                   <td><?php echo $emp->removed_date; ?></td>
 
                 </tr><br>
@@ -188,7 +188,7 @@
 
   <!-- tab2 -->
   <input type="radio" id="tab2" name="mytabs">
-      <label for="tab2">Non Registered Employees</label>
+      <label for="tab2">Labourers</label>
         <div class="tab"><p>
           <div class="systemUsers">
 
@@ -238,7 +238,7 @@
                     <input type="button" value="Add New Labour" class="addBtn" onclick="location.href='<?php echo URLROOT; ?>/Admin/addLabours' ">
                   <div>
                 </section>
-                <table>
+                <table id="labTable">
                   <tr>
                     <th>Employee Id</th>
                     <th>Name</th>
@@ -276,13 +276,13 @@
                 </table>
 
               <?php else: ?>
-                <table>
+                <table id="labTable">
                   <tr>
                     <th>Name</th>
                     <th>NIC</th>
                     <th>Contact Number</th>
                     <th>Gender</th>
-                    <th>Service Time</th>
+                    <!-- <th>Service Time</th> -->
                     <th>Resigned date</th>
                     <!-- <th>More Details</th> -->
                   </tr>
@@ -293,7 +293,7 @@
                     <td><?php echo $lab->nic; ?></td>
                     <td><?php echo $lab->contact_number; ?></td>
                     <td><?php echo $lab->gender; ?></td>
-                    <td><?php echo $lab->service_time; ?></td>
+                    <!-- <td><?php echo $lab->service_time; ?></td> -->
                     <td><?php echo $lab->removed_date; ?></td>
 
                   </tr><br>

@@ -51,25 +51,25 @@ table th {
     }
 } */
 
-table {
+/* table {
     position: relative;
     margin: 10px 30px auto 30px;
     font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;
-    width: 80%;
+    width: 80%; */
     /* background-color: #3498db; */
     /* padding: 0px; */
-    border-collapse: collapse;
-    width: 94%;
+    /* border-collapse: collapse; */
+    /* width: 94%; */
     /*z-index: 0;*/
     /* border-radius: 5px; */
-    font-size: 2.3vh;
+    /* font-size: 2.3vh;
 }
 
 table th {
-    text-align: left;
+    text-align: left; */
     /* background-color: #04AA6D; */
-    color: white;
+    /* color: white;
     padding: 12px;
     border: 1px solid #ddd;
 }
@@ -77,14 +77,14 @@ table th {
 table td {
     text-align: left;
     border: 1px solid #ddd;
-    padding: 7px;
+    padding: 7px; */
     /* padding-left: 10px; */
-}
+/* }
 
 table tr {
-    border: 1px solid #ddd;
+    border: 1px solid #ddd; */
     /* padding: 12px; */
-}
+/* }
 
 table tr:nth-child(even) {
     background-color: #f2f2f2;
@@ -104,4 +104,71 @@ table tr:hover {
 
 table tr:nth-child(1):hover {
     background-color: #04AA6D;
+} */
+
+.table-wrapper{
+    overflow-y: scroll;
+    /* overflow-x: scroll; */
+    height: fit-content;
+    max-height: 66.4vh;
+    
+    margin-top: 22px;
+    
+    margin: 15px;
+    padding-bottom: 20px;
+}
+table {
+    position: relative;
+    margin: 10px 30px auto 30px;
+    left: 60px;
+    margin-left: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 90%;
+    background-color: #3498db;
+    padding: 20px;
+    margin-bottom: 40px;
+}
+
+table td,
+#orders th {
+    border: 1px solid #ddd;
+    padding: 12px;
+}
+
+table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+table tr:hover {
+    background-color: #ddd;
+}
+
+table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #04AA6D;
+    color: white;
+}
+
+@media (max-width: 991px) {
+    .graphBox {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+    .navigation {
+        left: -275px;
+    }
+    .navigation.active {
+        width: 275px;
+        left: 0;
+    }
+    .main {
+        width: 100%;
+        left: 0;
+    }
+    .main.active {
+        left: 275px;
+    }
 }

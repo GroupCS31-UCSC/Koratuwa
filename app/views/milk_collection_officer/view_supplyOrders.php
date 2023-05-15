@@ -14,7 +14,7 @@
     <div class="tab">
 
           <div class="ongoingOrders">
-  
+          <div class="table-wrapper">
           <table>
               <tr>
                 <th>Supply Order Id</th>
@@ -46,6 +46,7 @@
             <?php endforeach; ?>
 
             </table>
+            </div>
 
           </div>
 
@@ -81,8 +82,11 @@
   <input type="radio" id="tab2" name="mytabs">
     <label for="tab2">Completed Orders</label>
     <div class="tab">
+
     <div class="search-box"><input type="text" id="searchInput" placeholder="Search By Order IDs..." onkeyup="searchFunc();">
+     
       <div class="pastOrders">
+        <div class="table-wrapper">
         <table id="detailsTable">
           <tr>
             <th>Supply Order Id</th>
@@ -121,7 +125,7 @@
           <?php endforeach; ?>
 
         </table>
-
+        </div>
       </div>
       </p>
     </div>

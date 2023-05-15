@@ -120,15 +120,15 @@
     <div class="displayPrice">
 
       <div class="name">
-        <h1>Milk Purchasing Price</h1>
+        <h1><br>Milk Purchasing Price</h1><br>
         <div class="lastdate">
-        <h2>Last set on :<?php echo $data['lastDate']; ?></h2>
+        <h2>Last set on :<?php echo $data['lastDate']; ?></h2><br>
         </div>
       </div>
       
       <div class="lastprice">
         <div class="priceBox">
-        <h1>Rs.<?php echo $data['lastPrice']; ?></h1>
+        <h1>Rs.<?php echo $data['lastPrice']; ?></h1><br>
         </div>       
       </div>
 
@@ -180,12 +180,12 @@
   <!------------------------------------------------------>
 
   <!-- chart -->
-    <div class="priceChart">
+    <!-- <div class="priceChart">
       <div class="box">
         <label><center>Milk Purchasing Price</center></label>
         <canvas id="milk_purchasing_price"></canvas>
       </div>
-    </div>
+    </div> -->
   <!-- end chart -->
 
 
@@ -199,7 +199,7 @@
 
 
 <!--Add charts-->
-<div class="graphBox">
+<!-- <div class="graphBox">
 
   <div id="test" class="box">
     <label><center>Koratuwa milk vs Suppliers milk</center></label>
@@ -212,7 +212,7 @@
   </div>
 
 
-</div>
+</div> -->
 
 
 
