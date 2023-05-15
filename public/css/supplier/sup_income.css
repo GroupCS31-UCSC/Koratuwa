@@ -1,102 +1,9 @@
-/*charts*/
-
-/* .graphBox {
-    position: absolute;
-    width: 90%;
-    padding: 10px 10px 10px 10px;
-    display: grid;
-    grid-template-columns: 2fr 2fr;
-    grid-gap: 30px;
-    min-height: 300px;
-    top: 350px;
-    left: 50px;
-}
-
-.graphBox .box {
-    position: relative;
-    background: aliceblue;
-    padding: 20px 10px 10px 10px;
-    width: 100%;
-    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
-    border-radius: 20px;
-}
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-  }
-  
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
-  h1 {
-    text-align: center;
-    font-size: 36px;
-    font-weight: bold;
-    margin-bottom: 40px;
-  }
-  
-  .income-table {
-    border-collapse: collapse;
-    width: 100%;
-    margin-bottom: 40px;
-  }
-  
-  .income-table th,
-  .income-table td {
-    padding: 10px;
-    text-align: left;
-  }
-  
-  .income-table th {
-    background-color: #f1f1f1;
-    font-weight: bold;
-  }
-  
-  .income-table tr:nth-child(even) {
-    background-color: #f9f9f9;
-  }
-  
-  .income-table tr:hover {
-    background-color: #ddd;
-  }
-  
-  .total-income {
-    font-size: 24px;
-    font-weight: bold;
-    text-align: right;
-    margin-top: 40px;
-  }
-  
-  .total-income span {
-    color: #4CAF50;
-  }
-  
-  @media screen and (max-width: 768px) {
-    .income-table th,
-    .income-table td {
-      font-size: 14px;
-      padding: 5px;
-    }
-    
-    .income-table th {
-      font-size: 16px;
-    }
-    
-    .total-income {
-      font-size: 20px;
-    }
-  } */
-
 
   .container{
+    background-color:aliceblue;
     width: 100%;
     height: auto;
-    /* background: #007bbf; */
+    padding: 6%;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -104,20 +11,18 @@
 }
 
 .divContainer1{
-    border: 1px solid red;
-    width: 40%;
+    width: 39%;
     height:auto;
     /* background: yellow; */
-    margin: 0px;
+    margin-top: 8%;
     box-sizing: border-box;
     /* font-size: 50px; */
 }
 .divContainer2{
-  border: 1px solid black;
   width: 60%;
   height:auto;
   /* background: greenyellow; */
-  margin: 0px;
+  margin-left: 2px;
   box-sizing: border-box;
   /* font-size: 50px; */
   overflow-y: scroll;

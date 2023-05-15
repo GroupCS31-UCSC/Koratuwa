@@ -115,7 +115,7 @@
       <button class="removed" onclick="showOrHide()">Removed Cattle's Details</button>
 
       <div id="dltTableElement">
-        <input type="button" value="Refresh" class="addBtn" onclick="location.href='<?php echo URLROOT; ?>/Admin/viewLivestock' ">
+        <!-- <input type="button" value="Refresh" class="addBtn" onclick="location.href='<?php echo URLROOT; ?>/Admin/viewLivestock' "> -->
         <input type="text" id="searchInput2" placeholder="Search for Cow IDs..." onkeyup="searchFunc2();">
           <table id="detailsTable2">
             <thead>
@@ -152,7 +152,7 @@
                     <a href="#"><button class="viewBtn" onclick="openModel2('<?=$dltCow->cow_id?>')" id="<?php echo($data_index) ?>"><i class="fas fa-eye"></i></button></a>
                   </div>
                   </td>
-                </tr><br>
+                </tr>
               <?php $data_index++; ?>
               <?php endforeach; ?>
             </tbody>
