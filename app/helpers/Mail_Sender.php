@@ -25,7 +25,7 @@ function sendMail($data){
         $mail->addAddress($data['email']);     //Add a recipient
         
         $name=$data['name'];
-        $num=$data['tp_num'];
+        $nic=$data['nic'];
         $email=$data['email'];
 
         //Content
@@ -35,7 +35,7 @@ function sendMail($data){
         <p> Use you provided email and contact number as username and password respectively to login to our web system given below url.</p>
         <p>http://localhost/Koratuwa/Users/u_home</p>
         username: $email<br>
-        password:$num</h4>
+        password:$nic</h4>
         <h3><strong>Be sure to remember to change the password after you log in once!</strong></h3>
         <h4>
         Good Luck!
