@@ -25,12 +25,12 @@
     <div class="serch">
     <div class="search-container">
     <div class="search-icon"><button><i class="fa-solid fa-magnifying-glass"></i></button></div>
-    <input type="text" id="searchInput2" placeholder="Search By Order IDs..." onkeyup="searchFunc2();">
+    <input type="text" id="searchInput2" placeholder="Search By Order IDs..." onkeyup="searchFunc2();" style="border: none;">
     </div>
     <!-- search -->
     <div class="search-container">
     <div class="search-icon"><button><i class="fa-solid fa-magnifying-glass"></i></button></div>
-    <input type="text" id="searchInput4" placeholder="Search By Customer IDs..." onkeyup="searchFunc4();">
+    <input type="text" id="searchInput4" placeholder="Search By Customer IDs..." onkeyup="searchFunc4();" style="border: none;">
     </div>
     </div>
     
@@ -141,14 +141,14 @@
       </div>
       <div class="model-body">
         <form action="<?php echo URLROOT?>/Cashier/updateStatus">
-        <h1 class="Model-title">Is this order ready to ship?</h1><br>
+        <h3 class="Model-title">Is this order ready to be delivered?</h3><br>
           <div class="form-group">
             <input type="text" name="order_id" id="newOrderId" style="display:none">
             <div class="btn">
-              <button type="button" class="close" onclick="closeSendOrder()">Close</button>
+              <button type="button" class="cs" onclick="closeSendOrder()">Close</button>
             </div>
             <div class="btn">
-              <button type="submit" class="close">Yes</button>
+              <button type="submit" class="cs">Yes</button>
             </div>
           </div>
         </form>
