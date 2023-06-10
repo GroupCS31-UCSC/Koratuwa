@@ -210,14 +210,14 @@ let showOrHide = function(){
     <div class="comment-box">
       <div class="box-top">
         <div class="comment">
-          <p><strong><?php echo $notifi->message; ?></strong></p> 
+          <p><strong><?php echo $notifi->reason; ?></strong></p> 
         </div>
         <a href="<?php echo URLROOT?>/Admin/updateNotifyStatus/<?php echo $notifi->notify_id ?>"><button class="" title="Mark As Read"><i class="fa-regular fa-eye"></i></button></a>
       </div>
       <div class="name">
         <span>In<?php echo ' stall1  '; ?>
-        On<?php echo $notifi->date; ?> 
-        At<?php echo $notifi->time; ?>
+        On<?php echo $notifi->notf_date; ?> 
+        At<?php echo $notifi->notf_time; ?>
         By<?php echo 'emp105'; ?>
         </span>            
       </div>

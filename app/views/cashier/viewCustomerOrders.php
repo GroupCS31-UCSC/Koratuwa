@@ -61,12 +61,6 @@
         <th>Payment Status</th>
         <th>Customer ID</th>
         <th>Items</th>
-        <th>
-          <select class="table-filter2" onchange="filter_rows2()">
-            <option value="all">Payment Method</option>
-          </select>
-        </th>
-        
         <th>Status</th>
         
       </thead>
@@ -84,7 +78,6 @@
             <a href="#"><button class="viewBtn" onclick="openModel('<?=$online_order->order_id?>')" id="<?php echo($data_index) ?>"><i class="fas fa-eye"></i></button></a>
             </div>
           </td>
-          <td><?php echo $online_order->payment_method ?></td>
           <?php if($online_order->status == "New Order"): ?>
           <td>
             <form action="<?php echo URLROOT; ?>/Cashier/updateStatus/<?php $online_order->order_id ?>" method="POST">

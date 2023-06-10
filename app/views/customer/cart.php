@@ -34,6 +34,7 @@
                     
                 </div>
                 
+                
                 <?php
             }
             ?>
@@ -62,8 +63,9 @@
         ?>
         </div>
     </div>
+    
 </section>
-<?php require APPROOT.'/views/include/footer.php'; ?>
+
 <!-- Popup buynow -->
 <div class="model fade in" id="model" tabindex="-1">
   <div class="model-dialog">

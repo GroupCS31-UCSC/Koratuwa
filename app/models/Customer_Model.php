@@ -181,8 +181,15 @@
 
   }
 
+  // public function get_OrderDetailsByDate($status,$from,$to) {
+  //   $this->db->query('SELECT * FROM online_order WHERE status = "'.$status.'" AND ordered_date >= "'.$from.'" and ordered_date <= "'.$to.'"');
+
+  //   $result = $this->db->resultSet();
+
+  //   return $result;
+  // }
   public function get_OrderDetailsByDate($status,$from,$to) {
-    $this->db->query('SELECT * FROM online_order WHERE status = "'.$status.'" AND ordered_date >= "'.$from.'" and ordered_date <= "'.$to.'"');
+    $this->db->query('SELECT * FROM online_order WHERE status = "'.$status.'" AND total_payment >= "'.$from.'" and total_payment <= "'.$to.'"');
 
     $result = $this->db->resultSet();
 
