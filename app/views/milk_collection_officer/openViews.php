@@ -1,4 +1,8 @@
-<!-- View milk collections of each cattle -->
+<?php require APPROOT.'/views/include/header.php'; ?>
+<link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/public/css/mco/view_milk_collection.css">
+<?php require APPROOT.'/views/milk_collection_officer/mco_dashboard.php';  ?>
+<!-- _________________________________________________________________________
+ View milk collections of each cattle -->
 <table class="tableForm">
     <tbody id="newData">
         <tr>
@@ -13,3 +17,6 @@
         <?php endforeach; ?>
     </tbody>
 </table>
+
+
+<?php require APPROOT.'/views/include/footer.php'; ?>

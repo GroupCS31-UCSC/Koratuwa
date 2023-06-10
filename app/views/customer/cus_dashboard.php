@@ -11,7 +11,7 @@
         <div class="topmenu">
             <ul>
                 <li><a href="<?php echo URLROOT; ?>/Customer/cart"><i title="Add Cart" class="fa-solid fa-cart-shopping" ></i></a></li>
-                <li><a href="<?php echo URLROOT; ?>/Customer/Orders"><i title="Orders" class="fa-solid fa-gift"></i></a></li>
+                <li><a href="<?php echo URLROOT; ?>/Customer/Orders"><i title="Orders" class="fa-brands fa-bitbucket"></i></a></li>
                 <li><a onclick="showNoti()"><i class="fas fa-bell" id="notifyBell"></i><span class="notifyBadge"></span></a></li>
                 <li><div class="img-user"><img src="<?php echo URLROOT; ?>/img/users/user.png" alt="user"></div></li>
                 <li><a href=""><?php echo $_SESSION['user_name']; ?></a></li>
