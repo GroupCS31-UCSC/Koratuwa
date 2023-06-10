@@ -1,3 +1,7 @@
+.new{
+    margin: 500px auto 150px 500px;
+}
+
 /* tabs styles */
 
 body {
@@ -19,6 +23,11 @@ body {
     font-weight: bold;
 }
 
+.filter label {
+    padding: 25px;
+    background: none;
+    font-weight: bold;
+}
 .mytabs .tab {
     width: 100%;
     padding: 20px;

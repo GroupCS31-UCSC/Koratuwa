@@ -1,5 +1,6 @@
 <?php require APPROOT.'/views/include/header.php'; ?>
 <?php require APPROOT.'/views/milk_collection_officer/mco_dashboard.php';  ?>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.7.2.min.js"></script>
 
 <link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/public/css/mco/view_supplyOrders.css">
 <!-- ______________________________________________________________________________________________________-->
@@ -12,8 +13,21 @@
   <input type="radio" id="tab1" name="mytabs" checked="checked">
     <label for="tab1">Ongoing Orders</label>
     <div class="tab">
-
           <div class="ongoingOrders">
+
+          <form action="<?php echo URLROOT; ?>/Milk_Collection_Officer/viewSupplyOrders" method="POST" >
+            <div class="filter">
+              <label for="from">From:</label>
+              <input type="date" id="from" name="from" value="<?php echo $data['from']; ?>"><br>
+              <label for="to">  To:</label>
+              <input type="date" id="to" name="to" value="<?php echo $data['to']; ?>">
+              <div class="form-input-container">
+              <a href="<?php echo URLROOT?>/Milk_Collection_Officer/viewSupplyOrders"><button class="filterBtn" title="Search"><i class="fa-solid fa-magnifying-glass"></i></button></a>
+              <div class="form-input-wrapper"><input type="button" value="Refresh" class="refreshBtn" onclick="location.href='<?php echo URLROOT; ?>/Milk_Collection_Officer/viewSupplyOrders' "></div>
+            </div>
+          </form>
+          
+            
           <div class="table-wrapper">
           <table>
               <tr>
@@ -25,9 +39,12 @@
                 <th>Status</th>
               </tr>
             <?php $data_index=0 ?>
+            <?php if($data['ordView']=='0'): ?> 
+              <span class="new"><?php echo "No values to display"?></span>
+            <?php else: ?>
             <?php foreach ($data['ordView'] as $ordView) : ?>
               <?php if($ordView->status == "Ongoing"): ?>
-
+      
               <tr>
                 <td><?php echo $ordView->supply_order_id; ?></td>
                 <td><?php echo $ordView->supplier_id; ?>      
@@ -36,14 +53,17 @@
                 <td><?php echo $ordView->supply_date; ?></td>
                 <td>
                   <div class="table-btns">
-                    <!-- <a href="#popup1"><button class="pendingBtn">Pending</button></a> -->
-                    <button class="pendingBtn" onclick="openModel2('<?=$ordView->supply_order_id?>')" id="<?php echo($data_index) ?>" >Pending</button></button>
+                    <a href="#popup1"><button class="pendingBtn">Pending</button></a>
+                    <!-- <button class="pendingBtn" onclick="openModel2('<?=$ordView->supply_order_id?>')" id="<?php echo($data_index) ?>" >Pending</button></button> -->
                   </div> 
                 </td>
               </tr>
+
+
               <?php endif; ?> 
               <?php $data_index++; ?> 
             <?php endforeach; ?>
+            <?php endif; ?> 
 
             </table>
             </div>
@@ -199,6 +219,21 @@ function searchFunc(){
 
 </script>
 
+<script>
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0');
+        var yyyy = today.getFullYear();
+        console.log(today, dd, mm, yyyy);
+        console.log("test");
+        today = yyyy + '-' + mm + '-' + dd;
+        console.log(today);
+        $('#from').attr('max',today);
+        $('#to').attr('max',today);
 
-<?php require APPROOT.'/views/include/footer.php'; ?>
+        
+    </script>
+
+
+
 <!-- <script src="<?php echo URLROOT; ?>/js/mco.js"></script> -->

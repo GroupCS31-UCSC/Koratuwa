@@ -177,14 +177,36 @@
         //get the details of supply orders
         public function viewSupplyOrders()
         {
-          $ordView= $this->mcoModel->get_supOrderView();
-          // var_dump($ordView);
+          if($_SERVER['REQUEST_METHOD'] == 'POST')
+          {
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+            
+            $from = isset($_POST['from']) ? $_POST['from'] : '';
+            $to = isset($_POST['to']) ? $_POST['to'] : '';
 
-          $data = [
-              'ordView' => $ordView
-          ];
+            $ordView_duration= $this->mcoModel->supOrder_duration($from, $to);
+  
+            $data = [
+                'ordView' => $ordView_duration,
+                'from' => $from,
+                'to' => $to
+            ];
+  
+            $this->view('milk_collection_officer/view_supplyOrders',$data);
+          }
+          else
+          {
+            $ordView= $this->mcoModel->get_supOrderView();
+  
+            $data = [
+                'ordView' => $ordView,
+                'from' => '',
+                'to' => ''
+            ];
+  
+            $this->view('milk_collection_officer/view_supplyOrders',$data);
+          }
 
-          $this->view('milk_collection_officer/view_supplyOrders',$data);
         }
 
         //get the details of supply milk collection
