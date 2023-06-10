@@ -36,8 +36,15 @@
       <input type="submit" value="Search" class="submitBtn"> 
     </form>
     <br><br><br>
+    <form action="<?php echo URLROOT; ?>/Customer/Orders" method="POST" >
+      <label for="from">From :</label>
+      <input type="text" id="from" name="from" value="<?php echo $data['from']; ?>"><br>
+      <label for="to">  To :</label>
+      <input type="text" id="to" name="to" value="<?php echo $data['to']; ?>">
+      <input type="submit" value="Search" class="submitBtn"> 
+    </form>
     <!-- refresh button -->
-    <input type="button" value="Refresh" class="" onclick="location.href='<?php echo URLROOT; ?>/Customer/Orders' ">
+    <!-- <input type="button" value="Refresh" class="" onclick="location.href='<?php echo URLROOT; ?>/Customer/Orders' "> -->
     
     <!-- Feedback button -->
     <?php foreach ($data ['orderDetails'] as $online_order) : ?>

@@ -216,6 +216,27 @@
       return $result;
     }
 
+
+    public function supOrder_duration($from, $to)
+    {
+      $this->db->query('SELECT supply_order.supply_order_id, supply_order.supplier_id, supply_order.quantity, supply_order.supply_date, supply_order.status,milk_purchasing_price.unit_price
+      FROM supply_order 
+      LEFT JOIN milk_purchasing_price 
+      ON supply_order.supply_date = milk_purchasing_price.date WHERE supply_date >= "'.$from.'" and supply_date <= "'.$to.'"');
+
+      $result = $this->db->resultSet();
+
+      
+
+      if(empty($result)){
+        $result= "0";
+      }
+
+      return $result;
+
+
+    }
+
     
 
 

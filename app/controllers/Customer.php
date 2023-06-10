@@ -244,7 +244,7 @@
           $status=$_GET['status'] ?? 'New Order';
 
           $orderDetails= $this->customerModel->get_OrderDetailsByDate($status,$from,$to);
-          $notify = $this->adminModel->get_Notifications();
+          // $notify = $this->adminModel->get_Notifications();
 
           $data = [
             'orderDetails' => $orderDetails,
@@ -252,8 +252,8 @@
             'from' => $from,
             'to' => $to,
             'feedback_id' => '',
-            'feedback' => trim($_POST['feedback']),
-            'notifications' => $notify,
+            // 'feedback' => trim($_POST['feedback']),
+            // 'notifications' => $notify,
 
             'feedback_err' => '',
           ];

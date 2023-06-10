@@ -173,7 +173,6 @@ h1 {
     position: relative;
     padding: 15px;
 }
-
 .tableForm {
     background-color: #fff;
     border: 1px solid #f4f4f4;
@@ -182,6 +181,7 @@ h1 {
     width: 90%;
     max-width: 80%;
     margin-bottom: 50px;
+    margin-top: 1vh;
 }
 
 .modal-footer {
